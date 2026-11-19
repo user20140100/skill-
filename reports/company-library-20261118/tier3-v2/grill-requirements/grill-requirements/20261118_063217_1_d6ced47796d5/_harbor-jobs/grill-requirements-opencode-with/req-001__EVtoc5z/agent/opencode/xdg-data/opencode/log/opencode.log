@@ -1,0 +1,48 @@
+timestamp=2026-11-18T06:32:47.177Z level=INFO run=2153234d message="creating instance" directory=/workspace
+timestamp=2026-11-18T06:32:47.182Z level=INFO run=2153234d message=fromDirectory directory=/workspace
+timestamp=2026-11-18T06:32:47.196Z level=INFO run=2153234d message=bootstrapping directory=/workspace
+timestamp=2026-11-18T06:32:47.204Z level=INFO run=2153234d message=loading path=/root/.config/opencode/config.json
+timestamp=2026-11-18T06:32:47.205Z level=INFO run=2153234d message=loading path=/root/.config/opencode/opencode.json
+timestamp=2026-11-18T06:32:47.213Z level=INFO run=2153234d message=loading path=/root/.config/opencode/opencode.jsonc
+timestamp=2026-11-18T06:32:47.232Z level=INFO run=2153234d message=loading path=/workspace/.opencode/opencode.json
+timestamp=2026-11-18T06:32:47.335Z level=INFO run=2153234d message=loading path=/workspace/.opencode/opencode.jsonc
+timestamp=2026-11-18T06:32:47.378Z level=INFO run=2153234d message=loading path=/.opencode/opencode.json
+timestamp=2026-11-18T06:32:47.378Z level=INFO run=2153234d message=loading path=/.opencode/opencode.jsonc
+timestamp=2026-11-18T06:32:47.433Z level=INFO run=2153234d message="all LSPs are disabled"
+timestamp=2026-11-18T06:32:47.434Z level=INFO run=2153234d message="all formatters are disabled"
+timestamp=2026-11-18T06:32:47.434Z level=INFO run=2153234d message=init
+timestamp=2026-11-18T06:32:47.619Z level=INFO run=2153234d message=created id=ses_e12a45efcffeBhe5tbvZtQgLqI slug=misty-cabin version=1.19.5 projectID=global directory=/workspace path=workspace workspaceID=undefined parentID=undefined title="New session - 2026-11-18T06:32:47.619Z" agent=undefined model=undefined metadata=undefined permission="[{\"permission\":\"question\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"plan_enter\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"plan_exit\",\"pattern\":\"*\",\"action\":\"deny\"}]" cost=0 tokens.input=0 tokens.output=0 tokens.reasoning=0 tokens.cache.read=0 tokens.cache.write=0 time.created=1794983567619 time.updated=1794983567619
+timestamp=2026-11-18T06:32:47.633Z level=INFO run=2153234d message="event connected"
+timestamp=2026-11-18T06:32:47.722Z level=INFO run=2153234d message=loop session.id=ses_e12a45efcffeBhe5tbvZtQgLqI step=0
+timestamp=2026-11-18T06:32:48.246Z level=INFO run=2153234d message=stream providerID=skillevaluator-gateway modelID=qwen3.8-flash session.id=ses_e12a45efcffeBhe5tbvZtQgLqI small=true agent=title mode=primary
+timestamp=2026-11-18T06:32:48.250Z level=INFO run=2153234d message="llm runtime selected" llm.runtime=ai-sdk llm.provider=skillevaluator-gateway llm.model=qwen3.8-flash
+timestamp=2026-11-18T06:32:48.282Z level=INFO run=2153234d message=initialized
+timestamp=2026-11-18T06:32:48.302Z level=INFO run=2153234d message=tracking hash=26e85fa11a7db61ba570114e3f395ac32710b2c5 cwd=/workspace git=/logs/agent/opencode/xdg-data/opencode/snapshot/global/42099b4af021e53fd8fd4e056c2568d7c2e3ffa8
+timestamp=2026-11-18T06:32:48.306Z level=INFO run=2153234d message="shell tool using shell" shell=/usr/bin/bash
+timestamp=2026-11-18T06:32:48.315Z level=WARN run=2153234d message="duplicate skill name" name=grill-requirements existing=/root/.claude/skills/grill-requirements/SKILL.md duplicate=/root/.config/opencode/skills/grill-requirements/SKILL.md
+timestamp=2026-11-18T06:32:48.315Z level=WARN run=2153234d message="duplicate skill name" name=grill-requirements existing=/root/.config/opencode/skills/grill-requirements/SKILL.md duplicate=/root/.agents/skills/grill-requirements/SKILL.md
+timestamp=2026-11-18T06:32:48.315Z level=INFO run=2153234d message=init count=2
+timestamp=2026-11-18T06:32:48.342Z level=INFO run=2153234d message="watcher backend" directory=/workspace platform=linux backend=inotify
+timestamp=2026-11-18T06:32:48.346Z level=INFO run=2153234d message="project copy refresh started" projectID=global
+timestamp=2026-11-18T06:32:48.347Z level=INFO run=2153234d message="project copy refresh done" projectID=global updated=[] removed=[]
+timestamp=2026-11-18T06:32:48.364Z level=INFO run=2153234d message="booting location services" directory=/workspace workspaceID=undefined
+timestamp=2026-11-18T06:32:48.448Z level=INFO run=2153234d message=process session.id=ses_e12a45efcffeBhe5tbvZtQgLqI messageID=msg_1ed5ba372001EMTHaL23iTGr6U
+timestamp=2026-11-18T06:32:48.449Z level=INFO run=2153234d message=stream providerID=skillevaluator-gateway modelID=qwen3.8-flash session.id=ses_e12a45efcffeBhe5tbvZtQgLqI small=false agent=build mode=primary
+timestamp=2026-11-18T06:32:48.450Z level=INFO run=2153234d message="llm runtime selected" llm.runtime=ai-sdk llm.provider=skillevaluator-gateway llm.model=qwen3.8-flash
+timestamp=2026-11-18T06:32:53.750Z level=INFO run=2153234d message=evaluated permission=skill pattern=grill-requirements action.permission=* action.action=allow action.pattern=*
+timestamp=2026-11-18T06:32:53.787Z level=INFO run=2153234d message=tracking hash=26e85fa11a7db61ba570114e3f395ac32710b2c5 cwd=/workspace git=/logs/agent/opencode/xdg-data/opencode/snapshot/global/42099b4af021e53fd8fd4e056c2568d7c2e3ffa8
+timestamp=2026-11-18T06:32:53.801Z level=INFO run=2153234d message=loop session.id=ses_e12a45efcffeBhe5tbvZtQgLqI step=1
+timestamp=2026-11-18T06:32:53.811Z level=INFO run=2153234d message=tracking hash=26e85fa11a7db61ba570114e3f395ac32710b2c5 cwd=/workspace git=/logs/agent/opencode/xdg-data/opencode/snapshot/global/42099b4af021e53fd8fd4e056c2568d7c2e3ffa8
+timestamp=2026-11-18T06:32:53.816Z level=INFO run=2153234d message=process session.id=ses_e12a45efcffeBhe5tbvZtQgLqI messageID=msg_1ed5bb92a0017BGH5D6Is8jCO0
+timestamp=2026-11-18T06:32:53.816Z level=INFO run=2153234d message=stream providerID=skillevaluator-gateway modelID=qwen3.8-flash session.id=ses_e12a45efcffeBhe5tbvZtQgLqI small=false agent=build mode=primary
+timestamp=2026-11-18T06:32:53.817Z level=INFO run=2153234d message="llm runtime selected" llm.runtime=ai-sdk llm.provider=skillevaluator-gateway llm.model=qwen3.8-flash
+timestamp=2026-11-18T06:33:47.467Z level=INFO run=2153234d message=cleanup prune=7.days
+timestamp=2026-11-18T06:33:57.076Z level=INFO run=2153234d message=evaluated permission=edit pattern=workspace/需求提报-加班申请-20261118.md action.permission=* action.action=allow action.pattern=*
+timestamp=2026-11-18T06:33:57.078Z level=INFO run=2153234d message=formatting file=/workspace/需求提报-加班申请-20261118.md
+timestamp=2026-11-18T06:33:57.079Z level=INFO run=2153234d message="touching file" file=/workspace/需求提报-加班申请-20261118.md
+timestamp=2026-11-18T06:33:57.122Z level=INFO run=2153234d message=tracking hash=e959043c6170c1d2a0310528b4febfb87e574a68 cwd=/workspace git=/logs/agent/opencode/xdg-data/opencode/snapshot/global/42099b4af021e53fd8fd4e056c2568d7c2e3ffa8
+timestamp=2026-11-18T06:33:57.152Z level=INFO run=2153234d message=loop session.id=ses_e12a45efcffeBhe5tbvZtQgLqI step=2
+timestamp=2026-11-18T06:33:57.174Z level=INFO run=2153234d message=tracking hash=e959043c6170c1d2a0310528b4febfb87e574a68 cwd=/workspace git=/logs/agent/opencode/xdg-data/opencode/snapshot/global/42099b4af021e53fd8fd4e056c2568d7c2e3ffa8
+timestamp=2026-11-18T06:33:57.200Z level=INFO run=2153234d message=process session.id=ses_e12a45efcffeBhe5tbvZtQgLqI messageID=msg_1ed5cb0a3001kWb7MUsZlfHA2U
+timestamp=2026-11-18T06:33:57.201Z level=INFO run=2153234d message=stream providerID=skillevaluator-gateway modelID=qwen3.8-flash session.id=ses_e12a45efcffeBhe5tbvZtQgLqI small=false agent=build mode=primary
+timestamp=2026-11-18T06:33:57.205Z level=INFO run=2153234d message="llm runtime selected" llm.runtime=ai-sdk llm.provider=skillevaluator-gateway llm.model=qwen3.8-flash

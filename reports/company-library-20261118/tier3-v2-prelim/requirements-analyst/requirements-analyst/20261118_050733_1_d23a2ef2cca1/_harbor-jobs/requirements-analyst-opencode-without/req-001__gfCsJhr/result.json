@@ -1,0 +1,112 @@
+{
+    "id": "7ad89947-0fce-430f-8bbf-b658595ad6d3",
+    "task_name": "nvidia/skillevaluator-req-001-without-skill",
+    "trial_name": "req-001__gfCsJhr",
+    "trial_uri": "file:///app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_050733_1_d23a2ef2cca1/_harbor-jobs/requirements-analyst-opencode-without/req-001__gfCsJhr",
+    "task_id": {
+        "path": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_050733_1_d23a2ef2cca1/_harbor-tasks/opencode/without/req-001"
+    },
+    "source": "without",
+    "task_checksum": "e3618b6fa91357c7659de746e208ce7140f0af02591d6d9006b396a25419959a",
+    "config": {
+        "task": {
+            "path": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_050733_1_d23a2ef2cca1/_harbor-tasks/opencode/without/req-001",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "without"
+        },
+        "trial_name": "req-001__gfCsJhr",
+        "trials_dir": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_050733_1_d23a2ef2cca1/_harbor-jobs/requirements-analyst-opencode-without",
+        "install_only": false,
+        "timeout_multiplier": 3.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "skillevaluator.tier3.harbor.local_agents:SkillEvaluatorGatewayOpenCode",
+            "import_path": null,
+            "model_name": "openai/qwen3.8-flash",
+            "base_url": null,
+            "model_api_key_name": null,
+            "model_api_format": null,
+            "skip_model_parsing": false,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {
+                "version": "1.19.5"
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": null,
+            "import_path": "skillevaluator.tier3.harbor.secure_docker_environment:SkillEvaluatorSecureDockerEnvironment",
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "5d4f3977-08bf-40ca-a629-66ba662c792b",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "opencode",
+        "version": "1.19.5",
+        "model_info": {
+            "name": "qwen3.8-flash",
+            "provider": null
+        }
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "verifier_environment_mode": "shared",
+    "exception_info": {
+        "exception_type": "AgentSetupTimeoutError",
+        "exception_message": "Agent setup timed out after 1080.0 seconds",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/harbor/agents/installed/base.py\", line 1136, in setup\n    await self.install(environment)\n  File \"/usr/local/lib/python3.12/site-packages/harbor/agents/installed/opencode.py\", line 418, in install\n    await self.exec_as_agent(\n  File \"/usr/local/lib/python3.12/site-packages/harbor/agents/installed/base.py\", line 1081, in exec_as_agent\n    return await self._exec(\n           ^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/harbor/agents/installed/base.py\", line 1032, in _exec\n    result = await environment.exec(\n             ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py\", line 3539, in exec\n    return await self._exec_without_environment(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py\", line 3439, in _exec_without_environment\n    return await self._run_docker_compose_command(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py\", line 3339, in _run_docker_compose_command\n    done, _pending = await asyncio.wait(\n                     ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/asyncio/tasks.py\", line 464, in wait\n    return await _wait(fs, timeout, return_when, loop)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/asyncio/tasks.py\", line 550, in _wait\n    await waiter\nasyncio.exceptions.CancelledError\ncould not confirm removal of Docker environment handoff /tmp/.skillevaluator-exec-env-012ee0598e184135935bcaf7d7e450d9.sh: Docker environment handoff removal failed\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py\", line 1885, in _setup_agent\n    await asyncio.wait_for(\n  File \"/usr/local/lib/python3.12/asyncio/tasks.py\", line 519, in wait_for\n    async with timeouts.timeout(timeout):\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/asyncio/timeouts.py\", line 115, in __aexit__\n    raise TimeoutError from exc_val\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py\", line 606, in run\n    await self._prepare()\n  File \"/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py\", line 652, in _prepare\n    await self._setup_agent()\n  File \"/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py\", line 1890, in _setup_agent\n    raise AgentSetupTimeoutError(\nharbor.trial.errors.AgentSetupTimeoutError: Agent setup timed out after 1080.0 seconds\n",
+        "occurred_at": "2026-11-18T05:25:46.779523Z"
+    },
+    "started_at": "2026-11-18T05:07:38.322769Z",
+    "finished_at": "2026-11-18T05:25:47.874596Z",
+    "environment_setup": {
+        "started_at": "2026-11-18T05:07:38.455196Z",
+        "finished_at": "2026-11-18T05:07:41.993122Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-11-18T05:07:41.993329Z",
+        "finished_at": "2026-11-18T05:25:46.751843Z"
+    },
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": null
+}

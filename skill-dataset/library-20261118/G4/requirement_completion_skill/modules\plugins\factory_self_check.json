@@ -1,0 +1,100 @@
+{
+  "module_name": "工厂自检",
+  "module_code": "factory_self_check",
+  "category": "interaction_module",
+  "definition": "工厂自检功能 (Factory Self-Check Function) 是一种非标准运行模式，旨在通过预设的程序化指令，对空调系统的关键硬件组件（传感器、执行器等）进行快速、自动化的功能性验证。",
+  "aliases": [
+    "工厂自检",
+    "出厂自检功能",
+    "出厂自检",
+    "Factory Self Check",
+    "工厂测试"
+  ],
+  "keywords": [
+    "出厂检测",
+    "整机检查",
+    "生产测试",
+    "自检流程",
+    "压缩机",
+    "室内风机",
+    "室外风机",
+    "步进电机",
+    "四通阀",
+    "电子膨胀阀"
+  ],
+  "related_modules": [
+    "能力测试模式",
+    "运行参数查询",
+    "故障信息查询",
+    "制冷剂泵集回收"
+  ],
+  "intent_patterns": [
+    "interaction_feedback_request",
+    "state_control_request",
+    "constraint_request",
+    "review_request"
+  ],
+  "key_dimensions": [
+    "功能范围",
+    "异常处理",
+    "兼容性约束"
+  ],
+  "default_rules": [
+    "工厂自检通常由用户、售后或工程人员通过特定入口触发",
+    "工厂自检通常需要明确可见反馈与权限边界",
+    "工厂自检在异常状态下通常需要保持主控制逻辑稳定",
+    "工厂自检的状态变化通常需要支持清除、退出或复位规则"
+  ],
+  "must_confirm_rules": [
+    "触发入口是否需要授权或隐藏入口",
+    "用户界面如何提示当前状态和结果",
+    "功能执行时是否影响正常运行逻辑",
+    "异常退出后是否需要保留记录",
+    "不同机型或入口是否支持一致能力"
+  ],
+  "common_missing_items": [
+    "未定义适用模式和禁用场景",
+    "未定义优先级与互斥关系",
+    "未定义异常处理或降级策略",
+    "未定义关机/断电后的恢复逻辑",
+    "未定义用户反馈方式"
+  ],
+  "inference_rules": [
+    {
+      "pattern": "出厂自检如何工作",
+      "intent_type": "interaction_feedback_request",
+      "need_complete": [
+        "触发入口",
+        "权限边界",
+        "结果反馈",
+        "异常处理",
+        "退出规则"
+      ]
+    },
+    {
+      "pattern": "出厂自检依赖什么条件",
+      "intent_type": "state_control_request",
+      "need_complete": [
+        "触发入口",
+        "权限边界",
+        "结果反馈",
+        "异常处理",
+        "退出规则"
+      ]
+    },
+    {
+      "pattern": "出厂自检异常时如何处理",
+      "intent_type": "constraint_request",
+      "need_complete": [
+        "触发入口",
+        "权限边界",
+        "结果反馈",
+        "异常处理",
+        "退出规则"
+      ]
+    }
+  ],
+  "output_templates": {
+    "rewrite_template": "用户可通过【入口】触发工厂自检，系统应在【权限条件】满足时执行对应操作，并通过【反馈方式】展示执行结果。若出现【异常场景】，系统应保持主运行逻辑不受影响，并按【退出/复位规则】处理当前状态。"
+  }
+}

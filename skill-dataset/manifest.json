@@ -1,0 +1,828 @@
+{
+  "name": "cvte-agent-skills-dataset",
+  "version": "1.0.0",
+  "created": "2026-11-17",
+  "source": "https://skills.gz.cvte.cn (via cskills CLI v5.9.4)",
+  "purpose": "AI Agent Skills 全链路安全审计与效果评估系统（杨宇涵 实习课题）的测试数据集",
+  "total": 52,
+  "statistics": {
+    "positive": 15,
+    "redundant": 30,
+    "security": 7
+  },
+  "label_schema": {
+    "category": "positive=正向业务 / redundant=冗余冲突 / security=安全关注(含敏感操作的真实业务)",
+    "group": "仅 redundant 有效，标识所属冗余组，用于 Tier2 语义去重验证",
+    "expected.tier1_security": "pass=应通过安全扫描 / flag=预期触发安全审查关注",
+    "expected.tier2_dedup": "pass=不应被去重 / dup=预期触发冗余拦截",
+    "expected.tier3_sandbox_gain": "yes=适合沙盒行为增益对照 / no=不适用",
+    "has_scripts": "是否包含可执行脚本（scripts/ 或根目录脚本文件）"
+  },
+  "skills": [
+    {
+      "name": "tech-selection",
+      "category": "positive",
+      "group": null,
+      "description": "技术选型深度对比，加权评分+生态数据+决策边界，产出选型文档",
+      "operations": [
+        "联网查询 GitHub/npm API"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "changelog",
+      "category": "positive",
+      "group": null,
+      "description": "基于 Git 提交记录自动生成中文 changelog",
+      "operations": [
+        "git log"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "data-analysis",
+      "category": "positive",
+      "group": null,
+      "description": "数据清洗/EDA/统计建模/机器学习/可视化/报告",
+      "operations": [
+        "执行 Python 脚本",
+        "pip install",
+        "读写 CSV/Excel/JSON/DB"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "github-repo-search",
+      "category": "positive",
+      "group": null,
+      "description": "搜索筛选 GitHub 开源项目，输出结构化推荐报告",
+      "operations": [
+        "GitHub Search API"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "docx",
+      "category": "positive",
+      "group": null,
+      "description": "Word 文档创建/编辑/批注/修订/文本提取",
+      "operations": [
+        "python-docx 处理库"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "pdf",
+      "category": "positive",
+      "group": null,
+      "description": "PDF 文本/表格提取、生成、合并/拆分、表单填写",
+      "operations": [
+        "pypdf 等 PDF 库"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "xlsx",
+      "category": "positive",
+      "group": null,
+      "description": "表格创建/公式/格式化/分析/可视化",
+      "operations": [
+        "openpyxl 等表格库"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "frontend-design",
+      "category": "positive",
+      "group": null,
+      "description": "生成高质量前端界面（强调美学）",
+      "operations": [
+        "生成代码文件"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "web-design-guidelines",
+      "category": "positive",
+      "group": null,
+      "description": "按 Web 界面规范审查代码",
+      "operations": [
+        "联网 fetch Vercel 规则"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "brainstorming",
+      "category": "positive",
+      "group": null,
+      "description": "创作前探索需求/意图/设计",
+      "operations": [
+        "纯对话"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "superpowers",
+      "category": "positive",
+      "group": null,
+      "description": "20+ 技能框架（TDD/调试/规划/协作）",
+      "operations": [
+        "综合：测试运行/调试"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "json-format",
+      "category": "positive",
+      "group": null,
+      "description": "JSON 格式化/压缩/转义/去转义（Node 确定性脚本，无外部依赖）",
+      "operations": [
+        "执行 json-format.js (Node)"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "svg2xml",
+      "category": "positive",
+      "group": null,
+      "description": "SVG 与 Android VectorDrawable XML 双向批量转换",
+      "operations": [
+        "执行 svg_to_vector.py / vector_to_svg.py"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "report-stats",
+      "category": "positive",
+      "group": null,
+      "description": "检测结果数据统计，生成三线统计表格",
+      "operations": [
+        "执行 stat_results.py"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "apifox-api-artifact",
+      "category": "positive",
+      "group": null,
+      "description": "从 Apifox 协作链接/MCP/OpenAPI 导出读取接口信息，输出统一 API Interface Artifact JSON（多外部 HTTP 调用 + OpenAPI 解析，结构对标官方 api-caller）",
+      "operations": [
+        "执行 resolve-apifox-api.mjs (Node http/https)",
+        "GET /projects/{id}/http-endpoints",
+        "POST /v1/projects/{id}/export-openapi",
+        "解析 OpenAPI 规范"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "yes"
+      }
+    },
+    {
+      "name": "git-commit",
+      "category": "redundant",
+      "group": "git-commit",
+      "description": "标准化提交：同步分支→分析→类型检测→版本号→Jira→push",
+      "operations": [
+        "git sync/branch/commit/push",
+        "Jira API"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "git-commit-msg",
+      "category": "redundant",
+      "group": "git-commit",
+      "description": "生成 commit message 并提交，关联 Jira 评论/状态流转",
+      "operations": [
+        "git add/commit",
+        "Jira API"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "commit-message",
+      "category": "redundant",
+      "group": "git-commit",
+      "description": "结构化 commit message（[what][why][how]）",
+      "operations": [
+        "git diff"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "smart-git-commit",
+      "category": "redundant",
+      "group": "git-commit",
+      "description": "按可配置模板生成 commit，从分支名解析版本",
+      "operations": [
+        "执行 parse_version_tag.py",
+        "git commit"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "super-commit",
+      "category": "redundant",
+      "group": "git-commit",
+      "description": "自动检测/安装 git 环境，Angular 规范中文 commit，推送失败回退",
+      "operations": [
+        "安装 git-ai",
+        "git commit/push"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "git-add-commit",
+      "category": "redundant",
+      "group": "git-commit",
+      "description": "从模板生成 commit，推送到远程临时分支",
+      "operations": [
+        "git add/commit/push"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "code-review",
+      "category": "redundant",
+      "group": "code-review",
+      "description": "Bytello C++ 评审，findings-first",
+      "operations": [
+        "git diff"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "code-review-and-teach",
+      "category": "redundant",
+      "group": "code-review",
+      "description": "审查+教学撰写，自动修复+发布飞书 Wiki",
+      "operations": [
+        "读写代码",
+        "飞书 Wiki API"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "cxx-style-review",
+      "category": "redundant",
+      "group": "code-review",
+      "description": "C/C++ 规范审查，输出 findings",
+      "operations": [
+        "读代码/patch"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "embedded-code-review",
+      "category": "redundant",
+      "group": "code-review",
+      "description": "120+ 条嵌入式/Android 规则审查",
+      "operations": [
+        "git diff"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "local-code-review",
+      "category": "redundant",
+      "group": "code-review",
+      "description": "git diff / GitLab MR 审查，输出 HTML 报告",
+      "operations": [
+        "GitLab API"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "mr-suggestion",
+      "category": "redundant",
+      "group": "code-review",
+      "description": "拉取并应用 GitLab MR 审查建议",
+      "operations": [
+        "执行 fetch_suggestions.py",
+        "GitLab API"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "malong-daily-report",
+      "category": "redundant",
+      "group": "daily-report",
+      "description": "采集飞书日历/聊天/文档+Claude会话+git，生成日报并上传飞书",
+      "operations": [
+        "执行 claude_sessions.py/collect.sh",
+        "飞书 API"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "malong-daily-report-eus",
+      "category": "redundant",
+      "group": "daily-report",
+      "description": "同上 + EUS 业务系统在线时长",
+      "operations": [
+        "执行 claude_sessions.py/collect.sh/eus_online.py",
+        "EUS 系统"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "jira-batch-create",
+      "category": "redundant",
+      "group": "jira-batch",
+      "description": "从 Excel 批量创建/修改 Jira Issue",
+      "operations": [
+        "Jira API",
+        "读 Excel"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "jira-batch-create-bxc",
+      "category": "redundant",
+      "group": "jira-batch",
+      "description": "同上（冰洗厨事业部）",
+      "operations": [
+        "Jira API",
+        "读 Excel"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "patent-assistant",
+      "category": "redundant",
+      "group": "patent",
+      "description": "一站式交底书：评估→检索→撰写→转公司 doc 模板",
+      "operations": [
+        "执行 clean_media.py/docx_helpers.py/render_mermaid.py"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "patent-disclosure",
+      "category": "redundant",
+      "group": "patent",
+      "description": "交底书撰写+调用 patent-search 填检索记录",
+      "operations": [
+        "执行 convert_to_docx.py"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "patent-search",
+      "category": "redundant",
+      "group": "patent",
+      "description": "Playwright 操控智慧芽网站检索专利",
+      "operations": [
+        "Playwright 浏览器自动化"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "feishu-doc-to-markdown",
+      "category": "redundant",
+      "group": "doc-to-md",
+      "description": "飞书文档转本地 MD，图片/表格下载嵌入",
+      "operations": [
+        "执行 export_feishu_doc.py",
+        "飞书官方 CLI"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "markitdown",
+      "category": "redundant",
+      "group": "doc-to-md",
+      "description": "微软 markitdown 多格式转 MD",
+      "operations": [
+        "markitdown 库"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "feishu-doc-writer",
+      "category": "redundant",
+      "group": "doc-to-md",
+      "description": "一站式飞书文档创作+模板批量生成",
+      "operations": [
+        "执行 doc_writer.py",
+        "飞书 API"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "requirements-analyst",
+      "category": "redundant",
+      "group": "requirement",
+      "description": "对话澄清需求，维护需求文档版本",
+      "operations": [
+        "读写 Markdown"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "project-prd",
+      "category": "redundant",
+      "group": "requirement",
+      "description": "从代码提炼 PRD 基线，委派子代理，写 AGENTS.md 保护规则",
+      "operations": [
+        "执行 bootstrap.py 等",
+        "安装 4 个子 skill"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "requirement-spec",
+      "category": "redundant",
+      "group": "requirement",
+      "description": "对话引导产出需求文档（不写代码）",
+      "operations": [
+        "纯对话"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "grilling",
+      "category": "redundant",
+      "group": "requirement",
+      "description": "对方案/设计反复拷问压力测试",
+      "operations": [
+        "纯对话"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "auto-test",
+      "category": "redundant",
+      "group": "testcase",
+      "description": "需求+源码双驱动，Playwright 五层链路 e2e",
+      "operations": [
+        "执行 *.mjs",
+        "Playwright 浏览器自动化"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "Create-testcases",
+      "category": "redundant",
+      "group": "testcase",
+      "description": "从 Figma+代码生成测试用例",
+      "operations": [
+        "读 Figma/代码"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "requirement-test-generator",
+      "category": "redundant",
+      "group": "testcase",
+      "description": "需求驱动用例生成",
+      "operations": [
+        "执行 generate_excel.py"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "test-cases",
+      "category": "redundant",
+      "group": "testcase",
+      "description": "ERP/业务测试用例编写评审+落地飞书多维表格",
+      "operations": [
+        "飞书多维表格 API"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "pass",
+        "tier2_dedup": "dup",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "c-dev",
+      "category": "security",
+      "group": null,
+      "description": "开发容器资源查看、SSH 密码/免密登录配置、开放容器端口",
+      "operations": [
+        "配置 SSH 登录",
+        "开放端口"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "flag",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "auto-login",
+      "category": "security",
+      "group": null,
+      "description": "Playwright 浏览器登录，调 /api/auth/getJwtByToken 拿 JWT 缓存到本地并 stdout 输出",
+      "operations": [
+        "执行 login.py",
+        "浏览器自动化",
+        "缓存 JWT token"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "flag",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "portal-sso",
+      "category": "security",
+      "group": null,
+      "description": "CAS/OAuth2.0 authorization_code 门户 SSO 对接",
+      "operations": [
+        "凭证配置(.env)",
+        "token/ticket 校验"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "flag",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "seewo-login-integration",
+      "category": "security",
+      "group": null,
+      "description": "希沃统一登录接入（云端/边缘分流）",
+      "operations": [
+        "读 token/cookie",
+        "扫码登录协议"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "flag",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "es-log-query",
+      "category": "security",
+      "group": null,
+      "description": "生产环境 Elasticsearch 日志查询",
+      "operations": [
+        "执行 es_log_query.py",
+        "查询生产日志"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "flag",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "bytebase-submit",
+      "category": "security",
+      "group": null,
+      "description": "提交 SQL 变更/执行 SQL Editor 查询/申请权限",
+      "operations": [
+        "执行 cli/ 全套（api_client/auth/submit/query）"
+      ],
+      "has_scripts": true,
+      "expected": {
+        "tier1_security": "flag",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "no"
+      }
+    },
+    {
+      "name": "mofang-local-auth-sql",
+      "category": "security",
+      "group": null,
+      "description": "自然语言转权限配置 SQL，直接产出多张权限表 SQL",
+      "operations": [
+        "生成权限 SQL"
+      ],
+      "has_scripts": false,
+      "expected": {
+        "tier1_security": "flag",
+        "tier2_dedup": "pass",
+        "tier3_sandbox_gain": "no"
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "c-dev",
+  "author": "liuguibin",
+  "version": "1.0.1",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:41+08:00",
+  "updatedAt": "2026-11-17T10:46:41+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/c-dev"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/c-dev",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/c-dev"
+  ],
+  "fileHashes": {
+    "SKILL.md": "46016dddc8ab1c13f711b61103173462946921ceddd5863a050181c117959ce0",
+    "references/api-reference.md": "7c5fa89d6f5b2eaf906231fc8a4769e6a7ef46e0feecb4ac1ce13087520714cd",
+    "references/container-resource.md": "37d046b75be3a4313ed04840c6a67c08f36544bb4c9b7288dbd0ac0ff4a1326d",
+    "references/port-forward.md": "982bd15d9a17496b38e4090eb6ace46b0ba46aedec714aeba66709556590dfd3",
+    "references/ssh-login.md": "6417af22b49ce2785b1624816692b5a5443030979b6696c2eac214c808a2289b"
+  }
+}

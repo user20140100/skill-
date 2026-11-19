@@ -1,0 +1,105 @@
+{
+  "module_name": "电辅热控制",
+  "module_code": "electric_auxiliary_heating",
+  "category": "control_module",
+  "definition": "电辅热（Electric Auxiliary Heating）功能，是指在空调系统的热泵制热循环基础上，额外增加的一套电加热模块，作为辅助热源，直接将电能转化为热能，以加热室内循环空气。",
+  "aliases": [
+    "电辅热控制",
+    "电辅热功能",
+    "电辅热",
+    "辅助电加热",
+    "PTC加热"
+  ],
+  "keywords": [
+    "PTC",
+    "制热",
+    "辅助加热",
+    "温升",
+    "压缩机",
+    "室内风机",
+    "盘管温度",
+    "温度传感器",
+    "故障代码",
+    "模式切换"
+  ],
+  "related_modules": [
+    "制热防冷风控制",
+    "运行模式切换控制",
+    "经济模式",
+    "室内盘管保护"
+  ],
+  "intent_patterns": [
+    "capability_request",
+    "state_control_request",
+    "mode_linkage_request",
+    "priority_request"
+  ],
+  "key_dimensions": [
+    "功能范围",
+    "控制入口",
+    "状态定义",
+    "模式/场景适配",
+    "参数范围",
+    "状态切换",
+    "优先级",
+    "反馈交互"
+  ],
+  "default_rules": [
+    "电辅热控制通常支持用户指令触发与系统策略联动两类控制入口",
+    "电辅热控制在模式切换、保护介入或关机恢复时通常需要重新判定目标状态",
+    "保护逻辑通常优先于用户手动设置",
+    "电辅热控制的执行结果通常需要可见反馈或可查询状态"
+  ],
+  "must_confirm_rules": [
+    "是否支持所有目标状态和参数档位",
+    "不同运行模式下的可用性和限制规则",
+    "用户设置与系统策略冲突时谁优先",
+    "关机恢复和掉电恢复是否一致",
+    "异常或保护中收到控制指令时如何处理"
+  ],
+  "common_missing_items": [
+    "未定义适用模式和禁用场景",
+    "未定义优先级与互斥关系",
+    "未定义异常处理或降级策略",
+    "未定义关机/断电后的恢复逻辑",
+    "未定义用户反馈方式"
+  ],
+  "inference_rules": [
+    {
+      "pattern": "支持电辅热",
+      "intent_type": "capability_request",
+      "need_complete": [
+        "可用状态",
+        "适用模式",
+        "参数范围",
+        "优先级",
+        "恢复逻辑"
+      ]
+    },
+    {
+      "pattern": "开启电辅热",
+      "intent_type": "state_control_request",
+      "need_complete": [
+        "可用状态",
+        "适用模式",
+        "参数范围",
+        "优先级",
+        "恢复逻辑"
+      ]
+    },
+    {
+      "pattern": "电辅热断电后是否恢复",
+      "intent_type": "mode_linkage_request",
+      "need_complete": [
+        "可用状态",
+        "适用模式",
+        "参数范围",
+        "优先级",
+        "恢复逻辑"
+      ]
+    }
+  ],
+  "output_templates": {
+    "rewrite_template": "在【运行模式】下，用户可通过【控制入口】设置电辅热控制为【目标状态/参数】。系统接收到指令后，应按【动作规则】执行；若当前处于【保护/限制场景】下，则按【优先级规则】处理，并在条件满足后按【恢复规则】恢复目标状态。"
+  }
+}

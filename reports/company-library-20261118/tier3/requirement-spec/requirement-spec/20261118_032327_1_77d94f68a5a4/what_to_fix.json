@@ -1,0 +1,37 @@
+[
+  {
+    "case": "req-001",
+    "agent": "opencode",
+    "kind": "skill hurts",
+    "what": "passes 1/1 without the skill but 0/1 with it; Applicant field not explicitly listed in stored information.",
+    "attempts_lost": 1,
+    "reasons": [
+      "Applicant field not explicitly listed in stored information.",
+      "Permission section only says pending confirmation.",
+      "The expected structured requirement document was not completed because permissions and acceptance criteria remained unconfirmed.",
+      "The response accurately restated the overtime approval need and produced a skeleton document, but it stopped to ask clarification questions instead of delivering the complete structured requirement document expected.",
+      "The agent created a structured draft covering fields and approval, but left permissions and applicant details unresolved."
+    ],
+    "env_errors": [],
+    "final_message": "\u6211\u5148\u628a\u4f60\u7684\u60f3\u6cd5\u7528\u5927\u767d\u8bdd\u590d\u8ff0\u4e00\u904d\uff0c\u4f60\u770b\u6211\u7406\u89e3\u5f97\u5bf9\u4e0d\u5bf9\uff1a > **\u8981\u505a\u4ec0\u4e48**\uff1a\u5728\u516c\u53f8\u5185\u90e8\u7cfb\u7edf\u91cc\u52a0\u4e00\u4e2a\"\u52a0\u73ed\u7533\u8bf7\"\u529f\u80fd\u3002\u5458\u5de5\u5728\u7ebf\u586b\u4e00\u6761\u52a0\u73ed\u8bb0\u5f55\u2014\u2014\u54ea\u5929\u52a0\u73ed\u3001\u51e0\u70b9\u5230\u51e0\u70b9\u3001\u52a0\u4e86\u591a\u4e45\u3001\u4e3a\u4ec0\u4e48\u52a0\u73ed\u2014\u2014\u7136\u540e\u63d0\u4ea4\u7ed9\u90e8\u95e8\u4e3b\u7ba1\uff1b\u4e3b\u7ba1\u770b\u4e86\u51b3\u5b9a\"\u540c\u610f\"\u8fd8\u662f\"\u9a73\u56de\"\u3002 > > **\u4e3a\u4ec0\u4e48\u505a**\uff1a\u73b0\u5728\u5927\u5bb6\u662f\u7eb8\u8d28\u586b\u8868\u3001\u5fae\u4fe1\u627e\u9886\u5bfc\u7b7e\u5b57\uff0c\u9ebb\u70e6\u3001\u4e0d\u597d\u7559\u75d5\u3002 > > **\u8c01\u6765\u7528**\uff1a\u5458\u5de5\uff08\u63d0\u7533\u8bf7\uff09\u3001\u90e8\u95e8\u4e3b\u7ba1\uff08\u5ba1\u6279\uff09\u3002 \u6709\u4e24\u4e2a\u5c0f\u95ee\u9898\u5148\u786e\u8ba4\u4e00\u4e0b\uff1a 1. \u6211\u7406\u89e3\u5f97\u5bf9\u5417\uff1f\u6709\u6ca1\u6709\u8bf4\u6f0f\u6216\u8bf4\u504f\u7684\u5730\u65b9\uff1f 2. \u9664\u4e86\u5458\u5de5\u548c\u4e3b\u7ba1\uff0c\u8fd8\u6709\u6ca1\u6709\u522b\u4eba\u4f1a\u7528\u5230\u8fd9\u4e2a\u529f\u80fd\uff1f\u6bd4\u5982 HR \u9700\u4e0d\u9700\u8981\u770b\u6240\u6709\u4eba\u7684\u52a0\u73ed\u8bb0\u5f55\u7528\u6765\u7b97\u52a0\u73ed\u8d39/\u7edf\u8ba1\uff0c\u6216\u8005\u9886\u5bfc\u4e0a\u9762\u8fd8\u6709\u66f4\u9ad8\u5c42\u8981\u5ba1\u6279\uff1f \u4f60\u5148\u56de\u7b54\u8fd9\u4e24\u4e2a\uff0c\u6211\u4eec\u518d\u4e00\u9879\u4e00\u9879\u5f80\u4e0b\u7ec6\u804a\u3002",
+    "evidence": "opencode/with-skill/trials/req-001__RLN9WEb/trajectory.json",
+    "asks_for_input": false,
+    "scope": "opencode",
+    "prompt": "\u6211\u4eec\u60f3\u5728\u516c\u53f8\u5185\u90e8\u7cfb\u7edf\u91cc\u52a0\u4e00\u4e2a\u300c\u52a0\u73ed\u7533\u8bf7\u300d\u529f\u80fd\uff1a\u5458\u5de5\u586b\u5199\u52a0\u73ed\u65e5\u671f\u3001\u5f00\u59cb/\u7ed3\u675f\u65f6\u95f4\u3001\u52a0\u73ed\u65f6\u957f\u548c\u52a0\u73ed\u4e8b\u7531\uff0c\u7136\u540e\u63d0\u4ea4\u7ed9\u90e8\u95e8\u4e3b\u7ba1\u5ba1\u6279\uff1b\u4e3b\u7ba1\u53ef\u4ee5\u540c\u610f\u6216\u9a73\u56de\u3002\u73b0\u5728\u5927\u5bb6\u8fd8\u662f\u7ebf\u4e0b\u586b\u8868\u3001\u5fae\u4fe1\u627e\u9886\u5bfc\u7b7e\uff0c\u5f88\u9ebb\u70e6\u3002\u8bf7\u5e2e\u6211\u7406\u6e05\u8fd9\u4e2a\u9700\u6c42\uff0c\u5199\u4e00\u4efd\u9700\u6c42\u6587\u6863\u3002",
+    "action": "SKILL.md \u00a7\u4e09/\u00a7\u5341: require an initial complete draft document with assumptions and open questions, including permissions/acceptance, before further clarification; no stop after Stage 1.",
+    "source": "llm"
+  },
+  {
+    "case": "all cases",
+    "agent": "opencode",
+    "kind": "eval case",
+    "scope": "opencode",
+    "attempts_lost": 0,
+    "what": "every case also passes without the skill, so this eval cannot show what the skill adds",
+    "reasons": [],
+    "env_errors": [],
+    "evidence": "",
+    "action": "Add cases the agent fails without the skill (tasks that need the skill's scripts, conventions or domain rules) so the eval measures the skill's value.",
+    "source": "deterministic"
+  }
+]

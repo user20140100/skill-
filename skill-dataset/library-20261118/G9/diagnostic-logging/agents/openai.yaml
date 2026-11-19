@@ -1,0 +1,4 @@
+interface:
+  display_name: "Diagnostic Logging"
+  short_description: "Add and verify complete diagnostic log lifecycles"
+  default_prompt: "Use $diagnostic-logging help to show the available diagnostic logging commands."

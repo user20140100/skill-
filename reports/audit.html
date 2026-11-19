@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8">
+<title>Agent Skill 批量安全审计报告</title>
+<style>body{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:2rem auto;max-width:960px;padding:0 1rem;color:#1a1a1a;line-height:1.6}h1{border-bottom:2px solid #333;padding-bottom:.4rem}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #ccc;padding:.4rem .6rem;text-align:left;font-size:.9rem}th{background:#f5f5f5}.unsafe{color:#b00020;font-weight:600}.safe{color:#1e7e34}.card{border:1px solid #ddd;border-radius:6px;padding:.8rem 1rem;margin:.8rem 0;background:#fafafa}</style></head><body>
+<h1>Agent Skill 批量安全审计报告</h1>
+<p>扫描目录：<code>library-demo</code>　生成时间：2026-11-18 22:27:28</p>
+<h2>1. 总览</h2>
+<div class="card">扫描 Skill 数 <b>5</b>；安全通过 <b class="safe">2</b>；存在高危 <b class="unsafe">3</b>；未评估 0；含沙盒对照 1</div>
+<table><tr><th>Skill</th><th>分类</th><th>安全评级</th><th>风险分</th><th>高危 finding</th><th>沙盒对照</th></tr>
+<tr><td><code>android-log-analysis</code></td><td>unknown</td><td class="unsafe">高危</td><td>53</td><td>4</td><td>无</td></tr>
+<tr><td><code>calculator</code></td><td>unknown</td><td class="safe">安全</td><td>0</td><td>0</td><td>有</td></tr>
+<tr><td><code>code-review</code></td><td>冗余</td><td class="unsafe">高危</td><td>0</td><td>1</td><td>无</td></tr>
+<tr><td><code>es-log-query</code></td><td>安全</td><td class="unsafe">高危</td><td>36</td><td>8</td><td>无</td></tr>
+<tr><td><code>requirement-spec</code></td><td>冗余</td><td class="safe">安全</td><td>0</td><td>0</td><td>无</td></tr>
+</table>
+<h2>2. 高危风险项（过滤）</h2>
+<h3><code>android-log-analysis</code></h3><ul>
+<li class="unsafe">[skillspector:HIGH] decode_xlog_py2.py (partial)</li>
+<li class="unsafe">[skillspector:HIGH] Output Rules</li>
+<li class="unsafe">[tier1:HIGH] System Prompt Leakage: Output Rules</li>
+<li class="unsafe">[tier1:HIGH] analysis-evasion: decode_xlog_py2.py (partial)</li>
+</ul>
+<h3><code>code-review</code></h3><ul>
+<li class="unsafe">[tier1:HIGH] Non-placeholder email address: git@gitlab.gz.cvte.cn</li>
+</ul>
+<h3><code>es-log-query</code></h3><ul>
+<li class="unsafe">[skillspector:HIGH] .env</li>
+<li class="unsafe">[skillspector:HIGH] .env</li>
+<li class="unsafe">[skillspector:HIGH] .env</li>
+<li class="unsafe">[skillspector:HIGH] .env</li>
+<li class="unsafe">[skillspector:HIGH] .env</li>
+<li class="unsafe">[skillspector:HIGH] .env&#x27;</li>
+<li class="unsafe">[tier1:HIGH] Privilege Escalation: .env </li>
+<li class="unsafe">[tier1:HIGH] Privilege Escalation: .env&#x27;</li>
+</ul>
+<h2>3. 沙盒对比（Tier3 A/B）</h2>
+<table><tr><th>Skill</th><th>overall (with/without)</th><th>goal_acc (with/without)</th><th>lift(goal)</th><th>pass@k (with/without)</th><th>状态</th></tr>
+<tr><td><code>calculator</code></td><td>1.000 / 1.000</td><td>1.000 / 1.000</td><td>0.000</td><td>1.000 / 1.000</td><td>succeeded</td></tr>
+</table>
+</body></html>

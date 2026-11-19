@@ -1,0 +1,24 @@
+{
+  "name": "tech-selection",
+  "author": "zhangkai13699",
+  "version": "0.0.3",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:44:50+08:00",
+  "updatedAt": "2026-11-17T10:45:36+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/tech-selection"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/tech-selection",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/tech-selection"
+  ],
+  "fileHashes": {
+    "SKILL.md": "9d2bc05842ff21c3b821cd294e2b84336a2a9dd8e50356c4aba101c9ba10af67",
+    "examples.md": "e4001be0293a5e0ff50ee166240f93e5c8134a3dcedd14c17f7b10ed9994a97a",
+    "reference.md": "2cf3a34291f9fc1e1066a0d90f19f7db97fa1036c36b254e733550c2aec6cd96"
+  }
+}

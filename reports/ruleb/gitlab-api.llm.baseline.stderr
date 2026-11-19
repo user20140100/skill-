@@ -1,0 +1,20 @@
+WARNING [skillspector.constants] Model 'qwen3.8-flash' (slot: default) not found in model_registry.yaml. Using fallback context length (128000). Token budgeting may be inaccurate — add the model to the registry or verify the model ID.
+WARNING [skillspector.constants] Model 'qwen3.8-flash' (slot: mcp_least_privilege) not found in model_registry.yaml. Using fallback context length (128000). Token budgeting may be inaccurate — add the model to the registry or verify the model ID.
+WARNING [skillspector.constants] Model 'qwen3.8-flash' (slot: mcp_rug_pull) not found in model_registry.yaml. Using fallback context length (128000). Token budgeting may be inaccurate — add the model to the registry or verify the model ID.
+WARNING [skillspector.constants] Model 'qwen3.8-flash' (slot: mcp_tool_poisoning) not found in model_registry.yaml. Using fallback context length (128000). Token budgeting may be inaccurate — add the model to the registry or verify the model ID.
+WARNING [skillspector.constants] Model 'qwen3.8-flash' (slot: semantic_developer_intent) not found in model_registry.yaml. Using fallback context length (128000). Token budgeting may be inaccurate — add the model to the registry or verify the model ID.
+WARNING [skillspector.constants] Model 'qwen3.8-flash' (slot: semantic_quality_policy) not found in model_registry.yaml. Using fallback context length (128000). Token budgeting may be inaccurate — add the model to the registry or verify the model ID.
+WARNING [skillspector.constants] Model 'qwen3.8-flash' (slot: semantic_security_discovery) not found in model_registry.yaml. Using fallback context length (128000). Token budgeting may be inaccurate — add the model to the registry or verify the model ID.
+WARNING [skillspector.constants] Model 'qwen3.8-flash' (slot: meta_analyzer) not found in model_registry.yaml. Using fallback context length (128000). Token budgeting may be inaccurate — add the model to the registry or verify the model ID.
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.
+WARNING [skillspector.llm_analyzer_base] LLM_REQUEST_FAILURE {"configured_output_cap": 32000, "error_class": "StructuredOutputParseError", "estimated_input_budget": 96000, "estimated_prompt_tokens": 242, "message_class": "other", "ordinal_scope": "analyzer_adapter_invocation", "prompt_bytes": 1025, "prompt_characters": 969, "provider_code": null, "request_id": null, "request_ordinal": 8, "status_code": null}
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.
+WARNING [skillspector.model_info] No token-limit info for model 'qwen3.8-flash' — using 128000-token default. Add the model to model_registry.yaml.

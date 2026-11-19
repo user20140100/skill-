@@ -1,0 +1,957 @@
+{
+  "agents": {
+    "opencode": {
+      "model": "openai/qwen3.8-flash",
+      "model_source": "CLI",
+      "model_resolution": {
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      },
+      "with_skill": {
+        "security": 1.0,
+        "skill_execution": 1.0,
+        "skill_efficiency": 1.0,
+        "accuracy": 1.0,
+        "goal_accuracy": 0.6667,
+        "behavior_check": 0.8333
+      },
+      "without_skill": {},
+      "overall_with_skill": 0.95,
+      "overall_without_skill": null,
+      "metrics_with_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "metrics_without_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "score_policy_with_skill": "skill-evaluator-dimension-mean-v1",
+      "score_policy_without_skill": "skill-evaluator-dimension-mean-v1",
+      "custom_with_skill": {},
+      "custom_without_skill": {},
+      "not_applicable_metrics": {
+        "with_skill": [],
+        "without_skill": [
+          "skill_execution",
+          "skill_efficiency"
+        ]
+      },
+      "dimensions_with_skill": {
+        "security": {
+          "score": 1.0,
+          "sources": {
+            "security": 1.0
+          }
+        },
+        "correctness": {
+          "score": 1.0,
+          "sources": {
+            "accuracy": 1.0
+          }
+        },
+        "discoverability": {
+          "score": 1.0,
+          "sources": {
+            "skill_execution": 1.0
+          }
+        },
+        "effectiveness": {
+          "score": 0.75,
+          "sources": {
+            "goal_accuracy": 0.5,
+            "behavior_check": 0.5
+          }
+        },
+        "efficiency": {
+          "score": 1.0,
+          "sources": {
+            "skill_efficiency": 1.0
+          }
+        }
+      },
+      "dimensions_without_skill": {},
+      "skill_activation": {
+        "status": "activated",
+        "positive_trials": 2,
+        "activated_trials": 2,
+        "unknown_trials": 0,
+        "reason": "Skill activation observed in with-skill trials"
+      },
+      "lift": {},
+      "custom_lift": {},
+      "pass_at_k": {
+        "with_skill": {
+          "k": 1,
+          "pass_threshold": 0.5,
+          "correct_answers": {
+            "correct": 2,
+            "scored": 3
+          },
+          "required_checks": {
+            "passed": 2,
+            "scored": 3,
+            "wrong_answer": 1,
+            "security": 0
+          },
+          "security_clean": {
+            "clean": 3,
+            "scored": 3
+          },
+          "stop_on_pass": false,
+          "passed_cases": 2,
+          "failed_cases": 1,
+          "total_cases": 3,
+          "rate": 0.6667,
+          "rate_interval": {
+            "method": "wilson_score",
+            "confidence_level": 0.95,
+            "lower": 0.2076596008020477,
+            "upper": 0.9385080552796037
+          },
+          "attempts_used": 3,
+          "max_attempts_possible": 3,
+          "avg_attempts_used": 1.0,
+          "extra_case_count": 0,
+          "extra_cases": [],
+          "extra_cases_truncated": false,
+          "case_details_total": 3,
+          "case_details_shown": 3,
+          "case_details_truncated": false,
+          "case_details_limit": 256,
+          "cases": {
+            "req-001": {
+              "passed": false,
+              "first_pass_attempt": null,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 0.8833,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "req-001__apwNBfp",
+                  "score": 0.8833,
+                  "passed": false,
+                  "goal_accuracy": 0.0,
+                  "reason": "goal not met (goal accuracy 0.00)",
+                  "warnings": [
+                    "missed expected step 6 of 6 (behavior 0.83)"
+                  ],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": "wrong_answer"
+                }
+              ],
+              "reason": "goal not met (goal accuracy 0.00)",
+              "warnings": [
+                "missed expected step 6 of 6 (behavior 0.83)"
+              ],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            },
+            "req-002": {
+              "passed": true,
+              "first_pass_attempt": 1,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 1.0,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "req-002__4k8pYqM",
+                  "score": 1.0,
+                  "passed": true,
+                  "goal_accuracy": 1.0,
+                  "reason": null,
+                  "warnings": [],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": null
+                }
+              ],
+              "reason": null,
+              "warnings": [],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            },
+            "req-003": {
+              "passed": true,
+              "first_pass_attempt": 1,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 0.9584,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "req-003__ZYdDpVL",
+                  "score": 0.9584,
+                  "passed": true,
+                  "goal_accuracy": 1.0,
+                  "reason": null,
+                  "warnings": [
+                    "missed expected step 2 of 3 (behavior 0.67)"
+                  ],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": null
+                }
+              ],
+              "reason": null,
+              "warnings": [
+                "missed expected step 2 of 3 (behavior 0.67)"
+              ],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            }
+          }
+        },
+        "without_skill": {},
+        "lift": {}
+      },
+      "security_attribution": {},
+      "agent_runtime_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "trial_failures": {
+        "with_skill": [],
+        "without_skill": [
+          {
+            "trial": "req-003__9rempEy",
+            "reason": "NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794990118208,\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"part\":{\"id\":\"prt_1edbf9537001zY4TVcSmSgi6Uf\",\"messageID\":\"msg_1edbe9f20001Hjxucjak3gQUuz\",\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"snapshot\":\"4b825dc642 ... [8931 chars truncated] ... Ao"
+          }
+        ]
+      },
+      "recovered_trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "failure_detail_metadata": {
+        "with_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "with_skill_trials": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_trials": {
+          "details_total": 1,
+          "details_shown": 1,
+          "details_truncated": false
+        }
+      },
+      "job_failures": {
+        "with_skill": "",
+        "without_skill": "Harbor job did not complete successfully: 1 errored"
+      },
+      "historical_job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "conditions": {
+        "with_skill": {
+          "execution_status": "succeeded",
+          "execution_errors": [],
+          "execution_error_details_total": 0,
+          "execution_error_details_shown": 0,
+          "execution_error_details_truncated": false,
+          "expected_cases": 3,
+          "scored_cases": 3,
+          "expected_attempts": 3,
+          "scored_attempts": 3,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 0,
+          "reward_failure_details_shown": 0,
+          "reward_failure_details_truncated": false
+        },
+        "without_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 1 errored",
+            "Unscoreable reward in req-003__9rempEy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794990118208,\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"part\":{\"id\":\"prt_1edbf9537001zY4TVcSmSgi6Uf\",\"messageID\":\"msg_1edbe9f20001Hjxucjak3gQUuz\",\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"snapshot\":\"4b825dc642 ... [8931 chars truncated] ... Ao",
+            "Missing scored attempts for cases: req-003",
+            "Scored attempt coverage is 2/3"
+          ],
+          "execution_error_details_total": 4,
+          "execution_error_details_shown": 4,
+          "execution_error_details_truncated": false,
+          "expected_cases": 3,
+          "scored_cases": 2,
+          "expected_attempts": 3,
+          "scored_attempts": 2,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 1,
+          "reward_failure_details_shown": 1,
+          "reward_failure_details_truncated": false
+        }
+      },
+      "execution_status": "failed",
+      "execution_errors": [
+        "Harbor job did not complete successfully: 1 errored",
+        "Unscoreable reward in req-003__9rempEy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794990118208,\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"part\":{\"id\":\"prt_1edbf9537001zY4TVcSmSgi6Uf\",\"messageID\":\"msg_1edbe9f20001Hjxucjak3gQUuz\",\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"snapshot\":\"4b825dc642 ... [8931 chars truncated] ... Ao",
+        "Missing scored attempts for cases: req-003",
+        "Scored attempt coverage is 2/3"
+      ],
+      "execution_error_details_total": 4,
+      "execution_error_details_shown": 4,
+      "execution_error_details_truncated": false,
+      "expected_attempts": 6,
+      "scored_attempts": 5,
+      "num_trials_with": 3,
+      "num_trials_without": 2,
+      "execution_counts": {
+        "fresh": {
+          "with_skill": 3,
+          "without_skill": 3
+        },
+        "reused": {
+          "without_skill": 0
+        }
+      },
+      "measured_usage": {
+        "fresh": {
+          "with_skill": {
+            "total_prompt_tokens": 118218,
+            "total_completion_tokens": 4300,
+            "total_cached_tokens": 91648,
+            "total_cost_usd": null
+          },
+          "without_skill": null
+        },
+        "reused": {
+          "without_skill": null
+        }
+      },
+      "output_dir": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_081749_1_ab3ea315d9a1/opencode",
+      "dataset_sufficiency": {
+        "policy": "dataset-sufficiency-v1",
+        "status": "provisional",
+        "coverage_summary": "Dataset size: provisional \u2014 3 cases (policy needs 10), 1 negative case (needs 1); pass-rate interval \u00b10.37 is wider than \u00b10.20 (policy dataset-sufficiency-v1)",
+        "checks": [
+          {
+            "name": "coverage",
+            "met": false,
+            "observed": {
+              "distinct_cases": 3,
+              "negative_cases": 1
+            },
+            "required": {
+              "distinct_cases": 10,
+              "negative_cases": 1
+            },
+            "reason": "3 distinct cases and 1 negative cases; requires 10 and 1"
+          },
+          {
+            "name": "pass_rate_reliability",
+            "met": false,
+            "observed": {
+              "interval_half_width": 0.365424227238778
+            },
+            "required": {
+              "interval_half_width": 0.2
+            },
+            "reason": "95% Wilson interval half-width 0.37 exceeds 0.20"
+          },
+          {
+            "name": "lift_comparison",
+            "met": null,
+            "observed": {
+              "paired_cases": null
+            },
+            "required": {
+              "paired_cases": 10
+            },
+            "reason": "Paired-case count is unavailable"
+          }
+        ],
+        "reason": "provisional: 3 distinct cases and 1 negative cases; requires 10 and 1; 95% Wilson interval half-width 0.37 exceeds 0.20; Paired-case count is unavailable"
+      }
+    }
+  },
+  "metric_set": "skill-evaluator-default-v2",
+  "metrics": [
+    "security",
+    "skill_execution",
+    "skill_efficiency",
+    "accuracy",
+    "goal_accuracy",
+    "behavior_check"
+  ],
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "attempt_policy": {
+    "max_attempts": 1,
+    "pass_threshold": 0.5,
+    "stop_on_pass": false,
+    "score_definition": "overall = mean(Security, Correctness, Discoverability, Effectiveness, Efficiency) [skill-evaluator-dimension-mean-v1], excluding metrics that are not applicable to a case",
+    "score_policy": "skill-evaluator-dimension-mean-v1"
+  },
+  "execution_status": "failed",
+  "execution_errors": [
+    "Harbor job did not complete successfully: 1 errored",
+    "Unscoreable reward in req-003__9rempEy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794990118208,\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"part\":{\"id\":\"prt_1edbf9537001zY4TVcSmSgi6Uf\",\"messageID\":\"msg_1edbe9f20001Hjxucjak3gQUuz\",\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"snapshot\":\"4b825dc642 ... [8931 chars truncated] ... Ao",
+    "Missing scored attempts for cases: req-003",
+    "Scored attempt coverage is 2/3",
+    "opencode without-skill Harbor run failed: Harbor job did not complete successfully: 1 errored"
+  ],
+  "execution_error_details_total": 5,
+  "execution_error_details_shown": 5,
+  "execution_error_details_truncated": false,
+  "expected_attempts": 6,
+  "scored_attempts": 5,
+  "error": [
+    "Harbor job did not complete successfully: 1 errored"
+  ],
+  "baseline": {
+    "mode": "fresh"
+  },
+  "comparison_identity": {
+    "config": {
+      "harbor": {
+        "environment": {
+          "value": "docker",
+          "source": "CLI"
+        },
+        "environment_kwargs": {
+          "keys": [],
+          "sources": {},
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "n_attempts": 1,
+        "stop_on_pass": false,
+        "timeout_multiplier": 3.0,
+        "base_image_mode": "reuse",
+        "resources": {
+          "cpus": null,
+          "memory_mb": null,
+          "storage_mb": null
+        },
+        "agent_workdir": null,
+        "custom_dockerfile_mode": "rebase",
+        "runtime_env": {
+          "keys": [],
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        }
+      },
+      "provider": {
+        "name": "openai-compatible",
+        "model": "qwen3.8-flash"
+      },
+      "judge": {
+        "enabled": true,
+        "provider": "openai-compatible",
+        "model": "qwen3.8-flash",
+        "source": "SKILL_EVAL_LLM_MODEL",
+        "override_applied": false,
+        "reasoning_effort": null,
+        "catalog_verification": "degraded"
+      },
+      "task_source": "evals_json",
+      "grading": {
+        "mode": "default"
+      },
+      "skill_workspace": {
+        "mode": "isolated"
+      },
+      "copy_repo": false,
+      "repo_context_exclude_paths": [],
+      "agents": {
+        "opencode": {
+          "agent": "opencode",
+          "model": "openai/qwen3.8-flash",
+          "source": "CLI"
+        }
+      },
+      "baseline_task_tree_digest": "sha256:0cb9797d68147523f1eb0625ee606b68fc7a73a1d5896773ecdf5ef2b0ed8adc"
+    },
+    "dataset_digest": "sha256:d59e99f13f7cedf5692f67fdc3fbb33f6dca4170e91bde5028224dbcf954c8f9",
+    "identity_dataset_digest": "sha256:4fdc307d7e64c8abcec1088ffcbb2905af14498ff8e95b641eee8a6b96d9c126",
+    "baseline_task_tree_digest": "sha256:0cb9797d68147523f1eb0625ee606b68fc7a73a1d5896773ecdf5ef2b0ed8adc",
+    "expected_case_ids": [
+      "req-001",
+      "req-002",
+      "req-003"
+    ],
+    "attempt_policy": {
+      "max_attempts": 1,
+      "pass_threshold": 0.5,
+      "stop_on_pass": false
+    },
+    "score_policy": "skill-evaluator-dimension-mean-v1",
+    "evaluator_version": "0.9.0",
+    "skill": {
+      "evaluated_source": null,
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:f31ec2bbec06407886602e7ef7899c78690915f81de7b65702d09b090ec38482",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      }
+    }
+  },
+  "expected_case_ids": [
+    "req-001",
+    "req-002",
+    "req-003"
+  ],
+  "skill_name": "requirement-analysis-pro",
+  "run_id": "20261118_081749_1_ab3ea315d9a1",
+  "publication_target": {
+    "skill_name": "requirement-analysis-pro",
+    "skill_digest": "sha256:f31ec2bbec06407886602e7ef7899c78690915f81de7b65702d09b090ec38482",
+    "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+  },
+  "run_dir": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_081749_1_ab3ea315d9a1",
+  "result_path": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_081749_1_ab3ea315d9a1/result.json",
+  "harbor_jobs_dir": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_081749_1_ab3ea315d9a1/_harbor-jobs",
+  "harbor_jobs_retained": false,
+  "evaluated_at": "2026-11-18T08:22:42.795974+00:00",
+  "evaluator_version": "0.9.0",
+  "dataset_snapshot": {
+    "schema_version": "1.1",
+    "evaluator_version": "0.9.0",
+    "dataset_summary": {
+      "total_tasks": 3,
+      "positive_tasks": 2,
+      "negative_tasks": 1,
+      "unclassified_tasks": 0,
+      "source": "dataset"
+    },
+    "dataset_digest": "sha256:d59e99f13f7cedf5692f67fdc3fbb33f6dca4170e91bde5028224dbcf954c8f9",
+    "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1"
+  },
+  "dataset_snapshot_path": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_081749_1_ab3ea315d9a1/dataset_snapshot.json",
+  "dataset_summary": {
+    "total_tasks": 3,
+    "positive_tasks": 2,
+    "negative_tasks": 1,
+    "unclassified_tasks": 0,
+    "source": "dataset"
+  },
+  "dataset_digest": "sha256:d59e99f13f7cedf5692f67fdc3fbb33f6dca4170e91bde5028224dbcf954c8f9",
+  "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1",
+  "identity_dataset_digest": "sha256:4fdc307d7e64c8abcec1088ffcbb2905af14498ff8e95b641eee8a6b96d9c126",
+  "baseline_task_tree_digest": "sha256:0cb9797d68147523f1eb0625ee606b68fc7a73a1d5896773ecdf5ef2b0ed8adc",
+  "budget": {
+    "limits": {
+      "max_agent_tokens": null,
+      "max_judge_calls": null,
+      "max_attempts_total": null,
+      "max_cost_usd": null
+    },
+    "planned_attempts": 6,
+    "started_attempts": 0,
+    "finished_attempts": 0,
+    "unmeasured_attempts": {
+      "agent_tokens": 0,
+      "judge_calls": 0,
+      "cost_usd": 0
+    },
+    "used": {
+      "agent_tokens": "not measured",
+      "judge_calls": "not measured",
+      "cost_usd": "not measured"
+    },
+    "status": "ok",
+    "partial": false,
+    "exhausted_limit": null,
+    "exhausted_basis": null,
+    "attempts_not_run": 0,
+    "not_run": [],
+    "charge_coverage": {
+      "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+      "attempts_by_derivation": {
+        "price_file": 0,
+        "provider_reported": 0,
+        "unmeasured": 0
+      },
+      "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+      "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+      "environment_setup": "not included",
+      "container": "not included",
+      "backend": "not included",
+      "infrastructure": "not included"
+    },
+    "reservation": {
+      "policy": "largest_measured_attempt",
+      "estimate_per_attempt": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "in_flight_attempts": 0,
+      "waits": 0,
+      "unestimated_admissions": 0,
+      "calibration_waits": 0,
+      "estimate_denials": 0,
+      "denied_unit_size": 0
+    },
+    "observed_overruns": {}
+  },
+  "dataset_provenance": null,
+  "run_config": {
+    "config_file": "evals/config.yml",
+    "harbor": {
+      "environment": {
+        "value": "docker",
+        "source": "CLI"
+      },
+      "environment_kwargs": {
+        "keys": [],
+        "sources": {},
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "n_attempts": 1,
+      "stop_on_pass": false,
+      "n_concurrent": 4,
+      "timeout_multiplier": 3.0,
+      "base_image_mode": "reuse",
+      "resources": {
+        "cpus": null,
+        "memory_mb": null,
+        "storage_mb": null
+      },
+      "agent_workdir": null,
+      "custom_dockerfile_mode": "rebase",
+      "runtime_env": {
+        "keys": [],
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "jobs_retained": false
+    },
+    "provider": {
+      "name": "openai-compatible",
+      "model": "qwen3.8-flash"
+    },
+    "judge": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "qwen3.8-flash",
+      "source": "SKILL_EVAL_LLM_MODEL",
+      "override_applied": false,
+      "reasoning_effort": null,
+      "catalog_verification": "degraded"
+    },
+    "credential_validation": {
+      "status": "degraded",
+      "targets": [
+        {
+          "labels": [
+            "opencode",
+            "standard grader"
+          ],
+          "provider": "openai-compatible",
+          "model": "qwen3.8-flash",
+          "status": "degraded",
+          "detail": "model catalog access does not verify runtime credentials for this endpoint"
+        }
+      ]
+    },
+    "task_source": "evals_json",
+    "grading": {
+      "mode": "default"
+    },
+    "skill_workspace": {
+      "mode": "isolated"
+    },
+    "copy_repo": false,
+    "repo_context_exclude_paths": [],
+    "agents": {
+      "opencode": {
+        "agent": "opencode",
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      }
+    },
+    "evaluated_source": null,
+    "baseline_task_tree_digest": "sha256:0cb9797d68147523f1eb0625ee606b68fc7a73a1d5896773ecdf5ef2b0ed8adc",
+    "baseline": {
+      "mode": "fresh"
+    },
+    "budget": {
+      "limits": {
+        "max_agent_tokens": null,
+        "max_judge_calls": null,
+        "max_attempts_total": null,
+        "max_cost_usd": null
+      },
+      "planned_attempts": 6,
+      "started_attempts": 0,
+      "finished_attempts": 0,
+      "unmeasured_attempts": {
+        "agent_tokens": 0,
+        "judge_calls": 0,
+        "cost_usd": 0
+      },
+      "used": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "status": "ok",
+      "partial": false,
+      "exhausted_limit": null,
+      "exhausted_basis": null,
+      "attempts_not_run": 0,
+      "not_run": [],
+      "charge_coverage": {
+        "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+        "attempts_by_derivation": {
+          "price_file": 0,
+          "provider_reported": 0,
+          "unmeasured": 0
+        },
+        "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+        "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+        "environment_setup": "not included",
+        "container": "not included",
+        "backend": "not included",
+        "infrastructure": "not included"
+      },
+      "reservation": {
+        "policy": "largest_measured_attempt",
+        "estimate_per_attempt": {
+          "agent_tokens": "not measured",
+          "judge_calls": "not measured",
+          "cost_usd": "not measured"
+        },
+        "in_flight_attempts": 0,
+        "waits": 0,
+        "unestimated_admissions": 0,
+        "calibration_waits": 0,
+        "estimate_denials": 0,
+        "denied_unit_size": 0
+      },
+      "observed_overruns": {}
+    }
+  },
+  "partial": false,
+  "dataset_sufficiency": {
+    "policy": "dataset-sufficiency-v1",
+    "status": "provisional",
+    "coverage_summary": "Dataset size: provisional \u2014 3 cases (policy needs 10), 1 negative case (needs 1); pass-rate interval \u00b10.37 is wider than \u00b10.20 (policy dataset-sufficiency-v1)",
+    "checks": [
+      {
+        "name": "coverage",
+        "met": false,
+        "observed": {
+          "distinct_cases": 3,
+          "negative_cases": 1
+        },
+        "required": {
+          "distinct_cases": 10,
+          "negative_cases": 1
+        },
+        "reason": "3 distinct cases and 1 negative cases; requires 10 and 1"
+      },
+      {
+        "name": "pass_rate_reliability",
+        "met": false,
+        "observed": {
+          "interval_half_width": 0.365424227238778
+        },
+        "required": {
+          "interval_half_width": 0.2
+        },
+        "reason": "95% Wilson interval half-width 0.37 exceeds 0.20"
+      },
+      {
+        "name": "lift_comparison",
+        "met": null,
+        "observed": {
+          "paired_cases": null
+        },
+        "required": {
+          "paired_cases": 10
+        },
+        "reason": "Paired-case count is unavailable"
+      }
+    ],
+    "reason": "provisional: 3 distinct cases and 1 negative cases; requires 10 and 1; 95% Wilson interval half-width 0.37 exceeds 0.20; Paired-case count is unavailable"
+  },
+  "harbor_jobs_retention_reason": "not_retained",
+  "tier3_feedback": {
+    "schema_version": "1.0",
+    "conclusions": [
+      {
+        "severity": "warn",
+        "title": "Skill effect",
+        "message": "per-case result: inconclusive (opencode: condition execution is incomplete).",
+        "source": "deterministic"
+      },
+      {
+        "severity": "fail",
+        "title": "Evaluation incomplete",
+        "message": "Harbor job did not complete successfully: 1 errored; Unscoreable reward in req-003__9rempEy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794990118208,\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"part\":{\"id\":\"prt_1edbf9537001zY4TVcSmSgi6Uf\",\"messageID\":\"msg_1edbe9f20001Hjxucjak3gQUuz\",\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"snapshot\":\"4b825dc642 ... [8931 chars truncated] ... Ao; Missing scored attempts for cases: req-003; Scored attempt coverage is 2/3; Without skill aggregate job: Harbor job did not complete successfully: 1 errored; Without skill trial req-003__9rempEy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794990118208,\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"part\":{\"id\":\"prt_1edbf9537001zY4TVcSmSgi6Uf\",\"messageID\":\"msg_1edbe9f20001Hjxucjak3gQUuz\",\"sessionID\":\"ses_e12416389ffej38AoyKO2pk16I\",\"snapshot\":\"4b825dc642 ... [8931 chars truncated] ... Ao"
+      }
+    ],
+    "recommendations": [
+      {
+        "title": "req-001 \u00b7 opencode",
+        "category": "skill",
+        "message": "No acceptance criteria or checklist is present.; The document is otherwise complete but omits the acceptance criteria explicitly required in the expected outcome. Fix: SKILL.md section 1: for any request for a complete requirement document, default output must include acceptance criteria/checklist covering key behaviors. Evidence: opencode/with-skill/trials/req-001__apwNBfp/trajectory.json",
+        "severity": "warn",
+        "source": "llm"
+      }
+    ],
+    "suggestions": [
+      "SKILL.md section 1: for any request for a complete requirement document, default output must include acceptance criteria/checklist covering key behaviors."
+    ],
+    "suggestions_v2": []
+  },
+  "token_usage": {
+    "schema_version": "1",
+    "scored": false,
+    "accounting": {
+      "prompt_includes_cached": true,
+      "total_tokens": "prompt_tokens + completion_tokens",
+      "uncached_prompt_tokens": "prompt_tokens - cached_tokens",
+      "change": "with_skill - baseline total_tokens; percent of the baseline total"
+    },
+    "case_id_validation": {
+      "status": "validated",
+      "dataset_case_ids": 3,
+      "unmatched_case_ids": []
+    },
+    "agents": {
+      "opencode": {
+        "with_skill": {
+          "totals": {
+            "prompt_tokens": 118218,
+            "cached_tokens": 91648,
+            "uncached_prompt_tokens": 26570,
+            "completion_tokens": 4300,
+            "total_tokens": 122518
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 3,
+            "observed_attempts": 3,
+            "measured_attempts": 3,
+            "unscored_attempts": 0,
+            "reason_codes": []
+          }
+        },
+        "baseline": {
+          "totals": {
+            "prompt_tokens": 53945,
+            "cached_tokens": 50176,
+            "uncached_prompt_tokens": 3769,
+            "completion_tokens": 4313,
+            "total_tokens": 58258
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 3,
+            "observed_attempts": 3,
+            "measured_attempts": 3,
+            "unscored_attempts": 1,
+            "reason_codes": []
+          }
+        },
+        "delta": {
+          "status": "unavailable",
+          "total_tokens": null,
+          "total_tokens_change_percent": null,
+          "reason_codes": [
+            "baseline_failed"
+          ],
+          "reason": "No change: baseline incomplete (2 of 3 attempts scored)."
+        }
+      }
+    },
+    "dataset": {
+      "with_skill": {
+        "totals": {
+          "prompt_tokens": 118218,
+          "cached_tokens": 91648,
+          "uncached_prompt_tokens": 26570,
+          "completion_tokens": 4300,
+          "total_tokens": 122518
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 3,
+          "observed_attempts": 3,
+          "measured_attempts": 3,
+          "unscored_attempts": 0,
+          "reason_codes": []
+        }
+      },
+      "baseline": {
+        "totals": {
+          "prompt_tokens": 53945,
+          "cached_tokens": 50176,
+          "uncached_prompt_tokens": 3769,
+          "completion_tokens": 4313,
+          "total_tokens": 58258
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 3,
+          "observed_attempts": 3,
+          "measured_attempts": 3,
+          "unscored_attempts": 1,
+          "reason_codes": []
+        }
+      },
+      "delta": {
+        "status": "unavailable",
+        "total_tokens": null,
+        "total_tokens_change_percent": null,
+        "reason_codes": [
+          "agent_scope_mismatch"
+        ],
+        "reason": "Not every agent has a token change, so there is no change over all agents."
+      }
+    }
+  },
+  "report_path": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_081749_1_ab3ea315d9a1/report.html",
+  "benchmark_path": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_081749_1_ab3ea315d9a1/tier3-benchmark.md",
+  "report_status": "complete",
+  "duration_seconds": 314.854,
+  "result_projection": {
+    "schema_version": "1.0",
+    "mode": "inline",
+    "returned_result": "full",
+    "persisted_result": "inline",
+    "agents": {},
+    "omitted_detail_fields": {},
+    "omitted_root_detail_fields": []
+  }
+}

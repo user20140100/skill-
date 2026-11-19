@@ -1,0 +1,3066 @@
+{
+  "version": "0.9.0",
+  "target_path": "/skills/library-20261118/G9/general-problem-handling",
+  "overall_passed": true,
+  "overall_status": "passed",
+  "incomplete_scans": [],
+  "total_validators": 13,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 0,
+  "total_warnings": 28,
+  "severity_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 10,
+    "low": 12
+  },
+  "finding_counts": {
+    "raw_occurrences": 25,
+    "distinct_occurrences": 25,
+    "unique_findings": 25,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 0,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 10,
+      "low": 12,
+      "info": 3
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 10,
+      "low": 12,
+      "info": 3
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-03e029934351881ba688",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-RELOAD",
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-9bdb6bff20e28bdaf173",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0779d5fe291572577573",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Skill Enumeration (AS3)",
+      "message": "Agent Snooping: ls metadata \u7684 `canonicalPath` \u4e3a\u4e8b\u5b9e\u6e90\uff0c\u4e0d\u4ee5 `.claude/skills` \u6216 `.codex/skills",
+      "suggestion": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills. Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "metadata": {
+        "skillspector_confidence": 0.85,
+        "artifact_type": "skill",
+        "file_role": "agent_reference",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-9595137359970109c9e1",
+          "validator": "Security Scan",
+          "file_path": "references/cskills-loading.md",
+          "line_number": 18
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0d2215183b14101ae2c2",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_correctness",
+      "message": "No examples provided",
+      "suggestion": "Add example usage with code blocks",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-50500ad5928868e88a76",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0f3cde56a46498377f1a",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description doesn't mention WHEN to use this skill",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c6c0c61b90e27d91cd1f",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-14fd6942eaddb9a936a8",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Skill Enumeration (AS3)",
+      "message": "Agent Snooping: ls metadata \u7684 `canonicalPath` \u4e3a\u4e8b\u5b9e\u6e90,\u4e0d\u4ee5 `.claude/skills` \u6216 `.codex/skills",
+      "suggestion": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills. Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "metadata": {
+        "skillspector_confidence": 0.85,
+        "artifact_type": "skill",
+        "file_role": "agent_reference",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-9001da9ce1f380aa10a1",
+          "validator": "Security Scan",
+          "file_path": "references/cskills-loading.md",
+          "line_number": 18
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-18a7f8cc53f607ef9645",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "folder_hierarchy",
+      "message": "Unexpected nesting depth for general skill",
+      "suggestion": "General skills should be at: skills/<skill-name>/",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-ac30d895312f5de85ced",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-29923f4d680e578e37e3",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "description_trigger",
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "suggestion": "State when to use the skill within the first 60 characters",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-62b93350e6b4736ad73f",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2ab016a817c566724ba9",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Instructions'",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+      "metadata": {
+        "missing_section": "## Instructions"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-60634961a5fd19135962",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3661379ea9e5c1072875",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-RELOAD",
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-d3eab232762d7bf3815c",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-378f24adfec67572e606",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No troubleshooting section documented",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-450b9cb3dc0a686f4dcf",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4a6560f4aec006f302f9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No prerequisites/requirements documented",
+      "suggestion": "Document dependencies, API keys, or setup needed",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-9543c1579b2980b2be8a",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6b66555d1029e567b59c",
+      "category": "UNICODE",
+      "severity": "low",
+      "check_name": "isolated_invisible_char",
+      "message": "Isolated invisible character(s) (1): VARIATION SELECTOR-16",
+      "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+      "metadata": {
+        "char_count": 1,
+        "unicode_category": "variation_selectors"
+      },
+      "validators": [
+        "Unicode Smuggling Detection"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-7e116fe772524f2770db",
+          "validator": "Unicode Smuggling Detection",
+          "file_path": "references/decision-rules.md",
+          "line_number": 264
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6d68dab37ccc357a6814",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "Instructions don't mention 'run_script'",
+      "suggestion": "Add explicit run_script() call examples",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-1e8324988244f0caf8ec",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-740453e5661b3b5b6f1e",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "No documented scripts in table format",
+      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-0a2e2d0e8c16e8269d1b",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "author_missing",
+      "message": "Author not specified in metadata",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+      "metadata": {
+        "profile": "default"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-dbab0db28ec237e17715",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-9612bbfb3f32d491ac5d",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No mention of error handling or validation",
+      "suggestion": "Document expected errors and how to handle them",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-bf8aa50d73c9a171226d",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b28f818a5fc2daa26f71",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "unknown_field",
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+      "suggestion": "Remove them or move them under 'metadata'",
+      "metadata": {
+        "fields": [
+          "author",
+          "version"
+        ]
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b1419294638d9a7fa665",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "No '## Purpose' section",
+      "suggestion": "Add purpose section to clarify use cases",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4d5affb11934f675a557",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e4ce3d069e6bc6d56470",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-c7c369d46f4692f822e5",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description very long (289 chars, recommend 50-150)",
+      "suggestion": "Keep descriptions concise for progressive disclosure",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-76f57b7ace55a5f7044a",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-6b469df366b17b0357c0",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e0623bdfb91d6bbb829f",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-DESC-60",
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-61d9d300e36838f2f161",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e3f5c930756d6b8f695b",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Examples'",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+      "metadata": {
+        "missing_section": "## Examples"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3c4cccb9060160fa1031",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e6bee2b3f281ff07e52f",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_discoverability",
+      "message": "Description contains vague words",
+      "suggestion": "Be specific about what this skill does",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 15
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-235f2a153300cf8a97f5",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-fc6fe3747c071963a76e",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No limitations documented",
+      "suggestion": "Add '## Limitations' section with known issues/constraints",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-79cba2185bae641c070e",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 3,
+    "independent_errors": 0,
+    "independent_warnings": 2
+  },
+  "skills": [
+    {
+      "name": "general-problem-handling",
+      "passed": true,
+      "issue_count": 25
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Unknown",
+      "items": [
+        {
+          "name": "general-problem-handling",
+          "passed": true,
+          "issue_count": 25
+        }
+      ],
+      "total_items": 1,
+      "passed_count": 1,
+      "failed_count": 0,
+      "total_issues": 25
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "Agent Snooping",
+      "severity": "medium",
+      "total_count": 2,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "SECURITY",
+      "suggestion": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills. Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation."
+    },
+    {
+      "message": "Unexpected nesting depth for general skill",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "General skills should be at: skills/<skill-name>/"
+    },
+    {
+      "message": "Missing recommended section: '## Instructions'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics."
+    },
+    {
+      "message": "Missing recommended section: '## Examples'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped."
+    },
+    {
+      "message": "No documented scripts in table format",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
+    },
+    {
+      "message": "Instructions don't mention 'run_script'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add explicit run_script() call examples"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+      "message": "Description contains vague words",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Be specific about what this skill does"
+    },
+    {
+      "message": "Author not specified in metadata",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address"
+    },
+    {
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "State when to use the skill within the first 60 characters"
+    },
+    {
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Remove them or move them under 'metadata'"
+    },
+    {
+      "message": "Isolated invisible character(s) (1): VARIATION SELECTOR-16",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "UNICODE",
+      "suggestion": "Likely a copy-paste artifact. Remove if not intentional."
+    },
+    {
+      "message": "No examples provided",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add example usage with code blocks"
+    },
+    {
+      "message": "Description very long (289 chars, recommend 50-150)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Keep descriptions concise for progressive disclosure"
+    },
+    {
+      "message": "Description doesn't mention WHEN to use this skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'"
+    },
+    {
+      "message": "No '## Purpose' section",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add purpose section to clarify use cases"
+    },
+    {
+      "message": "No mention of error handling or validation",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document expected errors and how to handle them"
+    },
+    {
+      "message": "No prerequisites/requirements documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document dependencies, API keys, or setup needed"
+    },
+    {
+      "message": "No limitations documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Limitations' section with known issues/constraints"
+    },
+    {
+      "message": "No troubleshooting section documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns"
+    },
+    {
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters."
+    },
+    {
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "general-problem-handling"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    }
+  ],
+  "results": [
+    {
+      "validator": "Schema & Repository Governance",
+      "description": "Validate SKILL.md frontmatter and repository structure",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 7,
+        "errors": 0,
+        "warnings": 7,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 3,
+        "low_count": 3
+      },
+      "finding_counts": {
+        "raw_occurrences": 6,
+        "distinct_occurrences": 6,
+        "unique_findings": 6,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 3,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 3,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-18a7f8cc53f607ef9645",
+          "occurrence_id": "SEO-ac30d895312f5de85ced",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "folder_hierarchy",
+          "message": "Unexpected nesting depth for general skill",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "General skills should be at: skills/<skill-name>/",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-2ab016a817c566724ba9",
+          "occurrence_id": "SEO-60634961a5fd19135962",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Instructions'",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+          "metadata": {
+            "missing_section": "## Instructions"
+          }
+        },
+        {
+          "finding_id": "SEF-e3f5c930756d6b8f695b",
+          "occurrence_id": "SEO-3c4cccb9060160fa1031",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Examples'",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+          "metadata": {
+            "missing_section": "## Examples"
+          }
+        },
+        {
+          "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+          "occurrence_id": "SEO-dbab0db28ec237e17715",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "author_missing",
+          "message": "Author not specified in metadata",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+          "metadata": {
+            "profile": "default"
+          }
+        },
+        {
+          "finding_id": "SEF-29923f4d680e578e37e3",
+          "occurrence_id": "SEO-62b93350e6b4736ad73f",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "description_trigger",
+          "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "State when to use the skill within the first 60 characters",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-b28f818a5fc2daa26f71",
+          "occurrence_id": "SEO-b1419294638d9a7fa665",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "unknown_field",
+          "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Remove them or move them under 'metadata'",
+          "metadata": {
+            "fields": [
+              "author",
+              "version"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "manifest_exists",
+          "message": "Found skill manifest: SKILL.md",
+          "metadata": {
+            "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md"
+          }
+        },
+        {
+          "check": "frontmatter_valid",
+          "message": "Valid frontmatter for skill 'general-problem-handling'",
+          "metadata": {
+            "description_length": 289
+          }
+        },
+        {
+          "check": "naming_convention",
+          "message": "Folder name 'general-problem-handling' follows kebab-case convention",
+          "metadata": {
+            "name_length": 24
+          }
+        },
+        {
+          "check": "line_count",
+          "message": "SKILL.md within line limit (67/500)",
+          "metadata": {
+            "line_count": 67,
+            "limit": 500
+          }
+        },
+        {
+          "check": "body_heading",
+          "message": "Body contains a top-level heading",
+          "metadata": null
+        },
+        {
+          "check": "optional_files",
+          "message": "Found optional supporting files: references, scripts",
+          "metadata": {
+            "files_found": [
+              "references",
+              "scripts"
+            ]
+          }
+        },
+        {
+          "check": "name_consistency",
+          "message": "Directory name matches frontmatter: 'general-problem-handling'",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCHEMA-MEDIUM] Unexpected nesting depth for general skill in /skills/library-20261118/G9/general-problem-handling",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Instructions' in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Examples' in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[SCHEMA-LOW] Author not specified in metadata in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[SCHEMA-LOW] Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[SCHEMA-LOW] Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "Workflow scope: llm skipped. LLM checks disabled by --no-llm."
+        ],
+        "messages": [
+          "[OK] manifest_exists: Found skill manifest: SKILL.md",
+          "[OK] frontmatter_valid: Valid frontmatter for skill 'general-problem-handling'",
+          "[OK] naming_convention: Folder name 'general-problem-handling' follows kebab-case convention",
+          "[OK] line_count: SKILL.md within line limit (67/500)",
+          "[OK] body_heading: Body contains a top-level heading",
+          "[OK] optional_files: Found optional supporting files: references, scripts",
+          "[OK] name_consistency: Directory name matches frontmatter: 'general-problem-handling'"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "schema"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Semantic Version Validation",
+      "description": "Validate optional metadata.version labels and require strict bumps",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "version_optional",
+          "message": "No semantic version label present; resource will use commit-hash history",
+          "metadata": {
+            "previous_version": null
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] version_optional: No semantic version label present; resource will use commit-hash history"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "version"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Security Scan",
+      "description": "Detect security vulnerabilities and PII/secrets",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "skillspector": "2.13.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 2,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 2,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 2,
+        "distinct_occurrences": 2,
+        "unique_findings": 2,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-14fd6942eaddb9a936a8",
+          "occurrence_id": "SEO-9001da9ce1f380aa10a1",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Skill Enumeration (AS3)",
+          "message": "Agent Snooping: ls metadata \u7684 `canonicalPath` \u4e3a\u4e8b\u5b9e\u6e90,\u4e0d\u4ee5 `.claude/skills` \u6216 `.codex/skills",
+          "file_path": "references/cskills-loading.md",
+          "line_number": 18,
+          "line_content": "\n## \u672c\u5730\u9009\u62e9\u4e0e\u5b89\u88c5\n\n1. \u6309\u201c\u5f53\u524d\u9879\u76ee canonical \u2192 \u5168\u5c40 canonical \u2192 \u672a\u5b89\u88c5\u201d\u68c0\u67e5;\u4ee5 CSkills metadata \u7684 `canonicalPath` \u4e3a\u4e8b\u5b9e\u6e90,\u4e0d\u4ee5 `.claude/skills` \u6216 `.codex/skills` \u94fe\u63a5\u4e3a\u51c6\u3002\n2. \u6821\u9a8c package name\u3001`SKILL.md` frontmatter `name`\u3001canonica",
+          "suggestion": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills. Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+          "metadata": {
+            "skillspector_confidence": 0.85,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-0779d5fe291572577573",
+          "occurrence_id": "SEO-9595137359970109c9e1",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Skill Enumeration (AS3)",
+          "message": "Agent Snooping: ls metadata \u7684 `canonicalPath` \u4e3a\u4e8b\u5b9e\u6e90\uff0c\u4e0d\u4ee5 `.claude/skills` \u6216 `.codex/skills",
+          "file_path": "references/cskills-loading.md",
+          "line_number": 18,
+          "line_content": "\n## \u672c\u5730\u9009\u62e9\u4e0e\u5b89\u88c5\n\n1. \u6309\u201c\u5f53\u524d\u9879\u76ee canonical \u2192 \u5168\u5c40 canonical \u2192 \u672a\u5b89\u88c5\u201d\u68c0\u67e5\uff1b\u4ee5 CSkills metadata \u7684 `canonicalPath` \u4e3a\u4e8b\u5b9e\u6e90\uff0c\u4e0d\u4ee5 `.claude/skills` \u6216 `.codex/skills` \u94fe\u63a5\u4e3a\u51c6\u3002\n2. \u6821\u9a8c package name\u3001`SKILL.md` frontmatter `name`\u3001canonica",
+          "suggestion": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills. Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+          "metadata": {
+            "skillspector_confidence": 0.85,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "skillspector",
+          "message": "Security scan completed - 2 advisory finding(s) (no critical/high issues)",
+          "metadata": {
+            "issue_count": 2
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SECURITY-MEDIUM] Agent Snooping: ls metadata \u7684 `canonicalPath` \u4e3a\u4e8b\u5b9e\u6e90,\u4e0d\u4ee5 `.claude/skills` \u6216 `.codex/skills in references/cskills-loading.md:18",
+          "[SECURITY-MEDIUM] Agent Snooping: ls metadata \u7684 `canonicalPath` \u4e3a\u4e8b\u5b9e\u6e90\uff0c\u4e0d\u4ee5 `.claude/skills` \u6216 `.codex/skills in references/cskills-loading.md:18"
+        ],
+        "messages": [
+          "[OK] skillspector: Security scan completed - 2 advisory finding(s) (no critical/high issues)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "skillspector_version": "2.13.4",
+      "skillspector_applicability": {
+        "artifact_type": "skill",
+        "kept_issues": 2,
+        "suppressed_inapplicable_issues": 0,
+        "suppressed_by_file_role": {},
+        "raw_risk_score": 12,
+        "applicable_risk_score": 12
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "security"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "PII Scan",
+      "description": "Detect PII and local identifiers",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 15,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "pii_scan_start",
+          "message": "Scanning 15 files for PII",
+          "metadata": {
+            "file_count": 15
+          }
+        },
+        {
+          "check": "pii_detection",
+          "message": "No PII detected in 15 files (emails, SSNs, phone numbers, paths)",
+          "metadata": {
+            "files_scanned": 15
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] pii_scan_start: Scanning 15 files for PII",
+          "[OK] pii_detection: No PII detected in 15 files (emails, SSNs, phone numbers, paths)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "pii"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "License Compliance",
+      "description": "Validate license compliance for Skills, Rules, and Workflows",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "license_compliance",
+          "message": "License compliance scan completed (not detected)",
+          "metadata": {
+            "license_status": "not_detected"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No license information found - manual review required. Add a LICENSE file or 'license' field in frontmatter."
+        ],
+        "messages": [
+          "No license detected in any tier",
+          "[OK] license_compliance: License compliance scan completed (not detected)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "license"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Risk Analysis",
+      "description": "Static code analysis using Bandit and packaged Semgrep rules",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "Found 0 Python, 1 Shell, 0 JavaScript/TypeScript files",
+          "Semgrep not installed; skipped. Optional; install separately with: brew install semgrep (macOS) or uv tool install semgrep"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Secrets Detection",
+      "description": "Detect hardcoded secrets, API keys, and credentials using Gitleaks",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "gitleaks": "8.30.0"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "gitleaks",
+          "message": "No secrets detected by Gitleaks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] gitleaks: No secrets detected by Gitleaks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Integrity & Hygiene",
+      "description": "Validate dead links, dependencies, and static Python test-file discovery",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 14,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dead_links_scan",
+          "message": "Checking 14 markdown files for dead links",
+          "metadata": {
+            "file_count": 14
+          }
+        },
+        {
+          "check": "dead_links",
+          "message": "All relative links valid in 14 markdown file(s)",
+          "metadata": {
+            "files_checked": 14
+          }
+        },
+        {
+          "check": "dependencies",
+          "message": "No dependency files found (requirements.txt, pyproject.toml)",
+          "metadata": null
+        },
+        {
+          "check": "test_discovery",
+          "message": "No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests.",
+          "metadata": {
+            "test_count": 0,
+            "execution_performed": false,
+            "coverage_measured": false,
+            "patterns": [
+              "test_*.py",
+              "*_test.py"
+            ]
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No standard Python test-file candidates found; consider adding tests"
+        ],
+        "messages": [
+          "[OK] dead_links_scan: Checking 14 markdown files for dead links",
+          "[OK] dead_links: All relative links valid in 14 markdown file(s)",
+          "[OK] dependencies: No dependency files found (requirements.txt, pyproject.toml)",
+          "[OK] test_discovery: No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests."
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Dependency Vulnerability Audit",
+      "description": "Scan dependencies for CVE vulnerabilities using pip-audit and Safety",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dependency_file_discovery",
+          "message": "No dependency files found - vulnerability audit is not applicable",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] dependency_file_discovery: No dependency files found - vulnerability audit is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "dependency"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Unicode Smuggling Detection",
+      "description": "Detect invisible Unicode characters and ASCII smuggling",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 15,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 1
+      },
+      "finding_counts": {
+        "raw_occurrences": 1,
+        "distinct_occurrences": 1,
+        "unique_findings": 1,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-6b66555d1029e567b59c",
+          "occurrence_id": "SEO-7e116fe772524f2770db",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): VARIATION SELECTOR-16",
+          "file_path": "references/decision-rules.md",
+          "line_number": 264,
+          "line_content": "- \u26a0\ufe0f \u9636\u6bb5\u4ea7\u7269\u6821\u9a8c\u5931\u8d25\uff1a{\u9636\u6bb5\u540d} \u7684 {\u6587\u4ef6\u540d} \u7f3a\u5931\u6216\u4e0d\u5408\u683c",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "variation_selectors"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[UNICODE-LOW] Isolated invisible character(s) (1): VARIATION SELECTOR-16 in references/decision-rules.md:264"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "unicode"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "QUALITY",
+      "description": "Skill quality scoring across Correctness (35%), Discoverability (25%), Reliability (25%), and Efficiency (15%)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 13,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 5,
+        "low_count": 8
+      },
+      "finding_counts": {
+        "raw_occurrences": 13,
+        "distinct_occurrences": 13,
+        "unique_findings": 13,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 5,
+          "low": 8,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 5,
+          "low": 8,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-740453e5661b3b5b6f1e",
+          "occurrence_id": "SEO-0a2e2d0e8c16e8269d1b",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "No documented scripts in table format",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-6d68dab37ccc357a6814",
+          "occurrence_id": "SEO-1e8324988244f0caf8ec",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "Instructions don't mention 'run_script'",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add explicit run_script() call examples",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-0d2215183b14101ae2c2",
+          "occurrence_id": "SEO-50500ad5928868e88a76",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_correctness",
+          "message": "No examples provided",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add example usage with code blocks",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+          "occurrence_id": "SEO-e4ce3d069e6bc6d56470",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+          "occurrence_id": "SEO-6b469df366b17b0357c0",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-c7c369d46f4692f822e5",
+          "occurrence_id": "SEO-76f57b7ace55a5f7044a",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description very long (289 chars, recommend 50-150)",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Keep descriptions concise for progressive disclosure",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-0f3cde56a46498377f1a",
+          "occurrence_id": "SEO-c6c0c61b90e27d91cd1f",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description doesn't mention WHEN to use this skill",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-e6bee2b3f281ff07e52f",
+          "occurrence_id": "SEO-235f2a153300cf8a97f5",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_discoverability",
+          "message": "Description contains vague words",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Be specific about what this skill does",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 15
+          }
+        },
+        {
+          "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+          "occurrence_id": "SEO-4d5affb11934f675a557",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "No '## Purpose' section",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add purpose section to clarify use cases",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-9612bbfb3f32d491ac5d",
+          "occurrence_id": "SEO-bf8aa50d73c9a171226d",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No mention of error handling or validation",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document expected errors and how to handle them",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-4a6560f4aec006f302f9",
+          "occurrence_id": "SEO-9543c1579b2980b2be8a",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No prerequisites/requirements documented",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document dependencies, API keys, or setup needed",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-fc6fe3747c071963a76e",
+          "occurrence_id": "SEO-79cba2185bae641c070e",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No limitations documented",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Limitations' section with known issues/constraints",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-378f24adfec67572e606",
+          "occurrence_id": "SEO-450b9cb3dc0a686f4dcf",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No troubleshooting section documented",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "quality_score",
+          "message": "Score: 72.8/100 (Grade: C)",
+          "metadata": {
+            "overall_score": 72.8,
+            "grade": "C",
+            "skill_type": "script-based"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[QUALITY-MEDIUM] No documented scripts in table format in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-MEDIUM] Instructions don't mention 'run_script' in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-LOW] No examples provided in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.author' in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags' in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-LOW] Description very long (289 chars, recommend 50-150) in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-LOW] Description doesn't mention WHEN to use this skill in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-MEDIUM] Description contains vague words in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-LOW] No '## Purpose' section in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-LOW] No mention of error handling or validation in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-LOW] No prerequisites/requirements documented in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-LOW] No limitations documented in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[QUALITY-LOW] No troubleshooting section documented in /skills/library-20261118/G9/general-problem-handling/SKILL.md"
+        ],
+        "messages": [
+          "[OK] quality_score: Score: 72.8/100 (Grade: C)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "quality": {
+        "overall_score": 72.8,
+        "grade": "C",
+        "skill_type": "script-based",
+        "skill_name": "general-problem-handling",
+        "dimensions": {
+          "correctness": {
+            "score": 65.0,
+            "weight": 0.35,
+            "issues_count": 5,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "No documented scripts in table format",
+                "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+                "deduction": 10
+              },
+              {
+                "severity": "warning",
+                "message": "Instructions don't mention 'run_script'",
+                "suggestion": "Add explicit run_script() call examples",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No examples provided",
+                "suggestion": "Add example usage with code blocks",
+                "deduction": 5
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+                "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+                "deduction": 5
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+                "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+                "deduction": 5
+              }
+            ]
+          },
+          "discoverability": {
+            "score": 65.0,
+            "weight": 0.25,
+            "issues_count": 4,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "Description very long (289 chars, recommend 50-150)",
+                "suggestion": "Keep descriptions concise for progressive disclosure",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "Description doesn't mention WHEN to use this skill",
+                "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+                "deduction": 10
+              },
+              {
+                "severity": "warning",
+                "message": "Description contains vague words",
+                "suggestion": "Be specific about what this skill does",
+                "deduction": 15
+              },
+              {
+                "severity": "info",
+                "message": "No '## Purpose' section",
+                "suggestion": "Add purpose section to clarify use cases",
+                "deduction": 5
+              }
+            ]
+          },
+          "reliability": {
+            "score": 75.0,
+            "weight": 0.25,
+            "issues_count": 4,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No mention of error handling or validation",
+                "suggestion": "Document expected errors and how to handle them",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No prerequisites/requirements documented",
+                "suggestion": "Document dependencies, API keys, or setup needed",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No limitations documented",
+                "suggestion": "Add '## Limitations' section with known issues/constraints",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No troubleshooting section documented",
+                "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+                "deduction": 5
+              }
+            ]
+          },
+          "efficiency": {
+            "score": 100.0,
+            "weight": 0.15,
+            "issues_count": 0,
+            "issues": []
+          }
+        },
+        "metrics": {
+          "total_tokens": 653,
+          "estimated_tokens": 653,
+          "estimate_method": "characters/4",
+          "recommended_max_tokens": 5000,
+          "frontmatter_tokens": 95,
+          "instructions_tokens": 556,
+          "script_count": 1,
+          "has_examples": false,
+          "has_error_handling": false,
+          "has_frontmatter": true,
+          "has_instructions": false,
+          "has_scripts": true,
+          "has_lib_module": false
+        }
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "quality"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "SCRIPT_LINT",
+      "description": "AST-based code quality checks for skill scripts",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "lint",
+          "message": "No Python scripts found in scripts/ or tools/",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] lint: No Python scripts found in scripts/ or tools/"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "lint"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Harness Compatibility",
+      "description": "Advisory: whether each agent harness loads, degrades or drops the skill",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 3,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 3,
+        "distinct_occurrences": 3,
+        "unique_findings": 3,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 3
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 3
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-3661379ea9e5c1072875",
+          "occurrence_id": "SEO-d3eab232762d7bf3815c",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-RELOAD",
+          "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e0623bdfb91d6bbb829f",
+          "occurrence_id": "SEO-61d9d300e36838f2f161",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-DESC-60",
+          "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-03e029934351881ba688",
+          "occurrence_id": "SEO-9bdb6bff20e28bdaf173",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-RELOAD",
+          "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+          "file_path": "/skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once. in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them. in /skills/library-20261118/G9/general-problem-handling/SKILL.md",
+          "[HARNESS-INFO] opencode: Skill list and text are cached at startup; edits need a restart. in /skills/library-20261118/G9/general-problem-handling/SKILL.md"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "general-problem-handling",
+        "skill_digest": "sha256:017e2ca7994d7adde353085a511e9d64d0ea983c35e78db7188558f8ba5d4a08",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "harness"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "incomplete",
+  "publication": {
+    "status": "incomplete",
+    "eligible": false,
+    "reasons": [
+      "Tier 1 lacks trustworthy execution evidence.",
+      "Required recognized built-in Tier 2 evidence is missing.",
+      "Tier 3 lacks publication-complete execution evidence."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "policy": {
+    "profile": "default",
+    "audience": "all",
+    "digest": "sha256:64a069b8853f7123049a675d6853ef8d8b424792bb9a2a5157a73ec312f38ed4",
+    "author_email_regex": null,
+    "severity_overrides": {
+      "SCHEMA.author_missing": "low",
+      "SCHEMA.author_without_email": "info",
+      "SCHEMA.author_format": "high",
+      "WORKFLOWS.author_format": "high",
+      "LICENSE.*": "critical"
+    },
+    "metadata_id_requirement": "ignore",
+    "source": "/usr/local/lib/python3.12/site-packages/skillevaluator/config/profiles/default.yaml"
+  },
+  "quality_config": {
+    "source": "packaged",
+    "file": null,
+    "digest": "sha256:298ff2bf62132c8154217b7aa59fc1fd04f28cf75372f55620a2cbcd951d6549",
+    "min_score": 70
+  },
+  "evaluated_source": null,
+  "gating": {
+    "tiers": {
+      "1": {
+        "blocking": true,
+        "validators": [
+          "Schema & Repository Governance",
+          "Semantic Version Validation",
+          "Security Scan",
+          "PII Scan",
+          "License Compliance",
+          "Code Risk Analysis",
+          "Secrets Detection",
+          "Code Integrity & Hygiene",
+          "Dependency Vulnerability Audit",
+          "Unicode Smuggling Detection",
+          "QUALITY",
+          "SCRIPT_LINT",
+          "Harness Compatibility"
+        ],
+        "validator_policies": [
+          {
+            "validator": "Schema & Repository Governance",
+            "blocking": true
+          },
+          {
+            "validator": "Semantic Version Validation",
+            "blocking": true
+          },
+          {
+            "validator": "Security Scan",
+            "blocking": true
+          },
+          {
+            "validator": "PII Scan",
+            "blocking": true
+          },
+          {
+            "validator": "License Compliance",
+            "blocking": true
+          },
+          {
+            "validator": "Code Risk Analysis",
+            "blocking": true
+          },
+          {
+            "validator": "Secrets Detection",
+            "blocking": true
+          },
+          {
+            "validator": "Code Integrity & Hygiene",
+            "blocking": true
+          },
+          {
+            "validator": "Dependency Vulnerability Audit",
+            "blocking": true
+          },
+          {
+            "validator": "Unicode Smuggling Detection",
+            "blocking": true
+          },
+          {
+            "validator": "QUALITY",
+            "blocking": true
+          },
+          {
+            "validator": "SCRIPT_LINT",
+            "blocking": true
+          },
+          {
+            "validator": "Harness Compatibility",
+            "blocking": true
+          }
+        ]
+      }
+    }
+  },
+  "workflow": {
+    "tier": 1,
+    "stages": {
+      "validation": {
+        "status": "passed"
+      },
+      "llm": {
+        "status": "skipped",
+        "reason": "LLM checks disabled by --no-llm."
+      }
+    }
+  },
+  "quality_summary": [
+    {
+      "overall_score": 72.8,
+      "grade": "C",
+      "skill_type": "script-based",
+      "skill_name": "general-problem-handling",
+      "dimensions": {
+        "correctness": {
+          "score": 65.0,
+          "weight": 0.35,
+          "issues_count": 5,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "No documented scripts in table format",
+              "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+              "deduction": 10
+            },
+            {
+              "severity": "warning",
+              "message": "Instructions don't mention 'run_script'",
+              "suggestion": "Add explicit run_script() call examples",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No examples provided",
+              "suggestion": "Add example usage with code blocks",
+              "deduction": 5
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+              "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+              "deduction": 5
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+              "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+              "deduction": 5
+            }
+          ]
+        },
+        "discoverability": {
+          "score": 65.0,
+          "weight": 0.25,
+          "issues_count": 4,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "Description very long (289 chars, recommend 50-150)",
+              "suggestion": "Keep descriptions concise for progressive disclosure",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "Description doesn't mention WHEN to use this skill",
+              "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+              "deduction": 10
+            },
+            {
+              "severity": "warning",
+              "message": "Description contains vague words",
+              "suggestion": "Be specific about what this skill does",
+              "deduction": 15
+            },
+            {
+              "severity": "info",
+              "message": "No '## Purpose' section",
+              "suggestion": "Add purpose section to clarify use cases",
+              "deduction": 5
+            }
+          ]
+        },
+        "reliability": {
+          "score": 75.0,
+          "weight": 0.25,
+          "issues_count": 4,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No mention of error handling or validation",
+              "suggestion": "Document expected errors and how to handle them",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No prerequisites/requirements documented",
+              "suggestion": "Document dependencies, API keys, or setup needed",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No limitations documented",
+              "suggestion": "Add '## Limitations' section with known issues/constraints",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No troubleshooting section documented",
+              "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+              "deduction": 5
+            }
+          ]
+        },
+        "efficiency": {
+          "score": 100.0,
+          "weight": 0.15,
+          "issues_count": 0,
+          "issues": []
+        }
+      },
+      "metrics": {
+        "total_tokens": 653,
+        "estimated_tokens": 653,
+        "estimate_method": "characters/4",
+        "recommended_max_tokens": 5000,
+        "frontmatter_tokens": 95,
+        "instructions_tokens": 556,
+        "script_count": 1,
+        "has_examples": false,
+        "has_error_handling": false,
+        "has_frontmatter": true,
+        "has_instructions": false,
+        "has_scripts": true,
+        "has_lib_module": false
+      }
+    }
+  ],
+  "generated_at": "2026-11-18T01:40:30.959607+00:00"
+}

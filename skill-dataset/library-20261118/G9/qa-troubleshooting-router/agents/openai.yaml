@@ -1,0 +1,7 @@
+interface:
+  display_name: "知识问答与问题排查"
+  short_description: "统一路由基础服务知识问答、问题排查、安全降级和混合请求处理"
+  default_prompt: "使用 $qa-troubleshooting-router 统一处理基础服务知识问答或证据化问题排查。"
+
+policy:
+  allow_implicit_invocation: false

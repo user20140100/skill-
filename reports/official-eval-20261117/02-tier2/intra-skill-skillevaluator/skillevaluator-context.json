@@ -1,0 +1,191 @@
+{
+  "version": "0.9.0",
+  "target_path": null,
+  "overall_passed": true,
+  "overall_status": "passed",
+  "incomplete_scans": [],
+  "total_validators": 1,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 0,
+  "total_warnings": 0,
+  "severity_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "finding_counts": {
+    "raw_occurrences": 0,
+    "distinct_occurrences": 0,
+    "unique_findings": 0,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 0,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    }
+  },
+  "finding_groups": [],
+  "message_counts": {
+    "informational": 0,
+    "independent_errors": 0,
+    "independent_warnings": 0
+  },
+  "skills": [
+    {
+      "name": "chunking",
+      "passed": true,
+      "issue_count": 0
+    },
+    {
+      "name": "file_collection",
+      "passed": true,
+      "issue_count": 0
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Unknown",
+      "items": [
+        {
+          "name": "chunking",
+          "passed": true,
+          "issue_count": 0
+        },
+        {
+          "name": "file_collection",
+          "passed": true,
+          "issue_count": 0
+        }
+      ],
+      "total_items": 2,
+      "passed_count": 2,
+      "failed_count": 0,
+      "total_issues": 0
+    }
+  ],
+  "top_issues": [],
+  "results": [
+    {
+      "validator": "Context Deduplication",
+      "description": "Detect redundant content within a skill directory",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "file_collection",
+          "message": "Collected 10 file(s)",
+          "metadata": {
+            "file_count": 10
+          }
+        },
+        {
+          "check": "chunking",
+          "message": "Extracted 38 chunk(s)",
+          "metadata": {
+            "chunk_count": 38
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] file_collection: Collected 10 file(s)",
+          "[OK] chunking: Extracted 38 chunk(s)"
+        ]
+      },
+      "publication_target": {
+        "skill_name": "skillevaluator",
+        "skill_digest": "sha256:b550c0cda50d56c68feb0f13fd91436da87b950ac637d69a4e1b207bbc78dca0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier2",
+        "tier": 2,
+        "check_id": "context-optimization"
+      },
+      "llm_analysis": {
+        "provider": "openai-compatible",
+        "model": "qwen3.8-flash",
+        "clusters_total": 3,
+        "clusters_completed": 3,
+        "clusters_refused": 0,
+        "clusters_failed": 0,
+        "failures": [],
+        "models_used": [
+          "qwen3.8-flash"
+        ]
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "incomplete",
+  "publication": {
+    "status": "incomplete",
+    "eligible": false,
+    "reasons": [
+      "Recognized built-in Tier 1 evidence is missing.",
+      "Tier 3 lacks publication-complete execution evidence."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "evaluated_source": null,
+  "generated_at": "2026-11-17T17:31:13.731948+00:00"
+}

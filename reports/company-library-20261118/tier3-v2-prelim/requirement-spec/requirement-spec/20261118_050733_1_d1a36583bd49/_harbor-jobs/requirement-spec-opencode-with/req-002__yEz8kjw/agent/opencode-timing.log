@@ -1,0 +1,13 @@
+step  dur_s  reason_tok  in_tok  out_tok  cache_read  tools
+   1     1.9         112    4127       29        3584  skill
+   2     9.0         416    4292      116        7168  read,read,bash
+   3     3.5         196     552       43       15360  bash
+   4    83.8         987     819     4519       15360  write
+   5    54.1         199    5578     4284       16128  -
+------------------------------------------------------------------------------
+skill_active=True  steps=5  total_s=152.3  total_reason_tok=1910  total_in_tok=15368  total_out_tok=8991  total_cache_read=57600
+  slowest step 4: 83.8s  reason_tok=987  tools=write
+  slowest step 5: 54.1s  reason_tok=199  tools=-
+  slowest step 2: 9.0s  reason_tok=416  tools=read,read,bash
+  slowest step 3: 3.5s  reason_tok=196  tools=bash
+  slowest step 1: 1.9s  reason_tok=112  tools=skill

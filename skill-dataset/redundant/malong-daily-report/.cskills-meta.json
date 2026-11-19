@@ -1,0 +1,25 @@
+{
+  "name": "malong-daily-report",
+  "author": "zhaodongsheng",
+  "version": "1.0.1",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:05+08:00",
+  "updatedAt": "2026-11-17T10:46:05+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/malong-daily-report"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/malong-daily-report",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/malong-daily-report"
+  ],
+  "fileHashes": {
+    "SKILL.md": "a7585f456a2cd30b329c91842c77fbfab15e810cf97282d240d69348e877ab70",
+    "references/data-sources.md": "ce4667fb410bc1709100d812d2927f576cc63c9d286dcaa37f83626d1abdf8de",
+    "scripts/claude_sessions.py": "1d8ecb52af9ea4fc8111aea542593fde894bbc1f661a96ff0abc5a7e69f0371a",
+    "scripts/collect.sh": "b945c95763de64ceae5e47367246fc9d4c0c3dad6f1f15ad5231e94d265bb7a3"
+  }
+}

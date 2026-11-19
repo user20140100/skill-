@@ -1,0 +1,1342 @@
+Trial calculator-001__jv7scSW failed: Docker compose command failed for environment skillevaluator-calculator-001-with-skill. Command: /usr/local/bin/docker compose --project-name calculator-001__jv7scsw__env --project-directory /app/reports/official-eval-20261117/03-tier3/calculator/calculator/20261117_200643_1_d37c45d83481/_harbor-tasks/opencode/with/calculator-001/environment -f /tmp/tmp_lh9jct2/calculator-001__jv7scSW__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpkf408jj8/docker-compose-environment.json -f /tmp/tmp9ruq9zg_/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 10.64kB done
+#1 WARN: MultipleInstructionsDisallowed: Multiple HEALTHCHECK instructions should not be used in the same stage because only the last one will be used (line 39)
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/27] FROM docker.io/library/python:3.12-slim
+#4 DONE 0.0s
+
+#5 [main  2/27] RUN apt-get -o Acquire::Retries=3 update &&     apt-get -o Acquire::Retries=3 install -y --no-install-recommends     bash curl git jq procps ripgrep     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main internal] load build context
+#6 transferring context: 5.23kB done
+#6 DONE 0.0s
+
+#7 [main  3/27] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; exec "$@"", "skillevaluator", "python", "-m", "pip", "install", "--no-cache-dir", "ragas~=0.4.0", "langchain-community<0.4.2", "openai>=1.0", "anthropic>=0.40", "boto3>=1.34", "idna>=3.10,<4"]
+#7 1.075 Collecting ragas~=0.4.0
+#7 1.420   Downloading ragas-0.4.4-py3-none-any.whl.metadata (22 kB)
+#7 1.486 Collecting langchain-community<0.4.2
+#7 1.510   Downloading langchain_community-0.4.1-py3-none-any.whl.metadata (3.0 kB)
+#7 1.621 Collecting openai>=1.0
+#7 1.646   Downloading openai-3.53.0-py3-none-any.whl.metadata (45 kB)
+#7 1.715 Collecting anthropic>=0.40
+#7 1.741   Downloading anthropic-2.10.0-py3-none-any.whl.metadata (3.6 kB)
+#7 2.148 Collecting boto3>=1.34
+#7 2.172   Downloading boto3-1.44.4-py3-none-any.whl.metadata (6.6 kB)
+#7 2.207 Collecting idna<4,>=3.10
+#7 2.232   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#7 2.523 Collecting numpy<3.0.0,>=1.21.0 (from ragas~=0.4.0)
+#7 2.548   Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (6.6 kB)
+#7 2.594 Collecting datasets>=4.0.0 (from ragas~=0.4.0)
+#7 2.617   Downloading datasets-5.2.0-py3-none-any.whl.metadata (24 kB)
+#7 2.687 Collecting tiktoken (from ragas~=0.4.0)
+#7 2.713   Downloading tiktoken-0.14.0-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (6.7 kB)
+#7 2.884 Collecting pydantic>=2.0.0 (from ragas~=0.4.0)
+#7 2.909   Downloading pydantic-2.14.3-py3-none-any.whl.metadata (141 kB)
+#7 2.982 Collecting nest-asyncio (from ragas~=0.4.0)
+#7 3.007   Downloading nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+#7 3.035 Collecting appdirs (from ragas~=0.4.0)
+#7 3.063   Downloading appdirs-1.4.4-py2.py3-none-any.whl.metadata (9.0 kB)
+#7 3.100 Collecting diskcache>=5.6.3 (from ragas~=0.4.0)
+#7 3.127   Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+#7 3.167 Collecting typer (from ragas~=0.4.0)
+#7 3.195   Downloading typer-0.29.1-py3-none-any.whl.metadata (16 kB)
+#7 3.262 Collecting rich (from ragas~=0.4.0)
+#7 3.297   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+#7 3.351 Collecting tqdm (from ragas~=0.4.0)
+#7 3.375   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+#7 3.428 Collecting instructor (from ragas~=0.4.0)
+#7 3.464   Downloading instructor-1.17.0-py3-none-any.whl.metadata (13 kB)
+#7 3.740 Collecting pillow>=10.4.0 (from ragas~=0.4.0)
+#7 3.767   Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (9.1 kB)
+#7 3.810 Collecting networkx (from ragas~=0.4.0)
+#7 3.833   Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+#7 3.888 Collecting scikit-network (from ragas~=0.4.0)
+#7 3.913   Downloading scikit_network-0.33.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (4.5 kB)
+#7 3.955 Collecting requests (from ragas~=0.4.0)
+#7 3.980   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#7 4.012 Collecting tenacity (from ragas~=0.4.0)
+#7 4.036   Downloading tenacity-9.2.1-py3-none-any.whl.metadata (1.4 kB)
+#7 4.146 Collecting langchain (from ragas~=0.4.0)
+#7 4.170   Downloading langchain-1.5.0-py3-none-any.whl.metadata (6.1 kB)
+#7 4.239 Collecting langchain-core (from ragas~=0.4.0)
+#7 4.264   Downloading langchain_core-1.8.1-py3-none-any.whl.metadata (4.7 kB)
+#7 4.306 Collecting langchain_openai (from ragas~=0.4.0)
+#7 4.330   Downloading langchain_openai-1.8.0-py3-none-any.whl.metadata (3.5 kB)
+#7 4.371 Collecting langchain-classic<2.0.0,>=1.0.0 (from langchain-community<0.4.2)
+#7 4.395   Downloading langchain_classic-1.0.8-py3-none-any.whl.metadata (5.1 kB)
+#7 4.894 Collecting SQLAlchemy<3.0.0,>=1.4.0 (from langchain-community<0.4.2)
+#7 4.920   Downloading sqlalchemy-2.1.9-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (9.7 kB)
+#7 4.987 Collecting PyYAML<7.0.0,>=5.3.0 (from langchain-community<0.4.2)
+#7 5.014   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.4 kB)
+#7 5.746 Collecting aiohttp<4.0.0,>=3.8.3 (from langchain-community<0.4.2)
+#7 5.807   Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (8.3 kB)
+#7 5.885 Collecting dataclasses-json<0.7.0,>=0.6.7 (from langchain-community<0.4.2)
+#7 6.001   Downloading dataclasses_json-0.6.7-py3-none-any.whl.metadata (25 kB)
+#7 6.049 Collecting pydantic-settings<3.0.0,>=2.10.1 (from langchain-community<0.4.2)
+#7 6.209   Downloading pydantic_settings-2.16.3-py3-none-any.whl.metadata (4.0 kB)
+#7 6.449 Collecting langsmith<1.0.0,>=0.1.125 (from langchain-community<0.4.2)
+#7 6.556   Downloading langsmith-0.15.0-py3-none-any.whl.metadata (40 kB)
+#7 6.660 Collecting httpx-sse<1.0.0,>=0.4.0 (from langchain-community<0.4.2)
+#7 6.872   Downloading httpx_sse-0.4.3-py3-none-any.whl.metadata (9.7 kB)
+#7 7.090 Collecting anyio<5,>=4.10.0 (from openai>=1.0)
+#7 7.114   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+#7 7.467 Collecting httpx2<3,>=2.12.0 (from openai>=1.0)
+#7 7.618   Downloading httpx2-2.16.2-py3-none-any.whl.metadata (10.0 kB)
+#7 7.881 Collecting jiter<1,>=0.16.0 (from openai>=1.0)
+#7 8.081   Downloading jiter-0.19.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (5.2 kB)
+#7 8.397 Collecting sniffio (from openai>=1.0)
+#7 8.581   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+#7 8.625 Collecting typing-extensions<5,>=4.14 (from openai>=1.0)
+#7 8.778   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#7 8.941 Collecting docstring-parser<1,>=0.15 (from anthropic>=0.40)
+#7 8.969   Downloading docstring_parser-0.18.0-py3-none-any.whl.metadata (3.5 kB)
+#7 9.153 Collecting opentelemetry-api<2,>=1.1.0 (from anthropic>=0.40)
+#7 9.313   Downloading opentelemetry_api-1.45.2-py3-none-any.whl.metadata (1.4 kB)
+#7 9.929 Collecting botocore<1.45.0,>=1.44.4 (from boto3>=1.34)
+#7 9.955   Downloading botocore-1.44.4-py3-none-any.whl.metadata (5.6 kB)
+#7 9.986 Collecting jmespath<2.0.0,>=0.7.1 (from boto3>=1.34)
+#7 10.01   Downloading jmespath-1.1.0-py3-none-any.whl.metadata (7.6 kB)
+#7 10.05 Collecting s3transfer<0.20.0,>=0.19.0 (from boto3>=1.34)
+#7 10.07   Downloading s3transfer-0.19.3-py3-none-any.whl.metadata (1.7 kB)
+#7 10.10 Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.13   Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+#7 10.16 Collecting aiosignal>=1.4.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.19   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+#7 10.22 Collecting attrs>=17.3.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.25   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+#7 10.34 Collecting frozenlist>=1.1.1 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.37   Downloading frozenlist-1.8.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (20 kB)
+#7 10.76 Collecting multidict<8.0,>=4.5 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.79   Downloading multidict-7.2.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (6.1 kB)
+#7 10.89 Collecting propcache>=0.2.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.92   Downloading propcache-0.5.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (25 kB)
+#7 11.32 Collecting yarl<2.0,>=1.25.1 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 11.35   Downloading yarl-1.25.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (111 kB)
+#7 11.45 Collecting python-dateutil<3.0.0,>=2.1 (from botocore<1.45.0,>=1.44.4->boto3>=1.34)
+#7 11.48   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#7 11.54 Collecting urllib3!=2.2.0,<3,>=1.25.4 (from botocore<1.45.0,>=1.44.4->boto3>=1.34)
+#7 11.56   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#7 11.62 Collecting marshmallow<4.0.0,>=3.18.0 (from dataclasses-json<0.7.0,>=0.6.7->langchain-community<0.4.2)
+#7 11.64   Downloading marshmallow-3.26.2-py3-none-any.whl.metadata (7.3 kB)
+#7 11.68 Collecting typing-inspect<1,>=0.4.0 (from dataclasses-json<0.7.0,>=0.6.7->langchain-community<0.4.2)
+#7 11.70   Downloading typing_inspect-0.9.0-py3-none-any.whl.metadata (1.5 kB)
+#7 11.75 Collecting filelock (from datasets>=4.0.0->ragas~=0.4.0)
+#7 11.78   Downloading filelock-4.2.11-py3-none-any.whl.metadata (2.3 kB)
+#7 11.91 Collecting pyarrow>=24.0.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 11.94   Downloading pyarrow-26.0.1-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (3.0 kB)
+#7 11.97 Collecting dill<0.4.2,>=0.3.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 11.99   Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+#7 12.19 Collecting pandas (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.21   Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (16 kB)
+#7 12.54 Collecting xxhash (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.57   Downloading xxhash-4.1.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (18 kB)
+#7 12.61 Collecting multiprocess<0.70.20 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.63   Downloading multiprocess-0.70.19-py312-none-any.whl.metadata (7.5 kB)
+#7 12.67 Collecting fsspec<=2026.9.0,>=2023.1.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.70   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+#7 12.79 Collecting huggingface-hub<3.0,>=1.31.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.81   Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+#7 12.86 Collecting packaging (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.89   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#7 12.92 Collecting httpcore2==2.16.2 (from httpx2<3,>=2.12.0->openai>=1.0)
+#7 12.95   Downloading httpcore2-2.16.2-py3-none-any.whl.metadata (28 kB)
+#7 12.99 Collecting truststore>=0.10 (from httpx2<3,>=2.12.0->openai>=1.0)
+#7 13.01   Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+#7 13.05 Collecting h11>=0.16 (from httpcore2==2.16.2->httpx2<3,>=2.12.0->openai>=1.0)
+#7 13.07   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#7 13.12 Collecting langchain-text-splitters<2.0.0,>=1.1.2 (from langchain-classic<2.0.0,>=1.0.0->langchain-community<0.4.2)
+#7 13.15   Downloading langchain_text_splitters-1.1.3-py3-none-any.whl.metadata (3.6 kB)
+#7 13.25 Collecting certifi>=2026.10.19 (from langchain-core->ragas~=0.4.0)
+#7 13.27   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+#7 13.31 Collecting httpx>=0.23.0 (from langchain-core->ragas~=0.4.0)
+#7 13.33   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+#7 13.37 Collecting jsonpatch>=1.33.0 (from langchain-core->ragas~=0.4.0)
+#7 13.39   Downloading jsonpatch-1.47-py3-none-any.whl.metadata (4.9 kB)
+#7 13.43 Collecting langchain-protocol>=0.0.20 (from langchain-core->ragas~=0.4.0)
+#7 13.45   Downloading langchain_protocol-0.0.21-py3-none-any.whl.metadata (2.4 kB)
+#7 13.67 Collecting uuid-utils>=0.12.0 (from langchain-core->ragas~=0.4.0)
+#7 13.70   Downloading uuid_utils-1.2.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.4 kB)
+#7 13.73 Collecting distro<2,>=1.7.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 13.76   Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+#7 14.11 Collecting orjson>=3.9.14 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.14   Downloading orjson-3.13.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (42 kB)
+#7 14.18 Collecting requests-toolbelt>=1.0.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.21   Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+#7 14.22 Collecting uuid-utils>=0.12.0 (from langchain-core->ragas~=0.4.0)
+#7 14.25   Downloading uuid_utils-0.19.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.4 kB)
+#7 14.44 Collecting websockets>=15.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.46   Downloading websockets-17.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (6.3 kB)
+#7 14.55 Collecting zstandard>=0.23.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.58   Downloading zstandard-0.25.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (3.3 kB)
+#7 14.61 Collecting annotated-types>=0.6.0 (from pydantic>=2.0.0->ragas~=0.4.0)
+#7 14.64   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#7 15.67 Collecting pydantic-core==2.50.4 (from pydantic>=2.0.0->ragas~=0.4.0)
+#7 15.69   Downloading pydantic_core-2.50.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (6.6 kB)
+#7 15.73 Collecting typing-inspection>=0.4.4 (from pydantic>=2.0.0->ragas~=0.4.0)
+#7 15.75   Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
+#7 15.81 Collecting python-dotenv>=1.2.2 (from pydantic-settings<3.0.0,>=2.10.1->langchain-community<0.4.2)
+#7 15.84   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+#7 16.03 Collecting charset_normalizer<4,>=2 (from requests->ragas~=0.4.0)
+#7 16.06   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (46 kB)
+#7 16.19 Collecting click>=8.3.3 (from instructor->ragas~=0.4.0)
+#7 16.21   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#7 16.25 Collecting jinja2<4.0.0,>=3.1.4 (from instructor->ragas~=0.4.0)
+#7 16.27   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#7 16.27 INFO: pip is looking at multiple versions of instructor to determine which version is compatible with other requirements. This could take a while.
+#7 16.28 Collecting instructor (from ragas~=0.4.0)
+#7 16.30   Downloading instructor-1.16.0-py3-none-any.whl.metadata (12 kB)
+#7 16.35   Downloading instructor-1.15.4-py3-none-any.whl.metadata (12 kB)
+#7 16.38   Downloading instructor-1.15.3-py3-none-any.whl.metadata (12 kB)
+#7 16.42   Downloading instructor-1.15.1-py3-none-any.whl.metadata (12 kB)
+#7 16.45   Downloading instructor-1.15.0-py3-none-any.whl.metadata (12 kB)
+#7 16.49   Downloading instructor-1.14.5-py3-none-any.whl.metadata (12 kB)
+#7 16.53   Downloading instructor-1.14.4-py3-none-any.whl.metadata (12 kB)
+#7 16.54 INFO: pip is still looking at multiple versions of instructor to determine which version is compatible with other requirements. This could take a while.
+#7 16.57   Downloading instructor-1.14.3-py3-none-any.whl.metadata (12 kB)
+#7 16.60   Downloading instructor-1.14.2-py3-none-any.whl.metadata (12 kB)
+#7 16.64   Downloading instructor-1.14.1-py3-none-any.whl.metadata (12 kB)
+#7 16.67   Downloading instructor-1.13.0-py3-none-any.whl.metadata (11 kB)
+#7 16.70   Downloading instructor-1.12.0-py3-none-any.whl.metadata (11 kB)
+#7 16.72 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+#7 16.75   Downloading instructor-1.11.3-py3-none-any.whl.metadata (11 kB)
+#7 16.78   Downloading instructor-1.11.2-py3-none-any.whl.metadata (11 kB)
+#7 16.82   Downloading instructor-1.11.0-py3-none-any.whl.metadata (11 kB)
+#7 16.85   Downloading instructor-1.10.0-py3-none-any.whl.metadata (11 kB)
+#7 16.89   Downloading instructor-1.9.2-py3-none-any.whl.metadata (11 kB)
+#7 16.92   Downloading instructor-1.9.1-py3-none-any.whl.metadata (11 kB)
+#7 16.96   Downloading instructor-1.9.0-py3-none-any.whl.metadata (11 kB)
+#7 16.99   Downloading instructor-1.8.3-py3-none-any.whl.metadata (24 kB)
+#7 17.03   Downloading instructor-1.8.2-py3-none-any.whl.metadata (23 kB)
+#7 17.06   Downloading instructor-1.8.1-py3-none-any.whl.metadata (23 kB)
+#7 17.10   Downloading instructor-1.8.0-py3-none-any.whl.metadata (23 kB)
+#7 17.13   Downloading instructor-1.7.9-py3-none-any.whl.metadata (22 kB)
+#7 17.16   Downloading instructor-1.7.8-py3-none-any.whl.metadata (22 kB)
+#7 17.20   Downloading instructor-1.7.7-py3-none-any.whl.metadata (22 kB)
+#7 17.24   Downloading instructor-1.7.6-py3-none-any.whl.metadata (22 kB)
+#7 17.27   Downloading instructor-1.7.5-py3-none-any.whl.metadata (22 kB)
+#7 17.32   Downloading instructor-1.7.4-py3-none-any.whl.metadata (19 kB)
+#7 17.36   Downloading instructor-1.7.3-py3-none-any.whl.metadata (19 kB)
+#7 17.40   Downloading instructor-1.7.2-py3-none-any.whl.metadata (18 kB)
+#7 17.43   Downloading instructor-1.7.1-py3-none-any.whl.metadata (17 kB)
+#7 17.44 Collecting docstring-parser<1,>=0.15 (from anthropic>=0.40)
+#7 17.47   Downloading docstring_parser-0.16-py3-none-any.whl.metadata (3.0 kB)
+#7 17.48 Collecting instructor (from ragas~=0.4.0)
+#7 17.50   Downloading instructor-1.7.0-py3-none-any.whl.metadata (17 kB)
+#7 17.54   Downloading instructor-1.6.4-py3-none-any.whl.metadata (17 kB)
+#7 17.58   Downloading instructor-1.6.3-py3-none-any.whl.metadata (17 kB)
+#7 17.61   Downloading instructor-1.6.2-py3-none-any.whl.metadata (17 kB)
+#7 17.65   Downloading instructor-1.6.1-py3-none-any.whl.metadata (17 kB)
+#7 17.69   Downloading instructor-1.6.0-py3-none-any.whl.metadata (17 kB)
+#7 17.72   Downloading instructor-1.5.2-py3-none-any.whl.metadata (15 kB)
+#7 17.76   Downloading instructor-1.5.1-py3-none-any.whl.metadata (15 kB)
+#7 17.79   Downloading instructor-1.5.0-py3-none-any.whl.metadata (14 kB)
+#7 17.82   Downloading instructor-1.4.3-py3-none-any.whl.metadata (14 kB)
+#7 17.85   Downloading instructor-1.4.2-py3-none-any.whl.metadata (14 kB)
+#7 17.89   Downloading instructor-1.4.1-py3-none-any.whl.metadata (14 kB)
+#7 17.92   Downloading instructor-1.4.0-py3-none-any.whl.metadata (14 kB)
+#7 17.96   Downloading instructor-1.3.7-py3-none-any.whl.metadata (14 kB)
+#7 17.99   Downloading instructor-1.3.6-py3-none-any.whl.metadata (14 kB)
+#7 18.03   Downloading instructor-1.3.5-py3-none-any.whl.metadata (14 kB)
+#7 18.06   Downloading instructor-1.3.4-py3-none-any.whl.metadata (14 kB)
+#7 18.09   Downloading instructor-1.3.3-py3-none-any.whl.metadata (13 kB)
+#7 18.12   Downloading instructor-1.3.2-py3-none-any.whl.metadata (13 kB)
+#7 18.17 Collecting openai>=1.0
+#7 18.19   Downloading openai-1.109.1-py3-none-any.whl.metadata (29 kB)
+#7 18.21 Collecting rich (from ragas~=0.4.0)
+#7 18.24   Downloading rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+#7 18.25 Collecting tenacity (from ragas~=0.4.0)
+#7 18.27   Downloading tenacity-8.5.0-py3-none-any.whl.metadata (1.2 kB)
+#7 18.34 Collecting httpcore==1.* (from httpx>=0.23.0->langchain-core->ragas~=0.4.0)
+#7 18.36   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+#7 18.40 Collecting markdown-it-py>=2.2.0 (from rich->ragas~=0.4.0)
+#7 18.43   Downloading markdown_it_py-4.3.0-py3-none-any.whl.metadata (7.9 kB)
+#7 18.47 Collecting pygments<3.0.0,>=2.13.0 (from rich->ragas~=0.4.0)
+#7 18.49   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+#7 18.54 Collecting shellingham>=1.3.0 (from typer->ragas~=0.4.0)
+#7 18.56   Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+#7 18.60 Collecting annotated-doc>=0.0.2 (from typer->ragas~=0.4.0)
+#7 18.63   Downloading annotated_doc-0.0.6-py3-none-any.whl.metadata (6.5 kB)
+#7 18.75 Collecting langgraph<1.3.0,>=1.2.12 (from langchain->ragas~=0.4.0)
+#7 18.78   Downloading langgraph-1.2.22-py3-none-any.whl.metadata (4.9 kB)
+#7 18.80 INFO: pip is looking at multiple versions of langchain-openai to determine which version is compatible with other requirements. This could take a while.
+#7 18.80 Collecting langchain_openai (from ragas~=0.4.0)
+#7 18.83   Downloading langchain_openai-1.7.4-py3-none-any.whl.metadata (3.6 kB)
+#7 18.87   Downloading langchain_openai-1.7.3-py3-none-any.whl.metadata (3.6 kB)
+#7 18.91   Downloading langchain_openai-1.7.2-py3-none-any.whl.metadata (3.6 kB)
+#7 18.98   Downloading langchain_openai-1.7.1-py3-none-any.whl.metadata (3.6 kB)
+#7 19.00   Downloading langchain_openai-1.7.0-py3-none-any.whl.metadata (3.6 kB)
+#7 19.04   Downloading langchain_openai-1.6.7-py3-none-any.whl.metadata (3.6 kB)
+#7 19.08   Downloading langchain_openai-1.6.6-py3-none-any.whl.metadata (3.4 kB)
+#7 19.10 INFO: pip is still looking at multiple versions of langchain-openai to determine which version is compatible with other requirements. This could take a while.
+#7 19.12   Downloading langchain_openai-1.6.5-py3-none-any.whl.metadata (3.4 kB)
+#7 19.15   Downloading langchain_openai-1.6.4-py3-none-any.whl.metadata (3.4 kB)
+#7 19.18   Downloading langchain_openai-1.6.3-py3-none-any.whl.metadata (3.4 kB)
+#7 19.21   Downloading langchain_openai-1.6.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.25   Downloading langchain_openai-1.6.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.25 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+#7 19.27   Downloading langchain_openai-1.6.0-py3-none-any.whl.metadata (3.4 kB)
+#7 19.31   Downloading langchain_openai-1.5.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.35   Downloading langchain_openai-1.5.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.39   Downloading langchain_openai-1.5.0-py3-none-any.whl.metadata (3.4 kB)
+#7 19.42   Downloading langchain_openai-1.4.3-py3-none-any.whl.metadata (3.4 kB)
+#7 19.49   Downloading langchain_openai-1.4.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.52   Downloading langchain_openai-1.4.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.56   Downloading langchain_openai-1.4.0-py3-none-any.whl.metadata (3.4 kB)
+#7 19.60   Downloading langchain_openai-1.3.5-py3-none-any.whl.metadata (3.4 kB)
+#7 19.64   Downloading langchain_openai-1.3.4-py3-none-any.whl.metadata (3.4 kB)
+#7 19.68   Downloading langchain_openai-1.3.3-py3-none-any.whl.metadata (3.4 kB)
+#7 19.72   Downloading langchain_openai-1.3.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.75   Downloading langchain_openai-1.3.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.78   Downloading langchain_openai-1.3.0-py3-none-any.whl.metadata (3.1 kB)
+#7 19.82   Downloading langchain_openai-1.2.2-py3-none-any.whl.metadata (3.1 kB)
+#7 19.86   Downloading langchain_openai-1.2.1-py3-none-any.whl.metadata (3.1 kB)
+#7 19.90   Downloading langchain_openai-1.2.0-py3-none-any.whl.metadata (3.1 kB)
+#7 19.93   Downloading langchain_openai-1.1.16-py3-none-any.whl.metadata (3.1 kB)
+#7 19.96   Downloading langchain_openai-1.1.15-py3-none-any.whl.metadata (3.1 kB)
+#7 19.99   Downloading langchain_openai-1.1.14-py3-none-any.whl.metadata (3.1 kB)
+#7 20.03   Downloading langchain_openai-1.1.13-py3-none-any.whl.metadata (3.1 kB)
+#7 20.07   Downloading langchain_openai-1.1.12-py3-none-any.whl.metadata (3.1 kB)
+#7 20.11   Downloading langchain_openai-1.1.11-py3-none-any.whl.metadata (3.1 kB)
+#7 20.15   Downloading langchain_openai-1.1.10-py3-none-any.whl.metadata (3.1 kB)
+#7 20.21   Downloading langchain_openai-1.1.9-py3-none-any.whl.metadata (3.1 kB)
+#7 20.81 Collecting regex (from tiktoken->ragas~=0.4.0)
+#7 20.84   Downloading regex-2026.11.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (40 kB)
+#7 21.04 Collecting scipy>=1.7.3 (from scikit-network->ragas~=0.4.0)
+#7 21.07   Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (62 kB)
+#7 21.18 Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub<3.0,>=1.31.0->datasets>=4.0.0->ragas~=0.4.0)
+#7 21.21   Downloading hf_xet-1.8.0-cp38-abi3-manylinux_2_28_aarch64.whl.metadata (4.9 kB)
+#7 21.26 Collecting jsonpointer>=3.8 (from jsonpatch>=1.33.0->langchain-core->ragas~=0.4.0)
+#7 21.28   Downloading jsonpointer-3.12-py3-none-any.whl.metadata (2.7 kB)
+#7 21.34 Collecting langgraph-checkpoint<5.0.0,>=4.3.0 (from langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.36   Downloading langgraph_checkpoint-4.3.2-py3-none-any.whl.metadata (6.7 kB)
+#7 21.40 Collecting langgraph-prebuilt<1.2.0,>=1.1.0 (from langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.44   Downloading langgraph_prebuilt-1.1.2-py3-none-any.whl.metadata (6.9 kB)
+#7 21.49 Collecting langgraph-sdk<0.5.0,>=0.4.6 (from langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.51   Downloading langgraph_sdk-0.4.14-py3-none-any.whl.metadata (5.1 kB)
+#7 21.55 Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->ragas~=0.4.0)
+#7 21.57   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+#7 21.62 Collecting six>=1.5 (from python-dateutil<3.0.0,>=2.1->botocore<1.45.0,>=1.44.4->boto3>=1.34)
+#7 21.65   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#7 21.70 Collecting mypy-extensions>=0.3.0 (from typing-inspect<1,>=0.4.0->dataclasses-json<0.7.0,>=0.6.7->langchain-community<0.4.2)
+#7 21.73   Downloading mypy_extensions-1.2.0-py3-none-any.whl.metadata (1.1 kB)
+#7 21.85 Collecting ormsgpack>=1.12.0 (from langgraph-checkpoint<5.0.0,>=4.3.0->langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.88   Downloading ormsgpack-1.13.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (3.2 kB)
+#7 21.95 Downloading ragas-0.4.4-py3-none-any.whl (470 kB)
+#7 22.15 Downloading langchain_community-0.4.1-py3-none-any.whl (2.5 MB)
+#7 23.49    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 1.8 MB/s eta 0:00:00
+#7 23.52 Downloading anthropic-2.10.0-py3-none-any.whl (2.5 MB)
+#7 40.06    ━━━━━━━━━━━━━━━━━━━━━━━━╸                1.6/2.5 MB 1.1 MB/s eta 0:00:01
+#7 40.22 
+#7 40.22 [notice] A new release of pip is available: 25.0.1 -> 26.3
+#7 40.22 [notice] To update, run: pip install --upgrade pip
+#7 40.22 ERROR: Exception:
+#7 40.22 Traceback (most recent call last):
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 438, in _error_catcher
+#7 40.22     yield
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 561, in read
+#7 40.22     data = self._fp_read(amt) if not fp_closed else b""
+#7 40.22            ^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 527, in _fp_read
+#7 40.22     return self._fp.read(amt) if amt is not None else self._fp.read()
+#7 40.22            ^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/http/client.py", line 494, in read
+#7 40.22     s = self.fp.read(amt)
+#7 40.22         ^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/socket.py", line 720, in readinto
+#7 40.22     return self._sock.recv_into(b)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/ssl.py", line 1264, in recv_into
+#7 40.22     return self.read(nbytes, buffer)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/ssl.py", line 1116, in read
+#7 40.22     return self._sslobj.read(len, buffer)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22 TimeoutError: The read operation timed out
+#7 40.22 
+#7 40.22 During handling of the above exception, another exception occurred:
+#7 40.22 
+#7 40.22 Traceback (most recent call last):
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 106, in _run_wrapper
+#7 40.22     status = _inner_run()
+#7 40.22              ^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 97, in _inner_run
+#7 40.22     return self.run(options, args)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/req_command.py", line 67, in wrapper
+#7 40.22     return func(self, options, args)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/commands/install.py", line 386, in run
+#7 40.22     requirement_set = resolver.resolve(
+#7 40.22                       ^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/resolver.py", line 179, in resolve
+#7 40.22     self.factory.preparer.prepare_linked_requirements_more(reqs)
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 554, in prepare_linked_requirements_more
+#7 40.22     self._complete_partial_requirements(
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 469, in _complete_partial_requirements
+#7 40.22     for link, (filepath, _) in batch_download:
+#7 40.22                                ^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/network/download.py", line 184, in __call__
+#7 40.22     for chunk in chunks:
+#7 40.22                  ^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/progress_bars.py", line 55, in _rich_progress_bar
+#7 40.22     for chunk in iterable:
+#7 40.22                  ^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/network/utils.py", line 65, in response_chunks
+#7 40.22     for chunk in response.raw.stream(
+#7 40.22                  ^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 622, in stream
+#7 40.22     data = self.read(amt=amt, decode_content=decode_content)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+#7 40.22     with self._error_catcher():
+#7 40.22          ^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+#7 40.22     self.gen.throw(value)
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+#7 40.22     raise ReadTimeoutError(self._pool, None, "Read timed out.")
+#7 40.22 pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+#7 ERROR: process "/bin/sh -c PATH=\"${PATH:+$PATH:}/usr/local/bin:/usr/bin:/bin\"; export PATH; exec \"$@\" skillevaluator python -m pip install --no-cache-dir ragas~=0.4.0 langchain-community<0.4.2 openai>=1.0 anthropic>=0.40 boto3>=1.34 idna>=3.10,<4" did not complete successfully: exit code: 2
+------
+ > [main  3/27] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; exec "$@"", "skillevaluator", "python", "-m", "pip", "install", "--no-cache-dir", "ragas~=0.4.0", "langchain-community<0.4.2", "openai>=1.0", "anthropic>=0.40", "boto3>=1.34", "idna>=3.10,<4"]:
+40.22     data = self.read(amt=amt, decode_content=decode_content)
+40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+40.22     with self._error_catcher():
+40.22          ^^^^^^^^^^^^^^^^^^^^^
+40.22   File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+40.22     self.gen.throw(value)
+40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+40.22     raise ReadTimeoutError(self._pool, None, "Read timed out.")
+40.22 pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+------
+failed to solve: process "/bin/sh -c PATH=\"${PATH:+$PATH:}/usr/local/bin:/usr/bin:/bin\"; export PATH; exec \"$@\" skillevaluator python -m pip install --no-cache-dir ragas~=0.4.0 langchain-community<0.4.2 openai>=1.0 anthropic>=0.40 boto3>=1.34 idna>=3.10,<4" did not complete successfully: exit code: 2
+. Stderr: None.
+Failed to download logs to /app/reports/official-eval-20261117/03-tier3/calculator/calculator/20261117_200643_1_d37c45d83481/_harbor-jobs/calculator-opencode-with/calculator-001__jv7scSW/agent: Docker compose command failed for environment skillevaluator-calculator-001-with-skill. Command: /usr/local/bin/docker compose --project-name calculator-001__jv7scsw__env --project-directory /app/reports/official-eval-20261117/03-tier3/calculator/calculator/20261117_200643_1_d37c45d83481/_harbor-tasks/opencode/with/calculator-001/environment -f /tmp/tmp_lh9jct2/calculator-001__jv7scSW__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpkf408jj8/docker-compose-environment.json -f /tmp/tmp9ruq9zg_/docker-compose-mounts.json cp -- main:/logs/agent/. /app/reports/official-eval-20261117/03-tier3/calculator/calculator/20261117_200643_1_d37c45d83481/_harbor-jobs/calculator-opencode-with/calculator-001__jv7scSW/agent. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 606, in run
+    await self._prepare()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 645, in _prepare
+    await self._setup_agent_environment()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 1849, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 1855, in _start_agent_environment
+    await asyncio.wait_for(
+  File "/usr/local/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 1333, in start
+    await super().start(force_build)
+  File "/usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 1065, in start
+    await self._run_docker_compose_command(["build"])
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 3403, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment skillevaluator-calculator-001-with-skill. Command: /usr/local/bin/docker compose --project-name calculator-001__jv7scsw__env --project-directory /app/reports/official-eval-20261117/03-tier3/calculator/calculator/20261117_200643_1_d37c45d83481/_harbor-tasks/opencode/with/calculator-001/environment -f /tmp/tmp_lh9jct2/calculator-001__jv7scSW__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpkf408jj8/docker-compose-environment.json -f /tmp/tmp9ruq9zg_/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 10.64kB done
+#1 WARN: MultipleInstructionsDisallowed: Multiple HEALTHCHECK instructions should not be used in the same stage because only the last one will be used (line 39)
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/27] FROM docker.io/library/python:3.12-slim
+#4 DONE 0.0s
+
+#5 [main  2/27] RUN apt-get -o Acquire::Retries=3 update &&     apt-get -o Acquire::Retries=3 install -y --no-install-recommends     bash curl git jq procps ripgrep     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main internal] load build context
+#6 transferring context: 5.23kB done
+#6 DONE 0.0s
+
+#7 [main  3/27] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; exec "$@"", "skillevaluator", "python", "-m", "pip", "install", "--no-cache-dir", "ragas~=0.4.0", "langchain-community<0.4.2", "openai>=1.0", "anthropic>=0.40", "boto3>=1.34", "idna>=3.10,<4"]
+#7 1.075 Collecting ragas~=0.4.0
+#7 1.420   Downloading ragas-0.4.4-py3-none-any.whl.metadata (22 kB)
+#7 1.486 Collecting langchain-community<0.4.2
+#7 1.510   Downloading langchain_community-0.4.1-py3-none-any.whl.metadata (3.0 kB)
+#7 1.621 Collecting openai>=1.0
+#7 1.646   Downloading openai-3.53.0-py3-none-any.whl.metadata (45 kB)
+#7 1.715 Collecting anthropic>=0.40
+#7 1.741   Downloading anthropic-2.10.0-py3-none-any.whl.metadata (3.6 kB)
+#7 2.148 Collecting boto3>=1.34
+#7 2.172   Downloading boto3-1.44.4-py3-none-any.whl.metadata (6.6 kB)
+#7 2.207 Collecting idna<4,>=3.10
+#7 2.232   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#7 2.523 Collecting numpy<3.0.0,>=1.21.0 (from ragas~=0.4.0)
+#7 2.548   Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (6.6 kB)
+#7 2.594 Collecting datasets>=4.0.0 (from ragas~=0.4.0)
+#7 2.617   Downloading datasets-5.2.0-py3-none-any.whl.metadata (24 kB)
+#7 2.687 Collecting tiktoken (from ragas~=0.4.0)
+#7 2.713   Downloading tiktoken-0.14.0-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (6.7 kB)
+#7 2.884 Collecting pydantic>=2.0.0 (from ragas~=0.4.0)
+#7 2.909   Downloading pydantic-2.14.3-py3-none-any.whl.metadata (141 kB)
+#7 2.982 Collecting nest-asyncio (from ragas~=0.4.0)
+#7 3.007   Downloading nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+#7 3.035 Collecting appdirs (from ragas~=0.4.0)
+#7 3.063   Downloading appdirs-1.4.4-py2.py3-none-any.whl.metadata (9.0 kB)
+#7 3.100 Collecting diskcache>=5.6.3 (from ragas~=0.4.0)
+#7 3.127   Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+#7 3.167 Collecting typer (from ragas~=0.4.0)
+#7 3.195   Downloading typer-0.29.1-py3-none-any.whl.metadata (16 kB)
+#7 3.262 Collecting rich (from ragas~=0.4.0)
+#7 3.297   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+#7 3.351 Collecting tqdm (from ragas~=0.4.0)
+#7 3.375   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+#7 3.428 Collecting instructor (from ragas~=0.4.0)
+#7 3.464   Downloading instructor-1.17.0-py3-none-any.whl.metadata (13 kB)
+#7 3.740 Collecting pillow>=10.4.0 (from ragas~=0.4.0)
+#7 3.767   Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (9.1 kB)
+#7 3.810 Collecting networkx (from ragas~=0.4.0)
+#7 3.833   Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+#7 3.888 Collecting scikit-network (from ragas~=0.4.0)
+#7 3.913   Downloading scikit_network-0.33.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (4.5 kB)
+#7 3.955 Collecting requests (from ragas~=0.4.0)
+#7 3.980   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#7 4.012 Collecting tenacity (from ragas~=0.4.0)
+#7 4.036   Downloading tenacity-9.2.1-py3-none-any.whl.metadata (1.4 kB)
+#7 4.146 Collecting langchain (from ragas~=0.4.0)
+#7 4.170   Downloading langchain-1.5.0-py3-none-any.whl.metadata (6.1 kB)
+#7 4.239 Collecting langchain-core (from ragas~=0.4.0)
+#7 4.264   Downloading langchain_core-1.8.1-py3-none-any.whl.metadata (4.7 kB)
+#7 4.306 Collecting langchain_openai (from ragas~=0.4.0)
+#7 4.330   Downloading langchain_openai-1.8.0-py3-none-any.whl.metadata (3.5 kB)
+#7 4.371 Collecting langchain-classic<2.0.0,>=1.0.0 (from langchain-community<0.4.2)
+#7 4.395   Downloading langchain_classic-1.0.8-py3-none-any.whl.metadata (5.1 kB)
+#7 4.894 Collecting SQLAlchemy<3.0.0,>=1.4.0 (from langchain-community<0.4.2)
+#7 4.920   Downloading sqlalchemy-2.1.9-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (9.7 kB)
+#7 4.987 Collecting PyYAML<7.0.0,>=5.3.0 (from langchain-community<0.4.2)
+#7 5.014   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.4 kB)
+#7 5.746 Collecting aiohttp<4.0.0,>=3.8.3 (from langchain-community<0.4.2)
+#7 5.807   Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (8.3 kB)
+#7 5.885 Collecting dataclasses-json<0.7.0,>=0.6.7 (from langchain-community<0.4.2)
+#7 6.001   Downloading dataclasses_json-0.6.7-py3-none-any.whl.metadata (25 kB)
+#7 6.049 Collecting pydantic-settings<3.0.0,>=2.10.1 (from langchain-community<0.4.2)
+#7 6.209   Downloading pydantic_settings-2.16.3-py3-none-any.whl.metadata (4.0 kB)
+#7 6.449 Collecting langsmith<1.0.0,>=0.1.125 (from langchain-community<0.4.2)
+#7 6.556   Downloading langsmith-0.15.0-py3-none-any.whl.metadata (40 kB)
+#7 6.660 Collecting httpx-sse<1.0.0,>=0.4.0 (from langchain-community<0.4.2)
+#7 6.872   Downloading httpx_sse-0.4.3-py3-none-any.whl.metadata (9.7 kB)
+#7 7.090 Collecting anyio<5,>=4.10.0 (from openai>=1.0)
+#7 7.114   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+#7 7.467 Collecting httpx2<3,>=2.12.0 (from openai>=1.0)
+#7 7.618   Downloading httpx2-2.16.2-py3-none-any.whl.metadata (10.0 kB)
+#7 7.881 Collecting jiter<1,>=0.16.0 (from openai>=1.0)
+#7 8.081   Downloading jiter-0.19.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (5.2 kB)
+#7 8.397 Collecting sniffio (from openai>=1.0)
+#7 8.581   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+#7 8.625 Collecting typing-extensions<5,>=4.14 (from openai>=1.0)
+#7 8.778   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#7 8.941 Collecting docstring-parser<1,>=0.15 (from anthropic>=0.40)
+#7 8.969   Downloading docstring_parser-0.18.0-py3-none-any.whl.metadata (3.5 kB)
+#7 9.153 Collecting opentelemetry-api<2,>=1.1.0 (from anthropic>=0.40)
+#7 9.313   Downloading opentelemetry_api-1.45.2-py3-none-any.whl.metadata (1.4 kB)
+#7 9.929 Collecting botocore<1.45.0,>=1.44.4 (from boto3>=1.34)
+#7 9.955   Downloading botocore-1.44.4-py3-none-any.whl.metadata (5.6 kB)
+#7 9.986 Collecting jmespath<2.0.0,>=0.7.1 (from boto3>=1.34)
+#7 10.01   Downloading jmespath-1.1.0-py3-none-any.whl.metadata (7.6 kB)
+#7 10.05 Collecting s3transfer<0.20.0,>=0.19.0 (from boto3>=1.34)
+#7 10.07   Downloading s3transfer-0.19.3-py3-none-any.whl.metadata (1.7 kB)
+#7 10.10 Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.13   Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+#7 10.16 Collecting aiosignal>=1.4.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.19   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+#7 10.22 Collecting attrs>=17.3.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.25   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+#7 10.34 Collecting frozenlist>=1.1.1 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.37   Downloading frozenlist-1.8.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (20 kB)
+#7 10.76 Collecting multidict<8.0,>=4.5 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.79   Downloading multidict-7.2.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (6.1 kB)
+#7 10.89 Collecting propcache>=0.2.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.92   Downloading propcache-0.5.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (25 kB)
+#7 11.32 Collecting yarl<2.0,>=1.25.1 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 11.35   Downloading yarl-1.25.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (111 kB)
+#7 11.45 Collecting python-dateutil<3.0.0,>=2.1 (from botocore<1.45.0,>=1.44.4->boto3>=1.34)
+#7 11.48   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#7 11.54 Collecting urllib3!=2.2.0,<3,>=1.25.4 (from botocore<1.45.0,>=1.44.4->boto3>=1.34)
+#7 11.56   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#7 11.62 Collecting marshmallow<4.0.0,>=3.18.0 (from dataclasses-json<0.7.0,>=0.6.7->langchain-community<0.4.2)
+#7 11.64   Downloading marshmallow-3.26.2-py3-none-any.whl.metadata (7.3 kB)
+#7 11.68 Collecting typing-inspect<1,>=0.4.0 (from dataclasses-json<0.7.0,>=0.6.7->langchain-community<0.4.2)
+#7 11.70   Downloading typing_inspect-0.9.0-py3-none-any.whl.metadata (1.5 kB)
+#7 11.75 Collecting filelock (from datasets>=4.0.0->ragas~=0.4.0)
+#7 11.78   Downloading filelock-4.2.11-py3-none-any.whl.metadata (2.3 kB)
+#7 11.91 Collecting pyarrow>=24.0.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 11.94   Downloading pyarrow-26.0.1-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (3.0 kB)
+#7 11.97 Collecting dill<0.4.2,>=0.3.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 11.99   Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+#7 12.19 Collecting pandas (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.21   Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (16 kB)
+#7 12.54 Collecting xxhash (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.57   Downloading xxhash-4.1.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (18 kB)
+#7 12.61 Collecting multiprocess<0.70.20 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.63   Downloading multiprocess-0.70.19-py312-none-any.whl.metadata (7.5 kB)
+#7 12.67 Collecting fsspec<=2026.9.0,>=2023.1.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.70   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+#7 12.79 Collecting huggingface-hub<3.0,>=1.31.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.81   Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+#7 12.86 Collecting packaging (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.89   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#7 12.92 Collecting httpcore2==2.16.2 (from httpx2<3,>=2.12.0->openai>=1.0)
+#7 12.95   Downloading httpcore2-2.16.2-py3-none-any.whl.metadata (28 kB)
+#7 12.99 Collecting truststore>=0.10 (from httpx2<3,>=2.12.0->openai>=1.0)
+#7 13.01   Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+#7 13.05 Collecting h11>=0.16 (from httpcore2==2.16.2->httpx2<3,>=2.12.0->openai>=1.0)
+#7 13.07   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#7 13.12 Collecting langchain-text-splitters<2.0.0,>=1.1.2 (from langchain-classic<2.0.0,>=1.0.0->langchain-community<0.4.2)
+#7 13.15   Downloading langchain_text_splitters-1.1.3-py3-none-any.whl.metadata (3.6 kB)
+#7 13.25 Collecting certifi>=2026.10.19 (from langchain-core->ragas~=0.4.0)
+#7 13.27   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+#7 13.31 Collecting httpx>=0.23.0 (from langchain-core->ragas~=0.4.0)
+#7 13.33   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+#7 13.37 Collecting jsonpatch>=1.33.0 (from langchain-core->ragas~=0.4.0)
+#7 13.39   Downloading jsonpatch-1.47-py3-none-any.whl.metadata (4.9 kB)
+#7 13.43 Collecting langchain-protocol>=0.0.20 (from langchain-core->ragas~=0.4.0)
+#7 13.45   Downloading langchain_protocol-0.0.21-py3-none-any.whl.metadata (2.4 kB)
+#7 13.67 Collecting uuid-utils>=0.12.0 (from langchain-core->ragas~=0.4.0)
+#7 13.70   Downloading uuid_utils-1.2.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.4 kB)
+#7 13.73 Collecting distro<2,>=1.7.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 13.76   Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+#7 14.11 Collecting orjson>=3.9.14 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.14   Downloading orjson-3.13.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (42 kB)
+#7 14.18 Collecting requests-toolbelt>=1.0.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.21   Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+#7 14.22 Collecting uuid-utils>=0.12.0 (from langchain-core->ragas~=0.4.0)
+#7 14.25   Downloading uuid_utils-0.19.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.4 kB)
+#7 14.44 Collecting websockets>=15.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.46   Downloading websockets-17.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (6.3 kB)
+#7 14.55 Collecting zstandard>=0.23.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.58   Downloading zstandard-0.25.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (3.3 kB)
+#7 14.61 Collecting annotated-types>=0.6.0 (from pydantic>=2.0.0->ragas~=0.4.0)
+#7 14.64   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#7 15.67 Collecting pydantic-core==2.50.4 (from pydantic>=2.0.0->ragas~=0.4.0)
+#7 15.69   Downloading pydantic_core-2.50.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (6.6 kB)
+#7 15.73 Collecting typing-inspection>=0.4.4 (from pydantic>=2.0.0->ragas~=0.4.0)
+#7 15.75   Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
+#7 15.81 Collecting python-dotenv>=1.2.2 (from pydantic-settings<3.0.0,>=2.10.1->langchain-community<0.4.2)
+#7 15.84   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+#7 16.03 Collecting charset_normalizer<4,>=2 (from requests->ragas~=0.4.0)
+#7 16.06   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (46 kB)
+#7 16.19 Collecting click>=8.3.3 (from instructor->ragas~=0.4.0)
+#7 16.21   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#7 16.25 Collecting jinja2<4.0.0,>=3.1.4 (from instructor->ragas~=0.4.0)
+#7 16.27   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#7 16.27 INFO: pip is looking at multiple versions of instructor to determine which version is compatible with other requirements. This could take a while.
+#7 16.28 Collecting instructor (from ragas~=0.4.0)
+#7 16.30   Downloading instructor-1.16.0-py3-none-any.whl.metadata (12 kB)
+#7 16.35   Downloading instructor-1.15.4-py3-none-any.whl.metadata (12 kB)
+#7 16.38   Downloading instructor-1.15.3-py3-none-any.whl.metadata (12 kB)
+#7 16.42   Downloading instructor-1.15.1-py3-none-any.whl.metadata (12 kB)
+#7 16.45   Downloading instructor-1.15.0-py3-none-any.whl.metadata (12 kB)
+#7 16.49   Downloading instructor-1.14.5-py3-none-any.whl.metadata (12 kB)
+#7 16.53   Downloading instructor-1.14.4-py3-none-any.whl.metadata (12 kB)
+#7 16.54 INFO: pip is still looking at multiple versions of instructor to determine which version is compatible with other requirements. This could take a while.
+#7 16.57   Downloading instructor-1.14.3-py3-none-any.whl.metadata (12 kB)
+#7 16.60   Downloading instructor-1.14.2-py3-none-any.whl.metadata (12 kB)
+#7 16.64   Downloading instructor-1.14.1-py3-none-any.whl.metadata (12 kB)
+#7 16.67   Downloading instructor-1.13.0-py3-none-any.whl.metadata (11 kB)
+#7 16.70   Downloading instructor-1.12.0-py3-none-any.whl.metadata (11 kB)
+#7 16.72 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+#7 16.75   Downloading instructor-1.11.3-py3-none-any.whl.metadata (11 kB)
+#7 16.78   Downloading instructor-1.11.2-py3-none-any.whl.metadata (11 kB)
+#7 16.82   Downloading instructor-1.11.0-py3-none-any.whl.metadata (11 kB)
+#7 16.85   Downloading instructor-1.10.0-py3-none-any.whl.metadata (11 kB)
+#7 16.89   Downloading instructor-1.9.2-py3-none-any.whl.metadata (11 kB)
+#7 16.92   Downloading instructor-1.9.1-py3-none-any.whl.metadata (11 kB)
+#7 16.96   Downloading instructor-1.9.0-py3-none-any.whl.metadata (11 kB)
+#7 16.99   Downloading instructor-1.8.3-py3-none-any.whl.metadata (24 kB)
+#7 17.03   Downloading instructor-1.8.2-py3-none-any.whl.metadata (23 kB)
+#7 17.06   Downloading instructor-1.8.1-py3-none-any.whl.metadata (23 kB)
+#7 17.10   Downloading instructor-1.8.0-py3-none-any.whl.metadata (23 kB)
+#7 17.13   Downloading instructor-1.7.9-py3-none-any.whl.metadata (22 kB)
+#7 17.16   Downloading instructor-1.7.8-py3-none-any.whl.metadata (22 kB)
+#7 17.20   Downloading instructor-1.7.7-py3-none-any.whl.metadata (22 kB)
+#7 17.24   Downloading instructor-1.7.6-py3-none-any.whl.metadata (22 kB)
+#7 17.27   Downloading instructor-1.7.5-py3-none-any.whl.metadata (22 kB)
+#7 17.32   Downloading instructor-1.7.4-py3-none-any.whl.metadata (19 kB)
+#7 17.36   Downloading instructor-1.7.3-py3-none-any.whl.metadata (19 kB)
+#7 17.40   Downloading instructor-1.7.2-py3-none-any.whl.metadata (18 kB)
+#7 17.43   Downloading instructor-1.7.1-py3-none-any.whl.metadata (17 kB)
+#7 17.44 Collecting docstring-parser<1,>=0.15 (from anthropic>=0.40)
+#7 17.47   Downloading docstring_parser-0.16-py3-none-any.whl.metadata (3.0 kB)
+#7 17.48 Collecting instructor (from ragas~=0.4.0)
+#7 17.50   Downloading instructor-1.7.0-py3-none-any.whl.metadata (17 kB)
+#7 17.54   Downloading instructor-1.6.4-py3-none-any.whl.metadata (17 kB)
+#7 17.58   Downloading instructor-1.6.3-py3-none-any.whl.metadata (17 kB)
+#7 17.61   Downloading instructor-1.6.2-py3-none-any.whl.metadata (17 kB)
+#7 17.65   Downloading instructor-1.6.1-py3-none-any.whl.metadata (17 kB)
+#7 17.69   Downloading instructor-1.6.0-py3-none-any.whl.metadata (17 kB)
+#7 17.72   Downloading instructor-1.5.2-py3-none-any.whl.metadata (15 kB)
+#7 17.76   Downloading instructor-1.5.1-py3-none-any.whl.metadata (15 kB)
+#7 17.79   Downloading instructor-1.5.0-py3-none-any.whl.metadata (14 kB)
+#7 17.82   Downloading instructor-1.4.3-py3-none-any.whl.metadata (14 kB)
+#7 17.85   Downloading instructor-1.4.2-py3-none-any.whl.metadata (14 kB)
+#7 17.89   Downloading instructor-1.4.1-py3-none-any.whl.metadata (14 kB)
+#7 17.92   Downloading instructor-1.4.0-py3-none-any.whl.metadata (14 kB)
+#7 17.96   Downloading instructor-1.3.7-py3-none-any.whl.metadata (14 kB)
+#7 17.99   Downloading instructor-1.3.6-py3-none-any.whl.metadata (14 kB)
+#7 18.03   Downloading instructor-1.3.5-py3-none-any.whl.metadata (14 kB)
+#7 18.06   Downloading instructor-1.3.4-py3-none-any.whl.metadata (14 kB)
+#7 18.09   Downloading instructor-1.3.3-py3-none-any.whl.metadata (13 kB)
+#7 18.12   Downloading instructor-1.3.2-py3-none-any.whl.metadata (13 kB)
+#7 18.17 Collecting openai>=1.0
+#7 18.19   Downloading openai-1.109.1-py3-none-any.whl.metadata (29 kB)
+#7 18.21 Collecting rich (from ragas~=0.4.0)
+#7 18.24   Downloading rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+#7 18.25 Collecting tenacity (from ragas~=0.4.0)
+#7 18.27   Downloading tenacity-8.5.0-py3-none-any.whl.metadata (1.2 kB)
+#7 18.34 Collecting httpcore==1.* (from httpx>=0.23.0->langchain-core->ragas~=0.4.0)
+#7 18.36   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+#7 18.40 Collecting markdown-it-py>=2.2.0 (from rich->ragas~=0.4.0)
+#7 18.43   Downloading markdown_it_py-4.3.0-py3-none-any.whl.metadata (7.9 kB)
+#7 18.47 Collecting pygments<3.0.0,>=2.13.0 (from rich->ragas~=0.4.0)
+#7 18.49   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+#7 18.54 Collecting shellingham>=1.3.0 (from typer->ragas~=0.4.0)
+#7 18.56   Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+#7 18.60 Collecting annotated-doc>=0.0.2 (from typer->ragas~=0.4.0)
+#7 18.63   Downloading annotated_doc-0.0.6-py3-none-any.whl.metadata (6.5 kB)
+#7 18.75 Collecting langgraph<1.3.0,>=1.2.12 (from langchain->ragas~=0.4.0)
+#7 18.78   Downloading langgraph-1.2.22-py3-none-any.whl.metadata (4.9 kB)
+#7 18.80 INFO: pip is looking at multiple versions of langchain-openai to determine which version is compatible with other requirements. This could take a while.
+#7 18.80 Collecting langchain_openai (from ragas~=0.4.0)
+#7 18.83   Downloading langchain_openai-1.7.4-py3-none-any.whl.metadata (3.6 kB)
+#7 18.87   Downloading langchain_openai-1.7.3-py3-none-any.whl.metadata (3.6 kB)
+#7 18.91   Downloading langchain_openai-1.7.2-py3-none-any.whl.metadata (3.6 kB)
+#7 18.98   Downloading langchain_openai-1.7.1-py3-none-any.whl.metadata (3.6 kB)
+#7 19.00   Downloading langchain_openai-1.7.0-py3-none-any.whl.metadata (3.6 kB)
+#7 19.04   Downloading langchain_openai-1.6.7-py3-none-any.whl.metadata (3.6 kB)
+#7 19.08   Downloading langchain_openai-1.6.6-py3-none-any.whl.metadata (3.4 kB)
+#7 19.10 INFO: pip is still looking at multiple versions of langchain-openai to determine which version is compatible with other requirements. This could take a while.
+#7 19.12   Downloading langchain_openai-1.6.5-py3-none-any.whl.metadata (3.4 kB)
+#7 19.15   Downloading langchain_openai-1.6.4-py3-none-any.whl.metadata (3.4 kB)
+#7 19.18   Downloading langchain_openai-1.6.3-py3-none-any.whl.metadata (3.4 kB)
+#7 19.21   Downloading langchain_openai-1.6.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.25   Downloading langchain_openai-1.6.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.25 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+#7 19.27   Downloading langchain_openai-1.6.0-py3-none-any.whl.metadata (3.4 kB)
+#7 19.31   Downloading langchain_openai-1.5.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.35   Downloading langchain_openai-1.5.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.39   Downloading langchain_openai-1.5.0-py3-none-any.whl.metadata (3.4 kB)
+#7 19.42   Downloading langchain_openai-1.4.3-py3-none-any.whl.metadata (3.4 kB)
+#7 19.49   Downloading langchain_openai-1.4.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.52   Downloading langchain_openai-1.4.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.56   Downloading langchain_openai-1.4.0-py3-none-any.whl.metadata (3.4 kB)
+#7 19.60   Downloading langchain_openai-1.3.5-py3-none-any.whl.metadata (3.4 kB)
+#7 19.64   Downloading langchain_openai-1.3.4-py3-none-any.whl.metadata (3.4 kB)
+#7 19.68   Downloading langchain_openai-1.3.3-py3-none-any.whl.metadata (3.4 kB)
+#7 19.72   Downloading langchain_openai-1.3.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.75   Downloading langchain_openai-1.3.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.78   Downloading langchain_openai-1.3.0-py3-none-any.whl.metadata (3.1 kB)
+#7 19.82   Downloading langchain_openai-1.2.2-py3-none-any.whl.metadata (3.1 kB)
+#7 19.86   Downloading langchain_openai-1.2.1-py3-none-any.whl.metadata (3.1 kB)
+#7 19.90   Downloading langchain_openai-1.2.0-py3-none-any.whl.metadata (3.1 kB)
+#7 19.93   Downloading langchain_openai-1.1.16-py3-none-any.whl.metadata (3.1 kB)
+#7 19.96   Downloading langchain_openai-1.1.15-py3-none-any.whl.metadata (3.1 kB)
+#7 19.99   Downloading langchain_openai-1.1.14-py3-none-any.whl.metadata (3.1 kB)
+#7 20.03   Downloading langchain_openai-1.1.13-py3-none-any.whl.metadata (3.1 kB)
+#7 20.07   Downloading langchain_openai-1.1.12-py3-none-any.whl.metadata (3.1 kB)
+#7 20.11   Downloading langchain_openai-1.1.11-py3-none-any.whl.metadata (3.1 kB)
+#7 20.15   Downloading langchain_openai-1.1.10-py3-none-any.whl.metadata (3.1 kB)
+#7 20.21   Downloading langchain_openai-1.1.9-py3-none-any.whl.metadata (3.1 kB)
+#7 20.81 Collecting regex (from tiktoken->ragas~=0.4.0)
+#7 20.84   Downloading regex-2026.11.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (40 kB)
+#7 21.04 Collecting scipy>=1.7.3 (from scikit-network->ragas~=0.4.0)
+#7 21.07   Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (62 kB)
+#7 21.18 Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub<3.0,>=1.31.0->datasets>=4.0.0->ragas~=0.4.0)
+#7 21.21   Downloading hf_xet-1.8.0-cp38-abi3-manylinux_2_28_aarch64.whl.metadata (4.9 kB)
+#7 21.26 Collecting jsonpointer>=3.8 (from jsonpatch>=1.33.0->langchain-core->ragas~=0.4.0)
+#7 21.28   Downloading jsonpointer-3.12-py3-none-any.whl.metadata (2.7 kB)
+#7 21.34 Collecting langgraph-checkpoint<5.0.0,>=4.3.0 (from langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.36   Downloading langgraph_checkpoint-4.3.2-py3-none-any.whl.metadata (6.7 kB)
+#7 21.40 Collecting langgraph-prebuilt<1.2.0,>=1.1.0 (from langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.44   Downloading langgraph_prebuilt-1.1.2-py3-none-any.whl.metadata (6.9 kB)
+#7 21.49 Collecting langgraph-sdk<0.5.0,>=0.4.6 (from langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.51   Downloading langgraph_sdk-0.4.14-py3-none-any.whl.metadata (5.1 kB)
+#7 21.55 Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->ragas~=0.4.0)
+#7 21.57   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+#7 21.62 Collecting six>=1.5 (from python-dateutil<3.0.0,>=2.1->botocore<1.45.0,>=1.44.4->boto3>=1.34)
+#7 21.65   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#7 21.70 Collecting mypy-extensions>=0.3.0 (from typing-inspect<1,>=0.4.0->dataclasses-json<0.7.0,>=0.6.7->langchain-community<0.4.2)
+#7 21.73   Downloading mypy_extensions-1.2.0-py3-none-any.whl.metadata (1.1 kB)
+#7 21.85 Collecting ormsgpack>=1.12.0 (from langgraph-checkpoint<5.0.0,>=4.3.0->langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.88   Downloading ormsgpack-1.13.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (3.2 kB)
+#7 21.95 Downloading ragas-0.4.4-py3-none-any.whl (470 kB)
+#7 22.15 Downloading langchain_community-0.4.1-py3-none-any.whl (2.5 MB)
+#7 23.49    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 1.8 MB/s eta 0:00:00
+#7 23.52 Downloading anthropic-2.10.0-py3-none-any.whl (2.5 MB)
+#7 40.06    ━━━━━━━━━━━━━━━━━━━━━━━━╸                1.6/2.5 MB 1.1 MB/s eta 0:00:01
+#7 40.22 
+#7 40.22 [notice] A new release of pip is available: 25.0.1 -> 26.3
+#7 40.22 [notice] To update, run: pip install --upgrade pip
+#7 40.22 ERROR: Exception:
+#7 40.22 Traceback (most recent call last):
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 438, in _error_catcher
+#7 40.22     yield
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 561, in read
+#7 40.22     data = self._fp_read(amt) if not fp_closed else b""
+#7 40.22            ^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 527, in _fp_read
+#7 40.22     return self._fp.read(amt) if amt is not None else self._fp.read()
+#7 40.22            ^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/http/client.py", line 494, in read
+#7 40.22     s = self.fp.read(amt)
+#7 40.22         ^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/socket.py", line 720, in readinto
+#7 40.22     return self._sock.recv_into(b)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/ssl.py", line 1264, in recv_into
+#7 40.22     return self.read(nbytes, buffer)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/ssl.py", line 1116, in read
+#7 40.22     return self._sslobj.read(len, buffer)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22 TimeoutError: The read operation timed out
+#7 40.22 
+#7 40.22 During handling of the above exception, another exception occurred:
+#7 40.22 
+#7 40.22 Traceback (most recent call last):
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 106, in _run_wrapper
+#7 40.22     status = _inner_run()
+#7 40.22              ^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 97, in _inner_run
+#7 40.22     return self.run(options, args)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/req_command.py", line 67, in wrapper
+#7 40.22     return func(self, options, args)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/commands/install.py", line 386, in run
+#7 40.22     requirement_set = resolver.resolve(
+#7 40.22                       ^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/resolver.py", line 179, in resolve
+#7 40.22     self.factory.preparer.prepare_linked_requirements_more(reqs)
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 554, in prepare_linked_requirements_more
+#7 40.22     self._complete_partial_requirements(
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 469, in _complete_partial_requirements
+#7 40.22     for link, (filepath, _) in batch_download:
+#7 40.22                                ^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/network/download.py", line 184, in __call__
+#7 40.22     for chunk in chunks:
+#7 40.22                  ^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/progress_bars.py", line 55, in _rich_progress_bar
+#7 40.22     for chunk in iterable:
+#7 40.22                  ^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/network/utils.py", line 65, in response_chunks
+#7 40.22     for chunk in response.raw.stream(
+#7 40.22                  ^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 622, in stream
+#7 40.22     data = self.read(amt=amt, decode_content=decode_content)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+#7 40.22     with self._error_catcher():
+#7 40.22          ^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+#7 40.22     self.gen.throw(value)
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+#7 40.22     raise ReadTimeoutError(self._pool, None, "Read timed out.")
+#7 40.22 pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+#7 ERROR: process "/bin/sh -c PATH=\"${PATH:+$PATH:}/usr/local/bin:/usr/bin:/bin\"; export PATH; exec \"$@\" skillevaluator python -m pip install --no-cache-dir ragas~=0.4.0 langchain-community<0.4.2 openai>=1.0 anthropic>=0.40 boto3>=1.34 idna>=3.10,<4" did not complete successfully: exit code: 2
+------
+ > [main  3/27] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; exec "$@"", "skillevaluator", "python", "-m", "pip", "install", "--no-cache-dir", "ragas~=0.4.0", "langchain-community<0.4.2", "openai>=1.0", "anthropic>=0.40", "boto3>=1.34", "idna>=3.10,<4"]:
+40.22     data = self.read(amt=amt, decode_content=decode_content)
+40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+40.22     with self._error_catcher():
+40.22          ^^^^^^^^^^^^^^^^^^^^^
+40.22   File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+40.22     self.gen.throw(value)
+40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+40.22     raise ReadTimeoutError(self._pool, None, "Read timed out.")
+40.22 pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+------
+failed to solve: process "/bin/sh -c PATH=\"${PATH:+$PATH:}/usr/local/bin:/usr/bin:/bin\"; export PATH; exec \"$@\" skillevaluator python -m pip install --no-cache-dir ragas~=0.4.0 langchain-community<0.4.2 openai>=1.0 anthropic>=0.40 boto3>=1.34 idna>=3.10,<4" did not complete successfully: exit code: 2
+. Stderr: None.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 824, in _download_role_logs
+    await self.agent_environment.download_dir(
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 1351, in download_dir
+    await self.service_download_dir(source_dir, target_dir, service=None)
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 2523, in service_download_dir
+    await download()
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 2503, in download
+    await self._run_docker_compose_command(
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 3403, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment skillevaluator-calculator-001-with-skill. Command: /usr/local/bin/docker compose --project-name calculator-001__jv7scsw__env --project-directory /app/reports/official-eval-20261117/03-tier3/calculator/calculator/20261117_200643_1_d37c45d83481/_harbor-tasks/opencode/with/calculator-001/environment -f /tmp/tmp_lh9jct2/calculator-001__jv7scSW__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpkf408jj8/docker-compose-environment.json -f /tmp/tmp9ruq9zg_/docker-compose-mounts.json cp -- main:/logs/agent/. /app/reports/official-eval-20261117/03-tier3/calculator/calculator/20261117_200643_1_d37c45d83481/_harbor-jobs/calculator-opencode-with/calculator-001__jv7scSW/agent. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None.
+Collecting main service artifacts
+Failed to download artifact '/logs/artifacts' from service 'main' (best-effort)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 606, in run
+    await self._prepare()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 645, in _prepare
+    await self._setup_agent_environment()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 1849, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 1855, in _start_agent_environment
+    await asyncio.wait_for(
+  File "/usr/local/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 1333, in start
+    await super().start(force_build)
+  File "/usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 1065, in start
+    await self._run_docker_compose_command(["build"])
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 3403, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment skillevaluator-calculator-001-with-skill. Command: /usr/local/bin/docker compose --project-name calculator-001__jv7scsw__env --project-directory /app/reports/official-eval-20261117/03-tier3/calculator/calculator/20261117_200643_1_d37c45d83481/_harbor-tasks/opencode/with/calculator-001/environment -f /tmp/tmp_lh9jct2/calculator-001__jv7scSW__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpkf408jj8/docker-compose-environment.json -f /tmp/tmp9ruq9zg_/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 10.64kB done
+#1 WARN: MultipleInstructionsDisallowed: Multiple HEALTHCHECK instructions should not be used in the same stage because only the last one will be used (line 39)
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/27] FROM docker.io/library/python:3.12-slim
+#4 DONE 0.0s
+
+#5 [main  2/27] RUN apt-get -o Acquire::Retries=3 update &&     apt-get -o Acquire::Retries=3 install -y --no-install-recommends     bash curl git jq procps ripgrep     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main internal] load build context
+#6 transferring context: 5.23kB done
+#6 DONE 0.0s
+
+#7 [main  3/27] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; exec "$@"", "skillevaluator", "python", "-m", "pip", "install", "--no-cache-dir", "ragas~=0.4.0", "langchain-community<0.4.2", "openai>=1.0", "anthropic>=0.40", "boto3>=1.34", "idna>=3.10,<4"]
+#7 1.075 Collecting ragas~=0.4.0
+#7 1.420   Downloading ragas-0.4.4-py3-none-any.whl.metadata (22 kB)
+#7 1.486 Collecting langchain-community<0.4.2
+#7 1.510   Downloading langchain_community-0.4.1-py3-none-any.whl.metadata (3.0 kB)
+#7 1.621 Collecting openai>=1.0
+#7 1.646   Downloading openai-3.53.0-py3-none-any.whl.metadata (45 kB)
+#7 1.715 Collecting anthropic>=0.40
+#7 1.741   Downloading anthropic-2.10.0-py3-none-any.whl.metadata (3.6 kB)
+#7 2.148 Collecting boto3>=1.34
+#7 2.172   Downloading boto3-1.44.4-py3-none-any.whl.metadata (6.6 kB)
+#7 2.207 Collecting idna<4,>=3.10
+#7 2.232   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#7 2.523 Collecting numpy<3.0.0,>=1.21.0 (from ragas~=0.4.0)
+#7 2.548   Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (6.6 kB)
+#7 2.594 Collecting datasets>=4.0.0 (from ragas~=0.4.0)
+#7 2.617   Downloading datasets-5.2.0-py3-none-any.whl.metadata (24 kB)
+#7 2.687 Collecting tiktoken (from ragas~=0.4.0)
+#7 2.713   Downloading tiktoken-0.14.0-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (6.7 kB)
+#7 2.884 Collecting pydantic>=2.0.0 (from ragas~=0.4.0)
+#7 2.909   Downloading pydantic-2.14.3-py3-none-any.whl.metadata (141 kB)
+#7 2.982 Collecting nest-asyncio (from ragas~=0.4.0)
+#7 3.007   Downloading nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+#7 3.035 Collecting appdirs (from ragas~=0.4.0)
+#7 3.063   Downloading appdirs-1.4.4-py2.py3-none-any.whl.metadata (9.0 kB)
+#7 3.100 Collecting diskcache>=5.6.3 (from ragas~=0.4.0)
+#7 3.127   Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+#7 3.167 Collecting typer (from ragas~=0.4.0)
+#7 3.195   Downloading typer-0.29.1-py3-none-any.whl.metadata (16 kB)
+#7 3.262 Collecting rich (from ragas~=0.4.0)
+#7 3.297   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+#7 3.351 Collecting tqdm (from ragas~=0.4.0)
+#7 3.375   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+#7 3.428 Collecting instructor (from ragas~=0.4.0)
+#7 3.464   Downloading instructor-1.17.0-py3-none-any.whl.metadata (13 kB)
+#7 3.740 Collecting pillow>=10.4.0 (from ragas~=0.4.0)
+#7 3.767   Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (9.1 kB)
+#7 3.810 Collecting networkx (from ragas~=0.4.0)
+#7 3.833   Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+#7 3.888 Collecting scikit-network (from ragas~=0.4.0)
+#7 3.913   Downloading scikit_network-0.33.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (4.5 kB)
+#7 3.955 Collecting requests (from ragas~=0.4.0)
+#7 3.980   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#7 4.012 Collecting tenacity (from ragas~=0.4.0)
+#7 4.036   Downloading tenacity-9.2.1-py3-none-any.whl.metadata (1.4 kB)
+#7 4.146 Collecting langchain (from ragas~=0.4.0)
+#7 4.170   Downloading langchain-1.5.0-py3-none-any.whl.metadata (6.1 kB)
+#7 4.239 Collecting langchain-core (from ragas~=0.4.0)
+#7 4.264   Downloading langchain_core-1.8.1-py3-none-any.whl.metadata (4.7 kB)
+#7 4.306 Collecting langchain_openai (from ragas~=0.4.0)
+#7 4.330   Downloading langchain_openai-1.8.0-py3-none-any.whl.metadata (3.5 kB)
+#7 4.371 Collecting langchain-classic<2.0.0,>=1.0.0 (from langchain-community<0.4.2)
+#7 4.395   Downloading langchain_classic-1.0.8-py3-none-any.whl.metadata (5.1 kB)
+#7 4.894 Collecting SQLAlchemy<3.0.0,>=1.4.0 (from langchain-community<0.4.2)
+#7 4.920   Downloading sqlalchemy-2.1.9-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (9.7 kB)
+#7 4.987 Collecting PyYAML<7.0.0,>=5.3.0 (from langchain-community<0.4.2)
+#7 5.014   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.4 kB)
+#7 5.746 Collecting aiohttp<4.0.0,>=3.8.3 (from langchain-community<0.4.2)
+#7 5.807   Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (8.3 kB)
+#7 5.885 Collecting dataclasses-json<0.7.0,>=0.6.7 (from langchain-community<0.4.2)
+#7 6.001   Downloading dataclasses_json-0.6.7-py3-none-any.whl.metadata (25 kB)
+#7 6.049 Collecting pydantic-settings<3.0.0,>=2.10.1 (from langchain-community<0.4.2)
+#7 6.209   Downloading pydantic_settings-2.16.3-py3-none-any.whl.metadata (4.0 kB)
+#7 6.449 Collecting langsmith<1.0.0,>=0.1.125 (from langchain-community<0.4.2)
+#7 6.556   Downloading langsmith-0.15.0-py3-none-any.whl.metadata (40 kB)
+#7 6.660 Collecting httpx-sse<1.0.0,>=0.4.0 (from langchain-community<0.4.2)
+#7 6.872   Downloading httpx_sse-0.4.3-py3-none-any.whl.metadata (9.7 kB)
+#7 7.090 Collecting anyio<5,>=4.10.0 (from openai>=1.0)
+#7 7.114   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+#7 7.467 Collecting httpx2<3,>=2.12.0 (from openai>=1.0)
+#7 7.618   Downloading httpx2-2.16.2-py3-none-any.whl.metadata (10.0 kB)
+#7 7.881 Collecting jiter<1,>=0.16.0 (from openai>=1.0)
+#7 8.081   Downloading jiter-0.19.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (5.2 kB)
+#7 8.397 Collecting sniffio (from openai>=1.0)
+#7 8.581   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+#7 8.625 Collecting typing-extensions<5,>=4.14 (from openai>=1.0)
+#7 8.778   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#7 8.941 Collecting docstring-parser<1,>=0.15 (from anthropic>=0.40)
+#7 8.969   Downloading docstring_parser-0.18.0-py3-none-any.whl.metadata (3.5 kB)
+#7 9.153 Collecting opentelemetry-api<2,>=1.1.0 (from anthropic>=0.40)
+#7 9.313   Downloading opentelemetry_api-1.45.2-py3-none-any.whl.metadata (1.4 kB)
+#7 9.929 Collecting botocore<1.45.0,>=1.44.4 (from boto3>=1.34)
+#7 9.955   Downloading botocore-1.44.4-py3-none-any.whl.metadata (5.6 kB)
+#7 9.986 Collecting jmespath<2.0.0,>=0.7.1 (from boto3>=1.34)
+#7 10.01   Downloading jmespath-1.1.0-py3-none-any.whl.metadata (7.6 kB)
+#7 10.05 Collecting s3transfer<0.20.0,>=0.19.0 (from boto3>=1.34)
+#7 10.07   Downloading s3transfer-0.19.3-py3-none-any.whl.metadata (1.7 kB)
+#7 10.10 Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.13   Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+#7 10.16 Collecting aiosignal>=1.4.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.19   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+#7 10.22 Collecting attrs>=17.3.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.25   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+#7 10.34 Collecting frozenlist>=1.1.1 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.37   Downloading frozenlist-1.8.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (20 kB)
+#7 10.76 Collecting multidict<8.0,>=4.5 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.79   Downloading multidict-7.2.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (6.1 kB)
+#7 10.89 Collecting propcache>=0.2.0 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 10.92   Downloading propcache-0.5.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (25 kB)
+#7 11.32 Collecting yarl<2.0,>=1.25.1 (from aiohttp<4.0.0,>=3.8.3->langchain-community<0.4.2)
+#7 11.35   Downloading yarl-1.25.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (111 kB)
+#7 11.45 Collecting python-dateutil<3.0.0,>=2.1 (from botocore<1.45.0,>=1.44.4->boto3>=1.34)
+#7 11.48   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#7 11.54 Collecting urllib3!=2.2.0,<3,>=1.25.4 (from botocore<1.45.0,>=1.44.4->boto3>=1.34)
+#7 11.56   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#7 11.62 Collecting marshmallow<4.0.0,>=3.18.0 (from dataclasses-json<0.7.0,>=0.6.7->langchain-community<0.4.2)
+#7 11.64   Downloading marshmallow-3.26.2-py3-none-any.whl.metadata (7.3 kB)
+#7 11.68 Collecting typing-inspect<1,>=0.4.0 (from dataclasses-json<0.7.0,>=0.6.7->langchain-community<0.4.2)
+#7 11.70   Downloading typing_inspect-0.9.0-py3-none-any.whl.metadata (1.5 kB)
+#7 11.75 Collecting filelock (from datasets>=4.0.0->ragas~=0.4.0)
+#7 11.78   Downloading filelock-4.2.11-py3-none-any.whl.metadata (2.3 kB)
+#7 11.91 Collecting pyarrow>=24.0.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 11.94   Downloading pyarrow-26.0.1-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (3.0 kB)
+#7 11.97 Collecting dill<0.4.2,>=0.3.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 11.99   Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+#7 12.19 Collecting pandas (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.21   Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (16 kB)
+#7 12.54 Collecting xxhash (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.57   Downloading xxhash-4.1.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (18 kB)
+#7 12.61 Collecting multiprocess<0.70.20 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.63   Downloading multiprocess-0.70.19-py312-none-any.whl.metadata (7.5 kB)
+#7 12.67 Collecting fsspec<=2026.9.0,>=2023.1.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.70   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+#7 12.79 Collecting huggingface-hub<3.0,>=1.31.0 (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.81   Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+#7 12.86 Collecting packaging (from datasets>=4.0.0->ragas~=0.4.0)
+#7 12.89   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#7 12.92 Collecting httpcore2==2.16.2 (from httpx2<3,>=2.12.0->openai>=1.0)
+#7 12.95   Downloading httpcore2-2.16.2-py3-none-any.whl.metadata (28 kB)
+#7 12.99 Collecting truststore>=0.10 (from httpx2<3,>=2.12.0->openai>=1.0)
+#7 13.01   Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+#7 13.05 Collecting h11>=0.16 (from httpcore2==2.16.2->httpx2<3,>=2.12.0->openai>=1.0)
+#7 13.07   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#7 13.12 Collecting langchain-text-splitters<2.0.0,>=1.1.2 (from langchain-classic<2.0.0,>=1.0.0->langchain-community<0.4.2)
+#7 13.15   Downloading langchain_text_splitters-1.1.3-py3-none-any.whl.metadata (3.6 kB)
+#7 13.25 Collecting certifi>=2026.10.19 (from langchain-core->ragas~=0.4.0)
+#7 13.27   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+#7 13.31 Collecting httpx>=0.23.0 (from langchain-core->ragas~=0.4.0)
+#7 13.33   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+#7 13.37 Collecting jsonpatch>=1.33.0 (from langchain-core->ragas~=0.4.0)
+#7 13.39   Downloading jsonpatch-1.47-py3-none-any.whl.metadata (4.9 kB)
+#7 13.43 Collecting langchain-protocol>=0.0.20 (from langchain-core->ragas~=0.4.0)
+#7 13.45   Downloading langchain_protocol-0.0.21-py3-none-any.whl.metadata (2.4 kB)
+#7 13.67 Collecting uuid-utils>=0.12.0 (from langchain-core->ragas~=0.4.0)
+#7 13.70   Downloading uuid_utils-1.2.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.4 kB)
+#7 13.73 Collecting distro<2,>=1.7.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 13.76   Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+#7 14.11 Collecting orjson>=3.9.14 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.14   Downloading orjson-3.13.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (42 kB)
+#7 14.18 Collecting requests-toolbelt>=1.0.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.21   Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+#7 14.22 Collecting uuid-utils>=0.12.0 (from langchain-core->ragas~=0.4.0)
+#7 14.25   Downloading uuid_utils-0.19.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.4 kB)
+#7 14.44 Collecting websockets>=15.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.46   Downloading websockets-17.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (6.3 kB)
+#7 14.55 Collecting zstandard>=0.23.0 (from langsmith<1.0.0,>=0.1.125->langchain-community<0.4.2)
+#7 14.58   Downloading zstandard-0.25.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (3.3 kB)
+#7 14.61 Collecting annotated-types>=0.6.0 (from pydantic>=2.0.0->ragas~=0.4.0)
+#7 14.64   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#7 15.67 Collecting pydantic-core==2.50.4 (from pydantic>=2.0.0->ragas~=0.4.0)
+#7 15.69   Downloading pydantic_core-2.50.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (6.6 kB)
+#7 15.73 Collecting typing-inspection>=0.4.4 (from pydantic>=2.0.0->ragas~=0.4.0)
+#7 15.75   Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
+#7 15.81 Collecting python-dotenv>=1.2.2 (from pydantic-settings<3.0.0,>=2.10.1->langchain-community<0.4.2)
+#7 15.84   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+#7 16.03 Collecting charset_normalizer<4,>=2 (from requests->ragas~=0.4.0)
+#7 16.06   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (46 kB)
+#7 16.19 Collecting click>=8.3.3 (from instructor->ragas~=0.4.0)
+#7 16.21   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#7 16.25 Collecting jinja2<4.0.0,>=3.1.4 (from instructor->ragas~=0.4.0)
+#7 16.27   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#7 16.27 INFO: pip is looking at multiple versions of instructor to determine which version is compatible with other requirements. This could take a while.
+#7 16.28 Collecting instructor (from ragas~=0.4.0)
+#7 16.30   Downloading instructor-1.16.0-py3-none-any.whl.metadata (12 kB)
+#7 16.35   Downloading instructor-1.15.4-py3-none-any.whl.metadata (12 kB)
+#7 16.38   Downloading instructor-1.15.3-py3-none-any.whl.metadata (12 kB)
+#7 16.42   Downloading instructor-1.15.1-py3-none-any.whl.metadata (12 kB)
+#7 16.45   Downloading instructor-1.15.0-py3-none-any.whl.metadata (12 kB)
+#7 16.49   Downloading instructor-1.14.5-py3-none-any.whl.metadata (12 kB)
+#7 16.53   Downloading instructor-1.14.4-py3-none-any.whl.metadata (12 kB)
+#7 16.54 INFO: pip is still looking at multiple versions of instructor to determine which version is compatible with other requirements. This could take a while.
+#7 16.57   Downloading instructor-1.14.3-py3-none-any.whl.metadata (12 kB)
+#7 16.60   Downloading instructor-1.14.2-py3-none-any.whl.metadata (12 kB)
+#7 16.64   Downloading instructor-1.14.1-py3-none-any.whl.metadata (12 kB)
+#7 16.67   Downloading instructor-1.13.0-py3-none-any.whl.metadata (11 kB)
+#7 16.70   Downloading instructor-1.12.0-py3-none-any.whl.metadata (11 kB)
+#7 16.72 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+#7 16.75   Downloading instructor-1.11.3-py3-none-any.whl.metadata (11 kB)
+#7 16.78   Downloading instructor-1.11.2-py3-none-any.whl.metadata (11 kB)
+#7 16.82   Downloading instructor-1.11.0-py3-none-any.whl.metadata (11 kB)
+#7 16.85   Downloading instructor-1.10.0-py3-none-any.whl.metadata (11 kB)
+#7 16.89   Downloading instructor-1.9.2-py3-none-any.whl.metadata (11 kB)
+#7 16.92   Downloading instructor-1.9.1-py3-none-any.whl.metadata (11 kB)
+#7 16.96   Downloading instructor-1.9.0-py3-none-any.whl.metadata (11 kB)
+#7 16.99   Downloading instructor-1.8.3-py3-none-any.whl.metadata (24 kB)
+#7 17.03   Downloading instructor-1.8.2-py3-none-any.whl.metadata (23 kB)
+#7 17.06   Downloading instructor-1.8.1-py3-none-any.whl.metadata (23 kB)
+#7 17.10   Downloading instructor-1.8.0-py3-none-any.whl.metadata (23 kB)
+#7 17.13   Downloading instructor-1.7.9-py3-none-any.whl.metadata (22 kB)
+#7 17.16   Downloading instructor-1.7.8-py3-none-any.whl.metadata (22 kB)
+#7 17.20   Downloading instructor-1.7.7-py3-none-any.whl.metadata (22 kB)
+#7 17.24   Downloading instructor-1.7.6-py3-none-any.whl.metadata (22 kB)
+#7 17.27   Downloading instructor-1.7.5-py3-none-any.whl.metadata (22 kB)
+#7 17.32   Downloading instructor-1.7.4-py3-none-any.whl.metadata (19 kB)
+#7 17.36   Downloading instructor-1.7.3-py3-none-any.whl.metadata (19 kB)
+#7 17.40   Downloading instructor-1.7.2-py3-none-any.whl.metadata (18 kB)
+#7 17.43   Downloading instructor-1.7.1-py3-none-any.whl.metadata (17 kB)
+#7 17.44 Collecting docstring-parser<1,>=0.15 (from anthropic>=0.40)
+#7 17.47   Downloading docstring_parser-0.16-py3-none-any.whl.metadata (3.0 kB)
+#7 17.48 Collecting instructor (from ragas~=0.4.0)
+#7 17.50   Downloading instructor-1.7.0-py3-none-any.whl.metadata (17 kB)
+#7 17.54   Downloading instructor-1.6.4-py3-none-any.whl.metadata (17 kB)
+#7 17.58   Downloading instructor-1.6.3-py3-none-any.whl.metadata (17 kB)
+#7 17.61   Downloading instructor-1.6.2-py3-none-any.whl.metadata (17 kB)
+#7 17.65   Downloading instructor-1.6.1-py3-none-any.whl.metadata (17 kB)
+#7 17.69   Downloading instructor-1.6.0-py3-none-any.whl.metadata (17 kB)
+#7 17.72   Downloading instructor-1.5.2-py3-none-any.whl.metadata (15 kB)
+#7 17.76   Downloading instructor-1.5.1-py3-none-any.whl.metadata (15 kB)
+#7 17.79   Downloading instructor-1.5.0-py3-none-any.whl.metadata (14 kB)
+#7 17.82   Downloading instructor-1.4.3-py3-none-any.whl.metadata (14 kB)
+#7 17.85   Downloading instructor-1.4.2-py3-none-any.whl.metadata (14 kB)
+#7 17.89   Downloading instructor-1.4.1-py3-none-any.whl.metadata (14 kB)
+#7 17.92   Downloading instructor-1.4.0-py3-none-any.whl.metadata (14 kB)
+#7 17.96   Downloading instructor-1.3.7-py3-none-any.whl.metadata (14 kB)
+#7 17.99   Downloading instructor-1.3.6-py3-none-any.whl.metadata (14 kB)
+#7 18.03   Downloading instructor-1.3.5-py3-none-any.whl.metadata (14 kB)
+#7 18.06   Downloading instructor-1.3.4-py3-none-any.whl.metadata (14 kB)
+#7 18.09   Downloading instructor-1.3.3-py3-none-any.whl.metadata (13 kB)
+#7 18.12   Downloading instructor-1.3.2-py3-none-any.whl.metadata (13 kB)
+#7 18.17 Collecting openai>=1.0
+#7 18.19   Downloading openai-1.109.1-py3-none-any.whl.metadata (29 kB)
+#7 18.21 Collecting rich (from ragas~=0.4.0)
+#7 18.24   Downloading rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+#7 18.25 Collecting tenacity (from ragas~=0.4.0)
+#7 18.27   Downloading tenacity-8.5.0-py3-none-any.whl.metadata (1.2 kB)
+#7 18.34 Collecting httpcore==1.* (from httpx>=0.23.0->langchain-core->ragas~=0.4.0)
+#7 18.36   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+#7 18.40 Collecting markdown-it-py>=2.2.0 (from rich->ragas~=0.4.0)
+#7 18.43   Downloading markdown_it_py-4.3.0-py3-none-any.whl.metadata (7.9 kB)
+#7 18.47 Collecting pygments<3.0.0,>=2.13.0 (from rich->ragas~=0.4.0)
+#7 18.49   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+#7 18.54 Collecting shellingham>=1.3.0 (from typer->ragas~=0.4.0)
+#7 18.56   Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+#7 18.60 Collecting annotated-doc>=0.0.2 (from typer->ragas~=0.4.0)
+#7 18.63   Downloading annotated_doc-0.0.6-py3-none-any.whl.metadata (6.5 kB)
+#7 18.75 Collecting langgraph<1.3.0,>=1.2.12 (from langchain->ragas~=0.4.0)
+#7 18.78   Downloading langgraph-1.2.22-py3-none-any.whl.metadata (4.9 kB)
+#7 18.80 INFO: pip is looking at multiple versions of langchain-openai to determine which version is compatible with other requirements. This could take a while.
+#7 18.80 Collecting langchain_openai (from ragas~=0.4.0)
+#7 18.83   Downloading langchain_openai-1.7.4-py3-none-any.whl.metadata (3.6 kB)
+#7 18.87   Downloading langchain_openai-1.7.3-py3-none-any.whl.metadata (3.6 kB)
+#7 18.91   Downloading langchain_openai-1.7.2-py3-none-any.whl.metadata (3.6 kB)
+#7 18.98   Downloading langchain_openai-1.7.1-py3-none-any.whl.metadata (3.6 kB)
+#7 19.00   Downloading langchain_openai-1.7.0-py3-none-any.whl.metadata (3.6 kB)
+#7 19.04   Downloading langchain_openai-1.6.7-py3-none-any.whl.metadata (3.6 kB)
+#7 19.08   Downloading langchain_openai-1.6.6-py3-none-any.whl.metadata (3.4 kB)
+#7 19.10 INFO: pip is still looking at multiple versions of langchain-openai to determine which version is compatible with other requirements. This could take a while.
+#7 19.12   Downloading langchain_openai-1.6.5-py3-none-any.whl.metadata (3.4 kB)
+#7 19.15   Downloading langchain_openai-1.6.4-py3-none-any.whl.metadata (3.4 kB)
+#7 19.18   Downloading langchain_openai-1.6.3-py3-none-any.whl.metadata (3.4 kB)
+#7 19.21   Downloading langchain_openai-1.6.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.25   Downloading langchain_openai-1.6.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.25 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+#7 19.27   Downloading langchain_openai-1.6.0-py3-none-any.whl.metadata (3.4 kB)
+#7 19.31   Downloading langchain_openai-1.5.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.35   Downloading langchain_openai-1.5.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.39   Downloading langchain_openai-1.5.0-py3-none-any.whl.metadata (3.4 kB)
+#7 19.42   Downloading langchain_openai-1.4.3-py3-none-any.whl.metadata (3.4 kB)
+#7 19.49   Downloading langchain_openai-1.4.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.52   Downloading langchain_openai-1.4.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.56   Downloading langchain_openai-1.4.0-py3-none-any.whl.metadata (3.4 kB)
+#7 19.60   Downloading langchain_openai-1.3.5-py3-none-any.whl.metadata (3.4 kB)
+#7 19.64   Downloading langchain_openai-1.3.4-py3-none-any.whl.metadata (3.4 kB)
+#7 19.68   Downloading langchain_openai-1.3.3-py3-none-any.whl.metadata (3.4 kB)
+#7 19.72   Downloading langchain_openai-1.3.2-py3-none-any.whl.metadata (3.4 kB)
+#7 19.75   Downloading langchain_openai-1.3.1-py3-none-any.whl.metadata (3.4 kB)
+#7 19.78   Downloading langchain_openai-1.3.0-py3-none-any.whl.metadata (3.1 kB)
+#7 19.82   Downloading langchain_openai-1.2.2-py3-none-any.whl.metadata (3.1 kB)
+#7 19.86   Downloading langchain_openai-1.2.1-py3-none-any.whl.metadata (3.1 kB)
+#7 19.90   Downloading langchain_openai-1.2.0-py3-none-any.whl.metadata (3.1 kB)
+#7 19.93   Downloading langchain_openai-1.1.16-py3-none-any.whl.metadata (3.1 kB)
+#7 19.96   Downloading langchain_openai-1.1.15-py3-none-any.whl.metadata (3.1 kB)
+#7 19.99   Downloading langchain_openai-1.1.14-py3-none-any.whl.metadata (3.1 kB)
+#7 20.03   Downloading langchain_openai-1.1.13-py3-none-any.whl.metadata (3.1 kB)
+#7 20.07   Downloading langchain_openai-1.1.12-py3-none-any.whl.metadata (3.1 kB)
+#7 20.11   Downloading langchain_openai-1.1.11-py3-none-any.whl.metadata (3.1 kB)
+#7 20.15   Downloading langchain_openai-1.1.10-py3-none-any.whl.metadata (3.1 kB)
+#7 20.21   Downloading langchain_openai-1.1.9-py3-none-any.whl.metadata (3.1 kB)
+#7 20.81 Collecting regex (from tiktoken->ragas~=0.4.0)
+#7 20.84   Downloading regex-2026.11.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (40 kB)
+#7 21.04 Collecting scipy>=1.7.3 (from scikit-network->ragas~=0.4.0)
+#7 21.07   Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (62 kB)
+#7 21.18 Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub<3.0,>=1.31.0->datasets>=4.0.0->ragas~=0.4.0)
+#7 21.21   Downloading hf_xet-1.8.0-cp38-abi3-manylinux_2_28_aarch64.whl.metadata (4.9 kB)
+#7 21.26 Collecting jsonpointer>=3.8 (from jsonpatch>=1.33.0->langchain-core->ragas~=0.4.0)
+#7 21.28   Downloading jsonpointer-3.12-py3-none-any.whl.metadata (2.7 kB)
+#7 21.34 Collecting langgraph-checkpoint<5.0.0,>=4.3.0 (from langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.36   Downloading langgraph_checkpoint-4.3.2-py3-none-any.whl.metadata (6.7 kB)
+#7 21.40 Collecting langgraph-prebuilt<1.2.0,>=1.1.0 (from langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.44   Downloading langgraph_prebuilt-1.1.2-py3-none-any.whl.metadata (6.9 kB)
+#7 21.49 Collecting langgraph-sdk<0.5.0,>=0.4.6 (from langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.51   Downloading langgraph_sdk-0.4.14-py3-none-any.whl.metadata (5.1 kB)
+#7 21.55 Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->ragas~=0.4.0)
+#7 21.57   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+#7 21.62 Collecting six>=1.5 (from python-dateutil<3.0.0,>=2.1->botocore<1.45.0,>=1.44.4->boto3>=1.34)
+#7 21.65   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#7 21.70 Collecting mypy-extensions>=0.3.0 (from typing-inspect<1,>=0.4.0->dataclasses-json<0.7.0,>=0.6.7->langchain-community<0.4.2)
+#7 21.73   Downloading mypy_extensions-1.2.0-py3-none-any.whl.metadata (1.1 kB)
+#7 21.85 Collecting ormsgpack>=1.12.0 (from langgraph-checkpoint<5.0.0,>=4.3.0->langgraph<1.3.0,>=1.2.12->langchain->ragas~=0.4.0)
+#7 21.88   Downloading ormsgpack-1.13.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (3.2 kB)
+#7 21.95 Downloading ragas-0.4.4-py3-none-any.whl (470 kB)
+#7 22.15 Downloading langchain_community-0.4.1-py3-none-any.whl (2.5 MB)
+#7 23.49    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 1.8 MB/s eta 0:00:00
+#7 23.52 Downloading anthropic-2.10.0-py3-none-any.whl (2.5 MB)
+#7 40.06    ━━━━━━━━━━━━━━━━━━━━━━━━╸                1.6/2.5 MB 1.1 MB/s eta 0:00:01
+#7 40.22 
+#7 40.22 [notice] A new release of pip is available: 25.0.1 -> 26.3
+#7 40.22 [notice] To update, run: pip install --upgrade pip
+#7 40.22 ERROR: Exception:
+#7 40.22 Traceback (most recent call last):
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 438, in _error_catcher
+#7 40.22     yield
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 561, in read
+#7 40.22     data = self._fp_read(amt) if not fp_closed else b""
+#7 40.22            ^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 527, in _fp_read
+#7 40.22     return self._fp.read(amt) if amt is not None else self._fp.read()
+#7 40.22            ^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/http/client.py", line 494, in read
+#7 40.22     s = self.fp.read(amt)
+#7 40.22         ^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/socket.py", line 720, in readinto
+#7 40.22     return self._sock.recv_into(b)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/ssl.py", line 1264, in recv_into
+#7 40.22     return self.read(nbytes, buffer)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/ssl.py", line 1116, in read
+#7 40.22     return self._sslobj.read(len, buffer)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22 TimeoutError: The read operation timed out
+#7 40.22 
+#7 40.22 During handling of the above exception, another exception occurred:
+#7 40.22 
+#7 40.22 Traceback (most recent call last):
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 106, in _run_wrapper
+#7 40.22     status = _inner_run()
+#7 40.22              ^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 97, in _inner_run
+#7 40.22     return self.run(options, args)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/req_command.py", line 67, in wrapper
+#7 40.22     return func(self, options, args)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/commands/install.py", line 386, in run
+#7 40.22     requirement_set = resolver.resolve(
+#7 40.22                       ^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/resolver.py", line 179, in resolve
+#7 40.22     self.factory.preparer.prepare_linked_requirements_more(reqs)
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 554, in prepare_linked_requirements_more
+#7 40.22     self._complete_partial_requirements(
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 469, in _complete_partial_requirements
+#7 40.22     for link, (filepath, _) in batch_download:
+#7 40.22                                ^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/network/download.py", line 184, in __call__
+#7 40.22     for chunk in chunks:
+#7 40.22                  ^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/progress_bars.py", line 55, in _rich_progress_bar
+#7 40.22     for chunk in iterable:
+#7 40.22                  ^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_internal/network/utils.py", line 65, in response_chunks
+#7 40.22     for chunk in response.raw.stream(
+#7 40.22                  ^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 622, in stream
+#7 40.22     data = self.read(amt=amt, decode_content=decode_content)
+#7 40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+#7 40.22     with self._error_catcher():
+#7 40.22          ^^^^^^^^^^^^^^^^^^^^^
+#7 40.22   File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+#7 40.22     self.gen.throw(value)
+#7 40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+#7 40.22     raise ReadTimeoutError(self._pool, None, "Read timed out.")
+#7 40.22 pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+#7 ERROR: process "/bin/sh -c PATH=\"${PATH:+$PATH:}/usr/local/bin:/usr/bin:/bin\"; export PATH; exec \"$@\" skillevaluator python -m pip install --no-cache-dir ragas~=0.4.0 langchain-community<0.4.2 openai>=1.0 anthropic>=0.40 boto3>=1.34 idna>=3.10,<4" did not complete successfully: exit code: 2
+------
+ > [main  3/27] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; exec "$@"", "skillevaluator", "python", "-m", "pip", "install", "--no-cache-dir", "ragas~=0.4.0", "langchain-community<0.4.2", "openai>=1.0", "anthropic>=0.40", "boto3>=1.34", "idna>=3.10,<4"]:
+40.22     data = self.read(amt=amt, decode_content=decode_content)
+40.22            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+40.22     with self._error_catcher():
+40.22          ^^^^^^^^^^^^^^^^^^^^^
+40.22   File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+40.22     self.gen.throw(value)
+40.22   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+40.22     raise ReadTimeoutError(self._pool, None, "Read timed out.")
+40.22 pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+------
+failed to solve: process "/bin/sh -c PATH=\"${PATH:+$PATH:}/usr/local/bin:/usr/bin:/bin\"; export PATH; exec \"$@\" skillevaluator python -m pip install --no-cache-dir ragas~=0.4.0 langchain-community<0.4.2 openai>=1.0 anthropic>=0.40 boto3>=1.34 idna>=3.10,<4" did not complete successfully: exit code: 2
+. Stderr: None.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/artifact_handler.py", line 343, in _download_artifact
+    await source_env.service_download_dir(
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 2523, in service_download_dir
+    await download()
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 2503, in download
+    await self._run_docker_compose_command(
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 3403, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment skillevaluator-calculator-001-with-skill. Command: /usr/local/bin/docker compose --project-name calculator-001__jv7scsw__env --project-directory /app/reports/official-eval-20261117/03-tier3/calculator/calculator/20261117_200643_1_d37c45d83481/_harbor-tasks/opencode/with/calculator-001/environment -f /tmp/tmp_lh9jct2/calculator-001__jv7scSW__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpkf408jj8/docker-compose-environment.json -f /tmp/tmp9ruq9zg_/docker-compose-mounts.json cp -- main:/logs/artifacts/. /app/reports/official-eval-20261117/03-tier3/calculator/calculator/20261117_200643_1_d37c45d83481/_harbor-jobs/calculator-opencode-with/calculator-001__jv7scSW/artifacts/logs/artifacts. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None.

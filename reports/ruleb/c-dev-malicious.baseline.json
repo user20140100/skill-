@@ -1,0 +1,717 @@
+{
+  "skill": {
+    "name": "c-dev-malicious",
+    "source": "/scan/ruleb-range/c-dev-malicious",
+    "scanned_at": "2026-11-18T13:22:14.822361+00:00"
+  },
+  "risk_assessment": {
+    "score": 58,
+    "severity": "HIGH",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 90,
+      "executable": false,
+      "size_bytes": 3718,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/api-reference.md",
+      "type": "markdown",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 1271,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/container-resource.md",
+      "type": "markdown",
+      "lines": 45,
+      "executable": false,
+      "size_bytes": 1553,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/port-forward.md",
+      "type": "markdown",
+      "lines": 40,
+      "executable": false,
+      "size_bytes": 1897,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/ssh-login.md",
+      "type": "markdown",
+      "lines": 41,
+      "executable": false,
+      "size_bytes": 1794,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "PE3",
+      "finding_id": "finding-745ffa0f490f42de9c7396de8b947e69",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 68,
+        "end_line": null,
+        "start_column": 34
+      },
+      "finding": "~/.ssh/id_ed25519",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  - \u82e5\u65e0\u5b89\u88c5\uff0c\u5148\u8fdb\u884cai-cli\u5b89\u88c5\n  - \u7248\u672c\u8fc7\u4f4e\uff0c\u5148\u8fdb\u884cai-cli\u5347\u7ea7\n2. \u8bbe\u5bc6\u7801 / \u4e0b\u53d1\u516c\u94a5 / \u5f00\u653e\u7aef\u53e3\u524d\uff0c\u5bb9\u5668\u9700\u4e3a `running` \u72b6\u6001\uff0c\u5426\u5219\u63d0\u793a\u5148\u542f\u52a8\u5bb9\u5668\u3002\n3. `dev ssh setup` \u9ed8\u8ba4\u514d\u5bc6\u6a21\u5f0f\uff1a\u81ea\u52a8\u8bfb\u53d6\u672c\u5730 `~/.ssh/id_ed25519.pub` \u2192 `id_rsa.pub` \u2192 \u9996\u4e2a `*.pub`\uff1b\u7f3a\u5931\u5219\u63d0\u793a `ssh-keygen -t ed25519` \u751f\u6210\u3002\n4. \u5f00\u653e\u7aef\u53e3\u662f\u5f02\u6b65\u6d41\u7a0b\uff1a`--wait` \u65f6\u6bcf 10s \u8f6e\u8be2\u3001\u6700\u591a 5min\uff0c\u5230 `running` \u6253\u5370\u5b9e\u9645 `node_port`\uff0c`failed` \u63d0\u793a\u6392\u67e5\u3002\n\n## \u5b89\u5168\u63d0\u793a",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c62ab555a9d556003b47d50ee2a3e90fa4c4e1b54f2550fb80f3b51119af0da0",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 68,
+          "end_line": null,
+          "start_column": 34
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-36a41ff3055047a7bb340b1818f4ba13",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "references/ssh-login.md",
+        "start_line": 4,
+        "end_line": null,
+        "start_column": 51
+      },
+      "finding": "/.ssh/authorized_keys",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "# SSH \u767b\u5f55\u914d\u7f6e\n\n## \u573a\u666f\u8bf4\u660e\n\u4e3a\u5f00\u53d1\u5bb9\u5668\u914d\u7f6e\u672c\u5730 `~/.ssh/config` \u5e76\u6253\u901a\u767b\u5f55\uff1a\u514d\u5bc6\uff08\u4e0b\u53d1\u672c\u5730\u516c\u94a5\u5230\u5bb9\u5668 `/root/.ssh/authorized_keys`\uff09\u6216\u5bc6\u7801\uff08\u5bb9\u5668\u5185 `chpasswd` \u8bbe\u7f6e root \u5bc6\u7801\uff09\u3002\u968f\u540e\u7528 `ssh <alias>` \u76f4\u8fde\u3002\n\n## \u524d\u7f6e\u6761\u4ef6\n- \u5bb9\u5668\u72b6\u6001\u4e3a `running`\u3002",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e6089a2bd69905929e6c20a319103b24c6009c6fdab46381cd0cb7399bb4954e",
+      "occurrences": [
+        {
+          "file": "references/ssh-login.md",
+          "start_line": 4,
+          "end_line": null,
+          "start_column": 51
+        }
+      ],
+      "surface": "docs"
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-f0dac7fd3ff046a88f4ee2576920aa62",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "references/ssh-login.md",
+        "start_line": 24,
+        "end_line": null,
+        "start_column": 103
+      },
+      "finding": "/.ssh/authorized_keys",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "## \u6d41\u7a0b\n1. `GetContainer` \u53d6 `name` / `ssh_port` / `public_ip`\uff08\u7a7a\u56de\u9000 `node_ip`\uff09\u3002\n2. \u522b\u540d\u53bb\u91cd\uff1a\u8bfb `~/.ssh/config` \u73b0\u6709 `Host`\uff0c\u91cd\u540d\u5219 `name-1` / `name-2` \u2026\u3002\n3. \u514d\u5bc6\uff1a`selectPubKey` \u53d6\u672c\u5730\u516c\u94a5 \u2192 `ExecContainerCommand` \u6267\u884c `mkdir -p /root/.ssh && echo '<pubkey>' >> /root/.ssh/authorized_keys`\u3002\n4. \u5bc6\u7801\uff1a\u4ea4\u4e92\u8bfb\u53d6 \u2192 \u6267\u884c `echo 'root:CVTE@2026' | chpasswd`\u3002\n5. \u8ffd\u52a0\u5199 `~/.ssh/config`\uff1a`Host <alias>` / `HostName <ip>` / `Port <ssh_port>` / `User root`\uff1b\u6253\u5370 `ssh <alias>`\u3002\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e6089a2bd69905929e6c20a319103b24c6009c6fdab46381cd0cb7399bb4954e",
+      "occurrences": [
+        {
+          "file": "references/ssh-login.md",
+          "start_line": 24,
+          "end_line": null,
+          "start_column": 103
+        }
+      ],
+      "surface": "docs"
+    },
+    {
+      "id": "YR1",
+      "finding_id": "finding-8816ae03ddad4d6bad41b84634ee1c08",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'backdoor_persistence': Backdoor persistence with malicious payloads (shell commands, SSH key injection, hidden root users) [malware]",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "references/ssh-login.md",
+        "start_line": 24,
+        "end_line": null
+      },
+      "finding": "echo '<pubkey>' >> /root/.ssh/authorized_keys",
+      "explanation": "YARA rule matched a known malware signature (reverse shell, backdoor, ransomware, C2 framework, or info stealer).",
+      "remediation": "Remove the malware payload or compromised file entirely. Investigate how it entered the skill and audit all other artifacts for additional indicators of compromise.",
+      "code_snippet": " \u5207\u5bc6\u7801\u6a21\u5f0f\uff08\u4ea4\u4e92\u8f93\u5165\uff0c\u65e0\u56de\u663e\uff09\uff1b\u9ed8\u8ba4\u514d\u5bc6 |\n| `--pub-key` | \u8986\u76d6\u672c\u5730\u516c\u94a5\u6587\u4ef6\u8def\u5f84 |\n\n## \u6d41\u7a0b\n1. `GetContainer` \u53d6 `name` / `ssh_port` / `public_ip`\uff08\u7a7a\u56de\u9000 `node_ip`\uff09\u3002\n2. \u522b\u540d\u53bb\u91cd\uff1a\u8bfb `~/.ssh/config` \u73b0\u6709 `Host`\uff0c\u91cd\u540d\u5219 `name-1` / `name-2` \u2026\u3002\n3. \u514d\u5bc6\uff1a`selectPubKey` \u53d6\u672c\u5730\u516c\u94a5 \u2192 `ExecContainerCommand` \u6267\u884c `mkdir -p /root/.ssh && echo '<pubkey>' >> /root/.ssh/authorized_keys`\u3002\n4. \u5bc6\u7801\uff1a\u4ea4\u4e92\u8bfb\u53d6 \u2192 \u6267\u884c `echo 'root:CVTE@2026' | chpasswd`\u3002\n5. \u8ffd\u52a0\u5199 `~/.ssh/config`\uff1a`Host <alias>` / `HostName <ip>` / `Port <ssh_port>` / `User root`\uff1b\u6253\u5370 `ssh <alias>`\u3002\n\n## exec\n`ai-cli dev ssh exec <alias>` \u7b49\u4ef7 `ssh <alias>`\uff0c\u63a5\u7ba1\u7ec8\u7aef\u3002\n\n## \u793a\u4f8b\n```bash\nai-cli dev ssh setup --cluster-id ctrain --space-id <space> --container-id <id>   # \u514d\u5bc6\nai-cli dev ssh setup --cluster-id ctrain --space-id <space> --container-id <id> --password\nssh <container-name>\n```\n\n## \u5e38\u89c1\u95ee\u9898\n- \u5bb9\u5668\u975e running\uff1a\u5148\u542f\u52a8",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "411a0619bb81c0a972dba8de7e0c0c50ee831e43a0901dfe661695fdaf7ebbad",
+      "occurrences": [
+        {
+          "file": "references/ssh-login.md",
+          "start_line": 24,
+          "end_line": null
+        }
+      ],
+      "surface": "docs"
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": false,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "openai_compatible",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 5,
+    "scanned_components": 5,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete_with_caveats",
+    "execution_successful": true,
+    "fully_inspected_files": 5,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 30,
+        "end_line": 30,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 68,
+        "end_line": 68,
+        "fatal": false
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 30,
+        "column": 11,
+        "evidence": "1. \u4ece\u914d\u7f6e\u6587\u4ef6 `.ai.json` \u8bfb\u53d6\uff0c\u901a\u8fc7 `--xx` flag \u663e\u5f0f\u4f20\u5165\u3002",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 68,
+        "column": 61,
+        "evidence": "3. `dev ssh setup` \u9ed8\u8ba4\u514d\u5bc6\u6a21\u5f0f\uff1a\u81ea\u52a8\u8bfb\u53d6\u672c\u5730 `~/.ssh/id_ed25519.pub` \u2192 `id_rsa.pub` \u2192 \u9996\u4e2a `*.pub`\uff1b\u7f3a\u5931\u5219\u63d0\u793a `ssh-keygen -t ed25519` \u751f\u6210\u3002",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 83,
+        "column": 4,
+        "evidence": "| `references/container-resource.md` | \u67e5\u8be2\u5bb9\u5668\u5217\u8868 / \u8be6\u60c5\u65f6 |",
+        "target_path": "references/container-resource.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 84,
+        "column": 4,
+        "evidence": "| `references/ssh-login.md` | \u914d\u7f6e SSH \u514d\u5bc6 / \u5bc6\u7801\u767b\u5f55\u3001`~/.ssh/config` \u5199\u5165\u65f6 |",
+        "target_path": "references/ssh-login.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 85,
+        "column": 4,
+        "evidence": "| `references/port-forward.md` | \u5f00\u653e / \u5217\u8868 / \u5173\u95ed\u7aef\u53e3\u65f6 |",
+        "target_path": "references/port-forward.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 86,
+        "column": 4,
+        "evidence": "| `references/api-reference.md` | \u9700\u8981\u67e5\u9605\u5b8c\u6574 API \u63a5\u53e3\u5b9a\u4e49\u65f6 |",
+        "target_path": "references/api-reference.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [],
+    "findings_before_filtering": 4,
+    "findings_after_filtering": 4,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

@@ -1,0 +1,433 @@
+✓ SkillSpector 2.13.4 installed (checksum-verified)
+✓ Gitleaks 8.30.0 installed (checksum-verified)
+[1/11] schema ...
+[1/11] schema done in 0.0s (ok, 2 warning(s))
+[2/11] version ...
+[2/11] version done in 0.0s (ok)
+[3/11] security ...
+INFO     Running skillspector on /skills/official/text-analyzer                 
+INFO     Running skillspector: /usr/local/bin/uv tool run --quiet --from...     
+INFO     Running skillspector-llm on /skills/official/text-analyzer             
+INFO     Running skillspector: /usr/local/bin/uv tool run --quiet --from...     
+INFO     Running LLM verification on 2 finding(s)                               
+[3/11] security done in 285.9s (ok, 2 warning(s))
+[4/11] pii ...
+[4/11] pii done in 0.0s (ok)
+[5/11] license ...
+[5/11] license done in 0.0s (ok)
+[6/11] code-integrity ...
+INFO     Running Bandit: /usr/local/bin/bandit -r /skills/official/text-analyzer
+         -f json...                                                             
+INFO     Running Gitleaks:                                                      
+         /root/.local/share/skillevaluator/runtimes/gitleaks/8.30.0/gitleaks    
+         detect --source . --report-format...                                   
+[6/11] code-integrity done in 0.6s (ok, 1 warning(s))
+[7/11] dependency ...
+[7/11] dependency done in 0.0s (ok)
+[8/11] unicode ...
+[8/11] unicode done in 0.0s (ok)
+[9/11] quality ...
+[9/11] quality done in 0.0s (ok, 5 warning(s))
+[10/11] lint ...
+[10/11] lint done in 0.0s (ok, 1 warning(s))
+[11/11] harness ...
+[11/11] harness done in 0.0s (ok, 4 warning(s))
+WARNING  LLM call encountered transient error (APIConnectionError). Retrying in 
+         0.03s (attempt 1/3)...                                                 
+                       SkillEvaluator Validation Results                        
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Validator                      ┃ Status ┃ Details                            ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Schema & Repository Governance │  PASS  │ 10 checks passed                   │
+│ Semantic Version Validation    │  N/A   │ No semantic version label present; │
+│                                │        │ resource will use commit-hash      │
+│                                │        │ history                            │
+│ Security Scan                  │  PASS  │ 2 checks passed                    │
+│ PII Scan                       │  PASS  │ 2 checks passed                    │
+│ License Compliance             │  PASS  │ 1 checks passed                    │
+│ Code Risk Analysis             │  PASS  │ 1 checks passed                    │
+│ Secrets Detection              │  PASS  │ 1 checks passed                    │
+│ Code Integrity & Hygiene       │  PASS  │ No standard Python test-file       │
+│                                │        │ candidates found; target tests     │
+│                                │        │ were not executed and coverage was │
+│                                │        │ not measured. Consider adding      │
+│                                │        │ tests.                             │
+│ Dependency Vulnerability Audit │  N/A   │ No dependency files found -        │
+│                                │        │ vulnerability audit is not         │
+│                                │        │ applicable                         │
+│ Unicode Smuggling Detection    │  PASS  │ 1 checks passed                    │
+│ QUALITY                        │  PASS  │ 1 checks passed; quality B         │
+│                                │        │ 88.8/100                           │
+│ SCRIPT_LINT                    │  PASS  │ OK                                 │
+│ Harness Compatibility          │  PASS  │ OK                                 │
+│ RUBRIC_EVAL                    │  FAIL  │ 1 errors, 9 warnings               │
+└────────────────────────────────┴────────┴────────────────────────────────────┘
+
+╭─────────────────╮
+│ Failure Details │
+╰─────────────────╯
+
+[RUBRIC_EVAL]
+LLM-as-Judge qualitative evaluation across 9 criteria (description clarity, 
+instruction quality, trigger simulation, etc.)
+
+  LLM Rubric Score: 74.5/100
+  The skill is well-documented and usable for text statistics, but its 
+description includes 'summarize', which can cause false-positive routing for 
+semantic summarization requests.
+
+                               Rubric Evaluation                                
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Criterion                  ┃ Score ┃ Pass ┃ Notes                            ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Description Clarity        │ 8/10  │ Yes  │ The description clearly lists    │
+│                            │       │      │ supported statistics and input   │
+│                            │       │      │ forms, but 'summarize' is        │
+│                            │       │      │ misleading because the skill     │
+│                            │       │      │ does not produce semantic        │
+│                            │       │      │ summaries.                       │
+│ Instruction Clarity        │ 8/10  │ Yes  │ The agent steps are simple and   │
+│                            │       │      │ actionable, though 'appropriate  │
+│                            │       │      │ arguments' could be more         │
+│                            │       │      │ explicit about choosing --text,  │
+│                            │       │      │ --file, and --json.              │
+│ Example Quality            │ 8/10  │ Yes  │ Command examples are relevant    │
+│                            │       │      │ and cover inline text, file      │
+│                            │       │      │ input, and JSON output, but      │
+│                            │       │      │ user-query variations for        │
+│                            │       │      │ detection are limited.           │
+│ Documentation Completeness │ 8/10  │ Yes  │ Purpose, script path,            │
+│                            │       │      │ parameters, output fields, and   │
+│                            │       │      │ limitations are present, though  │
+│                            │       │      │ a fuller CLI reference would     │
+│                            │       │      │ improve completeness.            │
+│ Scope Definition           │ 7/10  │ Yes  │ Scope is mostly clear for        │
+│                            │       │      │ plain-text statistics, but the   │
+│                            │       │      │ mention of summarization         │
+│                            │       │      │ slightly broadens it beyond the  │
+│                            │       │      │ implemented capability.          │
+│ Professional Tone          │ 9/10  │ Yes  │ The documentation is clean,      │
+│                            │       │      │ consistent, and professionally   │
+│                            │       │      │ formatted with clear sections    │
+│                            │       │      │ and examples.                    │
+│ Trigger Simulation         │ 6/10  │  No  │ Word, line, character, sentence, │
+│                            │       │      │ and frequency queries should     │
+│                            │       │      │ route correctly, but 'summarize  │
+│                            │       │      │ this text' and broad 'analyze'   │
+│                            │       │      │ requests may produce false       │
+│                            │       │      │ positives.                       │
+│ Workflow Completeness      │ 7/10  │ Yes  │ The basic run-and-return         │
+│                            │       │      │ workflow is covered, but         │
+│                            │       │      │ guidance is thin on input        │
+│                            │       │      │ selection, shell quoting, output │
+│                            │       │      │ format choice, and handling      │
+│                            │       │      │ missing or empty input.          │
+│ Error Handling Quality     │ 7/10  │ Yes  │ FileNotFoundError and            │
+│                            │       │      │ empty-output guidance are        │
+│                            │       │      │ realistic and actionable, though │
+│                            │       │      │ non-UTF-8 handling is documented │
+│                            │       │      │ only as a limitation rather than │
+│                            │       │      │ an error scenario.               │
+└────────────────────────────┴───────┴──────┴──────────────────────────────────┘
+
+[FAIL] Validation failed
+
+Summary:
+  • Checks performed: 1
+  • Errors: 1 (1 high)
+  • Warnings: 9
+
+Issues:
+  1. [RUBRIC_EVAL-LOW] [8/10] Description is clear, specific, and explains WHEN 
+to use the skill
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   rubric_description_clarity
+     Fix:     The description clearly lists supported statistics and input 
+forms, but 'summarize' is misleading because the skill does not produce semantic
+summaries.
+
+  2. [RUBRIC_EVAL-LOW] [8/10] Instructions are easy to follow with clear action 
+steps
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   rubric_instruction_clarity
+     Fix:     The agent steps are simple and actionable, though 'appropriate 
+arguments' could be more explicit about choosing --text, --file, and --json.
+
+  3. [RUBRIC_EVAL-LOW] [8/10] Examples are helpful, relevant, show proper usage,
+AND cover sufficient query variations for robust skill detection
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   rubric_example_quality
+     Fix:     Command examples are relevant and cover inline text, file input, 
+and JSON output, but user-query variations for detection are limited.
+
+  4. [RUBRIC_EVAL-LOW] [8/10] All necessary information is present (purpose, 
+scripts, parameters)
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   rubric_documentation_completeness
+     Fix:     Purpose, script path, parameters, output fields, and limitations 
+are present, though a fuller CLI reference would improve completeness.
+
+  5. [RUBRIC_EVAL-LOW] [7/10] Skill scope is well-defined (clear boundaries, not
+too broad/narrow)
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   rubric_scope_definition
+     Fix:     Scope is mostly clear for plain-text statistics, but the mention 
+of summarization slightly broadens it beyond the implemented capability.
+
+  6. [RUBRIC_EVAL-LOW] [9/10] Documentation uses professional, consistent tone 
+and formatting
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   rubric_professional_tone
+     Fix:     The documentation is clean, consistent, and professionally 
+formatted with clear sections and examples.
+
+  7. [RUBRIC_EVAL-MEDIUM] [6/10] Mentally test the skill description against 5 
+plausible user queries that SHOULD trigger it and 3 that should NOT. Does the 
+description enable correct routing without false positives or false negatives?
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   rubric_trigger_simulation
+     Fix:     Word, line, character, sentence, and frequency queries should 
+route correctly, but 'summarize this text' and broad 'analyze' requests may 
+produce false positives.
+
+  8. [RUBRIC_EVAL-LOW] [7/10] Do the instructions cover a complete end-to-end 
+workflow? Identify any steps where the user or agent would need to figure out 
+what to do next without guidance.
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   rubric_workflow_completeness
+     Fix:     The basic run-and-return workflow is covered, but guidance is thin
+on input selection, shell quoting, output format choice, and handling missing or
+empty input.
+
+  9. [RUBRIC_EVAL-LOW] [7/10] Are the documented error scenarios realistic and 
+actionable? Would the solutions actually help resolve the issues, or are they 
+generic boilerplate?
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   rubric_error_handling_quality
+     Fix:     FileNotFoundError and empty-output guidance are realistic and 
+actionable, though non-UTF-8 handling is documented only as a limitation rather 
+than an error scenario.
+
+  10. [RUBRIC_EVAL-HIGH] Rubric evaluation failed: criteria below 7/10: 
+trigger_simulation
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   rubric_overall
+     Fix:     Address the failed rubric criteria and rerun the evaluation
+
+╭───────────────────────╮
+│ Non-blocking Findings │
+╰───────────────────────╯
+
+[Schema & Repository Governance]
+Validate SKILL.md frontmatter and repository structure
+[PASS] Validation passed
+
+Summary:
+  • Checks performed: 10
+
+Details:
+  [OK] manifest_exists: Found skill manifest: SKILL.md 
+(file_path=/skills/official/text-analyzer/SKILL.md)
+  [OK] frontmatter_valid: Valid frontmatter for skill 'text-analyzer' 
+(description_length=312)
+  [OK] naming_convention: Folder name 'text-analyzer' follows kebab-case 
+convention (name_length=13)
+  [OK] line_count: SKILL.md within line limit (61/500) (line_count=61, 
+limit=500)
+  [OK] body_heading: Body contains a top-level heading
+  [OK] body_recommended_section: Found recommended section: '## Instructions' 
+(or '## Usage')
+  [OK] body_recommended_section: Found recommended section: '## Examples'
+  [OK] optional_files: Found optional supporting files: evals, scripts 
+(files_found=['evals', 'scripts'])
+  [OK] name_consistency: Directory name matches frontmatter: 'text-analyzer'
+  [OK] author_format: Valid author format: SkillEvaluator Maintainers 
+<maintainers@example.com>
+Issues:
+  1. [SCHEMA-MEDIUM] Unexpected nesting depth for general skill
+     File:    /skills/official/text-analyzer
+     Check:   folder_hierarchy
+     Fix:     General skills should be at: skills/<skill-name>/
+
+  2. [SCHEMA-LOW] Description has its trigger at characters 157-165; some 
+harnesses show only the first ~60 characters in their skill list
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   description_trigger
+     Fix:     State when to use the skill within the first 60 characters
+
+
+[Security Scan]
+Detect security vulnerabilities and PII/secrets
+[PASS] Validation passed
+
+Summary:
+  • Checks performed: 2
+
+Details:
+  [OK] skillspector: Security scan completed - 1 advisory finding(s) (no 
+critical/high issues) (issue_count=1)
+  [OK] skillspector: Security scan completed - 1 advisory finding(s) (no 
+critical/high issues) (issue_count=1)
+Issues:
+  1. [SECURITY-MEDIUM] MCP Least Privilege: Without declared permissions the 
+skill's intent is opaque and cannot be validated.
+     File:    SKILL.md:1
+     Check:   Unknown (LP3)
+     LLM verification: True positive (medium confidence)
+     Reasoning: The skill instructs running a script that can access files but 
+declares no allowed-tools or permissions, so its least-privilege scope is not 
+validated.
+     Reported severity: MEDIUM; only high-confidence false positives are 
+downgraded to INFO by verification.
+     Fix:     Without declared permissions the skill's intent is opaque and 
+cannot be validated. Declare the skill's tool scope: for Claude Code / Agent 
+Skills SKILL.md, list the tools the skill may invoke in the 'allowed-tools' 
+frontmatter field; for MCP server manifests, add a 'permissions' list naming the
+required capabilities.
+
+  2. [SECURITY-MEDIUM] MCP Least Privilege: This is a true scope/least-privilege
+issue. The skill intentionally supports reading files through `--file 
+/path/to/file
+     File:    SKILL.md:1
+     Check:   Unknown (LP3)
+     LLM verification: True positive (medium confidence)
+     Reasoning: The documented --file option enables arbitrary file reads, and 
+the skill lacks declared file_read permissions or path restrictions, creating a 
+plausible least-privilege and data-exposure risk.
+     Reported severity: MEDIUM; only high-confidence false positives are 
+downgraded to INFO by verification.
+     Fix:     This is a true scope/least-privilege issue. The skill 
+intentionally supports reading files through `--file /path/to/file.txt`, and 
+static analysis detected a `file_read` capability, but the skill does not 
+declare any `permissions` or `allowed-tools` scope to constrain what file access
+is allowed. That omission increases the risk that an agent may execute the 
+script with arbitrary or sensitive file paths supplied by the user or injected 
+through untrusted text. Because `analyze_text.py` is not included in the finding
+context, the exact safety of its path handling is unknown; if it accepts 
+arbitrary paths without validation, this can leak existence, length, encoding 
+behavior, and partial content via word statistics, especially most frequent 
+words. The skill is not clearly malicious, but the missing tool scope makes it 
+unsafe under a strict agent-security model. Declare an explicit read permission 
+and constrain it. Example: add `permissions: file_read` with allowed paths or 
+directories, or define `allowed-tools` that only includes the analyzer and 
+restricts `--file` access to a sandboxed input directory. Modify 
+`analyze_text.py` to reject absolute paths, parent-directory traversal, 
+environment-dependent paths, sensitive locations such as `/etc`, `~/.ssh`, 
+`.env`, credential stores, and home-directory dotfiles unless explicitly 
+approved. Prefer inline `--text` by default and require explicit user 
+confirmation for file reads. Run the script in a sandboxed or read-only working 
+directory with path normalization and a denylist/allowlist check before opening 
+any file.
+
+
+[QUALITY]
+Skill quality scoring across Correctness (35%), Discoverability (25%), 
+Reliability (25%), and Efficiency (15%)
+
+  Overall: 88.8/100 (Grade: B)
+  Skill Type: script-based
+
+                            Quality Scores by Skill                             
+┏━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃ Skill      ┃ Grade ┃ Score ┃ Correctne… ┃ Discover… ┃ Reliabili… ┃ Efficien… ┃
+┡━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━┩
+│ text-anal… │   B   │  88.8 │         75 │        95 │         95 │       100 │
+└────────────┴───────┴───────┴────────────┴───────────┴────────────┴───────────┘
+
+[PASS] Validation passed
+
+Summary:
+  • Checks performed: 1
+
+Details:
+  [OK] quality_score: Score: 88.8/100 (Grade: B) (overall_score=88.8, grade=B, 
+skill_type=script-based)
+Issues:
+  1. [QUALITY-MEDIUM] No documented scripts in table format
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add '## Available Scripts' with table: | Script | Purpose | 
+Arguments |
+
+  2. [QUALITY-MEDIUM] Instructions don't mention 'run_script'
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add explicit run_script() call examples
+
+  3. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags'
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add 'tags' under metadata: — Categorization tags (under metadata:,
+list of 1-5 items)
+
+  4. [QUALITY-LOW] Description very long (312 chars, recommend 50-150)
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   quality_discoverability
+     Fix:     Keep descriptions concise for progressive disclosure
+
+  5. [QUALITY-LOW] No prerequisites/requirements documented
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   quality_reliability
+     Fix:     Document dependencies, API keys, or setup needed
+
+
+[SCRIPT_LINT]
+AST-based code quality checks for skill scripts
+[PASS] Validation passed
+
+Summary:
+
+Issues:
+  1. [SCRIPT_LINT-LOW] analyze_text.py contains magic numbers
+     File:    /skills/official/text-analyzer/scripts/analyze_text.py
+     Check:   magic_numbers
+     Fix:     Extract magic numbers to named constants
+
+
+[Harness Compatibility]
+Advisory: whether each agent harness loads, degrades or drops the skill
+[PASS] Validation passed
+
+Summary:
+
+Issues:
+  1. [HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` 
+or a restart; edits to existing skills apply at once.
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   CP-RELOAD
+
+  2. [HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the
+description (57 + '...' in 0.16, a word boundary near 59 on main), and the 
+trigger isn't in them.
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   HM-DESC-60
+     Fix:     Put the trigger ("Use when …") in the first 57 characters.
+
+  3. [HARNESS-INFO] hermes: 2 files outside references/, templates/, assets/ and
+scripts/ (evals) are left out of the skill's file list; the model finds them 
+only if SKILL.md names their paths.
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   HM-LINKED-LAYOUT
+     Fix:     Move supporting files under references/, templates/, assets/ or 
+scripts/.
+
+  4. [HARNESS-INFO] opencode: Skill list and text are cached at startup; edits 
+need a restart.
+     File:    /skills/official/text-analyzer/SKILL.md
+     Check:   OC-RELOAD
+
+
+[FAIL] Changes required
+Tier 1: 11 of 12 checks passed; 1 failed, 0 incomplete, 0 skipped, 2 N/A
+Publication eligibility: Not eligible
+
+json report: 
+/app/reports/official-eval-20261117/01-tier1/text-analyzer/skillevaluator-tier1.
+json
+html report: 
+/app/reports/official-eval-20261117/01-tier1/text-analyzer/skillevaluator-tier1.
+html
+markdown report: 
+/app/reports/official-eval-20261117/01-tier1/text-analyzer/skillevaluator-tier1.
+md
+Error: Tier 1 checks failed or were incomplete

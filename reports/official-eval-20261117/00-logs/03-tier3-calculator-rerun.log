@@ -1,0 +1,94 @@
+Tier 3: reusing the existing evaluation source unchanged.
+Tier 3 live evaluation: calculator
+  environment: docker
+  agents/models: opencode
+  plan: with-skill=yes, baseline=yes, timeout=3x
+[00:00:00] configuration: running
+[00:00:00] configuration: ready - evaluation config validated
+[00:00:00] model-resolution: running
+[00:00:00] model-resolution: complete - agent models resolved
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x
+[00:00:00] environment-preflight: running - docker
+[00:00:00] environment-preflight: complete - docker
+[00:00:00] credential-validation: running
+[00:00:00] credential-validation: degraded - credential configuration resolved; live catalog verification inconclusive: opencode, standard grader: model catalog access does not verify runtime credentials for this endpoint; continuing to evaluation
+[00:00:00] with-skill-tasks: running
+[00:00:00] with-skill-tasks: ready - task inputs staged
+[00:00:00] baseline-tasks: running
+[00:00:00] baseline-tasks: ready - baseline inputs staged
+[00:00:00] case-selection: complete - running the first 1 of 2 cases (max_cases=1)
+[00:00:00] configuration: complete - Planned: 2 attempts (1 cases × 1 attempts × 2 agent arms total)
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, tasks=1, cases=1, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x, matrix-trials=2, preflight-trials=0, containers=2, max-scaled-top-level-agent-timeout=900s
+[00:00:00] docker-images: delegated - image preparation delegated to Harbor during task execution
+[00:00:00] agent-runtime-preflight: skipped - disabled by default; enable with --agent-runtime-preflight or harbor.agent_runtime_preflight
+[00:00:00] agent:opencode: running - with-skill + baseline
+[00:01:00] still running: agent:opencode
+[00:01:57] agent:opencode: failed - one or more Harbor jobs failed; inspect retained artifacts
+[00:01:57] collection: running
+[00:01:58] collection: complete - Harbor results collected
+[00:01:58] report: running
+[00:01:59] report: complete - result and HTML reports written
+[00:01:59] run-finished: failed - Harbor job did not complete successfully: 1 errored
+Time: 119.1s
+╭─────────────────────── Tier 3 Evaluation: INCOMPLETE ────────────────────────╮
+│ Evaluation did not complete; skill lift was not measured.                    │
+│ Scored attempts: 0/2                                                         │
+│                                                                              │
+│ opencode with-skill (0/1 scored) / calculator-001__3J2kw8H: RuntimeError:    │
+│ Docker compose command failed for environment                                │
+│ skillevaluator-calculator-001-with-skill. Command: /usr/local/bin/docker     │
+│ compose --project-name calculator-001__3j2kw8h__env --project-directory      │
+│ /app/reports/official-eval-20261117/03-tier3/calculator/20261117_174844_1_9e │
+│ 000df279aa/_harbor-tasks/opencode/with/calculator-001/environment -f         │
+│ /tmp/tmphqr82_jm/calculator-001__3J2kw8H__env-docker-compose-resources.json  │
+│ -f                                                                           │
+│ /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-co │
+│ mpose-build.yaml -f /tmp/tmpfm5or94g/docker-compose-environment.json -f      │
+│ /tmp/tmpbhp31e63/docker                                                      │
+│                                                                              │
+│ opencode without-skill (0/1 scored) / calculator-001__7wNH5iP: RuntimeError: │
+│ Docker compose command failed for environment                                │
+│ skillevaluator-calculator-001-without-skill. Command: /usr/local/bin/docker  │
+│ compose --project-name calculator-001__7wnh5ip__env --project-directory      │
+│ /app/reports/official-eval-20261117/03-tier3/calculator/20261117_174844_1_9e │
+│ 000df279aa/_harbor-tasks/opencode/without/calculator-001/environment -f      │
+│ /tmp/tmpg92y1b9_/calculator-001__7wNH5iP__env-docker-compose-resources.json  │
+│ -f                                                                           │
+│ /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-co │
+│ mpose-build.yaml -f /tmp/tmps0brtdcw/docker-compose-environment.json -f      │
+│ /tmp/tmpilcspmtk/                                                            │
+│                                                                              │
+│ Next steps                                                                   │
+│   • Inspect result.json and the trial artifacts for the full execution       │
+│ diagnostics.                                                                 │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Dataset size: provisional — 1 case (policy needs 10), 0 negative cases (needs 
+1); pass-rate interval unavailable (policy dataset-sufficiency-v1)
+Limited evidence: Based on 1 case × 1 attempt = 0 of 1 attempt scored (1 
+execution failure, 0 judge failures); by arm: with skill: 1 case, 0 of 1 attempt
+scored (1 execution failure, 0 judge failures); without skill: 1 case, 0 of 1 
+attempt scored (1 execution failure, 0 judge failures)
+╭─────────────────────────── Feedback & Suggestions ───────────────────────────╮
+│                                                                              │
+│ Feedback                                                                     │
+│   ⚠ Skill effect: per-case result: inconclusive (opencode: condition         │
+│ execution is incomplete).                                                    │
+│                                                                              │
+│ Suggestions                                                                  │
+│   1. calculator-001 · opencode: 1 attempt(s) never produced a score:         │
+│ RuntimeError: Docker compose command failed for environment                  │
+│ skillevaluator-calculator-001-with-skill. Command: /usr/local/bin/docker     │
+│ compose --project-name cal…. Fix: Not a skill problem: re-run this case; if  │
+│ it repeats, check the agent/gateway logs. Evidence:                          │
+│ opencode/with-skill/trials/calculator-001__3J2kw8H/exception.txt             │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────────── Artifacts ──────────────────────────────────╮
+│ 📊 HTML report report.html ·                                                 │
+│                /app/reports/official-eval-20261117/03-tier3/calculator/20261 │
+│                117_174844_1_9e000df279aa/report.html                         │
+│ 📁 Output      /app/reports/official-eval-20261117/03-tier3/calculator/20261 │
+│                117_174844_1_9e000df279aa                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯

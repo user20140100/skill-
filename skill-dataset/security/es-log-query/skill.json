@@ -1,0 +1,65 @@
+{
+  "name": "es-log-query",
+  "version": "1.0.0",
+  "description": "ES Log Query - 生产环境 Elasticsearch 日志查询工具，支持关系表达式查询条件和 search_after 分页获取超过 10000 条日志",
+  "author": "罗威",
+  "copyright": "CVTE WA&AI",
+  "tags": ["elasticsearch", "logging", "query", "production", "debugging"],
+  "prompt_file": "SKILL.md",
+  "examples": [
+    {
+      "input": "/es-log-query appId:\"ac98c1e3a6e447a09b8daabe\" and message:\"WebSocketCommandExecutor\"",
+      "description": "查询指定应用的包含特定关键词的日志"
+    },
+    {
+      "input": "/es-log-query traceId:\"8db5b6e4d6adc8905fd805521d1eb8c8\"",
+      "description": "根据 traceId 查询完整调用链日志"
+    },
+    {
+      "input": "/es-log-query level:ERROR -t 2h",
+      "description": "查询最近2小时的错误日志"
+    },
+    {
+      "input": "/es-log-query appId:\"ac98c1e3a6e447a09b8daabe\" -l 50000 -o /tmp/logs.txt",
+      "description": "导出大量日志到文件（自动分页）"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "query",
+      "type": "string",
+      "description": "查询条件，使用类 Lucene 语法，如: appId:\"xxx\" and message:\"yyy\"",
+      "required": false
+    },
+    {
+      "name": "time",
+      "type": "string",
+      "description": "时间范围，如: 1h, 2h, 24h, 7d, 2026-02-27",
+      "default": "24h",
+      "required": false
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "description": "返回结果数量，超过 10000 自动使用 search_after 分页",
+      "default": 100,
+      "required": false
+    },
+    {
+      "name": "keyword",
+      "type": "string",
+      "description": "额外关键词过滤（对结果二次筛选）",
+      "required": false
+    },
+    {
+      "name": "output",
+      "type": "string",
+      "description": "输出到文件路径",
+      "required": false
+    }
+  ],
+  "requirements": {
+    "tools": ["Bash", "Read"],
+    "min_context": 50000
+  }
+}

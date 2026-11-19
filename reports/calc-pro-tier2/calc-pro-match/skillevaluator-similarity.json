@@ -1,0 +1,255 @@
+{
+  "version": "0.9.0",
+  "target_path": null,
+  "overall_passed": true,
+  "overall_status": "passed",
+  "incomplete_scans": [],
+  "total_validators": 1,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 0,
+  "total_warnings": 1,
+  "severity_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 0
+  },
+  "finding_counts": {
+    "raw_occurrences": 1,
+    "distinct_occurrences": 1,
+    "unique_findings": 1,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 0,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 0,
+      "info": 0
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 0,
+      "info": 0
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-1c96d08e2b05faa4ff7f",
+      "category": "SIMILARITY",
+      "severity": "medium",
+      "check_name": "SIMILAR",
+      "message": "Target skill 'calc-pro' matches catalog skill 'calculator' as SIMILAR (score: 0.898)",
+      "suggestion": null,
+      "metadata": {
+        "score": 0.8979,
+        "classification": "SIMILAR",
+        "entry_a": "calc-pro",
+        "entry_b": "calculator",
+        "path_a": "calc-pro",
+        "path_b": ".",
+        "comparison_mode": "target-vs-catalog"
+      },
+      "validators": [
+        "Similarity Check"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-648fed0e15dc5d3c4051",
+          "validator": "Similarity Check",
+          "file_path": "calc-pro",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 0,
+    "independent_errors": 0,
+    "independent_warnings": 0
+  },
+  "skills": [
+    {
+      "name": "calc-pro",
+      "passed": false,
+      "issue_count": 1
+    },
+    {
+      "name": "catalog_compared",
+      "passed": true,
+      "issue_count": 0
+    },
+    {
+      "name": "catalog_loaded",
+      "passed": true,
+      "issue_count": 0
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Unknown",
+      "items": [
+        {
+          "name": "calc-pro",
+          "passed": false,
+          "issue_count": 1
+        },
+        {
+          "name": "catalog_compared",
+          "passed": true,
+          "issue_count": 0
+        },
+        {
+          "name": "catalog_loaded",
+          "passed": true,
+          "issue_count": 0
+        }
+      ],
+      "total_items": 3,
+      "passed_count": 2,
+      "failed_count": 1,
+      "total_issues": 1
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "Target skill 'calc-pro' matches catalog skill 'calculator' as SIMILAR (score: 0.898)",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "calc-pro"
+      ],
+      "category": "SIMILARITY",
+      "suggestion": null
+    }
+  ],
+  "results": [
+    {
+      "validator": "Similarity Check",
+      "description": "Detect duplicate content via embedding similarity",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 1,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 1,
+        "distinct_occurrences": 1,
+        "unique_findings": 1,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-1c96d08e2b05faa4ff7f",
+          "occurrence_id": "SEO-648fed0e15dc5d3c4051",
+          "category": "SIMILARITY",
+          "severity": "medium",
+          "check_name": "SIMILAR",
+          "message": "Target skill 'calc-pro' matches catalog skill 'calculator' as SIMILAR (score: 0.898)",
+          "file_path": "calc-pro",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "score": 0.8979,
+            "classification": "SIMILAR",
+            "entry_a": "calc-pro",
+            "entry_b": "calculator",
+            "path_a": "calc-pro",
+            "path_b": ".",
+            "comparison_mode": "target-vs-catalog"
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "catalog_loaded",
+          "message": "Loaded 1 entries from catalog",
+          "metadata": null
+        },
+        {
+          "check": "catalog_compared",
+          "message": "Compared 'calc-pro' against 1 catalog entries",
+          "metadata": {
+            "catalog_entry_count": 1,
+            "target_name": "calc-pro",
+            "self_matches_excluded": 0,
+            "excluded_catalog_paths": []
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SIMILARITY-MEDIUM] Target skill 'calc-pro' matches catalog skill 'calculator' as SIMILAR (score: 0.898) in calc-pro"
+        ],
+        "messages": [
+          "[OK] catalog_loaded: Loaded 1 entries from catalog",
+          "[OK] catalog_compared: Compared 'calc-pro' against 1 catalog entries"
+        ]
+      },
+      "publication_target": {
+        "skill_name": "calc-pro",
+        "skill_digest": "sha256:cc5cdc54ca32e569265a873cccdb228d699c8fcca1cda220672b03ea27a1b679",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier2",
+        "tier": 2,
+        "check_id": "similarity"
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "incomplete",
+  "publication": {
+    "status": "incomplete",
+    "eligible": false,
+    "reasons": [
+      "Recognized built-in Tier 1 evidence is missing.",
+      "Tier 3 lacks publication-complete execution evidence."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "evaluated_source": null,
+  "generated_at": "2026-11-18T09:32:55.306491+00:00"
+}

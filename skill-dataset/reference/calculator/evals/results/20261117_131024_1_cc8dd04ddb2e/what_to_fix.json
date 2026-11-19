@@ -1,0 +1,21 @@
+[
+  {
+    "case": "calculator-001",
+    "agent": "opencode",
+    "kind": "run error",
+    "what": "1 attempt(s) never produced a score: AgentTimeoutError: Agent execution timed out after 900.0 seconds",
+    "attempts_lost": 1,
+    "reasons": [],
+    "env_errors": [],
+    "final_message": "",
+    "evidence": "opencode/with-skill/trials/calculator-001__dveaDFG/exception.txt",
+    "asks_for_input": false,
+    "scope": "opencode",
+    "prompt": "What is 2 + 3 * 4? Please use the calculator skill to compute this.",
+    "cases": [
+      "calculator-001"
+    ],
+    "action": "Not a skill problem: re-run this case; if it repeats, check the agent/gateway logs.",
+    "source": "deterministic"
+  }
+]

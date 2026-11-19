@@ -1,0 +1,359 @@
+Skipping image OS validation for hb__ad7374754268019fd5627127bb276af5: docker inspect returned 1
+Trial req-003__amaRTDa failed: Docker compose command failed for environment skillevaluator-req-003-with-skill. Command: /usr/local/bin/docker compose --project-name req-003__amartda__env --project-directory /app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/_harbor-tasks/opencode/with/req-003/environment -f /tmp/tmp28bhakbf/req-003__amaRTDa__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmp8xeqrso0/docker-compose-environment.json -f /tmp/tmp7_ggbquj/docker-compose-mounts.json up --detach --wait. Return code: 1. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 9.69kB 0.0s done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/skillevaluator-deps:3.12-opencode
+#2 DONE 0.0s
+
+#3 [main  1/22] FROM docker.io/library/skillevaluator-deps:3.12-opencode
+#3 DONE 0.0s
+
+#4 [main internal] load .dockerignore
+#4 transferring context: 2B 0.0s done
+#4 DONE 0.1s
+
+#5 [main internal] load build context
+#5 transferring context: 11.55kB 0.0s done
+#5 DONE 0.0s
+
+#6 [main  3/22] RUN ["/bin/rm", "-rf", "/tmp/hermes", "/root/.hermes/skills", "/etc/codex/skills", "/tmp/codex-home/skills", "/workspace/skills", "/workspace/.agents/skills", "/workspace/.claude/commands", "/workspace/.claude/skills", "/workspace/.cline/skills", "/workspace/.codex/skills", "/workspace/.config/goose/skills", "/workspace/.config/opencode/skills", "/workspace/.cursor/skills", "/workspace/.gemini/skills", "/workspace/.gemini/extensions", "/workspace/.opencode/skills", "/workspace/.qwen/skills", "/root/.claude/commands", "/root/.claude/skills", "/root/.cline/skills", "/root/.agents/skills", "/root/.codex/skills", "/root/.config/goose/skills", "/root/.config/opencode/skills", "/root/.gemini/extensions", "/root/.qwen/skills", "/logs/agent/sessions/skills", "/tmp/agent-home/sessions/skills"]
+#6 CACHED
+
+#7 [main  4/22] RUN ["/bin/mkdir", "-p", "/root/.hermes/skills", "/etc/codex/skills", "/tmp/codex-home/skills", "/workspace/skills", "/workspace/.agents/skills", "/workspace/.claude/commands", "/workspace/.claude/skills", "/workspace/.cline/skills", "/workspace/.codex/skills", "/workspace/.config/goose/skills", "/workspace/.config/opencode/skills", "/workspace/.cursor/skills", "/workspace/.gemini/skills", "/workspace/.gemini/extensions", "/workspace/.opencode/skills", "/workspace/.qwen/skills", "/root/.claude/commands", "/root/.claude/skills", "/root/.cline/skills", "/root/.agents/skills", "/root/.codex/skills", "/root/.config/goose/skills", "/root/.config/opencode/skills", "/root/.gemini/extensions", "/root/.qwen/skills", "/logs/agent/sessions/skills", "/tmp/agent-home/sessions/skills"]
+#7 CACHED
+
+#8 [main  6/22] RUN ["/bin/sh", "-c", "set -eu; clear_skill_root() { target=$1; if [ -d "$target" ] && [ ! -L "$target" ]; then for child in "$target"/* "$target"/.[!.]* "$target"/..?*; do [ -e "$child" ] || [ -L "$child" ] || continue; /bin/rm -rf -- "$child"; done; else /bin/rm -rf -- "$target"; fi; }; home=${HOME:-/root}; case "$home" in /*) ;; *) echo 'SkillEvaluator requires an absolute HOME for runtime skill isolation' >&2; exit 78;; esac; for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do clear_skill_root "$home/$rel"; done"]
+#8 CACHED
+
+#9 [main  2/22] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; if [ "$(id -u)" -ne 0 ]; then echo 'SkillEvaluator final runtime projection requires root; declare the Dockerfile final USER explicitly so it can be restored' >&2; exit 78; fi"]
+#9 CACHED
+
+#10 [main 10/22] RUN ["/bin/mkdir", "-p", "/workspace/repo"]
+#10 CACHED
+
+#11 [main  7/22] RUN ["/bin/sh", "-c", "set -eu; clear_skill_root() { target=$1; if [ -d "$target" ] && [ ! -L "$target" ]; then for child in "$target"/* "$target"/.[!.]* "$target"/..?*; do [ -e "$child" ] || [ -L "$child" ] || continue; /bin/rm -rf -- "$child"; done; else /bin/rm -rf -- "$target"; fi; }; [ -r /etc/passwd ] || exit 0; while IFS=: read -r _ _ _ _ _ home _; do case "$home" in /*) ;; *) continue;; esac; [ -d "$home" ] || continue; for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do clear_skill_root "$home/$rel"; done; done < /etc/passwd"]
+#11 CACHED
+
+#12 [main  9/22] RUN ["/bin/rm", "-rf", "/workspace/repo"]
+#12 CACHED
+
+#13 [main  8/22] RUN ["/bin/sh", "-c", "set -eu; clear_skill_root() { target=$1; if [ -d "$target" ] && [ ! -L "$target" ]; then for child in "$target"/* "$target"/.[!.]* "$target"/..?*; do [ -e "$child" ] || [ -L "$child" ] || continue; /bin/rm -rf -- "$child"; done; else /bin/rm -rf -- "$target"; fi; }; if [ -n "${CLAUDE_CONFIG_DIR:-}" ]; then case "$CLAUDE_CONFIG_DIR" in /*) ;; *) exit 78;; esac; clear_skill_root "$CLAUDE_CONFIG_DIR/skills"; clear_skill_root "$CLAUDE_CONFIG_DIR/commands"; fi; if [ -n "${CODEX_HOME:-}" ]; then case "$CODEX_HOME" in /*) ;; *) exit 78;; esac; clear_skill_root "$CODEX_HOME/skills"; fi; if [ -n "${GEMINI_CLI_HOME:-}" ]; then case "$GEMINI_CLI_HOME" in /*) ;; *) exit 78;; esac; clear_skill_root "$GEMINI_CLI_HOME/.gemini/skills"; clear_skill_root "$GEMINI_CLI_HOME/.gemini/extensions"; fi; if [ -n "${OPENCODE_CONFIG_DIR:-}" ]; then case "$OPENCODE_CONFIG_DIR" in /*) ;; *) exit 78;; esac; clear_skill_root "$OPENCODE_CONFIG_DIR/skills"; fi; if [ -n "${XDG_CONFIG_HOME:-}" ]; then case "$XDG_CONFIG_HOME" in /*) ;; *) exit 78;; esac; clear_skill_root "$XDG_CONFIG_HOME/opencode/skills"; fi"]
+#13 CACHED
+
+#14 [main 16/22] RUN ["/bin/mkdir", "-p", "/workspace/input"]
+#14 CACHED
+
+#15 [main  5/22] RUN ["/bin/sh", "-c", "set -eu; current=$(/bin/pwd -P); while :; do for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do /bin/rm -rf -- "$current/$rel"; /bin/mkdir -p -- "$current/$rel"; done; [ "$current" = / ] && break; current=${current%/*}; [ -n "$current" ] || current=/; done"]
+#15 CACHED
+
+#16 [main 14/22] COPY skills/ /root/.config/opencode/skills/
+#16 CACHED
+
+#17 [main 18/22] RUN ["/bin/sh", "-c", "set -eu; current=$(/bin/pwd -P); while :; do for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do /bin/rm -rf -- "$current/$rel"; /bin/mkdir -p -- "$current/$rel"; done; [ "$current" = / ] && break; current=${current%/*}; [ -n "$current" ] || current=/; done"]
+#17 CACHED
+
+#18 [main 20/22] COPY skills/ /root/.claude/skills/
+#18 CACHED
+
+#19 [main 19/22] COPY skills/ /workspace/skills/
+#19 CACHED
+
+#20 [main 12/22] COPY skills/ /root/.claude/skills/
+#20 CACHED
+
+#21 [main 21/22] COPY skills/ /root/.agents/skills/
+#21 CACHED
+
+#22 [main 11/22] COPY skills/ /workspace/skills/
+#22 CACHED
+
+#23 [main 13/22] COPY skills/ /root/.agents/skills/
+#23 CACHED
+
+#24 [main 17/22] RUN ["/bin/sh", "-c", "set -eu; check_path() { value=$1; case "$value" in /workspace/input|/workspace/input/*|/workspace/repo|/workspace/repo/*|/tmp/hermes/skills|/tmp/hermes/skills/*|/root/.hermes/skills|/root/.hermes/skills/*|/etc/codex/skills|/etc/codex/skills/*|/tmp/codex-home/skills|/tmp/codex-home/skills/*|/workspace/skills|/workspace/skills/*|/workspace/.agents/skills|/workspace/.agents/skills/*|/workspace/.claude/commands|/workspace/.claude/commands/*|/workspace/.claude/skills|/workspace/.claude/skills/*|/workspace/.cline/skills|/workspace/.cline/skills/*|/workspace/.codex/skills|/workspace/.codex/skills/*|/workspace/.config/goose/skills|/workspace/.config/goose/skills/*|/workspace/.config/opencode/skills|/workspace/.config/opencode/skills/*|/workspace/.cursor/skills|/workspace/.cursor/skills/*|/workspace/.gemini/skills|/workspace/.gemini/skills/*|/workspace/.gemini/extensions|/workspace/.gemini/extensions/*|/workspace/.opencode/skills|/workspace/.opencode/skills/*|/workspace/.qwen/skills|/workspace/.qwen/skills/*|/root/.claude/commands|/root/.claude/commands/*|/root/.claude/skills|/root/.claude/skills/*|/root/.cline/skills|/root/.cline/skills/*|/root/.agents/skills|/root/.agents/skills/*|/root/.codex/skills|/root/.codex/skills/*|/root/.config/goose/skills|/root/.config/goose/skills/*|/root/.config/opencode/skills|/root/.config/opencode/skills/*|/root/.gemini/extensions|/root/.gemini/extensions/*|/root/.qwen/skills|/root/.qwen/skills/*|/logs/agent/sessions/skills|/logs/agent/sessions/skills/*|/tmp/agent-home/sessions/skills|/tmp/agent-home/sessions/skills/*|*/.hermes/skills|*/.hermes/skills/*|*/.agents/skills|*/.agents/skills/*|*/.claude/commands|*/.claude/commands/*|*/.claude/skills|*/.claude/skills/*|*/.cline/skills|*/.cline/skills/*|*/.codex/skills|*/.codex/skills/*|*/.config/goose/skills|*/.config/goose/skills/*|*/.config/opencode/skills|*/.config/opencode/skills/*|*/.cursor/skills|*/.cursor/skills/*|*/.gemini/skills|*/.gemini/skills/*|*/.gemini/extensions|*/.gemini/extensions/*|*/.opencode/skills|*/.opencode/skills/*|*/.qwen/skills|*/.qwen/skills/*) echo 'SkillEvaluator agent workdir/home overlaps an evaluator-controlled runtime projection' >&2; exit 78;; esac; }; check_control_path() { value=$1; check_path "$value"; if [ -d "$value" ]; then canonical=$(CDPATH= cd -P -- "$value" 2>/dev/null && /bin/pwd -P) || exit 78; check_path "$canonical"; elif [ -e "$value" ] || [ -L "$value" ]; then echo 'SkillEvaluator discovery home must resolve to a directory' >&2; exit 78; fi; }; current=$(/bin/pwd -P); check_path "$current"; home=${HOME:-/root}; case "$home" in /*) check_control_path "$home";; *) echo 'SkillEvaluator requires an absolute HOME for runtime skill isolation' >&2; exit 78;; esac; for controlled_home in "${CLAUDE_CONFIG_DIR:-}" "${CODEX_HOME:-}" "${GEMINI_CLI_HOME:-}" "${OPENCODE_CONFIG_DIR:-}" "${XDG_CONFIG_HOME:-}"; do [ -z "$controlled_home" ] || check_control_path "$controlled_home"; done; [ -r /etc/passwd ] || exit 0; while IFS=: read -r _ _ _ _ _ passwd_home _; do case "$passwd_home" in /*) [ -e "$passwd_home" ] && [ ! -d "$passwd_home" ] && continue; check_control_path "$passwd_home";; esac; done < /etc/passwd"]
+#24 CACHED
+
+#25 [main 15/22] RUN ["/bin/rm", "-rf", "/workspace/input"]
+#25 CACHED
+
+#26 [main 22/22] COPY skills/ /root/.config/opencode/skills/
+#26 CACHED
+
+#27 [main] exporting to image
+#27 exporting layers done
+#27 writing image sha256:94f903012b1f867829c8d9a7fb57897339003f731a9b1fb948affecabdbb2233 0.0s done
+#27 naming to docker.io/library/req-003__amartda__env-main 0.0s done
+#27 DONE 0.1s
+
+#28 [main] resolving provenance for metadata file
+#28 DONE 0.0s
+ main  Built
+ Network req-003__amartda__env_default  Creating
+ Network req-003__amartda__env_default  Error
+failed to create network req-003__amartda__env_default: Error response from daemon: all predefined address pools have been fully subnetted
+. Stderr: None.
+Failed to download logs to /app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/_harbor-jobs/requirements-analyst-opencode-with/req-003__amaRTDa/agent: Docker compose command failed for environment skillevaluator-req-003-with-skill. Command: /usr/local/bin/docker compose --project-name req-003__amartda__env --project-directory /app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/_harbor-tasks/opencode/with/req-003/environment -f /tmp/tmp28bhakbf/req-003__amaRTDa__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmp8xeqrso0/docker-compose-environment.json -f /tmp/tmp7_ggbquj/docker-compose-mounts.json cp -- main:/logs/agent/. /app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/_harbor-jobs/requirements-analyst-opencode-with/req-003__amaRTDa/agent. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 606, in run
+    await self._prepare()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 645, in _prepare
+    await self._setup_agent_environment()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 1849, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 1855, in _start_agent_environment
+    await asyncio.wait_for(
+  File "/usr/local/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 1333, in start
+    await super().start(force_build)
+  File "/usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 1091, in start
+    await self._run_docker_compose_command(["up", *runtime.up_args])
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 3403, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment skillevaluator-req-003-with-skill. Command: /usr/local/bin/docker compose --project-name req-003__amartda__env --project-directory /app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/_harbor-tasks/opencode/with/req-003/environment -f /tmp/tmp28bhakbf/req-003__amaRTDa__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmp8xeqrso0/docker-compose-environment.json -f /tmp/tmp7_ggbquj/docker-compose-mounts.json up --detach --wait. Return code: 1. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 9.69kB 0.0s done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/skillevaluator-deps:3.12-opencode
+#2 DONE 0.0s
+
+#3 [main  1/22] FROM docker.io/library/skillevaluator-deps:3.12-opencode
+#3 DONE 0.0s
+
+#4 [main internal] load .dockerignore
+#4 transferring context: 2B 0.0s done
+#4 DONE 0.1s
+
+#5 [main internal] load build context
+#5 transferring context: 11.55kB 0.0s done
+#5 DONE 0.0s
+
+#6 [main  3/22] RUN ["/bin/rm", "-rf", "/tmp/hermes", "/root/.hermes/skills", "/etc/codex/skills", "/tmp/codex-home/skills", "/workspace/skills", "/workspace/.agents/skills", "/workspace/.claude/commands", "/workspace/.claude/skills", "/workspace/.cline/skills", "/workspace/.codex/skills", "/workspace/.config/goose/skills", "/workspace/.config/opencode/skills", "/workspace/.cursor/skills", "/workspace/.gemini/skills", "/workspace/.gemini/extensions", "/workspace/.opencode/skills", "/workspace/.qwen/skills", "/root/.claude/commands", "/root/.claude/skills", "/root/.cline/skills", "/root/.agents/skills", "/root/.codex/skills", "/root/.config/goose/skills", "/root/.config/opencode/skills", "/root/.gemini/extensions", "/root/.qwen/skills", "/logs/agent/sessions/skills", "/tmp/agent-home/sessions/skills"]
+#6 CACHED
+
+#7 [main  4/22] RUN ["/bin/mkdir", "-p", "/root/.hermes/skills", "/etc/codex/skills", "/tmp/codex-home/skills", "/workspace/skills", "/workspace/.agents/skills", "/workspace/.claude/commands", "/workspace/.claude/skills", "/workspace/.cline/skills", "/workspace/.codex/skills", "/workspace/.config/goose/skills", "/workspace/.config/opencode/skills", "/workspace/.cursor/skills", "/workspace/.gemini/skills", "/workspace/.gemini/extensions", "/workspace/.opencode/skills", "/workspace/.qwen/skills", "/root/.claude/commands", "/root/.claude/skills", "/root/.cline/skills", "/root/.agents/skills", "/root/.codex/skills", "/root/.config/goose/skills", "/root/.config/opencode/skills", "/root/.gemini/extensions", "/root/.qwen/skills", "/logs/agent/sessions/skills", "/tmp/agent-home/sessions/skills"]
+#7 CACHED
+
+#8 [main  6/22] RUN ["/bin/sh", "-c", "set -eu; clear_skill_root() { target=$1; if [ -d "$target" ] && [ ! -L "$target" ]; then for child in "$target"/* "$target"/.[!.]* "$target"/..?*; do [ -e "$child" ] || [ -L "$child" ] || continue; /bin/rm -rf -- "$child"; done; else /bin/rm -rf -- "$target"; fi; }; home=${HOME:-/root}; case "$home" in /*) ;; *) echo 'SkillEvaluator requires an absolute HOME for runtime skill isolation' >&2; exit 78;; esac; for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do clear_skill_root "$home/$rel"; done"]
+#8 CACHED
+
+#9 [main  2/22] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; if [ "$(id -u)" -ne 0 ]; then echo 'SkillEvaluator final runtime projection requires root; declare the Dockerfile final USER explicitly so it can be restored' >&2; exit 78; fi"]
+#9 CACHED
+
+#10 [main 10/22] RUN ["/bin/mkdir", "-p", "/workspace/repo"]
+#10 CACHED
+
+#11 [main  7/22] RUN ["/bin/sh", "-c", "set -eu; clear_skill_root() { target=$1; if [ -d "$target" ] && [ ! -L "$target" ]; then for child in "$target"/* "$target"/.[!.]* "$target"/..?*; do [ -e "$child" ] || [ -L "$child" ] || continue; /bin/rm -rf -- "$child"; done; else /bin/rm -rf -- "$target"; fi; }; [ -r /etc/passwd ] || exit 0; while IFS=: read -r _ _ _ _ _ home _; do case "$home" in /*) ;; *) continue;; esac; [ -d "$home" ] || continue; for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do clear_skill_root "$home/$rel"; done; done < /etc/passwd"]
+#11 CACHED
+
+#12 [main  9/22] RUN ["/bin/rm", "-rf", "/workspace/repo"]
+#12 CACHED
+
+#13 [main  8/22] RUN ["/bin/sh", "-c", "set -eu; clear_skill_root() { target=$1; if [ -d "$target" ] && [ ! -L "$target" ]; then for child in "$target"/* "$target"/.[!.]* "$target"/..?*; do [ -e "$child" ] || [ -L "$child" ] || continue; /bin/rm -rf -- "$child"; done; else /bin/rm -rf -- "$target"; fi; }; if [ -n "${CLAUDE_CONFIG_DIR:-}" ]; then case "$CLAUDE_CONFIG_DIR" in /*) ;; *) exit 78;; esac; clear_skill_root "$CLAUDE_CONFIG_DIR/skills"; clear_skill_root "$CLAUDE_CONFIG_DIR/commands"; fi; if [ -n "${CODEX_HOME:-}" ]; then case "$CODEX_HOME" in /*) ;; *) exit 78;; esac; clear_skill_root "$CODEX_HOME/skills"; fi; if [ -n "${GEMINI_CLI_HOME:-}" ]; then case "$GEMINI_CLI_HOME" in /*) ;; *) exit 78;; esac; clear_skill_root "$GEMINI_CLI_HOME/.gemini/skills"; clear_skill_root "$GEMINI_CLI_HOME/.gemini/extensions"; fi; if [ -n "${OPENCODE_CONFIG_DIR:-}" ]; then case "$OPENCODE_CONFIG_DIR" in /*) ;; *) exit 78;; esac; clear_skill_root "$OPENCODE_CONFIG_DIR/skills"; fi; if [ -n "${XDG_CONFIG_HOME:-}" ]; then case "$XDG_CONFIG_HOME" in /*) ;; *) exit 78;; esac; clear_skill_root "$XDG_CONFIG_HOME/opencode/skills"; fi"]
+#13 CACHED
+
+#14 [main 16/22] RUN ["/bin/mkdir", "-p", "/workspace/input"]
+#14 CACHED
+
+#15 [main  5/22] RUN ["/bin/sh", "-c", "set -eu; current=$(/bin/pwd -P); while :; do for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do /bin/rm -rf -- "$current/$rel"; /bin/mkdir -p -- "$current/$rel"; done; [ "$current" = / ] && break; current=${current%/*}; [ -n "$current" ] || current=/; done"]
+#15 CACHED
+
+#16 [main 14/22] COPY skills/ /root/.config/opencode/skills/
+#16 CACHED
+
+#17 [main 18/22] RUN ["/bin/sh", "-c", "set -eu; current=$(/bin/pwd -P); while :; do for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do /bin/rm -rf -- "$current/$rel"; /bin/mkdir -p -- "$current/$rel"; done; [ "$current" = / ] && break; current=${current%/*}; [ -n "$current" ] || current=/; done"]
+#17 CACHED
+
+#18 [main 20/22] COPY skills/ /root/.claude/skills/
+#18 CACHED
+
+#19 [main 19/22] COPY skills/ /workspace/skills/
+#19 CACHED
+
+#20 [main 12/22] COPY skills/ /root/.claude/skills/
+#20 CACHED
+
+#21 [main 21/22] COPY skills/ /root/.agents/skills/
+#21 CACHED
+
+#22 [main 11/22] COPY skills/ /workspace/skills/
+#22 CACHED
+
+#23 [main 13/22] COPY skills/ /root/.agents/skills/
+#23 CACHED
+
+#24 [main 17/22] RUN ["/bin/sh", "-c", "set -eu; check_path() { value=$1; case "$value" in /workspace/input|/workspace/input/*|/workspace/repo|/workspace/repo/*|/tmp/hermes/skills|/tmp/hermes/skills/*|/root/.hermes/skills|/root/.hermes/skills/*|/etc/codex/skills|/etc/codex/skills/*|/tmp/codex-home/skills|/tmp/codex-home/skills/*|/workspace/skills|/workspace/skills/*|/workspace/.agents/skills|/workspace/.agents/skills/*|/workspace/.claude/commands|/workspace/.claude/commands/*|/workspace/.claude/skills|/workspace/.claude/skills/*|/workspace/.cline/skills|/workspace/.cline/skills/*|/workspace/.codex/skills|/workspace/.codex/skills/*|/workspace/.config/goose/skills|/workspace/.config/goose/skills/*|/workspace/.config/opencode/skills|/workspace/.config/opencode/skills/*|/workspace/.cursor/skills|/workspace/.cursor/skills/*|/workspace/.gemini/skills|/workspace/.gemini/skills/*|/workspace/.gemini/extensions|/workspace/.gemini/extensions/*|/workspace/.opencode/skills|/workspace/.opencode/skills/*|/workspace/.qwen/skills|/workspace/.qwen/skills/*|/root/.claude/commands|/root/.claude/commands/*|/root/.claude/skills|/root/.claude/skills/*|/root/.cline/skills|/root/.cline/skills/*|/root/.agents/skills|/root/.agents/skills/*|/root/.codex/skills|/root/.codex/skills/*|/root/.config/goose/skills|/root/.config/goose/skills/*|/root/.config/opencode/skills|/root/.config/opencode/skills/*|/root/.gemini/extensions|/root/.gemini/extensions/*|/root/.qwen/skills|/root/.qwen/skills/*|/logs/agent/sessions/skills|/logs/agent/sessions/skills/*|/tmp/agent-home/sessions/skills|/tmp/agent-home/sessions/skills/*|*/.hermes/skills|*/.hermes/skills/*|*/.agents/skills|*/.agents/skills/*|*/.claude/commands|*/.claude/commands/*|*/.claude/skills|*/.claude/skills/*|*/.cline/skills|*/.cline/skills/*|*/.codex/skills|*/.codex/skills/*|*/.config/goose/skills|*/.config/goose/skills/*|*/.config/opencode/skills|*/.config/opencode/skills/*|*/.cursor/skills|*/.cursor/skills/*|*/.gemini/skills|*/.gemini/skills/*|*/.gemini/extensions|*/.gemini/extensions/*|*/.opencode/skills|*/.opencode/skills/*|*/.qwen/skills|*/.qwen/skills/*) echo 'SkillEvaluator agent workdir/home overlaps an evaluator-controlled runtime projection' >&2; exit 78;; esac; }; check_control_path() { value=$1; check_path "$value"; if [ -d "$value" ]; then canonical=$(CDPATH= cd -P -- "$value" 2>/dev/null && /bin/pwd -P) || exit 78; check_path "$canonical"; elif [ -e "$value" ] || [ -L "$value" ]; then echo 'SkillEvaluator discovery home must resolve to a directory' >&2; exit 78; fi; }; current=$(/bin/pwd -P); check_path "$current"; home=${HOME:-/root}; case "$home" in /*) check_control_path "$home";; *) echo 'SkillEvaluator requires an absolute HOME for runtime skill isolation' >&2; exit 78;; esac; for controlled_home in "${CLAUDE_CONFIG_DIR:-}" "${CODEX_HOME:-}" "${GEMINI_CLI_HOME:-}" "${OPENCODE_CONFIG_DIR:-}" "${XDG_CONFIG_HOME:-}"; do [ -z "$controlled_home" ] || check_control_path "$controlled_home"; done; [ -r /etc/passwd ] || exit 0; while IFS=: read -r _ _ _ _ _ passwd_home _; do case "$passwd_home" in /*) [ -e "$passwd_home" ] && [ ! -d "$passwd_home" ] && continue; check_control_path "$passwd_home";; esac; done < /etc/passwd"]
+#24 CACHED
+
+#25 [main 15/22] RUN ["/bin/rm", "-rf", "/workspace/input"]
+#25 CACHED
+
+#26 [main 22/22] COPY skills/ /root/.config/opencode/skills/
+#26 CACHED
+
+#27 [main] exporting to image
+#27 exporting layers done
+#27 writing image sha256:94f903012b1f867829c8d9a7fb57897339003f731a9b1fb948affecabdbb2233 0.0s done
+#27 naming to docker.io/library/req-003__amartda__env-main 0.0s done
+#27 DONE 0.1s
+
+#28 [main] resolving provenance for metadata file
+#28 DONE 0.0s
+ main  Built
+ Network req-003__amartda__env_default  Creating
+ Network req-003__amartda__env_default  Error
+failed to create network req-003__amartda__env_default: Error response from daemon: all predefined address pools have been fully subnetted
+. Stderr: None.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 824, in _download_role_logs
+    await self.agent_environment.download_dir(
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 1351, in download_dir
+    await self.service_download_dir(source_dir, target_dir, service=None)
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 2523, in service_download_dir
+    await download()
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 2503, in download
+    await self._run_docker_compose_command(
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 3403, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment skillevaluator-req-003-with-skill. Command: /usr/local/bin/docker compose --project-name req-003__amartda__env --project-directory /app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/_harbor-tasks/opencode/with/req-003/environment -f /tmp/tmp28bhakbf/req-003__amaRTDa__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmp8xeqrso0/docker-compose-environment.json -f /tmp/tmp7_ggbquj/docker-compose-mounts.json cp -- main:/logs/agent/. /app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/_harbor-jobs/requirements-analyst-opencode-with/req-003__amaRTDa/agent. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None.
+Collecting main service artifacts
+Failed to download artifact '/logs/artifacts' from service 'main' (best-effort)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 606, in run
+    await self._prepare()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 645, in _prepare
+    await self._setup_agent_environment()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 1849, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 1855, in _start_agent_environment
+    await asyncio.wait_for(
+  File "/usr/local/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 1333, in start
+    await super().start(force_build)
+  File "/usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 1091, in start
+    await self._run_docker_compose_command(["up", *runtime.up_args])
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 3403, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment skillevaluator-req-003-with-skill. Command: /usr/local/bin/docker compose --project-name req-003__amartda__env --project-directory /app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/_harbor-tasks/opencode/with/req-003/environment -f /tmp/tmp28bhakbf/req-003__amaRTDa__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmp8xeqrso0/docker-compose-environment.json -f /tmp/tmp7_ggbquj/docker-compose-mounts.json up --detach --wait. Return code: 1. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 9.69kB 0.0s done
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/skillevaluator-deps:3.12-opencode
+#2 DONE 0.0s
+
+#3 [main  1/22] FROM docker.io/library/skillevaluator-deps:3.12-opencode
+#3 DONE 0.0s
+
+#4 [main internal] load .dockerignore
+#4 transferring context: 2B 0.0s done
+#4 DONE 0.1s
+
+#5 [main internal] load build context
+#5 transferring context: 11.55kB 0.0s done
+#5 DONE 0.0s
+
+#6 [main  3/22] RUN ["/bin/rm", "-rf", "/tmp/hermes", "/root/.hermes/skills", "/etc/codex/skills", "/tmp/codex-home/skills", "/workspace/skills", "/workspace/.agents/skills", "/workspace/.claude/commands", "/workspace/.claude/skills", "/workspace/.cline/skills", "/workspace/.codex/skills", "/workspace/.config/goose/skills", "/workspace/.config/opencode/skills", "/workspace/.cursor/skills", "/workspace/.gemini/skills", "/workspace/.gemini/extensions", "/workspace/.opencode/skills", "/workspace/.qwen/skills", "/root/.claude/commands", "/root/.claude/skills", "/root/.cline/skills", "/root/.agents/skills", "/root/.codex/skills", "/root/.config/goose/skills", "/root/.config/opencode/skills", "/root/.gemini/extensions", "/root/.qwen/skills", "/logs/agent/sessions/skills", "/tmp/agent-home/sessions/skills"]
+#6 CACHED
+
+#7 [main  4/22] RUN ["/bin/mkdir", "-p", "/root/.hermes/skills", "/etc/codex/skills", "/tmp/codex-home/skills", "/workspace/skills", "/workspace/.agents/skills", "/workspace/.claude/commands", "/workspace/.claude/skills", "/workspace/.cline/skills", "/workspace/.codex/skills", "/workspace/.config/goose/skills", "/workspace/.config/opencode/skills", "/workspace/.cursor/skills", "/workspace/.gemini/skills", "/workspace/.gemini/extensions", "/workspace/.opencode/skills", "/workspace/.qwen/skills", "/root/.claude/commands", "/root/.claude/skills", "/root/.cline/skills", "/root/.agents/skills", "/root/.codex/skills", "/root/.config/goose/skills", "/root/.config/opencode/skills", "/root/.gemini/extensions", "/root/.qwen/skills", "/logs/agent/sessions/skills", "/tmp/agent-home/sessions/skills"]
+#7 CACHED
+
+#8 [main  6/22] RUN ["/bin/sh", "-c", "set -eu; clear_skill_root() { target=$1; if [ -d "$target" ] && [ ! -L "$target" ]; then for child in "$target"/* "$target"/.[!.]* "$target"/..?*; do [ -e "$child" ] || [ -L "$child" ] || continue; /bin/rm -rf -- "$child"; done; else /bin/rm -rf -- "$target"; fi; }; home=${HOME:-/root}; case "$home" in /*) ;; *) echo 'SkillEvaluator requires an absolute HOME for runtime skill isolation' >&2; exit 78;; esac; for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do clear_skill_root "$home/$rel"; done"]
+#8 CACHED
+
+#9 [main  2/22] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; if [ "$(id -u)" -ne 0 ]; then echo 'SkillEvaluator final runtime projection requires root; declare the Dockerfile final USER explicitly so it can be restored' >&2; exit 78; fi"]
+#9 CACHED
+
+#10 [main 10/22] RUN ["/bin/mkdir", "-p", "/workspace/repo"]
+#10 CACHED
+
+#11 [main  7/22] RUN ["/bin/sh", "-c", "set -eu; clear_skill_root() { target=$1; if [ -d "$target" ] && [ ! -L "$target" ]; then for child in "$target"/* "$target"/.[!.]* "$target"/..?*; do [ -e "$child" ] || [ -L "$child" ] || continue; /bin/rm -rf -- "$child"; done; else /bin/rm -rf -- "$target"; fi; }; [ -r /etc/passwd ] || exit 0; while IFS=: read -r _ _ _ _ _ home _; do case "$home" in /*) ;; *) continue;; esac; [ -d "$home" ] || continue; for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do clear_skill_root "$home/$rel"; done; done < /etc/passwd"]
+#11 CACHED
+
+#12 [main  9/22] RUN ["/bin/rm", "-rf", "/workspace/repo"]
+#12 CACHED
+
+#13 [main  8/22] RUN ["/bin/sh", "-c", "set -eu; clear_skill_root() { target=$1; if [ -d "$target" ] && [ ! -L "$target" ]; then for child in "$target"/* "$target"/.[!.]* "$target"/..?*; do [ -e "$child" ] || [ -L "$child" ] || continue; /bin/rm -rf -- "$child"; done; else /bin/rm -rf -- "$target"; fi; }; if [ -n "${CLAUDE_CONFIG_DIR:-}" ]; then case "$CLAUDE_CONFIG_DIR" in /*) ;; *) exit 78;; esac; clear_skill_root "$CLAUDE_CONFIG_DIR/skills"; clear_skill_root "$CLAUDE_CONFIG_DIR/commands"; fi; if [ -n "${CODEX_HOME:-}" ]; then case "$CODEX_HOME" in /*) ;; *) exit 78;; esac; clear_skill_root "$CODEX_HOME/skills"; fi; if [ -n "${GEMINI_CLI_HOME:-}" ]; then case "$GEMINI_CLI_HOME" in /*) ;; *) exit 78;; esac; clear_skill_root "$GEMINI_CLI_HOME/.gemini/skills"; clear_skill_root "$GEMINI_CLI_HOME/.gemini/extensions"; fi; if [ -n "${OPENCODE_CONFIG_DIR:-}" ]; then case "$OPENCODE_CONFIG_DIR" in /*) ;; *) exit 78;; esac; clear_skill_root "$OPENCODE_CONFIG_DIR/skills"; fi; if [ -n "${XDG_CONFIG_HOME:-}" ]; then case "$XDG_CONFIG_HOME" in /*) ;; *) exit 78;; esac; clear_skill_root "$XDG_CONFIG_HOME/opencode/skills"; fi"]
+#13 CACHED
+
+#14 [main 16/22] RUN ["/bin/mkdir", "-p", "/workspace/input"]
+#14 CACHED
+
+#15 [main  5/22] RUN ["/bin/sh", "-c", "set -eu; current=$(/bin/pwd -P); while :; do for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do /bin/rm -rf -- "$current/$rel"; /bin/mkdir -p -- "$current/$rel"; done; [ "$current" = / ] && break; current=${current%/*}; [ -n "$current" ] || current=/; done"]
+#15 CACHED
+
+#16 [main 14/22] COPY skills/ /root/.config/opencode/skills/
+#16 CACHED
+
+#17 [main 18/22] RUN ["/bin/sh", "-c", "set -eu; current=$(/bin/pwd -P); while :; do for rel in .hermes/skills .agents/skills .claude/commands .claude/skills .cline/skills .codex/skills .config/goose/skills .config/opencode/skills .cursor/skills .gemini/skills .gemini/extensions .opencode/skills .qwen/skills; do /bin/rm -rf -- "$current/$rel"; /bin/mkdir -p -- "$current/$rel"; done; [ "$current" = / ] && break; current=${current%/*}; [ -n "$current" ] || current=/; done"]
+#17 CACHED
+
+#18 [main 20/22] COPY skills/ /root/.claude/skills/
+#18 CACHED
+
+#19 [main 19/22] COPY skills/ /workspace/skills/
+#19 CACHED
+
+#20 [main 12/22] COPY skills/ /root/.claude/skills/
+#20 CACHED
+
+#21 [main 21/22] COPY skills/ /root/.agents/skills/
+#21 CACHED
+
+#22 [main 11/22] COPY skills/ /workspace/skills/
+#22 CACHED
+
+#23 [main 13/22] COPY skills/ /root/.agents/skills/
+#23 CACHED
+
+#24 [main 17/22] RUN ["/bin/sh", "-c", "set -eu; check_path() { value=$1; case "$value" in /workspace/input|/workspace/input/*|/workspace/repo|/workspace/repo/*|/tmp/hermes/skills|/tmp/hermes/skills/*|/root/.hermes/skills|/root/.hermes/skills/*|/etc/codex/skills|/etc/codex/skills/*|/tmp/codex-home/skills|/tmp/codex-home/skills/*|/workspace/skills|/workspace/skills/*|/workspace/.agents/skills|/workspace/.agents/skills/*|/workspace/.claude/commands|/workspace/.claude/commands/*|/workspace/.claude/skills|/workspace/.claude/skills/*|/workspace/.cline/skills|/workspace/.cline/skills/*|/workspace/.codex/skills|/workspace/.codex/skills/*|/workspace/.config/goose/skills|/workspace/.config/goose/skills/*|/workspace/.config/opencode/skills|/workspace/.config/opencode/skills/*|/workspace/.cursor/skills|/workspace/.cursor/skills/*|/workspace/.gemini/skills|/workspace/.gemini/skills/*|/workspace/.gemini/extensions|/workspace/.gemini/extensions/*|/workspace/.opencode/skills|/workspace/.opencode/skills/*|/workspace/.qwen/skills|/workspace/.qwen/skills/*|/root/.claude/commands|/root/.claude/commands/*|/root/.claude/skills|/root/.claude/skills/*|/root/.cline/skills|/root/.cline/skills/*|/root/.agents/skills|/root/.agents/skills/*|/root/.codex/skills|/root/.codex/skills/*|/root/.config/goose/skills|/root/.config/goose/skills/*|/root/.config/opencode/skills|/root/.config/opencode/skills/*|/root/.gemini/extensions|/root/.gemini/extensions/*|/root/.qwen/skills|/root/.qwen/skills/*|/logs/agent/sessions/skills|/logs/agent/sessions/skills/*|/tmp/agent-home/sessions/skills|/tmp/agent-home/sessions/skills/*|*/.hermes/skills|*/.hermes/skills/*|*/.agents/skills|*/.agents/skills/*|*/.claude/commands|*/.claude/commands/*|*/.claude/skills|*/.claude/skills/*|*/.cline/skills|*/.cline/skills/*|*/.codex/skills|*/.codex/skills/*|*/.config/goose/skills|*/.config/goose/skills/*|*/.config/opencode/skills|*/.config/opencode/skills/*|*/.cursor/skills|*/.cursor/skills/*|*/.gemini/skills|*/.gemini/skills/*|*/.gemini/extensions|*/.gemini/extensions/*|*/.opencode/skills|*/.opencode/skills/*|*/.qwen/skills|*/.qwen/skills/*) echo 'SkillEvaluator agent workdir/home overlaps an evaluator-controlled runtime projection' >&2; exit 78;; esac; }; check_control_path() { value=$1; check_path "$value"; if [ -d "$value" ]; then canonical=$(CDPATH= cd -P -- "$value" 2>/dev/null && /bin/pwd -P) || exit 78; check_path "$canonical"; elif [ -e "$value" ] || [ -L "$value" ]; then echo 'SkillEvaluator discovery home must resolve to a directory' >&2; exit 78; fi; }; current=$(/bin/pwd -P); check_path "$current"; home=${HOME:-/root}; case "$home" in /*) check_control_path "$home";; *) echo 'SkillEvaluator requires an absolute HOME for runtime skill isolation' >&2; exit 78;; esac; for controlled_home in "${CLAUDE_CONFIG_DIR:-}" "${CODEX_HOME:-}" "${GEMINI_CLI_HOME:-}" "${OPENCODE_CONFIG_DIR:-}" "${XDG_CONFIG_HOME:-}"; do [ -z "$controlled_home" ] || check_control_path "$controlled_home"; done; [ -r /etc/passwd ] || exit 0; while IFS=: read -r _ _ _ _ _ passwd_home _; do case "$passwd_home" in /*) [ -e "$passwd_home" ] && [ ! -d "$passwd_home" ] && continue; check_control_path "$passwd_home";; esac; done < /etc/passwd"]
+#24 CACHED
+
+#25 [main 15/22] RUN ["/bin/rm", "-rf", "/workspace/input"]
+#25 CACHED
+
+#26 [main 22/22] COPY skills/ /root/.config/opencode/skills/
+#26 CACHED
+
+#27 [main] exporting to image
+#27 exporting layers done
+#27 writing image sha256:94f903012b1f867829c8d9a7fb57897339003f731a9b1fb948affecabdbb2233 0.0s done
+#27 naming to docker.io/library/req-003__amartda__env-main 0.0s done
+#27 DONE 0.1s
+
+#28 [main] resolving provenance for metadata file
+#28 DONE 0.0s
+ main  Built
+ Network req-003__amartda__env_default  Creating
+ Network req-003__amartda__env_default  Error
+failed to create network req-003__amartda__env_default: Error response from daemon: all predefined address pools have been fully subnetted
+. Stderr: None.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/artifact_handler.py", line 343, in _download_artifact
+    await source_env.service_download_dir(
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 2523, in service_download_dir
+    await download()
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 2503, in download
+    await self._run_docker_compose_command(
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 3403, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment skillevaluator-req-003-with-skill. Command: /usr/local/bin/docker compose --project-name req-003__amartda__env --project-directory /app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/_harbor-tasks/opencode/with/req-003/environment -f /tmp/tmp28bhakbf/req-003__amaRTDa__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmp8xeqrso0/docker-compose-environment.json -f /tmp/tmp7_ggbquj/docker-compose-mounts.json cp -- main:/logs/artifacts/. /app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/_harbor-jobs/requirements-analyst-opencode-with/req-003__amaRTDa/artifacts/logs/artifacts. Return code: 1. Stdout: no container found for service "main"
+. Stderr: None.

@@ -1,0 +1,61 @@
+{
+  "completion": {
+    "output_fields": [
+      "task_type",
+      "matched_modules",
+      "intent_type",
+      "core_intent",
+      "explicit_requirements",
+      "inferred_requirements",
+      "missing_dimensions",
+      "default_inference",
+      "must_confirm",
+      "risks",
+      "follow_up_questions",
+      "rewritten_requirement",
+      "assumptions"
+    ]
+  },
+  "rewrite": {
+    "output_fields": [
+      "task_type",
+      "matched_modules",
+      "intent_type",
+      "core_intent",
+      "must_confirm",
+      "rewritten_requirement",
+      "assumptions"
+    ]
+  },
+  "review": {
+    "output_fields": [
+      "task_type",
+      "matched_modules",
+      "intent_type",
+      "core_intent",
+      "review_issues",
+      "missing_dimensions",
+      "risks",
+      "follow_up_questions",
+      "rewritten_requirement"
+    ]
+  },
+  "extraction": {
+    "output_fields": [
+      "task_type",
+      "matched_modules",
+      "intent_type",
+      "structured_extraction",
+      "assumptions"
+    ]
+  },
+  "explanation": {
+    "output_fields": [
+      "task_type",
+      "matched_modules",
+      "core_intent",
+      "default_inference",
+      "must_confirm"
+    ]
+  }
+}

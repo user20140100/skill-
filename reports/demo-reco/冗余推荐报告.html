@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>正向 Skill 冗余推荐演示报告</title>
+<style>
+:root {
+  --primary-color: #0f4c2a;
+  --secondary-color: #76b900;
+  --danger-color: #ef4444;
+  --success-color: #22c55e;
+  --high-color: #dc2626;
+  --medium-color: #d97706;
+  --low-color: #6b7280;
+  --light-bg: #f8fafc;
+  --bg: #ffffff;
+  --bg-secondary: #f1f5f9;
+  --dark-text: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+  --shadow-lg: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --code-bg: #1e293b;
+  --table-header-bg: #f8fafc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background-color: var(--light-bg); color: var(--dark-text); line-height: 1.6;
+}
+.main-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white; padding: 1.5rem 0; box-shadow: var(--shadow-lg);
+}
+.header-content { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+.header-content h1 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; }
+.header-content .subtitle { font-size: 0.95rem; opacity: 0.92; margin-top: 0.25rem; }
+.header-meta { margin-top: 0.75rem; font-size: 0.8rem; opacity: 0.85; display: flex; flex-wrap: wrap; gap: 1rem; }
+main { max-width: 1100px; margin: 1.5rem auto; padding: 0 2rem 3rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0 1.5rem; }
+.card { background: var(--bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem; box-shadow: var(--shadow); }
+.card h3 { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.card .big { font-size: 1.9rem; font-weight: 800; }
+.card .delta { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem; }
+.section { background: var(--bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: var(--shadow); }
+.section h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+.section p.desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; }
+.step-tag { font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 4px; color: white; background: var(--primary-color); white-space: nowrap; }
+.summary-table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.875rem; }
+.summary-table th { background: var(--table-header-bg); text-align: left; padding: 0.6rem 0.75rem; border-bottom: 2px solid var(--border-color); font-weight: 600; }
+.summary-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border-color); }
+.summary-table tbody tr:last-child td { border-bottom: none; }
+.summary-table td.num { font-variant-numeric: tabular-nums; font-weight: 600; }
+.badge { font-size: 0.68rem; padding: 0.1rem 0.5rem; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+.badge-dup { background: #fee2e2; color: #991b1b; }
+.badge-sim { background: #fef3c7; color: #92400e; }
+.badge-safe { background: #dcfce7; color: #166534; }
+.hit { color: var(--high-color); font-weight: 700; }
+.conclusion { background: var(--code-bg); color: #e2e8f0; border-radius: 8px; padding: 1rem 1.25rem; font-size: 0.85rem; line-height: 1.7; }
+.conclusion code { color: #a5f3a5; }
+.conclusion b { color: #fcd34d; }
+.note { background: #eff6ff; border-left: 3px solid #2563eb; padding: 0.75rem 1rem; border-radius: 0 6px 6px 0; font-size: 0.85rem; margin: 0.75rem 0; }
+.note b { color: #1e40af; }
+.footer { text-align: center; color: var(--text-secondary); font-size: 0.75rem; margin-top: 2rem; }
+</style>
+</head>
+<body>
+<header class="main-header">
+  <div class="header-content">
+    <h1>正向 Skill 冗余推荐演示报告</h1>
+    <div class="subtitle">三层评估全链路：Tier2 语义去重 → 公共用例生成 → Tier1 安全审查 → Tier3 增益评估 → 双结论推荐</div>
+    <div class="header-meta">
+      <span>生成时间：2026-11-19 15:28:04</span>
+      <span>正向 skill：positive/calc-pro</span>
+      <span>冗余 skill：official/calculator</span>
+      <span>回放模式：复用已落盘报告，未真实执行 Tier2/Tier3</span>
+    </div>
+  </div>
+</header>
+<main>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Tier2 · 冗余对</h3>
+      <div class="big">0.9129</div>
+      <div class="delta">calc-pro ↔ calculator · HIGH_SIMILARITY</div>
+    </div>
+    <div class="card">
+      <h3>公共用例</h3>
+      <div class="big">9</div>
+      <div class="delta">条 neutral 用例（能力交集，纯结果断言）</div>
+    </div>
+    <div class="card">
+      <h3>安全结论</h3>
+      <div class="big" style="color:var(--success-color)">both_safe</div>
+      <div class="delta">两者均通过完整 Tier1 安全审查</div>
+    </div>
+    <div class="card">
+      <h3>增益结论</h3>
+      <div class="big" style="color:var(--secondary-color)">calculator</div>
+      <div class="delta">efficiency_better（结果相当、效率更优）</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <h2><span class="step-tag">阶段一</span> Tier2 语义去重（相似度检测）</h2>
+    <p class="desc">对 calc-pro 与公司库 5 个候选做 embedding（bge-m3, dim 1024）语义比对。score ≥ 0.90 判为 HIGH_SIMILARITY（冗余对成立）；0.80–0.86 的 SIMILAR 项域无关，仅 advisory、不触发推荐。</p>
+    <table class="summary-table">
+      <thead><tr><th>相似度</th><th>命中 skill</th><th>分类</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="num">0.9129</td>
+          <td><strong>calculator</strong></td>
+          <td><span class="badge badge-dup">HIGH_SIMILARITY</span></td>
+          <td><span class="hit">★ 冗余对成立</span></td>
+        </tr>
+        <tr>
+          <td class="num">0.8579</td>
+          <td><strong>android-log-analysis</strong></td>
+          <td><span class="badge badge-sim">SIMILAR</span></td>
+          <td>域无关，advisory，不触发推荐</td>
+        </tr>
+        <tr>
+          <td class="num">0.8495</td>
+          <td><strong>requirement-spec</strong></td>
+          <td><span class="badge badge-sim">SIMILAR</span></td>
+          <td>域无关，advisory，不触发推荐</td>
+        </tr>
+        <tr>
+          <td class="num">0.8440</td>
+          <td><strong>es-log-query</strong></td>
+          <td><span class="badge badge-sim">SIMILAR</span></td>
+          <td>域无关，advisory，不触发推荐</td>
+        </tr>
+        <tr>
+          <td class="num">0.8094</td>
+          <td><strong>code-review</strong></td>
+          <td><span class="badge badge-sim">SIMILAR</span></td>
+          <td>域无关，advisory，不触发推荐</td>
+        </tr></tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2><span class="step-tag">阶段二</span> 公共用例生成（shared/arithmetic）</h2>
+    <p class="desc">用例只取双方能力交集（基础算术 + 单位换算），不含 calc-pro 独有的 stats/finance 超集任务；格式为 neutral（无 expected_skill），ground_truth 只断言最终数值，保证双方公平可比。</p>
+    <table class="summary-table">
+      <thead><tr><th>ID</th><th>任务</th><th>预期结果</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="num">shared-001</td>
+          <td>计算表达式 (100 - 25) / 3 的结果。</td>
+          <td class="num">25</td>
+        </tr>
+        <tr>
+          <td class="num">shared-002</td>
+          <td>计算 2 的 10 次方（即表达式 2 ** 10）。</td>
+          <td class="num">1024</td>
+        </tr>
+        <tr>
+          <td class="num">shared-003</td>
+          <td>计算表达式 (3 + 5) ** 2 - 64 / 8 的结果。</td>
+          <td class="num">56</td>
+        </tr>
+        <tr>
+          <td class="num">shared-004</td>
+          <td>计算表达式 17 % 5 + 12 * 3 的结果。</td>
+          <td class="num">38</td>
+        </tr>
+        <tr>
+          <td class="num">shared-005</td>
+          <td>计算表达式 -(5 - 10) + 2 ** 3 的结果。</td>
+          <td class="num">13</td>
+        </tr>
+        <tr>
+          <td class="num">shared-006</td>
+          <td>计算 480 的 7.5%（即表达式 7.5% of 480）。</td>
+          <td class="num">36</td>
+        </tr>
+        <tr>
+          <td class="num">shared-007</td>
+          <td>将 100 摄氏度转换为华氏度。</td>
+          <td class="num">212</td>
+        </tr>
+        <tr>
+          <td class="num">shared-008</td>
+          <td>将 5 英里转换为公里。</td>
+          <td class="num">8.047</td>
+        </tr>
+        <tr>
+          <td class="num">shared-009</td>
+          <td>将 10 千克转换为磅。</td>
+          <td class="num">22.05</td>
+        </tr></tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2><span class="step-tag">阶段三</span> 完整 Tier1 安全审查（SkillSpector + SkillEvaluator Tier1）</h2>
+    <p class="desc">安全审查由两部分并列构成：SkillSpector 静态安全扫描（risk_assessment + issues[]）与 SkillEvaluator Tier1（质量/Schema/安全静态检查）。只以 critical/high 判 unsafe。</p>
+    <table class="summary-table">
+      <thead><tr><th>Skill</th><th>SkillSpector</th><th>Tier1</th><th>安全判定</th></tr></thead>
+      <tbody>
+        <tr><td><strong>calc-pro</strong></td><td class="num">score 0 / LOW / SAFE / 0 issue</td><td class="num">passed · critical 0 / high 0</td><td><span class="badge badge-safe">safe</span></td></tr>
+        <tr><td><strong>calculator</strong></td><td class="num">score 0 / LOW / SAFE / 0 issue</td><td class="num">passed · critical 0 / high 0</td><td><span class="badge badge-safe">safe</span></td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>安全结论：</b>两者均通过完整 Tier1 安全审查（SkillSpector + SkillEvaluator Tier1），安全维度无差异，无需从安全角度二选一。</div>
+  </section>
+
+  <section class="section">
+    <h2><span class="step-tag">阶段四</span> Tier3 沙盒增益评估（共享用例横向对比）</h2>
+    <p class="desc">双方在<strong>同一组共享用例</strong>（shared-001~003，--max-cases 3 预热回放）上跑 with-skill 双臂，横向对比结果与效率。agent=opencode，model=openai/qwen3.8-flash。</p>
+    <table class="summary-table">
+      <thead><tr><th>维度</th><th>calc-pro</th><th>calculator</th><th>更优</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>goal_accuracy（结果）</td>
+          <td class="num">1.00</td>
+          <td class="num">1.00</td>
+          <td class="num">—</td>
+        </tr>
+        <tr>
+          <td>prompt_tokens</td>
+          <td class="num">75,358</td>
+          <td class="num">71,439</td>
+          <td class="num">calculator</td>
+        </tr>
+        <tr>
+          <td>completion_tokens</td>
+          <td class="num">349</td>
+          <td class="num">256</td>
+          <td class="num">calculator</td>
+        </tr>
+        <tr>
+          <td>duration_seconds</td>
+          <td class="num">414.61</td>
+          <td class="num">339.65</td>
+          <td class="num">calculator</td>
+        </tr>
+        <tr>
+          <td>rounds</td>
+          <td class="num">12</td>
+          <td class="num">12</td>
+          <td class="num">—</td>
+        </tr></tbody>
+    </table>
+    <div class="note"><b>增益结论：</b>两者结果相当，但「calculator」在效率维度综合领先（token 输入 / token 输出 / 执行时间 / 执行轮数），综合增益更优。</div>
+  </section>
+
+  <section class="section">
+    <h2>结论</h2>
+    <div class="conclusion">
+      <b>双结论推荐（决策权交用户，不合成单一 verdict）</b>：<br>
+      · <b>安全结论</b>（both_safe）：两者均通过完整 Tier1 安全审查（SkillSpector + SkillEvaluator Tier1），安全维度无差异，无需从安全角度二选一。<br>
+      · <b>增益结论</b>（efficiency_better → <code>calculator</code>）：两者结果相当，但「calculator」在效率维度综合领先（token 输入 / token 输出 / 执行时间 / 执行轮数），综合增益更优。<br>
+      · <b>适用边界</b>：冗余 skill（calculator）更适用于<code>泛化任务</code>（基础算术/单位换算，省 token、耗时短）；正向 skill（calc-pro）更适用于<code>特化任务</code>（统计/财务，Lift +29.6pp）。两者互补而非互斥——正向 skill 的价值在「能力边界扩展」，冗余 skill 的价值在「通用任务成本控制」。
+    </div>
+  </section>
+
+  <div class="footer">报告由桌面脚本回放生成 · 产物位于 reports/demo-reco/ · 复用 reports/ 下已落盘 Tier2/Tier3 报告，每次运行自动清空旧文件</div>
+</main>
+</body>
+</html>

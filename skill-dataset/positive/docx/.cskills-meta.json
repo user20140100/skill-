@@ -1,0 +1,23 @@
+{
+  "name": "docx",
+  "author": "anthropics",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:40+08:00",
+  "updatedAt": "2026-11-17T10:45:40+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/docx"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/docx",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/docx"
+  ],
+  "fileHashes": {
+    "SKILL.md": "be304fd0eb1a95d05561f7e06190f5e7a2eedb35a0be9437165d394c320a08c8",
+    "icon.svg": "9f340cbcd2c5ecbaf2baf6c5840e550dee22731740e52cb9407ca4eabf084169"
+  }
+}

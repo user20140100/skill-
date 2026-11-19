@@ -1,0 +1,817 @@
+{
+  "agents": {
+    "opencode": {
+      "model": "openai/qwen3.8-flash",
+      "model_source": "CLI",
+      "model_resolution": {
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      },
+      "with_skill": {},
+      "without_skill": {},
+      "overall_with_skill": null,
+      "overall_without_skill": null,
+      "metrics_with_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "metrics_without_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "score_policy_with_skill": "skill-evaluator-dimension-mean-v1",
+      "score_policy_without_skill": "skill-evaluator-dimension-mean-v1",
+      "custom_with_skill": {},
+      "custom_without_skill": {},
+      "not_applicable_metrics": {
+        "with_skill": [],
+        "without_skill": [
+          "skill_execution",
+          "skill_efficiency"
+        ]
+      },
+      "dimensions_with_skill": {},
+      "dimensions_without_skill": {},
+      "skill_activation": {
+        "status": "unknown",
+        "positive_trials": 0,
+        "activated_trials": 0,
+        "unknown_trials": 0,
+        "reason": "Skill activation evidence is unavailable or incomplete"
+      },
+      "lift": {},
+      "custom_lift": {},
+      "pass_at_k": {
+        "with_skill": {},
+        "without_skill": {},
+        "lift": {}
+      },
+      "security_attribution": {},
+      "agent_runtime_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "trial_failures": {
+        "with_skill": [
+          {
+            "trial": "req-002__zC2gPWj",
+            "reason": "NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u6839\u636e\u4ee5\u4e0b\u4fe1\u606f\uff0c\u76f4\u63a5\u8f93\u51fa\u4e00\u4efd\u89c4\u8303\u3001\u5b8c\u6574\u7684\u9700\u6c42\u6587\u6863\uff08Markdown \u683c\u5f0f\uff09\u3002  \u3010\u6539\u9020\u5bf9\u8c61\u3011\u516c\u53f8\u5df2\u6709\u7684\u300c\u62a5\u9500\u7533\u8bf7\u300d\u529f\u80fd\u3002 \u3010\u73b0\u72b6\u95ee\u9898\u3011\u4e00\u5f20\u62a5\u9500\u5355\u53ea\u80fd\u586b\u4e00\u79cd\u8d39\u7528\u7c7b\u578b\uff1b\u9886\u5bfc\u5ba1\u6279\u65f6\u770b\u4e0d\u5230\u53d1\u7968\u7167\u7247\u3002 \u3010\u6539\u9020\u76ee\u6807\u3011(1) \u4e00\u5f20\u5355\u53ef\u586b\u591a\u79cd\u8d39\u7528\uff08\u5982\u6253\u8f66\u8d39\u3001\u9910\u8d39\u3001\u4f4f\u5bbf\u8d39\u5206\u5217\uff09\uff1b(2) \u5ba1\u6279\u65f6\u80fd\u770b\u5230\u53d1\u7968\u7167\u7247\uff1b(3) \u8d22\u52a1\u652f\u6301\u5bfc\u51fa\u3002 \u3010\u5386\u53f2\u6570\u636e\u3011\u5df2\u6709\u5386\u53f2\u62a5\u9500\u5355\u9700\u80fd\u7ee7\u7eed\u67e5\u770b\uff0c\u4e0d\u5f71\u54cd\u672c\u6b21\u6539\u9020\u3002 \u3010\u4f7f\u7528\u89d2\u8272\u3011\u5458\u5de5\uff08\u63d0\u4ea4\uff09\u3001\u90e8\u95e8\u4e3b\u7ba1\uff08\u5ba1\u6279\uff09\u3001\u8d22\u52a1\uff08\u5bfc\u51fa\uff09\u3002  \u8bf7\u76f4\u63a5\u8f93\u51fa\u5b8c\u6574\u7684\u6539\u9020\u9700\u6c42\u6587\u6863\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 4"
+          },
+          {
+            "trial": "req-003__Yd3VXLy",
+            "reason": "NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987200868,\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"part\":{\"id\":\"prt_1ed93115f001Ldukz4SrZxtmCO\",\"messageID\":\"msg_1ed930d82001RzaZpLTEQ2mfy6\",\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"snapshot\":\"f19897a5e3 ... [18695 chars truncated] ... t"
+          },
+          {
+            "trial": "req-001__n8WgXpy",
+            "reason": "Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run"
+          }
+        ],
+        "without_skill": [
+          {
+            "trial": "req-003__NwLbWXn",
+            "reason": "NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987133842,\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"part\":{\"id\":\"prt_1ed920b8a001nbhnVWQ0YUVtnu\",\"messageID\":\"msg_1ed9203aa001p3QYtRvl5WeKqj\",\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"snapshot\":\"4b825dc642 ... [10385 chars truncated] ... I"
+          }
+        ]
+      },
+      "recovered_trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "failure_detail_metadata": {
+        "with_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "with_skill_trials": {
+          "details_total": 3,
+          "details_shown": 3,
+          "details_truncated": false
+        },
+        "without_skill_trials": {
+          "details_total": 1,
+          "details_shown": 1,
+          "details_truncated": false
+        }
+      },
+      "job_failures": {
+        "with_skill": "Harbor job did not complete successfully: 2 errored",
+        "without_skill": "Harbor job did not complete successfully: 1 errored"
+      },
+      "historical_job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "conditions": {
+        "with_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 2 errored",
+            "Unscoreable reward in req-002__zC2gPWj: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u6839\u636e\u4ee5\u4e0b\u4fe1\u606f\uff0c\u76f4\u63a5\u8f93\u51fa\u4e00\u4efd\u89c4\u8303\u3001\u5b8c\u6574\u7684\u9700\u6c42\u6587\u6863\uff08Markdown \u683c\u5f0f\uff09\u3002  \u3010\u6539\u9020\u5bf9\u8c61\u3011\u516c\u53f8\u5df2\u6709\u7684\u300c\u62a5\u9500\u7533\u8bf7\u300d\u529f\u80fd\u3002 \u3010\u73b0\u72b6\u95ee\u9898\u3011\u4e00\u5f20\u62a5\u9500\u5355\u53ea\u80fd\u586b\u4e00\u79cd\u8d39\u7528\u7c7b\u578b\uff1b\u9886\u5bfc\u5ba1\u6279\u65f6\u770b\u4e0d\u5230\u53d1\u7968\u7167\u7247\u3002 \u3010\u6539\u9020\u76ee\u6807\u3011(1) \u4e00\u5f20\u5355\u53ef\u586b\u591a\u79cd\u8d39\u7528\uff08\u5982\u6253\u8f66\u8d39\u3001\u9910\u8d39\u3001\u4f4f\u5bbf\u8d39\u5206\u5217\uff09\uff1b(2) \u5ba1\u6279\u65f6\u80fd\u770b\u5230\u53d1\u7968\u7167\u7247\uff1b(3) \u8d22\u52a1\u652f\u6301\u5bfc\u51fa\u3002 \u3010\u5386\u53f2\u6570\u636e\u3011\u5df2\u6709\u5386\u53f2\u62a5\u9500\u5355\u9700\u80fd\u7ee7\u7eed\u67e5\u770b\uff0c\u4e0d\u5f71\u54cd\u672c\u6b21\u6539\u9020\u3002 \u3010\u4f7f\u7528\u89d2\u8272\u3011\u5458\u5de5\uff08\u63d0\u4ea4\uff09\u3001\u90e8\u95e8\u4e3b\u7ba1\uff08\u5ba1\u6279\uff09\u3001\u8d22\u52a1\uff08\u5bfc\u51fa\uff09\u3002  \u8bf7\u76f4\u63a5\u8f93\u51fa\u5b8c\u6574\u7684\u6539\u9020\u9700\u6c42\u6587\u6863\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 4",
+            "Unscoreable reward in req-003__Yd3VXLy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987200868,\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"part\":{\"id\":\"prt_1ed93115f001Ldukz4SrZxtmCO\",\"messageID\":\"msg_1ed930d82001RzaZpLTEQ2mfy6\",\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"snapshot\":\"f19897a5e3 ... [18695 chars truncated] ... t",
+            "Unscoreable reward in req-001__n8WgXpy: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run",
+            "Missing scored attempts for cases: req-001, req-002, req-003",
+            "Scored attempt coverage is 0/3"
+          ],
+          "execution_error_details_total": 6,
+          "execution_error_details_shown": 6,
+          "execution_error_details_truncated": false,
+          "expected_cases": 3,
+          "scored_cases": 0,
+          "expected_attempts": 3,
+          "scored_attempts": 0,
+          "judge_failures": 1,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 3,
+          "reward_failure_details_shown": 3,
+          "reward_failure_details_truncated": false
+        },
+        "without_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 1 errored",
+            "Unscoreable reward in req-003__NwLbWXn: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987133842,\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"part\":{\"id\":\"prt_1ed920b8a001nbhnVWQ0YUVtnu\",\"messageID\":\"msg_1ed9203aa001p3QYtRvl5WeKqj\",\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"snapshot\":\"4b825dc642 ... [10385 chars truncated] ... I",
+            "Missing scored attempts for cases: req-003",
+            "Scored attempt coverage is 2/3"
+          ],
+          "execution_error_details_total": 4,
+          "execution_error_details_shown": 4,
+          "execution_error_details_truncated": false,
+          "expected_cases": 3,
+          "scored_cases": 2,
+          "expected_attempts": 3,
+          "scored_attempts": 2,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 1,
+          "reward_failure_details_shown": 1,
+          "reward_failure_details_truncated": false
+        }
+      },
+      "execution_status": "failed",
+      "execution_errors": [
+        "Harbor job did not complete successfully: 2 errored",
+        "Unscoreable reward in req-002__zC2gPWj: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u6839\u636e\u4ee5\u4e0b\u4fe1\u606f\uff0c\u76f4\u63a5\u8f93\u51fa\u4e00\u4efd\u89c4\u8303\u3001\u5b8c\u6574\u7684\u9700\u6c42\u6587\u6863\uff08Markdown \u683c\u5f0f\uff09\u3002  \u3010\u6539\u9020\u5bf9\u8c61\u3011\u516c\u53f8\u5df2\u6709\u7684\u300c\u62a5\u9500\u7533\u8bf7\u300d\u529f\u80fd\u3002 \u3010\u73b0\u72b6\u95ee\u9898\u3011\u4e00\u5f20\u62a5\u9500\u5355\u53ea\u80fd\u586b\u4e00\u79cd\u8d39\u7528\u7c7b\u578b\uff1b\u9886\u5bfc\u5ba1\u6279\u65f6\u770b\u4e0d\u5230\u53d1\u7968\u7167\u7247\u3002 \u3010\u6539\u9020\u76ee\u6807\u3011(1) \u4e00\u5f20\u5355\u53ef\u586b\u591a\u79cd\u8d39\u7528\uff08\u5982\u6253\u8f66\u8d39\u3001\u9910\u8d39\u3001\u4f4f\u5bbf\u8d39\u5206\u5217\uff09\uff1b(2) \u5ba1\u6279\u65f6\u80fd\u770b\u5230\u53d1\u7968\u7167\u7247\uff1b(3) \u8d22\u52a1\u652f\u6301\u5bfc\u51fa\u3002 \u3010\u5386\u53f2\u6570\u636e\u3011\u5df2\u6709\u5386\u53f2\u62a5\u9500\u5355\u9700\u80fd\u7ee7\u7eed\u67e5\u770b\uff0c\u4e0d\u5f71\u54cd\u672c\u6b21\u6539\u9020\u3002 \u3010\u4f7f\u7528\u89d2\u8272\u3011\u5458\u5de5\uff08\u63d0\u4ea4\uff09\u3001\u90e8\u95e8\u4e3b\u7ba1\uff08\u5ba1\u6279\uff09\u3001\u8d22\u52a1\uff08\u5bfc\u51fa\uff09\u3002  \u8bf7\u76f4\u63a5\u8f93\u51fa\u5b8c\u6574\u7684\u6539\u9020\u9700\u6c42\u6587\u6863\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 4",
+        "Unscoreable reward in req-003__Yd3VXLy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987200868,\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"part\":{\"id\":\"prt_1ed93115f001Ldukz4SrZxtmCO\",\"messageID\":\"msg_1ed930d82001RzaZpLTEQ2mfy6\",\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"snapshot\":\"f19897a5e3 ... [18695 chars truncated] ... t",
+        "Unscoreable reward in req-001__n8WgXpy: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run",
+        "Missing scored attempts for cases: req-001, req-002, req-003",
+        "Scored attempt coverage is 0/3",
+        "Harbor job did not complete successfully: 1 errored",
+        "Unscoreable reward in req-003__NwLbWXn: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987133842,\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"part\":{\"id\":\"prt_1ed920b8a001nbhnVWQ0YUVtnu\",\"messageID\":\"msg_1ed9203aa001p3QYtRvl5WeKqj\",\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"snapshot\":\"4b825dc642 ... [10385 chars truncated] ... I",
+        "Missing scored attempts for cases: req-003",
+        "Scored attempt coverage is 2/3"
+      ],
+      "execution_error_details_total": 10,
+      "execution_error_details_shown": 10,
+      "execution_error_details_truncated": false,
+      "expected_attempts": 6,
+      "scored_attempts": 2,
+      "num_trials_with": 0,
+      "num_trials_without": 2,
+      "execution_counts": {
+        "fresh": {
+          "with_skill": 3,
+          "without_skill": 3
+        },
+        "reused": {
+          "without_skill": 0
+        }
+      },
+      "measured_usage": {
+        "fresh": {
+          "with_skill": null,
+          "without_skill": null
+        },
+        "reused": {
+          "without_skill": null
+        }
+      },
+      "output_dir": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_072756_1_298456b1d3a8/opencode",
+      "dataset_sufficiency": {
+        "policy": "dataset-sufficiency-v1",
+        "status": "provisional",
+        "coverage_summary": "Dataset size: provisional \u2014 3 cases (policy needs 10), 1 negative case (needs 1); pass-rate interval unavailable (policy dataset-sufficiency-v1)",
+        "checks": [
+          {
+            "name": "coverage",
+            "met": false,
+            "observed": {
+              "distinct_cases": 3,
+              "negative_cases": 1
+            },
+            "required": {
+              "distinct_cases": 10,
+              "negative_cases": 1
+            },
+            "reason": "3 distinct cases and 1 negative cases; requires 10 and 1"
+          },
+          {
+            "name": "pass_rate_reliability",
+            "met": null,
+            "observed": {
+              "interval_half_width": null
+            },
+            "required": {
+              "interval_half_width": 0.2
+            },
+            "reason": "95% Wilson interval is unavailable"
+          },
+          {
+            "name": "lift_comparison",
+            "met": null,
+            "observed": {
+              "paired_cases": null
+            },
+            "required": {
+              "paired_cases": 10
+            },
+            "reason": "Paired-case count is unavailable"
+          }
+        ],
+        "reason": "provisional: 3 distinct cases and 1 negative cases; requires 10 and 1; 95% Wilson interval is unavailable; Paired-case count is unavailable"
+      }
+    }
+  },
+  "metric_set": "skill-evaluator-default-v2",
+  "metrics": [
+    "security",
+    "skill_execution",
+    "skill_efficiency",
+    "accuracy",
+    "goal_accuracy",
+    "behavior_check"
+  ],
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "attempt_policy": {
+    "max_attempts": 1,
+    "pass_threshold": 0.5,
+    "stop_on_pass": false,
+    "score_definition": "overall = mean(Security, Correctness, Discoverability, Effectiveness, Efficiency) [skill-evaluator-dimension-mean-v1], excluding metrics that are not applicable to a case",
+    "score_policy": "skill-evaluator-dimension-mean-v1"
+  },
+  "execution_status": "failed",
+  "execution_errors": [
+    "Harbor job did not complete successfully: 2 errored",
+    "Unscoreable reward in req-002__zC2gPWj: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u6839\u636e\u4ee5\u4e0b\u4fe1\u606f\uff0c\u76f4\u63a5\u8f93\u51fa\u4e00\u4efd\u89c4\u8303\u3001\u5b8c\u6574\u7684\u9700\u6c42\u6587\u6863\uff08Markdown \u683c\u5f0f\uff09\u3002  \u3010\u6539\u9020\u5bf9\u8c61\u3011\u516c\u53f8\u5df2\u6709\u7684\u300c\u62a5\u9500\u7533\u8bf7\u300d\u529f\u80fd\u3002 \u3010\u73b0\u72b6\u95ee\u9898\u3011\u4e00\u5f20\u62a5\u9500\u5355\u53ea\u80fd\u586b\u4e00\u79cd\u8d39\u7528\u7c7b\u578b\uff1b\u9886\u5bfc\u5ba1\u6279\u65f6\u770b\u4e0d\u5230\u53d1\u7968\u7167\u7247\u3002 \u3010\u6539\u9020\u76ee\u6807\u3011(1) \u4e00\u5f20\u5355\u53ef\u586b\u591a\u79cd\u8d39\u7528\uff08\u5982\u6253\u8f66\u8d39\u3001\u9910\u8d39\u3001\u4f4f\u5bbf\u8d39\u5206\u5217\uff09\uff1b(2) \u5ba1\u6279\u65f6\u80fd\u770b\u5230\u53d1\u7968\u7167\u7247\uff1b(3) \u8d22\u52a1\u652f\u6301\u5bfc\u51fa\u3002 \u3010\u5386\u53f2\u6570\u636e\u3011\u5df2\u6709\u5386\u53f2\u62a5\u9500\u5355\u9700\u80fd\u7ee7\u7eed\u67e5\u770b\uff0c\u4e0d\u5f71\u54cd\u672c\u6b21\u6539\u9020\u3002 \u3010\u4f7f\u7528\u89d2\u8272\u3011\u5458\u5de5\uff08\u63d0\u4ea4\uff09\u3001\u90e8\u95e8\u4e3b\u7ba1\uff08\u5ba1\u6279\uff09\u3001\u8d22\u52a1\uff08\u5bfc\u51fa\uff09\u3002  \u8bf7\u76f4\u63a5\u8f93\u51fa\u5b8c\u6574\u7684\u6539\u9020\u9700\u6c42\u6587\u6863\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 4",
+    "Unscoreable reward in req-003__Yd3VXLy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987200868,\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"part\":{\"id\":\"prt_1ed93115f001Ldukz4SrZxtmCO\",\"messageID\":\"msg_1ed930d82001RzaZpLTEQ2mfy6\",\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"snapshot\":\"f19897a5e3 ... [18695 chars truncated] ... t",
+    "Unscoreable reward in req-001__n8WgXpy: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run",
+    "Missing scored attempts for cases: req-001, req-002, req-003",
+    "Scored attempt coverage is 0/3",
+    "Harbor job did not complete successfully: 1 errored",
+    "Unscoreable reward in req-003__NwLbWXn: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987133842,\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"part\":{\"id\":\"prt_1ed920b8a001nbhnVWQ0YUVtnu\",\"messageID\":\"msg_1ed9203aa001p3QYtRvl5WeKqj\",\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"snapshot\":\"4b825dc642 ... [10385 chars truncated] ... I",
+    "Missing scored attempts for cases: req-003",
+    "Scored attempt coverage is 2/3",
+    "opencode without-skill Harbor run failed: Harbor job did not complete successfully: 1 errored",
+    "opencode with-skill Harbor run failed: Harbor job did not complete successfully: 2 errored"
+  ],
+  "execution_error_details_total": 12,
+  "execution_error_details_shown": 12,
+  "execution_error_details_truncated": false,
+  "expected_attempts": 6,
+  "scored_attempts": 2,
+  "error": [
+    "Harbor job did not complete successfully: 2 errored"
+  ],
+  "baseline": {
+    "mode": "fresh"
+  },
+  "comparison_identity": {
+    "config": {
+      "harbor": {
+        "environment": {
+          "value": "docker",
+          "source": "CLI"
+        },
+        "environment_kwargs": {
+          "keys": [],
+          "sources": {},
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "n_attempts": 1,
+        "stop_on_pass": false,
+        "timeout_multiplier": 3.0,
+        "base_image_mode": "reuse",
+        "resources": {
+          "cpus": null,
+          "memory_mb": null,
+          "storage_mb": null
+        },
+        "agent_workdir": null,
+        "custom_dockerfile_mode": "rebase",
+        "runtime_env": {
+          "keys": [],
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        }
+      },
+      "provider": {
+        "name": "openai-compatible",
+        "model": "qwen3.8-flash"
+      },
+      "judge": {
+        "enabled": true,
+        "provider": "openai-compatible",
+        "model": "qwen3.8-flash",
+        "source": "SKILL_EVAL_LLM_MODEL",
+        "override_applied": false,
+        "reasoning_effort": null,
+        "catalog_verification": "degraded"
+      },
+      "task_source": "evals_json",
+      "grading": {
+        "mode": "default"
+      },
+      "skill_workspace": {
+        "mode": "isolated"
+      },
+      "copy_repo": false,
+      "repo_context_exclude_paths": [],
+      "agents": {
+        "opencode": {
+          "agent": "opencode",
+          "model": "openai/qwen3.8-flash",
+          "source": "CLI"
+        }
+      },
+      "baseline_task_tree_digest": "sha256:c9201600fafb20d5a1bc7e7af5c244798e6dcd1891702c1027e419607023c68c"
+    },
+    "dataset_digest": "sha256:b492bf981478a8c08e3729fcd841e0a748f1364dbd4195b6869080430d35d339",
+    "identity_dataset_digest": "sha256:59d5d44519e47032cecedc992f9bb97affcade4f1c7c6deeb66ca550b674ab66",
+    "baseline_task_tree_digest": "sha256:c9201600fafb20d5a1bc7e7af5c244798e6dcd1891702c1027e419607023c68c",
+    "expected_case_ids": [
+      "req-001",
+      "req-002",
+      "req-003"
+    ],
+    "attempt_policy": {
+      "max_attempts": 1,
+      "pass_threshold": 0.5,
+      "stop_on_pass": false
+    },
+    "score_policy": "skill-evaluator-dimension-mean-v1",
+    "evaluator_version": "0.9.0",
+    "skill": {
+      "evaluated_source": null,
+      "publication_target": {
+        "skill_name": "requirements-analyst",
+        "skill_digest": "sha256:9d7d0f3eece97b510e4fea48f364fb2dc6951b3aa8b538275f16cbaf64924597",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      }
+    }
+  },
+  "expected_case_ids": [
+    "req-001",
+    "req-002",
+    "req-003"
+  ],
+  "skill_name": "requirements-analyst",
+  "run_id": "20261118_072756_1_298456b1d3a8",
+  "publication_target": {
+    "skill_name": "requirements-analyst",
+    "skill_digest": "sha256:9d7d0f3eece97b510e4fea48f364fb2dc6951b3aa8b538275f16cbaf64924597",
+    "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+  },
+  "run_dir": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_072756_1_298456b1d3a8",
+  "result_path": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_072756_1_298456b1d3a8/result.json",
+  "harbor_jobs_dir": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_072756_1_298456b1d3a8/_harbor-jobs",
+  "harbor_jobs_retained": false,
+  "evaluated_at": "2026-11-18T07:35:51.217985+00:00",
+  "evaluator_version": "0.9.0",
+  "dataset_snapshot": {
+    "schema_version": "1.1",
+    "evaluator_version": "0.9.0",
+    "dataset_summary": {
+      "total_tasks": 3,
+      "positive_tasks": 2,
+      "negative_tasks": 1,
+      "unclassified_tasks": 0,
+      "source": "dataset"
+    },
+    "dataset_digest": "sha256:b492bf981478a8c08e3729fcd841e0a748f1364dbd4195b6869080430d35d339",
+    "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1"
+  },
+  "dataset_snapshot_path": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_072756_1_298456b1d3a8/dataset_snapshot.json",
+  "dataset_summary": {
+    "total_tasks": 3,
+    "positive_tasks": 2,
+    "negative_tasks": 1,
+    "unclassified_tasks": 0,
+    "source": "dataset"
+  },
+  "dataset_digest": "sha256:b492bf981478a8c08e3729fcd841e0a748f1364dbd4195b6869080430d35d339",
+  "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1",
+  "identity_dataset_digest": "sha256:59d5d44519e47032cecedc992f9bb97affcade4f1c7c6deeb66ca550b674ab66",
+  "baseline_task_tree_digest": "sha256:c9201600fafb20d5a1bc7e7af5c244798e6dcd1891702c1027e419607023c68c",
+  "budget": {
+    "limits": {
+      "max_agent_tokens": null,
+      "max_judge_calls": null,
+      "max_attempts_total": null,
+      "max_cost_usd": null
+    },
+    "planned_attempts": 6,
+    "started_attempts": 0,
+    "finished_attempts": 0,
+    "unmeasured_attempts": {
+      "agent_tokens": 0,
+      "judge_calls": 0,
+      "cost_usd": 0
+    },
+    "used": {
+      "agent_tokens": "not measured",
+      "judge_calls": "not measured",
+      "cost_usd": "not measured"
+    },
+    "status": "ok",
+    "partial": false,
+    "exhausted_limit": null,
+    "exhausted_basis": null,
+    "attempts_not_run": 0,
+    "not_run": [],
+    "charge_coverage": {
+      "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+      "attempts_by_derivation": {
+        "price_file": 0,
+        "provider_reported": 0,
+        "unmeasured": 0
+      },
+      "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+      "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+      "environment_setup": "not included",
+      "container": "not included",
+      "backend": "not included",
+      "infrastructure": "not included"
+    },
+    "reservation": {
+      "policy": "largest_measured_attempt",
+      "estimate_per_attempt": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "in_flight_attempts": 0,
+      "waits": 0,
+      "unestimated_admissions": 0,
+      "calibration_waits": 0,
+      "estimate_denials": 0,
+      "denied_unit_size": 0
+    },
+    "observed_overruns": {}
+  },
+  "dataset_provenance": null,
+  "run_config": {
+    "config_file": "evals/config.yml",
+    "harbor": {
+      "environment": {
+        "value": "docker",
+        "source": "CLI"
+      },
+      "environment_kwargs": {
+        "keys": [],
+        "sources": {},
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "n_attempts": 1,
+      "stop_on_pass": false,
+      "n_concurrent": 4,
+      "timeout_multiplier": 3.0,
+      "base_image_mode": "reuse",
+      "resources": {
+        "cpus": null,
+        "memory_mb": null,
+        "storage_mb": null
+      },
+      "agent_workdir": null,
+      "custom_dockerfile_mode": "rebase",
+      "runtime_env": {
+        "keys": [],
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "jobs_retained": false
+    },
+    "provider": {
+      "name": "openai-compatible",
+      "model": "qwen3.8-flash"
+    },
+    "judge": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "qwen3.8-flash",
+      "source": "SKILL_EVAL_LLM_MODEL",
+      "override_applied": false,
+      "reasoning_effort": null,
+      "catalog_verification": "degraded"
+    },
+    "credential_validation": {
+      "status": "degraded",
+      "targets": [
+        {
+          "labels": [
+            "opencode",
+            "standard grader"
+          ],
+          "provider": "openai-compatible",
+          "model": "qwen3.8-flash",
+          "status": "degraded",
+          "detail": "model catalog access does not verify runtime credentials for this endpoint"
+        }
+      ]
+    },
+    "task_source": "evals_json",
+    "grading": {
+      "mode": "default"
+    },
+    "skill_workspace": {
+      "mode": "isolated"
+    },
+    "copy_repo": false,
+    "repo_context_exclude_paths": [],
+    "agents": {
+      "opencode": {
+        "agent": "opencode",
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      }
+    },
+    "evaluated_source": null,
+    "baseline_task_tree_digest": "sha256:c9201600fafb20d5a1bc7e7af5c244798e6dcd1891702c1027e419607023c68c",
+    "baseline": {
+      "mode": "fresh"
+    },
+    "budget": {
+      "limits": {
+        "max_agent_tokens": null,
+        "max_judge_calls": null,
+        "max_attempts_total": null,
+        "max_cost_usd": null
+      },
+      "planned_attempts": 6,
+      "started_attempts": 0,
+      "finished_attempts": 0,
+      "unmeasured_attempts": {
+        "agent_tokens": 0,
+        "judge_calls": 0,
+        "cost_usd": 0
+      },
+      "used": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "status": "ok",
+      "partial": false,
+      "exhausted_limit": null,
+      "exhausted_basis": null,
+      "attempts_not_run": 0,
+      "not_run": [],
+      "charge_coverage": {
+        "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+        "attempts_by_derivation": {
+          "price_file": 0,
+          "provider_reported": 0,
+          "unmeasured": 0
+        },
+        "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+        "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+        "environment_setup": "not included",
+        "container": "not included",
+        "backend": "not included",
+        "infrastructure": "not included"
+      },
+      "reservation": {
+        "policy": "largest_measured_attempt",
+        "estimate_per_attempt": {
+          "agent_tokens": "not measured",
+          "judge_calls": "not measured",
+          "cost_usd": "not measured"
+        },
+        "in_flight_attempts": 0,
+        "waits": 0,
+        "unestimated_admissions": 0,
+        "calibration_waits": 0,
+        "estimate_denials": 0,
+        "denied_unit_size": 0
+      },
+      "observed_overruns": {}
+    }
+  },
+  "partial": false,
+  "dataset_sufficiency": {
+    "policy": "dataset-sufficiency-v1",
+    "status": "provisional",
+    "coverage_summary": "Dataset size: provisional \u2014 3 cases (policy needs 10), 1 negative case (needs 1); pass-rate interval unavailable (policy dataset-sufficiency-v1)",
+    "checks": [
+      {
+        "name": "coverage",
+        "met": false,
+        "observed": {
+          "distinct_cases": 3,
+          "negative_cases": 1
+        },
+        "required": {
+          "distinct_cases": 10,
+          "negative_cases": 1
+        },
+        "reason": "3 distinct cases and 1 negative cases; requires 10 and 1"
+      },
+      {
+        "name": "pass_rate_reliability",
+        "met": null,
+        "observed": {
+          "interval_half_width": null
+        },
+        "required": {
+          "interval_half_width": 0.2
+        },
+        "reason": "95% Wilson interval is unavailable"
+      },
+      {
+        "name": "lift_comparison",
+        "met": null,
+        "observed": {
+          "paired_cases": null
+        },
+        "required": {
+          "paired_cases": 10
+        },
+        "reason": "Paired-case count is unavailable"
+      }
+    ],
+    "reason": "provisional: 3 distinct cases and 1 negative cases; requires 10 and 1; 95% Wilson interval is unavailable; Paired-case count is unavailable"
+  },
+  "harbor_jobs_retention_reason": "not_retained",
+  "tier3_feedback": {
+    "schema_version": "1.0",
+    "conclusions": [
+      {
+        "severity": "warn",
+        "title": "Skill effect",
+        "message": "per-case result: inconclusive (opencode: condition execution is incomplete).",
+        "source": "deterministic"
+      },
+      {
+        "severity": "fail",
+        "title": "Evaluation incomplete",
+        "message": "Harbor job did not complete successfully: 2 errored; Unscoreable reward in req-002__zC2gPWj: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u6839\u636e\u4ee5\u4e0b\u4fe1\u606f\uff0c\u76f4\u63a5\u8f93\u51fa\u4e00\u4efd\u89c4\u8303\u3001\u5b8c\u6574\u7684\u9700\u6c42\u6587\u6863\uff08Markdown \u683c\u5f0f\uff09\u3002  \u3010\u6539\u9020\u5bf9\u8c61\u3011\u516c\u53f8\u5df2\u6709\u7684\u300c\u62a5\u9500\u7533\u8bf7\u300d\u529f\u80fd\u3002 \u3010\u73b0\u72b6\u95ee\u9898\u3011\u4e00\u5f20\u62a5\u9500\u5355\u53ea\u80fd\u586b\u4e00\u79cd\u8d39\u7528\u7c7b\u578b\uff1b\u9886\u5bfc\u5ba1\u6279\u65f6\u770b\u4e0d\u5230\u53d1\u7968\u7167\u7247\u3002 \u3010\u6539\u9020\u76ee\u6807\u3011(1) \u4e00\u5f20\u5355\u53ef\u586b\u591a\u79cd\u8d39\u7528\uff08\u5982\u6253\u8f66\u8d39\u3001\u9910\u8d39\u3001\u4f4f\u5bbf\u8d39\u5206\u5217\uff09\uff1b(2) \u5ba1\u6279\u65f6\u80fd\u770b\u5230\u53d1\u7968\u7167\u7247\uff1b(3) \u8d22\u52a1\u652f\u6301\u5bfc\u51fa\u3002 \u3010\u5386\u53f2\u6570\u636e\u3011\u5df2\u6709\u5386\u53f2\u62a5\u9500\u5355\u9700\u80fd\u7ee7\u7eed\u67e5\u770b\uff0c\u4e0d\u5f71\u54cd\u672c\u6b21\u6539\u9020\u3002 \u3010\u4f7f\u7528\u89d2\u8272\u3011\u5458\u5de5\uff08\u63d0\u4ea4\uff09\u3001\u90e8\u95e8\u4e3b\u7ba1\uff08\u5ba1\u6279\uff09\u3001\u8d22\u52a1\uff08\u5bfc\u51fa\uff09\u3002  \u8bf7\u76f4\u63a5\u8f93\u51fa\u5b8c\u6574\u7684\u6539\u9020\u9700\u6c42\u6587\u6863\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 4; Unscoreable reward in req-003__Yd3VXLy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987200868,\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"part\":{\"id\":\"prt_1ed93115f001Ldukz4SrZxtmCO\",\"messageID\":\"msg_1ed930d82001RzaZpLTEQ2mfy6\",\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"snapshot\":\"f19897a5e3 ... [18695 chars truncated] ... t; Unscoreable reward in req-001__n8WgXpy: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run; Missing scored attempts for cases: req-001, req-002, req-003; Scored attempt coverage is 0/3; With skill aggregate job: Harbor job did not complete successfully: 2 errored; With skill trial req-002__zC2gPWj: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u6839\u636e\u4ee5\u4e0b\u4fe1\u606f\uff0c\u76f4\u63a5\u8f93\u51fa\u4e00\u4efd\u89c4\u8303\u3001\u5b8c\u6574\u7684\u9700\u6c42\u6587\u6863\uff08Markdown \u683c\u5f0f\uff09\u3002  \u3010\u6539\u9020\u5bf9\u8c61\u3011\u516c\u53f8\u5df2\u6709\u7684\u300c\u62a5\u9500\u7533\u8bf7\u300d\u529f\u80fd\u3002 \u3010\u73b0\u72b6\u95ee\u9898\u3011\u4e00\u5f20\u62a5\u9500\u5355\u53ea\u80fd\u586b\u4e00\u79cd\u8d39\u7528\u7c7b\u578b\uff1b\u9886\u5bfc\u5ba1\u6279\u65f6\u770b\u4e0d\u5230\u53d1\u7968\u7167\u7247\u3002 \u3010\u6539\u9020\u76ee\u6807\u3011(1) \u4e00\u5f20\u5355\u53ef\u586b\u591a\u79cd\u8d39\u7528\uff08\u5982\u6253\u8f66\u8d39\u3001\u9910\u8d39\u3001\u4f4f\u5bbf\u8d39\u5206\u5217\uff09\uff1b(2) \u5ba1\u6279\u65f6\u80fd\u770b\u5230\u53d1\u7968\u7167\u7247\uff1b(3) \u8d22\u52a1\u652f\u6301\u5bfc\u51fa\u3002 \u3010\u5386\u53f2\u6570\u636e\u3011\u5df2\u6709\u5386\u53f2\u62a5\u9500\u5355\u9700\u80fd\u7ee7\u7eed\u67e5\u770b\uff0c\u4e0d\u5f71\u54cd\u672c\u6b21\u6539\u9020\u3002 \u3010\u4f7f\u7528\u89d2\u8272\u3011\u5458\u5de5\uff08\u63d0\u4ea4\uff09\u3001\u90e8\u95e8\u4e3b\u7ba1\uff08\u5ba1\u6279\uff09\u3001\u8d22\u52a1\uff08\u5bfc\u51fa\uff09\u3002  \u8bf7\u76f4\u63a5\u8f93\u51fa\u5b8c\u6574\u7684\u6539\u9020\u9700\u6c42\u6587\u6863\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 4; With skill trial req-003__Yd3VXLy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987200868,\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"part\":{\"id\":\"prt_1ed93115f001Ldukz4SrZxtmCO\",\"messageID\":\"msg_1ed930d82001RzaZpLTEQ2mfy6\",\"sessionID\":\"ses_e126cf4adffeloGGxZV5zkybL5\",\"snapshot\":\"f19897a5e3 ... [18695 chars truncated] ... t; With skill trial req-001__n8WgXpy: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run; Harbor job did not complete successfully: 1 errored; Unscoreable reward in req-003__NwLbWXn: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987133842,\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"part\":{\"id\":\"prt_1ed920b8a001nbhnVWQ0YUVtnu\",\"messageID\":\"msg_1ed9203aa001p3QYtRvl5WeKqj\",\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"snapshot\":\"4b825dc642 ... [10385 chars truncated] ... I; Missing scored attempts for cases: req-003; Scored attempt coverage is 2/3; Without skill aggregate job: Harbor job did not complete successfully: 1 errored; Without skill trial req-003__NwLbWXn: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: {\"type\":\"step_start\",\"timestamp\":1794987133842,\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"part\":{\"id\":\"prt_1ed920b8a001nbhnVWQ0YUVtnu\",\"messageID\":\"msg_1ed9203aa001p3QYtRvl5WeKqj\",\"sessionID\":\"ses_e126dfe47ffeaHI4yFsNh3lzob\",\"snapshot\":\"4b825dc642 ... [10385 chars truncated] ... I"
+      }
+    ],
+    "recommendations": [
+      {
+        "title": "req-002, req-003 \u00b7 opencode",
+        "category": "run error",
+        "message": "2 attempt(s) never produced a score: NonZeroAgentExitCodeError: EPIPE: broken pipe, write. Fix: Not a skill problem: re-run this case; if it repeats, check the agent/gateway logs. Evidence: opencode/with-skill/trials/req-002__zC2gPWj/exception.txt",
+        "severity": "warn",
+        "source": "deterministic"
+      },
+      {
+        "title": "req-001 \u00b7 opencode",
+        "category": "run error",
+        "message": "1 attempt(s) never produced a score: required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUD\u2026. Fix: Not a skill problem: check the judge model configuration, credentials and provider availability, then re-run this case. Evidence: opencode/with-skill/trials/req-001__n8WgXpy/reward.json",
+        "severity": "warn",
+        "source": "deterministic"
+      }
+    ],
+    "suggestions": [
+      "Not a skill problem: re-run this case; if it repeats, check the agent/gateway logs.",
+      "Not a skill problem: check the judge model configuration, credentials and provider availability, then re-run this case."
+    ],
+    "suggestions_v2": []
+  },
+  "token_usage": {
+    "schema_version": "1",
+    "scored": false,
+    "accounting": {
+      "prompt_includes_cached": true,
+      "total_tokens": "prompt_tokens + completion_tokens",
+      "uncached_prompt_tokens": "prompt_tokens - cached_tokens",
+      "change": "with_skill - baseline total_tokens; percent of the baseline total"
+    },
+    "case_id_validation": {
+      "status": "validated",
+      "dataset_case_ids": 3,
+      "unmatched_case_ids": []
+    },
+    "agents": {
+      "opencode": {
+        "with_skill": {
+          "totals": {
+            "prompt_tokens": 190917,
+            "cached_tokens": 161280,
+            "uncached_prompt_tokens": 29637,
+            "completion_tokens": 18197,
+            "total_tokens": 209114
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 3,
+            "observed_attempts": 3,
+            "measured_attempts": 3,
+            "unscored_attempts": 2,
+            "reason_codes": []
+          }
+        },
+        "baseline": {
+          "totals": {
+            "prompt_tokens": 54603,
+            "cached_tokens": 51200,
+            "uncached_prompt_tokens": 3403,
+            "completion_tokens": 4044,
+            "total_tokens": 58647
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 3,
+            "observed_attempts": 3,
+            "measured_attempts": 3,
+            "unscored_attempts": 1,
+            "reason_codes": []
+          }
+        },
+        "delta": {
+          "status": "unavailable",
+          "total_tokens": null,
+          "total_tokens_change_percent": null,
+          "reason_codes": [
+            "with_skill_failed",
+            "baseline_failed"
+          ],
+          "reason": "No change: with-skill run unavailable (0 of 3 attempts scored). No change: baseline incomplete (2 of 3 attempts scored)."
+        }
+      }
+    },
+    "dataset": {
+      "with_skill": {
+        "totals": {
+          "prompt_tokens": 190917,
+          "cached_tokens": 161280,
+          "uncached_prompt_tokens": 29637,
+          "completion_tokens": 18197,
+          "total_tokens": 209114
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 3,
+          "observed_attempts": 3,
+          "measured_attempts": 3,
+          "unscored_attempts": 2,
+          "reason_codes": []
+        }
+      },
+      "baseline": {
+        "totals": {
+          "prompt_tokens": 54603,
+          "cached_tokens": 51200,
+          "uncached_prompt_tokens": 3403,
+          "completion_tokens": 4044,
+          "total_tokens": 58647
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 3,
+          "observed_attempts": 3,
+          "measured_attempts": 3,
+          "unscored_attempts": 1,
+          "reason_codes": []
+        }
+      },
+      "delta": {
+        "status": "unavailable",
+        "total_tokens": null,
+        "total_tokens_change_percent": null,
+        "reason_codes": [
+          "agent_scope_mismatch"
+        ],
+        "reason": "Not every agent has a token change, so there is no change over all agents."
+      }
+    }
+  },
+  "report_path": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_072756_1_298456b1d3a8/report.html",
+  "benchmark_path": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_072756_1_298456b1d3a8/tier3-benchmark.md",
+  "report_status": "complete",
+  "duration_seconds": 476.183,
+  "result_projection": {
+    "schema_version": "1.0",
+    "mode": "inline",
+    "returned_result": "full",
+    "persisted_result": "inline",
+    "agents": {},
+    "omitted_detail_fields": {},
+    "omitted_root_detail_fields": []
+  }
+}

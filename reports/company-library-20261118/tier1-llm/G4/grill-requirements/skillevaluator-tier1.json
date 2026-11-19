@@ -1,0 +1,3971 @@
+{
+  "version": "0.9.0",
+  "target_path": "/skills/library-20261118/G4/grill-requirements",
+  "overall_passed": false,
+  "overall_status": "failed",
+  "incomplete_scans": [],
+  "total_validators": 14,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 1,
+  "total_warnings": 35,
+  "severity_counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 8,
+    "low": 19
+  },
+  "finding_counts": {
+    "raw_occurrences": 34,
+    "distinct_occurrences": 34,
+    "unique_findings": 32,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 2,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 8,
+      "low": 19,
+      "info": 6
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 8,
+      "low": 17,
+      "info": 6
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-030ee1126ed88f6719d1",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_instruction_clarity",
+      "message": "[9/10] Instructions are easy to follow with clear action steps",
+      "suggestion": "The phased workflow, questioning rules, formulas, and document template are highly actionable and easy to follow.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "instruction_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a1be54b4e96b7bfbd843",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-03e029934351881ba688",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-RELOAD",
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-76d765f50005a3efa06f",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0742370606b64bb7113d",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Unknown (SQP-1)",
+      "message": "The trigger surface is overly broad. The skill activates on generic phrases such as \u201c\u6211\u60f3\u8981\u505a\u4e2a X\u201d, \u201c\u9700\u6c42\u3001\u60f3\u6cd5\u6216\u529f\u80fd\u201d, and similar c",
+      "suggestion": "The trigger surface is overly broad. The skill activates on generic phrases such as \u201c\u6211\u60f3\u8981\u505a\u4e2a X\u201d, \u201c\u9700\u6c42\u3001\u60f3\u6cd5\u6216\u529f\u80fd\u201d, and similar casual expressions. These phrases can easily appear in non-requirement contexts, such as personal tasks, ordinary conversation, marketing copy, or ambiguous requests. Once triggered, the skill begins a structured interrogation that can collect sensitive organizational information, including roles, headcount, salary information, process times, and business assumptions. It also instructs the agent to generate a `.md` file in the current working directory using the Write tool. If an agent framework automatically selects this skill based on the broad trigger, an unintended or adversarial utterance could cause unwanted data collection, unwanted file creation, workspace pollution, accidental commit of sensitive business information, or user confusion. Reduce the trigger scope and add explicit opt-in before data collection or file writing. Restrict activation to explicit invocations such as `/grill-requirements`, \u201c\u9700\u6c42\u63d0\u62a5\u201d, or unambiguous phrases that clearly refer to internal product/business requirement submission. Add negative examples such as \u201c\u6211\u60f3\u505a\u4e2a\u996d\u201d, \u201c\u6211\u60f3\u8981\u505a\u4e2a\u68a6\u201d, \u201c\u5e2e\u6211\u505a\u4e2a\u8868\u683c\u201d, \u201c\u6211\u60f3\u8981\u4e70\u70b9\u4e1c\u897f\u201d, or \u201c\u5e2e\u6211\u7406\u4e00\u4e0b\u4eba\u751f\u201d, which should not activate the skill. Before asking for sensitive fields such as salary, job title, team names, or business process data, state the purpose, ask for confirmation, and allow the user to skip. Before writing the final `.md`, require explicit confirmation and prefer writing to a temporary or user-selected safe output directory. Add a guard that rejects ambiguous personal/casual requests. Also add tests proving that common non-requirement utterances do not trigger the skill.",
+      "metadata": {
+        "skillspector_confidence": 0.85,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path",
+        "llm_verdict": "true_positive",
+        "llm_confidence": "medium",
+        "llm_reasoning": "The skill can activate on broad phrases like \u201c\u6211\u60f3\u8981\u505a\u4e2a X\u201d and then ask for sensitive business/PII fields such as salary and headcount; while file writing requires confirmation, unintended activation can still lead to unwanted sensitive data collection.",
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-203719268efa6a14c818",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 5
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0f3cde56a46498377f1a",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description doesn't mention WHEN to use this skill",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-92cd08a502531acd4c74",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-1730b4619ac61f3e0e4b",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_documentation_completeness",
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "suggestion": "Purpose, parameters, formulas, and output format are complete; scripts are not needed for this prompt-based skill.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "documentation_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a4b7596938dbf942c3ad",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-18a7f8cc53f607ef9645",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "folder_hierarchy",
+      "message": "Unexpected nesting depth for general skill",
+      "suggestion": "General skills should be at: skills/<skill-name>/",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-50652c4a7f254ce3f0bc",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/grill-requirements",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-23aeeebfd65bb115d5e1",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_scope_definition",
+      "message": "[9/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "suggestion": "Scope is clearly bounded to requirement clarification and reviewable demand submission, with explicit separation from developer-facing technical work.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "scope_definition"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-12c2ce32d82d02082715",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-29923f4d680e578e37e3",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "description_trigger",
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "suggestion": "State when to use the skill within the first 60 characters",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5e661e757efa2eed2acf",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2ab016a817c566724ba9",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Instructions'",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+      "metadata": {
+        "missing_section": "## Instructions"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-bec65eeff4ee6a90855f",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3661379ea9e5c1072875",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-RELOAD",
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a73c818edd210092565b",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-378f24adfec67572e606",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No troubleshooting section documented",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-f1c72667f26a0f516681",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-418fdc54080e003ab71d",
+      "category": "SECURITY",
+      "severity": "info",
+      "check_name": "Unknown (AE4)",
+      "message": "analysis-evasion: Suspicious Unicode normalization or mixed-script content",
+      "suggestion": "Suspicious Unicode normalization or mixed-script content Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "metadata": {
+        "skillspector_confidence": 0.8,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path",
+        "llm_verdict": "false_positive",
+        "llm_confidence": "high",
+        "llm_reasoning": "Mixed Chinese/English content is expected in a Chinese-language skill definition; there is no evidence of Unicode normalization evasion or hidden malicious characters in the provided context.",
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash",
+        "downgraded": true,
+        "confidence": "low"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e45a6d8900da06cdbcd4",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 1
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4a6560f4aec006f302f9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No prerequisites/requirements documented",
+      "suggestion": "Document dependencies, API keys, or setup needed",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4d5ffd929969709157c9",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-557a6412a2e8ef047c61",
+      "category": "RUBRIC_EVAL",
+      "severity": "medium",
+      "check_name": "rubric_example_quality",
+      "message": "[5/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "suggestion": "Trigger phrases are provided, but there are no full usage examples, sample questions, or varied user scenarios to demonstrate proper execution.",
+      "metadata": {
+        "score": 5,
+        "pass": false,
+        "judge_pass": false,
+        "id": "example_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4184f202db4c9eee2bc7",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-5cf1d958d3582b4dd475",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-DESC-ESCAPED",
+      "message": "copilot-cli: Double quotes in the description are shown to the model as &quot; in the skill list.",
+      "suggestion": "Use single quotes in the description if the exact text matters.",
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-6ec888fd7d121373bb5f",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6b66555d1029e567b59c",
+      "category": "UNICODE",
+      "severity": "low",
+      "check_name": "isolated_invisible_char",
+      "message": "Isolated invisible character(s) (1): VARIATION SELECTOR-16",
+      "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+      "metadata": {
+        "char_count": 1,
+        "unicode_category": "variation_selectors"
+      },
+      "validators": [
+        "Unicode Smuggling Detection"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-1f0dc7fe6a98065047d7",
+          "validator": "Unicode Smuggling Detection",
+          "file_path": "SKILL.md",
+          "line_number": 88
+        },
+        {
+          "occurrence_id": "SEO-129992ec30e5cc4fae40",
+          "validator": "Unicode Smuggling Detection",
+          "file_path": "SKILL.md",
+          "line_number": 153
+        },
+        {
+          "occurrence_id": "SEO-c501f2ced7543806423a",
+          "validator": "Unicode Smuggling Detection",
+          "file_path": "SKILL.md",
+          "line_number": 154
+        }
+      ],
+      "occurrence_count": 3
+    },
+    {
+      "finding_id": "SEF-7d672f0f2be52d2a830b",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_professional_tone",
+      "message": "[8/10] Documentation uses professional, consistent tone and formatting",
+      "suggestion": "The tone is direct and professional, with consistent headings and structured formatting, though it is primarily in Chinese.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "professional_tone"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-1d0b6f66ec8eefec3892",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "author_missing",
+      "message": "Author not specified in metadata",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+      "metadata": {
+        "profile": "default"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a7c548ea692577c084dd",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-9039ab8ca79a814d8bcb",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_trigger_simulation",
+      "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "suggestion": "Likely requirement-submission queries should trigger it, while coding/debugging queries should not; however, generic phrases like 'I want to make X' may overlap with implementation skills.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "trigger_simulation"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-6069239d96a28814efe2",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-9612bbfb3f32d491ac5d",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No mention of error handling or validation",
+      "suggestion": "Document expected errors and how to handle them",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-31b9101a7024e06f061d",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-975cec5e5aad0b33739c",
+      "category": "RUBRIC_EVAL",
+      "severity": "medium",
+      "check_name": "rubric_error_handling_quality",
+      "message": "[5/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "suggestion": "It defines stopping and confirmation rules but lacks guidance for missing salary data, invalid inputs, user refusal, calculation conflicts, or write failures.",
+      "metadata": {
+        "score": 5,
+        "pass": false,
+        "judge_pass": false,
+        "id": "error_handling_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2035bdd7cd6e7fbd3cb4",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-9afa5f4fc6f0ffc839a2",
+      "category": "RUBRIC_EVAL",
+      "severity": "high",
+      "check_name": "rubric_overall",
+      "message": "Rubric evaluation failed: criteria below 7/10: example_quality, error_handling_quality",
+      "suggestion": "Address the failed rubric criteria and rerun the evaluation",
+      "metadata": {
+        "overall_score": 78.2,
+        "min_score": 70,
+        "failed_criteria": [
+          "example_quality",
+          "error_handling_quality"
+        ]
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-df9ecd3d928d1bcb0bd3",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-a708cf185063f38c3c5f",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_workflow_completeness",
+      "message": "[9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "suggestion": "The workflow covers questioning, complexity estimation, ROI calculation, confirmation, and document generation end-to-end with minimal ambiguity.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "workflow_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3a03f29e3fcde320154a",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b28f818a5fc2daa26f71",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "unknown_field",
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+      "suggestion": "Remove them or move them under 'metadata'",
+      "metadata": {
+        "fields": [
+          "author",
+          "version"
+        ]
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-8863309fab6c0f94930f",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "No '## Purpose' section",
+      "suggestion": "Add purpose section to clarify use cases",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a3528d41a9d977e5654e",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-989942efae9a75ea7acf",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-d97cf8343ff688501a4c",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OW-DESC-ESCAPED",
+      "message": "openclaw: Double quotes in the description are shown to the model as &quot; in the skill list.",
+      "suggestion": "Use single quotes in the description if the exact text matters.",
+      "metadata": {
+        "harness": "openclaw",
+        "effect": "advisory",
+        "verified_version": "2026.10.9",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c33bc62c7a53e0195d54",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-db6cfaec190ff334af3b",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_description_clarity",
+      "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+      "suggestion": "The description clearly defines the skill as a requirements-grilling agent and lists concrete trigger phrases and scenarios.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "description_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b9b93903744fc8fd71a6",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-f3fbed697c5c92680628",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e0623bdfb91d6bbb829f",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-DESC-60",
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-86e49e611301a68b261b",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e3f5c930756d6b8f695b",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Examples'",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+      "metadata": {
+        "missing_section": "## Examples"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c7f150e7779559ad6205",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-fc6fe3747c071963a76e",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No limitations documented",
+      "suggestion": "Add '## Limitations' section with known issues/constraints",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-6b2b69bf5a7b2f11bd24",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 2,
+    "independent_errors": 0,
+    "independent_warnings": 2
+  },
+  "skills": [
+    {
+      "name": "grill-requirements",
+      "passed": false,
+      "issue_count": 34
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Unknown",
+      "items": [
+        {
+          "name": "grill-requirements",
+          "passed": false,
+          "issue_count": 34
+        }
+      ],
+      "total_items": 1,
+      "passed_count": 0,
+      "failed_count": 1,
+      "total_issues": 34
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "Rubric evaluation failed: criteria below 7/10: example_quality, error_handling_quality",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Address the failed rubric criteria and rerun the evaluation"
+    },
+    {
+      "message": "Unexpected nesting depth for general skill",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "General skills should be at: skills/<skill-name>/"
+    },
+    {
+      "message": "Missing recommended section: '## Instructions'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics."
+    },
+    {
+      "message": "Missing recommended section: '## Examples'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped."
+    },
+    {
+      "message": "The trigger surface is overly broad. The skill activates on generic phrases such as \u201c\u6211\u60f3\u8981\u505a\u4e2a X\u201d, \u201c\u9700\u6c42\u3001\u60f3\u6cd5\u6216\u529f\u80fd\u201d, and similar c",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "SECURITY",
+      "suggestion": "The trigger surface is overly broad. The skill activates on generic phrases such as \u201c\u6211\u60f3\u8981\u505a\u4e2a X\u201d, \u201c\u9700\u6c42\u3001\u60f3\u6cd5\u6216\u529f\u80fd\u201d, and similar casual expressions. These phrases can easily appear in non-requirement contexts, such as personal tasks, ordinary conversation, marketing copy, or ambiguous requests. Once triggered, the skill begins a structured interrogation that can collect sensitive organizational information, including roles, headcount, salary information, process times, and business assumptions. It also instructs the agent to generate a `.md` file in the current working directory using the Write tool. If an agent framework automatically selects this skill based on the broad trigger, an unintended or adversarial utterance could cause unwanted data collection, unwanted file creation, workspace pollution, accidental commit of sensitive business information, or user confusion. Reduce the trigger scope and add explicit opt-in before data collection or file writing. Restrict activation to explicit invocations such as `/grill-requirements`, \u201c\u9700\u6c42\u63d0\u62a5\u201d, or unambiguous phrases that clearly refer to internal product/business requirement submission. Add negative examples such as \u201c\u6211\u60f3\u505a\u4e2a\u996d\u201d, \u201c\u6211\u60f3\u8981\u505a\u4e2a\u68a6\u201d, \u201c\u5e2e\u6211\u505a\u4e2a\u8868\u683c\u201d, \u201c\u6211\u60f3\u8981\u4e70\u70b9\u4e1c\u897f\u201d, or \u201c\u5e2e\u6211\u7406\u4e00\u4e0b\u4eba\u751f\u201d, which should not activate the skill. Before asking for sensitive fields such as salary, job title, team names, or business process data, state the purpose, ask for confirmation, and allow the user to skip. Before writing the final `.md`, require explicit confirmation and prefer writing to a temporary or user-selected safe output directory. Add a guard that rejects ambiguous personal/casual requests. Also add tests proving that common non-requirement utterances do not trigger the skill."
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+      "message": "[5/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Trigger phrases are provided, but there are no full usage examples, sample questions, or varied user scenarios to demonstrate proper execution."
+    },
+    {
+      "message": "[5/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "It defines stopping and confirmation rules but lacks guidance for missing salary data, invalid inputs, user refusal, calculation conflicts, or write failures."
+    },
+    {
+      "message": "Isolated invisible character(s) (1): VARIATION SELECTOR-16",
+      "severity": "low",
+      "total_count": 3,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "UNICODE",
+      "suggestion": "Likely a copy-paste artifact. Remove if not intentional."
+    },
+    {
+      "message": "Author not specified in metadata",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address"
+    },
+    {
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "State when to use the skill within the first 60 characters"
+    },
+    {
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Remove them or move them under 'metadata'"
+    },
+    {
+      "message": "Description doesn't mention WHEN to use this skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'"
+    },
+    {
+      "message": "No '## Purpose' section",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add purpose section to clarify use cases"
+    },
+    {
+      "message": "No mention of error handling or validation",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document expected errors and how to handle them"
+    },
+    {
+      "message": "No prerequisites/requirements documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document dependencies, API keys, or setup needed"
+    },
+    {
+      "message": "No limitations documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Limitations' section with known issues/constraints"
+    },
+    {
+      "message": "No troubleshooting section documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns"
+    },
+    {
+      "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The description clearly defines the skill as a requirements-grilling agent and lists concrete trigger phrases and scenarios."
+    },
+    {
+      "message": "[9/10] Instructions are easy to follow with clear action steps",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The phased workflow, questioning rules, formulas, and document template are highly actionable and easy to follow."
+    },
+    {
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Purpose, parameters, formulas, and output format are complete; scripts are not needed for this prompt-based skill."
+    },
+    {
+      "message": "[9/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Scope is clearly bounded to requirement clarification and reviewable demand submission, with explicit separation from developer-facing technical work."
+    },
+    {
+      "message": "[8/10] Documentation uses professional, consistent tone and formatting",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The tone is direct and professional, with consistent headings and structured formatting, though it is primarily in Chinese."
+    },
+    {
+      "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Likely requirement-submission queries should trigger it, while coding/debugging queries should not; however, generic phrases like 'I want to make X' may overlap with implementation skills."
+    },
+    {
+      "message": "[9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The workflow covers questioning, complexity estimation, ROI calculation, confirmation, and document generation end-to-end with minimal ambiguity."
+    },
+    {
+      "message": "analysis-evasion",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "SECURITY",
+      "suggestion": "Suspicious Unicode normalization or mixed-script content Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed."
+    },
+    {
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "copilot-cli: Double quotes in the description are shown to the model as &quot; in the skill list.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Use single quotes in the description if the exact text matters."
+    },
+    {
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters."
+    },
+    {
+      "message": "openclaw: Double quotes in the description are shown to the model as &quot; in the skill list.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Use single quotes in the description if the exact text matters."
+    },
+    {
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "grill-requirements"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    }
+  ],
+  "results": [
+    {
+      "validator": "Schema & Repository Governance",
+      "description": "Validate SKILL.md frontmatter and repository structure",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 7,
+        "errors": 0,
+        "warnings": 6,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 3,
+        "low_count": 3
+      },
+      "finding_counts": {
+        "raw_occurrences": 6,
+        "distinct_occurrences": 6,
+        "unique_findings": 6,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 3,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 3,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-18a7f8cc53f607ef9645",
+          "occurrence_id": "SEO-50652c4a7f254ce3f0bc",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "folder_hierarchy",
+          "message": "Unexpected nesting depth for general skill",
+          "file_path": "/skills/library-20261118/G4/grill-requirements",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "General skills should be at: skills/<skill-name>/",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-2ab016a817c566724ba9",
+          "occurrence_id": "SEO-bec65eeff4ee6a90855f",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Instructions'",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+          "metadata": {
+            "missing_section": "## Instructions"
+          }
+        },
+        {
+          "finding_id": "SEF-e3f5c930756d6b8f695b",
+          "occurrence_id": "SEO-c7f150e7779559ad6205",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Examples'",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+          "metadata": {
+            "missing_section": "## Examples"
+          }
+        },
+        {
+          "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+          "occurrence_id": "SEO-a7c548ea692577c084dd",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "author_missing",
+          "message": "Author not specified in metadata",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+          "metadata": {
+            "profile": "default"
+          }
+        },
+        {
+          "finding_id": "SEF-29923f4d680e578e37e3",
+          "occurrence_id": "SEO-5e661e757efa2eed2acf",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "description_trigger",
+          "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "State when to use the skill within the first 60 characters",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-b28f818a5fc2daa26f71",
+          "occurrence_id": "SEO-8863309fab6c0f94930f",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "unknown_field",
+          "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Remove them or move them under 'metadata'",
+          "metadata": {
+            "fields": [
+              "author",
+              "version"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "manifest_exists",
+          "message": "Found skill manifest: SKILL.md",
+          "metadata": {
+            "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md"
+          }
+        },
+        {
+          "check": "frontmatter_valid",
+          "message": "Valid frontmatter for skill 'grill-requirements'",
+          "metadata": {
+            "description_length": 174
+          }
+        },
+        {
+          "check": "naming_convention",
+          "message": "Folder name 'grill-requirements' follows kebab-case convention",
+          "metadata": {
+            "name_length": 18
+          }
+        },
+        {
+          "check": "line_count",
+          "message": "SKILL.md within line limit (205/500)",
+          "metadata": {
+            "line_count": 205,
+            "limit": 500
+          }
+        },
+        {
+          "check": "body_heading",
+          "message": "Body contains a top-level heading",
+          "metadata": null
+        },
+        {
+          "check": "optional_files",
+          "message": "Skill directory contains only expected files",
+          "metadata": null
+        },
+        {
+          "check": "name_consistency",
+          "message": "Directory name matches frontmatter: 'grill-requirements'",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCHEMA-MEDIUM] Unexpected nesting depth for general skill in /skills/library-20261118/G4/grill-requirements",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Instructions' in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Examples' in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[SCHEMA-LOW] Author not specified in metadata in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[SCHEMA-LOW] Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[SCHEMA-LOW] Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model in /skills/library-20261118/G4/grill-requirements/SKILL.md"
+        ],
+        "messages": [
+          "[OK] manifest_exists: Found skill manifest: SKILL.md",
+          "[OK] frontmatter_valid: Valid frontmatter for skill 'grill-requirements'",
+          "[OK] naming_convention: Folder name 'grill-requirements' follows kebab-case convention",
+          "[OK] line_count: SKILL.md within line limit (205/500)",
+          "[OK] body_heading: Body contains a top-level heading",
+          "[OK] optional_files: Skill directory contains only expected files",
+          "[OK] name_consistency: Directory name matches frontmatter: 'grill-requirements'"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "schema"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Semantic Version Validation",
+      "description": "Validate optional metadata.version labels and require strict bumps",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "version_optional",
+          "message": "No semantic version label present; resource will use commit-hash history",
+          "metadata": {
+            "previous_version": null
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] version_optional: No semantic version label present; resource will use commit-hash history"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "version"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Security Scan",
+      "description": "Detect security vulnerabilities and PII/secrets",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "skillspector": "2.13.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 2,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 1,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 2,
+        "distinct_occurrences": 2,
+        "unique_findings": 2,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "info": 1
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "info": 1
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-418fdc54080e003ab71d",
+          "occurrence_id": "SEO-e45a6d8900da06cdbcd4",
+          "category": "SECURITY",
+          "severity": "info",
+          "check_name": "Unknown (AE4)",
+          "message": "analysis-evasion: Suspicious Unicode normalization or mixed-script content",
+          "file_path": "SKILL.md",
+          "line_number": 1,
+          "line_content": null,
+          "suggestion": "Suspicious Unicode normalization or mixed-script content Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+          "metadata": {
+            "skillspector_confidence": 0.8,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path",
+            "llm_verdict": "false_positive",
+            "llm_confidence": "high",
+            "llm_reasoning": "Mixed Chinese/English content is expected in a Chinese-language skill definition; there is no evidence of Unicode normalization evasion or hidden malicious characters in the provided context.",
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash",
+            "downgraded": true,
+            "confidence": "low"
+          }
+        },
+        {
+          "finding_id": "SEF-0742370606b64bb7113d",
+          "occurrence_id": "SEO-203719268efa6a14c818",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Unknown (SQP-1)",
+          "message": "The trigger surface is overly broad. The skill activates on generic phrases such as \u201c\u6211\u60f3\u8981\u505a\u4e2a X\u201d, \u201c\u9700\u6c42\u3001\u60f3\u6cd5\u6216\u529f\u80fd\u201d, and similar c",
+          "file_path": "SKILL.md",
+          "line_number": 5,
+          "line_content": null,
+          "suggestion": "The trigger surface is overly broad. The skill activates on generic phrases such as \u201c\u6211\u60f3\u8981\u505a\u4e2a X\u201d, \u201c\u9700\u6c42\u3001\u60f3\u6cd5\u6216\u529f\u80fd\u201d, and similar casual expressions. These phrases can easily appear in non-requirement contexts, such as personal tasks, ordinary conversation, marketing copy, or ambiguous requests. Once triggered, the skill begins a structured interrogation that can collect sensitive organizational information, including roles, headcount, salary information, process times, and business assumptions. It also instructs the agent to generate a `.md` file in the current working directory using the Write tool. If an agent framework automatically selects this skill based on the broad trigger, an unintended or adversarial utterance could cause unwanted data collection, unwanted file creation, workspace pollution, accidental commit of sensitive business information, or user confusion. Reduce the trigger scope and add explicit opt-in before data collection or file writing. Restrict activation to explicit invocations such as `/grill-requirements`, \u201c\u9700\u6c42\u63d0\u62a5\u201d, or unambiguous phrases that clearly refer to internal product/business requirement submission. Add negative examples such as \u201c\u6211\u60f3\u505a\u4e2a\u996d\u201d, \u201c\u6211\u60f3\u8981\u505a\u4e2a\u68a6\u201d, \u201c\u5e2e\u6211\u505a\u4e2a\u8868\u683c\u201d, \u201c\u6211\u60f3\u8981\u4e70\u70b9\u4e1c\u897f\u201d, or \u201c\u5e2e\u6211\u7406\u4e00\u4e0b\u4eba\u751f\u201d, which should not activate the skill. Before asking for sensitive fields such as salary, job title, team names, or business process data, state the purpose, ask for confirmation, and allow the user to skip. Before writing the final `.md`, require explicit confirmation and prefer writing to a temporary or user-selected safe output directory. Add a guard that rejects ambiguous personal/casual requests. Also add tests proving that common non-requirement utterances do not trigger the skill.",
+          "metadata": {
+            "skillspector_confidence": 0.85,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path",
+            "llm_verdict": "true_positive",
+            "llm_confidence": "medium",
+            "llm_reasoning": "The skill can activate on broad phrases like \u201c\u6211\u60f3\u8981\u505a\u4e2a X\u201d and then ask for sensitive business/PII fields such as salary and headcount; while file writing requires confirmation, unintended activation can still lead to unwanted sensitive data collection.",
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash"
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "skillspector",
+          "message": "Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "metadata": {
+            "issue_count": 1
+          }
+        },
+        {
+          "check": "skillspector",
+          "message": "Security scan completed - 2 advisory finding(s) (no critical/high issues)",
+          "metadata": {
+            "issue_count": 2
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SECURITY-INFO] analysis-evasion: Suspicious Unicode normalization or mixed-script content in SKILL.md:1",
+          "[SECURITY-MEDIUM] The trigger surface is overly broad. The skill activates on generic phrases such as \u201c\u6211\u60f3\u8981\u505a\u4e2a X\u201d, \u201c\u9700\u6c42\u3001\u60f3\u6cd5\u6216\u529f\u80fd\u201d, and similar c in SKILL.md:5"
+        ],
+        "messages": [
+          "[OK] skillspector: Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "[OK] skillspector: Security scan completed - 2 advisory finding(s) (no critical/high issues)",
+          "LLM verification downgraded 1 finding(s) to INFO (false positives)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "skillspector_version": "2.13.4",
+      "skillspector_llm_provenance": {
+        "schema_version": 1,
+        "provider": {
+          "configured_adapter": "openai_compatible",
+          "resolved_adapter": "openai_compatible",
+          "effective_adapter": "openai_compatible",
+          "effective_adapters": [
+            "openai_compatible"
+          ],
+          "service": "unknown",
+          "routing": {
+            "deployment_override": null,
+            "deployment_source": "not_applicable",
+            "api_version": null,
+            "api_version_source": "not_applicable"
+          }
+        },
+        "analyzers": [
+          {
+            "analyzer_id": "mcp_tool_poisoning",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_developer_intent",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_quality_policy",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_security_discovery",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "meta_analyzer",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          }
+        ],
+        "sampling": {
+          "temperature": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "seed": {
+            "requested": null,
+            "source": "unset",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "reasoning_effort": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          }
+        },
+        "determinism": {
+          "classification": "nondeterministic",
+          "control_status": "provider_defaults",
+          "provider_guarantee": false,
+          "reason": "Optional controls do not guarantee identical provider output."
+        }
+      },
+      "skillspector_applicability": {
+        "artifact_type": "skill",
+        "kept_issues": 1,
+        "suppressed_inapplicable_issues": 0,
+        "suppressed_by_file_role": {},
+        "raw_risk_score": 8,
+        "applicable_risk_score": 8
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "security"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "PII Scan",
+      "description": "Detect PII and local identifiers",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 1,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "pii_scan_start",
+          "message": "Scanning 1 files for PII",
+          "metadata": {
+            "file_count": 1
+          }
+        },
+        {
+          "check": "pii_detection",
+          "message": "No PII detected in 1 files (emails, SSNs, phone numbers, paths)",
+          "metadata": {
+            "files_scanned": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] pii_scan_start: Scanning 1 files for PII",
+          "[OK] pii_detection: No PII detected in 1 files (emails, SSNs, phone numbers, paths)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "pii"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "License Compliance",
+      "description": "Validate license compliance for Skills, Rules, and Workflows",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "license_compliance",
+          "message": "License compliance scan completed (not detected)",
+          "metadata": {
+            "license_status": "not_detected"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No license information found - manual review required. Add a LICENSE file or 'license' field in frontmatter."
+        ],
+        "messages": [
+          "No license detected in any tier",
+          "[OK] license_compliance: License compliance scan completed (not detected)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "license"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Risk Analysis",
+      "description": "Static code analysis using Bandit and packaged Semgrep rules",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "code_file_discovery",
+          "message": "No code files found - code risk analysis is not applicable",
+          "metadata": {
+            "file_counts": {
+              "py": 0,
+              "sh": 0,
+              "js": 0
+            }
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] code_file_discovery: No code files found - code risk analysis is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Secrets Detection",
+      "description": "Detect hardcoded secrets, API keys, and credentials using Gitleaks",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "gitleaks": "8.30.0"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "gitleaks",
+          "message": "No secrets detected by Gitleaks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] gitleaks: No secrets detected by Gitleaks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Integrity & Hygiene",
+      "description": "Validate dead links, dependencies, and static Python test-file discovery",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 1,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dead_links_scan",
+          "message": "Checking 1 markdown files for dead links",
+          "metadata": {
+            "file_count": 1
+          }
+        },
+        {
+          "check": "dead_links",
+          "message": "All relative links valid in 1 markdown file(s)",
+          "metadata": {
+            "files_checked": 1
+          }
+        },
+        {
+          "check": "dependencies",
+          "message": "No dependency files found (requirements.txt, pyproject.toml)",
+          "metadata": null
+        },
+        {
+          "check": "test_discovery",
+          "message": "No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests.",
+          "metadata": {
+            "test_count": 0,
+            "execution_performed": false,
+            "coverage_measured": false,
+            "patterns": [
+              "test_*.py",
+              "*_test.py"
+            ]
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No standard Python test-file candidates found; consider adding tests"
+        ],
+        "messages": [
+          "[OK] dead_links_scan: Checking 1 markdown files for dead links",
+          "[OK] dead_links: All relative links valid in 1 markdown file(s)",
+          "[OK] dependencies: No dependency files found (requirements.txt, pyproject.toml)",
+          "[OK] test_discovery: No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests."
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Dependency Vulnerability Audit",
+      "description": "Scan dependencies for CVE vulnerabilities using pip-audit and Safety",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dependency_file_discovery",
+          "message": "No dependency files found - vulnerability audit is not applicable",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] dependency_file_discovery: No dependency files found - vulnerability audit is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "dependency"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Unicode Smuggling Detection",
+      "description": "Detect invisible Unicode characters and ASCII smuggling",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 1,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 3,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 3
+      },
+      "finding_counts": {
+        "raw_occurrences": 3,
+        "distinct_occurrences": 3,
+        "unique_findings": 1,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 2,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 3,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-6b66555d1029e567b59c",
+          "occurrence_id": "SEO-1f0dc7fe6a98065047d7",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): VARIATION SELECTOR-16",
+          "file_path": "SKILL.md",
+          "line_number": 88,
+          "line_content": "\u8fd9\u662f**\u91cf\u7ea7\u4f30\u7b97\uff0c\u4e0d\u662f\u7cbe\u786e\u627f\u8bfa**\u3002\u6587\u6863\u91cc\u5fc5\u987b\u6807\u6ce8\"\u26a0\ufe0f \u6b64\u8bc4\u4f30\u4e3a Agent \u91cf\u7ea7\u4f30\u7b97\uff0c\u9700\u5f00\u53d1\u590d\u6838\"\u3002\u82e5\u9700\u6c42\u843d\u5728\u56e2\u961f\u5df2\u6709 skill/API \u8986\u76d6\u7684\u9886\u57df\uff08\u5982 SCM/WIP/INV/PMS/\u98de\u4e66\uff09\uff0c\u7f6e\u4fe1\u5ea6\u53ef\u6807\u9ad8\uff1b\u7eaf\u964c\u751f\u9886\u57df\u6807\u4f4e\u3002",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "variation_selectors"
+          }
+        },
+        {
+          "finding_id": "SEF-6b66555d1029e567b59c",
+          "occurrence_id": "SEO-129992ec30e5cc4fae40",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): VARIATION SELECTOR-16",
+          "file_path": "SKILL.md",
+          "line_number": 153,
+          "line_content": "- **\u98ce\u9669/\u4e0d\u786e\u5b9a**\uff1a\u26a0\ufe0f <\u9879>\uff08+X \u4eba\u5929\uff09",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "variation_selectors"
+          }
+        },
+        {
+          "finding_id": "SEF-6b66555d1029e567b59c",
+          "occurrence_id": "SEO-c501f2ced7543806423a",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): VARIATION SELECTOR-16",
+          "file_path": "SKILL.md",
+          "line_number": 154,
+          "line_content": "> \u26a0\ufe0f \u6b64\u8bc4\u4f30\u4e3a Agent \u91cf\u7ea7\u4f30\u7b97\uff0c\u9700\u5f00\u53d1\u590d\u6838\u3002",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "variation_selectors"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[UNICODE-LOW] Isolated invisible character(s) (1): VARIATION SELECTOR-16 in SKILL.md:88",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): VARIATION SELECTOR-16 in SKILL.md:153",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): VARIATION SELECTOR-16 in SKILL.md:154"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "unicode"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "QUALITY",
+      "description": "Skill quality scoring across Correctness (35%), Discoverability (25%), Reliability (25%), and Efficiency (15%)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 8,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 2,
+        "low_count": 6
+      },
+      "finding_counts": {
+        "raw_occurrences": 8,
+        "distinct_occurrences": 8,
+        "unique_findings": 8,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 6,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 6,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+          "occurrence_id": "SEO-989942efae9a75ea7acf",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+          "occurrence_id": "SEO-f3fbed697c5c92680628",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-0f3cde56a46498377f1a",
+          "occurrence_id": "SEO-92cd08a502531acd4c74",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description doesn't mention WHEN to use this skill",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+          "occurrence_id": "SEO-a3528d41a9d977e5654e",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "No '## Purpose' section",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add purpose section to clarify use cases",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-9612bbfb3f32d491ac5d",
+          "occurrence_id": "SEO-31b9101a7024e06f061d",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No mention of error handling or validation",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document expected errors and how to handle them",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-4a6560f4aec006f302f9",
+          "occurrence_id": "SEO-4d5ffd929969709157c9",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No prerequisites/requirements documented",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document dependencies, API keys, or setup needed",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-fc6fe3747c071963a76e",
+          "occurrence_id": "SEO-6b2b69bf5a7b2f11bd24",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No limitations documented",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Limitations' section with known issues/constraints",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-378f24adfec67572e606",
+          "occurrence_id": "SEO-f1c72667f26a0f516681",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No troubleshooting section documented",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "quality_score",
+          "message": "Score: 86.5/100 (Grade: B)",
+          "metadata": {
+            "overall_score": 86.5,
+            "grade": "B",
+            "skill_type": "guide-only"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.author' in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags' in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[QUALITY-LOW] Description doesn't mention WHEN to use this skill in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[QUALITY-LOW] No '## Purpose' section in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[QUALITY-LOW] No mention of error handling or validation in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[QUALITY-LOW] No prerequisites/requirements documented in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[QUALITY-LOW] No limitations documented in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[QUALITY-LOW] No troubleshooting section documented in /skills/library-20261118/G4/grill-requirements/SKILL.md"
+        ],
+        "messages": [
+          "[OK] quality_score: Score: 86.5/100 (Grade: B)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "quality": {
+        "overall_score": 86.5,
+        "grade": "B",
+        "skill_type": "guide-only",
+        "skill_name": "grill-requirements",
+        "dimensions": {
+          "correctness": {
+            "score": 90.0,
+            "weight": 0.35,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+                "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+                "deduction": 5
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+                "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+                "deduction": 5
+              }
+            ]
+          },
+          "discoverability": {
+            "score": 85.0,
+            "weight": 0.25,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "Description doesn't mention WHEN to use this skill",
+                "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No '## Purpose' section",
+                "suggestion": "Add purpose section to clarify use cases",
+                "deduction": 5
+              }
+            ]
+          },
+          "reliability": {
+            "score": 75.0,
+            "weight": 0.25,
+            "issues_count": 4,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No mention of error handling or validation",
+                "suggestion": "Document expected errors and how to handle them",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No prerequisites/requirements documented",
+                "suggestion": "Document dependencies, API keys, or setup needed",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No limitations documented",
+                "suggestion": "Add '## Limitations' section with known issues/constraints",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No troubleshooting section documented",
+                "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+                "deduction": 5
+              }
+            ]
+          },
+          "efficiency": {
+            "score": 100.0,
+            "weight": 0.15,
+            "issues_count": 0,
+            "issues": []
+          }
+        },
+        "metrics": {
+          "total_tokens": 1086,
+          "estimated_tokens": 1086,
+          "estimate_method": "characters/4",
+          "recommended_max_tokens": 5000,
+          "frontmatter_tokens": 64,
+          "instructions_tokens": 1020,
+          "script_count": 0,
+          "has_examples": true,
+          "has_error_handling": false,
+          "has_frontmatter": true,
+          "has_instructions": false,
+          "has_scripts": false,
+          "has_lib_module": false
+        }
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "quality"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "SCRIPT_LINT",
+      "description": "AST-based code quality checks for skill scripts",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "lint",
+          "message": "No scripts/ or tools/ directory found",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] lint: No scripts/ or tools/ directory found"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "lint"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Harness Compatibility",
+      "description": "Advisory: whether each agent harness loads, degrades or drops the skill",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 5,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 5,
+        "distinct_occurrences": 5,
+        "unique_findings": 5,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 5
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 5
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-3661379ea9e5c1072875",
+          "occurrence_id": "SEO-a73c818edd210092565b",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-RELOAD",
+          "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-5cf1d958d3582b4dd475",
+          "occurrence_id": "SEO-6ec888fd7d121373bb5f",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-DESC-ESCAPED",
+          "message": "copilot-cli: Double quotes in the description are shown to the model as &quot; in the skill list.",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Use single quotes in the description if the exact text matters.",
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e0623bdfb91d6bbb829f",
+          "occurrence_id": "SEO-86e49e611301a68b261b",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-DESC-60",
+          "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-d97cf8343ff688501a4c",
+          "occurrence_id": "SEO-c33bc62c7a53e0195d54",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OW-DESC-ESCAPED",
+          "message": "openclaw: Double quotes in the description are shown to the model as &quot; in the skill list.",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Use single quotes in the description if the exact text matters.",
+          "metadata": {
+            "harness": "openclaw",
+            "effect": "advisory",
+            "verified_version": "2026.10.9",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-03e029934351881ba688",
+          "occurrence_id": "SEO-76d765f50005a3efa06f",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-RELOAD",
+          "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once. in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[HARNESS-INFO] copilot-cli: Double quotes in the description are shown to the model as &quot; in the skill list. in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them. in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[HARNESS-INFO] openclaw: Double quotes in the description are shown to the model as &quot; in the skill list. in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[HARNESS-INFO] opencode: Skill list and text are cached at startup; edits need a restart. in /skills/library-20261118/G4/grill-requirements/SKILL.md"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "harness"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "RUBRIC_EVAL",
+      "description": "LLM-as-Judge qualitative evaluation across 9 criteria (description clarity, instruction quality, trigger simulation, etc.)",
+      "passed": false,
+      "status": "failed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 1,
+        "warnings": 9,
+        "critical_count": 0,
+        "high_count": 1,
+        "medium_count": 2,
+        "low_count": 7
+      },
+      "finding_counts": {
+        "raw_occurrences": 10,
+        "distinct_occurrences": 10,
+        "unique_findings": 10,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 2,
+          "low": 7,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 2,
+          "low": 7,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-db6cfaec190ff334af3b",
+          "occurrence_id": "SEO-b9b93903744fc8fd71a6",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_description_clarity",
+          "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The description clearly defines the skill as a requirements-grilling agent and lists concrete trigger phrases and scenarios.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "description_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-030ee1126ed88f6719d1",
+          "occurrence_id": "SEO-a1be54b4e96b7bfbd843",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_instruction_clarity",
+          "message": "[9/10] Instructions are easy to follow with clear action steps",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The phased workflow, questioning rules, formulas, and document template are highly actionable and easy to follow.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "instruction_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-557a6412a2e8ef047c61",
+          "occurrence_id": "SEO-4184f202db4c9eee2bc7",
+          "category": "RUBRIC_EVAL",
+          "severity": "medium",
+          "check_name": "rubric_example_quality",
+          "message": "[5/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Trigger phrases are provided, but there are no full usage examples, sample questions, or varied user scenarios to demonstrate proper execution.",
+          "metadata": {
+            "score": 5,
+            "pass": false,
+            "judge_pass": false,
+            "id": "example_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-1730b4619ac61f3e0e4b",
+          "occurrence_id": "SEO-a4b7596938dbf942c3ad",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_documentation_completeness",
+          "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Purpose, parameters, formulas, and output format are complete; scripts are not needed for this prompt-based skill.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "documentation_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-23aeeebfd65bb115d5e1",
+          "occurrence_id": "SEO-12c2ce32d82d02082715",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_scope_definition",
+          "message": "[9/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Scope is clearly bounded to requirement clarification and reviewable demand submission, with explicit separation from developer-facing technical work.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "scope_definition"
+          }
+        },
+        {
+          "finding_id": "SEF-7d672f0f2be52d2a830b",
+          "occurrence_id": "SEO-1d0b6f66ec8eefec3892",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_professional_tone",
+          "message": "[8/10] Documentation uses professional, consistent tone and formatting",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The tone is direct and professional, with consistent headings and structured formatting, though it is primarily in Chinese.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "professional_tone"
+          }
+        },
+        {
+          "finding_id": "SEF-9039ab8ca79a814d8bcb",
+          "occurrence_id": "SEO-6069239d96a28814efe2",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_trigger_simulation",
+          "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Likely requirement-submission queries should trigger it, while coding/debugging queries should not; however, generic phrases like 'I want to make X' may overlap with implementation skills.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "trigger_simulation"
+          }
+        },
+        {
+          "finding_id": "SEF-a708cf185063f38c3c5f",
+          "occurrence_id": "SEO-3a03f29e3fcde320154a",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_workflow_completeness",
+          "message": "[9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The workflow covers questioning, complexity estimation, ROI calculation, confirmation, and document generation end-to-end with minimal ambiguity.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "workflow_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-975cec5e5aad0b33739c",
+          "occurrence_id": "SEO-2035bdd7cd6e7fbd3cb4",
+          "category": "RUBRIC_EVAL",
+          "severity": "medium",
+          "check_name": "rubric_error_handling_quality",
+          "message": "[5/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "It defines stopping and confirmation rules but lacks guidance for missing salary data, invalid inputs, user refusal, calculation conflicts, or write failures.",
+          "metadata": {
+            "score": 5,
+            "pass": false,
+            "judge_pass": false,
+            "id": "error_handling_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-9afa5f4fc6f0ffc839a2",
+          "occurrence_id": "SEO-df9ecd3d928d1bcb0bd3",
+          "category": "RUBRIC_EVAL",
+          "severity": "high",
+          "check_name": "rubric_overall",
+          "message": "Rubric evaluation failed: criteria below 7/10: example_quality, error_handling_quality",
+          "file_path": "/skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Address the failed rubric criteria and rerun the evaluation",
+          "metadata": {
+            "overall_score": 78.2,
+            "min_score": 70,
+            "failed_criteria": [
+              "example_quality",
+              "error_handling_quality"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "rubric_eval",
+          "message": "LLM Rubric Score: 78.2/100",
+          "metadata": {
+            "overall_score": 78.2,
+            "overall_pass": false,
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash",
+            "judge_attempts": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [
+          "[RUBRIC_EVAL-HIGH] Rubric evaluation failed: criteria below 7/10: example_quality, error_handling_quality in /skills/library-20261118/G4/grill-requirements/SKILL.md"
+        ],
+        "warnings": [
+          "[RUBRIC_EVAL-LOW] [9/10] Description is clear, specific, and explains WHEN to use the skill in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Instructions are easy to follow with clear action steps in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[RUBRIC_EVAL-MEDIUM] [5/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] All necessary information is present (purpose, scripts, parameters) in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Skill scope is well-defined (clear boundaries, not too broad/narrow) in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Documentation uses professional, consistent tone and formatting in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives? in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance. in /skills/library-20261118/G4/grill-requirements/SKILL.md",
+          "[RUBRIC_EVAL-MEDIUM] [5/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate? in /skills/library-20261118/G4/grill-requirements/SKILL.md"
+        ],
+        "messages": [
+          "[OK] rubric_eval: LLM Rubric Score: 78.2/100"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "rubric_eval": {
+        "execution_status": "succeeded",
+        "overall_score": 78.2,
+        "overall_pass": false,
+        "summary": "The skill has a very clear purpose, detailed workflow, and strong scope definition, but it lacks concrete examples and robust error-handling guidance.",
+        "judge_score": 79,
+        "judge_overall_pass": true,
+        "skill_name": "grill-requirements",
+        "checks": [
+          {
+            "id": "description_clarity",
+            "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The description clearly defines the skill as a requirements-grilling agent and lists concrete trigger phrases and scenarios."
+          },
+          {
+            "id": "instruction_clarity",
+            "criterion": "Instructions are easy to follow with clear action steps",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The phased workflow, questioning rules, formulas, and document template are highly actionable and easy to follow."
+          },
+          {
+            "id": "example_quality",
+            "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+            "importance": "high",
+            "pass": false,
+            "judge_pass": false,
+            "score": 5,
+            "notes": "Trigger phrases are provided, but there are no full usage examples, sample questions, or varied user scenarios to demonstrate proper execution."
+          },
+          {
+            "id": "documentation_completeness",
+            "criterion": "All necessary information is present (purpose, scripts, parameters)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Purpose, parameters, formulas, and output format are complete; scripts are not needed for this prompt-based skill."
+          },
+          {
+            "id": "scope_definition",
+            "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "Scope is clearly bounded to requirement clarification and reviewable demand submission, with explicit separation from developer-facing technical work."
+          },
+          {
+            "id": "professional_tone",
+            "criterion": "Documentation uses professional, consistent tone and formatting",
+            "importance": "low",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "The tone is direct and professional, with consistent headings and structured formatting, though it is primarily in Chinese."
+          },
+          {
+            "id": "trigger_simulation",
+            "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Likely requirement-submission queries should trigger it, while coding/debugging queries should not; however, generic phrases like 'I want to make X' may overlap with implementation skills."
+          },
+          {
+            "id": "workflow_completeness",
+            "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The workflow covers questioning, complexity estimation, ROI calculation, confirmation, and document generation end-to-end with minimal ambiguity."
+          },
+          {
+            "id": "error_handling_quality",
+            "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+            "importance": "medium",
+            "pass": false,
+            "judge_pass": false,
+            "score": 5,
+            "notes": "It defines stopping and confirmation rules but lacks guidance for missing salary data, invalid inputs, user refusal, calculation conflicts, or write failures."
+          }
+        ],
+        "aggregation": {
+          "method": "importance_weighted_mean",
+          "importance_weights": {
+            "high": 3,
+            "medium": 2,
+            "low": 1
+          },
+          "min_score": 70,
+          "criterion_pass_score": 7,
+          "requires_all_criteria_pass": true
+        },
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash",
+        "judge_attempts": 1
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "grill-requirements",
+        "skill_digest": "sha256:3118deae3d5e3dd6856f6364aaa93480af6b6f27f5dac89dfc9e3febc5259548",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "rubric"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "fail",
+  "publication": {
+    "status": "fail",
+    "eligible": false,
+    "reasons": [
+      "A validator failed."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "policy": {
+    "profile": "default",
+    "audience": "all",
+    "digest": "sha256:64a069b8853f7123049a675d6853ef8d8b424792bb9a2a5157a73ec312f38ed4",
+    "author_email_regex": null,
+    "severity_overrides": {
+      "SCHEMA.author_missing": "low",
+      "SCHEMA.author_without_email": "info",
+      "SCHEMA.author_format": "high",
+      "WORKFLOWS.author_format": "high",
+      "LICENSE.*": "critical"
+    },
+    "metadata_id_requirement": "ignore",
+    "source": "/usr/local/lib/python3.12/site-packages/skillevaluator/config/profiles/default.yaml"
+  },
+  "quality_config": {
+    "source": "packaged",
+    "file": null,
+    "digest": "sha256:298ff2bf62132c8154217b7aa59fc1fd04f28cf75372f55620a2cbcd951d6549",
+    "min_score": 70
+  },
+  "evaluated_source": null,
+  "gating": {
+    "tiers": {
+      "1": {
+        "blocking": true,
+        "validators": [
+          "Schema & Repository Governance",
+          "Semantic Version Validation",
+          "Security Scan",
+          "PII Scan",
+          "License Compliance",
+          "Code Risk Analysis",
+          "Secrets Detection",
+          "Code Integrity & Hygiene",
+          "Dependency Vulnerability Audit",
+          "Unicode Smuggling Detection",
+          "QUALITY",
+          "SCRIPT_LINT",
+          "Harness Compatibility",
+          "RUBRIC_EVAL"
+        ],
+        "validator_policies": [
+          {
+            "validator": "Schema & Repository Governance",
+            "blocking": true
+          },
+          {
+            "validator": "Semantic Version Validation",
+            "blocking": true
+          },
+          {
+            "validator": "Security Scan",
+            "blocking": true
+          },
+          {
+            "validator": "PII Scan",
+            "blocking": true
+          },
+          {
+            "validator": "License Compliance",
+            "blocking": true
+          },
+          {
+            "validator": "Code Risk Analysis",
+            "blocking": true
+          },
+          {
+            "validator": "Secrets Detection",
+            "blocking": true
+          },
+          {
+            "validator": "Code Integrity & Hygiene",
+            "blocking": true
+          },
+          {
+            "validator": "Dependency Vulnerability Audit",
+            "blocking": true
+          },
+          {
+            "validator": "Unicode Smuggling Detection",
+            "blocking": true
+          },
+          {
+            "validator": "QUALITY",
+            "blocking": true
+          },
+          {
+            "validator": "SCRIPT_LINT",
+            "blocking": true
+          },
+          {
+            "validator": "Harness Compatibility",
+            "blocking": true
+          },
+          {
+            "validator": "RUBRIC_EVAL",
+            "blocking": true
+          }
+        ]
+      }
+    }
+  },
+  "workflow": {
+    "tier": 1,
+    "stages": {
+      "validation": {
+        "status": "passed"
+      },
+      "rubric": {
+        "status": "failed"
+      },
+      "llm": {
+        "status": "enabled"
+      }
+    }
+  },
+  "quality_summary": [
+    {
+      "overall_score": 86.5,
+      "grade": "B",
+      "skill_type": "guide-only",
+      "skill_name": "grill-requirements",
+      "dimensions": {
+        "correctness": {
+          "score": 90.0,
+          "weight": 0.35,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+              "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+              "deduction": 5
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+              "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+              "deduction": 5
+            }
+          ]
+        },
+        "discoverability": {
+          "score": 85.0,
+          "weight": 0.25,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "Description doesn't mention WHEN to use this skill",
+              "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No '## Purpose' section",
+              "suggestion": "Add purpose section to clarify use cases",
+              "deduction": 5
+            }
+          ]
+        },
+        "reliability": {
+          "score": 75.0,
+          "weight": 0.25,
+          "issues_count": 4,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No mention of error handling or validation",
+              "suggestion": "Document expected errors and how to handle them",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No prerequisites/requirements documented",
+              "suggestion": "Document dependencies, API keys, or setup needed",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No limitations documented",
+              "suggestion": "Add '## Limitations' section with known issues/constraints",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No troubleshooting section documented",
+              "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+              "deduction": 5
+            }
+          ]
+        },
+        "efficiency": {
+          "score": 100.0,
+          "weight": 0.15,
+          "issues_count": 0,
+          "issues": []
+        }
+      },
+      "metrics": {
+        "total_tokens": 1086,
+        "estimated_tokens": 1086,
+        "estimate_method": "characters/4",
+        "recommended_max_tokens": 5000,
+        "frontmatter_tokens": 64,
+        "instructions_tokens": 1020,
+        "script_count": 0,
+        "has_examples": true,
+        "has_error_handling": false,
+        "has_frontmatter": true,
+        "has_instructions": false,
+        "has_scripts": false,
+        "has_lib_module": false
+      }
+    }
+  ],
+  "rubric_eval": {
+    "execution_status": "succeeded",
+    "overall_score": 78.2,
+    "overall_pass": false,
+    "summary": "The skill has a very clear purpose, detailed workflow, and strong scope definition, but it lacks concrete examples and robust error-handling guidance.",
+    "judge_score": 79,
+    "judge_overall_pass": true,
+    "skill_name": "grill-requirements",
+    "checks": [
+      {
+        "id": "description_clarity",
+        "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The description clearly defines the skill as a requirements-grilling agent and lists concrete trigger phrases and scenarios."
+      },
+      {
+        "id": "instruction_clarity",
+        "criterion": "Instructions are easy to follow with clear action steps",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The phased workflow, questioning rules, formulas, and document template are highly actionable and easy to follow."
+      },
+      {
+        "id": "example_quality",
+        "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+        "importance": "high",
+        "pass": false,
+        "judge_pass": false,
+        "score": 5,
+        "notes": "Trigger phrases are provided, but there are no full usage examples, sample questions, or varied user scenarios to demonstrate proper execution."
+      },
+      {
+        "id": "documentation_completeness",
+        "criterion": "All necessary information is present (purpose, scripts, parameters)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Purpose, parameters, formulas, and output format are complete; scripts are not needed for this prompt-based skill."
+      },
+      {
+        "id": "scope_definition",
+        "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "Scope is clearly bounded to requirement clarification and reviewable demand submission, with explicit separation from developer-facing technical work."
+      },
+      {
+        "id": "professional_tone",
+        "criterion": "Documentation uses professional, consistent tone and formatting",
+        "importance": "low",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "The tone is direct and professional, with consistent headings and structured formatting, though it is primarily in Chinese."
+      },
+      {
+        "id": "trigger_simulation",
+        "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Likely requirement-submission queries should trigger it, while coding/debugging queries should not; however, generic phrases like 'I want to make X' may overlap with implementation skills."
+      },
+      {
+        "id": "workflow_completeness",
+        "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The workflow covers questioning, complexity estimation, ROI calculation, confirmation, and document generation end-to-end with minimal ambiguity."
+      },
+      {
+        "id": "error_handling_quality",
+        "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+        "importance": "medium",
+        "pass": false,
+        "judge_pass": false,
+        "score": 5,
+        "notes": "It defines stopping and confirmation rules but lacks guidance for missing salary data, invalid inputs, user refusal, calculation conflicts, or write failures."
+      }
+    ],
+    "aggregation": {
+      "method": "importance_weighted_mean",
+      "importance_weights": {
+        "high": 3,
+        "medium": 2,
+        "low": 1
+      },
+      "min_score": 70,
+      "criterion_pass_score": 7,
+      "requires_all_criteria_pass": true
+    },
+    "llm_provider": "openai-compatible",
+    "llm_model_used": "qwen3.8-flash",
+    "judge_attempts": 1
+  },
+  "generated_at": "2026-11-18T03:03:18.953253+00:00"
+}

@@ -1,0 +1,41 @@
+Tier 3: reusing the existing evaluation source unchanged.
+Tier 3 live evaluation: requirements-analyst
+  environment: docker
+  agents/models: opencode
+  plan: with-skill=yes, baseline=yes, timeout=3x
+[00:00:00] configuration: running
+[00:00:00] configuration: ready - evaluation config validated
+[00:00:00] model-resolution: running
+[00:00:00] model-resolution: complete - agent models resolved
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x
+[00:00:00] environment-preflight: running - docker
+[00:00:00] environment-preflight: complete - docker
+[00:00:00] credential-validation: running
+[00:00:00] credential-validation: degraded - credential configuration resolved; live catalog verification inconclusive: opencode, standard grader: model catalog access does not verify runtime credentials for this endpoint; continuing to evaluation
+[00:00:00] docker-images: running - preparing shared eval base image (reuse)
+[00:00:00] docker-images: complete - eval base image ready: skillevaluator-deps:3.12
+INFO     Using pinned eval base image skillevaluator-deps:3.12                  
+[00:00:00] with-skill-tasks: running
+[00:00:00] with-skill-tasks: ready - task inputs staged
+[00:00:00] baseline-tasks: running
+[00:00:01] baseline-tasks: ready - baseline inputs staged
+[00:00:01] configuration: complete - Planned: 6 attempts (3 cases × 1 attempts × 2 agent arms total)
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, tasks=3, cases=3, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x, matrix-trials=6, preflight-trials=0, containers=6, max-scaled-top-level-agent-timeout=900s
+[00:00:01] agent-runtime-preflight: skipped - disabled by default; enable with --agent-runtime-preflight or harbor.agent_runtime_preflight
+[00:00:01] agent:opencode: running - with-skill + baseline
+[00:01:01] still running: agent:opencode
+[00:02:01] still running: agent:opencode
+[00:03:01] still running: agent:opencode
+[00:04:01] still running: agent:opencode
+[00:05:01] still running: agent:opencode
+[00:06:01] still running: agent:opencode
+[00:07:01] still running: agent:opencode
+[00:08:01] still running: agent:opencode
+[00:09:01] still running: agent:opencode
+[00:10:01] still running: agent:opencode
+[00:11:01] still running: agent:opencode
+[00:12:01] still running: agent:opencode
+[00:13:01] still running: agent:opencode
+[00:14:01] still running: agent:opencode
+[00:15:01] still running: agent:opencode
+[00:16:01] still running: agent:opencode

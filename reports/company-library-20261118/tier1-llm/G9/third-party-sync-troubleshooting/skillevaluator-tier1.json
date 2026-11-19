@@ -1,0 +1,3647 @@
+{
+  "version": "0.9.0",
+  "target_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting",
+  "overall_passed": true,
+  "overall_status": "passed",
+  "incomplete_scans": [],
+  "total_validators": 14,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 0,
+  "total_warnings": 30,
+  "severity_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 5,
+    "low": 19
+  },
+  "finding_counts": {
+    "raw_occurrences": 27,
+    "distinct_occurrences": 27,
+    "unique_findings": 27,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 0,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 5,
+      "low": 19,
+      "info": 3
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 5,
+      "low": 19,
+      "info": 3
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-035ac0103677ab4d660b",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_workflow_completeness",
+      "message": "[9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "suggestion": "The timetable troubleshooting path is end-to-end from input validation through prechecks, SQL, filters, errors, manual sync, and conclusions. Cloud-side log inspection details are slightly less explicit than edge-side guidance.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "workflow_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2740b4f4890ed82be013",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-03e029934351881ba688",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-RELOAD",
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-de9f378ed2af10f97bbd",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-09421907cbfc932b865e",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_error_handling_quality",
+      "message": "[9/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "suggestion": "Error cases are realistic and actionable, including missing cron config, no sync record, missing room relation, filtering, and sync exceptions. The guidance avoids generic boilerplate and ties conclusions to concrete data checks.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "error_handling_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-9cad334717e203fa82e2",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0f3cde56a46498377f1a",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description doesn't mention WHEN to use this skill",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-9cd658ff920728118d3f",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-18a7f8cc53f607ef9645",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "folder_hierarchy",
+      "message": "Unexpected nesting depth for general skill",
+      "suggestion": "General skills should be at: skills/<skill-name>/",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-164902a275e5f2b267d8",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-28fce7fe359252745e94",
+      "category": "SECURITY",
+      "severity": "low",
+      "check_name": "Unknown (SQP-2)",
+      "message": "This is a real operational safety weakness, though not a malicious vulnerability. The skill instructs the analyst/operat",
+      "suggestion": "This is a real operational safety weakness, though not a malicious vulnerability. The skill instructs the analyst/operator to manually trigger a third-party data sync to verify whether a missing timetable entry can be restored. A manual sync is a state-changing operation: it can pull fresh third-party data, overwrite or insert timetable-related records, update sync metadata, affect downstream product behavior, or temporarily expose users to inconsistent data if the source is unhealthy. The document does not include an explicit warning, confirmation requirement, rollback note, or instruction to obtain user/operator approval before triggering the sync. If an AI agent or junior operator follows the skill mechanically, this could lead to unintended production changes. However, the skill is framed as a troubleshooting guide for authorized internal operators, and manually triggering sync is a legitimate diagnostic step in that context, so the likely intent is benign/negligent rather than adversarial. The impact is low because the action generally requires access to XXL-JOB, an edge job handler, or internal operational tooling, and the sync is usually expected behavior for the troubleshooting scenario. Still, for an agent skill, missing side-effect warnings around state-changing actions should be treated as a low-severity vulnerability. Add an explicit safety warning immediately before the manual trigger step. The warning should state that manually triggering a timetable sync is a state-changing operation that may update or overwrite timetable data, change third-party sync records, or affect product-facing behavior. Require confirmation from the user or operations owner before proceeding, especially in production. Recommend first recording the affected tenant/unit/thirdCode, current sync record state, and planned verification steps. Prefer a controlled or dry-run approach if available. Explicitly forbid creating fake sync records or manually modifying database rows to simulate execution. If the agent lacks approval or cannot verify the safety of the operation, instruct it to stop and escalate to a human maintainer.",
+      "metadata": {
+        "skillspector_confidence": 0.95,
+        "artifact_type": "skill",
+        "file_role": "agent_reference",
+        "applicability": "agent-control-path",
+        "llm_verdict": "true_positive",
+        "llm_confidence": "medium",
+        "llm_reasoning": "The skill appears to direct a state-changing production sync without explicit approval, rollback, or side-effect warnings, which is a genuine low-severity operational safety issue for an agent skill.",
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e0d2b79176423de13d4b",
+          "validator": "Security Scan",
+          "file_path": "references/timetable-sync-anomaly.md",
+          "line_number": 496
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-29923f4d680e578e37e3",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "description_trigger",
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "suggestion": "State when to use the skill within the first 60 characters",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4761c7fa7b90557e92aa",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2ab016a817c566724ba9",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Instructions'",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+      "metadata": {
+        "missing_section": "## Instructions"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-de1c03beaf056e8ee208",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3661379ea9e5c1072875",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-RELOAD",
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-f67104fae9810bae63ed",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-378f24adfec67572e606",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No troubleshooting section documented",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-1c921a1471002e638e4c",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4037b9540ace489a4b50",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_instruction_clarity",
+      "message": "[9/10] Instructions are easy to follow with clear action steps",
+      "suggestion": "The usage steps are explicit, ordered, and emphasize classification before reading branch documents. The workflow is easy for an agent to follow.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "instruction_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-d79f9c7b1078a46f0627",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4a6560f4aec006f302f9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No prerequisites/requirements documented",
+      "suggestion": "Document dependencies, API keys, or setup needed",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5d5f51c3dd79ca8c80f3",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-71d57f4bb9179c1db1c6",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_example_quality",
+      "message": "[8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "suggestion": "SQL examples and enum mappings are practical and relevant. Detection coverage is strong for timetable issues but narrower for other sync types mentioned in the description.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "example_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-94e10493b32fc42cddf2",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "author_missing",
+      "message": "Author not specified in metadata",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+      "metadata": {
+        "profile": "default"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-ce6f6fed62ee27b4ed60",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-87332366f5f7f4cb6384",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description very long (250 chars, recommend 50-150)",
+      "suggestion": "Keep descriptions concise for progressive disclosure",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-f8a9ef493509e710a8d1",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-9612bbfb3f32d491ac5d",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No mention of error handling or validation",
+      "suggestion": "Document expected errors and how to handle them",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2ac050fd74b6367cdace",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b28f818a5fc2daa26f71",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "unknown_field",
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+      "suggestion": "Remove them or move them under 'metadata'",
+      "metadata": {
+        "fields": [
+          "author",
+          "version"
+        ]
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-483c504e146197bc3b14",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-bb1d2b633590aaec5edd",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_scope_definition",
+      "message": "[7/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "suggestion": "The implemented branch is clearly scoped to timetable sync anomalies. The frontmatter description is somewhat broader than the currently supported workflow.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "scope_definition"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-8da52e2e2ddaebda8aa8",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-097b193dafed4d461800",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-bf8473e4c9dcbfaa4eef",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_professional_tone",
+      "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+      "suggestion": "The documentation is consistently structured with headings, tables, and clear Chinese operational language. Formatting is professional and easy to scan.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "professional_tone"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a51562f3cffca2915ddb",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-c9f81e25651d4e2d0908",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_description_clarity",
+      "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+      "suggestion": "The description clearly lists applicable sync troubleshooting scenarios, tables, and keywords. It is specific to third-party data sync in the current repository.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "description_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3aea8bb3bbbac228b128",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-d06844a7d4c2f50392d4",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_trigger_simulation",
+      "message": "[7/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "suggestion": "It would correctly trigger for classroom timetable missing, sync not updated, black/white filter, sync log error, and manual sync questions. It may overtrigger for non-timetable third-party sync issues because the description is broad while only one branch exists.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "trigger_simulation"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-456e745c3080e11a4c90",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-694d69f7efc54da6d53a",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-deb3f71606250e69d5cb",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_documentation_completeness",
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "suggestion": "Purpose, tables, SQL templates, parameters, and constraints are well documented. There are no executable scripts, but the SQL-based workflow is sufficiently complete.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "documentation_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a10cf75c3515f6633201",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e0623bdfb91d6bbb829f",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-DESC-60",
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-9fa37ea017b8a3c7dd8a",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e3f5c930756d6b8f695b",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Examples'",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+      "metadata": {
+        "missing_section": "## Examples"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a511a2f7b96a29c726b1",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-fc6fe3747c071963a76e",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No limitations documented",
+      "suggestion": "Add '## Limitations' section with known issues/constraints",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-db16687706a8cd18ef25",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 2,
+    "independent_errors": 0,
+    "independent_warnings": 3
+  },
+  "skills": [
+    {
+      "name": "third-party-sync-troubleshooting",
+      "passed": true,
+      "issue_count": 27
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Unknown",
+      "items": [
+        {
+          "name": "third-party-sync-troubleshooting",
+          "passed": true,
+          "issue_count": 27
+        }
+      ],
+      "total_items": 1,
+      "passed_count": 1,
+      "failed_count": 0,
+      "total_issues": 27
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "Unexpected nesting depth for general skill",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "General skills should be at: skills/<skill-name>/"
+    },
+    {
+      "message": "Missing recommended section: '## Instructions'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics."
+    },
+    {
+      "message": "Missing recommended section: '## Examples'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped."
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+      "message": "Author not specified in metadata",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address"
+    },
+    {
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "State when to use the skill within the first 60 characters"
+    },
+    {
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Remove them or move them under 'metadata'"
+    },
+    {
+      "message": "This is a real operational safety weakness, though not a malicious vulnerability. The skill instructs the analyst/operat",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "SECURITY",
+      "suggestion": "This is a real operational safety weakness, though not a malicious vulnerability. The skill instructs the analyst/operator to manually trigger a third-party data sync to verify whether a missing timetable entry can be restored. A manual sync is a state-changing operation: it can pull fresh third-party data, overwrite or insert timetable-related records, update sync metadata, affect downstream product behavior, or temporarily expose users to inconsistent data if the source is unhealthy. The document does not include an explicit warning, confirmation requirement, rollback note, or instruction to obtain user/operator approval before triggering the sync. If an AI agent or junior operator follows the skill mechanically, this could lead to unintended production changes. However, the skill is framed as a troubleshooting guide for authorized internal operators, and manually triggering sync is a legitimate diagnostic step in that context, so the likely intent is benign/negligent rather than adversarial. The impact is low because the action generally requires access to XXL-JOB, an edge job handler, or internal operational tooling, and the sync is usually expected behavior for the troubleshooting scenario. Still, for an agent skill, missing side-effect warnings around state-changing actions should be treated as a low-severity vulnerability. Add an explicit safety warning immediately before the manual trigger step. The warning should state that manually triggering a timetable sync is a state-changing operation that may update or overwrite timetable data, change third-party sync records, or affect product-facing behavior. Require confirmation from the user or operations owner before proceeding, especially in production. Recommend first recording the affected tenant/unit/thirdCode, current sync record state, and planned verification steps. Prefer a controlled or dry-run approach if available. Explicitly forbid creating fake sync records or manually modifying database rows to simulate execution. If the agent lacks approval or cannot verify the safety of the operation, instruct it to stop and escalate to a human maintainer."
+    },
+    {
+      "message": "Description very long (250 chars, recommend 50-150)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Keep descriptions concise for progressive disclosure"
+    },
+    {
+      "message": "Description doesn't mention WHEN to use this skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'"
+    },
+    {
+      "message": "No mention of error handling or validation",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document expected errors and how to handle them"
+    },
+    {
+      "message": "No prerequisites/requirements documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document dependencies, API keys, or setup needed"
+    },
+    {
+      "message": "No limitations documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Limitations' section with known issues/constraints"
+    },
+    {
+      "message": "No troubleshooting section documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns"
+    },
+    {
+      "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The description clearly lists applicable sync troubleshooting scenarios, tables, and keywords. It is specific to third-party data sync in the current repository."
+    },
+    {
+      "message": "[9/10] Instructions are easy to follow with clear action steps",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The usage steps are explicit, ordered, and emphasize classification before reading branch documents. The workflow is easy for an agent to follow."
+    },
+    {
+      "message": "[8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "SQL examples and enum mappings are practical and relevant. Detection coverage is strong for timetable issues but narrower for other sync types mentioned in the description."
+    },
+    {
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Purpose, tables, SQL templates, parameters, and constraints are well documented. There are no executable scripts, but the SQL-based workflow is sufficiently complete."
+    },
+    {
+      "message": "[7/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The implemented branch is clearly scoped to timetable sync anomalies. The frontmatter description is somewhat broader than the currently supported workflow."
+    },
+    {
+      "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The documentation is consistently structured with headings, tables, and clear Chinese operational language. Formatting is professional and easy to scan."
+    },
+    {
+      "message": "[7/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "It would correctly trigger for classroom timetable missing, sync not updated, black/white filter, sync log error, and manual sync questions. It may overtrigger for non-timetable third-party sync issues because the description is broad while only one branch exists."
+    },
+    {
+      "message": "[9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The timetable troubleshooting path is end-to-end from input validation through prechecks, SQL, filters, errors, manual sync, and conclusions. Cloud-side log inspection details are slightly less explicit than edge-side guidance."
+    },
+    {
+      "message": "[9/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Error cases are realistic and actionable, including missing cron config, no sync record, missing room relation, filtering, and sync exceptions. The guidance avoids generic boilerplate and ties conclusions to concrete data checks."
+    },
+    {
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters."
+    },
+    {
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "third-party-sync-troubleshooting"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    }
+  ],
+  "results": [
+    {
+      "validator": "Schema & Repository Governance",
+      "description": "Validate SKILL.md frontmatter and repository structure",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 7,
+        "errors": 0,
+        "warnings": 6,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 3,
+        "low_count": 3
+      },
+      "finding_counts": {
+        "raw_occurrences": 6,
+        "distinct_occurrences": 6,
+        "unique_findings": 6,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 3,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 3,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-18a7f8cc53f607ef9645",
+          "occurrence_id": "SEO-164902a275e5f2b267d8",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "folder_hierarchy",
+          "message": "Unexpected nesting depth for general skill",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "General skills should be at: skills/<skill-name>/",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-2ab016a817c566724ba9",
+          "occurrence_id": "SEO-de1c03beaf056e8ee208",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Instructions'",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+          "metadata": {
+            "missing_section": "## Instructions"
+          }
+        },
+        {
+          "finding_id": "SEF-e3f5c930756d6b8f695b",
+          "occurrence_id": "SEO-a511a2f7b96a29c726b1",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Examples'",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+          "metadata": {
+            "missing_section": "## Examples"
+          }
+        },
+        {
+          "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+          "occurrence_id": "SEO-ce6f6fed62ee27b4ed60",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "author_missing",
+          "message": "Author not specified in metadata",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+          "metadata": {
+            "profile": "default"
+          }
+        },
+        {
+          "finding_id": "SEF-29923f4d680e578e37e3",
+          "occurrence_id": "SEO-4761c7fa7b90557e92aa",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "description_trigger",
+          "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "State when to use the skill within the first 60 characters",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-b28f818a5fc2daa26f71",
+          "occurrence_id": "SEO-483c504e146197bc3b14",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "unknown_field",
+          "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Remove them or move them under 'metadata'",
+          "metadata": {
+            "fields": [
+              "author",
+              "version"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "manifest_exists",
+          "message": "Found skill manifest: SKILL.md",
+          "metadata": {
+            "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md"
+          }
+        },
+        {
+          "check": "frontmatter_valid",
+          "message": "Valid frontmatter for skill 'third-party-sync-troubleshooting'",
+          "metadata": {
+            "description_length": 250
+          }
+        },
+        {
+          "check": "naming_convention",
+          "message": "Folder name 'third-party-sync-troubleshooting' follows kebab-case convention",
+          "metadata": {
+            "name_length": 32
+          }
+        },
+        {
+          "check": "line_count",
+          "message": "SKILL.md within line limit (116/500)",
+          "metadata": {
+            "line_count": 116,
+            "limit": 500
+          }
+        },
+        {
+          "check": "body_heading",
+          "message": "Body contains a top-level heading",
+          "metadata": null
+        },
+        {
+          "check": "optional_files",
+          "message": "Found optional supporting files: references",
+          "metadata": {
+            "files_found": [
+              "references"
+            ]
+          }
+        },
+        {
+          "check": "name_consistency",
+          "message": "Directory name matches frontmatter: 'third-party-sync-troubleshooting'",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCHEMA-MEDIUM] Unexpected nesting depth for general skill in /skills/library-20261118/G9/third-party-sync-troubleshooting",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Instructions' in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Examples' in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[SCHEMA-LOW] Author not specified in metadata in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[SCHEMA-LOW] Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[SCHEMA-LOW] Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md"
+        ],
+        "messages": [
+          "[OK] manifest_exists: Found skill manifest: SKILL.md",
+          "[OK] frontmatter_valid: Valid frontmatter for skill 'third-party-sync-troubleshooting'",
+          "[OK] naming_convention: Folder name 'third-party-sync-troubleshooting' follows kebab-case convention",
+          "[OK] line_count: SKILL.md within line limit (116/500)",
+          "[OK] body_heading: Body contains a top-level heading",
+          "[OK] optional_files: Found optional supporting files: references",
+          "[OK] name_consistency: Directory name matches frontmatter: 'third-party-sync-troubleshooting'"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "schema"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Semantic Version Validation",
+      "description": "Validate optional metadata.version labels and require strict bumps",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "version_optional",
+          "message": "No semantic version label present; resource will use commit-hash history",
+          "metadata": {
+            "previous_version": null
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] version_optional: No semantic version label present; resource will use commit-hash history"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "version"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Security Scan",
+      "description": "Detect security vulnerabilities and PII/secrets",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "skillspector": "2.13.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 2,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 1
+      },
+      "finding_counts": {
+        "raw_occurrences": 1,
+        "distinct_occurrences": 1,
+        "unique_findings": 1,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-28fce7fe359252745e94",
+          "occurrence_id": "SEO-e0d2b79176423de13d4b",
+          "category": "SECURITY",
+          "severity": "low",
+          "check_name": "Unknown (SQP-2)",
+          "message": "This is a real operational safety weakness, though not a malicious vulnerability. The skill instructs the analyst/operat",
+          "file_path": "references/timetable-sync-anomaly.md",
+          "line_number": 496,
+          "line_content": null,
+          "suggestion": "This is a real operational safety weakness, though not a malicious vulnerability. The skill instructs the analyst/operator to manually trigger a third-party data sync to verify whether a missing timetable entry can be restored. A manual sync is a state-changing operation: it can pull fresh third-party data, overwrite or insert timetable-related records, update sync metadata, affect downstream product behavior, or temporarily expose users to inconsistent data if the source is unhealthy. The document does not include an explicit warning, confirmation requirement, rollback note, or instruction to obtain user/operator approval before triggering the sync. If an AI agent or junior operator follows the skill mechanically, this could lead to unintended production changes. However, the skill is framed as a troubleshooting guide for authorized internal operators, and manually triggering sync is a legitimate diagnostic step in that context, so the likely intent is benign/negligent rather than adversarial. The impact is low because the action generally requires access to XXL-JOB, an edge job handler, or internal operational tooling, and the sync is usually expected behavior for the troubleshooting scenario. Still, for an agent skill, missing side-effect warnings around state-changing actions should be treated as a low-severity vulnerability. Add an explicit safety warning immediately before the manual trigger step. The warning should state that manually triggering a timetable sync is a state-changing operation that may update or overwrite timetable data, change third-party sync records, or affect product-facing behavior. Require confirmation from the user or operations owner before proceeding, especially in production. Recommend first recording the affected tenant/unit/thirdCode, current sync record state, and planned verification steps. Prefer a controlled or dry-run approach if available. Explicitly forbid creating fake sync records or manually modifying database rows to simulate execution. If the agent lacks approval or cannot verify the safety of the operation, instruct it to stop and escalate to a human maintainer.",
+          "metadata": {
+            "skillspector_confidence": 0.95,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path",
+            "llm_verdict": "true_positive",
+            "llm_confidence": "medium",
+            "llm_reasoning": "The skill appears to direct a state-changing production sync without explicit approval, rollback, or side-effect warnings, which is a genuine low-severity operational safety issue for an agent skill.",
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash"
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "skillspector",
+          "message": "No security vulnerabilities detected (secrets, API keys, credentials)",
+          "metadata": null
+        },
+        {
+          "check": "skillspector",
+          "message": "Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "metadata": {
+            "issue_count": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "SkillSpector reported 1 reference(s) to files the skill does not bundle (SKILL.md:26 [reference_resolution; reference_missing]); SkillSpector reported no other gap for them, and those lines name no file left out of the scan, so they do not mark the scan incomplete. Files not in the scan, including any outside the scanned path, were not inspected",
+          "[SECURITY-LOW] This is a real operational safety weakness, though not a malicious vulnerability. The skill instructs the analyst/operat in references/timetable-sync-anomaly.md:496"
+        ],
+        "messages": [
+          "[OK] skillspector: No security vulnerabilities detected (secrets, API keys, credentials)",
+          "[OK] skillspector: Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "LLM verification reviewed all findings; no high-confidence false positives identified"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "skillspector_version": "2.13.4",
+      "skillspector_llm_provenance": {
+        "schema_version": 1,
+        "provider": {
+          "configured_adapter": "openai_compatible",
+          "resolved_adapter": "openai_compatible",
+          "effective_adapter": "openai_compatible",
+          "effective_adapters": [
+            "openai_compatible"
+          ],
+          "service": "unknown",
+          "routing": {
+            "deployment_override": null,
+            "deployment_source": "not_applicable",
+            "api_version": null,
+            "api_version_source": "not_applicable"
+          }
+        },
+        "analyzers": [
+          {
+            "analyzer_id": "mcp_tool_poisoning",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_developer_intent",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_quality_policy",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_security_discovery",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "meta_analyzer",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          }
+        ],
+        "sampling": {
+          "temperature": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "seed": {
+            "requested": null,
+            "source": "unset",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "reasoning_effort": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          }
+        },
+        "determinism": {
+          "classification": "nondeterministic",
+          "control_status": "provider_defaults",
+          "provider_guarantee": false,
+          "reason": "Optional controls do not guarantee identical provider output."
+        }
+      },
+      "skillspector_applicability": {
+        "artifact_type": "skill",
+        "kept_issues": 0,
+        "suppressed_inapplicable_issues": 0,
+        "suppressed_by_file_role": {},
+        "raw_risk_score": 0,
+        "applicable_risk_score": 0
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "security"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "PII Scan",
+      "description": "Detect PII and local identifiers",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 2,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "pii_scan_start",
+          "message": "Scanning 2 files for PII",
+          "metadata": {
+            "file_count": 2
+          }
+        },
+        {
+          "check": "pii_detection",
+          "message": "No PII detected in 2 files (emails, SSNs, phone numbers, paths)",
+          "metadata": {
+            "files_scanned": 2
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] pii_scan_start: Scanning 2 files for PII",
+          "[OK] pii_detection: No PII detected in 2 files (emails, SSNs, phone numbers, paths)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "pii"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "License Compliance",
+      "description": "Validate license compliance for Skills, Rules, and Workflows",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "license_compliance",
+          "message": "License compliance scan completed (not detected)",
+          "metadata": {
+            "license_status": "not_detected"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No license information found - manual review required. Add a LICENSE file or 'license' field in frontmatter."
+        ],
+        "messages": [
+          "No license detected in any tier",
+          "[OK] license_compliance: License compliance scan completed (not detected)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "license"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Risk Analysis",
+      "description": "Static code analysis using Bandit and packaged Semgrep rules",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "code_file_discovery",
+          "message": "No code files found - code risk analysis is not applicable",
+          "metadata": {
+            "file_counts": {
+              "py": 0,
+              "sh": 0,
+              "js": 0
+            }
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] code_file_discovery: No code files found - code risk analysis is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Secrets Detection",
+      "description": "Detect hardcoded secrets, API keys, and credentials using Gitleaks",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "gitleaks": "8.30.0"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "gitleaks",
+          "message": "No secrets detected by Gitleaks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] gitleaks: No secrets detected by Gitleaks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Integrity & Hygiene",
+      "description": "Validate dead links, dependencies, and static Python test-file discovery",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 2,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dead_links_scan",
+          "message": "Checking 2 markdown files for dead links",
+          "metadata": {
+            "file_count": 2
+          }
+        },
+        {
+          "check": "dead_links",
+          "message": "All relative links valid in 2 markdown file(s)",
+          "metadata": {
+            "files_checked": 2
+          }
+        },
+        {
+          "check": "dependencies",
+          "message": "No dependency files found (requirements.txt, pyproject.toml)",
+          "metadata": null
+        },
+        {
+          "check": "test_discovery",
+          "message": "No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests.",
+          "metadata": {
+            "test_count": 0,
+            "execution_performed": false,
+            "coverage_measured": false,
+            "patterns": [
+              "test_*.py",
+              "*_test.py"
+            ]
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No standard Python test-file candidates found; consider adding tests"
+        ],
+        "messages": [
+          "[OK] dead_links_scan: Checking 2 markdown files for dead links",
+          "[OK] dead_links: All relative links valid in 2 markdown file(s)",
+          "[OK] dependencies: No dependency files found (requirements.txt, pyproject.toml)",
+          "[OK] test_discovery: No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests."
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Dependency Vulnerability Audit",
+      "description": "Scan dependencies for CVE vulnerabilities using pip-audit and Safety",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dependency_file_discovery",
+          "message": "No dependency files found - vulnerability audit is not applicable",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] dependency_file_discovery: No dependency files found - vulnerability audit is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "dependency"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Unicode Smuggling Detection",
+      "description": "Detect invisible Unicode characters and ASCII smuggling",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 2,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "unicode_scan",
+          "message": "No invisible Unicode characters detected in 2 file(s)",
+          "metadata": {
+            "files_scanned": 2
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] unicode_scan: No invisible Unicode characters detected in 2 file(s)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "unicode"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "QUALITY",
+      "description": "Skill quality scoring across Correctness (35%), Discoverability (25%), Reliability (25%), and Efficiency (15%)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 8,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 2,
+        "low_count": 6
+      },
+      "finding_counts": {
+        "raw_occurrences": 8,
+        "distinct_occurrences": 8,
+        "unique_findings": 8,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 6,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 6,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+          "occurrence_id": "SEO-097b193dafed4d461800",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+          "occurrence_id": "SEO-694d69f7efc54da6d53a",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-87332366f5f7f4cb6384",
+          "occurrence_id": "SEO-f8a9ef493509e710a8d1",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description very long (250 chars, recommend 50-150)",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Keep descriptions concise for progressive disclosure",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-0f3cde56a46498377f1a",
+          "occurrence_id": "SEO-9cd658ff920728118d3f",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description doesn't mention WHEN to use this skill",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-9612bbfb3f32d491ac5d",
+          "occurrence_id": "SEO-2ac050fd74b6367cdace",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No mention of error handling or validation",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document expected errors and how to handle them",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-4a6560f4aec006f302f9",
+          "occurrence_id": "SEO-5d5f51c3dd79ca8c80f3",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No prerequisites/requirements documented",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document dependencies, API keys, or setup needed",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-fc6fe3747c071963a76e",
+          "occurrence_id": "SEO-db16687706a8cd18ef25",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No limitations documented",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Limitations' section with known issues/constraints",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-378f24adfec67572e606",
+          "occurrence_id": "SEO-1c921a1471002e638e4c",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No troubleshooting section documented",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "quality_score",
+          "message": "Score: 86.5/100 (Grade: B)",
+          "metadata": {
+            "overall_score": 86.5,
+            "grade": "B",
+            "skill_type": "guide-only"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.author' in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags' in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[QUALITY-LOW] Description very long (250 chars, recommend 50-150) in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[QUALITY-LOW] Description doesn't mention WHEN to use this skill in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[QUALITY-LOW] No mention of error handling or validation in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[QUALITY-LOW] No prerequisites/requirements documented in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[QUALITY-LOW] No limitations documented in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[QUALITY-LOW] No troubleshooting section documented in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md"
+        ],
+        "messages": [
+          "[OK] quality_score: Score: 86.5/100 (Grade: B)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "quality": {
+        "overall_score": 86.5,
+        "grade": "B",
+        "skill_type": "guide-only",
+        "skill_name": "third-party-sync-troubleshooting",
+        "dimensions": {
+          "correctness": {
+            "score": 90.0,
+            "weight": 0.35,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+                "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+                "deduction": 5
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+                "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+                "deduction": 5
+              }
+            ]
+          },
+          "discoverability": {
+            "score": 85.0,
+            "weight": 0.25,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "Description very long (250 chars, recommend 50-150)",
+                "suggestion": "Keep descriptions concise for progressive disclosure",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "Description doesn't mention WHEN to use this skill",
+                "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+                "deduction": 10
+              }
+            ]
+          },
+          "reliability": {
+            "score": 75.0,
+            "weight": 0.25,
+            "issues_count": 4,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No mention of error handling or validation",
+                "suggestion": "Document expected errors and how to handle them",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No prerequisites/requirements documented",
+                "suggestion": "Document dependencies, API keys, or setup needed",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No limitations documented",
+                "suggestion": "Add '## Limitations' section with known issues/constraints",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No troubleshooting section documented",
+                "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+                "deduction": 5
+              }
+            ]
+          },
+          "efficiency": {
+            "score": 100.0,
+            "weight": 0.15,
+            "issues_count": 0,
+            "issues": []
+          }
+        },
+        "metrics": {
+          "total_tokens": 660,
+          "estimated_tokens": 660,
+          "estimate_method": "characters/4",
+          "recommended_max_tokens": 5000,
+          "frontmatter_tokens": 87,
+          "instructions_tokens": 571,
+          "script_count": 0,
+          "has_examples": true,
+          "has_error_handling": false,
+          "has_frontmatter": true,
+          "has_instructions": false,
+          "has_scripts": false,
+          "has_lib_module": false
+        }
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "quality"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "SCRIPT_LINT",
+      "description": "AST-based code quality checks for skill scripts",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "lint",
+          "message": "No scripts/ or tools/ directory found",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] lint: No scripts/ or tools/ directory found"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "lint"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Harness Compatibility",
+      "description": "Advisory: whether each agent harness loads, degrades or drops the skill",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 3,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 3,
+        "distinct_occurrences": 3,
+        "unique_findings": 3,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 3
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 3
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-3661379ea9e5c1072875",
+          "occurrence_id": "SEO-f67104fae9810bae63ed",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-RELOAD",
+          "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e0623bdfb91d6bbb829f",
+          "occurrence_id": "SEO-9fa37ea017b8a3c7dd8a",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-DESC-60",
+          "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-03e029934351881ba688",
+          "occurrence_id": "SEO-de9f378ed2af10f97bbd",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-RELOAD",
+          "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once. in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them. in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[HARNESS-INFO] opencode: Skill list and text are cached at startup; edits need a restart. in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "harness"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "RUBRIC_EVAL",
+      "description": "LLM-as-Judge qualitative evaluation across 9 criteria (description clarity, instruction quality, trigger simulation, etc.)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 9,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 9
+      },
+      "finding_counts": {
+        "raw_occurrences": 9,
+        "distinct_occurrences": 9,
+        "unique_findings": 9,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 9,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 9,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-c9f81e25651d4e2d0908",
+          "occurrence_id": "SEO-3aea8bb3bbbac228b128",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_description_clarity",
+          "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The description clearly lists applicable sync troubleshooting scenarios, tables, and keywords. It is specific to third-party data sync in the current repository.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "description_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-4037b9540ace489a4b50",
+          "occurrence_id": "SEO-d79f9c7b1078a46f0627",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_instruction_clarity",
+          "message": "[9/10] Instructions are easy to follow with clear action steps",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The usage steps are explicit, ordered, and emphasize classification before reading branch documents. The workflow is easy for an agent to follow.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "instruction_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-71d57f4bb9179c1db1c6",
+          "occurrence_id": "SEO-94e10493b32fc42cddf2",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_example_quality",
+          "message": "[8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "SQL examples and enum mappings are practical and relevant. Detection coverage is strong for timetable issues but narrower for other sync types mentioned in the description.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "example_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-deb3f71606250e69d5cb",
+          "occurrence_id": "SEO-a10cf75c3515f6633201",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_documentation_completeness",
+          "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Purpose, tables, SQL templates, parameters, and constraints are well documented. There are no executable scripts, but the SQL-based workflow is sufficiently complete.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "documentation_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-bb1d2b633590aaec5edd",
+          "occurrence_id": "SEO-8da52e2e2ddaebda8aa8",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_scope_definition",
+          "message": "[7/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The implemented branch is clearly scoped to timetable sync anomalies. The frontmatter description is somewhat broader than the currently supported workflow.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "scope_definition"
+          }
+        },
+        {
+          "finding_id": "SEF-bf8473e4c9dcbfaa4eef",
+          "occurrence_id": "SEO-a51562f3cffca2915ddb",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_professional_tone",
+          "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The documentation is consistently structured with headings, tables, and clear Chinese operational language. Formatting is professional and easy to scan.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "professional_tone"
+          }
+        },
+        {
+          "finding_id": "SEF-d06844a7d4c2f50392d4",
+          "occurrence_id": "SEO-456e745c3080e11a4c90",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_trigger_simulation",
+          "message": "[7/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "It would correctly trigger for classroom timetable missing, sync not updated, black/white filter, sync log error, and manual sync questions. It may overtrigger for non-timetable third-party sync issues because the description is broad while only one branch exists.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "trigger_simulation"
+          }
+        },
+        {
+          "finding_id": "SEF-035ac0103677ab4d660b",
+          "occurrence_id": "SEO-2740b4f4890ed82be013",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_workflow_completeness",
+          "message": "[9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The timetable troubleshooting path is end-to-end from input validation through prechecks, SQL, filters, errors, manual sync, and conclusions. Cloud-side log inspection details are slightly less explicit than edge-side guidance.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "workflow_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-09421907cbfc932b865e",
+          "occurrence_id": "SEO-9cad334717e203fa82e2",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_error_handling_quality",
+          "message": "[9/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+          "file_path": "/skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Error cases are realistic and actionable, including missing cron config, no sync record, missing room relation, filtering, and sync exceptions. The guidance avoids generic boilerplate and ties conclusions to concrete data checks.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "error_handling_quality"
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "rubric_eval",
+          "message": "LLM Rubric Score: 83.2/100",
+          "metadata": {
+            "overall_score": 83.2,
+            "overall_pass": true,
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash",
+            "judge_attempts": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[RUBRIC_EVAL-LOW] [9/10] Description is clear, specific, and explains WHEN to use the skill in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Instructions are easy to follow with clear action steps in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] All necessary information is present (purpose, scripts, parameters) in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Skill scope is well-defined (clear boundaries, not too broad/narrow) in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Documentation uses professional, consistent tone and formatting in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives? in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance. in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate? in /skills/library-20261118/G9/third-party-sync-troubleshooting/SKILL.md"
+        ],
+        "messages": [
+          "[OK] rubric_eval: LLM Rubric Score: 83.2/100"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "rubric_eval": {
+        "execution_status": "succeeded",
+        "overall_score": 83.2,
+        "overall_pass": true,
+        "summary": "The skill is highly actionable for timetable sync troubleshooting with clear routing, table context, SQL examples, and end-to-end decision logic. Minor gaps are the broad description versus only one implemented branch and limited guidance for non-timetable sync issues or cloud log inspection.",
+        "judge_score": 87,
+        "judge_overall_pass": true,
+        "skill_name": "third-party-sync-troubleshooting",
+        "checks": [
+          {
+            "id": "description_clarity",
+            "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The description clearly lists applicable sync troubleshooting scenarios, tables, and keywords. It is specific to third-party data sync in the current repository."
+          },
+          {
+            "id": "instruction_clarity",
+            "criterion": "Instructions are easy to follow with clear action steps",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The usage steps are explicit, ordered, and emphasize classification before reading branch documents. The workflow is easy for an agent to follow."
+          },
+          {
+            "id": "example_quality",
+            "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "SQL examples and enum mappings are practical and relevant. Detection coverage is strong for timetable issues but narrower for other sync types mentioned in the description."
+          },
+          {
+            "id": "documentation_completeness",
+            "criterion": "All necessary information is present (purpose, scripts, parameters)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Purpose, tables, SQL templates, parameters, and constraints are well documented. There are no executable scripts, but the SQL-based workflow is sufficiently complete."
+          },
+          {
+            "id": "scope_definition",
+            "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "The implemented branch is clearly scoped to timetable sync anomalies. The frontmatter description is somewhat broader than the currently supported workflow."
+          },
+          {
+            "id": "professional_tone",
+            "criterion": "Documentation uses professional, consistent tone and formatting",
+            "importance": "low",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The documentation is consistently structured with headings, tables, and clear Chinese operational language. Formatting is professional and easy to scan."
+          },
+          {
+            "id": "trigger_simulation",
+            "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "It would correctly trigger for classroom timetable missing, sync not updated, black/white filter, sync log error, and manual sync questions. It may overtrigger for non-timetable third-party sync issues because the description is broad while only one branch exists."
+          },
+          {
+            "id": "workflow_completeness",
+            "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The timetable troubleshooting path is end-to-end from input validation through prechecks, SQL, filters, errors, manual sync, and conclusions. Cloud-side log inspection details are slightly less explicit than edge-side guidance."
+          },
+          {
+            "id": "error_handling_quality",
+            "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "Error cases are realistic and actionable, including missing cron config, no sync record, missing room relation, filtering, and sync exceptions. The guidance avoids generic boilerplate and ties conclusions to concrete data checks."
+          }
+        ],
+        "aggregation": {
+          "method": "importance_weighted_mean",
+          "importance_weights": {
+            "high": 3,
+            "medium": 2,
+            "low": 1
+          },
+          "min_score": 70,
+          "criterion_pass_score": 7,
+          "requires_all_criteria_pass": true
+        },
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash",
+        "judge_attempts": 1
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "third-party-sync-troubleshooting",
+        "skill_digest": "sha256:efa83ff8133a97d1eb57ce49a6c7b7fa9d125abc9d127e077c22dbca0f615304",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "rubric"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "incomplete",
+  "publication": {
+    "status": "incomplete",
+    "eligible": false,
+    "reasons": [
+      "Required recognized built-in Tier 2 evidence is missing.",
+      "Tier 3 lacks publication-complete execution evidence."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "policy": {
+    "profile": "default",
+    "audience": "all",
+    "digest": "sha256:64a069b8853f7123049a675d6853ef8d8b424792bb9a2a5157a73ec312f38ed4",
+    "author_email_regex": null,
+    "severity_overrides": {
+      "SCHEMA.author_missing": "low",
+      "SCHEMA.author_without_email": "info",
+      "SCHEMA.author_format": "high",
+      "WORKFLOWS.author_format": "high",
+      "LICENSE.*": "critical"
+    },
+    "metadata_id_requirement": "ignore",
+    "source": "/usr/local/lib/python3.12/site-packages/skillevaluator/config/profiles/default.yaml"
+  },
+  "quality_config": {
+    "source": "packaged",
+    "file": null,
+    "digest": "sha256:298ff2bf62132c8154217b7aa59fc1fd04f28cf75372f55620a2cbcd951d6549",
+    "min_score": 70
+  },
+  "evaluated_source": null,
+  "gating": {
+    "tiers": {
+      "1": {
+        "blocking": true,
+        "validators": [
+          "Schema & Repository Governance",
+          "Semantic Version Validation",
+          "Security Scan",
+          "PII Scan",
+          "License Compliance",
+          "Code Risk Analysis",
+          "Secrets Detection",
+          "Code Integrity & Hygiene",
+          "Dependency Vulnerability Audit",
+          "Unicode Smuggling Detection",
+          "QUALITY",
+          "SCRIPT_LINT",
+          "Harness Compatibility",
+          "RUBRIC_EVAL"
+        ],
+        "validator_policies": [
+          {
+            "validator": "Schema & Repository Governance",
+            "blocking": true
+          },
+          {
+            "validator": "Semantic Version Validation",
+            "blocking": true
+          },
+          {
+            "validator": "Security Scan",
+            "blocking": true
+          },
+          {
+            "validator": "PII Scan",
+            "blocking": true
+          },
+          {
+            "validator": "License Compliance",
+            "blocking": true
+          },
+          {
+            "validator": "Code Risk Analysis",
+            "blocking": true
+          },
+          {
+            "validator": "Secrets Detection",
+            "blocking": true
+          },
+          {
+            "validator": "Code Integrity & Hygiene",
+            "blocking": true
+          },
+          {
+            "validator": "Dependency Vulnerability Audit",
+            "blocking": true
+          },
+          {
+            "validator": "Unicode Smuggling Detection",
+            "blocking": true
+          },
+          {
+            "validator": "QUALITY",
+            "blocking": true
+          },
+          {
+            "validator": "SCRIPT_LINT",
+            "blocking": true
+          },
+          {
+            "validator": "Harness Compatibility",
+            "blocking": true
+          },
+          {
+            "validator": "RUBRIC_EVAL",
+            "blocking": true
+          }
+        ]
+      }
+    }
+  },
+  "workflow": {
+    "tier": 1,
+    "stages": {
+      "validation": {
+        "status": "passed"
+      },
+      "rubric": {
+        "status": "passed"
+      },
+      "llm": {
+        "status": "enabled"
+      }
+    }
+  },
+  "quality_summary": [
+    {
+      "overall_score": 86.5,
+      "grade": "B",
+      "skill_type": "guide-only",
+      "skill_name": "third-party-sync-troubleshooting",
+      "dimensions": {
+        "correctness": {
+          "score": 90.0,
+          "weight": 0.35,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+              "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+              "deduction": 5
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+              "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+              "deduction": 5
+            }
+          ]
+        },
+        "discoverability": {
+          "score": 85.0,
+          "weight": 0.25,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "Description very long (250 chars, recommend 50-150)",
+              "suggestion": "Keep descriptions concise for progressive disclosure",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "Description doesn't mention WHEN to use this skill",
+              "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+              "deduction": 10
+            }
+          ]
+        },
+        "reliability": {
+          "score": 75.0,
+          "weight": 0.25,
+          "issues_count": 4,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No mention of error handling or validation",
+              "suggestion": "Document expected errors and how to handle them",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No prerequisites/requirements documented",
+              "suggestion": "Document dependencies, API keys, or setup needed",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No limitations documented",
+              "suggestion": "Add '## Limitations' section with known issues/constraints",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No troubleshooting section documented",
+              "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+              "deduction": 5
+            }
+          ]
+        },
+        "efficiency": {
+          "score": 100.0,
+          "weight": 0.15,
+          "issues_count": 0,
+          "issues": []
+        }
+      },
+      "metrics": {
+        "total_tokens": 660,
+        "estimated_tokens": 660,
+        "estimate_method": "characters/4",
+        "recommended_max_tokens": 5000,
+        "frontmatter_tokens": 87,
+        "instructions_tokens": 571,
+        "script_count": 0,
+        "has_examples": true,
+        "has_error_handling": false,
+        "has_frontmatter": true,
+        "has_instructions": false,
+        "has_scripts": false,
+        "has_lib_module": false
+      }
+    }
+  ],
+  "rubric_eval": {
+    "execution_status": "succeeded",
+    "overall_score": 83.2,
+    "overall_pass": true,
+    "summary": "The skill is highly actionable for timetable sync troubleshooting with clear routing, table context, SQL examples, and end-to-end decision logic. Minor gaps are the broad description versus only one implemented branch and limited guidance for non-timetable sync issues or cloud log inspection.",
+    "judge_score": 87,
+    "judge_overall_pass": true,
+    "skill_name": "third-party-sync-troubleshooting",
+    "checks": [
+      {
+        "id": "description_clarity",
+        "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The description clearly lists applicable sync troubleshooting scenarios, tables, and keywords. It is specific to third-party data sync in the current repository."
+      },
+      {
+        "id": "instruction_clarity",
+        "criterion": "Instructions are easy to follow with clear action steps",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The usage steps are explicit, ordered, and emphasize classification before reading branch documents. The workflow is easy for an agent to follow."
+      },
+      {
+        "id": "example_quality",
+        "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "SQL examples and enum mappings are practical and relevant. Detection coverage is strong for timetable issues but narrower for other sync types mentioned in the description."
+      },
+      {
+        "id": "documentation_completeness",
+        "criterion": "All necessary information is present (purpose, scripts, parameters)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Purpose, tables, SQL templates, parameters, and constraints are well documented. There are no executable scripts, but the SQL-based workflow is sufficiently complete."
+      },
+      {
+        "id": "scope_definition",
+        "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "The implemented branch is clearly scoped to timetable sync anomalies. The frontmatter description is somewhat broader than the currently supported workflow."
+      },
+      {
+        "id": "professional_tone",
+        "criterion": "Documentation uses professional, consistent tone and formatting",
+        "importance": "low",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The documentation is consistently structured with headings, tables, and clear Chinese operational language. Formatting is professional and easy to scan."
+      },
+      {
+        "id": "trigger_simulation",
+        "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "It would correctly trigger for classroom timetable missing, sync not updated, black/white filter, sync log error, and manual sync questions. It may overtrigger for non-timetable third-party sync issues because the description is broad while only one branch exists."
+      },
+      {
+        "id": "workflow_completeness",
+        "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The timetable troubleshooting path is end-to-end from input validation through prechecks, SQL, filters, errors, manual sync, and conclusions. Cloud-side log inspection details are slightly less explicit than edge-side guidance."
+      },
+      {
+        "id": "error_handling_quality",
+        "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "Error cases are realistic and actionable, including missing cron config, no sync record, missing room relation, filtering, and sync exceptions. The guidance avoids generic boilerplate and ties conclusions to concrete data checks."
+      }
+    ],
+    "aggregation": {
+      "method": "importance_weighted_mean",
+      "importance_weights": {
+        "high": 3,
+        "medium": 2,
+        "low": 1
+      },
+      "min_score": 70,
+      "criterion_pass_score": 7,
+      "requires_all_criteria_pass": true
+    },
+    "llm_provider": "openai-compatible",
+    "llm_model_used": "qwen3.8-flash",
+    "judge_attempts": 1
+  },
+  "generated_at": "2026-11-18T03:19:30.149012+00:00"
+}

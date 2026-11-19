@@ -1,0 +1,210 @@
+{
+  "type": "object",
+  "required": [
+    "task_type",
+    "matched_modules"
+  ],
+  "properties": {
+    "task_type": {
+      "type": "string"
+    },
+    "matched_modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "module_name": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "primary",
+              "related"
+            ]
+          }
+        },
+        "required": [
+          "module_name",
+          "confidence",
+          "role"
+        ]
+      }
+    },
+    "intent_type": {
+      "type": "string"
+    },
+    "core_intent": {
+      "type": "string"
+    },
+    "explicit_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "inferred_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_dimensions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "default_inference": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "must_confirm": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "follow_up_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rewritten_requirement": {
+      "type": "string"
+    },
+    "review_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "structured_extraction": {
+      "type": "object"
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "task_type": {
+            "const": "completion"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "task_type",
+          "matched_modules",
+          "intent_type",
+          "core_intent",
+          "explicit_requirements",
+          "inferred_requirements",
+          "missing_dimensions",
+          "default_inference",
+          "must_confirm",
+          "risks",
+          "follow_up_questions",
+          "rewritten_requirement",
+          "assumptions"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "task_type": {
+            "const": "rewrite"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "task_type",
+          "matched_modules",
+          "intent_type",
+          "core_intent",
+          "must_confirm",
+          "rewritten_requirement",
+          "assumptions"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "task_type": {
+            "const": "review"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "task_type",
+          "matched_modules",
+          "intent_type",
+          "core_intent",
+          "review_issues",
+          "missing_dimensions",
+          "risks",
+          "follow_up_questions",
+          "rewritten_requirement"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "task_type": {
+            "const": "extraction"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "task_type",
+          "matched_modules",
+          "intent_type",
+          "structured_extraction",
+          "assumptions"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "task_type": {
+            "const": "explanation"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "task_type",
+          "matched_modules",
+          "core_intent",
+          "default_inference",
+          "must_confirm"
+        ]
+      }
+    }
+  ]
+}

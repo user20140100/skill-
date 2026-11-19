@@ -1,0 +1,25 @@
+{
+  "name": "local-code-review",
+  "author": "guorongfei",
+  "version": "0.0.2",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:04+08:00",
+  "updatedAt": "2026-11-17T10:46:04+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/local-code-review"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/local-code-review",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/local-code-review"
+  ],
+  "fileHashes": {
+    "README.md": "7be22feaac87868aa32abe0aee38245e1335d69184efd12a16e60ff42d095145",
+    "SKILL.md": "585a5f30ef0925404cbc5886b180775063e66b7b1be2a15f0492f6d26f3f3a4b",
+    "reference/gitlab-api.md": "aa046e317dfd3be4b1e2c9e9280326a852e99023be027d7730dcffb29e74cd4c",
+    "reference/report-template.html": "83b16aafe32228def746c5c9025bb12c9700fcbda9640575648d3da3cc3047dc"
+  }
+}

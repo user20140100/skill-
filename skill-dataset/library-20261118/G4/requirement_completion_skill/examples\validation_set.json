@@ -1,0 +1,149 @@
+{
+  "validation_set_name": "requirement_completion_validation_set",
+  "version": "1.0",
+  "cases": [
+    {
+      "id": "val_01",
+      "input": "制热时风向向下吹",
+      "task_type": "completion",
+      "expected_primary_module": "上下扫风控制",
+      "expected_related_modules": [
+        "制热防冷风控制"
+      ],
+      "required_output_fields": [
+        "matched_modules",
+        "intent_type",
+        "missing_dimensions",
+        "must_confirm",
+        "rewritten_requirement"
+      ]
+    },
+    {
+      "id": "val_02",
+      "input": "制热启动不要吹冷风",
+      "task_type": "rewrite",
+      "expected_primary_module": "制热防冷风控制",
+      "required_output_fields": [
+        "matched_modules",
+        "must_confirm",
+        "rewritten_requirement"
+      ]
+    },
+    {
+      "id": "val_03",
+      "input": "支持节能模式和强力模式",
+      "task_type": "review",
+      "expected_primary_module": "经济模式",
+      "expected_related_modules": [
+        "强力运行模式"
+      ],
+      "required_output_fields": [
+        "task_type",
+        "matched_modules",
+        "intent_type",
+        "core_intent",
+        "review_issues",
+        "missing_dimensions",
+        "risks",
+        "follow_up_questions",
+        "rewritten_requirement"
+      ],
+      "must_include_signals": [
+        "互斥",
+        "优先级",
+        "恢复"
+      ]
+    },
+    {
+      "id": "val_04",
+      "input": "售后查询压缩机频率和故障码",
+      "task_type": "extraction",
+      "expected_primary_module": "运行参数查询",
+      "expected_related_modules": [
+        "故障信息查询"
+      ],
+      "required_output_fields": [
+        "matched_modules",
+        "structured_extraction"
+      ]
+    },
+    {
+      "id": "val_05",
+      "input": "随身感温控要关注什么补全点",
+      "task_type": "explanation",
+      "expected_primary_module": "随身感温控",
+      "required_output_fields": [
+        "matched_modules",
+        "default_inference",
+        "must_confirm"
+      ]
+    },
+    {
+      "id": "val_06",
+      "input": "掉电恢复后风速和风向是否恢复",
+      "task_type": "completion",
+      "expected_primary_module": "掉电恢复记忆",
+      "expected_related_modules": [
+        "风速控制",
+        "上下扫风控制",
+        "左右扫风控制"
+      ],
+      "must_include_signals": [
+        "恢复顺序",
+        "优先级"
+      ]
+    },
+    {
+      "id": "val_07",
+      "input": "化霜结束后导风板和风机会怎么处理",
+      "task_type": "completion",
+      "expected_primary_module": "智能化霜控制",
+      "expected_related_modules": [
+        "制热防冷风控制",
+        "上下扫风控制",
+        "风速控制"
+      ],
+      "must_include_signals": [
+        "退出条件",
+        "恢复逻辑"
+      ]
+    },
+    {
+      "id": "val_08",
+      "input": "滤网清洁提醒怎么复位",
+      "task_type": "completion",
+      "expected_primary_module": "滤网清洁提醒",
+      "required_output_fields": [
+        "matched_modules",
+        "must_confirm",
+        "rewritten_requirement"
+      ]
+    },
+    {
+      "id": "val_09",
+      "input": "静音模式和睡眠模式有什么冲突",
+      "task_type": "review",
+      "expected_primary_module": "静音运行模式",
+      "expected_related_modules": [
+        "睡眠模式"
+      ],
+      "must_include_signals": [
+        "互斥",
+        "退出条件",
+        "恢复规则"
+      ]
+    },
+    {
+      "id": "val_10",
+      "input": "收氟功能被中断后如何处理",
+      "task_type": "completion",
+      "expected_primary_module": "制冷剂泵集回收",
+      "required_output_fields": [
+        "matched_modules",
+        "risks",
+        "must_confirm",
+        "rewritten_requirement"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2887 @@
+{
+  "version": "0.9.0",
+  "target_path": "/skills/simple",
+  "overall_passed": false,
+  "overall_status": "failed",
+  "incomplete_scans": [],
+  "total_validators": 14,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 1,
+  "total_warnings": 16,
+  "severity_counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 4,
+    "low": 8
+  },
+  "finding_counts": {
+    "raw_occurrences": 16,
+    "distinct_occurrences": 16,
+    "unique_findings": 16,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 0,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 4,
+      "low": 8,
+      "info": 3
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 4,
+      "low": 8,
+      "info": 3
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-03e029934351881ba688",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-RELOAD",
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-95bcaf5028f293228dfd",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0f3cde56a46498377f1a",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description doesn't mention WHEN to use this skill",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5aefee7393fc405a51d4",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-29923f4d680e578e37e3",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "description_trigger",
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "suggestion": "State when to use the skill within the first 60 characters",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-ccf44c02d43cee3e4ce8",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3661379ea9e5c1072875",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-RELOAD",
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b2d6ee332ed3cb6a1f80",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-378f24adfec67572e606",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No troubleshooting section documented",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-d9341fd26cd597dce8a2",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4a6560f4aec006f302f9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No prerequisites/requirements documented",
+      "suggestion": "Document dependencies, API keys, or setup needed",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5a6d7f3bf9d01e37b5e6",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6d68dab37ccc357a6814",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "Instructions don't mention 'run_script'",
+      "suggestion": "Add explicit run_script() call examples",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-9f5c9a4266c6bfc93a39",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-740453e5661b3b5b6f1e",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "No documented scripts in table format",
+      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-7a9a4c5dfcb2d953e434",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-9612bbfb3f32d491ac5d",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No mention of error handling or validation",
+      "suggestion": "Document expected errors and how to handle them",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-9dcaa9976810e0685231",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "No '## Purpose' section",
+      "suggestion": "Add purpose section to clarify use cases",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-818e5bfdc178b27aa672",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-dc18392f6470f243aaa5",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_efficiency",
+      "message": "Instructions lack clear action verbs",
+      "suggestion": "Use imperative: 'Use run_script with...', 'Call activate_skill...'",
+      "metadata": {
+        "dimension": "efficiency",
+        "deduction": 15
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-7737557c7c7c6286fe80",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-ed33cead8f0c5148222c",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e0623bdfb91d6bbb829f",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-DESC-60",
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-746887f4f2efc5a77c7b",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e31ec0572821fe905e9d",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_efficiency",
+      "message": "Instructions not in list format",
+      "suggestion": "Use bullet points or numbered steps for clarity",
+      "metadata": {
+        "dimension": "efficiency",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5d32b6b883a356fec42b",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-f99342c372d3b4a55987",
+      "category": "RUBRIC_EVAL",
+      "severity": "high",
+      "check_name": "llm_unavailable",
+      "message": "LLM judge unavailable; rubric evaluation did not run: LLM connection failed. Check provider connectivity and endpoint configuration.",
+      "suggestion": "Configure a public LLM provider to enable LLM rubric evaluation",
+      "metadata": null,
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-694e4f4fd30708fcd935",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-fc6fe3747c071963a76e",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No limitations documented",
+      "suggestion": "Add '## Limitations' section with known issues/constraints",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-167d334a80c351a77b5f",
+          "validator": "QUALITY",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 4,
+    "independent_errors": 0,
+    "independent_warnings": 1
+  },
+  "skills": [
+    {
+      "name": "simple",
+      "passed": false,
+      "issue_count": 16
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Simple Skill Author <skill-author@example.com>",
+      "items": [
+        {
+          "name": "simple",
+          "passed": false,
+          "issue_count": 16
+        }
+      ],
+      "total_items": 1,
+      "passed_count": 0,
+      "failed_count": 1,
+      "total_issues": 16
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "LLM judge unavailable; rubric evaluation did not run: LLM connection failed. Check provider connectivity and endpoint configuration.",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Configure a public LLM provider to enable LLM rubric evaluation"
+    },
+    {
+      "message": "No documented scripts in table format",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
+    },
+    {
+      "message": "Instructions don't mention 'run_script'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add explicit run_script() call examples"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+      "message": "Instructions lack clear action verbs",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Use imperative: 'Use run_script with...', 'Call activate_skill...'"
+    },
+    {
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "State when to use the skill within the first 60 characters"
+    },
+    {
+      "message": "Description doesn't mention WHEN to use this skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'"
+    },
+    {
+      "message": "No '## Purpose' section",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add purpose section to clarify use cases"
+    },
+    {
+      "message": "No mention of error handling or validation",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document expected errors and how to handle them"
+    },
+    {
+      "message": "No prerequisites/requirements documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document dependencies, API keys, or setup needed"
+    },
+    {
+      "message": "No limitations documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Limitations' section with known issues/constraints"
+    },
+    {
+      "message": "No troubleshooting section documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns"
+    },
+    {
+      "message": "Instructions not in list format",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Use bullet points or numbered steps for clarity"
+    },
+    {
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters."
+    },
+    {
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "simple"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    }
+  ],
+  "results": [
+    {
+      "validator": "Schema & Repository Governance",
+      "description": "Validate SKILL.md frontmatter and repository structure",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 11,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 1
+      },
+      "finding_counts": {
+        "raw_occurrences": 1,
+        "distinct_occurrences": 1,
+        "unique_findings": 1,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-29923f4d680e578e37e3",
+          "occurrence_id": "SEO-ccf44c02d43cee3e4ce8",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "description_trigger",
+          "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "State when to use the skill within the first 60 characters",
+          "metadata": null
+        }
+      ],
+      "success_details": [
+        {
+          "check": "manifest_exists",
+          "message": "Found skill manifest: SKILL.md",
+          "metadata": {
+            "file_path": "/skills/simple/SKILL.md"
+          }
+        },
+        {
+          "check": "frontmatter_valid",
+          "message": "Valid frontmatter for skill 'simple'",
+          "metadata": {
+            "description_length": 51
+          }
+        },
+        {
+          "check": "folder_hierarchy",
+          "message": "Valid general skill structure: skills/simple/",
+          "metadata": null
+        },
+        {
+          "check": "naming_convention",
+          "message": "Folder name 'simple' follows kebab-case convention",
+          "metadata": {
+            "name_length": 6
+          }
+        },
+        {
+          "check": "line_count",
+          "message": "SKILL.md within line limit (18/500)",
+          "metadata": {
+            "line_count": 18,
+            "limit": 500
+          }
+        },
+        {
+          "check": "body_heading",
+          "message": "Body contains a top-level heading",
+          "metadata": null
+        },
+        {
+          "check": "body_recommended_section",
+          "message": "Found recommended section: '## Instructions' (or '## Usage')",
+          "metadata": null
+        },
+        {
+          "check": "body_recommended_section",
+          "message": "Found recommended section: '## Examples'",
+          "metadata": null
+        },
+        {
+          "check": "optional_files",
+          "message": "Found optional supporting files: scripts",
+          "metadata": {
+            "files_found": [
+              "scripts"
+            ]
+          }
+        },
+        {
+          "check": "name_consistency",
+          "message": "Directory name matches frontmatter: 'simple'",
+          "metadata": null
+        },
+        {
+          "check": "author_format",
+          "message": "Valid author format: Simple Skill Author <skill-author@example.com>",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCHEMA-LOW] Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list in /skills/simple/SKILL.md"
+        ],
+        "messages": [
+          "[OK] manifest_exists: Found skill manifest: SKILL.md",
+          "[OK] frontmatter_valid: Valid frontmatter for skill 'simple'",
+          "[OK] folder_hierarchy: Valid general skill structure: skills/simple/",
+          "[OK] naming_convention: Folder name 'simple' follows kebab-case convention",
+          "[OK] line_count: SKILL.md within line limit (18/500)",
+          "[OK] body_heading: Body contains a top-level heading",
+          "[OK] body_recommended_section: Found recommended section: '## Instructions' (or '## Usage')",
+          "[OK] body_recommended_section: Found recommended section: '## Examples'",
+          "[OK] optional_files: Found optional supporting files: scripts",
+          "[OK] name_consistency: Directory name matches frontmatter: 'simple'",
+          "[OK] author_format: Valid author format: Simple Skill Author <skill-author@example.com>"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "schema"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Semantic Version Validation",
+      "description": "Validate optional metadata.version labels and require strict bumps",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "version_optional",
+          "message": "No semantic version label present; resource will use commit-hash history",
+          "metadata": {
+            "previous_version": null
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] version_optional: No semantic version label present; resource will use commit-hash history"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "version"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Security Scan",
+      "description": "Detect security vulnerabilities and PII/secrets",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "skillspector": "2.13.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "skillspector",
+          "message": "No security vulnerabilities detected (secrets, API keys, credentials)",
+          "metadata": null
+        },
+        {
+          "check": "skillspector",
+          "message": "No security vulnerabilities detected (secrets, API keys, credentials)",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] skillspector: No security vulnerabilities detected (secrets, API keys, credentials)",
+          "[OK] skillspector: No security vulnerabilities detected (secrets, API keys, credentials)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "skillspector_version": "2.13.4",
+      "skillspector_llm_provenance": {
+        "schema_version": 1,
+        "provider": {
+          "configured_adapter": "openai_compatible",
+          "resolved_adapter": "openai_compatible",
+          "effective_adapter": "openai_compatible",
+          "effective_adapters": [
+            "openai_compatible"
+          ],
+          "service": "unknown",
+          "routing": {
+            "deployment_override": null,
+            "deployment_source": "not_applicable",
+            "api_version": null,
+            "api_version_source": "not_applicable"
+          }
+        },
+        "analyzers": [
+          {
+            "analyzer_id": "mcp_tool_poisoning",
+            "model": "qwen3.8-max",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_developer_intent",
+            "model": "qwen3.8-max",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_quality_policy",
+            "model": "qwen3.8-max",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_security_discovery",
+            "model": "qwen3.8-max",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "meta_analyzer",
+            "model": "qwen3.8-max",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          }
+        ],
+        "sampling": {
+          "temperature": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "seed": {
+            "requested": null,
+            "source": "unset",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "reasoning_effort": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          }
+        },
+        "determinism": {
+          "classification": "nondeterministic",
+          "control_status": "provider_defaults",
+          "provider_guarantee": false,
+          "reason": "Optional controls do not guarantee identical provider output."
+        }
+      },
+      "skillspector_applicability": {
+        "artifact_type": "skill",
+        "kept_issues": 0,
+        "suppressed_inapplicable_issues": 0,
+        "suppressed_by_file_role": {},
+        "raw_risk_score": 0,
+        "applicable_risk_score": 0
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "security"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "PII Scan",
+      "description": "Detect PII and local identifiers",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 2,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "pii_scan_start",
+          "message": "Scanning 2 files for PII",
+          "metadata": {
+            "file_count": 2
+          }
+        },
+        {
+          "check": "pii_detection",
+          "message": "No PII detected in 2 files (emails, SSNs, phone numbers, paths)",
+          "metadata": {
+            "files_scanned": 2
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] pii_scan_start: Scanning 2 files for PII",
+          "[OK] pii_detection: No PII detected in 2 files (emails, SSNs, phone numbers, paths)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "pii"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "License Compliance",
+      "description": "Validate license compliance for Skills, Rules, and Workflows",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "license_compliance",
+          "message": "License compliance scan completed (allowed)",
+          "metadata": {
+            "license_status": "allowed"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "Tier 3: Found SPDX header 'Apache-2.0' in scripts/summarize.py",
+          "License: Apache-2.0 (ALLOWED - permissive)",
+          "[OK] license_compliance: License compliance scan completed (allowed)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "license"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Risk Analysis",
+      "description": "Static code analysis using Bandit and packaged Semgrep rules",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "bandit": "1.9.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "bandit",
+          "message": "Bandit: No security issues found",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "Found 1 Python, 0 Shell, 0 JavaScript/TypeScript files",
+          "[OK] bandit: Bandit: No security issues found",
+          "Semgrep not installed; skipped. Optional; install separately with: brew install semgrep (macOS) or uv tool install semgrep"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Secrets Detection",
+      "description": "Detect hardcoded secrets, API keys, and credentials using Gitleaks",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "gitleaks": "8.30.0"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "gitleaks",
+          "message": "No secrets detected by Gitleaks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] gitleaks: No secrets detected by Gitleaks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Integrity & Hygiene",
+      "description": "Validate dead links, dependencies, and static Python test-file discovery",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 1,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dead_links_scan",
+          "message": "Checking 1 markdown files for dead links",
+          "metadata": {
+            "file_count": 1
+          }
+        },
+        {
+          "check": "dead_links",
+          "message": "All relative links valid in 1 markdown file(s)",
+          "metadata": {
+            "files_checked": 1
+          }
+        },
+        {
+          "check": "dependencies",
+          "message": "No dependency files found (requirements.txt, pyproject.toml)",
+          "metadata": null
+        },
+        {
+          "check": "test_discovery",
+          "message": "No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests.",
+          "metadata": {
+            "test_count": 0,
+            "execution_performed": false,
+            "coverage_measured": false,
+            "patterns": [
+              "test_*.py",
+              "*_test.py"
+            ]
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No standard Python test-file candidates found; consider adding tests"
+        ],
+        "messages": [
+          "[OK] dead_links_scan: Checking 1 markdown files for dead links",
+          "[OK] dead_links: All relative links valid in 1 markdown file(s)",
+          "[OK] dependencies: No dependency files found (requirements.txt, pyproject.toml)",
+          "[OK] test_discovery: No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests."
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Dependency Vulnerability Audit",
+      "description": "Scan dependencies for CVE vulnerabilities using pip-audit and Safety",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dependency_file_discovery",
+          "message": "No dependency files found - vulnerability audit is not applicable",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] dependency_file_discovery: No dependency files found - vulnerability audit is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "dependency"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Unicode Smuggling Detection",
+      "description": "Detect invisible Unicode characters and ASCII smuggling",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 2,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "unicode_scan",
+          "message": "No invisible Unicode characters detected in 2 file(s)",
+          "metadata": {
+            "files_scanned": 2
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] unicode_scan: No invisible Unicode characters detected in 2 file(s)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "unicode"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "QUALITY",
+      "description": "Skill quality scoring across Correctness (35%), Discoverability (25%), Reliability (25%), and Efficiency (15%)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 11,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 4,
+        "low_count": 7
+      },
+      "finding_counts": {
+        "raw_occurrences": 11,
+        "distinct_occurrences": 11,
+        "unique_findings": 11,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 4,
+          "low": 7,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 4,
+          "low": 7,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-740453e5661b3b5b6f1e",
+          "occurrence_id": "SEO-7a9a4c5dfcb2d953e434",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "No documented scripts in table format",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-6d68dab37ccc357a6814",
+          "occurrence_id": "SEO-9f5c9a4266c6bfc93a39",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "Instructions don't mention 'run_script'",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add explicit run_script() call examples",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+          "occurrence_id": "SEO-ed33cead8f0c5148222c",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-0f3cde56a46498377f1a",
+          "occurrence_id": "SEO-5aefee7393fc405a51d4",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description doesn't mention WHEN to use this skill",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+          "occurrence_id": "SEO-818e5bfdc178b27aa672",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "No '## Purpose' section",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add purpose section to clarify use cases",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-9612bbfb3f32d491ac5d",
+          "occurrence_id": "SEO-9dcaa9976810e0685231",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No mention of error handling or validation",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document expected errors and how to handle them",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-4a6560f4aec006f302f9",
+          "occurrence_id": "SEO-5a6d7f3bf9d01e37b5e6",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No prerequisites/requirements documented",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document dependencies, API keys, or setup needed",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-fc6fe3747c071963a76e",
+          "occurrence_id": "SEO-167d334a80c351a77b5f",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No limitations documented",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Limitations' section with known issues/constraints",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-378f24adfec67572e606",
+          "occurrence_id": "SEO-d9341fd26cd597dce8a2",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No troubleshooting section documented",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-dc18392f6470f243aaa5",
+          "occurrence_id": "SEO-7737557c7c7c6286fe80",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_efficiency",
+          "message": "Instructions lack clear action verbs",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Use imperative: 'Use run_script with...', 'Call activate_skill...'",
+          "metadata": {
+            "dimension": "efficiency",
+            "deduction": 15
+          }
+        },
+        {
+          "finding_id": "SEF-e31ec0572821fe905e9d",
+          "occurrence_id": "SEO-5d32b6b883a356fec42b",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_efficiency",
+          "message": "Instructions not in list format",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Use bullet points or numbered steps for clarity",
+          "metadata": {
+            "dimension": "efficiency",
+            "deduction": 5
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "quality_score",
+          "message": "Score: 78.2/100 (Grade: C)",
+          "metadata": {
+            "overall_score": 78.2,
+            "grade": "C",
+            "skill_type": "script-based"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[QUALITY-MEDIUM] No documented scripts in table format in /skills/simple/SKILL.md",
+          "[QUALITY-MEDIUM] Instructions don't mention 'run_script' in /skills/simple/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags' in /skills/simple/SKILL.md",
+          "[QUALITY-LOW] Description doesn't mention WHEN to use this skill in /skills/simple/SKILL.md",
+          "[QUALITY-LOW] No '## Purpose' section in /skills/simple/SKILL.md",
+          "[QUALITY-LOW] No mention of error handling or validation in /skills/simple/SKILL.md",
+          "[QUALITY-LOW] No prerequisites/requirements documented in /skills/simple/SKILL.md",
+          "[QUALITY-LOW] No limitations documented in /skills/simple/SKILL.md",
+          "[QUALITY-LOW] No troubleshooting section documented in /skills/simple/SKILL.md",
+          "[QUALITY-MEDIUM] Instructions lack clear action verbs in /skills/simple/SKILL.md",
+          "[QUALITY-LOW] Instructions not in list format in /skills/simple/SKILL.md"
+        ],
+        "messages": [
+          "[OK] quality_score: Score: 78.2/100 (Grade: C)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "quality": {
+        "overall_score": 78.2,
+        "grade": "C",
+        "skill_type": "script-based",
+        "skill_name": "simple",
+        "dimensions": {
+          "correctness": {
+            "score": 75.0,
+            "weight": 0.35,
+            "issues_count": 3,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "No documented scripts in table format",
+                "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+                "deduction": 10
+              },
+              {
+                "severity": "warning",
+                "message": "Instructions don't mention 'run_script'",
+                "suggestion": "Add explicit run_script() call examples",
+                "deduction": 10
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+                "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+                "deduction": 5
+              }
+            ]
+          },
+          "discoverability": {
+            "score": 85.0,
+            "weight": 0.25,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "Description doesn't mention WHEN to use this skill",
+                "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No '## Purpose' section",
+                "suggestion": "Add purpose section to clarify use cases",
+                "deduction": 5
+              }
+            ]
+          },
+          "reliability": {
+            "score": 75.0,
+            "weight": 0.25,
+            "issues_count": 4,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No mention of error handling or validation",
+                "suggestion": "Document expected errors and how to handle them",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No prerequisites/requirements documented",
+                "suggestion": "Document dependencies, API keys, or setup needed",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No limitations documented",
+                "suggestion": "Add '## Limitations' section with known issues/constraints",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No troubleshooting section documented",
+                "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+                "deduction": 5
+              }
+            ]
+          },
+          "efficiency": {
+            "score": 80.0,
+            "weight": 0.15,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "Instructions lack clear action verbs",
+                "suggestion": "Use imperative: 'Use run_script with...', 'Call activate_skill...'",
+                "deduction": 15
+              },
+              {
+                "severity": "info",
+                "message": "Instructions not in list format",
+                "suggestion": "Use bullet points or numbered steps for clarity",
+                "deduction": 5
+              }
+            ]
+          }
+        },
+        "metrics": {
+          "total_tokens": 119,
+          "estimated_tokens": 119,
+          "estimate_method": "characters/4",
+          "recommended_max_tokens": 5000,
+          "frontmatter_tokens": 36,
+          "instructions_tokens": 80,
+          "script_count": 1,
+          "has_examples": false,
+          "has_error_handling": false,
+          "has_frontmatter": true,
+          "has_instructions": true,
+          "has_scripts": true,
+          "has_lib_module": false
+        }
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "quality"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "SCRIPT_LINT",
+      "description": "AST-based code quality checks for skill scripts",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "lint",
+          "message": "All 1 script(s) passed lint checks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] lint: All 1 script(s) passed lint checks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "lint"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Harness Compatibility",
+      "description": "Advisory: whether each agent harness loads, degrades or drops the skill",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 3,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 3,
+        "distinct_occurrences": 3,
+        "unique_findings": 3,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 3
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 3
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-3661379ea9e5c1072875",
+          "occurrence_id": "SEO-b2d6ee332ed3cb6a1f80",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-RELOAD",
+          "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e0623bdfb91d6bbb829f",
+          "occurrence_id": "SEO-746887f4f2efc5a77c7b",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-DESC-60",
+          "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-03e029934351881ba688",
+          "occurrence_id": "SEO-95bcaf5028f293228dfd",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-RELOAD",
+          "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once. in /skills/simple/SKILL.md",
+          "[HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them. in /skills/simple/SKILL.md",
+          "[HARNESS-INFO] opencode: Skill list and text are cached at startup; edits need a restart. in /skills/simple/SKILL.md"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "harness"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "RUBRIC_EVAL",
+      "description": "LLM-as-Judge qualitative evaluation across 9 criteria (description clarity, instruction quality, trigger simulation, etc.)",
+      "passed": false,
+      "status": "failed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 1,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 1,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 1,
+        "distinct_occurrences": 1,
+        "unique_findings": 1,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-f99342c372d3b4a55987",
+          "occurrence_id": "SEO-694e4f4fd30708fcd935",
+          "category": "RUBRIC_EVAL",
+          "severity": "high",
+          "check_name": "llm_unavailable",
+          "message": "LLM judge unavailable; rubric evaluation did not run: LLM connection failed. Check provider connectivity and endpoint configuration.",
+          "file_path": "/skills/simple/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Configure a public LLM provider to enable LLM rubric evaluation",
+          "metadata": null
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [
+          "[RUBRIC_EVAL-HIGH] LLM judge unavailable; rubric evaluation did not run: LLM connection failed. Check provider connectivity and endpoint configuration. in /skills/simple/SKILL.md"
+        ],
+        "warnings": [],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "rubric_eval": {
+        "execution_status": "failed",
+        "overall_score": null,
+        "overall_pass": false,
+        "summary": "LLM judge unavailable; rubric evaluation did not run: LLM connection failed. Check provider connectivity and endpoint configuration.",
+        "judge_summary": "LLM judge unavailable \u2014 rubric evaluation skipped",
+        "judge_score": 0,
+        "judge_overall_pass": false,
+        "skill_name": "simple",
+        "checks": []
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "simple",
+        "skill_digest": "sha256:512c7ebf6e7a61643ffed0b963a7e1bde73695949c5e00143b80ad77e7fb53ad",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "rubric"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "fail",
+  "publication": {
+    "status": "fail",
+    "eligible": false,
+    "reasons": [
+      "A validator failed."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "policy": {
+    "profile": "default",
+    "audience": "all",
+    "digest": "sha256:64a069b8853f7123049a675d6853ef8d8b424792bb9a2a5157a73ec312f38ed4",
+    "author_email_regex": null,
+    "severity_overrides": {
+      "SCHEMA.author_missing": "low",
+      "SCHEMA.author_without_email": "info",
+      "SCHEMA.author_format": "high",
+      "WORKFLOWS.author_format": "high",
+      "LICENSE.*": "critical"
+    },
+    "metadata_id_requirement": "ignore",
+    "source": "/usr/local/lib/python3.12/site-packages/skillevaluator/config/profiles/default.yaml"
+  },
+  "quality_config": {
+    "source": "packaged",
+    "file": null,
+    "digest": "sha256:298ff2bf62132c8154217b7aa59fc1fd04f28cf75372f55620a2cbcd951d6549",
+    "min_score": 70
+  },
+  "evaluated_source": null,
+  "gating": {
+    "tiers": {
+      "1": {
+        "blocking": true,
+        "validators": [
+          "Schema & Repository Governance",
+          "Semantic Version Validation",
+          "Security Scan",
+          "PII Scan",
+          "License Compliance",
+          "Code Risk Analysis",
+          "Secrets Detection",
+          "Code Integrity & Hygiene",
+          "Dependency Vulnerability Audit",
+          "Unicode Smuggling Detection",
+          "QUALITY",
+          "SCRIPT_LINT",
+          "Harness Compatibility",
+          "RUBRIC_EVAL"
+        ],
+        "validator_policies": [
+          {
+            "validator": "Schema & Repository Governance",
+            "blocking": true
+          },
+          {
+            "validator": "Semantic Version Validation",
+            "blocking": true
+          },
+          {
+            "validator": "Security Scan",
+            "blocking": true
+          },
+          {
+            "validator": "PII Scan",
+            "blocking": true
+          },
+          {
+            "validator": "License Compliance",
+            "blocking": true
+          },
+          {
+            "validator": "Code Risk Analysis",
+            "blocking": true
+          },
+          {
+            "validator": "Secrets Detection",
+            "blocking": true
+          },
+          {
+            "validator": "Code Integrity & Hygiene",
+            "blocking": true
+          },
+          {
+            "validator": "Dependency Vulnerability Audit",
+            "blocking": true
+          },
+          {
+            "validator": "Unicode Smuggling Detection",
+            "blocking": true
+          },
+          {
+            "validator": "QUALITY",
+            "blocking": true
+          },
+          {
+            "validator": "SCRIPT_LINT",
+            "blocking": true
+          },
+          {
+            "validator": "Harness Compatibility",
+            "blocking": true
+          },
+          {
+            "validator": "RUBRIC_EVAL",
+            "blocking": true
+          }
+        ]
+      }
+    }
+  },
+  "workflow": {
+    "tier": 1,
+    "stages": {
+      "validation": {
+        "status": "passed"
+      },
+      "rubric": {
+        "status": "failed"
+      },
+      "llm": {
+        "status": "enabled"
+      }
+    }
+  },
+  "quality_summary": [
+    {
+      "overall_score": 78.2,
+      "grade": "C",
+      "skill_type": "script-based",
+      "skill_name": "simple",
+      "dimensions": {
+        "correctness": {
+          "score": 75.0,
+          "weight": 0.35,
+          "issues_count": 3,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "No documented scripts in table format",
+              "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+              "deduction": 10
+            },
+            {
+              "severity": "warning",
+              "message": "Instructions don't mention 'run_script'",
+              "suggestion": "Add explicit run_script() call examples",
+              "deduction": 10
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+              "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+              "deduction": 5
+            }
+          ]
+        },
+        "discoverability": {
+          "score": 85.0,
+          "weight": 0.25,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "Description doesn't mention WHEN to use this skill",
+              "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No '## Purpose' section",
+              "suggestion": "Add purpose section to clarify use cases",
+              "deduction": 5
+            }
+          ]
+        },
+        "reliability": {
+          "score": 75.0,
+          "weight": 0.25,
+          "issues_count": 4,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No mention of error handling or validation",
+              "suggestion": "Document expected errors and how to handle them",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No prerequisites/requirements documented",
+              "suggestion": "Document dependencies, API keys, or setup needed",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No limitations documented",
+              "suggestion": "Add '## Limitations' section with known issues/constraints",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No troubleshooting section documented",
+              "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+              "deduction": 5
+            }
+          ]
+        },
+        "efficiency": {
+          "score": 80.0,
+          "weight": 0.15,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "Instructions lack clear action verbs",
+              "suggestion": "Use imperative: 'Use run_script with...', 'Call activate_skill...'",
+              "deduction": 15
+            },
+            {
+              "severity": "info",
+              "message": "Instructions not in list format",
+              "suggestion": "Use bullet points or numbered steps for clarity",
+              "deduction": 5
+            }
+          ]
+        }
+      },
+      "metrics": {
+        "total_tokens": 119,
+        "estimated_tokens": 119,
+        "estimate_method": "characters/4",
+        "recommended_max_tokens": 5000,
+        "frontmatter_tokens": 36,
+        "instructions_tokens": 80,
+        "script_count": 1,
+        "has_examples": false,
+        "has_error_handling": false,
+        "has_frontmatter": true,
+        "has_instructions": true,
+        "has_scripts": true,
+        "has_lib_module": false
+      }
+    }
+  ],
+  "rubric_eval": {
+    "execution_status": "failed",
+    "overall_score": null,
+    "overall_pass": false,
+    "summary": "LLM judge unavailable; rubric evaluation did not run: LLM connection failed. Check provider connectivity and endpoint configuration.",
+    "judge_summary": "LLM judge unavailable \u2014 rubric evaluation skipped",
+    "judge_score": 0,
+    "judge_overall_pass": false,
+    "skill_name": "simple",
+    "checks": []
+  },
+  "generated_at": "2026-11-17T05:23:17.494228+00:00"
+}

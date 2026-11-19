@@ -1,0 +1,941 @@
+{
+  "registry_name": "module_registry",
+  "version": "1.0",
+  "modules": [
+    {
+      "module_name": "上下扫风控制",
+      "module_code": "up_down_swing_control",
+      "category": "control_module",
+      "aliases": [
+        "上下扫风控制",
+        "上下风摆",
+        "上下扫风",
+        "导风板上下摆动",
+        "Horizontal Louver"
+      ],
+      "keywords": [
+        "导风板",
+        "步进电机",
+        "摆风",
+        "送风方向",
+        "角度控制",
+        "压缩机",
+        "室内风机",
+        "盘管温度",
+        "低压保护",
+        "模式切换"
+      ],
+      "related_modules": [
+        "制热防冷风控制",
+        "智能化霜控制",
+        "风速控制",
+        "掉电恢复记忆",
+        "睡眠模式"
+      ]
+    },
+    {
+      "module_name": "左右扫风控制",
+      "module_code": "left_right_swing_control",
+      "category": "control_module",
+      "aliases": [
+        "左右扫风控制",
+        "左右风摆",
+        "左右扫风",
+        "左右导风",
+        "侧向摆风"
+      ],
+      "keywords": [
+        "导风板",
+        "左右送风",
+        "摆风",
+        "角度控制",
+        "压缩机",
+        "步进电机",
+        "温度传感器",
+        "低压保护",
+        "故障代码",
+        "制冷"
+      ],
+      "related_modules": [
+        "风速控制",
+        "睡眠模式",
+        "掉电恢复记忆",
+        "强力运行模式"
+      ]
+    },
+    {
+      "module_name": "风速控制",
+      "module_code": "fan_speed_control",
+      "category": "control_module",
+      "aliases": [
+        "风速控制",
+        "风速设定功能",
+        "风速设定",
+        "风量控制",
+        "风速档位",
+        "内风机转速控制"
+      ],
+      "keywords": [
+        "内风机",
+        "风速档位",
+        "自动风",
+        "风量",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "电子膨胀阀",
+        "盘管温度",
+        "高压保护"
+      ],
+      "related_modules": [
+        "上下扫风控制",
+        "左右扫风控制",
+        "制热防冷风控制",
+        "经济模式",
+        "睡眠模式",
+        "静音运行模式"
+      ]
+    },
+    {
+      "module_name": "运行模式切换控制",
+      "module_code": "mode_switch_control",
+      "category": "control_module",
+      "aliases": [
+        "运行模式切换控制",
+        "模式及操式切换功能",
+        "模式切换",
+        "运行模式切换",
+        "模式转换"
+      ],
+      "keywords": [
+        "制冷",
+        "制热",
+        "除湿",
+        "送风",
+        "自动模式",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "四通阀",
+        "电子膨胀阀"
+      ],
+      "related_modules": [
+        "经济模式",
+        "睡眠模式",
+        "强力运行模式",
+        "静音运行模式",
+        "制热防冷风控制",
+        "智能化霜控制"
+      ]
+    },
+    {
+      "module_name": "室外继电器控制",
+      "module_code": "outdoor_relay_control",
+      "category": "control_module",
+      "aliases": [
+        "室外继电器控制",
+        "室外温电器控制",
+        "室外继电器",
+        "Outdoor Relay"
+      ],
+      "keywords": [
+        "继电器",
+        "室外机",
+        "驱动控制",
+        "负载控制",
+        "压缩机",
+        "室外风机",
+        "四通阀",
+        "盘管温度",
+        "故障代码",
+        "制冷"
+      ],
+      "related_modules": [
+        "电辅热控制",
+        "智能化霜控制",
+        "室内风机故障保护"
+      ]
+    },
+    {
+      "module_name": "电辅热控制",
+      "module_code": "electric_auxiliary_heating",
+      "category": "control_module",
+      "aliases": [
+        "电辅热控制",
+        "电辅热功能",
+        "电辅热",
+        "辅助电加热",
+        "PTC加热"
+      ],
+      "keywords": [
+        "PTC",
+        "制热",
+        "辅助加热",
+        "温升",
+        "压缩机",
+        "室内风机",
+        "盘管温度",
+        "温度传感器",
+        "故障代码",
+        "模式切换"
+      ],
+      "related_modules": [
+        "制热防冷风控制",
+        "运行模式切换控制",
+        "经济模式",
+        "室内盘管保护"
+      ]
+    },
+    {
+      "module_name": "经济模式",
+      "module_code": "eco_mode",
+      "category": "strategy_module",
+      "aliases": [
+        "经济模式",
+        "经济模式功能",
+        "ECO",
+        "ECO Mode",
+        "Economy Mode",
+        "节能模式",
+        "省电模式"
+      ],
+      "keywords": [
+        "节能",
+        "压缩机频率限制",
+        "风机优化",
+        "目标温度修正",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "电子膨胀阀",
+        "盘管温度",
+        "故障代码"
+      ],
+      "related_modules": [
+        "风速控制",
+        "运行模式切换控制",
+        "强力运行模式",
+        "睡眠模式",
+        "速冷模式",
+        "电辅热控制"
+      ]
+    },
+    {
+      "module_name": "睡眠模式",
+      "module_code": "sleep_mode",
+      "category": "strategy_module",
+      "aliases": [
+        "睡眠模式",
+        "睡眠功能",
+        "夜间模式",
+        "Sleep Mode"
+      ],
+      "keywords": [
+        "夜间运行",
+        "温度曲线",
+        "静音",
+        "舒适性",
+        "压缩机",
+        "室内风机",
+        "盘管温度",
+        "温度传感器",
+        "故障代码",
+        "制冷"
+      ],
+      "related_modules": [
+        "经济模式",
+        "静音运行模式",
+        "风速控制",
+        "上下扫风控制",
+        "定时开关机"
+      ]
+    },
+    {
+      "module_name": "强力运行模式",
+      "module_code": "turbo_mode",
+      "category": "strategy_module",
+      "aliases": [
+        "强力运行模式",
+        "强力功能",
+        "强力模式",
+        "Turbo",
+        "强劲运行"
+      ],
+      "keywords": [
+        "快速制冷",
+        "快速制热",
+        "高频运行",
+        "高风速",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "电子膨胀阀",
+        "盘管温度",
+        "高压保护"
+      ],
+      "related_modules": [
+        "经济模式",
+        "静音运行模式",
+        "风速控制",
+        "速冷模式",
+        "运行模式切换控制"
+      ]
+    },
+    {
+      "module_name": "静音运行模式",
+      "module_code": "silent_mode",
+      "category": "strategy_module",
+      "aliases": [
+        "静音运行模式",
+        "静音功能",
+        "静音模式",
+        "Quiet Mode",
+        "低噪音运行"
+      ],
+      "keywords": [
+        "低噪音",
+        "低风速",
+        "压缩机限频",
+        "夜间舒适",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "盘管温度",
+        "制冷",
+        "制热"
+      ],
+      "related_modules": [
+        "睡眠模式",
+        "经济模式",
+        "风速控制",
+        "强力运行模式"
+      ]
+    },
+    {
+      "module_name": "速冷模式",
+      "module_code": "rapid_cooling_mode",
+      "category": "strategy_module",
+      "aliases": [
+        "速冷模式",
+        "速冷功能 (INSTA COOL Function)",
+        "速冷功能",
+        "INSTA COOL",
+        "快速制冷",
+        "Insta Cool Function",
+        "INSTA COOL Function"
+      ],
+      "keywords": [
+        "快速降温",
+        "高频运行",
+        "高风速",
+        "短时增强",
+        "压缩机",
+        "电子膨胀阀",
+        "盘管温度",
+        "温度传感器",
+        "压力传感器",
+        "低压保护"
+      ],
+      "related_modules": [
+        "强力运行模式",
+        "经济模式",
+        "风速控制",
+        "运行模式切换控制"
+      ]
+    },
+    {
+      "module_name": "容量转换模式",
+      "module_code": "flexi_cool_mode",
+      "category": "strategy_module",
+      "aliases": [
+        "容量转换模式",
+        "转换模式(FLEXI COOL)",
+        "转换模式",
+        "FLEXI COOL",
+        "Flexi Cool",
+        "容量转换"
+      ],
+      "keywords": [
+        "容量切换",
+        "负荷匹配",
+        "节能",
+        "模式转换",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "电子膨胀阀",
+        "盘管温度",
+        "温度传感器"
+      ],
+      "related_modules": [
+        "经济模式",
+        "运行模式切换控制",
+        "风速控制",
+        "强力运行模式"
+      ]
+    },
+    {
+      "module_name": "制热防冷风控制",
+      "module_code": "anti_cold_air_control",
+      "category": "protection_module",
+      "aliases": [
+        "制热防冷风控制",
+        "防冷风控制",
+        "防冷风",
+        "制热防冷风",
+        "启动不吹冷风"
+      ],
+      "keywords": [
+        "盘管温度",
+        "内风机",
+        "导风板",
+        "制热启动",
+        "化霜恢复",
+        "压缩机",
+        "室内风机",
+        "四通阀",
+        "温度传感器",
+        "高压保护"
+      ],
+      "related_modules": [
+        "上下扫风控制",
+        "风速控制",
+        "智能化霜控制",
+        "电辅热控制",
+        "运行模式切换控制"
+      ]
+    },
+    {
+      "module_name": "智能化霜控制",
+      "module_code": "defrost_control",
+      "category": "restore_module",
+      "aliases": [
+        "智能化霜控制",
+        "除霜功能",
+        "除霜",
+        "化霜",
+        "Defrost"
+      ],
+      "keywords": [
+        "结霜检测",
+        "四通阀",
+        "制热",
+        "恢复送风",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "电子膨胀阀",
+        "盘管温度",
+        "温度传感器"
+      ],
+      "related_modules": [
+        "制热防冷风控制",
+        "上下扫风控制",
+        "风速控制",
+        "室内盘管保护"
+      ]
+    },
+    {
+      "module_name": "室内风机故障保护",
+      "module_code": "indoor_fan_fault_protection",
+      "category": "protection_module",
+      "aliases": [
+        "室内风机故障保护",
+        "室内风机故障保护控制",
+        "内风机故障保护",
+        "室内风机保护",
+        "风机故障保护"
+      ],
+      "keywords": [
+        "内风机",
+        "堵转",
+        "反馈异常",
+        "保护停机",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "压力传感器",
+        "高压保护",
+        "故障代码"
+      ],
+      "related_modules": [
+        "风速控制",
+        "室内盘管保护",
+        "自动清洁",
+        "制热防冷风控制"
+      ]
+    },
+    {
+      "module_name": "室内盘管保护",
+      "module_code": "indoor_coil_protection",
+      "category": "protection_module",
+      "aliases": [
+        "室内盘管保护",
+        "内盘管保护功能",
+        "内盘管保护",
+        "蒸发器保护"
+      ],
+      "keywords": [
+        "盘管温度",
+        "防冻结",
+        "过热保护",
+        "温度阈值",
+        "压缩机",
+        "室内风机",
+        "电子膨胀阀",
+        "温度传感器",
+        "高压保护",
+        "故障代码"
+      ],
+      "related_modules": [
+        "制热防冷风控制",
+        "室内风机故障保护",
+        "智能化霜控制",
+        "风速控制"
+      ]
+    },
+    {
+      "module_name": "停机散余热控制",
+      "module_code": "residual_heat_dissipation",
+      "category": "protection_module",
+      "aliases": [
+        "停机散余热控制",
+        "吹余热功能",
+        "吹余热",
+        "散余热",
+        "停机后散热"
+      ],
+      "keywords": [
+        "停机延时",
+        "余热释放",
+        "内风机延时",
+        "高温保护",
+        "压缩机",
+        "四通阀",
+        "盘管温度",
+        "温度传感器",
+        "高压保护",
+        "故障代码"
+      ],
+      "related_modules": [
+        "电辅热控制",
+        "自动清洁",
+        "运行模式切换控制"
+      ]
+    },
+    {
+      "module_name": "停机吹余冷控制",
+      "module_code": "residual_cooling_blow",
+      "category": "restore_module",
+      "aliases": [
+        "停机吹余冷控制",
+        "吹余冷功能",
+        "吹余冷",
+        "停机吹余冷",
+        "残余冷量利用"
+      ],
+      "keywords": [
+        "停机延时",
+        "余冷利用",
+        "内风机延时",
+        "冷量释放",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "四通阀",
+        "电子膨胀阀",
+        "盘管温度"
+      ],
+      "related_modules": [
+        "运行模式切换控制",
+        "风速控制",
+        "自动清洁"
+      ]
+    },
+    {
+      "module_name": "自动清洁",
+      "module_code": "auto_clean",
+      "category": "restore_module",
+      "aliases": [
+        "自动清洁",
+        "自动清洁功能",
+        "Auto Clean",
+        "换热器清洁"
+      ],
+      "keywords": [
+        "内部干燥",
+        "防霉",
+        "停机后运行",
+        "清洁流程",
+        "压缩机",
+        "室内风机",
+        "四通阀",
+        "电子膨胀阀",
+        "盘管温度",
+        "温度传感器"
+      ],
+      "related_modules": [
+        "杀菌清洁",
+        "滤网清洁提醒",
+        "室内风机故障保护",
+        "停机吹余冷控制"
+      ]
+    },
+    {
+      "module_name": "杀菌清洁",
+      "module_code": "sterilization_mode",
+      "category": "restore_module",
+      "aliases": [
+        "杀菌清洁",
+        "杀菌功能",
+        "杀菌模式",
+        "Sterilization"
+      ],
+      "keywords": [
+        "杀菌",
+        "高温清洁",
+        "抑菌",
+        "自清洁",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "四通阀",
+        "电子膨胀阀",
+        "盘管温度"
+      ],
+      "related_modules": [
+        "自动清洁",
+        "滤网清洁提醒",
+        "室内盘管保护"
+      ]
+    },
+    {
+      "module_name": "制冷剂泵集回收",
+      "module_code": "refrigerant_pump_down",
+      "category": "restore_module",
+      "aliases": [
+        "制冷剂泵集回收",
+        "收氟功能",
+        "收氟",
+        "泵集",
+        "Pump Down"
+      ],
+      "keywords": [
+        "制冷剂回收",
+        "维修模式",
+        "阀门控制",
+        "压缩机运行",
+        "压缩机",
+        "室外风机",
+        "压力传感器",
+        "低压保护",
+        "制冷",
+        "制热"
+      ],
+      "related_modules": [
+        "工厂自检",
+        "能力测试模式",
+        "运行模式切换控制"
+      ]
+    },
+    {
+      "module_name": "掉电恢复记忆",
+      "module_code": "power_off_memory_restart",
+      "category": "restore_module",
+      "aliases": [
+        "掉电恢复记忆",
+        "掉电记忆功能",
+        "掉电记忆",
+        "来电恢复",
+        "断电恢复",
+        "断电记忆"
+      ],
+      "keywords": [
+        "恢复运行",
+        "断电",
+        "状态记忆",
+        "开机恢复",
+        "压缩机",
+        "四通阀",
+        "电子膨胀阀",
+        "盘管温度",
+        "温度传感器",
+        "故障代码"
+      ],
+      "related_modules": [
+        "运行模式切换控制",
+        "上下扫风控制",
+        "左右扫风控制",
+        "风速控制",
+        "定时开关机"
+      ]
+    },
+    {
+      "module_name": "运行参数查询",
+      "module_code": "parameter_query",
+      "category": "interaction_module",
+      "aliases": [
+        "运行参数查询",
+        "参数查询功能",
+        "参数查询",
+        "Parameter Query Function",
+        "运行参数读取"
+      ],
+      "keywords": [
+        "只读查询",
+        "服务模式",
+        "参数代码",
+        "实时参数",
+        "诊断",
+        "压缩机",
+        "四通阀",
+        "电子膨胀阀",
+        "盘管温度",
+        "温度传感器"
+      ],
+      "related_modules": [
+        "故障信息查询",
+        "工厂自检",
+        "能力测试模式",
+        "室内盘管保护",
+        "室内风机故障保护"
+      ]
+    },
+    {
+      "module_name": "故障信息查询",
+      "module_code": "fault_query",
+      "category": "interaction_module",
+      "aliases": [
+        "故障信息查询",
+        "故障查询功能",
+        "故障查询",
+        "故障码查询",
+        "历史故障查询"
+      ],
+      "keywords": [
+        "故障码",
+        "历史故障",
+        "查询",
+        "诊断",
+        "压缩机",
+        "四通阀",
+        "电子膨胀阀",
+        "温度传感器",
+        "压力传感器",
+        "高压保护"
+      ],
+      "related_modules": [
+        "运行参数查询",
+        "工厂自检",
+        "能力测试模式",
+        "室内风机故障保护",
+        "室内盘管保护"
+      ]
+    },
+    {
+      "module_name": "定时开关机",
+      "module_code": "timer_on_off",
+      "category": "interaction_module",
+      "aliases": [
+        "定时开关机",
+        "定时功能",
+        "定时开机",
+        "定时关机",
+        "Timer"
+      ],
+      "keywords": [
+        "预约运行",
+        "时间设定",
+        "定时触发",
+        "用户交互",
+        "压缩机",
+        "盘管温度",
+        "温度传感器",
+        "故障代码",
+        "制冷",
+        "制热"
+      ],
+      "related_modules": [
+        "运行模式切换控制",
+        "掉电恢复记忆",
+        "睡眠模式",
+        "经济模式"
+      ]
+    },
+    {
+      "module_name": "应急运行控制",
+      "module_code": "emergency_operation",
+      "category": "interaction_module",
+      "aliases": [
+        "应急运行控制",
+        "应急功能",
+        "应急运行",
+        "Emergency Operation"
+      ],
+      "keywords": [
+        "应急按键",
+        "故障降级",
+        "临时运行",
+        "应急启动",
+        "压缩机",
+        "电子膨胀阀",
+        "盘管温度",
+        "低压保护",
+        "故障代码",
+        "制冷"
+      ],
+      "related_modules": [
+        "运行模式切换控制",
+        "故障信息查询",
+        "工厂自检",
+        "制热防冷风控制"
+      ]
+    },
+    {
+      "module_name": "工厂自检",
+      "module_code": "factory_self_check",
+      "category": "interaction_module",
+      "aliases": [
+        "工厂自检",
+        "出厂自检功能",
+        "出厂自检",
+        "Factory Self Check",
+        "工厂测试"
+      ],
+      "keywords": [
+        "出厂检测",
+        "整机检查",
+        "生产测试",
+        "自检流程",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "步进电机",
+        "四通阀",
+        "电子膨胀阀"
+      ],
+      "related_modules": [
+        "能力测试模式",
+        "运行参数查询",
+        "故障信息查询",
+        "制冷剂泵集回收"
+      ]
+    },
+    {
+      "module_name": "能力测试模式",
+      "module_code": "capacity_test_mode",
+      "category": "interaction_module",
+      "aliases": [
+        "能力测试模式",
+        "能力测试",
+        "性能测试模式",
+        "Capacity Test"
+      ],
+      "keywords": [
+        "测试模式",
+        "额定能力",
+        "工程测试",
+        "性能验证",
+        "压缩机",
+        "室内风机",
+        "室外风机",
+        "四通阀",
+        "电子膨胀阀",
+        "温度传感器"
+      ],
+      "related_modules": [
+        "工厂自检",
+        "运行参数查询",
+        "故障信息查询",
+        "制冷剂泵集回收"
+      ]
+    },
+    {
+      "module_name": "滤网清洁提醒",
+      "module_code": "filter_cleaning_reminder",
+      "category": "interaction_module",
+      "aliases": [
+        "滤网清洁提醒",
+        "除尘提醒功能",
+        "除尘提醒",
+        "清洁提醒"
+      ],
+      "keywords": [
+        "运行时长",
+        "清洁提醒",
+        "滤网",
+        "提示复位",
+        "压缩机",
+        "室内风机",
+        "盘管温度",
+        "温度传感器",
+        "压力传感器",
+        "高压保护"
+      ],
+      "related_modules": [
+        "滤网更换提醒",
+        "自动清洁",
+        "杀菌清洁"
+      ]
+    },
+    {
+      "module_name": "滤网更换提醒",
+      "module_code": "filter_replacement_reminder",
+      "category": "interaction_module",
+      "aliases": [
+        "滤网更换提醒",
+        "滤网更换功能",
+        "滤网更换",
+        "耗材提醒"
+      ],
+      "keywords": [
+        "滤网寿命",
+        "更换提醒",
+        "维护提醒",
+        "复位",
+        "压缩机",
+        "室内风机",
+        "高压保护",
+        "低压保护",
+        "保护停机",
+        "制冷"
+      ],
+      "related_modules": [
+        "滤网清洁提醒",
+        "自动清洁",
+        "杀菌清洁"
+      ]
+    },
+    {
+      "module_name": "随身感温控",
+      "module_code": "follow_me_temperature_control",
+      "category": "sensing_module",
+      "aliases": [
+        "随身感温控",
+        "随身感功能",
+        "随身感",
+        "Follow Me",
+        "遥控器测温",
+        "体感温控"
+      ],
+      "keywords": [
+        "遥控器温度传感器",
+        "体感温度",
+        "跟随测温",
+        "舒适控制",
+        "压缩机",
+        "盘管温度",
+        "温度传感器",
+        "高压保护",
+        "制冷",
+        "除湿"
+      ],
+      "related_modules": [
+        "运行模式切换控制",
+        "风速控制",
+        "睡眠模式",
+        "经济模式"
+      ]
+    }
+  ]
+}

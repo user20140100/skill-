@@ -1,0 +1,3531 @@
+{
+  "version": "0.9.0",
+  "target_path": "/skills/library-20261118/G9/ios-crash-analysis",
+  "overall_passed": false,
+  "overall_status": "failed",
+  "incomplete_scans": [],
+  "total_validators": 14,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 1,
+  "total_warnings": 27,
+  "severity_counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 6,
+    "low": 16
+  },
+  "finding_counts": {
+    "raw_occurrences": 25,
+    "distinct_occurrences": 25,
+    "unique_findings": 25,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 0,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 6,
+      "low": 16,
+      "info": 2
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 6,
+      "low": 16,
+      "info": 2
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-03e029934351881ba688",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-RELOAD",
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-95dccc2021dfbf3d9a1a",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-059cd11cb393b1e4f415",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_professional_tone",
+      "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+      "suggestion": "The tone is direct and professional, with consistent headings, checklists, and code blocks.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "professional_tone"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-49f15dc29ce46ce2374f",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0a51360e550d1adb81e7",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_scope_definition",
+      "message": "[8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "suggestion": "Scope is focused on iOS/Mac crash report symbolication and root cause analysis without being overly broad.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "scope_definition"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4fe79d1346b5d3e5d5db",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0cb4c1cbb173aca8e597",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_description_clarity",
+      "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+      "suggestion": "The description clearly identifies crash report files, symbolication/root cause analysis, and relevant trigger terms including Chinese.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "description_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-0e56e37da383a0570c42",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0f9e0edaf28628e88e0b",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_trigger_simulation",
+      "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "suggestion": "It should trigger for crash log/report requests, though non-crash terms like 'app terminated unexpectedly' or 'stack trace' may be missed.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "trigger_simulation"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-8ff8c81e12cc26d807f7",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-1017300978cb9cb0eae9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Broad description without negative triggers may cause over-triggering",
+      "suggestion": "Add boundary phrases like 'Do NOT use for...'",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-6646ab75d10f463050af",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-18a7f8cc53f607ef9645",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "folder_hierarchy",
+      "message": "Unexpected nesting depth for general skill",
+      "suggestion": "General skills should be at: skills/<skill-name>/",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5e6175001632b14e1c50",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2125cfc44adf59f54fe2",
+      "category": "RUBRIC_EVAL",
+      "severity": "high",
+      "check_name": "rubric_overall",
+      "message": "Rubric evaluation failed: criteria below 7/10: workflow_completeness",
+      "suggestion": "Address the failed rubric criteria and rerun the evaluation",
+      "metadata": {
+        "overall_score": 77.3,
+        "min_score": 70,
+        "failed_criteria": [
+          "workflow_completeness"
+        ]
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-8c967ff16126838e379a",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2ab016a817c566724ba9",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Instructions'",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+      "metadata": {
+        "missing_section": "## Instructions"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-da03b37eacb3b0100176",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3661379ea9e5c1072875",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-RELOAD",
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4606571f415cd9e35b96",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-378f24adfec67572e606",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No troubleshooting section documented",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5a07e19cf41973a4b450",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4a6560f4aec006f302f9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No prerequisites/requirements documented",
+      "suggestion": "Document dependencies, API keys, or setup needed",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-bd137180460f9a89f483",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4ee8fd97f4b56ef2aaa7",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_instruction_clarity",
+      "message": "[9/10] Instructions are easy to follow with clear action steps",
+      "suggestion": "The checklist and numbered steps provide a clear, ordered workflow with concrete commands and expected outputs.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "instruction_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-ddb47be67626e46f856d",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-7090465d13d1a6d92a07",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description very long (212 chars, recommend 50-150)",
+      "suggestion": "Keep descriptions concise for progressive disclosure",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-027f0eb6d12c812641ad",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "author_missing",
+      "message": "Author not specified in metadata",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+      "metadata": {
+        "profile": "default"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2474a59e61bd9db5c889",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b28f818a5fc2daa26f71",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "unknown_field",
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+      "suggestion": "Remove them or move them under 'metadata'",
+      "metadata": {
+        "fields": [
+          "author",
+          "version"
+        ]
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2d3264a40e92cf96fb80",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "No '## Purpose' section",
+      "suggestion": "Add purpose section to clarify use cases",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5d15b4bd5eecda954908",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-ba753cc9ded8d89e5f9d",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_documentation_completeness",
+      "message": "[7/10] All necessary information is present (purpose, scripts, parameters)",
+      "suggestion": "Purpose, inputs, commands, parsing rules, and output format are present, but project/source-code context handling is under-specified.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "documentation_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-6e9cabd409f2726f10f9",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5437b96ab50d6803bd35",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3a1fe15b8ef3711c2cd9",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e3f5c930756d6b8f695b",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Examples'",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+      "metadata": {
+        "missing_section": "## Examples"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-26c5a10bd0ef9a5dd5ad",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-ec9a2aacd8b20b240f4d",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_error_handling_quality",
+      "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "suggestion": "UUID mismatch, architecture mismatch, load address issues, and redacted frames are practical, though missing dSYM and malformed report handling could be expanded.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "error_handling_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5faaf45011454c6f9d36",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-eeac075903ab5cc0f784",
+      "category": "RUBRIC_EVAL",
+      "severity": "medium",
+      "check_name": "rubric_workflow_completeness",
+      "message": "[6/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "suggestion": "The workflow stops short of telling the agent how to obtain the project path, map symbols to source files, or parse iOS .ips reports.",
+      "metadata": {
+        "score": 6,
+        "pass": false,
+        "judge_pass": false,
+        "id": "workflow_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-77f7a225ef2b102f2769",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-fb1238b1f0b8660d65f5",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_example_quality",
+      "message": "[7/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "suggestion": "atos and report examples are useful, but the documentation could include more user query variations to improve routing robustness.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "example_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5ee04eb09e6aab97a165",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-fc6fe3747c071963a76e",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No limitations documented",
+      "suggestion": "Add '## Limitations' section with known issues/constraints",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-98163ed825773e02322f",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 1,
+    "independent_errors": 0,
+    "independent_warnings": 3
+  },
+  "skills": [
+    {
+      "name": "ios-crash-analysis",
+      "passed": false,
+      "issue_count": 25
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Unknown",
+      "items": [
+        {
+          "name": "ios-crash-analysis",
+          "passed": false,
+          "issue_count": 25
+        }
+      ],
+      "total_items": 1,
+      "passed_count": 0,
+      "failed_count": 1,
+      "total_issues": 25
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "Rubric evaluation failed: criteria below 7/10: workflow_completeness",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Address the failed rubric criteria and rerun the evaluation"
+    },
+    {
+      "message": "Unexpected nesting depth for general skill",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "General skills should be at: skills/<skill-name>/"
+    },
+    {
+      "message": "Missing recommended section: '## Instructions'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics."
+    },
+    {
+      "message": "Missing recommended section: '## Examples'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped."
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+      "message": "[6/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The workflow stops short of telling the agent how to obtain the project path, map symbols to source files, or parse iOS .ips reports."
+    },
+    {
+      "message": "Author not specified in metadata",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address"
+    },
+    {
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Remove them or move them under 'metadata'"
+    },
+    {
+      "message": "Description very long (212 chars, recommend 50-150)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Keep descriptions concise for progressive disclosure"
+    },
+    {
+      "message": "Broad description without negative triggers may cause over-triggering",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add boundary phrases like 'Do NOT use for...'"
+    },
+    {
+      "message": "No '## Purpose' section",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add purpose section to clarify use cases"
+    },
+    {
+      "message": "No prerequisites/requirements documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document dependencies, API keys, or setup needed"
+    },
+    {
+      "message": "No limitations documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Limitations' section with known issues/constraints"
+    },
+    {
+      "message": "No troubleshooting section documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns"
+    },
+    {
+      "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The description clearly identifies crash report files, symbolication/root cause analysis, and relevant trigger terms including Chinese."
+    },
+    {
+      "message": "[9/10] Instructions are easy to follow with clear action steps",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The checklist and numbered steps provide a clear, ordered workflow with concrete commands and expected outputs."
+    },
+    {
+      "message": "[7/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "atos and report examples are useful, but the documentation could include more user query variations to improve routing robustness."
+    },
+    {
+      "message": "[7/10] All necessary information is present (purpose, scripts, parameters)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Purpose, inputs, commands, parsing rules, and output format are present, but project/source-code context handling is under-specified."
+    },
+    {
+      "message": "[8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Scope is focused on iOS/Mac crash report symbolication and root cause analysis without being overly broad."
+    },
+    {
+      "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The tone is direct and professional, with consistent headings, checklists, and code blocks."
+    },
+    {
+      "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "It should trigger for crash log/report requests, though non-crash terms like 'app terminated unexpectedly' or 'stack trace' may be missed."
+    },
+    {
+      "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "UUID mismatch, architecture mismatch, load address issues, and redacted frames are practical, though missing dSYM and malformed report handling could be expanded."
+    },
+    {
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "ios-crash-analysis"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    }
+  ],
+  "results": [
+    {
+      "validator": "Schema & Repository Governance",
+      "description": "Validate SKILL.md frontmatter and repository structure",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 7,
+        "errors": 0,
+        "warnings": 5,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 3,
+        "low_count": 2
+      },
+      "finding_counts": {
+        "raw_occurrences": 5,
+        "distinct_occurrences": 5,
+        "unique_findings": 5,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 2,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 2,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-18a7f8cc53f607ef9645",
+          "occurrence_id": "SEO-5e6175001632b14e1c50",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "folder_hierarchy",
+          "message": "Unexpected nesting depth for general skill",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "General skills should be at: skills/<skill-name>/",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-2ab016a817c566724ba9",
+          "occurrence_id": "SEO-da03b37eacb3b0100176",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Instructions'",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+          "metadata": {
+            "missing_section": "## Instructions"
+          }
+        },
+        {
+          "finding_id": "SEF-e3f5c930756d6b8f695b",
+          "occurrence_id": "SEO-26c5a10bd0ef9a5dd5ad",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Examples'",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+          "metadata": {
+            "missing_section": "## Examples"
+          }
+        },
+        {
+          "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+          "occurrence_id": "SEO-2474a59e61bd9db5c889",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "author_missing",
+          "message": "Author not specified in metadata",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+          "metadata": {
+            "profile": "default"
+          }
+        },
+        {
+          "finding_id": "SEF-b28f818a5fc2daa26f71",
+          "occurrence_id": "SEO-2d3264a40e92cf96fb80",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "unknown_field",
+          "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Remove them or move them under 'metadata'",
+          "metadata": {
+            "fields": [
+              "author",
+              "version"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "manifest_exists",
+          "message": "Found skill manifest: SKILL.md",
+          "metadata": {
+            "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md"
+          }
+        },
+        {
+          "check": "frontmatter_valid",
+          "message": "Valid frontmatter for skill 'ios-crash-analysis'",
+          "metadata": {
+            "description_length": 212
+          }
+        },
+        {
+          "check": "naming_convention",
+          "message": "Folder name 'ios-crash-analysis' follows kebab-case convention",
+          "metadata": {
+            "name_length": 18
+          }
+        },
+        {
+          "check": "line_count",
+          "message": "SKILL.md within line limit (137/500)",
+          "metadata": {
+            "line_count": 137,
+            "limit": 500
+          }
+        },
+        {
+          "check": "body_heading",
+          "message": "Body contains a top-level heading",
+          "metadata": null
+        },
+        {
+          "check": "optional_files",
+          "message": "Skill directory contains only expected files",
+          "metadata": null
+        },
+        {
+          "check": "name_consistency",
+          "message": "Directory name matches frontmatter: 'ios-crash-analysis'",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCHEMA-MEDIUM] Unexpected nesting depth for general skill in /skills/library-20261118/G9/ios-crash-analysis",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Instructions' in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Examples' in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[SCHEMA-LOW] Author not specified in metadata in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[SCHEMA-LOW] Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md"
+        ],
+        "messages": [
+          "[OK] manifest_exists: Found skill manifest: SKILL.md",
+          "[OK] frontmatter_valid: Valid frontmatter for skill 'ios-crash-analysis'",
+          "[OK] naming_convention: Folder name 'ios-crash-analysis' follows kebab-case convention",
+          "[OK] line_count: SKILL.md within line limit (137/500)",
+          "[OK] body_heading: Body contains a top-level heading",
+          "[OK] optional_files: Skill directory contains only expected files",
+          "[OK] name_consistency: Directory name matches frontmatter: 'ios-crash-analysis'"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "schema"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Semantic Version Validation",
+      "description": "Validate optional metadata.version labels and require strict bumps",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "version_optional",
+          "message": "No semantic version label present; resource will use commit-hash history",
+          "metadata": {
+            "previous_version": null
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] version_optional: No semantic version label present; resource will use commit-hash history"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "version"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Security Scan",
+      "description": "Detect security vulnerabilities and PII/secrets",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "skillspector": "2.13.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "skillspector",
+          "message": "No security vulnerabilities detected (secrets, API keys, credentials)",
+          "metadata": null
+        },
+        {
+          "check": "skillspector",
+          "message": "No security vulnerabilities detected (secrets, API keys, credentials)",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "SkillSpector reported 1 reference(s) to files the skill does not bundle (SKILL.md:32 [reference_resolution; reference_missing]); SkillSpector reported no other gap for them, and those lines name no file left out of the scan, so they do not mark the scan incomplete. Files not in the scan, including any outside the scanned path, were not inspected"
+        ],
+        "messages": [
+          "[OK] skillspector: No security vulnerabilities detected (secrets, API keys, credentials)",
+          "[OK] skillspector: No security vulnerabilities detected (secrets, API keys, credentials)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "skillspector_version": "2.13.4",
+      "skillspector_llm_provenance": {
+        "schema_version": 1,
+        "provider": {
+          "configured_adapter": "openai_compatible",
+          "resolved_adapter": "openai_compatible",
+          "effective_adapter": "openai_compatible",
+          "effective_adapters": [
+            "openai_compatible"
+          ],
+          "service": "unknown",
+          "routing": {
+            "deployment_override": null,
+            "deployment_source": "not_applicable",
+            "api_version": null,
+            "api_version_source": "not_applicable"
+          }
+        },
+        "analyzers": [
+          {
+            "analyzer_id": "mcp_tool_poisoning",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_developer_intent",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_quality_policy",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_security_discovery",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "meta_analyzer",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          }
+        ],
+        "sampling": {
+          "temperature": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "seed": {
+            "requested": null,
+            "source": "unset",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "reasoning_effort": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          }
+        },
+        "determinism": {
+          "classification": "nondeterministic",
+          "control_status": "provider_defaults",
+          "provider_guarantee": false,
+          "reason": "Optional controls do not guarantee identical provider output."
+        }
+      },
+      "skillspector_applicability": {
+        "artifact_type": "skill",
+        "kept_issues": 0,
+        "suppressed_inapplicable_issues": 0,
+        "suppressed_by_file_role": {},
+        "raw_risk_score": 0,
+        "applicable_risk_score": 0
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "security"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "PII Scan",
+      "description": "Detect PII and local identifiers",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 1,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "pii_scan_start",
+          "message": "Scanning 1 files for PII",
+          "metadata": {
+            "file_count": 1
+          }
+        },
+        {
+          "check": "pii_detection",
+          "message": "No PII detected in 1 files (emails, SSNs, phone numbers, paths)",
+          "metadata": {
+            "files_scanned": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] pii_scan_start: Scanning 1 files for PII",
+          "[OK] pii_detection: No PII detected in 1 files (emails, SSNs, phone numbers, paths)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "pii"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "License Compliance",
+      "description": "Validate license compliance for Skills, Rules, and Workflows",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "license_compliance",
+          "message": "License compliance scan completed (not detected)",
+          "metadata": {
+            "license_status": "not_detected"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No license information found - manual review required. Add a LICENSE file or 'license' field in frontmatter."
+        ],
+        "messages": [
+          "No license detected in any tier",
+          "[OK] license_compliance: License compliance scan completed (not detected)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "license"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Risk Analysis",
+      "description": "Static code analysis using Bandit and packaged Semgrep rules",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "code_file_discovery",
+          "message": "No code files found - code risk analysis is not applicable",
+          "metadata": {
+            "file_counts": {
+              "py": 0,
+              "sh": 0,
+              "js": 0
+            }
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] code_file_discovery: No code files found - code risk analysis is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Secrets Detection",
+      "description": "Detect hardcoded secrets, API keys, and credentials using Gitleaks",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "gitleaks": "8.30.0"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "gitleaks",
+          "message": "No secrets detected by Gitleaks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] gitleaks: No secrets detected by Gitleaks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Integrity & Hygiene",
+      "description": "Validate dead links, dependencies, and static Python test-file discovery",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 1,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dead_links_scan",
+          "message": "Checking 1 markdown files for dead links",
+          "metadata": {
+            "file_count": 1
+          }
+        },
+        {
+          "check": "dead_links",
+          "message": "All relative links valid in 1 markdown file(s)",
+          "metadata": {
+            "files_checked": 1
+          }
+        },
+        {
+          "check": "dependencies",
+          "message": "No dependency files found (requirements.txt, pyproject.toml)",
+          "metadata": null
+        },
+        {
+          "check": "test_discovery",
+          "message": "No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests.",
+          "metadata": {
+            "test_count": 0,
+            "execution_performed": false,
+            "coverage_measured": false,
+            "patterns": [
+              "test_*.py",
+              "*_test.py"
+            ]
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No standard Python test-file candidates found; consider adding tests"
+        ],
+        "messages": [
+          "[OK] dead_links_scan: Checking 1 markdown files for dead links",
+          "[OK] dead_links: All relative links valid in 1 markdown file(s)",
+          "[OK] dependencies: No dependency files found (requirements.txt, pyproject.toml)",
+          "[OK] test_discovery: No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests."
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Dependency Vulnerability Audit",
+      "description": "Scan dependencies for CVE vulnerabilities using pip-audit and Safety",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dependency_file_discovery",
+          "message": "No dependency files found - vulnerability audit is not applicable",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] dependency_file_discovery: No dependency files found - vulnerability audit is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "dependency"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Unicode Smuggling Detection",
+      "description": "Detect invisible Unicode characters and ASCII smuggling",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 1,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "unicode_scan",
+          "message": "No invisible Unicode characters detected in 1 file(s)",
+          "metadata": {
+            "files_scanned": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] unicode_scan: No invisible Unicode characters detected in 1 file(s)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "unicode"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "QUALITY",
+      "description": "Skill quality scoring across Correctness (35%), Discoverability (25%), Reliability (25%), and Efficiency (15%)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 8,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 2,
+        "low_count": 6
+      },
+      "finding_counts": {
+        "raw_occurrences": 8,
+        "distinct_occurrences": 8,
+        "unique_findings": 8,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 6,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 6,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+          "occurrence_id": "SEO-5437b96ab50d6803bd35",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+          "occurrence_id": "SEO-3a1fe15b8ef3711c2cd9",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-7090465d13d1a6d92a07",
+          "occurrence_id": "SEO-027f0eb6d12c812641ad",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description very long (212 chars, recommend 50-150)",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Keep descriptions concise for progressive disclosure",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-1017300978cb9cb0eae9",
+          "occurrence_id": "SEO-6646ab75d10f463050af",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Broad description without negative triggers may cause over-triggering",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add boundary phrases like 'Do NOT use for...'",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+          "occurrence_id": "SEO-5d15b4bd5eecda954908",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "No '## Purpose' section",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add purpose section to clarify use cases",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-4a6560f4aec006f302f9",
+          "occurrence_id": "SEO-bd137180460f9a89f483",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No prerequisites/requirements documented",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document dependencies, API keys, or setup needed",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-fc6fe3747c071963a76e",
+          "occurrence_id": "SEO-98163ed825773e02322f",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No limitations documented",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Limitations' section with known issues/constraints",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-378f24adfec67572e606",
+          "occurrence_id": "SEO-5a07e19cf41973a4b450",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No troubleshooting section documented",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "quality_score",
+          "message": "Score: 89.0/100 (Grade: B)",
+          "metadata": {
+            "overall_score": 89.0,
+            "grade": "B",
+            "skill_type": "guide-only"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.author' in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags' in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[QUALITY-LOW] Description very long (212 chars, recommend 50-150) in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[QUALITY-LOW] Broad description without negative triggers may cause over-triggering in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[QUALITY-LOW] No '## Purpose' section in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[QUALITY-LOW] No prerequisites/requirements documented in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[QUALITY-LOW] No limitations documented in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[QUALITY-LOW] No troubleshooting section documented in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md"
+        ],
+        "messages": [
+          "[OK] quality_score: Score: 89.0/100 (Grade: B)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "quality": {
+        "overall_score": 89.0,
+        "grade": "B",
+        "skill_type": "guide-only",
+        "skill_name": "ios-crash-analysis",
+        "dimensions": {
+          "correctness": {
+            "score": 90.0,
+            "weight": 0.35,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+                "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+                "deduction": 5
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+                "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+                "deduction": 5
+              }
+            ]
+          },
+          "discoverability": {
+            "score": 85.0,
+            "weight": 0.25,
+            "issues_count": 3,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "Description very long (212 chars, recommend 50-150)",
+                "suggestion": "Keep descriptions concise for progressive disclosure",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "Broad description without negative triggers may cause over-triggering",
+                "suggestion": "Add boundary phrases like 'Do NOT use for...'",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No '## Purpose' section",
+                "suggestion": "Add purpose section to clarify use cases",
+                "deduction": 5
+              }
+            ]
+          },
+          "reliability": {
+            "score": 85.0,
+            "weight": 0.25,
+            "issues_count": 3,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No prerequisites/requirements documented",
+                "suggestion": "Document dependencies, API keys, or setup needed",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No limitations documented",
+                "suggestion": "Add '## Limitations' section with known issues/constraints",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No troubleshooting section documented",
+                "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+                "deduction": 5
+              }
+            ]
+          },
+          "efficiency": {
+            "score": 100.0,
+            "weight": 0.15,
+            "issues_count": 0,
+            "issues": []
+          }
+        },
+        "metrics": {
+          "total_tokens": 1134,
+          "estimated_tokens": 1134,
+          "estimate_method": "characters/4",
+          "recommended_max_tokens": 5000,
+          "frontmatter_tokens": 73,
+          "instructions_tokens": 1059,
+          "script_count": 0,
+          "has_examples": true,
+          "has_error_handling": true,
+          "has_frontmatter": true,
+          "has_instructions": false,
+          "has_scripts": false,
+          "has_lib_module": false
+        }
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "quality"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "SCRIPT_LINT",
+      "description": "AST-based code quality checks for skill scripts",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "lint",
+          "message": "No scripts/ or tools/ directory found",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] lint: No scripts/ or tools/ directory found"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "lint"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Harness Compatibility",
+      "description": "Advisory: whether each agent harness loads, degrades or drops the skill",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 2,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 2,
+        "distinct_occurrences": 2,
+        "unique_findings": 2,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 2
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 2
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-3661379ea9e5c1072875",
+          "occurrence_id": "SEO-4606571f415cd9e35b96",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-RELOAD",
+          "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-03e029934351881ba688",
+          "occurrence_id": "SEO-95dccc2021dfbf3d9a1a",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-RELOAD",
+          "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once. in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[HARNESS-INFO] opencode: Skill list and text are cached at startup; edits need a restart. in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "harness"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "RUBRIC_EVAL",
+      "description": "LLM-as-Judge qualitative evaluation across 9 criteria (description clarity, instruction quality, trigger simulation, etc.)",
+      "passed": false,
+      "status": "failed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 1,
+        "warnings": 9,
+        "critical_count": 0,
+        "high_count": 1,
+        "medium_count": 1,
+        "low_count": 8
+      },
+      "finding_counts": {
+        "raw_occurrences": 10,
+        "distinct_occurrences": 10,
+        "unique_findings": 10,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 1,
+          "low": 8,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 1,
+          "low": 8,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-0cb4c1cbb173aca8e597",
+          "occurrence_id": "SEO-0e56e37da383a0570c42",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_description_clarity",
+          "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The description clearly identifies crash report files, symbolication/root cause analysis, and relevant trigger terms including Chinese.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "description_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-4ee8fd97f4b56ef2aaa7",
+          "occurrence_id": "SEO-ddb47be67626e46f856d",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_instruction_clarity",
+          "message": "[9/10] Instructions are easy to follow with clear action steps",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The checklist and numbered steps provide a clear, ordered workflow with concrete commands and expected outputs.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "instruction_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-fb1238b1f0b8660d65f5",
+          "occurrence_id": "SEO-5ee04eb09e6aab97a165",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_example_quality",
+          "message": "[7/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "atos and report examples are useful, but the documentation could include more user query variations to improve routing robustness.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "example_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-ba753cc9ded8d89e5f9d",
+          "occurrence_id": "SEO-6e9cabd409f2726f10f9",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_documentation_completeness",
+          "message": "[7/10] All necessary information is present (purpose, scripts, parameters)",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Purpose, inputs, commands, parsing rules, and output format are present, but project/source-code context handling is under-specified.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "documentation_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-0a51360e550d1adb81e7",
+          "occurrence_id": "SEO-4fe79d1346b5d3e5d5db",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_scope_definition",
+          "message": "[8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Scope is focused on iOS/Mac crash report symbolication and root cause analysis without being overly broad.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "scope_definition"
+          }
+        },
+        {
+          "finding_id": "SEF-059cd11cb393b1e4f415",
+          "occurrence_id": "SEO-49f15dc29ce46ce2374f",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_professional_tone",
+          "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The tone is direct and professional, with consistent headings, checklists, and code blocks.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "professional_tone"
+          }
+        },
+        {
+          "finding_id": "SEF-0f9e0edaf28628e88e0b",
+          "occurrence_id": "SEO-8ff8c81e12cc26d807f7",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_trigger_simulation",
+          "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "It should trigger for crash log/report requests, though non-crash terms like 'app terminated unexpectedly' or 'stack trace' may be missed.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "trigger_simulation"
+          }
+        },
+        {
+          "finding_id": "SEF-eeac075903ab5cc0f784",
+          "occurrence_id": "SEO-77f7a225ef2b102f2769",
+          "category": "RUBRIC_EVAL",
+          "severity": "medium",
+          "check_name": "rubric_workflow_completeness",
+          "message": "[6/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The workflow stops short of telling the agent how to obtain the project path, map symbols to source files, or parse iOS .ips reports.",
+          "metadata": {
+            "score": 6,
+            "pass": false,
+            "judge_pass": false,
+            "id": "workflow_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-ec9a2aacd8b20b240f4d",
+          "occurrence_id": "SEO-5faaf45011454c6f9d36",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_error_handling_quality",
+          "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "UUID mismatch, architecture mismatch, load address issues, and redacted frames are practical, though missing dSYM and malformed report handling could be expanded.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "error_handling_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-2125cfc44adf59f54fe2",
+          "occurrence_id": "SEO-8c967ff16126838e379a",
+          "category": "RUBRIC_EVAL",
+          "severity": "high",
+          "check_name": "rubric_overall",
+          "message": "Rubric evaluation failed: criteria below 7/10: workflow_completeness",
+          "file_path": "/skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Address the failed rubric criteria and rerun the evaluation",
+          "metadata": {
+            "overall_score": 77.3,
+            "min_score": 70,
+            "failed_criteria": [
+              "workflow_completeness"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "rubric_eval",
+          "message": "LLM Rubric Score: 77.3/100",
+          "metadata": {
+            "overall_score": 77.3,
+            "overall_pass": false,
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash",
+            "judge_attempts": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [
+          "[RUBRIC_EVAL-HIGH] Rubric evaluation failed: criteria below 7/10: workflow_completeness in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md"
+        ],
+        "warnings": [
+          "[RUBRIC_EVAL-LOW] [9/10] Description is clear, specific, and explains WHEN to use the skill in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Instructions are easy to follow with clear action steps in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] All necessary information is present (purpose, scripts, parameters) in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow) in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Documentation uses professional, consistent tone and formatting in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives? in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[RUBRIC_EVAL-MEDIUM] [6/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance. in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate? in /skills/library-20261118/G9/ios-crash-analysis/SKILL.md"
+        ],
+        "messages": [
+          "[OK] rubric_eval: LLM Rubric Score: 77.3/100"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "rubric_eval": {
+        "execution_status": "succeeded",
+        "overall_score": 77.3,
+        "overall_pass": false,
+        "summary": "The skill is clear, actionable, and covers iOS/Mac crash symbolication well, but the workflow lacks guidance for locating project source code and handling common iOS .ips crash reports.",
+        "judge_score": 76,
+        "judge_overall_pass": false,
+        "skill_name": "ios-crash-analysis",
+        "checks": [
+          {
+            "id": "description_clarity",
+            "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The description clearly identifies crash report files, symbolication/root cause analysis, and relevant trigger terms including Chinese."
+          },
+          {
+            "id": "instruction_clarity",
+            "criterion": "Instructions are easy to follow with clear action steps",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The checklist and numbered steps provide a clear, ordered workflow with concrete commands and expected outputs."
+          },
+          {
+            "id": "example_quality",
+            "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "atos and report examples are useful, but the documentation could include more user query variations to improve routing robustness."
+          },
+          {
+            "id": "documentation_completeness",
+            "criterion": "All necessary information is present (purpose, scripts, parameters)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "Purpose, inputs, commands, parsing rules, and output format are present, but project/source-code context handling is under-specified."
+          },
+          {
+            "id": "scope_definition",
+            "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Scope is focused on iOS/Mac crash report symbolication and root cause analysis without being overly broad."
+          },
+          {
+            "id": "professional_tone",
+            "criterion": "Documentation uses professional, consistent tone and formatting",
+            "importance": "low",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The tone is direct and professional, with consistent headings, checklists, and code blocks."
+          },
+          {
+            "id": "trigger_simulation",
+            "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "It should trigger for crash log/report requests, though non-crash terms like 'app terminated unexpectedly' or 'stack trace' may be missed."
+          },
+          {
+            "id": "workflow_completeness",
+            "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+            "importance": "high",
+            "pass": false,
+            "judge_pass": false,
+            "score": 6,
+            "notes": "The workflow stops short of telling the agent how to obtain the project path, map symbols to source files, or parse iOS .ips reports."
+          },
+          {
+            "id": "error_handling_quality",
+            "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "UUID mismatch, architecture mismatch, load address issues, and redacted frames are practical, though missing dSYM and malformed report handling could be expanded."
+          }
+        ],
+        "aggregation": {
+          "method": "importance_weighted_mean",
+          "importance_weights": {
+            "high": 3,
+            "medium": 2,
+            "low": 1
+          },
+          "min_score": 70,
+          "criterion_pass_score": 7,
+          "requires_all_criteria_pass": true
+        },
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash",
+        "judge_attempts": 1
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "ios-crash-analysis",
+        "skill_digest": "sha256:efc38c122ee75bea4f90054475d7251f51d35f2450b95eed72b1ef1e306ce6c0",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "rubric"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "fail",
+  "publication": {
+    "status": "fail",
+    "eligible": false,
+    "reasons": [
+      "A validator failed."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "policy": {
+    "profile": "default",
+    "audience": "all",
+    "digest": "sha256:64a069b8853f7123049a675d6853ef8d8b424792bb9a2a5157a73ec312f38ed4",
+    "author_email_regex": null,
+    "severity_overrides": {
+      "SCHEMA.author_missing": "low",
+      "SCHEMA.author_without_email": "info",
+      "SCHEMA.author_format": "high",
+      "WORKFLOWS.author_format": "high",
+      "LICENSE.*": "critical"
+    },
+    "metadata_id_requirement": "ignore",
+    "source": "/usr/local/lib/python3.12/site-packages/skillevaluator/config/profiles/default.yaml"
+  },
+  "quality_config": {
+    "source": "packaged",
+    "file": null,
+    "digest": "sha256:298ff2bf62132c8154217b7aa59fc1fd04f28cf75372f55620a2cbcd951d6549",
+    "min_score": 70
+  },
+  "evaluated_source": null,
+  "gating": {
+    "tiers": {
+      "1": {
+        "blocking": true,
+        "validators": [
+          "Schema & Repository Governance",
+          "Semantic Version Validation",
+          "Security Scan",
+          "PII Scan",
+          "License Compliance",
+          "Code Risk Analysis",
+          "Secrets Detection",
+          "Code Integrity & Hygiene",
+          "Dependency Vulnerability Audit",
+          "Unicode Smuggling Detection",
+          "QUALITY",
+          "SCRIPT_LINT",
+          "Harness Compatibility",
+          "RUBRIC_EVAL"
+        ],
+        "validator_policies": [
+          {
+            "validator": "Schema & Repository Governance",
+            "blocking": true
+          },
+          {
+            "validator": "Semantic Version Validation",
+            "blocking": true
+          },
+          {
+            "validator": "Security Scan",
+            "blocking": true
+          },
+          {
+            "validator": "PII Scan",
+            "blocking": true
+          },
+          {
+            "validator": "License Compliance",
+            "blocking": true
+          },
+          {
+            "validator": "Code Risk Analysis",
+            "blocking": true
+          },
+          {
+            "validator": "Secrets Detection",
+            "blocking": true
+          },
+          {
+            "validator": "Code Integrity & Hygiene",
+            "blocking": true
+          },
+          {
+            "validator": "Dependency Vulnerability Audit",
+            "blocking": true
+          },
+          {
+            "validator": "Unicode Smuggling Detection",
+            "blocking": true
+          },
+          {
+            "validator": "QUALITY",
+            "blocking": true
+          },
+          {
+            "validator": "SCRIPT_LINT",
+            "blocking": true
+          },
+          {
+            "validator": "Harness Compatibility",
+            "blocking": true
+          },
+          {
+            "validator": "RUBRIC_EVAL",
+            "blocking": true
+          }
+        ]
+      }
+    }
+  },
+  "workflow": {
+    "tier": 1,
+    "stages": {
+      "validation": {
+        "status": "passed"
+      },
+      "rubric": {
+        "status": "failed"
+      },
+      "llm": {
+        "status": "enabled"
+      }
+    }
+  },
+  "quality_summary": [
+    {
+      "overall_score": 89.0,
+      "grade": "B",
+      "skill_type": "guide-only",
+      "skill_name": "ios-crash-analysis",
+      "dimensions": {
+        "correctness": {
+          "score": 90.0,
+          "weight": 0.35,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+              "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+              "deduction": 5
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+              "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+              "deduction": 5
+            }
+          ]
+        },
+        "discoverability": {
+          "score": 85.0,
+          "weight": 0.25,
+          "issues_count": 3,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "Description very long (212 chars, recommend 50-150)",
+              "suggestion": "Keep descriptions concise for progressive disclosure",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "Broad description without negative triggers may cause over-triggering",
+              "suggestion": "Add boundary phrases like 'Do NOT use for...'",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No '## Purpose' section",
+              "suggestion": "Add purpose section to clarify use cases",
+              "deduction": 5
+            }
+          ]
+        },
+        "reliability": {
+          "score": 85.0,
+          "weight": 0.25,
+          "issues_count": 3,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No prerequisites/requirements documented",
+              "suggestion": "Document dependencies, API keys, or setup needed",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No limitations documented",
+              "suggestion": "Add '## Limitations' section with known issues/constraints",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No troubleshooting section documented",
+              "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+              "deduction": 5
+            }
+          ]
+        },
+        "efficiency": {
+          "score": 100.0,
+          "weight": 0.15,
+          "issues_count": 0,
+          "issues": []
+        }
+      },
+      "metrics": {
+        "total_tokens": 1134,
+        "estimated_tokens": 1134,
+        "estimate_method": "characters/4",
+        "recommended_max_tokens": 5000,
+        "frontmatter_tokens": 73,
+        "instructions_tokens": 1059,
+        "script_count": 0,
+        "has_examples": true,
+        "has_error_handling": true,
+        "has_frontmatter": true,
+        "has_instructions": false,
+        "has_scripts": false,
+        "has_lib_module": false
+      }
+    }
+  ],
+  "rubric_eval": {
+    "execution_status": "succeeded",
+    "overall_score": 77.3,
+    "overall_pass": false,
+    "summary": "The skill is clear, actionable, and covers iOS/Mac crash symbolication well, but the workflow lacks guidance for locating project source code and handling common iOS .ips crash reports.",
+    "judge_score": 76,
+    "judge_overall_pass": false,
+    "skill_name": "ios-crash-analysis",
+    "checks": [
+      {
+        "id": "description_clarity",
+        "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The description clearly identifies crash report files, symbolication/root cause analysis, and relevant trigger terms including Chinese."
+      },
+      {
+        "id": "instruction_clarity",
+        "criterion": "Instructions are easy to follow with clear action steps",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The checklist and numbered steps provide a clear, ordered workflow with concrete commands and expected outputs."
+      },
+      {
+        "id": "example_quality",
+        "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "atos and report examples are useful, but the documentation could include more user query variations to improve routing robustness."
+      },
+      {
+        "id": "documentation_completeness",
+        "criterion": "All necessary information is present (purpose, scripts, parameters)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "Purpose, inputs, commands, parsing rules, and output format are present, but project/source-code context handling is under-specified."
+      },
+      {
+        "id": "scope_definition",
+        "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Scope is focused on iOS/Mac crash report symbolication and root cause analysis without being overly broad."
+      },
+      {
+        "id": "professional_tone",
+        "criterion": "Documentation uses professional, consistent tone and formatting",
+        "importance": "low",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The tone is direct and professional, with consistent headings, checklists, and code blocks."
+      },
+      {
+        "id": "trigger_simulation",
+        "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "It should trigger for crash log/report requests, though non-crash terms like 'app terminated unexpectedly' or 'stack trace' may be missed."
+      },
+      {
+        "id": "workflow_completeness",
+        "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+        "importance": "high",
+        "pass": false,
+        "judge_pass": false,
+        "score": 6,
+        "notes": "The workflow stops short of telling the agent how to obtain the project path, map symbols to source files, or parse iOS .ips reports."
+      },
+      {
+        "id": "error_handling_quality",
+        "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "UUID mismatch, architecture mismatch, load address issues, and redacted frames are practical, though missing dSYM and malformed report handling could be expanded."
+      }
+    ],
+    "aggregation": {
+      "method": "importance_weighted_mean",
+      "importance_weights": {
+        "high": 3,
+        "medium": 2,
+        "low": 1
+      },
+      "min_score": 70,
+      "criterion_pass_score": 7,
+      "requires_all_criteria_pass": true
+    },
+    "llm_provider": "openai-compatible",
+    "llm_model_used": "qwen3.8-flash",
+    "judge_attempts": 1
+  },
+  "generated_at": "2026-11-18T03:18:53.700047+00:00"
+}

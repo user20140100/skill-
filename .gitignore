@@ -1,11 +1,11 @@
 # 密钥与本地配置，切勿提交
 .env
 
-# 评估报告输出（运行产物，README 给出重生成命令）
-reports/
-
-# 本地待扫描/待评估的 skill（示例/靶场）
-skills/
+# 公司内部已安装 skill（cskills CLI 拉取，涉及公司内部系统，不上传公开仓库）
+# .agents/.claude/.codex 三处均为此类 skill（后者为指向 .agents 的软链接）
+.agents/
+.claude/
+.codex/
 
 # 规则开关 staging 目录（toggle.py 生成，非源码）
 custom-rules/staged/
@@ -17,30 +17,6 @@ __pycache__/
 .DS_Store
 .pytest_cache/
 .mypy_cache/
-
-# --- 数据集：仅保留 3 个演示 skill + 共享用例 ---
-# 完整 52 Skill 数据集（positive 15 / redundant 30 / security 7）为本地构建产物，
-# 本仓库只提交 3 个核心演示 Skill + 1 个共享用例集（构建方法见根 README §9）。
-# 冗余冲突 Skill（30 个，8 组）
-skill-dataset/redundant/
-# 公司库快照 / 演示目录
-skill-dataset/library-20261118/
-skill-dataset/library-demo/
-skill-dataset/reference/
-# 规则 B 验证靶场（c-dev 恶意化样本，非核心三个 skill）
-skill-dataset/ruleb-range/
-
-# positive/official/security 仅保留各一个核心演示 skill
-skill-dataset/positive/*
-!skill-dataset/positive/calc-pro/
-skill-dataset/official/*
-!skill-dataset/official/calculator/
-skill-dataset/security/*
-!skill-dataset/security/custom-rules-range/
-
-# 完整数据集的清单与说明（描述 52 个 skill，与「只提交 3 个」边界不符）
-skill-dataset/manifest.json
-skill-dataset/README.md
 
 # 临时 session 交接文档（核心内容已沉淀到 README 与 deliverables）
 SESSION_HANDOFF.md

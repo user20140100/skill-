@@ -1,0 +1,24 @@
+{
+  "name": "mr-suggestion",
+  "author": "zhaobo",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:04+08:00",
+  "updatedAt": "2026-11-17T10:46:04+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/mr-suggestion"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/mr-suggestion",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/mr-suggestion"
+  ],
+  "fileHashes": {
+    "SKILL.md": "af53d25f8cc5b928ce00d42fb94658b626e02e836a7761a537b7e048523db917",
+    "config.example.json": "8b70e07a418ae2395a343d4f9a4550ed5404af4e0eea50a71a91db10dd5e42d0",
+    "scripts/fetch_suggestions.py": "5ba7fe605ef9ae025460dc0e516c520b727fedb5684b539394407cd021b57f81"
+  }
+}

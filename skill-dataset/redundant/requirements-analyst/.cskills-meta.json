@@ -1,0 +1,25 @@
+{
+  "name": "requirements-analyst",
+  "author": "tanglejun",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:24+08:00",
+  "updatedAt": "2026-11-17T10:46:24+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/requirements-analyst"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/requirements-analyst",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/requirements-analyst"
+  ],
+  "fileHashes": {
+    "SKILL.md": "84df0c38e95c87fe65b7e8fdc667628c4700577af55f24d9b3a54c1eb9f97e82",
+    "agents/openai.yaml": "97276a296da6a11f951e9d5c6e033e3a0bb346188d638cb3cfe5d18c9f5e6912",
+    "assets/requirements-template.md": "b30bf2813c79b25466a04e910c99dc7ab3bfe177055dc4cb80b5496e45b023fc",
+    "references/如何有效需求分析-方法提炼.md": "afa9d8c7bc1fa5242bdceb21272da87ff4498931231722ebbd04141a4dcf9f52"
+  }
+}

@@ -1,0 +1,741 @@
+{
+  "skill": {
+    "name": "biz-view-query",
+    "source": "/scan/ruleb-range/biz-view-query",
+    "scanned_at": "2026-11-18T12:36:19.163377+00:00"
+  },
+  "risk_assessment": {
+    "score": 39,
+    "severity": "MEDIUM",
+    "recommendation": "CAUTION",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 195,
+      "executable": false,
+      "size_bytes": 15779,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "AS2",
+      "finding_id": "finding-044e774f9c3d4adc9b1071923c32296f",
+      "category": "Agent Snooping",
+      "pattern": "MCP Config Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 90,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": "mcp.json`**,\u4ee5\u53ca\u7528\u6237\u7ea7 **`~/.cursor/mcp.json`** \u662f\u5426\u5305\u542b `mcpServers.biz-view-mcp`,\u5e76\u5c3d\u91cf\u786e\u8ba4\u5176\u4e2d\u662f\u5426\u542b **`headers.x-auth-token",
+      "explanation": "Skill accesses MCP server configuration files (such as mcp.json or claude_desktop_config.json). MCP configs contain server URLs, authentication tokens, and tool definitions \u2014 reading them allows the skill to discover and potentially abuse other tool integrations.",
+      "remediation": "Remove all code or instructions that read MCP configuration files (such as mcp.json or claude_desktop_config.json). MCP server details should be managed by the agent runtime, not read by individual skills.",
+      "code_snippet": "\n1. **\u5728 Cursor\u300cSettings \u2192 Tools & MCP\u300d**(\u6216\u7b49\u4ef7\u5165\u53e3)\u786e\u8ba4\u662f\u5426\u5b58\u5728\u540d\u4e3a **`biz-view-mcp`** \u7684\u670d\u52a1\u5668,\u4e14\u72b6\u6001\u4e3a\u5df2\u8fde\u63a5/\u53ef\u7528\u3002\n2. **\u9274\u6743\u5934\u5fc5\u67e5**:\u786e\u8ba4\u8be5\u670d\u52a1\u5668\u914d\u7f6e\u4e2d\u5df2\u5305\u542b **`headers.x-auth-token`**(\u6216\u5f53\u524d Cursor \u7248\u672c\u7b49\u4ef7\u80fd\u529b);\u82e5\u7528\u6237\u5c1a\u672a\u914d\u7f6e,**\u660e\u786e\u544a\u77e5\u5fc5\u987b\u914d\u7f6e**\u3001token \u987b\u5411 **\u8d1f\u8d23\u4e1a\u52a1\u7684 IT** \u7533\u8bf7,\u5e76\u63d0\u9192 **\u4e2a\u4eba token \u4e0d\u5f97\u5916\u6cc4**\u3002\n3. \u82e5 UI \u4e0d\u4fbf\u76f4\u63a5\u8bfb\u53d6:\u68c0\u67e5\u5de5\u4f5c\u533a\u662f\u5426\u5b58\u5728 **`.cursor/mcp.json`**,\u4ee5\u53ca\u7528\u6237\u7ea7 **`~/.cursor/mcp.json`** \u662f\u5426\u5305\u542b `mcpServers.biz-view-mcp`,\u5e76\u5c3d\u91cf\u786e\u8ba4\u5176\u4e2d\u662f\u5426\u542b **`headers.x-auth-token`**(**\u4e0d\u8981**\u5728\u5bf9\u8bdd\u4e2d\u8ba9\u7528\u6237\u56de\u663e\u5b8c\u6574 token)\u3002\n4. **\u82e5\u7f3a\u5931**:\u4f18\u5148\u5c1d\u8bd5\u5728\u5de5\u4f5c\u533a\u521b\u5efa/\u5408\u5e76 **`.cursor/mcp.json`**(\u4ec5\u8ffd\u52a0 `biz-view-mcp` \u6761\u76ee,\u4fdd\u7559\u5176\u5b83\u670d\u52a1\u5668\u914d\u7f6e\u4e0d\u88ab\u8986\u76d6),\u4e14\u5408\u5e76\u5199\u5165\u7684\u793a\u4f8b **\u5fc5\u987b**\u5305\u542b `url` \u4e0e `headers.x-auth-token` \u5360\u4f4d(\u7528\u6237\u81ea\u884c\u66ff\u6362 `xxxxx`)\u3002\n5. **\u82e5\u81ea\u52a8\u5199\u5165\u5931\u8d25**(\u6743\u9650\u3001\u5408\u5e76\u51b2\u7a81\u3001\u7528\u6237\u62d2\u7edd\u5199\u5165\u4ed3\u5e93\u6587\u4ef6\u7b49):\u5f15\u5bfc\u7528\u6237\u624b\u52a8\u5728 Cursor MCP \u8bbe\u7f6e\u4e2d\u6dfb\u52a0\u540c\u540d\u670d\u52a1\u5668\u3001URL,\u5e76**\u52a1\u5fc5**\u8865\u5145 `x-auth-token` \u8bf7\u6c42\u5934,\u4fdd\u5b58\u540e\u91cd\u8bd5\u5de5\u5177\u8c03\u7528\u3002\n",
+      "intent": null,
+      "tags": [
+        "Agent Snooping",
+        "normalized-view"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1a59825b8b58b2c8a1b0cd3b8571831e9924c5b08213306c52e96072b874fbf5",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 90,
+          "end_line": null,
+          "start_column": 36
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "AS2",
+      "finding_id": "finding-437a60bb285747ef96d965abd08b5286",
+      "category": "Agent Snooping",
+      "pattern": "MCP Config Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 90,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": "mcp.json`**\uff0c\u4ee5\u53ca\u7528\u6237\u7ea7 **`~/.cursor/mcp.json`** \u662f\u5426\u5305\u542b `mcpServers.biz-view-mcp`\uff0c\u5e76\u5c3d\u91cf\u786e\u8ba4\u5176\u4e2d\u662f\u5426\u542b **`headers.x-auth-token",
+      "explanation": "Skill accesses MCP server configuration files (such as mcp.json or claude_desktop_config.json). MCP configs contain server URLs, authentication tokens, and tool definitions \u2014 reading them allows the skill to discover and potentially abuse other tool integrations.",
+      "remediation": "Remove all code or instructions that read MCP configuration files (such as mcp.json or claude_desktop_config.json). MCP server details should be managed by the agent runtime, not read by individual skills.",
+      "code_snippet": "\n1. **\u5728 Cursor\u300cSettings \u2192 Tools & MCP\u300d**\uff08\u6216\u7b49\u4ef7\u5165\u53e3\uff09\u786e\u8ba4\u662f\u5426\u5b58\u5728\u540d\u4e3a **`biz-view-mcp`** \u7684\u670d\u52a1\u5668\uff0c\u4e14\u72b6\u6001\u4e3a\u5df2\u8fde\u63a5/\u53ef\u7528\u3002\n2. **\u9274\u6743\u5934\u5fc5\u67e5**\uff1a\u786e\u8ba4\u8be5\u670d\u52a1\u5668\u914d\u7f6e\u4e2d\u5df2\u5305\u542b **`headers.x-auth-token`**\uff08\u6216\u5f53\u524d Cursor \u7248\u672c\u7b49\u4ef7\u80fd\u529b\uff09\uff1b\u82e5\u7528\u6237\u5c1a\u672a\u914d\u7f6e\uff0c**\u660e\u786e\u544a\u77e5\u5fc5\u987b\u914d\u7f6e**\u3001token \u987b\u5411 **\u8d1f\u8d23\u4e1a\u52a1\u7684 IT** \u7533\u8bf7\uff0c\u5e76\u63d0\u9192 **\u4e2a\u4eba token \u4e0d\u5f97\u5916\u6cc4**\u3002\n3. \u82e5 UI \u4e0d\u4fbf\u76f4\u63a5\u8bfb\u53d6\uff1a\u68c0\u67e5\u5de5\u4f5c\u533a\u662f\u5426\u5b58\u5728 **`.cursor/mcp.json`**\uff0c\u4ee5\u53ca\u7528\u6237\u7ea7 **`~/.cursor/mcp.json`** \u662f\u5426\u5305\u542b `mcpServers.biz-view-mcp`\uff0c\u5e76\u5c3d\u91cf\u786e\u8ba4\u5176\u4e2d\u662f\u5426\u542b **`headers.x-auth-token`**\uff08**\u4e0d\u8981**\u5728\u5bf9\u8bdd\u4e2d\u8ba9\u7528\u6237\u56de\u663e\u5b8c\u6574 token\uff09\u3002\n4. **\u82e5\u7f3a\u5931**\uff1a\u4f18\u5148\u5c1d\u8bd5\u5728\u5de5\u4f5c\u533a\u521b\u5efa/\u5408\u5e76 **`.cursor/mcp.json`**\uff08\u4ec5\u8ffd\u52a0 `biz-view-mcp` \u6761\u76ee\uff0c\u4fdd\u7559\u5176\u5b83\u670d\u52a1\u5668\u914d\u7f6e\u4e0d\u88ab\u8986\u76d6\uff09\uff0c\u4e14\u5408\u5e76\u5199\u5165\u7684\u793a\u4f8b **\u5fc5\u987b**\u5305\u542b `url` \u4e0e `headers.x-auth-token` \u5360\u4f4d\uff08\u7528\u6237\u81ea\u884c\u66ff\u6362 `xxxxx`\uff09\u3002\n5. **\u82e5\u81ea\u52a8\u5199\u5165\u5931\u8d25**\uff08\u6743\u9650\u3001\u5408\u5e76\u51b2\u7a81\u3001\u7528\u6237\u62d2\u7edd\u5199\u5165\u4ed3\u5e93\u6587\u4ef6\u7b49\uff09\uff1a\u5f15\u5bfc\u7528\u6237\u624b\u52a8\u5728 Cursor MCP \u8bbe\u7f6e\u4e2d\u6dfb\u52a0\u540c\u540d\u670d\u52a1\u5668\u3001URL\uff0c\u5e76**\u52a1\u5fc5**\u8865\u5145 `x-auth-token` \u8bf7\u6c42\u5934\uff0c\u4fdd\u5b58\u540e\u91cd\u8bd5\u5de5\u5177\u8c03\u7528\u3002\n",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b2366a81a9c288aba8df35bf9279f01a8ae3f1f472fbf1ce165c1373620df378",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 90,
+          "end_line": null,
+          "start_column": 36
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "AS2",
+      "finding_id": "finding-03f4bdeee3db44f6aeae8aaa83ece39c",
+      "category": "Agent Snooping",
+      "pattern": "MCP Config Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 91,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": "mcp.json`**(\u4ec5\u8ffd\u52a0 `biz-view-mcp` \u6761\u76ee,\u4fdd\u7559\u5176\u5b83\u670d\u52a1\u5668\u914d\u7f6e\u4e0d\u88ab\u8986\u76d6),\u4e14\u5408\u5e76\u5199\u5165\u7684\u793a\u4f8b **\u5fc5\u987b**\u5305\u542b `url",
+      "explanation": "Skill accesses MCP server configuration files (such as mcp.json or claude_desktop_config.json). MCP configs contain server URLs, authentication tokens, and tool definitions \u2014 reading them allows the skill to discover and potentially abuse other tool integrations.",
+      "remediation": "Remove all code or instructions that read MCP configuration files (such as mcp.json or claude_desktop_config.json). MCP server details should be managed by the agent runtime, not read by individual skills.",
+      "code_snippet": "1. **\u5728 Cursor\u300cSettings \u2192 Tools & MCP\u300d**(\u6216\u7b49\u4ef7\u5165\u53e3)\u786e\u8ba4\u662f\u5426\u5b58\u5728\u540d\u4e3a **`biz-view-mcp`** \u7684\u670d\u52a1\u5668,\u4e14\u72b6\u6001\u4e3a\u5df2\u8fde\u63a5/\u53ef\u7528\u3002\n2. **\u9274\u6743\u5934\u5fc5\u67e5**:\u786e\u8ba4\u8be5\u670d\u52a1\u5668\u914d\u7f6e\u4e2d\u5df2\u5305\u542b **`headers.x-auth-token`**(\u6216\u5f53\u524d Cursor \u7248\u672c\u7b49\u4ef7\u80fd\u529b);\u82e5\u7528\u6237\u5c1a\u672a\u914d\u7f6e,**\u660e\u786e\u544a\u77e5\u5fc5\u987b\u914d\u7f6e**\u3001token \u987b\u5411 **\u8d1f\u8d23\u4e1a\u52a1\u7684 IT** \u7533\u8bf7,\u5e76\u63d0\u9192 **\u4e2a\u4eba token \u4e0d\u5f97\u5916\u6cc4**\u3002\n3. \u82e5 UI \u4e0d\u4fbf\u76f4\u63a5\u8bfb\u53d6:\u68c0\u67e5\u5de5\u4f5c\u533a\u662f\u5426\u5b58\u5728 **`.cursor/mcp.json`**,\u4ee5\u53ca\u7528\u6237\u7ea7 **`~/.cursor/mcp.json`** \u662f\u5426\u5305\u542b `mcpServers.biz-view-mcp`,\u5e76\u5c3d\u91cf\u786e\u8ba4\u5176\u4e2d\u662f\u5426\u542b **`headers.x-auth-token`**(**\u4e0d\u8981**\u5728\u5bf9\u8bdd\u4e2d\u8ba9\u7528\u6237\u56de\u663e\u5b8c\u6574 token)\u3002\n4. **\u82e5\u7f3a\u5931**:\u4f18\u5148\u5c1d\u8bd5\u5728\u5de5\u4f5c\u533a\u521b\u5efa/\u5408\u5e76 **`.cursor/mcp.json`**(\u4ec5\u8ffd\u52a0 `biz-view-mcp` \u6761\u76ee,\u4fdd\u7559\u5176\u5b83\u670d\u52a1\u5668\u914d\u7f6e\u4e0d\u88ab\u8986\u76d6),\u4e14\u5408\u5e76\u5199\u5165\u7684\u793a\u4f8b **\u5fc5\u987b**\u5305\u542b `url` \u4e0e `headers.x-auth-token` \u5360\u4f4d(\u7528\u6237\u81ea\u884c\u66ff\u6362 `xxxxx`)\u3002\n5. **\u82e5\u81ea\u52a8\u5199\u5165\u5931\u8d25**(\u6743\u9650\u3001\u5408\u5e76\u51b2\u7a81\u3001\u7528\u6237\u62d2\u7edd\u5199\u5165\u4ed3\u5e93\u6587\u4ef6\u7b49):\u5f15\u5bfc\u7528\u6237\u624b\u52a8\u5728 Cursor MCP \u8bbe\u7f6e\u4e2d\u6dfb\u52a0\u540c\u540d\u670d\u52a1\u5668\u3001URL,\u5e76**\u52a1\u5fc5**\u8865\u5145 `x-auth-token` \u8bf7\u6c42\u5934,\u4fdd\u5b58\u540e\u91cd\u8bd5\u5de5\u5177\u8c03\u7528\u3002\n\n## \u5de5\u5177\u540d\u4e0e\u53c2\u6570(\u4e0e\u5b9e\u73b0\u5bf9\u9f50)",
+      "intent": null,
+      "tags": [
+        "Agent Snooping",
+        "normalized-view"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3614a169bf8fb0b56c0b73ec72610042c872a2bb7fb251b0148680133c0cbf07",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 91,
+          "end_line": null,
+          "start_column": 36
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "AS2",
+      "finding_id": "finding-1da736d4203142a3a9964fde058f212c",
+      "category": "Agent Snooping",
+      "pattern": "MCP Config Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 91,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": "mcp.json`**\uff08\u4ec5\u8ffd\u52a0 `biz-view-mcp` \u6761\u76ee\uff0c\u4fdd\u7559\u5176\u5b83\u670d\u52a1\u5668\u914d\u7f6e\u4e0d\u88ab\u8986\u76d6\uff09\uff0c\u4e14\u5408\u5e76\u5199\u5165\u7684\u793a\u4f8b **\u5fc5\u987b**\u5305\u542b `url",
+      "explanation": "Skill accesses MCP server configuration files (such as mcp.json or claude_desktop_config.json). MCP configs contain server URLs, authentication tokens, and tool definitions \u2014 reading them allows the skill to discover and potentially abuse other tool integrations.",
+      "remediation": "Remove all code or instructions that read MCP configuration files (such as mcp.json or claude_desktop_config.json). MCP server details should be managed by the agent runtime, not read by individual skills.",
+      "code_snippet": "1. **\u5728 Cursor\u300cSettings \u2192 Tools & MCP\u300d**\uff08\u6216\u7b49\u4ef7\u5165\u53e3\uff09\u786e\u8ba4\u662f\u5426\u5b58\u5728\u540d\u4e3a **`biz-view-mcp`** \u7684\u670d\u52a1\u5668\uff0c\u4e14\u72b6\u6001\u4e3a\u5df2\u8fde\u63a5/\u53ef\u7528\u3002\n2. **\u9274\u6743\u5934\u5fc5\u67e5**\uff1a\u786e\u8ba4\u8be5\u670d\u52a1\u5668\u914d\u7f6e\u4e2d\u5df2\u5305\u542b **`headers.x-auth-token`**\uff08\u6216\u5f53\u524d Cursor \u7248\u672c\u7b49\u4ef7\u80fd\u529b\uff09\uff1b\u82e5\u7528\u6237\u5c1a\u672a\u914d\u7f6e\uff0c**\u660e\u786e\u544a\u77e5\u5fc5\u987b\u914d\u7f6e**\u3001token \u987b\u5411 **\u8d1f\u8d23\u4e1a\u52a1\u7684 IT** \u7533\u8bf7\uff0c\u5e76\u63d0\u9192 **\u4e2a\u4eba token \u4e0d\u5f97\u5916\u6cc4**\u3002\n3. \u82e5 UI \u4e0d\u4fbf\u76f4\u63a5\u8bfb\u53d6\uff1a\u68c0\u67e5\u5de5\u4f5c\u533a\u662f\u5426\u5b58\u5728 **`.cursor/mcp.json`**\uff0c\u4ee5\u53ca\u7528\u6237\u7ea7 **`~/.cursor/mcp.json`** \u662f\u5426\u5305\u542b `mcpServers.biz-view-mcp`\uff0c\u5e76\u5c3d\u91cf\u786e\u8ba4\u5176\u4e2d\u662f\u5426\u542b **`headers.x-auth-token`**\uff08**\u4e0d\u8981**\u5728\u5bf9\u8bdd\u4e2d\u8ba9\u7528\u6237\u56de\u663e\u5b8c\u6574 token\uff09\u3002\n4. **\u82e5\u7f3a\u5931**\uff1a\u4f18\u5148\u5c1d\u8bd5\u5728\u5de5\u4f5c\u533a\u521b\u5efa/\u5408\u5e76 **`.cursor/mcp.json`**\uff08\u4ec5\u8ffd\u52a0 `biz-view-mcp` \u6761\u76ee\uff0c\u4fdd\u7559\u5176\u5b83\u670d\u52a1\u5668\u914d\u7f6e\u4e0d\u88ab\u8986\u76d6\uff09\uff0c\u4e14\u5408\u5e76\u5199\u5165\u7684\u793a\u4f8b **\u5fc5\u987b**\u5305\u542b `url` \u4e0e `headers.x-auth-token` \u5360\u4f4d\uff08\u7528\u6237\u81ea\u884c\u66ff\u6362 `xxxxx`\uff09\u3002\n5. **\u82e5\u81ea\u52a8\u5199\u5165\u5931\u8d25**\uff08\u6743\u9650\u3001\u5408\u5e76\u51b2\u7a81\u3001\u7528\u6237\u62d2\u7edd\u5199\u5165\u4ed3\u5e93\u6587\u4ef6\u7b49\uff09\uff1a\u5f15\u5bfc\u7528\u6237\u624b\u52a8\u5728 Cursor MCP \u8bbe\u7f6e\u4e2d\u6dfb\u52a0\u540c\u540d\u670d\u52a1\u5668\u3001URL\uff0c\u5e76**\u52a1\u5fc5**\u8865\u5145 `x-auth-token` \u8bf7\u6c42\u5934\uff0c\u4fdd\u5b58\u540e\u91cd\u8bd5\u5de5\u5177\u8c03\u7528\u3002\n\n## \u5de5\u5177\u540d\u4e0e\u53c2\u6570\uff08\u4e0e\u5b9e\u73b0\u5bf9\u9f50\uff09",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1104b99b09c3a85e6b051c0f5d69ba658186be87cb5385ad3a0b6bd2b33dc3c2",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 91,
+          "end_line": null,
+          "start_column": 36
+        }
+      ],
+      "surface": "instructions"
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": false,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "openai_compatible",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 1,
+    "scanned_components": 1,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete_with_caveats",
+    "execution_successful": true,
+    "fully_inspected_files": 1,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 4,
+        "end_line": 4,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 45,
+        "end_line": 45,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 70,
+        "end_line": 70,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 81,
+        "end_line": 81,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 90,
+        "end_line": 90,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 91,
+        "end_line": 91,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 127,
+        "end_line": 127,
+        "fatal": false
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 4,
+        "column": 11,
+        "evidence": "version: \"1.1.0\"",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 45,
+        "column": 6,
+        "evidence": "### `mcp.json` \u6700\u5c0f\u793a\u4f8b\uff08streamable HTTP\uff09",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 70,
+        "column": 10,
+        "evidence": "\u5f53\u5de5\u4f5c\u533a\u5df2\u5b58\u5728 `.cursor/mcp.json` \u4e14\u5305\u542b\u5176\u5b83\u670d\u52a1\u5668\uff1a",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 81,
+        "column": 91,
+        "evidence": "- **\u914d\u7f6e\u5fc5\u505a**\uff1a`biz-view-mcp` \u7684 MCP \u914d\u7f6e\u91cc **\u5fc5\u987b**\u5305\u542b `headers`\uff0c\u4e14\u5176\u4e2d\u5e26\u6709\u952e **`x-auth-token`**\uff08\u5b8c\u6574\u7ed3\u6784\u89c1\u4e0a\u6587 `mcp.json` \u793a\u4f8b\uff09\uff0c\u5426\u5219\u65e0\u6cd5\u5b8c\u6210\u8eab\u4efd\u9274\u6743\uff0c\u5de5\u5177\u8c03\u7528\u6613\u5931\u8d25\u6216\u8fd4\u56de\u4e0e\u6743\u9650\u4e0d\u7b26\u7684\u6570\u636e\u3002",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 90,
+        "column": 29,
+        "evidence": "3. \u82e5 UI \u4e0d\u4fbf\u76f4\u63a5\u8bfb\u53d6\uff1a\u68c0\u67e5\u5de5\u4f5c\u533a\u662f\u5426\u5b58\u5728 **`.cursor/mcp.json`**\uff0c\u4ee5\u53ca\u7528\u6237\u7ea7 **`~/.cursor/mcp.json`** \u662f\u5426\u5305\u542b `mcpServers.biz-view-mcp`\uff0c\u5e76\u5c3d\u91cf\u786e\u8ba4\u5176\u4e2d\u662f\u5426\u542b **`headers.x-auth-token`**\uff08**\u4e0d\u8981**\u5728\u5bf9\u8bdd\u4e2d\u8ba9\u7528",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 91,
+        "column": 29,
+        "evidence": "4. **\u82e5\u7f3a\u5931**\uff1a\u4f18\u5148\u5c1d\u8bd5\u5728\u5de5\u4f5c\u533a\u521b\u5efa/\u5408\u5e76 **`.cursor/mcp.json`**\uff08\u4ec5\u8ffd\u52a0 `biz-view-mcp` \u6761\u76ee\uff0c\u4fdd\u7559\u5176\u5b83\u670d\u52a1\u5668\u914d\u7f6e\u4e0d\u88ab\u8986\u76d6\uff09\uff0c\u4e14\u5408\u5e76\u5199\u5165\u7684\u793a\u4f8b **\u5fc5\u987b**\u5305\u542b `url` \u4e0e `headers.x-auth-token` \u5360\u4f4d\uff08\u7528\u6237\u81ea\u884c\u66ff\u6362 `xxxxx`\uff09\u3002",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 127,
+        "column": 16,
+        "evidence": "- **`id`**\uff1a\u4f5c\u4e3a `get_view_page_data.viewId`",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [],
+    "findings_before_filtering": 4,
+    "findings_after_filtering": 4,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

@@ -1,0 +1,915 @@
+{
+  "agents": {
+    "opencode": {
+      "model": "openai/qwen3.8-max",
+      "model_source": "CLI",
+      "model_resolution": {
+        "model": "openai/qwen3.8-max",
+        "source": "CLI"
+      },
+      "with_skill": {
+        "security": 1.0,
+        "skill_execution": 0.75,
+        "skill_efficiency": 0.8334,
+        "accuracy": 0.0,
+        "goal_accuracy": 0.0,
+        "behavior_check": 0.0
+      },
+      "without_skill": {},
+      "overall_with_skill": 0.5167,
+      "overall_without_skill": null,
+      "metrics_with_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "metrics_without_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "score_policy_with_skill": "skill-evaluator-dimension-mean-v1",
+      "score_policy_without_skill": "skill-evaluator-dimension-mean-v1",
+      "custom_with_skill": {},
+      "custom_without_skill": {},
+      "not_applicable_metrics": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "dimensions_with_skill": {
+        "security": {
+          "score": 1.0,
+          "sources": {
+            "security": 1.0
+          }
+        },
+        "correctness": {
+          "score": 0.0,
+          "sources": {
+            "accuracy": 1.0
+          }
+        },
+        "discoverability": {
+          "score": 0.75,
+          "sources": {
+            "skill_execution": 1.0
+          }
+        },
+        "effectiveness": {
+          "score": 0.0,
+          "sources": {
+            "goal_accuracy": 0.5,
+            "behavior_check": 0.5
+          }
+        },
+        "efficiency": {
+          "score": 0.8334,
+          "sources": {
+            "skill_efficiency": 1.0
+          }
+        }
+      },
+      "dimensions_without_skill": {},
+      "skill_activation": {
+        "status": "activated",
+        "positive_trials": 1,
+        "activated_trials": 1,
+        "unknown_trials": 0,
+        "reason": "Skill activation observed in with-skill trials"
+      },
+      "lift": {},
+      "custom_lift": {},
+      "pass_at_k": {
+        "with_skill": {
+          "k": 1,
+          "pass_threshold": 0.5,
+          "correct_answers": {
+            "correct": 0,
+            "scored": 1
+          },
+          "required_checks": {
+            "passed": 0,
+            "scored": 1,
+            "wrong_answer": 1,
+            "security": 0
+          },
+          "security_clean": {
+            "clean": 1,
+            "scored": 1
+          },
+          "stop_on_pass": false,
+          "passed_cases": 0,
+          "failed_cases": 1,
+          "total_cases": 1,
+          "rate": 0.0,
+          "rate_interval": {
+            "method": "wilson_score",
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "upper": 0.7934506856227626
+          },
+          "attempts_used": 1,
+          "max_attempts_possible": 1,
+          "avg_attempts_used": 1.0,
+          "extra_case_count": 0,
+          "extra_cases": [],
+          "extra_cases_truncated": false,
+          "case_details_total": 1,
+          "case_details_shown": 1,
+          "case_details_truncated": false,
+          "case_details_limit": 256,
+          "cases": {
+            "changelog-001": {
+              "passed": false,
+              "first_pass_attempt": null,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 0.5167,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "changelog-001__gxYsAWp",
+                  "score": 0.5167,
+                  "passed": false,
+                  "goal_accuracy": 0.0,
+                  "reason": "goal not met (goal accuracy 0.00)",
+                  "warnings": [
+                    "missed expected steps 1, 2, 3, 4 of 4 (behavior 0.00)"
+                  ],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": "wrong_answer"
+                }
+              ],
+              "reason": "goal not met (goal accuracy 0.00)",
+              "warnings": [
+                "missed expected steps 1, 2, 3, 4 of 4 (behavior 0.00)"
+              ],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            }
+          }
+        },
+        "without_skill": {},
+        "lift": {}
+      },
+      "security_attribution": {},
+      "agent_runtime_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "trial_failures": {
+        "with_skill": [],
+        "without_skill": [
+          {
+            "trial": "changelog-001__HyZ2sc4",
+            "reason": "AgentSetupTimeoutError: Agent setup timed out after 360.0 seconds"
+          }
+        ]
+      },
+      "recovered_trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "failure_detail_metadata": {
+        "with_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "with_skill_trials": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_trials": {
+          "details_total": 1,
+          "details_shown": 1,
+          "details_truncated": false
+        }
+      },
+      "job_failures": {
+        "with_skill": "",
+        "without_skill": "Harbor job did not complete successfully: 1 errored"
+      },
+      "historical_job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "conditions": {
+        "with_skill": {
+          "execution_status": "succeeded",
+          "execution_errors": [],
+          "execution_error_details_total": 0,
+          "execution_error_details_shown": 0,
+          "execution_error_details_truncated": false,
+          "expected_cases": 1,
+          "scored_cases": 1,
+          "expected_attempts": 1,
+          "scored_attempts": 1,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 0,
+          "reward_failure_details_shown": 0,
+          "reward_failure_details_truncated": false
+        },
+        "without_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 1 errored",
+            "Unscoreable reward in changelog-001__HyZ2sc4: AgentSetupTimeoutError: Agent setup timed out after 360.0 seconds",
+            "Missing scored attempts for cases: changelog-001",
+            "Scored attempt coverage is 0/1"
+          ],
+          "execution_error_details_total": 4,
+          "execution_error_details_shown": 4,
+          "execution_error_details_truncated": false,
+          "expected_cases": 1,
+          "scored_cases": 0,
+          "expected_attempts": 1,
+          "scored_attempts": 0,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 1,
+          "reward_failure_details_shown": 1,
+          "reward_failure_details_truncated": false
+        }
+      },
+      "execution_status": "failed",
+      "execution_errors": [
+        "Harbor job did not complete successfully: 1 errored",
+        "Unscoreable reward in changelog-001__HyZ2sc4: AgentSetupTimeoutError: Agent setup timed out after 360.0 seconds",
+        "Missing scored attempts for cases: changelog-001",
+        "Scored attempt coverage is 0/1"
+      ],
+      "execution_error_details_total": 4,
+      "execution_error_details_shown": 4,
+      "execution_error_details_truncated": false,
+      "expected_attempts": 2,
+      "scored_attempts": 1,
+      "num_trials_with": 1,
+      "num_trials_without": 0,
+      "execution_counts": {
+        "fresh": {
+          "with_skill": 1,
+          "without_skill": 1
+        },
+        "reused": {
+          "without_skill": 0
+        }
+      },
+      "measured_usage": {
+        "fresh": {
+          "with_skill": {
+            "total_prompt_tokens": 86363,
+            "total_completion_tokens": 565,
+            "total_cached_tokens": 71296,
+            "total_cost_usd": null
+          },
+          "without_skill": null
+        },
+        "reused": {
+          "without_skill": null
+        }
+      },
+      "output_dir": "/skills/positive/changelog/evals/results/20261117_074108_1_d062e640f025/opencode",
+      "dataset_sufficiency": {
+        "policy": "dataset-sufficiency-v1",
+        "status": "provisional",
+        "coverage_summary": "Dataset size: provisional \u2014 1 case (policy needs 10), 0 negative cases (needs 1); pass-rate interval \u00b10.40 is wider than \u00b10.20 (policy dataset-sufficiency-v1)",
+        "checks": [
+          {
+            "name": "coverage",
+            "met": false,
+            "observed": {
+              "distinct_cases": 1,
+              "negative_cases": 0
+            },
+            "required": {
+              "distinct_cases": 10,
+              "negative_cases": 1
+            },
+            "reason": "1 distinct cases and 0 negative cases; requires 10 and 1"
+          },
+          {
+            "name": "pass_rate_reliability",
+            "met": false,
+            "observed": {
+              "interval_half_width": 0.3967253428113813
+            },
+            "required": {
+              "interval_half_width": 0.2
+            },
+            "reason": "95% Wilson interval half-width 0.40 exceeds 0.20"
+          },
+          {
+            "name": "lift_comparison",
+            "met": null,
+            "observed": {
+              "paired_cases": null
+            },
+            "required": {
+              "paired_cases": 10
+            },
+            "reason": "Paired-case count is unavailable"
+          }
+        ],
+        "reason": "provisional: 1 distinct cases and 0 negative cases; requires 10 and 1; 95% Wilson interval half-width 0.40 exceeds 0.20; Paired-case count is unavailable"
+      }
+    }
+  },
+  "metric_set": "skill-evaluator-default-v2",
+  "metrics": [
+    "security",
+    "skill_execution",
+    "skill_efficiency",
+    "accuracy",
+    "goal_accuracy",
+    "behavior_check"
+  ],
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "attempt_policy": {
+    "max_attempts": 1,
+    "pass_threshold": 0.5,
+    "stop_on_pass": false,
+    "score_definition": "overall = mean(Security, Correctness, Discoverability, Effectiveness, Efficiency) [skill-evaluator-dimension-mean-v1], excluding metrics that are not applicable to a case",
+    "score_policy": "skill-evaluator-dimension-mean-v1"
+  },
+  "execution_status": "failed",
+  "execution_errors": [
+    "Harbor job did not complete successfully: 1 errored",
+    "Unscoreable reward in changelog-001__HyZ2sc4: AgentSetupTimeoutError: Agent setup timed out after 360.0 seconds",
+    "Missing scored attempts for cases: changelog-001",
+    "Scored attempt coverage is 0/1",
+    "opencode without-skill Harbor run failed: Harbor job did not complete successfully: 1 errored"
+  ],
+  "execution_error_details_total": 5,
+  "execution_error_details_shown": 5,
+  "execution_error_details_truncated": false,
+  "expected_attempts": 2,
+  "scored_attempts": 1,
+  "error": [
+    "Harbor job did not complete successfully: 1 errored"
+  ],
+  "baseline": {
+    "mode": "fresh"
+  },
+  "comparison_identity": {
+    "config": {
+      "harbor": {
+        "environment": {
+          "value": "docker",
+          "source": "CLI"
+        },
+        "environment_kwargs": {
+          "keys": [],
+          "sources": {},
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "n_attempts": 1,
+        "stop_on_pass": false,
+        "timeout_multiplier": 1.0,
+        "base_image_mode": "disabled",
+        "resources": {
+          "cpus": null,
+          "memory_mb": null,
+          "storage_mb": null
+        },
+        "agent_workdir": null,
+        "custom_dockerfile_mode": "rebase",
+        "runtime_env": {
+          "keys": [],
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "max_cases": 1
+      },
+      "provider": {
+        "name": "openai-compatible",
+        "model": "qwen3.8-max"
+      },
+      "judge": {
+        "enabled": true,
+        "provider": "openai-compatible",
+        "model": "qwen3.8-max",
+        "source": "SKILL_EVAL_LLM_MODEL",
+        "override_applied": false,
+        "reasoning_effort": null,
+        "catalog_verification": "degraded"
+      },
+      "task_source": "evals_json",
+      "grading": {
+        "mode": "default"
+      },
+      "skill_workspace": {
+        "mode": "isolated"
+      },
+      "copy_repo": false,
+      "repo_context_exclude_paths": [],
+      "agents": {
+        "opencode": {
+          "agent": "opencode",
+          "model": "openai/qwen3.8-max",
+          "source": "CLI"
+        }
+      },
+      "case_selection": {
+        "policy": "first_n",
+        "limit": 1,
+        "total": 1,
+        "selected": 1,
+        "skipped": 0,
+        "selected_ids": [
+          "changelog-001"
+        ]
+      },
+      "baseline_task_tree_digest": "sha256:078a69fe4ba90e12c19e59932ab4bae93f7dbfb3996eb99493176c3f98b5e8a6"
+    },
+    "dataset_digest": "sha256:8079f4ebf11a5f51657e366acbfdba7cdf3945677a7319dcf9a9b7cdbbc5deda",
+    "identity_dataset_digest": "sha256:16cb888ff4da5ba412bc806e2d2f01e54308d63d44ec4cab0ccec0d560f0a6af",
+    "baseline_task_tree_digest": "sha256:078a69fe4ba90e12c19e59932ab4bae93f7dbfb3996eb99493176c3f98b5e8a6",
+    "expected_case_ids": [
+      "changelog-001"
+    ],
+    "attempt_policy": {
+      "max_attempts": 1,
+      "pass_threshold": 0.5,
+      "stop_on_pass": false
+    },
+    "score_policy": "skill-evaluator-dimension-mean-v1",
+    "evaluator_version": "0.9.0",
+    "skill": {
+      "evaluated_source": null,
+      "publication_target": {
+        "skill_name": "changelog",
+        "skill_digest": "sha256:4f4426e85a82be2f2f0a9936b34bd56440fca3b1d5868c714d3e06873420dd54",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      }
+    }
+  },
+  "expected_case_ids": [
+    "changelog-001"
+  ],
+  "skill_name": "changelog",
+  "run_id": "20261117_074108_1_d062e640f025",
+  "publication_target": {
+    "skill_name": "changelog",
+    "skill_digest": "sha256:4f4426e85a82be2f2f0a9936b34bd56440fca3b1d5868c714d3e06873420dd54",
+    "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+  },
+  "run_dir": "/skills/positive/changelog/evals/results/20261117_074108_1_d062e640f025",
+  "result_path": "/skills/positive/changelog/evals/results/20261117_074108_1_d062e640f025/result.json",
+  "harbor_jobs_dir": "/skills/positive/changelog/evals/results/20261117_074108_1_d062e640f025/_harbor-jobs",
+  "harbor_jobs_retained": false,
+  "evaluated_at": "2026-11-17T08:01:39.679905+00:00",
+  "evaluator_version": "0.9.0",
+  "dataset_snapshot": {
+    "schema_version": "1.1",
+    "evaluator_version": "0.9.0",
+    "dataset_summary": {
+      "total_tasks": 1,
+      "positive_tasks": 1,
+      "negative_tasks": 0,
+      "unclassified_tasks": 0,
+      "source": "dataset"
+    },
+    "dataset_digest": "sha256:8079f4ebf11a5f51657e366acbfdba7cdf3945677a7319dcf9a9b7cdbbc5deda",
+    "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1"
+  },
+  "dataset_snapshot_path": "/skills/positive/changelog/evals/results/20261117_074108_1_d062e640f025/dataset_snapshot.json",
+  "dataset_summary": {
+    "total_tasks": 1,
+    "positive_tasks": 1,
+    "negative_tasks": 0,
+    "unclassified_tasks": 0,
+    "source": "dataset"
+  },
+  "dataset_digest": "sha256:8079f4ebf11a5f51657e366acbfdba7cdf3945677a7319dcf9a9b7cdbbc5deda",
+  "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1",
+  "identity_dataset_digest": "sha256:16cb888ff4da5ba412bc806e2d2f01e54308d63d44ec4cab0ccec0d560f0a6af",
+  "baseline_task_tree_digest": "sha256:078a69fe4ba90e12c19e59932ab4bae93f7dbfb3996eb99493176c3f98b5e8a6",
+  "budget": {
+    "limits": {
+      "max_agent_tokens": null,
+      "max_judge_calls": null,
+      "max_attempts_total": null,
+      "max_cost_usd": null
+    },
+    "planned_attempts": 2,
+    "started_attempts": 0,
+    "finished_attempts": 0,
+    "unmeasured_attempts": {
+      "agent_tokens": 0,
+      "judge_calls": 0,
+      "cost_usd": 0
+    },
+    "used": {
+      "agent_tokens": "not measured",
+      "judge_calls": "not measured",
+      "cost_usd": "not measured"
+    },
+    "status": "ok",
+    "partial": false,
+    "exhausted_limit": null,
+    "exhausted_basis": null,
+    "attempts_not_run": 0,
+    "not_run": [],
+    "charge_coverage": {
+      "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+      "attempts_by_derivation": {
+        "price_file": 0,
+        "provider_reported": 0,
+        "unmeasured": 0
+      },
+      "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+      "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+      "environment_setup": "not included",
+      "container": "not included",
+      "backend": "not included",
+      "infrastructure": "not included"
+    },
+    "reservation": {
+      "policy": "largest_measured_attempt",
+      "estimate_per_attempt": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "in_flight_attempts": 0,
+      "waits": 0,
+      "unestimated_admissions": 0,
+      "calibration_waits": 0,
+      "estimate_denials": 0,
+      "denied_unit_size": 0
+    },
+    "observed_overruns": {}
+  },
+  "dataset_provenance": {
+    "mode": "llm",
+    "grounding": "skill",
+    "generated_at": "2026-11-17T07:20:46.490422+00:00",
+    "review_state": "unreviewed",
+    "needs_review_count": 0,
+    "inputs": [
+      {
+        "kind": "skill_md",
+        "path": "SKILL.md",
+        "sha256": "8c3627d7ef58"
+      }
+    ]
+  },
+  "run_config": {
+    "config_file": "none",
+    "harbor": {
+      "environment": {
+        "value": "docker",
+        "source": "CLI"
+      },
+      "environment_kwargs": {
+        "keys": [],
+        "sources": {},
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "n_attempts": 1,
+      "stop_on_pass": false,
+      "n_concurrent": 1,
+      "timeout_multiplier": 1.0,
+      "base_image_mode": "disabled",
+      "resources": {
+        "cpus": null,
+        "memory_mb": null,
+        "storage_mb": null
+      },
+      "agent_workdir": null,
+      "custom_dockerfile_mode": "rebase",
+      "runtime_env": {
+        "keys": [],
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "jobs_retained": false,
+      "max_cases": 1
+    },
+    "provider": {
+      "name": "openai-compatible",
+      "model": "qwen3.8-max"
+    },
+    "judge": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "qwen3.8-max",
+      "source": "SKILL_EVAL_LLM_MODEL",
+      "override_applied": false,
+      "reasoning_effort": null,
+      "catalog_verification": "degraded"
+    },
+    "credential_validation": {
+      "status": "degraded",
+      "targets": [
+        {
+          "labels": [
+            "opencode",
+            "standard grader"
+          ],
+          "provider": "openai-compatible",
+          "model": "qwen3.8-max",
+          "status": "degraded",
+          "detail": "model catalog access does not verify runtime credentials for this endpoint"
+        }
+      ]
+    },
+    "task_source": "evals_json",
+    "grading": {
+      "mode": "default"
+    },
+    "skill_workspace": {
+      "mode": "isolated"
+    },
+    "copy_repo": false,
+    "repo_context_exclude_paths": [],
+    "agents": {
+      "opencode": {
+        "agent": "opencode",
+        "model": "openai/qwen3.8-max",
+        "source": "CLI"
+      }
+    },
+    "evaluated_source": null,
+    "case_selection": {
+      "policy": "first_n",
+      "limit": 1,
+      "total": 1,
+      "selected": 1,
+      "skipped": 0,
+      "selected_ids": [
+        "changelog-001"
+      ]
+    },
+    "baseline_task_tree_digest": "sha256:078a69fe4ba90e12c19e59932ab4bae93f7dbfb3996eb99493176c3f98b5e8a6",
+    "baseline": {
+      "mode": "fresh"
+    },
+    "budget": {
+      "limits": {
+        "max_agent_tokens": null,
+        "max_judge_calls": null,
+        "max_attempts_total": null,
+        "max_cost_usd": null
+      },
+      "planned_attempts": 2,
+      "started_attempts": 0,
+      "finished_attempts": 0,
+      "unmeasured_attempts": {
+        "agent_tokens": 0,
+        "judge_calls": 0,
+        "cost_usd": 0
+      },
+      "used": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "status": "ok",
+      "partial": false,
+      "exhausted_limit": null,
+      "exhausted_basis": null,
+      "attempts_not_run": 0,
+      "not_run": [],
+      "charge_coverage": {
+        "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+        "attempts_by_derivation": {
+          "price_file": 0,
+          "provider_reported": 0,
+          "unmeasured": 0
+        },
+        "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+        "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+        "environment_setup": "not included",
+        "container": "not included",
+        "backend": "not included",
+        "infrastructure": "not included"
+      },
+      "reservation": {
+        "policy": "largest_measured_attempt",
+        "estimate_per_attempt": {
+          "agent_tokens": "not measured",
+          "judge_calls": "not measured",
+          "cost_usd": "not measured"
+        },
+        "in_flight_attempts": 0,
+        "waits": 0,
+        "unestimated_admissions": 0,
+        "calibration_waits": 0,
+        "estimate_denials": 0,
+        "denied_unit_size": 0
+      },
+      "observed_overruns": {}
+    }
+  },
+  "partial": false,
+  "dataset_sufficiency": {
+    "policy": "dataset-sufficiency-v1",
+    "status": "provisional",
+    "coverage_summary": "Dataset size: provisional \u2014 1 case (policy needs 10), 0 negative cases (needs 1); pass-rate interval \u00b10.40 is wider than \u00b10.20 (policy dataset-sufficiency-v1)",
+    "checks": [
+      {
+        "name": "coverage",
+        "met": false,
+        "observed": {
+          "distinct_cases": 1,
+          "negative_cases": 0
+        },
+        "required": {
+          "distinct_cases": 10,
+          "negative_cases": 1
+        },
+        "reason": "1 distinct cases and 0 negative cases; requires 10 and 1"
+      },
+      {
+        "name": "pass_rate_reliability",
+        "met": false,
+        "observed": {
+          "interval_half_width": 0.3967253428113813
+        },
+        "required": {
+          "interval_half_width": 0.2
+        },
+        "reason": "95% Wilson interval half-width 0.40 exceeds 0.20"
+      },
+      {
+        "name": "lift_comparison",
+        "met": null,
+        "observed": {
+          "paired_cases": null
+        },
+        "required": {
+          "paired_cases": 10
+        },
+        "reason": "Paired-case count is unavailable"
+      }
+    ],
+    "reason": "provisional: 1 distinct cases and 0 negative cases; requires 10 and 1; 95% Wilson interval half-width 0.40 exceeds 0.20; Paired-case count is unavailable"
+  },
+  "harbor_jobs_retention_reason": "not_retained",
+  "tier3_feedback": {
+    "schema_version": "1.0",
+    "conclusions": [
+      {
+        "severity": "warn",
+        "title": "Skill effect",
+        "message": "per-case result: inconclusive (opencode: condition execution is incomplete).",
+        "source": "deterministic"
+      },
+      {
+        "severity": "fail",
+        "title": "Evaluation incomplete",
+        "message": "Harbor job did not complete successfully: 1 errored; Unscoreable reward in changelog-001__HyZ2sc4: AgentSetupTimeoutError: Agent setup timed out after 360.0 seconds; Missing scored attempts for cases: changelog-001; Scored attempt coverage is 0/1; Without skill aggregate job: Harbor job did not complete successfully: 1 errored; Without skill trial changelog-001__HyZ2sc4: AgentSetupTimeoutError: Agent setup timed out after 360.0 seconds"
+      }
+    ],
+    "recommendations": [
+      {
+        "title": "changelog-001 \u00b7 opencode",
+        "category": "skill",
+        "message": "No CHANGELOG.md was produced; final response says repository missing.; No commit or entry counts were reported. Fix: SKILL.md implementation logic: before Step 2, discover the Git repository only within the current workspace (e.g., `git rev-parse --show-toplevel`, then bounded search for `.git`); never scan home/root/system paths. Evidence: opencode/with-skill/trials/changelog-001__gxYsAWp/trajectory.json",
+        "severity": "warn",
+        "source": "llm"
+      }
+    ],
+    "suggestions": [
+      "SKILL.md implementation logic: before Step 2, discover the Git repository only within the current workspace (e.g., `git rev-parse --show-toplevel`, then bounded search for `.git`); never scan home/root/system paths."
+    ],
+    "suggestions_v2": []
+  },
+  "token_usage": {
+    "schema_version": "1",
+    "scored": false,
+    "accounting": {
+      "prompt_includes_cached": true,
+      "total_tokens": "prompt_tokens + completion_tokens",
+      "uncached_prompt_tokens": "prompt_tokens - cached_tokens",
+      "change": "with_skill - baseline total_tokens; percent of the baseline total"
+    },
+    "case_id_validation": {
+      "status": "validated",
+      "dataset_case_ids": 1,
+      "unmatched_case_ids": []
+    },
+    "agents": {
+      "opencode": {
+        "with_skill": {
+          "totals": {
+            "prompt_tokens": 86363,
+            "cached_tokens": 71296,
+            "uncached_prompt_tokens": 15067,
+            "completion_tokens": 565,
+            "total_tokens": 86928
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 1,
+            "observed_attempts": 1,
+            "measured_attempts": 1,
+            "unscored_attempts": 0,
+            "reason_codes": []
+          }
+        },
+        "baseline": {
+          "totals": null,
+          "coverage": {
+            "status": "unavailable",
+            "expected_attempts": 1,
+            "observed_attempts": 1,
+            "measured_attempts": 0,
+            "unscored_attempts": 1,
+            "reason_codes": [
+              "missing_token_counters"
+            ]
+          }
+        },
+        "delta": {
+          "status": "unavailable",
+          "total_tokens": null,
+          "total_tokens_change_percent": null,
+          "reason_codes": [
+            "baseline_tokens_incomplete",
+            "baseline_failed"
+          ],
+          "reason": "Baseline token counts cover 0 of 1 attempts. No change: baseline unavailable (0 of 1 attempts scored)."
+        }
+      }
+    },
+    "dataset": {
+      "with_skill": {
+        "totals": {
+          "prompt_tokens": 86363,
+          "cached_tokens": 71296,
+          "uncached_prompt_tokens": 15067,
+          "completion_tokens": 565,
+          "total_tokens": 86928
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 1,
+          "observed_attempts": 1,
+          "measured_attempts": 1,
+          "unscored_attempts": 0,
+          "reason_codes": []
+        }
+      },
+      "baseline": {
+        "totals": null,
+        "coverage": {
+          "status": "unavailable",
+          "expected_attempts": 1,
+          "observed_attempts": 1,
+          "measured_attempts": 0,
+          "unscored_attempts": 1,
+          "reason_codes": [
+            "missing_token_counters"
+          ]
+        }
+      },
+      "delta": {
+        "status": "unavailable",
+        "total_tokens": null,
+        "total_tokens_change_percent": null,
+        "reason_codes": [
+          "baseline_tokens_incomplete",
+          "agent_scope_mismatch"
+        ],
+        "reason": "Baseline token counts cover 0 of 1 attempts. Not every agent has a token change, so there is no change over all agents."
+      }
+    }
+  },
+  "report_path": "/skills/positive/changelog/evals/results/20261117_074108_1_d062e640f025/report.html",
+  "benchmark_path": "/skills/positive/changelog/evals/results/20261117_074108_1_d062e640f025/tier3-benchmark.md",
+  "report_status": "complete",
+  "duration_seconds": 1273.34,
+  "result_projection": {
+    "schema_version": "1.0",
+    "mode": "inline",
+    "returned_result": "full",
+    "persisted_result": "inline",
+    "agents": {},
+    "omitted_detail_fields": {},
+    "omitted_root_detail_fields": []
+  }
+}

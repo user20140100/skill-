@@ -1,0 +1,117 @@
+{
+  "framework_name": "common_requirement_framework",
+  "version": "1.0",
+  "generic_dimensions": [
+    {
+      "name": "功能目标",
+      "description": "用户要解决什么问题，达到什么效果"
+    },
+    {
+      "name": "功能范围",
+      "description": "功能包含什么，不包含什么，边界是什么"
+    },
+    {
+      "name": "控制入口",
+      "description": "遥控器、APP、语音、机身按键、自动逻辑等"
+    },
+    {
+      "name": "状态定义",
+      "description": "功能支持哪些状态，状态是否互斥，如何切换"
+    },
+    {
+      "name": "模式/场景适配",
+      "description": "不同运行模式或场景下是否可用、是否受限"
+    },
+    {
+      "name": "前置条件",
+      "description": "功能执行前需要满足的条件"
+    },
+    {
+      "name": "动作规则",
+      "description": "功能执行时的行为规则、触发逻辑、时序要求"
+    },
+    {
+      "name": "参数范围",
+      "description": "档位、角度、时间、温度、风速等参数边界"
+    },
+    {
+      "name": "状态切换",
+      "description": "从一种状态切到另一种状态时的规则"
+    },
+    {
+      "name": "优先级",
+      "description": "用户设置、系统策略、保护逻辑之间的优先关系"
+    },
+    {
+      "name": "记忆恢复",
+      "description": "关机、断电、模式切换、特殊状态结束后的恢复逻辑"
+    },
+    {
+      "name": "异常处理",
+      "description": "异常检测、保护动作、告警反馈、功能降级"
+    },
+    {
+      "name": "反馈交互",
+      "description": "用户是否可见当前状态、执行结果、失败原因"
+    },
+    {
+      "name": "安全/保护",
+      "description": "安全保护策略以及对功能执行的约束"
+    },
+    {
+      "name": "性能要求",
+      "description": "时效、稳定性、噪音、功耗等要求"
+    },
+    {
+      "name": "兼容性约束",
+      "description": "与其他功能、模式、机型、入口之间的兼容关系"
+    },
+    {
+      "name": "测试关注点",
+      "description": "便于测试验证的关键检查项"
+    }
+  ],
+  "generic_intent_types": [
+    "capability_request",
+    "state_control_request",
+    "mode_linkage_request",
+    "comfort_request",
+    "performance_request",
+    "memory_restore_request",
+    "priority_request",
+    "constraint_request",
+    "fault_protection_request",
+    "interaction_feedback_request",
+    "review_request",
+    "rewrite_request",
+    "extraction_request",
+    "definition_request"
+  ],
+  "generic_output_fields": [
+    "matched_modules",
+    "task_type",
+    "intent_type",
+    "core_intent",
+    "explicit_requirements",
+    "inferred_requirements",
+    "missing_dimensions",
+    "default_inference",
+    "must_confirm",
+    "risks",
+    "follow_up_questions",
+    "rewritten_requirement",
+    "review_issues",
+    "structured_extraction",
+    "assumptions"
+  ],
+  "generic_review_checkpoints": [
+    "是否定义了功能范围",
+    "是否定义了可用场景",
+    "是否定义了状态及切换规则",
+    "是否定义了优先级",
+    "是否定义了恢复逻辑",
+    "是否定义了异常处理",
+    "是否定义了用户反馈方式",
+    "是否定义了与其他功能的兼容关系"
+  ]
+}

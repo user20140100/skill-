@@ -1,0 +1,24 @@
+{
+  "name": "auto-login",
+  "author": "zhuzhiyong",
+  "version": "0.0.5",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:41+08:00",
+  "updatedAt": "2026-11-17T10:46:41+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/auto-login"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/auto-login",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/auto-login"
+  ],
+  "fileHashes": {
+    "SKILL.md": "4dad4be14fc3fb36938d804881ebe3fbddca25d8fcbe97a8927a2255df4465c6",
+    "scripts/login.py": "9f804bf2b5aefa3afa37de639948bfa3bf60580abe49e9e939e4cf779dc78ab5",
+    "scripts/requirements.txt": "4a90ca1b06ae4e1c0998cb73243f1c84ff814862c576cc90d8558ed667ec4aa4"
+  }
+}

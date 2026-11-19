@@ -1,0 +1,107 @@
+Tier 3: reusing the existing evaluation source unchanged.
+Tier 3 live evaluation: calculator
+  environment: docker
+  agents/models: opencode
+  plan: with-skill=yes, baseline=yes, timeout=3x
+[00:00:00] configuration: running
+[00:00:00] configuration: ready - evaluation config validated
+[00:00:00] model-resolution: running
+[00:00:00] model-resolution: complete - agent models resolved
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x
+[00:00:00] environment-preflight: running - docker
+[00:00:00] environment-preflight: complete - docker
+[00:00:00] credential-validation: running
+[00:00:00] credential-validation: degraded - credential configuration resolved; live catalog verification inconclusive: opencode, standard grader: model catalog access does not verify runtime credentials for this endpoint; continuing to evaluation
+[00:00:00] docker-images: running - preparing shared eval base image (reuse)
+INFO     Using pinned eval base image skillevaluator-deps:3.12                  
+[00:00:00] docker-images: complete - eval base image ready: skillevaluator-deps:3.12
+[00:00:00] with-skill-tasks: running
+[00:00:00] with-skill-tasks: ready - task inputs staged
+[00:00:00] baseline-tasks: running
+[00:00:00] baseline-tasks: ready - baseline inputs staged
+[00:00:00] case-selection: complete - running the first 1 of 2 cases (max_cases=1)
+[00:00:00] configuration: complete - Planned: 2 attempts (1 cases × 1 attempts × 2 agent arms total)
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, tasks=1, cases=1, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x, matrix-trials=2, preflight-trials=0, containers=2, max-scaled-top-level-agent-timeout=900s
+[00:00:00] agent-runtime-preflight: skipped - disabled by default; enable with --agent-runtime-preflight or harbor.agent_runtime_preflight
+[00:00:00] agent:opencode: running - with-skill + baseline
+[00:01:00] still running: agent:opencode
+[00:02:00] still running: agent:opencode
+[00:03:00] still running: agent:opencode
+[00:04:00] still running: agent:opencode
+[00:05:00] still running: agent:opencode
+[00:05:53] agent:opencode: complete
+[00:05:53] collection: running
+[00:05:53] collection: complete - Harbor results collected
+[00:05:53] report: running
+[00:06:40] report: complete - result and HTML reports written
+[00:06:40] run-finished: complete - Tier 3 evaluation finished
+Time: 400.1s
+OVERALL SKILL LIFT   +0.28
+REQUIRED CHECKS PASSED   1/1 | 0/1 | +1
+GOALS MET   1/1 | 0/1 | +1
+SECURITY CLEAN   1/1 | 1/1 | +0
+
+✔ skill helps   opencode +100 pp
+test case (k=1)       with skill     without skill   effect                     
+────────────────────────────────────────────────────────────────────────────────
+calculator-001        1/1 ✓ (1.00)   0/1 ✗ (0.72)    helps                      
+                                                     ↳ without skill: FAIL: goal
+                                                     not met (goal accuracy     
+                                                     0.00)                      
+                                                     ↳ without skill: WARNING:  
+                                                     missed expected steps 1, 2 
+                                                     of 3 (behavior 0.33)       
+                                                                                
+success rate          100%           0%              +100 pp                    
+quality score (0-1)   1.00           0.72            +0.28                      
+                                                                                
+  correctness         1.00           1.00            +0.00                      
+  discoverability     1.00           -                                          
+  effectiveness       1.00           0.17            +0.83                      
+  efficiency          1.00           -                                          
+  security            1.00           1.00            +0.00                      
+✓ pass  ✗ fail  ⊘ did not run  · skipped after a pass  (0.82) mean score 0-1
+Pass@1 (supporting reliability: share of cases with a passing attempt, attempt 
+passes at Overall ≥ 0.50): with skill 100.0%, without skill 0.0%; Pass-rate 
+difference +100.0 percentage points. Shared-metric pass-rate difference +100.0 
+percentage points (with skill 100.0%, without skill 0.0%).
+
+How to improve: nothing to fix in the available case evidence.
+
+Next steps
+ 1. each case ran once, so a single attempt decides every pass or fail mark  
+[evaluation]
+    try: Re-run with `--n-attempts 3` to see whether the results repeat before 
+acting on them.
+    check: The marks repeat across attempts and the verdict keeps its direction.
+    evidence: 1 case(s), 1 attempt each
+ 2. only 1 skill case(s) were evaluated, so one case moves the pass rate by 100 
+pp  [dataset]
+    try: Write realistic requests and observable outcomes in 
+<skill-dir>/evals/EVAL.md, covering inputs and phrasings the current cases miss.
+Preview drafts with `skillevaluator create-eval-dataset <skill-dir> --full 
+--force --dry-run`, then add reviewed cases to <skill-dir>/evals/evals.json; 
+keep the existing cases and their expectations.
+    check: With 5 or more skill cases the verdict keeps its direction.
+    evidence: calculator-001
+ 3. the dataset has no negative-control case, so the run cannot show that the 
+skill stays out of unrelated requests  [dataset]
+    try: Add one or two unrelated requests with `"expected_skill": null` to 
+evals/evals.json; the agent should complete them without loading the skill.
+    check: The negative controls pass with the skill installed.
+    evidence: 1 case(s), none with `expected_skill: null` or `should_trigger: 
+false`
+
+Dataset size: provisional — 1 case (policy needs 10), 0 negative cases (needs 
+1); pass-rate interval ±0.40 is wider than ±0.20 (policy dataset-sufficiency-v1)
+Limited evidence: Based on 1 case × 1 attempt = 1 scored attempt (0 execution 
+failures, 0 judge failures); by arm: with skill: 1 case, 1 scored attempt (0 
+execution failures, 0 judge failures); without skill: 1 case, 1 scored attempt 
+(0 execution failures, 0 judge failures)
+╭───────────────────────────────── Artifacts ──────────────────────────────────╮
+│ 📊 HTML report report.html ·                                                 │
+│                /app/reports/official-eval-20261117/03-tier3/calculator/20261 │
+│                117_234710_1_fe25371abd9e/report.html                         │
+│ 📁 Output      /app/reports/official-eval-20261117/03-tier3/calculator/20261 │
+│                117_234710_1_fe25371abd9e                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯

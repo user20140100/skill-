@@ -1,0 +1,92 @@
+{
+  "rules_name": "module_matching_rules",
+  "version": "1.0",
+  "description": "模块识别、主次模块判定和置信度计算规则",
+  "confidence_weights": {
+    "candidate_module_exact": 1.0,
+    "module_name_exact": 0.98,
+    "alias_exact": 0.95,
+    "module_name_partial": 0.9,
+    "alias_partial": 0.88,
+    "keyword_multi_hit": 0.82,
+    "keyword_single_hit": 0.72,
+    "plugin_inference_pattern": 0.8,
+    "related_module_expansion": 0.62
+  },
+  "primary_module_rules": [
+    "用户输入中直接点名的模块优先为 primary",
+    "若多个模块同时被直接点名，选择语义动作最直接作用的模块为 primary",
+    "若多个同层级策略模块同时被直接点名且缺少更强语义偏置，则按用户提及顺序选择第一个为 primary",
+    "若同一句命中多个消歧触发词且规则都成立，则按 explicit_phrase_order、task_bias、category_priority、confidence 四级顺序决胜",
+    "若无直接点名，则选择置信度最高的模块为 primary",
+    "若置信度接近且存在保护类与普通类冲突，保护类优先作为 primary",
+    "若任务类型为 extraction 且输入包含 查询、读取、查看、显示 等词，查询类模块优先"
+  ],
+  "related_module_rules": [
+    "与 primary 在 related_modules 中直接关联的模块可判为 related",
+    "命中插件 inference_rules 中的联动语义时，可追加 related 模块",
+    "related 模块数量默认不超过 3 个，避免过度扩散",
+    "低于 minimum_related_confidence 的模块不纳入 related"
+  ],
+  "thresholds": {
+    "minimum_primary_confidence": 0.72,
+    "minimum_related_confidence": 0.6,
+    "dual_primary_review_gap": 0.03
+  },
+  "task_bias_rules": {
+    "completion": [
+      "优先识别控制类、策略类、保护类和恢复类模块"
+    ],
+    "rewrite": [
+      "优先识别用户直接表达的目标功能模块"
+    ],
+    "review": [
+      "允许保留更多 related 模块用于发现遗漏和冲突"
+    ],
+    "extraction": [
+      "优先识别查询类、交互类和显式功能对象"
+    ],
+    "explanation": [
+      "优先识别用户明确询问的单一模块"
+    ]
+  },
+  "disambiguation_rules": [
+    {
+      "condition": "同时命中 经济模式、睡眠模式、静音运行模式、强力运行模式",
+      "resolution": "若仅命中一种触发词，则按该触发词对应模式优先；若同时命中多种触发词，则按用户显式提及顺序选择第一个策略模块为 primary，其余保留为 related"
+    },
+    {
+      "condition": "同时命中 上下扫风控制、左右扫风控制、风速控制",
+      "resolution": "若文本出现 向上、向下、上摆、下摆，则上下扫风控制优先；若文本出现 向左、向右、左右摆、左右风向，则左右扫风控制优先；若文本出现 风向、摆风、角度 但无上下左右线索，则默认以上下扫风控制为 primary，并按需要将左右扫风控制保留为 related；若文本出现 风量、档位、自动风，则风速控制优先"
+    },
+    {
+      "condition": "同时命中 运行参数查询、故障信息查询",
+      "resolution": "若只出现 参数、温度、频率、开度，则运行参数查询优先；若只出现 故障码、历史故障、报码，则故障信息查询优先；若参数项与故障项同时出现，则运行参数查询为 primary，故障信息查询为 related"
+    }
+  ],
+  "tie_breaker_order": [
+    "explicit_phrase_order",
+    "task_bias",
+    "category_priority",
+    "confidence"
+  ],
+  "category_priority": [
+    "protection_module",
+    "restore_module",
+    "control_module",
+    "strategy_module",
+    "sensing_module",
+    "interaction_module"
+  ],
+  "output_contract": {
+    "matched_modules_item_fields": [
+      "module_name",
+      "confidence",
+      "role"
+    ],
+    "allowed_roles": [
+      "primary",
+      "related"
+    ]
+  }
+}

@@ -1,0 +1,3663 @@
+{
+  "version": "0.9.0",
+  "target_path": "/skills/library-20261118/G2/cxx-style-review",
+  "overall_passed": false,
+  "overall_status": "failed",
+  "incomplete_scans": [
+    "skillspector"
+  ],
+  "total_validators": 13,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 10,
+  "total_warnings": 40,
+  "severity_counts": {
+    "critical": 0,
+    "high": 9,
+    "medium": 9,
+    "low": 22
+  },
+  "finding_counts": {
+    "raw_occurrences": 46,
+    "distinct_occurrences": 41,
+    "unique_findings": 29,
+    "duplicates_removed": 6,
+    "occurrences_grouped": 12,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 9,
+      "medium": 9,
+      "low": 22,
+      "info": 6
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 4,
+      "medium": 7,
+      "low": 12,
+      "info": 6
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-03e029934351881ba688",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-RELOAD",
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5c46f1261c0fb44ed67c",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-082fb053d8cd51583eab",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OW-REF-BUDGET",
+      "message": "openclaw: 1 files over 64,000 bytes (references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md): OpenClaw's read cap is 16,000-64,000 UTF-8 bytes by model context, so each takes several reads.",
+      "suggestion": "Split large reference files into pieces under 16,000 UTF-8 bytes.",
+      "metadata": {
+        "harness": "openclaw",
+        "effect": "advisory",
+        "verified_version": "2026.10.9",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-0e49d086176f406c68da",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0d2215183b14101ae2c2",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_correctness",
+      "message": "No examples provided",
+      "suggestion": "Add example usage with code blocks",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-ae055a75d055575c8d94",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0f3cde56a46498377f1a",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description doesn't mention WHEN to use this skill",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-58f50fe6b424caa5604e",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-188731305c957a99873b",
+      "category": "UNICODE",
+      "severity": "low",
+      "check_name": "isolated_invisible_char",
+      "message": "Isolated invisible character(s) (1): ZERO WIDTH SPACE",
+      "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+      "metadata": {
+        "char_count": 1,
+        "unicode_category": "zero_width"
+      },
+      "validators": [
+        "Unicode Smuggling Detection"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-803743c942128587d522",
+          "validator": "Unicode Smuggling Detection",
+          "file_path": "references/cpp-style-spec/safety-threading-and-build.md",
+          "line_number": 21
+        },
+        {
+          "occurrence_id": "SEO-07fe9cdd2377289fab5e",
+          "validator": "Unicode Smuggling Detection",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1909
+        }
+      ],
+      "occurrence_count": 2
+    },
+    {
+      "finding_id": "SEF-18a7f8cc53f607ef9645",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "folder_hierarchy",
+      "message": "Unexpected nesting depth for general skill",
+      "suggestion": "General skills should be at: skills/<skill-name>/",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-cd1d20fa1dbeac9d8fbf",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-29923f4d680e578e37e3",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "description_trigger",
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "suggestion": "State when to use the skill within the first 60 characters",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b1150e2842703a15a0a0",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2ab016a817c566724ba9",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Instructions'",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+      "metadata": {
+        "missing_section": "## Instructions"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-bd52e1369e0e2b59a1fa",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2e27b4a077c9ee29b6f8",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "unknown_field",
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, tags, version; agent harnesses do not pass them to the model",
+      "suggestion": "Remove them or move them under 'metadata'",
+      "metadata": {
+        "fields": [
+          "author",
+          "tags",
+          "version"
+        ]
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-751891c6f8591f9ed7ea",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3661379ea9e5c1072875",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-RELOAD",
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-37446a8fb28cab29b391",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-378f24adfec67572e606",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No troubleshooting section documented",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b9b33763279d15900e00",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4a6560f4aec006f302f9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No prerequisites/requirements documented",
+      "suggestion": "Document dependencies, API keys, or setup needed",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3b177c99328a7205057f",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6c2f5d080972d18524b0",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Whitespace Padding (P9)",
+      "message": "Prompt Injection: U+0020 x89",
+      "suggestion": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended. Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "metadata": {
+        "skillspector_confidence": 0.7,
+        "artifact_type": "skill",
+        "file_role": "agent_reference",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-8e9b6b28eadb0ed1e9ce",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/safety-types-and-data.md",
+          "line_number": 17
+        },
+        {
+          "occurrence_id": "SEO-ad35341cbb08d59d5a19",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1739
+        }
+      ],
+      "occurrence_count": 2
+    },
+    {
+      "finding_id": "SEF-77cd94063d86ef41f4e2",
+      "category": "UNICODE",
+      "severity": "low",
+      "check_name": "isolated_invisible_char",
+      "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+      "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+      "metadata": {
+        "char_count": 1,
+        "unicode_category": "zero_width"
+      },
+      "validators": [
+        "Unicode Smuggling Detection"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a2cd6d1c54761cd06796",
+          "validator": "Unicode Smuggling Detection",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 146
+        },
+        {
+          "occurrence_id": "SEO-9d2d112a3a588ef1c148",
+          "validator": "Unicode Smuggling Detection",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 147
+        },
+        {
+          "occurrence_id": "SEO-4b7f5459c0bbd0d84671",
+          "validator": "Unicode Smuggling Detection",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1707
+        },
+        {
+          "occurrence_id": "SEO-05ca4a566e47392406c3",
+          "validator": "Unicode Smuggling Detection",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1708
+        }
+      ],
+      "occurrence_count": 4
+    },
+    {
+      "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "author_missing",
+      "message": "Author not specified in metadata",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+      "metadata": {
+        "profile": "default"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-8370dac4e15d975ae50c",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-8653030473307007c8c6",
+      "category": "SECURITY",
+      "severity": "high",
+      "check_name": "Hidden Instructions (P2)",
+      "message": "Prompt Injection: \u200c",
+      "suggestion": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended. Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+      "metadata": {
+        "skillspector_confidence": 0.6,
+        "artifact_type": "skill",
+        "file_role": "agent_reference",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-40cae9816a2f7cb3b286",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 146
+        },
+        {
+          "occurrence_id": "SEO-a9f0c02638710564e4c8",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 147
+        },
+        {
+          "occurrence_id": "SEO-3c9bfaca2a1cdc65d381",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1707
+        },
+        {
+          "occurrence_id": "SEO-c5a4007e718aab0040a2",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1708
+        }
+      ],
+      "occurrence_count": 4
+    },
+    {
+      "finding_id": "SEF-9612bbfb3f32d491ac5d",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No mention of error handling or validation",
+      "suggestion": "Document expected errors and how to handle them",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-307e401c0fbfbf17b020",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-978b2c3d6919bf230525",
+      "category": "PII",
+      "severity": "high",
+      "check_name": "emails",
+      "message": "Non-placeholder email address: liuguangyi@cviauto.com \u2014 2 occurrences (references/cpp-style-spec/style-comments.md line 37; references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md line 893)",
+      "suggestion": "Keep the metadata.author attribution. Replace other contact addresses with a handle, a contact-directory link, or user@example.com; use a reviewed --pii-waivers entry if the address is required.",
+      "metadata": {
+        "confidence": "high",
+        "matched_value": "liuguangyi@cviauto.com",
+        "occurrence_count": 2,
+        "occurrences": [
+          {
+            "file": "references/cpp-style-spec/style-comments.md",
+            "line": 37
+          },
+          {
+            "file": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+            "line": 893
+          }
+        ],
+        "evidence_sha256": "a1cfe482546627918f3afc1bb9ec45533182cc6e7e84cda9d2f9b2a7d905ed4f"
+      },
+      "validators": [
+        "PII Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-bc996606de42dd215be6",
+          "validator": "PII Scan",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 893
+        },
+        {
+          "occurrence_id": "SEO-bbcafd99ccbaf11c5d3a",
+          "validator": "PII Scan",
+          "file_path": "references/cpp-style-spec/style-comments.md",
+          "line_number": 37
+        }
+      ],
+      "occurrence_count": 2
+    },
+    {
+      "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "No '## Purpose' section",
+      "suggestion": "Add purpose section to clarify use cases",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-08a3a5507a44393107dc",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b9762d11eda0e5e553d8",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Whitespace Padding (P9)",
+      "message": "Prompt Injection: U+0020 x82",
+      "suggestion": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended. Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "metadata": {
+        "skillspector_confidence": 0.7,
+        "artifact_type": "skill",
+        "file_role": "agent_reference",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-ad483b07ec6b98754b9e",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/safety-types-and-data.md",
+          "line_number": 27
+        },
+        {
+          "occurrence_id": "SEO-97e2f4ac99c60085b981",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1749
+        }
+      ],
+      "occurrence_count": 2
+    },
+    {
+      "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-9471d86d3685d33571a2",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-c0c7dab687f6e3118c0c",
+      "category": "SECURITY",
+      "severity": "high",
+      "check_name": "Tool Parameter Abuse (TM1)",
+      "message": "Tool Misuse: delete           //",
+      "suggestion": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns). Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "metadata": {
+        "skillspector_confidence": 0.8,
+        "artifact_type": "skill",
+        "file_role": "agent_reference",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4aa1d02e8777a46fb217",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/safety-threading-and-build.md",
+          "line_number": 139
+        },
+        {
+          "occurrence_id": "SEO-3edef7bf7ef2a794669f",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 2027
+        }
+      ],
+      "occurrence_count": 2
+    },
+    {
+      "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-6c2aa1642dbedc3759c6",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e0623bdfb91d6bbb829f",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-DESC-60",
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3f36cf11e3df4ea1257f",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e3f5c930756d6b8f695b",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Examples'",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+      "metadata": {
+        "missing_section": "## Examples"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-7405d2ca6e56a04d4f0b",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e843862971441e2bf711",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-LINKED-LAYOUT",
+      "message": "hermes: 1 files outside references/, templates/, assets/ and scripts/ (agents) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+      "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-66e13a8e52cacd5647d6",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e9710d8bc87e6bad3fa2",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-REF-CUT",
+      "message": "opencode: 1 files are over 51,200 bytes or 2,000 lines (references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md); OpenCode's read tool returns at most that per call, so the model must page.",
+      "suggestion": "Split large files into pieces under 51,200 bytes and 2,000 lines.",
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-986d385f0a5a868e87fa",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e9ee779440dec4ad4368",
+      "category": "SECURITY",
+      "severity": "high",
+      "check_name": "Hidden Instructions (P2)",
+      "message": "Prompt Injection: \u200b",
+      "suggestion": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended. Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+      "metadata": {
+        "skillspector_confidence": 0.6,
+        "artifact_type": "skill",
+        "file_role": "agent_reference",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-732ee68167cbdf2bec2f",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/safety-threading-and-build.md",
+          "line_number": 21
+        },
+        {
+          "occurrence_id": "SEO-4ffda41ffced34513847",
+          "validator": "Security Scan",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1909
+        }
+      ],
+      "occurrence_count": 2
+    },
+    {
+      "finding_id": "SEF-fc6fe3747c071963a76e",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No limitations documented",
+      "suggestion": "Add '## Limitations' section with known issues/constraints",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-0feb6ea79131bf0e381c",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 2,
+    "independent_errors": 1,
+    "independent_warnings": 2
+  },
+  "skills": [
+    {
+      "name": "cxx-style-review",
+      "passed": false,
+      "issue_count": 46
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Unknown",
+      "items": [
+        {
+          "name": "cxx-style-review",
+          "passed": false,
+          "issue_count": 46
+        }
+      ],
+      "total_items": 1,
+      "passed_count": 0,
+      "failed_count": 1,
+      "total_issues": 46
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "Prompt Injection",
+      "severity": "high",
+      "total_count": 10,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "SECURITY",
+      "suggestion": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended. Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content."
+    },
+    {
+      "message": "Tool Misuse",
+      "severity": "high",
+      "total_count": 2,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "SECURITY",
+      "suggestion": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns). Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults."
+    },
+    {
+      "message": "Non-placeholder email address: liuguangyi@cviauto.com \u2014 2 occurrences (references/cpp-style-spec/style-comments.md line 37; references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md line 893)",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "PII",
+      "suggestion": "Keep the metadata.author attribution. Replace other contact addresses with a handle, a contact-directory link, or user@example.com; use a reviewed --pii-waivers entry if the address is required."
+    },
+    {
+      "message": "Unexpected nesting depth for general skill",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "General skills should be at: skills/<skill-name>/"
+    },
+    {
+      "message": "Missing recommended section: '## Instructions'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics."
+    },
+    {
+      "message": "Missing recommended section: '## Examples'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped."
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+      "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+      "severity": "low",
+      "total_count": 10,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "UNICODE",
+      "suggestion": "Likely a copy-paste artifact. Remove if not intentional."
+    },
+    {
+      "message": "Isolated invisible character(s) (1): ZERO WIDTH SPACE",
+      "severity": "low",
+      "total_count": 2,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "UNICODE",
+      "suggestion": "Likely a copy-paste artifact. Remove if not intentional."
+    },
+    {
+      "message": "Author not specified in metadata",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address"
+    },
+    {
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "State when to use the skill within the first 60 characters"
+    },
+    {
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, tags, version; agent harnesses do not pass them to the model",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Remove them or move them under 'metadata'"
+    },
+    {
+      "message": "No examples provided",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add example usage with code blocks"
+    },
+    {
+      "message": "Description doesn't mention WHEN to use this skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'"
+    },
+    {
+      "message": "No '## Purpose' section",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add purpose section to clarify use cases"
+    },
+    {
+      "message": "No mention of error handling or validation",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document expected errors and how to handle them"
+    },
+    {
+      "message": "No prerequisites/requirements documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document dependencies, API keys, or setup needed"
+    },
+    {
+      "message": "No limitations documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Limitations' section with known issues/constraints"
+    },
+    {
+      "message": "No troubleshooting section documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns"
+    },
+    {
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters."
+    },
+    {
+      "message": "hermes: 1 files outside references/, templates/, assets/ and scripts/ (agents) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/."
+    },
+    {
+      "message": "openclaw: 1 files over 64,000 bytes (references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md): OpenClaw's read cap is 16,000-64,000 UTF-8 bytes by model context, so each takes several reads.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Split large reference files into pieces under 16,000 UTF-8 bytes."
+    },
+    {
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "opencode: 1 files are over 51,200 bytes or 2,000 lines (references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md); OpenCode's read tool returns at most that per call, so the model must page.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "cxx-style-review"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Split large files into pieces under 51,200 bytes and 2,000 lines."
+    }
+  ],
+  "results": [
+    {
+      "validator": "Schema & Repository Governance",
+      "description": "Validate SKILL.md frontmatter and repository structure",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 7,
+        "errors": 0,
+        "warnings": 7,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 3,
+        "low_count": 3
+      },
+      "finding_counts": {
+        "raw_occurrences": 6,
+        "distinct_occurrences": 6,
+        "unique_findings": 6,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 3,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 3,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-18a7f8cc53f607ef9645",
+          "occurrence_id": "SEO-cd1d20fa1dbeac9d8fbf",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "folder_hierarchy",
+          "message": "Unexpected nesting depth for general skill",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "General skills should be at: skills/<skill-name>/",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-2ab016a817c566724ba9",
+          "occurrence_id": "SEO-bd52e1369e0e2b59a1fa",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Instructions'",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+          "metadata": {
+            "missing_section": "## Instructions"
+          }
+        },
+        {
+          "finding_id": "SEF-e3f5c930756d6b8f695b",
+          "occurrence_id": "SEO-7405d2ca6e56a04d4f0b",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Examples'",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+          "metadata": {
+            "missing_section": "## Examples"
+          }
+        },
+        {
+          "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+          "occurrence_id": "SEO-8370dac4e15d975ae50c",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "author_missing",
+          "message": "Author not specified in metadata",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+          "metadata": {
+            "profile": "default"
+          }
+        },
+        {
+          "finding_id": "SEF-29923f4d680e578e37e3",
+          "occurrence_id": "SEO-b1150e2842703a15a0a0",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "description_trigger",
+          "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "State when to use the skill within the first 60 characters",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-2e27b4a077c9ee29b6f8",
+          "occurrence_id": "SEO-751891c6f8591f9ed7ea",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "unknown_field",
+          "message": "Frontmatter field(s) outside the agentskills.io spec: author, tags, version; agent harnesses do not pass them to the model",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Remove them or move them under 'metadata'",
+          "metadata": {
+            "fields": [
+              "author",
+              "tags",
+              "version"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "manifest_exists",
+          "message": "Found skill manifest: SKILL.md",
+          "metadata": {
+            "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md"
+          }
+        },
+        {
+          "check": "frontmatter_valid",
+          "message": "Valid frontmatter for skill 'cxx-style-review'",
+          "metadata": {
+            "description_length": 67
+          }
+        },
+        {
+          "check": "naming_convention",
+          "message": "Folder name 'cxx-style-review' follows kebab-case convention",
+          "metadata": {
+            "name_length": 16
+          }
+        },
+        {
+          "check": "line_count",
+          "message": "SKILL.md within line limit (144/500)",
+          "metadata": {
+            "line_count": 144,
+            "limit": 500
+          }
+        },
+        {
+          "check": "body_heading",
+          "message": "Body contains a top-level heading",
+          "metadata": null
+        },
+        {
+          "check": "optional_files",
+          "message": "Found optional supporting files: agents, references",
+          "metadata": {
+            "files_found": [
+              "agents",
+              "references"
+            ]
+          }
+        },
+        {
+          "check": "name_consistency",
+          "message": "Directory name matches frontmatter: 'cxx-style-review'",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCHEMA-MEDIUM] Unexpected nesting depth for general skill in /skills/library-20261118/G2/cxx-style-review",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Instructions' in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Examples' in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[SCHEMA-LOW] Author not specified in metadata in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[SCHEMA-LOW] Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[SCHEMA-LOW] Frontmatter field(s) outside the agentskills.io spec: author, tags, version; agent harnesses do not pass them to the model in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "Workflow scope: llm skipped. LLM checks disabled by --no-llm."
+        ],
+        "messages": [
+          "[OK] manifest_exists: Found skill manifest: SKILL.md",
+          "[OK] frontmatter_valid: Valid frontmatter for skill 'cxx-style-review'",
+          "[OK] naming_convention: Folder name 'cxx-style-review' follows kebab-case convention",
+          "[OK] line_count: SKILL.md within line limit (144/500)",
+          "[OK] body_heading: Body contains a top-level heading",
+          "[OK] optional_files: Found optional supporting files: agents, references",
+          "[OK] name_consistency: Directory name matches frontmatter: 'cxx-style-review'"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "schema"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Semantic Version Validation",
+      "description": "Validate optional metadata.version labels and require strict bumps",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "version_optional",
+          "message": "No semantic version label present; resource will use commit-hash history",
+          "metadata": {
+            "previous_version": null
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] version_optional: No semantic version label present; resource will use commit-hash history"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "version"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Security Scan",
+      "description": "Detect security vulnerabilities and PII/secrets",
+      "passed": false,
+      "status": "failed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [
+        "skillspector"
+      ],
+      "scanners": {
+        "skillspector": "2.13.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 9,
+        "warnings": 4,
+        "critical_count": 0,
+        "high_count": 8,
+        "medium_count": 4,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 12,
+        "distinct_occurrences": 12,
+        "unique_findings": 5,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 7,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 8,
+          "medium": 4,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 3,
+          "medium": 2,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-8653030473307007c8c6",
+          "occurrence_id": "SEO-40cae9816a2f7cb3b286",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Hidden Instructions (P2)",
+          "message": "Prompt Injection: \u200c",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 146,
+          "line_content": "2-6-5-1\u3001\\[SC] C++\u4ee3\u7801\u4e2d\uff0c\u8bbe\u8ba1\u7c7b\u578b\u8f6c\u6362\u65f6\u8bf7\u4e0d\u8981\u4f7f\u7528C\u5f0f\u7684\u7c7b\u578b\u5f3a\u8f6c\uff0c\u800c\u662f\u4f7f\u7528C++\u6807\u51c6\u5e93\u4e2d\u63d0\u4f9b\u7684\u7c7b\u578b\u8f6c\u6362\u51fd\u6570static_cast\\<T>\u3001const_cast\\<T>\u3002\u51e0\u4e2a\u8f6c\u6362\u51fd\u6570\u7684\u4f5c\u7528\u3001\u533a\u522b\uff1a\nstatic_cast\uff1a\u7528\u4e8e\u57fa\u672c\u7c7b\u578b\u4e4b\u95f4\u8f6c\u6362\u3001\u6d3e\u751f\u7c7b\u5bf9\u8c61\uff08\u6307\u9488\uff09\u8f6c\u6362\u4e3a\u57fa\u7c7b\u5bf9\u8c61\uff08\u6307\u9488\uff09\u7684\u4e0a\u884c\u8f6c\u5316\uff0c\u7f16\u8bd1\u5668\u4f1a\u505a\u5b89\u5168\u68c0\u67e5\uff1b\nconst_cast\uff1a\u7528\u4e8e\u4e3a\u53d8\u91cf\u6dfb\u52a0\u6216\u5f62\u5f0f\u4e0a\u53bb\u9664const\u3001vola",
+          "suggestion": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended. Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-8653030473307007c8c6",
+          "occurrence_id": "SEO-a9f0c02638710564e4c8",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Hidden Instructions (P2)",
+          "message": "Prompt Injection: \u200c",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 147,
+          "line_content": "static_cast\uff1a\u7528\u4e8e\u57fa\u672c\u7c7b\u578b\u4e4b\u95f4\u8f6c\u6362\u3001\u6d3e\u751f\u7c7b\u5bf9\u8c61\uff08\u6307\u9488\uff09\u8f6c\u6362\u4e3a\u57fa\u7c7b\u5bf9\u8c61\uff08\u6307\u9488\uff09\u7684\u4e0a\u884c\u8f6c\u5316\uff0c\u7f16\u8bd1\u5668\u4f1a\u505a\u5b89\u5168\u68c0\u67e5\uff1b\nconst_cast\uff1a\u7528\u4e8e\u4e3a\u53d8\u91cf\u6dfb\u52a0\u6216\u5f62\u5f0f\u4e0a\u53bb\u9664const\u3001volatile\u5c5e\u6027\uff0c\u4e0d\u4f1a\u6539\u53d8\u53d8\u91cf\u7684\u7c7b\u578b\uff0c\u6ce8\u610f\u5f62\u5f0f\u4e0a\u53bb\u9664const\u5c5e\u6027\u7684\u53d8\u91cf\u4f9d\u7136\u662f\u4e0d\u80fd\u4fee\u6539\u7684\u53d8\u91cf\uff0c\u53ea\u662f\u5728\u5f62\u5f0f\u4e0a\u8ba9\u53d8\u91cf\u6ca1\u6709\u4e86const\u5c5e\u6027\uff1b\ndynamic_cast\uff1a\u652f\u6301\u200c\u5b89\u5168\u7684\u4e0b\u884c\u8f6c\u6362\u200c\uff08\u57fa\u7c7b\u6307\u9488\u8f6c\u6d3e\u751f\u7c7b\u6307\u9488\uff09\u548c\u591a\u6001\u7c7b",
+          "suggestion": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended. Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-8653030473307007c8c6",
+          "occurrence_id": "SEO-3c9bfaca2a1cdc65d381",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Hidden Instructions (P2)",
+          "message": "Prompt Injection: \u200c",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1707,
+          "line_content": "2-6-5-1\u3001\\[SC] C++\u4ee3\u7801\u4e2d\uff0c\u8bbe\u8ba1\u7c7b\u578b\u8f6c\u6362\u65f6\u8bf7\u4e0d\u8981\u4f7f\u7528C\u5f0f\u7684\u7c7b\u578b\u5f3a\u8f6c\uff0c\u800c\u662f\u4f7f\u7528C++\u6807\u51c6\u5e93\u4e2d\u63d0\u4f9b\u7684\u7c7b\u578b\u8f6c\u6362\u51fd\u6570static_cast\\<T>\u3001const_cast\\<T>\u3002\u51e0\u4e2a\u8f6c\u6362\u51fd\u6570\u7684\u4f5c\u7528\u3001\u533a\u522b\uff1a\nstatic_cast\uff1a\u7528\u4e8e\u57fa\u672c\u7c7b\u578b\u4e4b\u95f4\u8f6c\u6362\u3001\u6d3e\u751f\u7c7b\u5bf9\u8c61\uff08\u6307\u9488\uff09\u8f6c\u6362\u4e3a\u57fa\u7c7b\u5bf9\u8c61\uff08\u6307\u9488\uff09\u7684\u4e0a\u884c\u8f6c\u5316\uff0c\u7f16\u8bd1\u5668\u4f1a\u505a\u5b89\u5168\u68c0\u67e5\uff1b\nconst_cast\uff1a\u7528\u4e8e\u4e3a\u53d8\u91cf\u6dfb\u52a0\u6216\u5f62\u5f0f\u4e0a\u53bb\u9664const\u3001vola",
+          "suggestion": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended. Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-8653030473307007c8c6",
+          "occurrence_id": "SEO-c5a4007e718aab0040a2",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Hidden Instructions (P2)",
+          "message": "Prompt Injection: \u200c",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1708,
+          "line_content": "static_cast\uff1a\u7528\u4e8e\u57fa\u672c\u7c7b\u578b\u4e4b\u95f4\u8f6c\u6362\u3001\u6d3e\u751f\u7c7b\u5bf9\u8c61\uff08\u6307\u9488\uff09\u8f6c\u6362\u4e3a\u57fa\u7c7b\u5bf9\u8c61\uff08\u6307\u9488\uff09\u7684\u4e0a\u884c\u8f6c\u5316\uff0c\u7f16\u8bd1\u5668\u4f1a\u505a\u5b89\u5168\u68c0\u67e5\uff1b\nconst_cast\uff1a\u7528\u4e8e\u4e3a\u53d8\u91cf\u6dfb\u52a0\u6216\u5f62\u5f0f\u4e0a\u53bb\u9664const\u3001volatile\u5c5e\u6027\uff0c\u4e0d\u4f1a\u6539\u53d8\u53d8\u91cf\u7684\u7c7b\u578b\uff0c\u6ce8\u610f\u5f62\u5f0f\u4e0a\u53bb\u9664const\u5c5e\u6027\u7684\u53d8\u91cf\u4f9d\u7136\u662f\u4e0d\u80fd\u4fee\u6539\u7684\u53d8\u91cf\uff0c\u53ea\u662f\u5728\u5f62\u5f0f\u4e0a\u8ba9\u53d8\u91cf\u6ca1\u6709\u4e86const\u5c5e\u6027\uff1b\ndynamic_cast\uff1a\u652f\u6301\u200c\u5b89\u5168\u7684\u4e0b\u884c\u8f6c\u6362\u200c\uff08\u57fa\u7c7b\u6307\u9488\u8f6c\u6d3e\u751f\u7c7b\u6307\u9488\uff09\u548c\u591a\u6001\u7c7b",
+          "suggestion": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended. Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-e9ee779440dec4ad4368",
+          "occurrence_id": "SEO-732ee68167cbdf2bec2f",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Hidden Instructions (P2)",
+          "message": "Prompt Injection: \u200b",
+          "file_path": "references/cpp-style-spec/safety-threading-and-build.md",
+          "line_number": 21,
+          "line_content": "\n\u3010\u8bbe\u8ba1\u7c7b\u95ee\u9898\u3011\n\n3-3-1-1\u3001\\[SC] \u5728\u8bbe\u8ba1\u52a0\u5bc6\u9a8c\u8bc1\u76f8\u5173\u7684\u968f\u673a\u6570\u4ea7\u751f\u4e0a\uff0c\u5fc5\u987b\u4f7f\u7528\u8de8\u5e73\u53f0\u901a\u7528\u7684\u4e13\u7528\u5bc6\u7801\u5b66\u5e93\uff0c\u5982OpenSSL\u3001libsodium\u3002\u200b\u666e\u901a\u7684\u968f\u673a\u6570\u4ea7\u751f\uff0cC\u8bed\u8a00\u3001C++\u63a8\u8350\u4f7f\u7528\u7684API\u89c1\u7528\u4f8b\uff0c\u8bf7\u4e0d\u8981\u4f7f\u7528\u968f\u673a\u6570\u79cd\u5b50\u65b9\u5f0f\u53bb\u4ea7\u751f\u968f\u673a\u6570\uff0c\u56e0\u4e3a\u8fd9\u6837\u4ea7\u751f\u7684\u968f\u673a\u6570\u5e8f\u5217\u662f\u56fa\u5b9a\u6216\u53ef\u9884\u6d4b\u7684\u3002\n\n\u6b63\u4f8b\uff1a\n```",
+          "suggestion": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended. Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-e9ee779440dec4ad4368",
+          "occurrence_id": "SEO-4ffda41ffced34513847",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Hidden Instructions (P2)",
+          "message": "Prompt Injection: \u200b",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1909,
+          "line_content": "\n\u3010\u8bbe\u8ba1\u7c7b\u95ee\u9898\u3011\n\n3-3-1-1\u3001\\[SC] \u5728\u8bbe\u8ba1\u52a0\u5bc6\u9a8c\u8bc1\u76f8\u5173\u7684\u968f\u673a\u6570\u4ea7\u751f\u4e0a\uff0c\u5fc5\u987b\u4f7f\u7528\u8de8\u5e73\u53f0\u901a\u7528\u7684\u4e13\u7528\u5bc6\u7801\u5b66\u5e93\uff0c\u5982OpenSSL\u3001libsodium\u3002\u200b\u666e\u901a\u7684\u968f\u673a\u6570\u4ea7\u751f\uff0cC\u8bed\u8a00\u3001C++\u63a8\u8350\u4f7f\u7528\u7684API\u89c1\u7528\u4f8b\uff0c\u8bf7\u4e0d\u8981\u4f7f\u7528\u968f\u673a\u6570\u79cd\u5b50\u65b9\u5f0f\u53bb\u4ea7\u751f\u968f\u673a\u6570\uff0c\u56e0\u4e3a\u8fd9\u6837\u4ea7\u751f\u7684\u968f\u673a\u6570\u5e8f\u5217\u662f\u56fa\u5b9a\u6216\u53ef\u9884\u6d4b\u7684\u3002\n\n\u6b63\u4f8b\uff1a\n```",
+          "suggestion": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended. Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-c0c7dab687f6e3118c0c",
+          "occurrence_id": "SEO-4aa1d02e8777a46fb217",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Tool Parameter Abuse (TM1)",
+          "message": "Tool Misuse: delete           //",
+          "file_path": "references/cpp-style-spec/safety-threading-and-build.md",
+          "line_number": 139,
+          "line_content": "malloc()         // \u5185\u5b58\u5206\u914d\nfree()           // \u5185\u5b58\u91ca\u653e\nnew              // C++\u5185\u5b58\u5206\u914d\ndelete           // C++\u5185\u5b58\u91ca\u653e\nstrtok()         // \u975e\u53ef\u91cd\u5165\nrand()           // \u4f7f\u7528\u9759\u6001\u72b6\u6001\npthread_mutex_lock()  // \u53ef\u80fd\u9020\u6210\u6b7b\u9501",
+          "suggestion": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns). Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+          "metadata": {
+            "skillspector_confidence": 0.8,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-c0c7dab687f6e3118c0c",
+          "occurrence_id": "SEO-3edef7bf7ef2a794669f",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Tool Parameter Abuse (TM1)",
+          "message": "Tool Misuse: delete           //",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 2027,
+          "line_content": "malloc()         // \u5185\u5b58\u5206\u914d\nfree()           // \u5185\u5b58\u91ca\u653e\nnew              // C++\u5185\u5b58\u5206\u914d\ndelete           // C++\u5185\u5b58\u91ca\u653e\nstrtok()         // \u975e\u53ef\u91cd\u5165\nrand()           // \u4f7f\u7528\u9759\u6001\u72b6\u6001\npthread_mutex_lock()  // \u53ef\u80fd\u9020\u6210\u6b7b\u9501",
+          "suggestion": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns). Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+          "metadata": {
+            "skillspector_confidence": 0.8,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-6c2f5d080972d18524b0",
+          "occurrence_id": "SEO-8e9b6b28eadb0ed1e9ce",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Whitespace Padding (P9)",
+          "message": "Prompt Injection: U+0020 x89",
+          "file_path": "references/cpp-style-spec/safety-types-and-data.md",
+          "line_number": 17,
+          "line_content": "\n3-1-1-1\u3001\\[SC]\\[P] \u53d8\u91cf\u5b9a\u4e49\u65f6\uff0c\u8bf7\u4e0d\u8981\u4f7f\u7528\u672a\u5b9a\u4e49\u957f\u5ea6\uff08\u5728\u4e0d\u540c\u5e73\u53f0\u4e0b\u5360\u7528\u5b57\u8282\u6570\u4e0d\u540c\uff09\u7684\u57fa\u672c\u7c7b\u578b\u53d8\u91cf\uff0c\u57fa\u672c\u7c7b\u578b\u53d8\u91cf\u5bf9\u5e94\u7684\u8de8\u5e73\u53f0\u517c\u5bb9\u7c7b\u578b\u5982\u4e0b\u8868\uff0c\u7f16\u7801\u65f6\u7edf\u4e00\u4f7f\u7528\u8de8\u5e73\u53f0\u517c\u5bb9\u7c7b\u578b\uff1a\n\n| \u57fa\u672c\u7c7b\u578b             | \u6807\u51c6\u7684\u8de8\u5e73\u53f0\u517c\u5bb9\u7c7b\u578b         | \u5907\u6ce8\u8bf4\u660e                                                           ",
+          "suggestion": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended. Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+          "metadata": {
+            "skillspector_confidence": 0.7,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-6c2f5d080972d18524b0",
+          "occurrence_id": "SEO-ad35341cbb08d59d5a19",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Whitespace Padding (P9)",
+          "message": "Prompt Injection: U+0020 x89",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1739,
+          "line_content": "\n3-1-1-1\u3001\\[SC]\\[P] \u53d8\u91cf\u5b9a\u4e49\u65f6\uff0c\u8bf7\u4e0d\u8981\u4f7f\u7528\u672a\u5b9a\u4e49\u957f\u5ea6\uff08\u5728\u4e0d\u540c\u5e73\u53f0\u4e0b\u5360\u7528\u5b57\u8282\u6570\u4e0d\u540c\uff09\u7684\u57fa\u672c\u7c7b\u578b\u53d8\u91cf\uff0c\u57fa\u672c\u7c7b\u578b\u53d8\u91cf\u5bf9\u5e94\u7684\u8de8\u5e73\u53f0\u517c\u5bb9\u7c7b\u578b\u5982\u4e0b\u8868\uff0c\u7f16\u7801\u65f6\u7edf\u4e00\u4f7f\u7528\u8de8\u5e73\u53f0\u517c\u5bb9\u7c7b\u578b\uff1a\n\n| \u57fa\u672c\u7c7b\u578b             | \u6807\u51c6\u7684\u8de8\u5e73\u53f0\u517c\u5bb9\u7c7b\u578b         | \u5907\u6ce8\u8bf4\u660e                                                           ",
+          "suggestion": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended. Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+          "metadata": {
+            "skillspector_confidence": 0.7,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-b9762d11eda0e5e553d8",
+          "occurrence_id": "SEO-ad483b07ec6b98754b9e",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Whitespace Padding (P9)",
+          "message": "Prompt Injection: U+0020 x82",
+          "file_path": "references/cpp-style-spec/safety-types-and-data.md",
+          "line_number": 27,
+          "line_content": "| unsigned int     | uint32_t           | \u4f7f\u7528\u573a\u666f\uff1a\u5927\u90e8\u5206\u573a\u666f\u4e0b\u7684\u65e0\u7b26\u53f7\u6574\u6570\u3001\u4f4d\u8fd0\u7b97\u3001\u8ba1\u6570\u7b49\u3002                                                                   |\n| long / long long | int64_t            | \u4f7f\u7528\u573a\u666f\uff1a\u5927\u8303\u56f4\u6574\u6570\u3001\u5927\u6570\u636e\u3001\u9ad8\u7cbe\u5ea6\u7684\u573a\u666f",
+          "suggestion": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended. Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+          "metadata": {
+            "skillspector_confidence": 0.7,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-b9762d11eda0e5e553d8",
+          "occurrence_id": "SEO-97e2f4ac99c60085b981",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Whitespace Padding (P9)",
+          "message": "Prompt Injection: U+0020 x82",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1749,
+          "line_content": "| unsigned int     | uint32_t           | \u4f7f\u7528\u573a\u666f\uff1a\u5927\u90e8\u5206\u573a\u666f\u4e0b\u7684\u65e0\u7b26\u53f7\u6574\u6570\u3001\u4f4d\u8fd0\u7b97\u3001\u8ba1\u6570\u7b49\u3002                                                                   |\n| long / long long | int64_t            | \u4f7f\u7528\u573a\u666f\uff1a\u5927\u8303\u56f4\u6574\u6570\u3001\u5927\u6570\u636e\u3001\u9ad8\u7cbe\u5ea6\u7684\u573a\u666f",
+          "suggestion": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended. Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+          "metadata": {
+            "skillspector_confidence": 0.7,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [
+          "skillspector JSON field 'analysis_completeness' reports incomplete analysis (status 'partial'): SKILL.md:102 [reference_resolution; reference_missing]; references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md [static; static_parse_limit; analyzers=static_patterns_tool_misuse]; security scan did not complete",
+          "[SECURITY-HIGH] Prompt Injection: \u200c in references/cpp-style-spec/practice-cpp-specific.md:146",
+          "[SECURITY-HIGH] Prompt Injection: \u200c in references/cpp-style-spec/practice-cpp-specific.md:147",
+          "[SECURITY-HIGH] Prompt Injection: \u200c in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1707",
+          "[SECURITY-HIGH] Prompt Injection: \u200c in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1708",
+          "[SECURITY-HIGH] Prompt Injection: \u200b in references/cpp-style-spec/safety-threading-and-build.md:21",
+          "[SECURITY-HIGH] Prompt Injection: \u200b in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1909",
+          "[SECURITY-HIGH] Tool Misuse: delete           // in references/cpp-style-spec/safety-threading-and-build.md:139",
+          "[SECURITY-HIGH] Tool Misuse: delete           // in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:2027"
+        ],
+        "warnings": [
+          "[SECURITY-MEDIUM] Prompt Injection: U+0020 x89 in references/cpp-style-spec/safety-types-and-data.md:17",
+          "[SECURITY-MEDIUM] Prompt Injection: U+0020 x89 in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1739",
+          "[SECURITY-MEDIUM] Prompt Injection: U+0020 x82 in references/cpp-style-spec/safety-types-and-data.md:27",
+          "[SECURITY-MEDIUM] Prompt Injection: U+0020 x82 in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1749"
+        ],
+        "messages": [
+          "skillspector risk score: 68/100 (HIGH)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "skillspector_version": "2.13.4",
+      "skillspector_completeness": {
+        "records": [
+          {
+            "stage": "skillspector",
+            "reported_status": "partial",
+            "ledger_exceptions": [
+              {
+                "path": "SKILL.md",
+                "phase": "reference_resolution",
+                "reason_code": "reference_missing",
+                "start_line": 102,
+                "end_line": 102
+              },
+              {
+                "path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+                "phase": "static",
+                "reason_code": "static_parse_limit",
+                "analyzers": [
+                  "static_patterns_tool_misuse"
+                ],
+                "omitted_analyzers": 0
+              }
+            ],
+            "limitations": [
+              "Analyzer static_patterns_tool_misuse status: degraded."
+            ],
+            "omitted_exceptions": 0,
+            "omitted_limitations": 0
+          }
+        ],
+        "omitted_records": 0
+      },
+      "gate_failures": [
+        "skillspector JSON field 'analysis_completeness' reports incomplete analysis (status 'partial'): SKILL.md:102 [reference_resolution; reference_missing]; references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md [static; static_parse_limit; analyzers=static_patterns_tool_misuse]; security scan did not complete"
+      ],
+      "skillspector_applicability": {
+        "artifact_type": "skill",
+        "kept_issues": 12,
+        "suppressed_inapplicable_issues": 0,
+        "suppressed_by_file_role": {},
+        "raw_risk_score": 68,
+        "applicable_risk_score": 68
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "security"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "PII Scan",
+      "description": "Detect PII and local identifiers",
+      "passed": false,
+      "status": "failed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 17,
+        "checks_performed": 1,
+        "errors": 1,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 1,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 1,
+        "distinct_occurrences": 2,
+        "unique_findings": 1,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 1,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-978b2c3d6919bf230525",
+          "occurrence_id": "SEO-bbcafd99ccbaf11c5d3a",
+          "category": "PII",
+          "severity": "high",
+          "check_name": "emails",
+          "message": "Non-placeholder email address: liuguangyi@cviauto.com \u2014 2 occurrences (references/cpp-style-spec/style-comments.md line 37; references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md line 893)",
+          "file_path": "references/cpp-style-spec/style-comments.md",
+          "line_number": 37,
+          "line_content": "\u00a0*\u00a0Author:\u00a0liuguangyi@cviauto.com\u00a0/\u00a0yuanchuqin@cviauto.com",
+          "suggestion": "Keep the metadata.author attribution. Replace other contact addresses with a handle, a contact-directory link, or user@example.com; use a reviewed --pii-waivers entry if the address is required.",
+          "metadata": {
+            "confidence": "high",
+            "matched_value": "liuguangyi@cviauto.com",
+            "occurrence_count": 2,
+            "occurrences": [
+              {
+                "file": "references/cpp-style-spec/style-comments.md",
+                "line": 37
+              },
+              {
+                "file": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+                "line": 893
+              }
+            ],
+            "evidence_sha256": "a1cfe482546627918f3afc1bb9ec45533182cc6e7e84cda9d2f9b2a7d905ed4f"
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "pii_scan_start",
+          "message": "Scanning 17 files for PII",
+          "metadata": {
+            "file_count": 17
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [
+          "[PII-HIGH] Non-placeholder email address: liuguangyi@cviauto.com \u2014 2 occurrences (references/cpp-style-spec/style-comments.md line 37; references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md line 893) in references/cpp-style-spec/style-comments.md:37"
+        ],
+        "warnings": [],
+        "messages": [
+          "[OK] pii_scan_start: Scanning 17 files for PII"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "pii"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "License Compliance",
+      "description": "Validate license compliance for Skills, Rules, and Workflows",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "license_compliance",
+          "message": "License compliance scan completed (not detected)",
+          "metadata": {
+            "license_status": "not_detected"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No license information found - manual review required. Add a LICENSE file or 'license' field in frontmatter."
+        ],
+        "messages": [
+          "No license detected in any tier",
+          "[OK] license_compliance: License compliance scan completed (not detected)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "license"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Risk Analysis",
+      "description": "Static code analysis using Bandit and packaged Semgrep rules",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "code_file_discovery",
+          "message": "No code files found - code risk analysis is not applicable",
+          "metadata": {
+            "file_counts": {
+              "py": 0,
+              "sh": 0,
+              "js": 0
+            }
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] code_file_discovery: No code files found - code risk analysis is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Secrets Detection",
+      "description": "Detect hardcoded secrets, API keys, and credentials using Gitleaks",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "gitleaks": "8.30.0"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "gitleaks",
+          "message": "No secrets detected by Gitleaks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] gitleaks: No secrets detected by Gitleaks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Integrity & Hygiene",
+      "description": "Validate dead links, dependencies, and static Python test-file discovery",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 16,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dead_links_scan",
+          "message": "Checking 16 markdown files for dead links",
+          "metadata": {
+            "file_count": 16
+          }
+        },
+        {
+          "check": "dead_links",
+          "message": "All relative links valid in 16 markdown file(s)",
+          "metadata": {
+            "files_checked": 16
+          }
+        },
+        {
+          "check": "dependencies",
+          "message": "No dependency files found (requirements.txt, pyproject.toml)",
+          "metadata": null
+        },
+        {
+          "check": "test_discovery",
+          "message": "No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests.",
+          "metadata": {
+            "test_count": 0,
+            "execution_performed": false,
+            "coverage_measured": false,
+            "patterns": [
+              "test_*.py",
+              "*_test.py"
+            ]
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No standard Python test-file candidates found; consider adding tests"
+        ],
+        "messages": [
+          "[OK] dead_links_scan: Checking 16 markdown files for dead links",
+          "[OK] dead_links: All relative links valid in 16 markdown file(s)",
+          "[OK] dependencies: No dependency files found (requirements.txt, pyproject.toml)",
+          "[OK] test_discovery: No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests."
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Dependency Vulnerability Audit",
+      "description": "Scan dependencies for CVE vulnerabilities using pip-audit and Safety",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dependency_file_discovery",
+          "message": "No dependency files found - vulnerability audit is not applicable",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] dependency_file_discovery: No dependency files found - vulnerability audit is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "dependency"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Unicode Smuggling Detection",
+      "description": "Detect invisible Unicode characters and ASCII smuggling",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 17,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 12,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 12
+      },
+      "finding_counts": {
+        "raw_occurrences": 12,
+        "distinct_occurrences": 6,
+        "unique_findings": 2,
+        "duplicates_removed": 6,
+        "occurrences_grouped": 4,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 12,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 2,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-77cd94063d86ef41f4e2",
+          "occurrence_id": "SEO-a2cd6d1c54761cd06796",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 146,
+          "line_content": "dynamic_cast\uff1a\u652f\u6301\u2423\u5b89\u5168\u7684\u4e0b\u884c\u8f6c\u6362\u2423\uff08\u57fa\u7c7b\u6307\u9488\u8f6c\u6d3e\u751f\u7c7b\u6307\u9488\uff09\u548c\u591a\u6001\u7c7b\u578b\u8f6c\u6362\uff0c\u4f9d\u8d56RTTI\u5728\u8fd0\u884c\u65f6\u68c0\u67e5\u7c7b\u578b\u5b89\u5168\u6027\uff0c\u8f6c\u6362\u5931\u8d25\u65f6\u8fd4\u56de\u7a7a\u6307\u9488\uff08\u6307\u9488\uff09\u6216\u629b\u51fa\u5f02\u5e38\uff08\u5f15\u7528\uff09\uff1b",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-77cd94063d86ef41f4e2",
+          "occurrence_id": "SEO-a2cd6d1c54761cd06796",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 146,
+          "line_content": "dynamic_cast\uff1a\u652f\u6301\u2423\u5b89\u5168\u7684\u4e0b\u884c\u8f6c\u6362\u2423\uff08\u57fa\u7c7b\u6307\u9488\u8f6c\u6d3e\u751f\u7c7b\u6307\u9488\uff09\u548c\u591a\u6001\u7c7b\u578b\u8f6c\u6362\uff0c\u4f9d\u8d56RTTI\u5728\u8fd0\u884c\u65f6\u68c0\u67e5\u7c7b\u578b\u5b89\u5168\u6027\uff0c\u8f6c\u6362\u5931\u8d25\u65f6\u8fd4\u56de\u7a7a\u6307\u9488\uff08\u6307\u9488\uff09\u6216\u629b\u51fa\u5f02\u5e38\uff08\u5f15\u7528\uff09\uff1b",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-77cd94063d86ef41f4e2",
+          "occurrence_id": "SEO-9d2d112a3a588ef1c148",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 147,
+          "line_content": "reinterpret_cast\uff1a\u6267\u884c\u2423\u4f4e\u7ea7\u522b\u7684\u4f4d\u6a21\u5f0f\u91cd\u65b0\u89e3\u91ca\u2423\uff0c\u5982\u5c06\u6307\u9488\u8f6c\u6362\u4e3a\u4e0d\u540c\u7c7b\u578b\u7684\u6307\u9488\u6216\u6574\u6570\uff0c\u4e0d\u8fdb\u884c\u7c7b\u578b\u68c0\u67e5\uff0c\u56e0\u6b64\u2423\u98ce\u9669\u9ad8\u4e14\u4e0d\u53ef\u79fb\u690d\u3002",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-77cd94063d86ef41f4e2",
+          "occurrence_id": "SEO-9d2d112a3a588ef1c148",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 147,
+          "line_content": "reinterpret_cast\uff1a\u6267\u884c\u2423\u4f4e\u7ea7\u522b\u7684\u4f4d\u6a21\u5f0f\u91cd\u65b0\u89e3\u91ca\u2423\uff0c\u5982\u5c06\u6307\u9488\u8f6c\u6362\u4e3a\u4e0d\u540c\u7c7b\u578b\u7684\u6307\u9488\u6216\u6574\u6570\uff0c\u4e0d\u8fdb\u884c\u7c7b\u578b\u68c0\u67e5\uff0c\u56e0\u6b64\u2423\u98ce\u9669\u9ad8\u4e14\u4e0d\u53ef\u79fb\u690d\u3002",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-77cd94063d86ef41f4e2",
+          "occurrence_id": "SEO-9d2d112a3a588ef1c148",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+          "file_path": "references/cpp-style-spec/practice-cpp-specific.md",
+          "line_number": 147,
+          "line_content": "reinterpret_cast\uff1a\u6267\u884c\u2423\u4f4e\u7ea7\u522b\u7684\u4f4d\u6a21\u5f0f\u91cd\u65b0\u89e3\u91ca\u2423\uff0c\u5982\u5c06\u6307\u9488\u8f6c\u6362\u4e3a\u4e0d\u540c\u7c7b\u578b\u7684\u6307\u9488\u6216\u6574\u6570\uff0c\u4e0d\u8fdb\u884c\u7c7b\u578b\u68c0\u67e5\uff0c\u56e0\u6b64\u2423\u98ce\u9669\u9ad8\u4e14\u4e0d\u53ef\u79fb\u690d\u3002",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-188731305c957a99873b",
+          "occurrence_id": "SEO-803743c942128587d522",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH SPACE",
+          "file_path": "references/cpp-style-spec/safety-threading-and-build.md",
+          "line_number": 21,
+          "line_content": "3-3-1-1\u3001\\[SC] \u5728\u8bbe\u8ba1\u52a0\u5bc6\u9a8c\u8bc1\u76f8\u5173\u7684\u968f\u673a\u6570\u4ea7\u751f\u4e0a\uff0c\u5fc5\u987b\u4f7f\u7528\u8de8\u5e73\u53f0\u901a\u7528\u7684\u4e13\u7528\u5bc6\u7801\u5b66\u5e93\uff0c\u5982OpenSSL\u3001libsodium\u3002\u2423\u666e\u901a\u7684\u968f\u673a\u6570\u4ea7\u751f\uff0cC\u8bed\u8a00\u3001C++\u63a8\u8350\u4f7f\u7528\u7684API\u89c1\u7528\u4f8b\uff0c\u8bf7\u4e0d\u8981\u4f7f\u7528\u968f\u673a\u6570\u79cd\u5b50\u65b9\u5f0f\u53bb\u4ea7\u751f\u968f\u673a\u6570\uff0c\u56e0\u4e3a...",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-77cd94063d86ef41f4e2",
+          "occurrence_id": "SEO-4b7f5459c0bbd0d84671",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1707,
+          "line_content": "dynamic_cast\uff1a\u652f\u6301\u2423\u5b89\u5168\u7684\u4e0b\u884c\u8f6c\u6362\u2423\uff08\u57fa\u7c7b\u6307\u9488\u8f6c\u6d3e\u751f\u7c7b\u6307\u9488\uff09\u548c\u591a\u6001\u7c7b\u578b\u8f6c\u6362\uff0c\u4f9d\u8d56RTTI\u5728\u8fd0\u884c\u65f6\u68c0\u67e5\u7c7b\u578b\u5b89\u5168\u6027\uff0c\u8f6c\u6362\u5931\u8d25\u65f6\u8fd4\u56de\u7a7a\u6307\u9488\uff08\u6307\u9488\uff09\u6216\u629b\u51fa\u5f02\u5e38\uff08\u5f15\u7528\uff09\uff1b",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-77cd94063d86ef41f4e2",
+          "occurrence_id": "SEO-4b7f5459c0bbd0d84671",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1707,
+          "line_content": "dynamic_cast\uff1a\u652f\u6301\u2423\u5b89\u5168\u7684\u4e0b\u884c\u8f6c\u6362\u2423\uff08\u57fa\u7c7b\u6307\u9488\u8f6c\u6d3e\u751f\u7c7b\u6307\u9488\uff09\u548c\u591a\u6001\u7c7b\u578b\u8f6c\u6362\uff0c\u4f9d\u8d56RTTI\u5728\u8fd0\u884c\u65f6\u68c0\u67e5\u7c7b\u578b\u5b89\u5168\u6027\uff0c\u8f6c\u6362\u5931\u8d25\u65f6\u8fd4\u56de\u7a7a\u6307\u9488\uff08\u6307\u9488\uff09\u6216\u629b\u51fa\u5f02\u5e38\uff08\u5f15\u7528\uff09\uff1b",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-77cd94063d86ef41f4e2",
+          "occurrence_id": "SEO-05ca4a566e47392406c3",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1708,
+          "line_content": "reinterpret_cast\uff1a\u6267\u884c\u2423\u4f4e\u7ea7\u522b\u7684\u4f4d\u6a21\u5f0f\u91cd\u65b0\u89e3\u91ca\u2423\uff0c\u5982\u5c06\u6307\u9488\u8f6c\u6362\u4e3a\u4e0d\u540c\u7c7b\u578b\u7684\u6307\u9488\u6216\u6574\u6570\uff0c\u4e0d\u8fdb\u884c\u7c7b\u578b\u68c0\u67e5\uff0c\u56e0\u6b64\u2423\u98ce\u9669\u9ad8\u4e14\u4e0d\u53ef\u79fb\u690d\u3002",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-77cd94063d86ef41f4e2",
+          "occurrence_id": "SEO-05ca4a566e47392406c3",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1708,
+          "line_content": "reinterpret_cast\uff1a\u6267\u884c\u2423\u4f4e\u7ea7\u522b\u7684\u4f4d\u6a21\u5f0f\u91cd\u65b0\u89e3\u91ca\u2423\uff0c\u5982\u5c06\u6307\u9488\u8f6c\u6362\u4e3a\u4e0d\u540c\u7c7b\u578b\u7684\u6307\u9488\u6216\u6574\u6570\uff0c\u4e0d\u8fdb\u884c\u7c7b\u578b\u68c0\u67e5\uff0c\u56e0\u6b64\u2423\u98ce\u9669\u9ad8\u4e14\u4e0d\u53ef\u79fb\u690d\u3002",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-77cd94063d86ef41f4e2",
+          "occurrence_id": "SEO-05ca4a566e47392406c3",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1708,
+          "line_content": "reinterpret_cast\uff1a\u6267\u884c\u2423\u4f4e\u7ea7\u522b\u7684\u4f4d\u6a21\u5f0f\u91cd\u65b0\u89e3\u91ca\u2423\uff0c\u5982\u5c06\u6307\u9488\u8f6c\u6362\u4e3a\u4e0d\u540c\u7c7b\u578b\u7684\u6307\u9488\u6216\u6574\u6570\uff0c\u4e0d\u8fdb\u884c\u7c7b\u578b\u68c0\u67e5\uff0c\u56e0\u6b64\u2423\u98ce\u9669\u9ad8\u4e14\u4e0d\u53ef\u79fb\u690d\u3002",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        },
+        {
+          "finding_id": "SEF-188731305c957a99873b",
+          "occurrence_id": "SEO-07fe9cdd2377289fab5e",
+          "category": "UNICODE",
+          "severity": "low",
+          "check_name": "isolated_invisible_char",
+          "message": "Isolated invisible character(s) (1): ZERO WIDTH SPACE",
+          "file_path": "references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md",
+          "line_number": 1909,
+          "line_content": "3-3-1-1\u3001\\[SC] \u5728\u8bbe\u8ba1\u52a0\u5bc6\u9a8c\u8bc1\u76f8\u5173\u7684\u968f\u673a\u6570\u4ea7\u751f\u4e0a\uff0c\u5fc5\u987b\u4f7f\u7528\u8de8\u5e73\u53f0\u901a\u7528\u7684\u4e13\u7528\u5bc6\u7801\u5b66\u5e93\uff0c\u5982OpenSSL\u3001libsodium\u3002\u2423\u666e\u901a\u7684\u968f\u673a\u6570\u4ea7\u751f\uff0cC\u8bed\u8a00\u3001C++\u63a8\u8350\u4f7f\u7528\u7684API\u89c1\u7528\u4f8b\uff0c\u8bf7\u4e0d\u8981\u4f7f\u7528\u968f\u673a\u6570\u79cd\u5b50\u65b9\u5f0f\u53bb\u4ea7\u751f\u968f\u673a\u6570\uff0c\u56e0\u4e3a...",
+          "suggestion": "Likely a copy-paste artifact. Remove if not intentional.",
+          "metadata": {
+            "char_count": 1,
+            "unicode_category": "zero_width"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER in references/cpp-style-spec/practice-cpp-specific.md:146",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER in references/cpp-style-spec/practice-cpp-specific.md:146",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER in references/cpp-style-spec/practice-cpp-specific.md:147",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER in references/cpp-style-spec/practice-cpp-specific.md:147",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER in references/cpp-style-spec/practice-cpp-specific.md:147",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH SPACE in references/cpp-style-spec/safety-threading-and-build.md:21",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1707",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1707",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1708",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1708",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH NON-JOINER in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1708",
+          "[UNICODE-LOW] Isolated invisible character(s) (1): ZERO WIDTH SPACE in references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md:1909"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "unicode"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "QUALITY",
+      "description": "Skill quality scoring across Correctness (35%), Discoverability (25%), Reliability (25%), and Efficiency (15%)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 9,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 2,
+        "low_count": 7
+      },
+      "finding_counts": {
+        "raw_occurrences": 9,
+        "distinct_occurrences": 9,
+        "unique_findings": 9,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 7,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 7,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-0d2215183b14101ae2c2",
+          "occurrence_id": "SEO-ae055a75d055575c8d94",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_correctness",
+          "message": "No examples provided",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add example usage with code blocks",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+          "occurrence_id": "SEO-9471d86d3685d33571a2",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+          "occurrence_id": "SEO-6c2aa1642dbedc3759c6",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-0f3cde56a46498377f1a",
+          "occurrence_id": "SEO-58f50fe6b424caa5604e",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description doesn't mention WHEN to use this skill",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+          "occurrence_id": "SEO-08a3a5507a44393107dc",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "No '## Purpose' section",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add purpose section to clarify use cases",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-9612bbfb3f32d491ac5d",
+          "occurrence_id": "SEO-307e401c0fbfbf17b020",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No mention of error handling or validation",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document expected errors and how to handle them",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-4a6560f4aec006f302f9",
+          "occurrence_id": "SEO-3b177c99328a7205057f",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No prerequisites/requirements documented",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document dependencies, API keys, or setup needed",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-fc6fe3747c071963a76e",
+          "occurrence_id": "SEO-0feb6ea79131bf0e381c",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No limitations documented",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Limitations' section with known issues/constraints",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-378f24adfec67572e606",
+          "occurrence_id": "SEO-b9b33763279d15900e00",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No troubleshooting section documented",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "quality_score",
+          "message": "Score: 84.8/100 (Grade: B)",
+          "metadata": {
+            "overall_score": 84.8,
+            "grade": "B",
+            "skill_type": "guide-only"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[QUALITY-LOW] No examples provided in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.author' in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags' in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[QUALITY-LOW] Description doesn't mention WHEN to use this skill in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[QUALITY-LOW] No '## Purpose' section in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[QUALITY-LOW] No mention of error handling or validation in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[QUALITY-LOW] No prerequisites/requirements documented in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[QUALITY-LOW] No limitations documented in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[QUALITY-LOW] No troubleshooting section documented in /skills/library-20261118/G2/cxx-style-review/SKILL.md"
+        ],
+        "messages": [
+          "[OK] quality_score: Score: 84.8/100 (Grade: B)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "quality": {
+        "overall_score": 84.8,
+        "grade": "B",
+        "skill_type": "guide-only",
+        "skill_name": "cxx-style-review",
+        "dimensions": {
+          "correctness": {
+            "score": 85.0,
+            "weight": 0.35,
+            "issues_count": 3,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No examples provided",
+                "suggestion": "Add example usage with code blocks",
+                "deduction": 5
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+                "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+                "deduction": 5
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+                "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+                "deduction": 5
+              }
+            ]
+          },
+          "discoverability": {
+            "score": 85.0,
+            "weight": 0.25,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "Description doesn't mention WHEN to use this skill",
+                "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No '## Purpose' section",
+                "suggestion": "Add purpose section to clarify use cases",
+                "deduction": 5
+              }
+            ]
+          },
+          "reliability": {
+            "score": 75.0,
+            "weight": 0.25,
+            "issues_count": 4,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No mention of error handling or validation",
+                "suggestion": "Document expected errors and how to handle them",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No prerequisites/requirements documented",
+                "suggestion": "Document dependencies, API keys, or setup needed",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No limitations documented",
+                "suggestion": "Add '## Limitations' section with known issues/constraints",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No troubleshooting section documented",
+                "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+                "deduction": 5
+              }
+            ]
+          },
+          "efficiency": {
+            "score": 100.0,
+            "weight": 0.15,
+            "issues_count": 0,
+            "issues": []
+          }
+        },
+        "metrics": {
+          "total_tokens": 846,
+          "estimated_tokens": 846,
+          "estimate_method": "characters/4",
+          "recommended_max_tokens": 5000,
+          "frontmatter_tokens": 49,
+          "instructions_tokens": 795,
+          "script_count": 0,
+          "has_examples": false,
+          "has_error_handling": false,
+          "has_frontmatter": true,
+          "has_instructions": false,
+          "has_scripts": false,
+          "has_lib_module": false
+        }
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "quality"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "SCRIPT_LINT",
+      "description": "AST-based code quality checks for skill scripts",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "lint",
+          "message": "No scripts/ or tools/ directory found",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] lint: No scripts/ or tools/ directory found"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "lint"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    },
+    {
+      "validator": "Harness Compatibility",
+      "description": "Advisory: whether each agent harness loads, degrades or drops the skill",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 6,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 6,
+        "distinct_occurrences": 6,
+        "unique_findings": 6,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 6
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 6
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-3661379ea9e5c1072875",
+          "occurrence_id": "SEO-37446a8fb28cab29b391",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-RELOAD",
+          "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e0623bdfb91d6bbb829f",
+          "occurrence_id": "SEO-3f36cf11e3df4ea1257f",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-DESC-60",
+          "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e843862971441e2bf711",
+          "occurrence_id": "SEO-66e13a8e52cacd5647d6",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-LINKED-LAYOUT",
+          "message": "hermes: 1 files outside references/, templates/, assets/ and scripts/ (agents) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-082fb053d8cd51583eab",
+          "occurrence_id": "SEO-0e49d086176f406c68da",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OW-REF-BUDGET",
+          "message": "openclaw: 1 files over 64,000 bytes (references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md): OpenClaw's read cap is 16,000-64,000 UTF-8 bytes by model context, so each takes several reads.",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Split large reference files into pieces under 16,000 UTF-8 bytes.",
+          "metadata": {
+            "harness": "openclaw",
+            "effect": "advisory",
+            "verified_version": "2026.10.9",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-03e029934351881ba688",
+          "occurrence_id": "SEO-5c46f1261c0fb44ed67c",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-RELOAD",
+          "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e9710d8bc87e6bad3fa2",
+          "occurrence_id": "SEO-986d385f0a5a868e87fa",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-REF-CUT",
+          "message": "opencode: 1 files are over 51,200 bytes or 2,000 lines (references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md); OpenCode's read tool returns at most that per call, so the model must page.",
+          "file_path": "/skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Split large files into pieces under 51,200 bytes and 2,000 lines.",
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once. in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them. in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[HARNESS-INFO] hermes: 1 files outside references/, templates/, assets/ and scripts/ (agents) are left out of the skill's file list; the model finds them only if SKILL.md names their paths. in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[HARNESS-INFO] openclaw: 1 files over 64,000 bytes (references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md): OpenClaw's read cap is 16,000-64,000 UTF-8 bytes by model context, so each takes several reads. in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[HARNESS-INFO] opencode: Skill list and text are cached at startup; edits need a restart. in /skills/library-20261118/G2/cxx-style-review/SKILL.md",
+          "[HARNESS-INFO] opencode: 1 files are over 51,200 bytes or 2,000 lines (references/cpp-style-spec/source-of-truth/C&Cpp\u7f16\u7a0b\u89c4\u8303-\u521d\u7a3fv0.3.md); OpenCode's read tool returns at most that per call, so the model must page. in /skills/library-20261118/G2/cxx-style-review/SKILL.md"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "cxx-style-review",
+        "skill_digest": "sha256:8eaffe9bc7ad9ec5db152087e03dc1dc7108db1152888bdb4652877e46a920ab",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "harness"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "llm": {
+            "status": "skipped",
+            "reason": "LLM checks disabled by --no-llm."
+          }
+        }
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "incomplete",
+  "publication": {
+    "status": "incomplete",
+    "eligible": false,
+    "reasons": [
+      "One or more validators reported incomplete scanner evidence."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "policy": {
+    "profile": "default",
+    "audience": "all",
+    "digest": "sha256:64a069b8853f7123049a675d6853ef8d8b424792bb9a2a5157a73ec312f38ed4",
+    "author_email_regex": null,
+    "severity_overrides": {
+      "SCHEMA.author_missing": "low",
+      "SCHEMA.author_without_email": "info",
+      "SCHEMA.author_format": "high",
+      "WORKFLOWS.author_format": "high",
+      "LICENSE.*": "critical"
+    },
+    "metadata_id_requirement": "ignore",
+    "source": "/usr/local/lib/python3.12/site-packages/skillevaluator/config/profiles/default.yaml"
+  },
+  "quality_config": {
+    "source": "packaged",
+    "file": null,
+    "digest": "sha256:298ff2bf62132c8154217b7aa59fc1fd04f28cf75372f55620a2cbcd951d6549",
+    "min_score": 70
+  },
+  "evaluated_source": null,
+  "gating": {
+    "tiers": {
+      "1": {
+        "blocking": true,
+        "validators": [
+          "Schema & Repository Governance",
+          "Semantic Version Validation",
+          "Security Scan",
+          "PII Scan",
+          "License Compliance",
+          "Code Risk Analysis",
+          "Secrets Detection",
+          "Code Integrity & Hygiene",
+          "Dependency Vulnerability Audit",
+          "Unicode Smuggling Detection",
+          "QUALITY",
+          "SCRIPT_LINT",
+          "Harness Compatibility"
+        ],
+        "validator_policies": [
+          {
+            "validator": "Schema & Repository Governance",
+            "blocking": true
+          },
+          {
+            "validator": "Semantic Version Validation",
+            "blocking": true
+          },
+          {
+            "validator": "Security Scan",
+            "blocking": true
+          },
+          {
+            "validator": "PII Scan",
+            "blocking": true
+          },
+          {
+            "validator": "License Compliance",
+            "blocking": true
+          },
+          {
+            "validator": "Code Risk Analysis",
+            "blocking": true
+          },
+          {
+            "validator": "Secrets Detection",
+            "blocking": true
+          },
+          {
+            "validator": "Code Integrity & Hygiene",
+            "blocking": true
+          },
+          {
+            "validator": "Dependency Vulnerability Audit",
+            "blocking": true
+          },
+          {
+            "validator": "Unicode Smuggling Detection",
+            "blocking": true
+          },
+          {
+            "validator": "QUALITY",
+            "blocking": true
+          },
+          {
+            "validator": "SCRIPT_LINT",
+            "blocking": true
+          },
+          {
+            "validator": "Harness Compatibility",
+            "blocking": true
+          }
+        ]
+      }
+    }
+  },
+  "workflow": {
+    "tier": 1,
+    "stages": {
+      "validation": {
+        "status": "incomplete"
+      },
+      "llm": {
+        "status": "skipped",
+        "reason": "LLM checks disabled by --no-llm."
+      }
+    }
+  },
+  "quality_summary": [
+    {
+      "overall_score": 84.8,
+      "grade": "B",
+      "skill_type": "guide-only",
+      "skill_name": "cxx-style-review",
+      "dimensions": {
+        "correctness": {
+          "score": 85.0,
+          "weight": 0.35,
+          "issues_count": 3,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No examples provided",
+              "suggestion": "Add example usage with code blocks",
+              "deduction": 5
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+              "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+              "deduction": 5
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+              "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+              "deduction": 5
+            }
+          ]
+        },
+        "discoverability": {
+          "score": 85.0,
+          "weight": 0.25,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "Description doesn't mention WHEN to use this skill",
+              "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No '## Purpose' section",
+              "suggestion": "Add purpose section to clarify use cases",
+              "deduction": 5
+            }
+          ]
+        },
+        "reliability": {
+          "score": 75.0,
+          "weight": 0.25,
+          "issues_count": 4,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No mention of error handling or validation",
+              "suggestion": "Document expected errors and how to handle them",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No prerequisites/requirements documented",
+              "suggestion": "Document dependencies, API keys, or setup needed",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No limitations documented",
+              "suggestion": "Add '## Limitations' section with known issues/constraints",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No troubleshooting section documented",
+              "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+              "deduction": 5
+            }
+          ]
+        },
+        "efficiency": {
+          "score": 100.0,
+          "weight": 0.15,
+          "issues_count": 0,
+          "issues": []
+        }
+      },
+      "metrics": {
+        "total_tokens": 846,
+        "estimated_tokens": 846,
+        "estimate_method": "characters/4",
+        "recommended_max_tokens": 5000,
+        "frontmatter_tokens": 49,
+        "instructions_tokens": 795,
+        "script_count": 0,
+        "has_examples": false,
+        "has_error_handling": false,
+        "has_frontmatter": true,
+        "has_instructions": false,
+        "has_scripts": false,
+        "has_lib_module": false
+      }
+    }
+  ],
+  "generated_at": "2026-11-18T00:54:18.421758+00:00"
+}

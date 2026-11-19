@@ -1,0 +1,1 @@
+{"max_attempts":1,"pass_threshold":0.5,"stop_on_pass":false,"score_definition":"overall = mean(Security, Correctness, Discoverability, Effectiveness, Efficiency) [skill-evaluator-dimension-mean-v1], excluding metrics that are not applicable to a case","score_policy":"skill-evaluator-dimension-mean-v1"}

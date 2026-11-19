@@ -1,0 +1,125 @@
+{
+  "workflow_name": "requirement_completion_workflow",
+  "version": "1.0",
+  "description": "requirement_completion_skill 的标准运行编排",
+  "inputs": [
+    "schemas/input_schema.json",
+    "core/common_requirement_framework.json",
+    "core/task_templates.json",
+    "modules/module_registry.json",
+    "rules/matching_rules.json",
+    "rules/multi_module_resolution_rules.json"
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "name": "task_classification",
+      "goal": "确认任务属于 completion、rewrite、review、extraction、explanation 之一",
+      "input_fields": [
+        "task_type",
+        "user_input"
+      ],
+      "outputs": [
+        "task_type"
+      ]
+    },
+    {
+      "step": 2,
+      "name": "module_matching",
+      "goal": "基于 candidate_modules、模块名、别名、关键词和语义线索识别模块",
+      "input_fields": [
+        "candidate_modules",
+        "user_input"
+      ],
+      "read_files": [
+        "modules/module_registry.json",
+        "rules/matching_rules.json"
+      ],
+      "outputs": [
+        "matched_modules"
+      ]
+    },
+    {
+      "step": 3,
+      "name": "plugin_loading",
+      "goal": "加载主模块和关联模块的插件知识",
+      "read_files": [
+        "modules/plugins/<module_code>.json"
+      ],
+      "outputs": [
+        "loaded_plugins"
+      ]
+    },
+    {
+      "step": 4,
+      "name": "intent_classification",
+      "goal": "结合任务类型、输入语义和插件 intent_patterns 识别主意图",
+      "outputs": [
+        "intent_type",
+        "core_intent"
+      ]
+    },
+    {
+      "step": 5,
+      "name": "generic_completion",
+      "goal": "用通用框架检查功能目标、状态定义、模式适配、优先级、恢复逻辑和异常处理是否缺失",
+      "read_files": [
+        "core/common_requirement_framework.json"
+      ],
+      "outputs": [
+        "explicit_requirements",
+        "inferred_requirements",
+        "missing_dimensions"
+      ]
+    },
+    {
+      "step": 6,
+      "name": "plugin_enrichment",
+      "goal": "叠加插件 default_rules、must_confirm_rules、common_missing_items、inference_rules",
+      "outputs": [
+        "default_inference",
+        "must_confirm",
+        "risks"
+      ]
+    },
+    {
+      "step": 7,
+      "name": "multi_module_resolution",
+      "goal": "多模块时合并依赖、优先级、恢复逻辑和冲突",
+      "read_files": [
+        "rules/multi_module_resolution_rules.json"
+      ],
+      "outputs": [
+        "matched_modules",
+        "risks",
+        "follow_up_questions"
+      ]
+    },
+    {
+      "step": 8,
+      "name": "output_rendering",
+      "goal": "按任务模板和输出 schema 组织结果",
+      "read_files": [
+        "core/task_templates.json",
+        "schemas/output_schema.json"
+      ],
+      "outputs": [
+        "rewritten_requirement",
+        "review_issues",
+        "structured_extraction",
+        "assumptions"
+      ]
+    },
+    {
+      "step": 9,
+      "name": "final_self_check",
+      "goal": "区分默认推断与必须确认项，保证输出完整、可执行、可评审",
+      "checkpoints": [
+        "不把默认经验写成用户显式需求",
+        "多模块时显式区分 primary 和 related",
+        "写清优先级、恢复逻辑、异常处理",
+        "按 task_type 输出对应字段"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "grilling",
+  "author": "zhouyujie",
+  "version": "0.0.1",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:28+08:00",
+  "updatedAt": "2026-11-17T10:46:28+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/grilling"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/grilling",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/grilling"
+  ],
+  "fileHashes": {
+    "SKILL.md": "e6475fc917be397b59c35360b1207ae97002b308c6c47cce2d815aa982a86a2e"
+  }
+}

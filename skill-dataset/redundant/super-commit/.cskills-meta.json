@@ -1,0 +1,22 @@
+{
+  "name": "super-commit",
+  "author": "yuanzihan",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:58+08:00",
+  "updatedAt": "2026-11-17T10:45:58+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/super-commit"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/super-commit",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/super-commit"
+  ],
+  "fileHashes": {
+    "SKILL.md": "b6b7d473b67164b54fd503c312b6def700f041b97d21088457132f0644d3b26f"
+  }
+}

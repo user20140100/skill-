@@ -1,0 +1,10 @@
+bytebase:
+  url: https://bytebase.gz.cvte.cn
+
+defaults:
+  project: ""
+  change_type: DDL
+
+session:
+  token_file: ~/.bytebase-submit/session.json
+  timeout_seconds: 120

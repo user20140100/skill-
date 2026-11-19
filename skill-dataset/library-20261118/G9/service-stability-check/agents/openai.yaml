@@ -1,0 +1,4 @@
+interface:
+  display_name: "服务稳定性检测"
+  short_description: "结合鲸云运行态、告警看板与代码扫描，输出有证据和验收标准的服务稳定性治理待办"
+  default_prompt: "使用 $service-stability-check 检测当前服务的稳定性，结合运行态、告警和代码输出 Markdown 治理待办。"

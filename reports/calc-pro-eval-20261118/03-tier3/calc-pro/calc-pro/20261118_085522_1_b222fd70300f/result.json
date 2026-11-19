@@ -1,0 +1,952 @@
+{
+  "agents": {
+    "opencode": {
+      "model": "openai/qwen3.8-flash",
+      "model_source": "CLI",
+      "model_resolution": {
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      },
+      "with_skill": {
+        "security": 1.0,
+        "skill_execution": 1.0,
+        "skill_efficiency": 1.0,
+        "accuracy": 1.0,
+        "goal_accuracy": 1.0,
+        "behavior_check": 1.0
+      },
+      "without_skill": {},
+      "overall_with_skill": 1.0,
+      "overall_without_skill": null,
+      "metrics_with_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "metrics_without_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "score_policy_with_skill": "skill-evaluator-dimension-mean-v1",
+      "score_policy_without_skill": "skill-evaluator-dimension-mean-v1",
+      "custom_with_skill": {},
+      "custom_without_skill": {},
+      "not_applicable_metrics": {
+        "with_skill": [],
+        "without_skill": [
+          "skill_execution",
+          "skill_efficiency"
+        ]
+      },
+      "dimensions_with_skill": {
+        "security": {
+          "score": 1.0,
+          "sources": {
+            "security": 1.0
+          }
+        },
+        "correctness": {
+          "score": 1.0,
+          "sources": {
+            "accuracy": 1.0
+          }
+        },
+        "discoverability": {
+          "score": 1.0,
+          "sources": {
+            "skill_execution": 1.0
+          }
+        },
+        "effectiveness": {
+          "score": 1.0,
+          "sources": {
+            "goal_accuracy": 0.5,
+            "behavior_check": 0.5
+          }
+        },
+        "efficiency": {
+          "score": 1.0,
+          "sources": {
+            "skill_efficiency": 1.0
+          }
+        }
+      },
+      "dimensions_without_skill": {},
+      "skill_activation": {
+        "status": "activated",
+        "positive_trials": 3,
+        "activated_trials": 3,
+        "unknown_trials": 0,
+        "reason": "Skill activation observed in with-skill trials"
+      },
+      "lift": {},
+      "custom_lift": {},
+      "pass_at_k": {
+        "with_skill": {
+          "k": 1,
+          "pass_threshold": 0.5,
+          "correct_answers": {
+            "correct": 3,
+            "scored": 3
+          },
+          "required_checks": {
+            "passed": 3,
+            "scored": 3,
+            "wrong_answer": 0,
+            "security": 0
+          },
+          "security_clean": {
+            "clean": 3,
+            "scored": 3
+          },
+          "stop_on_pass": false,
+          "passed_cases": 3,
+          "failed_cases": 0,
+          "total_cases": 3,
+          "rate": 1.0,
+          "rate_interval": {
+            "method": "wilson_score",
+            "confidence_level": 0.95,
+            "lower": 0.4385029682449546,
+            "upper": 1.0
+          },
+          "attempts_used": 3,
+          "max_attempts_possible": 3,
+          "avg_attempts_used": 1.0,
+          "extra_case_count": 0,
+          "extra_cases": [],
+          "extra_cases_truncated": false,
+          "case_details_total": 3,
+          "case_details_shown": 3,
+          "case_details_truncated": false,
+          "case_details_limit": 256,
+          "cases": {
+            "calcpro-001": {
+              "passed": true,
+              "first_pass_attempt": 1,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 1.0,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "calcpro-001__nbkiKcp",
+                  "score": 1.0,
+                  "passed": true,
+                  "goal_accuracy": 1.0,
+                  "reason": null,
+                  "warnings": [],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": null
+                }
+              ],
+              "reason": null,
+              "warnings": [],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            },
+            "calcpro-002": {
+              "passed": true,
+              "first_pass_attempt": 1,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 1.0,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "calcpro-002__ZK7uU8y",
+                  "score": 1.0,
+                  "passed": true,
+                  "goal_accuracy": 1.0,
+                  "reason": null,
+                  "warnings": [],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": null
+                }
+              ],
+              "reason": null,
+              "warnings": [],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            },
+            "calcpro-003": {
+              "passed": true,
+              "first_pass_attempt": 1,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 1.0,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "calcpro-003__dchKc5U",
+                  "score": 1.0,
+                  "passed": true,
+                  "goal_accuracy": 1.0,
+                  "reason": null,
+                  "warnings": [],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": null
+                }
+              ],
+              "reason": null,
+              "warnings": [],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            }
+          }
+        },
+        "without_skill": {},
+        "lift": {}
+      },
+      "security_attribution": {},
+      "agent_runtime_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "trial_failures": {
+        "with_skill": [],
+        "without_skill": [
+          {
+            "trial": "calcpro-001__sbGQH9t",
+            "reason": "RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-001-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-001__sbgqh9t__env --project-directory /app/reports/calc-pro-eval-20"
+          },
+          {
+            "trial": "calcpro-003__MzYB22M",
+            "reason": "RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-003-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-003__mzyb22m__env --project-directory /app/reports/calc-pro-eval-20"
+          }
+        ]
+      },
+      "recovered_trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "failure_detail_metadata": {
+        "with_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "with_skill_trials": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_trials": {
+          "details_total": 2,
+          "details_shown": 2,
+          "details_truncated": false
+        }
+      },
+      "job_failures": {
+        "with_skill": "",
+        "without_skill": "Harbor job did not complete successfully: 2 errored"
+      },
+      "historical_job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "conditions": {
+        "with_skill": {
+          "execution_status": "succeeded",
+          "execution_errors": [],
+          "execution_error_details_total": 0,
+          "execution_error_details_shown": 0,
+          "execution_error_details_truncated": false,
+          "expected_cases": 3,
+          "scored_cases": 3,
+          "expected_attempts": 3,
+          "scored_attempts": 3,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 0,
+          "reward_failure_details_shown": 0,
+          "reward_failure_details_truncated": false
+        },
+        "without_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 2 errored",
+            "Unscoreable reward in calcpro-001__sbGQH9t: RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-001-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-001__sbgqh9t__env --project-directory /app/reports/calc-pro-eval-20",
+            "Unscoreable reward in calcpro-003__MzYB22M: RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-003-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-003__mzyb22m__env --project-directory /app/reports/calc-pro-eval-20",
+            "Missing scored attempts for cases: calcpro-001, calcpro-003",
+            "Scored attempt coverage is 1/3"
+          ],
+          "execution_error_details_total": 5,
+          "execution_error_details_shown": 5,
+          "execution_error_details_truncated": false,
+          "expected_cases": 3,
+          "scored_cases": 1,
+          "expected_attempts": 3,
+          "scored_attempts": 1,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 2,
+          "reward_failure_details_shown": 2,
+          "reward_failure_details_truncated": false
+        }
+      },
+      "execution_status": "failed",
+      "execution_errors": [
+        "Harbor job did not complete successfully: 2 errored",
+        "Unscoreable reward in calcpro-001__sbGQH9t: RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-001-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-001__sbgqh9t__env --project-directory /app/reports/calc-pro-eval-20",
+        "Unscoreable reward in calcpro-003__MzYB22M: RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-003-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-003__mzyb22m__env --project-directory /app/reports/calc-pro-eval-20",
+        "Missing scored attempts for cases: calcpro-001, calcpro-003",
+        "Scored attempt coverage is 1/3"
+      ],
+      "execution_error_details_total": 5,
+      "execution_error_details_shown": 5,
+      "execution_error_details_truncated": false,
+      "expected_attempts": 6,
+      "scored_attempts": 4,
+      "num_trials_with": 3,
+      "num_trials_without": 1,
+      "execution_counts": {
+        "fresh": {
+          "with_skill": 3,
+          "without_skill": 3
+        },
+        "reused": {
+          "without_skill": 0
+        }
+      },
+      "measured_usage": {
+        "fresh": {
+          "with_skill": {
+            "total_prompt_tokens": 84554,
+            "total_completion_tokens": 775,
+            "total_cached_tokens": 75776,
+            "total_cost_usd": null
+          },
+          "without_skill": null
+        },
+        "reused": {
+          "without_skill": null
+        }
+      },
+      "output_dir": "/app/reports/calc-pro-eval-20261118/03-tier3/calc-pro/calc-pro/20261118_085522_1_b222fd70300f/opencode",
+      "dataset_sufficiency": {
+        "policy": "dataset-sufficiency-v1",
+        "status": "provisional",
+        "coverage_summary": "Dataset size: provisional \u2014 3 cases (policy needs 10), 0 negative cases (needs 1); pass-rate interval \u00b10.28 is wider than \u00b10.20 (policy dataset-sufficiency-v1)",
+        "checks": [
+          {
+            "name": "coverage",
+            "met": false,
+            "observed": {
+              "distinct_cases": 3,
+              "negative_cases": 0
+            },
+            "required": {
+              "distinct_cases": 10,
+              "negative_cases": 1
+            },
+            "reason": "3 distinct cases and 0 negative cases; requires 10 and 1"
+          },
+          {
+            "name": "pass_rate_reliability",
+            "met": false,
+            "observed": {
+              "interval_half_width": 0.2807485158775227
+            },
+            "required": {
+              "interval_half_width": 0.2
+            },
+            "reason": "95% Wilson interval half-width 0.28 exceeds 0.20"
+          },
+          {
+            "name": "lift_comparison",
+            "met": null,
+            "observed": {
+              "paired_cases": null
+            },
+            "required": {
+              "paired_cases": 10
+            },
+            "reason": "Paired-case count is unavailable"
+          }
+        ],
+        "reason": "provisional: 3 distinct cases and 0 negative cases; requires 10 and 1; 95% Wilson interval half-width 0.28 exceeds 0.20; Paired-case count is unavailable"
+      }
+    }
+  },
+  "metric_set": "skill-evaluator-default-v2",
+  "metrics": [
+    "security",
+    "skill_execution",
+    "skill_efficiency",
+    "accuracy",
+    "goal_accuracy",
+    "behavior_check"
+  ],
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "attempt_policy": {
+    "max_attempts": 1,
+    "pass_threshold": 0.5,
+    "stop_on_pass": false,
+    "score_definition": "overall = mean(Security, Correctness, Discoverability, Effectiveness, Efficiency) [skill-evaluator-dimension-mean-v1], excluding metrics that are not applicable to a case",
+    "score_policy": "skill-evaluator-dimension-mean-v1"
+  },
+  "execution_status": "failed",
+  "execution_errors": [
+    "Harbor job did not complete successfully: 2 errored",
+    "Unscoreable reward in calcpro-001__sbGQH9t: RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-001-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-001__sbgqh9t__env --project-directory /app/reports/calc-pro-eval-20",
+    "Unscoreable reward in calcpro-003__MzYB22M: RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-003-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-003__mzyb22m__env --project-directory /app/reports/calc-pro-eval-20",
+    "Missing scored attempts for cases: calcpro-001, calcpro-003",
+    "Scored attempt coverage is 1/3",
+    "opencode without-skill Harbor run failed: Harbor job did not complete successfully: 2 errored"
+  ],
+  "execution_error_details_total": 6,
+  "execution_error_details_shown": 6,
+  "execution_error_details_truncated": false,
+  "expected_attempts": 6,
+  "scored_attempts": 4,
+  "error": [
+    "Harbor job did not complete successfully: 2 errored"
+  ],
+  "baseline": {
+    "mode": "fresh"
+  },
+  "comparison_identity": {
+    "config": {
+      "harbor": {
+        "environment": {
+          "value": "docker",
+          "source": "CLI"
+        },
+        "environment_kwargs": {
+          "keys": [],
+          "sources": {},
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "n_attempts": 1,
+        "stop_on_pass": false,
+        "timeout_multiplier": 3.0,
+        "base_image_mode": "reuse",
+        "resources": {
+          "cpus": null,
+          "memory_mb": null,
+          "storage_mb": null
+        },
+        "agent_workdir": null,
+        "custom_dockerfile_mode": "rebase",
+        "runtime_env": {
+          "keys": [],
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        }
+      },
+      "provider": {
+        "name": "openai-compatible",
+        "model": "qwen3.8-flash"
+      },
+      "judge": {
+        "enabled": true,
+        "provider": "openai-compatible",
+        "model": "qwen3.8-flash",
+        "source": "SKILL_EVAL_LLM_MODEL",
+        "override_applied": false,
+        "reasoning_effort": null,
+        "catalog_verification": "degraded"
+      },
+      "task_source": "evals_json",
+      "grading": {
+        "mode": "default"
+      },
+      "skill_workspace": {
+        "mode": "isolated"
+      },
+      "copy_repo": false,
+      "repo_context_exclude_paths": [],
+      "agents": {
+        "opencode": {
+          "agent": "opencode",
+          "model": "openai/qwen3.8-flash",
+          "source": "CLI"
+        }
+      },
+      "baseline_task_tree_digest": "sha256:8ec7f1f6e1a1d2988b78da7e75295617bfac16f86d3d4c412479fb6ab9d753df"
+    },
+    "dataset_digest": "sha256:87945e5433576f3e44313bdb7c479700601ae1579ff93547a96a1f3a9a1f975e",
+    "identity_dataset_digest": "sha256:a1c84cb7c9038f4f480fb32866f1ea4100171bfd9a0f3a83cc0fc92823d95719",
+    "baseline_task_tree_digest": "sha256:8ec7f1f6e1a1d2988b78da7e75295617bfac16f86d3d4c412479fb6ab9d753df",
+    "expected_case_ids": [
+      "calcpro-001",
+      "calcpro-002",
+      "calcpro-003"
+    ],
+    "attempt_policy": {
+      "max_attempts": 1,
+      "pass_threshold": 0.5,
+      "stop_on_pass": false
+    },
+    "score_policy": "skill-evaluator-dimension-mean-v1",
+    "evaluator_version": "0.9.0",
+    "skill": {
+      "evaluated_source": null,
+      "publication_target": {
+        "skill_name": "calc-pro",
+        "skill_digest": "sha256:cc5cdc54ca32e569265a873cccdb228d699c8fcca1cda220672b03ea27a1b679",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      }
+    }
+  },
+  "expected_case_ids": [
+    "calcpro-001",
+    "calcpro-002",
+    "calcpro-003"
+  ],
+  "skill_name": "calc-pro",
+  "run_id": "20261118_085522_1_b222fd70300f",
+  "publication_target": {
+    "skill_name": "calc-pro",
+    "skill_digest": "sha256:cc5cdc54ca32e569265a873cccdb228d699c8fcca1cda220672b03ea27a1b679",
+    "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+  },
+  "run_dir": "/app/reports/calc-pro-eval-20261118/03-tier3/calc-pro/calc-pro/20261118_085522_1_b222fd70300f",
+  "result_path": "/app/reports/calc-pro-eval-20261118/03-tier3/calc-pro/calc-pro/20261118_085522_1_b222fd70300f/result.json",
+  "harbor_jobs_dir": "/app/reports/calc-pro-eval-20261118/03-tier3/calc-pro/calc-pro/20261118_085522_1_b222fd70300f/_harbor-jobs",
+  "harbor_jobs_retained": false,
+  "evaluated_at": "2026-11-18T08:59:03.725954+00:00",
+  "evaluator_version": "0.9.0",
+  "dataset_snapshot": {
+    "schema_version": "1.1",
+    "evaluator_version": "0.9.0",
+    "dataset_summary": {
+      "total_tasks": 3,
+      "positive_tasks": 3,
+      "negative_tasks": 0,
+      "unclassified_tasks": 0,
+      "source": "dataset"
+    },
+    "dataset_digest": "sha256:87945e5433576f3e44313bdb7c479700601ae1579ff93547a96a1f3a9a1f975e",
+    "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1"
+  },
+  "dataset_snapshot_path": "/app/reports/calc-pro-eval-20261118/03-tier3/calc-pro/calc-pro/20261118_085522_1_b222fd70300f/dataset_snapshot.json",
+  "dataset_summary": {
+    "total_tasks": 3,
+    "positive_tasks": 3,
+    "negative_tasks": 0,
+    "unclassified_tasks": 0,
+    "source": "dataset"
+  },
+  "dataset_digest": "sha256:87945e5433576f3e44313bdb7c479700601ae1579ff93547a96a1f3a9a1f975e",
+  "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1",
+  "identity_dataset_digest": "sha256:a1c84cb7c9038f4f480fb32866f1ea4100171bfd9a0f3a83cc0fc92823d95719",
+  "baseline_task_tree_digest": "sha256:8ec7f1f6e1a1d2988b78da7e75295617bfac16f86d3d4c412479fb6ab9d753df",
+  "budget": {
+    "limits": {
+      "max_agent_tokens": null,
+      "max_judge_calls": null,
+      "max_attempts_total": null,
+      "max_cost_usd": null
+    },
+    "planned_attempts": 6,
+    "started_attempts": 0,
+    "finished_attempts": 0,
+    "unmeasured_attempts": {
+      "agent_tokens": 0,
+      "judge_calls": 0,
+      "cost_usd": 0
+    },
+    "used": {
+      "agent_tokens": "not measured",
+      "judge_calls": "not measured",
+      "cost_usd": "not measured"
+    },
+    "status": "ok",
+    "partial": false,
+    "exhausted_limit": null,
+    "exhausted_basis": null,
+    "attempts_not_run": 0,
+    "not_run": [],
+    "charge_coverage": {
+      "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+      "attempts_by_derivation": {
+        "price_file": 0,
+        "provider_reported": 0,
+        "unmeasured": 0
+      },
+      "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+      "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+      "environment_setup": "not included",
+      "container": "not included",
+      "backend": "not included",
+      "infrastructure": "not included"
+    },
+    "reservation": {
+      "policy": "largest_measured_attempt",
+      "estimate_per_attempt": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "in_flight_attempts": 0,
+      "waits": 0,
+      "unestimated_admissions": 0,
+      "calibration_waits": 0,
+      "estimate_denials": 0,
+      "denied_unit_size": 0
+    },
+    "observed_overruns": {}
+  },
+  "dataset_provenance": null,
+  "run_config": {
+    "config_file": "evals/config.yml",
+    "harbor": {
+      "environment": {
+        "value": "docker",
+        "source": "CLI"
+      },
+      "environment_kwargs": {
+        "keys": [],
+        "sources": {},
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "n_attempts": 1,
+      "stop_on_pass": false,
+      "n_concurrent": 4,
+      "timeout_multiplier": 3.0,
+      "base_image_mode": "reuse",
+      "resources": {
+        "cpus": null,
+        "memory_mb": null,
+        "storage_mb": null
+      },
+      "agent_workdir": null,
+      "custom_dockerfile_mode": "rebase",
+      "runtime_env": {
+        "keys": [],
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "jobs_retained": false
+    },
+    "provider": {
+      "name": "openai-compatible",
+      "model": "qwen3.8-flash"
+    },
+    "judge": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "qwen3.8-flash",
+      "source": "SKILL_EVAL_LLM_MODEL",
+      "override_applied": false,
+      "reasoning_effort": null,
+      "catalog_verification": "degraded"
+    },
+    "credential_validation": {
+      "status": "degraded",
+      "targets": [
+        {
+          "labels": [
+            "opencode",
+            "standard grader"
+          ],
+          "provider": "openai-compatible",
+          "model": "qwen3.8-flash",
+          "status": "degraded",
+          "detail": "model catalog access does not verify runtime credentials for this endpoint"
+        }
+      ]
+    },
+    "task_source": "evals_json",
+    "grading": {
+      "mode": "default"
+    },
+    "skill_workspace": {
+      "mode": "isolated"
+    },
+    "copy_repo": false,
+    "repo_context_exclude_paths": [],
+    "agents": {
+      "opencode": {
+        "agent": "opencode",
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      }
+    },
+    "evaluated_source": null,
+    "baseline_task_tree_digest": "sha256:8ec7f1f6e1a1d2988b78da7e75295617bfac16f86d3d4c412479fb6ab9d753df",
+    "baseline": {
+      "mode": "fresh"
+    },
+    "budget": {
+      "limits": {
+        "max_agent_tokens": null,
+        "max_judge_calls": null,
+        "max_attempts_total": null,
+        "max_cost_usd": null
+      },
+      "planned_attempts": 6,
+      "started_attempts": 0,
+      "finished_attempts": 0,
+      "unmeasured_attempts": {
+        "agent_tokens": 0,
+        "judge_calls": 0,
+        "cost_usd": 0
+      },
+      "used": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "status": "ok",
+      "partial": false,
+      "exhausted_limit": null,
+      "exhausted_basis": null,
+      "attempts_not_run": 0,
+      "not_run": [],
+      "charge_coverage": {
+        "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+        "attempts_by_derivation": {
+          "price_file": 0,
+          "provider_reported": 0,
+          "unmeasured": 0
+        },
+        "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+        "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+        "environment_setup": "not included",
+        "container": "not included",
+        "backend": "not included",
+        "infrastructure": "not included"
+      },
+      "reservation": {
+        "policy": "largest_measured_attempt",
+        "estimate_per_attempt": {
+          "agent_tokens": "not measured",
+          "judge_calls": "not measured",
+          "cost_usd": "not measured"
+        },
+        "in_flight_attempts": 0,
+        "waits": 0,
+        "unestimated_admissions": 0,
+        "calibration_waits": 0,
+        "estimate_denials": 0,
+        "denied_unit_size": 0
+      },
+      "observed_overruns": {}
+    }
+  },
+  "partial": false,
+  "dataset_sufficiency": {
+    "policy": "dataset-sufficiency-v1",
+    "status": "provisional",
+    "coverage_summary": "Dataset size: provisional \u2014 3 cases (policy needs 10), 0 negative cases (needs 1); pass-rate interval \u00b10.28 is wider than \u00b10.20 (policy dataset-sufficiency-v1)",
+    "checks": [
+      {
+        "name": "coverage",
+        "met": false,
+        "observed": {
+          "distinct_cases": 3,
+          "negative_cases": 0
+        },
+        "required": {
+          "distinct_cases": 10,
+          "negative_cases": 1
+        },
+        "reason": "3 distinct cases and 0 negative cases; requires 10 and 1"
+      },
+      {
+        "name": "pass_rate_reliability",
+        "met": false,
+        "observed": {
+          "interval_half_width": 0.2807485158775227
+        },
+        "required": {
+          "interval_half_width": 0.2
+        },
+        "reason": "95% Wilson interval half-width 0.28 exceeds 0.20"
+      },
+      {
+        "name": "lift_comparison",
+        "met": null,
+        "observed": {
+          "paired_cases": null
+        },
+        "required": {
+          "paired_cases": 10
+        },
+        "reason": "Paired-case count is unavailable"
+      }
+    ],
+    "reason": "provisional: 3 distinct cases and 0 negative cases; requires 10 and 1; 95% Wilson interval half-width 0.28 exceeds 0.20; Paired-case count is unavailable"
+  },
+  "harbor_jobs_retention_reason": "not_retained",
+  "tier3_feedback": {
+    "schema_version": "1.0",
+    "conclusions": [
+      {
+        "severity": "warn",
+        "title": "Skill effect",
+        "message": "per-case result: inconclusive (opencode: condition execution is incomplete).",
+        "source": "deterministic"
+      },
+      {
+        "severity": "fail",
+        "title": "Evaluation incomplete",
+        "message": "Harbor job did not complete successfully: 2 errored; Unscoreable reward in calcpro-001__sbGQH9t: RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-001-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-001__sbgqh9t__env --project-directory /app/reports/calc-pro-eval-20; Unscoreable reward in calcpro-003__MzYB22M: RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-003-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-003__mzyb22m__env --project-directory /app/reports/calc-pro-eval-20; Missing scored attempts for cases: calcpro-001, calcpro-003; Scored attempt coverage is 1/3; Without skill aggregate job: Harbor job did not complete successfully: 2 errored; Without skill trial calcpro-001__sbGQH9t: RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-001-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-001__sbgqh9t__env --project-directory /app/reports/calc-pro-eval-20; Without skill trial calcpro-003__MzYB22M: RuntimeError: Docker has no free network address pools. List leftover trial Compose containers and networks (`docker ps -a --filter label=com.docker.compose.project`, `docker network ls --filter label=com.docker.compose.project`), check their names, and remove the containers with `docker rm -f` before the networks with `docker network rm`; or lower --n-concurrent or --max-agents. Docker compose command failed for environment skillevaluator-calcpro-003-without-skill. Command: /usr/local/bin/docker compose --project-name calcpro-003__mzyb22m__env --project-directory /app/reports/calc-pro-eval-20"
+      }
+    ],
+    "recommendations": [],
+    "suggestions": [],
+    "suggestions_v2": []
+  },
+  "token_usage": {
+    "schema_version": "1",
+    "scored": false,
+    "accounting": {
+      "prompt_includes_cached": true,
+      "total_tokens": "prompt_tokens + completion_tokens",
+      "uncached_prompt_tokens": "prompt_tokens - cached_tokens",
+      "change": "with_skill - baseline total_tokens; percent of the baseline total"
+    },
+    "case_id_validation": {
+      "status": "validated",
+      "dataset_case_ids": 3,
+      "unmatched_case_ids": []
+    },
+    "agents": {
+      "opencode": {
+        "with_skill": {
+          "totals": {
+            "prompt_tokens": 84554,
+            "cached_tokens": 75776,
+            "uncached_prompt_tokens": 8778,
+            "completion_tokens": 775,
+            "total_tokens": 85329
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 3,
+            "observed_attempts": 3,
+            "measured_attempts": 3,
+            "unscored_attempts": 0,
+            "reason_codes": []
+          }
+        },
+        "baseline": {
+          "totals": {
+            "prompt_tokens": 23175,
+            "cached_tokens": 21504,
+            "uncached_prompt_tokens": 1671,
+            "completion_tokens": 218,
+            "total_tokens": 23393
+          },
+          "coverage": {
+            "status": "partial",
+            "expected_attempts": 3,
+            "observed_attempts": 3,
+            "measured_attempts": 1,
+            "unscored_attempts": 2,
+            "reason_codes": [
+              "missing_token_counters"
+            ]
+          }
+        },
+        "delta": {
+          "status": "unavailable",
+          "total_tokens": null,
+          "total_tokens_change_percent": null,
+          "reason_codes": [
+            "baseline_tokens_incomplete",
+            "baseline_failed"
+          ],
+          "reason": "Baseline token counts cover 1 of 3 attempts. No change: baseline incomplete (1 of 3 attempts scored)."
+        }
+      }
+    },
+    "dataset": {
+      "with_skill": {
+        "totals": {
+          "prompt_tokens": 84554,
+          "cached_tokens": 75776,
+          "uncached_prompt_tokens": 8778,
+          "completion_tokens": 775,
+          "total_tokens": 85329
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 3,
+          "observed_attempts": 3,
+          "measured_attempts": 3,
+          "unscored_attempts": 0,
+          "reason_codes": []
+        }
+      },
+      "baseline": {
+        "totals": {
+          "prompt_tokens": 23175,
+          "cached_tokens": 21504,
+          "uncached_prompt_tokens": 1671,
+          "completion_tokens": 218,
+          "total_tokens": 23393
+        },
+        "coverage": {
+          "status": "partial",
+          "expected_attempts": 3,
+          "observed_attempts": 3,
+          "measured_attempts": 1,
+          "unscored_attempts": 2,
+          "reason_codes": [
+            "missing_token_counters"
+          ]
+        }
+      },
+      "delta": {
+        "status": "unavailable",
+        "total_tokens": null,
+        "total_tokens_change_percent": null,
+        "reason_codes": [
+          "baseline_tokens_incomplete",
+          "agent_scope_mismatch"
+        ],
+        "reason": "Baseline token counts cover 1 of 3 attempts. Not every agent has a token change, so there is no change over all agents."
+      }
+    }
+  },
+  "report_path": "/app/reports/calc-pro-eval-20261118/03-tier3/calc-pro/calc-pro/20261118_085522_1_b222fd70300f/report.html",
+  "benchmark_path": "/app/reports/calc-pro-eval-20261118/03-tier3/calc-pro/calc-pro/20261118_085522_1_b222fd70300f/tier3-benchmark.md",
+  "report_status": "complete",
+  "duration_seconds": 222.956,
+  "result_projection": {
+    "schema_version": "1.0",
+    "mode": "inline",
+    "returned_result": "full",
+    "persisted_result": "inline",
+    "agents": {},
+    "omitted_detail_fields": {},
+    "omitted_root_detail_fields": []
+  }
+}

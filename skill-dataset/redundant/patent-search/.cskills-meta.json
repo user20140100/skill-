@@ -1,0 +1,22 @@
+{
+  "name": "patent-search",
+  "author": "liushaojie",
+  "version": "0.0.1",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:20+08:00",
+  "updatedAt": "2026-11-17T10:46:20+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/patent-search"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/patent-search",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/patent-search"
+  ],
+  "fileHashes": {
+    "SKILL.md": "099290fd4629ffa511fde02cdcb76636d5919f265042ed77bd6744d0dd0be34d"
+  }
+}

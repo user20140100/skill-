@@ -1,0 +1,229 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 606, in run
+    await self._prepare()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 645, in _prepare
+    await self._setup_agent_environment()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 1849, in _setup_agent_environment
+    await self._start_agent_environment()
+  File "/usr/local/lib/python3.12/site-packages/harbor/trial/trial.py", line 1855, in _start_agent_environment
+    await asyncio.wait_for(
+  File "/usr/local/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 1333, in start
+    await super().start(force_build)
+  File "/usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 1065, in start
+    await self._run_docker_compose_command(["build"])
+  File "/usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/secure_docker_environment.py", line 3403, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment skillevaluator-calculator-001-without-skill. Command: /usr/local/bin/docker compose --project-name calculator-001__yjusu2v__env --project-directory /app/reports/official-eval-20261117/03-tier3/calculator/20261117_232543_1_981b36dc6519/_harbor-tasks/opencode/without/calculator-001/environment -f /tmp/tmpwo6kpqhx/calculator-001__yJUSu2v__env-docker-compose-resources.json -f /usr/local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /tmp/tmpjwvjms_o/docker-compose-environment.json -f /tmp/tmpj6suu2sv/docker-compose-mounts.json build. Return code: 17. Stdout: #0 building with "default" instance using docker driver
+
+#1 [main internal] load build definition from Dockerfile
+#1 transferring dockerfile: 10.78kB done
+#1 WARN: MultipleInstructionsDisallowed: Multiple HEALTHCHECK instructions should not be used in the same stage because only the last one will be used (line 39)
+#1 DONE 0.0s
+
+#2 [main internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.0s
+
+#3 [main internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [main  1/27] FROM docker.io/library/python:3.12-slim
+#4 DONE 0.0s
+
+#5 [main  2/27] RUN apt-get -o Acquire::Retries=3 update &&     apt-get -o Acquire::Retries=3 install -y --no-install-recommends     bash curl git jq procps ripgrep     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [main internal] load build context
+#6 transferring context: 28B done
+#6 DONE 0.0s
+
+#7 [main  3/27] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; exec "$@"", "skillevaluator", "python", "-m", "pip", "install", "--no-cache-dir", "--index-url", "https://pypi.tuna.tsinghua.edu.cn/simple", "--trusted-host", "pypi.tuna.tsinghua.edu.cn", "--timeout", "120", "--retries", "5", "ragas~=0.4.0", "langchain-community<0.4.2", "openai>=1.0", "anthropic>=0.40", "boto3>=1.34", "idna>=3.10,<4"]
+#7 0.919 Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+#7 1.205 Collecting ragas~=0.4.0
+#7 1.264   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/64/2c/e6951bb5e7066739e5545fc195939bb580ff73825a3524b32bb1a35d9fb9/ragas-0.4.4-py3-none-any.whl (470 kB)
+#7 1.546 Collecting langchain-community<0.4.2
+#7 1.600   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f0/a4/c4fde67f193401512337456cabc2148f2c43316e445f5decd9f8806e2992/langchain_community-0.4.1-py3-none-any.whl (2.5 MB)
+#7 2.605      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 2.5 MB/s eta 0:00:00
+#7 2.839 Collecting openai>=1.0
+#7 2.893   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2d/ab/6bac97ab9be42b02029b61ba7b90e2b79dc9faeafe26c16cddf2fdd9a6ee/openai-3.54.0-py3-none-any.whl (2.4 MB)
+#7 3.863      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 2.5 MB/s eta 0:00:00
+#7 4.022 Collecting anthropic>=0.40
+#7 4.078   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b5/02/4496b5a84f2b77ff31b25fa573f9fa2ce6a2be4e165db10a63aaa958a6dd/anthropic-2.10.0-py3-none-any.whl (2.5 MB)
+#7 5.073      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 2.5 MB/s eta 0:00:00
+#7 5.961 Collecting boto3>=1.34
+#7 6.016   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/47/b1/89e65362f9409fa3233fa227d1798e3e39012f7461a75b8ca9472c3d3b0b/boto3-1.44.5-py3-none-any.whl (140 kB)
+#7 6.116 Collecting idna<4,>=3.10
+#7 6.170   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl (69 kB)
+#7 7.064 Collecting numpy<3.0.0,>=1.21.0 (from ragas~=0.4.0)
+#7 7.117   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c2/22/82184e9a5b50a4a298e9f8fe0bd8cfc483672dbfea8a3b57c78e2376b139/numpy-2.5.5-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (15.3 MB)
+#7 13.27      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.3/15.3 MB 2.5 MB/s eta 0:00:00
+#7 13.40 Collecting datasets>=4.0.0 (from ragas~=0.4.0)
+#7 13.45   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ae/22/c92c96de701dd7441f553adaaa480801ff3d37575486ef82df651a45f0ec/datasets-5.2.0-py3-none-any.whl (608 kB)
+#7 13.68      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 608.3/608.3 kB 2.8 MB/s eta 0:00:00
+#7 13.88 Collecting tiktoken (from ragas~=0.4.0)
+#7 13.93   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0b/35/e9f47647c9e163bd1de30fe1a491669b7248cfc67b7404c35c009a701e1a/tiktoken-0.14.0-cp312-cp312-manylinux_2_28_aarch64.whl (1.2 MB)
+#7 14.65      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 1.5 MB/s eta 0:00:00
+#7 15.10 Collecting pydantic>=2.0.0 (from ragas~=0.4.0)
+#7 15.16   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/72/b8/b864503789ef5c58597d2a7b4adbee62c26440ab1e682581fc6838df8947/pydantic-2.14.3-py3-none-any.whl (494 kB)
+#7 15.41 Collecting nest-asyncio (from ragas~=0.4.0)
+#7 15.46   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a0/c4/c2971a3ba4c6103a3d10c4b0f24f461ddc027f0f09763220cf35ca1401b3/nest_asyncio-1.6.0-py3-none-any.whl (5.2 kB)
+#7 15.52 Collecting appdirs (from ragas~=0.4.0)
+#7 15.57   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+#7 15.66 Collecting diskcache>=5.6.3 (from ragas~=0.4.0)
+#7 15.71   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3f/27/4570e78fc0bf5ea0ca45eb1de3818a23787af9b390c0b0a0033a1b8236f9/diskcache-5.6.3-py3-none-any.whl (45 kB)
+#7 15.84 Collecting typer (from ragas~=0.4.0)
+#7 15.89   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/05/ff/51969745f31cea6bcd12151e668febcf979656316e67a7755942267c1273/typer-0.29.1-py3-none-any.whl (121 kB)
+#7 16.04 Collecting rich (from ragas~=0.4.0)
+#7 16.10   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/82/3b/64d4899d73f91ba49a8c18a8ff3f0ea8f1c1d75481760df8c68ef5235bf5/rich-15.0.0-py3-none-any.whl (310 kB)
+#7 16.32 Collecting tqdm (from ragas~=0.4.0)
+#7 16.37   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl (80 kB)
+#7 16.49 Collecting instructor (from ragas~=0.4.0)
+#7 16.54   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/42/22/429e950b50569cb56eb324cc62992c0a458121e5d5a43acec295a127ade7/instructor-1.17.0-py3-none-any.whl (269 kB)
+#7 17.45 Collecting pillow>=10.4.0 (from ragas~=0.4.0)
+#7 17.51   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3b/bb/9e30e8ed18c20800ee327a12107d5249ad8dc444867b3adfcc21654e3c71/pillow-13.0.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (6.5 MB)
+#7 20.12      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.5/6.5 MB 2.5 MB/s eta 0:00:00
+#7 20.23 Collecting networkx (from ragas~=0.4.0)
+#7 20.29   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7e/cd/fe58041e9011f307c490e3e17dd48cc516448f7c698a3f2d9d9d65d7e6a8/networkx-3.7-py3-none-any.whl (2.1 MB)
+#7 21.13      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 2.5 MB/s eta 0:00:00
+#7 21.30 Collecting scikit-network (from ragas~=0.4.0)
+#7 21.36   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/86/02/974ae67f493ccf988108894e8a9dedfd00ca5113d2848e0b9fc2a4d18824/scikit_network-0.33.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (7.9 MB)
+#7 989.4      ━━━━━━━━━━━━━━━━━━━━━                    4.2/7.9 MB 2.5 MB/s eta 0:00:02
+#7 989.9 
+#7 989.9 [notice] A new release of pip is available: 25.0.1 -> 26.3
+#7 989.9 [notice] To update, run: pip install --upgrade pip
+#7 989.9 ERROR: Exception:
+#7 989.9 Traceback (most recent call last):
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 438, in _error_catcher
+#7 989.9     yield
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 561, in read
+#7 989.9     data = self._fp_read(amt) if not fp_closed else b""
+#7 989.9            ^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 527, in _fp_read
+#7 989.9     return self._fp.read(amt) if amt is not None else self._fp.read()
+#7 989.9            ^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/http/client.py", line 494, in read
+#7 989.9     s = self.fp.read(amt)
+#7 989.9         ^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/socket.py", line 720, in readinto
+#7 989.9     return self._sock.recv_into(b)
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/ssl.py", line 1264, in recv_into
+#7 989.9     return self.read(nbytes, buffer)
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/ssl.py", line 1116, in read
+#7 989.9     return self._sslobj.read(len, buffer)
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9 TimeoutError: The read operation timed out
+#7 989.9 
+#7 989.9 During handling of the above exception, another exception occurred:
+#7 989.9 
+#7 989.9 Traceback (most recent call last):
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 106, in _run_wrapper
+#7 989.9     status = _inner_run()
+#7 989.9              ^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 97, in _inner_run
+#7 989.9     return self.run(options, args)
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/req_command.py", line 67, in wrapper
+#7 989.9     return func(self, options, args)
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/commands/install.py", line 386, in run
+#7 989.9     requirement_set = resolver.resolve(
+#7 989.9                       ^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/resolver.py", line 95, in resolve
+#7 989.9     result = self._result = resolver.resolve(
+#7 989.9                             ^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 546, in resolve
+#7 989.9     state = resolution.resolve(requirements, max_rounds=max_rounds)
+#7 989.9             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 427, in resolve
+#7 989.9     failure_causes = self._attempt_to_pin_criterion(name)
+#7 989.9                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 239, in _attempt_to_pin_criterion
+#7 989.9     criteria = self._get_updated_criteria(candidate)
+#7 989.9                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 230, in _get_updated_criteria
+#7 989.9     self._add_to_criteria(criteria, requirement, parent=candidate)
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 173, in _add_to_criteria
+#7 989.9     if not criterion.candidates:
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/structs.py", line 156, in __bool__
+#7 989.9     return bool(self._sequence)
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 174, in __bool__
+#7 989.9     return any(self)
+#7 989.9            ^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 162, in <genexpr>
+#7 989.9     return (c for c in iterator if id(c) not in self._incompatible_ids)
+#7 989.9                        ^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 53, in _iter_built
+#7 989.9     candidate = func()
+#7 989.9                 ^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/factory.py", line 187, in _make_candidate_from_link
+#7 989.9     base: Optional[BaseCandidate] = self._make_base_candidate_from_link(
+#7 989.9                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/factory.py", line 233, in _make_base_candidate_from_link
+#7 989.9     self._link_candidate_cache[link] = LinkCandidate(
+#7 989.9                                        ^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 304, in __init__
+#7 989.9     super().__init__(
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 159, in __init__
+#7 989.9     self.dist = self._prepare()
+#7 989.9                 ^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 236, in _prepare
+#7 989.9     dist = self._prepare_distribution()
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 315, in _prepare_distribution
+#7 989.9     return preparer.prepare_linked_requirement(self._ireq, parallel_builds=True)
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 527, in prepare_linked_requirement
+#7 989.9     return self._prepare_linked_requirement(req, parallel_builds)
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 598, in _prepare_linked_requirement
+#7 989.9     local_file = unpack_url(
+#7 989.9                  ^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 170, in unpack_url
+#7 989.9     file = get_http_url(
+#7 989.9            ^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 111, in get_http_url
+#7 989.9     from_path, content_type = download(link, temp_dir.path)
+#7 989.9                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/network/download.py", line 148, in __call__
+#7 989.9     for chunk in chunks:
+#7 989.9                  ^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/progress_bars.py", line 55, in _rich_progress_bar
+#7 989.9     for chunk in iterable:
+#7 989.9                  ^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_internal/network/utils.py", line 65, in response_chunks
+#7 989.9     for chunk in response.raw.stream(
+#7 989.9                  ^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 622, in stream
+#7 989.9     data = self.read(amt=amt, decode_content=decode_content)
+#7 989.9            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+#7 989.9     with self._error_catcher():
+#7 989.9          ^^^^^^^^^^^^^^^^^^^^^
+#7 989.9   File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+#7 989.9     self.gen.throw(value)
+#7 989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+#7 989.9     raise ReadTimeoutError(self._pool, None, "Read timed out.")
+#7 989.9 pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='pypi.tuna.tsinghua.edu.cn', port=443): Read timed out.
+#7 ERROR: process "/bin/sh -c PATH=\"${PATH:+$PATH:}/usr/local/bin:/usr/bin:/bin\"; export PATH; exec \"$@\" skillevaluator python -m pip install --no-cache-dir --index-url https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn --timeout 120 --retries 5 ragas~=0.4.0 langchain-community<0.4.2 openai>=1.0 anthropic>=0.40 boto3>=1.34 idna>=3.10,<4" did not complete successfully: exit code: 2
+------
+ > [main  3/27] RUN ["/bin/sh", "-c", "PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin:/usr/bin:/bin"; export PATH; exec "$@"", "skillevaluator", "python", "-m", "pip", "install", "--no-cache-dir", "--index-url", "https://pypi.tuna.tsinghua.edu.cn/simple", "--trusted-host", "pypi.tuna.tsinghua.edu.cn", "--timeout", "120", "--retries", "5", "ragas~=0.4.0", "langchain-community<0.4.2", "openai>=1.0", "anthropic>=0.40", "boto3>=1.34", "idna>=3.10,<4"]:
+989.9     data = self.read(amt=amt, decode_content=decode_content)
+989.9            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+989.9     with self._error_catcher():
+989.9          ^^^^^^^^^^^^^^^^^^^^^
+989.9   File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+989.9     self.gen.throw(value)
+989.9   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+989.9     raise ReadTimeoutError(self._pool, None, "Read timed out.")
+989.9 pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='pypi.tuna.tsinghua.edu.cn', port=443): Read timed out.
+------
+failed to solve: process "/bin/sh -c PATH=\"${PATH:+$PATH:}/usr/local/bin:/usr/bin:/bin\"; export PATH; exec \"$@\" skillevaluator python -m pip install --no-cache-dir --index-url https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn --timeout 120 --retries 5 ragas~=0.4.0 langchain-community<0.4.2 openai>=1.0 anthropic>=0.40 boto3>=1.34 idna>=3.10,<4" did not complete successfully: exit code: 2
+. Stderr: None.

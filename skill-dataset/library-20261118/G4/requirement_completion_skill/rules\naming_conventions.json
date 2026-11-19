@@ -1,0 +1,34 @@
+{
+  "rules_name": "module_naming_conventions",
+  "version": "1.0",
+  "description": "requirement_completion_skill 新增模块时的命名与分类约束",
+  "module_name_rules": [
+    "优先使用面向需求分析的中文功能名",
+    "模块名尽量体现用户能感知的功能对象",
+    "避免同一模块同时混用实现名、算法名、硬件名",
+    "策略类模块优先使用 模式、策略、控制 结尾",
+    "查询与提醒类模块优先使用 查询、提醒、提示 结尾"
+  ],
+  "module_code_rules": [
+    "必须使用 snake_case",
+    "优先使用稳定、可读、可复用的英文短语",
+    "不要把机型、项目代号、临时版本号写入 module_code"
+  ],
+  "category_rules": {
+    "control_module": "直接控制风向、风速、模式、电辅热、继电器等执行动作",
+    "strategy_module": "通过节能、睡眠、静音、强力等策略改变系统行为",
+    "protection_module": "围绕故障、阈值、保护动作和安全边界展开",
+    "restore_module": "围绕流程恢复、停机后处理、掉电恢复、清洁后恢复展开",
+    "interaction_module": "围绕查询、定时、提醒、自检、测试、应急入口展开",
+    "sensing_module": "围绕感知来源、采样结果和感知驱动控制展开"
+  },
+  "alias_rules": [
+    "保留用户常用叫法、历史叫法、英文名或缩写",
+    "aliases 中可以保留实现侧术语，但 module_name 保持需求视角"
+  ],
+  "migration_policy": [
+    "现有注册表模块名保持稳定，不做破坏性重命名",
+    "新增模块必须遵守本规则",
+    "若后续确需重命名，先新增别名再调整主名"
+  ]
+}

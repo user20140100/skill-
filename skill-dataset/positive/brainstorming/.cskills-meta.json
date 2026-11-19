@@ -1,0 +1,22 @@
+{
+  "name": "brainstorming",
+  "author": "obra",
+  "version": "0.1.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:44+08:00",
+  "updatedAt": "2026-11-17T10:45:44+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/brainstorming"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/brainstorming",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/brainstorming"
+  ],
+  "fileHashes": {
+    "SKILL.md": "1d4c79ae580c6717959b2ec4043acbb31b6f4e36b9d1e97d2f67d06d3299737a"
+  }
+}

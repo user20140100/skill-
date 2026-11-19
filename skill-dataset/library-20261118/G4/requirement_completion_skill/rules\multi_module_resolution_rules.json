@@ -1,0 +1,97 @@
+{
+  "rules_name": "multi_module_resolution_rules",
+  "version": "1.0",
+  "description": "多模块命中时的依赖、优先级、冲突和恢复逻辑合并规则",
+  "category_priority": [
+    "protection_module",
+    "restore_module",
+    "control_module",
+    "strategy_module",
+    "sensing_module",
+    "interaction_module"
+  ],
+  "resolution_order": [
+    "安全与保护约束",
+    "故障与异常状态",
+    "恢复逻辑",
+    "用户显式控制意图",
+    "策略优化意图",
+    "反馈与展示要求"
+  ],
+  "merge_rules": {
+    "explicit_requirements": "保留用户显式输入，按主模块优先合并去重",
+    "inferred_requirements": "按 primary 插件优先，再叠加 related 插件补全",
+    "default_inference": "只保留不与显式需求冲突的默认规则",
+    "must_confirm": "合并所有关键边界条件，按优先级去重",
+    "risks": "优先输出保护冲突、恢复冲突和体验冲突",
+    "follow_up_questions": "最多保留 5 条，优先保留影响实现边界和优先级的疑问"
+  },
+  "conflict_dimensions": [
+    "模式可用性冲突",
+    "状态互斥冲突",
+    "优先级冲突",
+    "恢复逻辑冲突",
+    "触发条件冲突",
+    "反馈交互冲突"
+  ],
+  "conflict_resolution_rules": [
+    "若保护类模块与策略类模块冲突，保护类优先",
+    "若恢复类流程正在执行，控制类与策略类指令应明确是拒绝、缓存还是延迟执行",
+    "若多个控制类模块共同作用于同一执行器，必须明确目标状态合并规则",
+    "若掉电恢复与模式切换存在冲突，先恢复安全状态，再恢复用户目标状态",
+    "若查询或提醒类模块与主控逻辑并存，查询和提醒不应改变主控制结果"
+  ],
+  "role_assignment_rules": [
+    "primary 模块只保留 1 个",
+    "related 模块最多保留 3 个",
+    "related 模块必须与 primary 存在显式依赖、冲突或恢复关系"
+  ],
+  "common_linkages": [
+    {
+      "modules": [
+        "运行模式切换控制",
+        "经济模式",
+        "睡眠模式",
+        "强力运行模式",
+        "静音运行模式"
+      ],
+      "focus": "模式互斥与退出恢复"
+    },
+    {
+      "modules": [
+        "制热防冷风控制",
+        "上下扫风控制",
+        "风速控制",
+        "智能化霜控制"
+      ],
+      "focus": "制热启动、化霜恢复、风向风速限制"
+    },
+    {
+      "modules": [
+        "掉电恢复记忆",
+        "运行模式切换控制",
+        "风速控制",
+        "上下扫风控制",
+        "左右扫风控制"
+      ],
+      "focus": "关机、断电后的恢复顺序"
+    },
+    {
+      "modules": [
+        "运行参数查询",
+        "故障信息查询",
+        "工厂自检",
+        "能力测试模式"
+      ],
+      "focus": "诊断入口、权限边界、只读与测试模式边界"
+    }
+  ],
+  "rewritten_requirement_order": [
+    "适用模式或前置条件",
+    "触发事件或用户操作",
+    "系统动作",
+    "限制与优先级",
+    "退出与恢复逻辑",
+    "反馈与异常处理"
+  ]
+}

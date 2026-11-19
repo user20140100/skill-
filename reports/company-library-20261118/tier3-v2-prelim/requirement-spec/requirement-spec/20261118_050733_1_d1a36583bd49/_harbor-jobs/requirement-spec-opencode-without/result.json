@@ -1,0 +1,40 @@
+{
+    "id": "52ad9b2d-9468-4e5c-9d8f-54c0e894b5f9",
+    "started_at": "2026-11-18T05:07:38.167102",
+    "updated_at": "2026-11-18T05:25:47.600445Z",
+    "finished_at": null,
+    "n_total_trials": 3,
+    "stats": {
+        "n_completed_trials": 2,
+        "n_errored_trials": 2,
+        "n_running_trials": 1,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "opencode__qwen3.8-flash__without": {
+                "n_trials": 0,
+                "n_errors": 2,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {},
+                "exception_stats": {
+                    "NonZeroAgentExitCodeError": [
+                        "req-001__eobhjCc"
+                    ],
+                    "AgentSetupTimeoutError": [
+                        "req-002__uVQm7er"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}

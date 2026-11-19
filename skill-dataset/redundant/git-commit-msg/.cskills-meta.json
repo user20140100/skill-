@@ -1,0 +1,22 @@
+{
+  "name": "git-commit-msg",
+  "author": "baotian",
+  "version": "1.2.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:56+08:00",
+  "updatedAt": "2026-11-17T10:45:56+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/git-commit-msg"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/git-commit-msg",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/git-commit-msg"
+  ],
+  "fileHashes": {
+    "SKILL.md": "d86591cd2b22477a82dd15ed1d9061f809007e9435b3207277aed447ed6180f0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "job_name": "calculator-opencode-with",
+    "jobs_dir": "/app/reports/official-eval-20261117/03-tier3/calculator/20261117_211416_1_c5252e6630ff/_harbor-jobs",
+    "timeout_multiplier": 3.0,
+    "n_concurrent_trials": 2,
+    "environment": {
+        "import_path": "skillevaluator.tier3.harbor.secure_docker_environment:SkillEvaluatorSecureDockerEnvironment"
+    },
+    "agents": [
+        {
+            "name": "skillevaluator.tier3.harbor.local_agents:SkillEvaluatorGatewayOpenCode",
+            "model_name": "openai/qwen3.8-flash",
+            "kwargs": {
+                "version": "1.19.5"
+            }
+        }
+    ],
+    "datasets": [
+        {
+            "path": "/app/reports/official-eval-20261117/03-tier3/calculator/20261117_211416_1_c5252e6630ff/_harbor-tasks/opencode/with"
+        }
+    ]
+}

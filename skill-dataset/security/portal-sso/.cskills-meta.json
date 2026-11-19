@@ -1,0 +1,27 @@
+{
+  "name": "portal-sso",
+  "author": "huangweihong",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:42+08:00",
+  "updatedAt": "2026-11-17T10:46:42+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/portal-sso"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/portal-sso",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/portal-sso"
+  ],
+  "fileHashes": {
+    ".env.example": "a70b85721168480572583438f70b64cba9c16d9858994a572a6f5d7e434cbb40",
+    "SKILL.md": "e2d40a3c6217ca9e1d123c570be9870a29307bf901e3e048d1e3d88b9127d3e4",
+    "doc/cas.md": "fdb9e777270e19352bdc73d4e8a2071f090b51dd902a09b85cfd2dbed84d3faa",
+    "doc/iacToken.md": "b94b96665028586910bddc04fcf341914950e6310a03a117ed88e0148fdd7f7f",
+    "doc/oauth2.0.md": "20e7a901595c9f3f9165f018d99d320bf0ef0fe7193255d53c0558504218724a",
+    "doc/remark.md": "af80b2229000adcdb7a2d55a0595b9e3709bfff70de6d3899eccee75ba28797e"
+  }
+}

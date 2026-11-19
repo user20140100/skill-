@@ -1,0 +1,22 @@
+{
+  "name": "code-review",
+  "author": "zhangfan3427",
+  "version": "1.0.3",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:00+08:00",
+  "updatedAt": "2026-11-17T10:46:00+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/code-review"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/code-review",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/code-review"
+  ],
+  "fileHashes": {
+    "SKILL.md": "3b009bb03ff75d2ccab5f09c3332da15bddb1619659112d9c47fcbfcd207e57e"
+  }
+}

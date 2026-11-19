@@ -1,0 +1,33 @@
+{
+  "name": "bytebase-submit",
+  "author": "tangbin12615",
+  "version": "1.1.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:45+08:00",
+  "updatedAt": "2026-11-17T10:46:45+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/bytebase-submit"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/bytebase-submit",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/bytebase-submit"
+  ],
+  "fileHashes": {
+    "CHANGELOG.md": "4026ece2ab62ec736035a594441e3f40bdd05329f76e5a9c8429792a1b40478b",
+    "SKILL.md": "e362d7fdd53dcbd2637f657ebd9fff523a4e23d76b89487ba239a8a9acf210b6",
+    "cli/api_client.py": "3ca2fdace4f84a6f9c0bd6b26f4a7ce7727667639c99d0c5f82eac6ef9004572",
+    "cli/auth.py": "b0034970f5dd44255531c08486d9b70515eb64f906edd37b0b3fc02603ecbe68",
+    "cli/browser_client.py": "096f29335d84189e8a744f929e96ac8c779b3d6631a63198b05a18408924f5e0",
+    "cli/cli.py": "1105adb4fb382d62aafdec4bfa60bd7e109e350fa70b44efcc74dbf9155822a2",
+    "cli/config.example.yaml": "528caf16b834736eca7839f28bf1d0206d20feb81c1985dc25ca1c9eb714e605",
+    "cli/config.py": "d7b0b0a197bd8fb87fb39cc787fe44087efca4c947ba53bc84b7b60ceced6b38",
+    "cli/query.py": "58036bb31358479de635b8c2b95ab8b00a7706dd9663c39be5ca8772ffd9b24f",
+    "cli/requirements.txt": "d0178a46caf626b9217909377c302bf45ef6f973cefc0ae9b987bf44e1786c4c",
+    "cli/submit.py": "8b54348da681b34c31eef67a079068d5cca3ce6e16a58cf2816e578d80b85fca",
+    "cli/tests/test_query.py": "8facdfebcd426901c987509da34c103c2d8678b6e008839e45f150cae2b79534"
+  }
+}

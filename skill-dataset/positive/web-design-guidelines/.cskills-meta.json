@@ -1,0 +1,23 @@
+{
+  "name": "web-design-guidelines",
+  "author": "vercel-labs",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:44+08:00",
+  "updatedAt": "2026-11-17T10:45:44+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/web-design-guidelines"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/web-design-guidelines",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/web-design-guidelines"
+  ],
+  "fileHashes": {
+    "SKILL.md": "c566df557462deda81f3efde47b91a8362aacf0825c3c00fa9335e5133a29e12",
+    "icon.svg": "991618b4d7c2b5076f618c47c213cafb74dc27ff04b5fadff83c9b226d852ccf"
+  }
+}

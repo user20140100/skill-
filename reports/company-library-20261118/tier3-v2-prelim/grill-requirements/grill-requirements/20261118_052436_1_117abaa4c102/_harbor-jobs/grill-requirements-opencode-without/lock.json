@@ -1,0 +1,152 @@
+{
+    "schema_version": 3,
+    "created_at": "2026-11-18T05:24:49.124708Z",
+    "harbor": {
+        "version": "0.25.0",
+        "is_editable": false
+    },
+    "n_concurrent_trials": 2,
+    "retry": {
+        "max_retries": 0,
+        "exclude_exceptions": [
+            "ApiUsageLimitError",
+            "AgentAuthenticationError",
+            "RewardFileEmptyError",
+            "UnsupportedModelParametersError",
+            "AgentTimeoutError",
+            "VerifierTimeoutError",
+            "VerifierOutputParseError",
+            "RewardFileNotFoundError",
+            "ModelNotFoundError",
+            "AgentSafetyRefusalError"
+        ],
+        "wait_multiplier": 1.0,
+        "min_wait_sec": 1.0,
+        "max_wait_sec": 60.0
+    },
+    "trials": [
+        {
+            "schema_version": 2,
+            "task": {
+                "name": "req-001",
+                "type": "local",
+                "digest": "sha256:0c56e920a8ce45ea3ad1983068126ccf85305adcdababb5fa78d3caeabed2d00",
+                "source": "without",
+                "path": "/app/reports/company-library-20261118/tier3-v2/grill-requirements/grill-requirements/20261118_052436_1_117abaa4c102/_harbor-tasks/opencode/without/req-001"
+            },
+            "install_only": false,
+            "timeout_multiplier": 3.0,
+            "agent": {
+                "name": "skillevaluator.tier3.harbor.local_agents:SkillEvaluatorGatewayOpenCode",
+                "model_name": "openai/qwen3.8-flash",
+                "skip_model_parsing": false,
+                "skills": [],
+                "resume_trajectory": false,
+                "extra_allowed_hosts": [],
+                "kwargs": {
+                    "version": "1.19.5"
+                },
+                "mcp_servers": []
+            },
+            "bridge_inputs": {},
+            "skills": [],
+            "environment": {
+                "import_path": "skillevaluator.tier3.harbor.secure_docker_environment:SkillEvaluatorSecureDockerEnvironment",
+                "force_build": false,
+                "delete": true,
+                "stream": false,
+                "cpu_enforcement_policy": "auto",
+                "memory_enforcement_policy": "auto",
+                "extra_docker_compose": [],
+                "kwargs": {},
+                "extra_allowed_hosts": []
+            },
+            "verifier": {
+                "disable": false,
+                "environment_mode": "shared"
+            }
+        },
+        {
+            "schema_version": 2,
+            "task": {
+                "name": "req-002",
+                "type": "local",
+                "digest": "sha256:ba31cd56553b93e6cb9a9a89f7fa5f68f0de355495585eade8feaeb407246654",
+                "source": "without",
+                "path": "/app/reports/company-library-20261118/tier3-v2/grill-requirements/grill-requirements/20261118_052436_1_117abaa4c102/_harbor-tasks/opencode/without/req-002"
+            },
+            "install_only": false,
+            "timeout_multiplier": 3.0,
+            "agent": {
+                "name": "skillevaluator.tier3.harbor.local_agents:SkillEvaluatorGatewayOpenCode",
+                "model_name": "openai/qwen3.8-flash",
+                "skip_model_parsing": false,
+                "skills": [],
+                "resume_trajectory": false,
+                "extra_allowed_hosts": [],
+                "kwargs": {
+                    "version": "1.19.5"
+                },
+                "mcp_servers": []
+            },
+            "bridge_inputs": {},
+            "skills": [],
+            "environment": {
+                "import_path": "skillevaluator.tier3.harbor.secure_docker_environment:SkillEvaluatorSecureDockerEnvironment",
+                "force_build": false,
+                "delete": true,
+                "stream": false,
+                "cpu_enforcement_policy": "auto",
+                "memory_enforcement_policy": "auto",
+                "extra_docker_compose": [],
+                "kwargs": {},
+                "extra_allowed_hosts": []
+            },
+            "verifier": {
+                "disable": false,
+                "environment_mode": "shared"
+            }
+        },
+        {
+            "schema_version": 2,
+            "task": {
+                "name": "req-003",
+                "type": "local",
+                "digest": "sha256:f6b19eeaddf0086756dc2939e1f36faf239e9e8969c07e299f8d5abc496f5faa",
+                "source": "without",
+                "path": "/app/reports/company-library-20261118/tier3-v2/grill-requirements/grill-requirements/20261118_052436_1_117abaa4c102/_harbor-tasks/opencode/without/req-003"
+            },
+            "install_only": false,
+            "timeout_multiplier": 3.0,
+            "agent": {
+                "name": "skillevaluator.tier3.harbor.local_agents:SkillEvaluatorGatewayOpenCode",
+                "model_name": "openai/qwen3.8-flash",
+                "skip_model_parsing": false,
+                "skills": [],
+                "resume_trajectory": false,
+                "extra_allowed_hosts": [],
+                "kwargs": {
+                    "version": "1.19.5"
+                },
+                "mcp_servers": []
+            },
+            "bridge_inputs": {},
+            "skills": [],
+            "environment": {
+                "import_path": "skillevaluator.tier3.harbor.secure_docker_environment:SkillEvaluatorSecureDockerEnvironment",
+                "force_build": false,
+                "delete": true,
+                "stream": false,
+                "cpu_enforcement_policy": "auto",
+                "memory_enforcement_policy": "auto",
+                "extra_docker_compose": [],
+                "kwargs": {},
+                "extra_allowed_hosts": []
+            },
+            "verifier": {
+                "disable": false,
+                "environment_mode": "shared"
+            }
+        }
+    ]
+}

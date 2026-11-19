@@ -1,0 +1,32 @@
+{
+  "name": "seewo-login-integration",
+  "author": "liuwenqi",
+  "version": "0.1.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:43+08:00",
+  "updatedAt": "2026-11-17T10:46:43+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/seewo-login-integration"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/seewo-login-integration",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/seewo-login-integration"
+  ],
+  "fileHashes": {
+    "SKILL.md": "e800e455eedcfdaadaf1dd5016760d33e215297fd69e454c8a0a2404770d9ae5",
+    "references/configuration-and-release.md": "763de1a9244d061412ed97df7f96b5da9197df4f4b942bb8059d064cf43655bb",
+    "references/historical-compatibility.md": "5aa2522ef3c73f67f187c904c78a4e2cd6dd4acf8205fdfd8e467acce5e0a2dd",
+    "references/iframe-and-ticket.md": "4ef315c473e0ac0eb7b2d188966f0ddbef457644e24d4b5acc03df38d3a45403",
+    "references/mobile-and-qr.md": "73d3013dee82539ee59f574b56782bce3682341f520ca137d7d6e5f2c1090d22",
+    "references/personal-data-export.md": "d1b5cb81e9cbd24ee936000dca5458eae93aad60c0257d77f0099dd7dce986f7",
+    "references/postcheck.md": "9ac8da68d42f3569fab1f03695b3d64369e8358da5b2403479f5059302d85ed7",
+    "references/preflight.md": "22aaaa0da423c8dd1824ee655ed405db75506bb3294db0baf7cd045e26e6a3b7",
+    "references/scenario-routing.md": "b6ef9698333b9f92ebbfb03df3f1c32c67f8b8bf3a1769c3dd20387deaae9b58",
+    "references/standard-web.md": "a5b5e68680dd15ed0c1443d5a7bd518814e7eaf6cdaed6f16318d11af79d92f6",
+    "references/troubleshooting.md": "432d793d5d579263aff18a86dd2c85c3e09f02518e814195f7cd9c503b907682"
+  }
+}

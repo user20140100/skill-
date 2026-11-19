@@ -1,0 +1,99 @@
+{
+  "module_name": "应急运行控制",
+  "module_code": "emergency_operation",
+  "category": "interaction_module",
+  "definition": "应急功能，通常通过室内机主控板上的一个实体按键（应急按键/强制运行键）来激活。",
+  "aliases": [
+    "应急运行控制",
+    "应急功能",
+    "应急运行",
+    "Emergency Operation"
+  ],
+  "keywords": [
+    "应急按键",
+    "故障降级",
+    "临时运行",
+    "应急启动",
+    "压缩机",
+    "电子膨胀阀",
+    "盘管温度",
+    "低压保护",
+    "故障代码",
+    "制冷"
+  ],
+  "related_modules": [
+    "运行模式切换控制",
+    "故障信息查询",
+    "工厂自检",
+    "制热防冷风控制"
+  ],
+  "intent_patterns": [
+    "interaction_feedback_request",
+    "state_control_request",
+    "constraint_request",
+    "review_request"
+  ],
+  "key_dimensions": [
+    "功能范围",
+    "异常处理",
+    "兼容性约束"
+  ],
+  "default_rules": [
+    "应急运行控制通常由用户、售后或工程人员通过特定入口触发",
+    "应急运行控制通常需要明确可见反馈与权限边界",
+    "应急运行控制在异常状态下通常需要保持主控制逻辑稳定",
+    "应急运行控制的状态变化通常需要支持清除、退出或复位规则"
+  ],
+  "must_confirm_rules": [
+    "触发入口是否需要授权或隐藏入口",
+    "用户界面如何提示当前状态和结果",
+    "功能执行时是否影响正常运行逻辑",
+    "异常退出后是否需要保留记录",
+    "不同机型或入口是否支持一致能力"
+  ],
+  "common_missing_items": [
+    "未定义适用模式和禁用场景",
+    "未定义优先级与互斥关系",
+    "未定义异常处理或降级策略",
+    "未定义关机/断电后的恢复逻辑",
+    "未定义用户反馈方式"
+  ],
+  "inference_rules": [
+    {
+      "pattern": "应急功能如何工作",
+      "intent_type": "interaction_feedback_request",
+      "need_complete": [
+        "触发入口",
+        "权限边界",
+        "结果反馈",
+        "异常处理",
+        "退出规则"
+      ]
+    },
+    {
+      "pattern": "应急功能依赖什么条件",
+      "intent_type": "state_control_request",
+      "need_complete": [
+        "触发入口",
+        "权限边界",
+        "结果反馈",
+        "异常处理",
+        "退出规则"
+      ]
+    },
+    {
+      "pattern": "应急功能异常时如何处理",
+      "intent_type": "constraint_request",
+      "need_complete": [
+        "触发入口",
+        "权限边界",
+        "结果反馈",
+        "异常处理",
+        "退出规则"
+      ]
+    }
+  ],
+  "output_templates": {
+    "rewrite_template": "用户可通过【入口】触发应急运行控制，系统应在【权限条件】满足时执行对应操作，并通过【反馈方式】展示执行结果。若出现【异常场景】，系统应保持主运行逻辑不受影响，并按【退出/复位规则】处理当前状态。"
+  }
+}

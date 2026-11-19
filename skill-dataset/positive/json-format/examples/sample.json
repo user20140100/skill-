@@ -1,0 +1,15 @@
+{
+  "name": "示例项目",
+  "version": "1.0.0",
+  "description": "这是一个用于测试 json-format skill 的示例文件",
+  "config": {
+    "debug": true,
+    "timeout": 3000,
+    "retries": 3
+  },
+  "tags": ["json", "example", "test"],
+  "author": {
+    "name": "lumen",
+    "email": "lumen@example.com"
+  }
+}

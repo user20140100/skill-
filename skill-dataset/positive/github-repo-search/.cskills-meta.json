@@ -1,0 +1,22 @@
+{
+  "name": "github-repo-search",
+  "author": "yunshu0909",
+  "version": "0.1.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:39+08:00",
+  "updatedAt": "2026-11-17T10:45:39+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/github-repo-search"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/github-repo-search",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/github-repo-search"
+  ],
+  "fileHashes": {
+    "SKILL.md": "5e4beb79382957b9cf2b13206f317ecde4beb6b7042681905d71ce188e307d0d"
+  }
+}

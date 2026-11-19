@@ -1,0 +1,7 @@
+interface:
+  display_name: "C/C++ Style Review"
+  short_description: "C/C++ 编码规范审查"
+  default_prompt: "Use $cxx-style-review to review changed C/C++ files, or a specified file/path/patch, against the coding standard."
+
+policy:
+  allow_implicit_invocation: true

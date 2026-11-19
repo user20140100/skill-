@@ -1,0 +1,154 @@
+{
+  "redundant_pair": [
+    {
+      "candidate_skill": "calc-pro",
+      "catalog_skill": "calculator",
+      "similarity": 0.9129,
+      "classification": "HIGH_SIMILARITY",
+      "catalog_path": "."
+    }
+  ],
+  "evidence": [
+    {
+      "skill": "calc-pro",
+      "run_id": "20261118_133129_1_6b6705a1a030",
+      "execution_status": "succeeded",
+      "goal_accuracy": 1.0,
+      "overall": 1.0,
+      "pass_at_k": 1.0,
+      "lift_goal_accuracy": 0.0,
+      "skill_activated": null,
+      "skill_execution": null,
+      "skill_efficiency": null,
+      "prompt_tokens": 75358,
+      "completion_tokens": 349,
+      "duration_seconds": 414.613,
+      "rounds": 12,
+      "dataset_digest": "sha256:0d25dd059dd17e7fcfe2b069cb5faa794c528ab87a8cd1c85cdc03a193e03d2a",
+      "agent": "opencode",
+      "model": "openai/qwen3.8-flash",
+      "n_attempts": 1,
+      "tier1_quality": null,
+      "token_cost": 75707,
+      "security": {
+        "skillspector": {
+          "risk_score": 0,
+          "severity": "LOW",
+          "recommendation": "SAFE",
+          "max_issue_severity": "NONE",
+          "issue_count": 0
+        },
+        "tier1": {
+          "overall_status": "passed",
+          "severity_counts": {
+            "critical": 0,
+            "high": 0,
+            "medium": 6,
+            "low": 11
+          }
+        },
+        "verdict": "safe",
+        "high_severity_findings": []
+      },
+      "comparable_key": "sha256:0d25dd059dd17e7fcfe2b069cb5faa794c528ab87a8cd1c85cdc03a193e03d2a|opencode|openai/qwen3.8-flash|1",
+      "notes": []
+    },
+    {
+      "skill": "calculator",
+      "run_id": "20261118_133911_1_490f7d2858db",
+      "execution_status": "succeeded",
+      "goal_accuracy": 1.0,
+      "overall": 1.0,
+      "pass_at_k": 1.0,
+      "lift_goal_accuracy": 0.0,
+      "skill_activated": null,
+      "skill_execution": null,
+      "skill_efficiency": null,
+      "prompt_tokens": 71439,
+      "completion_tokens": 256,
+      "duration_seconds": 339.65,
+      "rounds": 12,
+      "dataset_digest": "sha256:854c12951908f16b46d645ba77312c154abf802b30597ec84f2b1a1a5f858ce7",
+      "agent": "opencode",
+      "model": "openai/qwen3.8-flash",
+      "n_attempts": 1,
+      "tier1_quality": null,
+      "token_cost": 71695,
+      "security": {
+        "skillspector": {
+          "risk_score": 0,
+          "severity": "LOW",
+          "recommendation": "SAFE",
+          "max_issue_severity": "NONE",
+          "issue_count": 0
+        },
+        "tier1": {
+          "overall_status": "passed",
+          "severity_counts": {
+            "critical": 0,
+            "high": 0,
+            "medium": 6,
+            "low": 7
+          }
+        },
+        "verdict": "safe",
+        "high_severity_findings": []
+      },
+      "comparable_key": "sha256:854c12951908f16b46d645ba77312c154abf802b30597ec84f2b1a1a5f858ce7|opencode|openai/qwen3.8-flash|1",
+      "notes": []
+    }
+  ],
+  "comparable": false,
+  "security_recommendation": {
+    "verdict": "both_safe",
+    "winner": null,
+    "narrative": "两者均通过完整 Tier1 安全审查（SkillSpector + SkillEvaluator Tier1），安全维度无差异，无需从安全角度二选一。",
+    "reasons": [
+      "双方均通过完整 Tier1 安全审查（SkillSpector + SkillEvaluator Tier1）"
+    ]
+  },
+  "gain_recommendation": {
+    "verdict": "efficiency_better",
+    "winner": "calculator",
+    "delta_goal_accuracy": 0.0,
+    "comparable": false,
+    "dimension_comparison": {
+      "result": {
+        "calc-pro": 1.0,
+        "calculator": 1.0,
+        "winner": null
+      },
+      "prompt_tokens": {
+        "calc-pro": 75358,
+        "calculator": 71439,
+        "winner": "b"
+      },
+      "completion_tokens": {
+        "calc-pro": 349,
+        "calculator": 256,
+        "winner": "b"
+      },
+      "duration_seconds": {
+        "calc-pro": 414.613,
+        "calculator": 339.65,
+        "winner": "b"
+      },
+      "rounds": {
+        "calc-pro": 12,
+        "calculator": 12,
+        "winner": null
+      }
+    },
+    "efficiency_wins": {
+      "calc-pro": 0,
+      "calculator": 3
+    },
+    "narrative": "两者结果相当，但「calculator」在效率维度综合领先（token 输入 / token 输出 / 执行时间 / 执行轮数），综合增益更优。",
+    "reasons": [
+      "两 skill 的 Tier3 结果不在同一条实验条件下（dataset/agent/model/attempts 不一致），结论仅供参考",
+      "结果相当，但 calculator 在效率维度综合领先（≥3 项）"
+    ]
+  },
+  "external_candidates": [],
+  "recommendation": "两者均通过完整 Tier1 安全审查（SkillSpector + SkillEvaluator Tier1），安全维度无差异，无需从安全角度二选一。\n\n两者结果相当，但「calculator」在效率维度综合领先（token 输入 / token 输出 / 执行时间 / 执行轮数），综合增益更优。"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "req-002",
+  "expected_skill": "grill-requirements",
+  "expected_script": null,
+  "prompt": "请根据以下信息，直接输出一份规范、完整的需求文档（Markdown 格式）。\n\n【改造对象】公司已有的「报销申请」功能。\n【现状问题】一张报销单只能填一种费用类型；领导审批时看不到发票照片。\n【改造目标】(1) 一张单可填多种费用（如打车费、餐费、住宿费分列）；(2) 审批时能看到发票照片；(3) 财务支持导出。\n【历史数据】已有历史报销单需能继续查看，不影响本次改造。\n【使用角色】员工（提交）、部门主管（审批）、财务（导出）。\n\n请直接输出完整的改造需求文档。",
+  "expected_output": "The agent produced a complete, structured Markdown requirement document for modifying the expense-reimbursement feature. It covered: the current limitation (single expense type per form, no invoice photo in approval), the requested changes (multiple expense types, invoice photos during approval, finance export), how legacy data should be handled, the users/roles, and acceptance criteria.",
+  "assertions": [
+    "The agent produced a structured Markdown requirement document with section headings",
+    "The document covers the change from single to multiple expense types per form",
+    "The document covers showing invoice photos during approval",
+    "The document covers finance export as a new capability",
+    "The document addresses how legacy/historical data is handled",
+    "The document includes acceptance criteria or a checklist"
+  ],
+  "question": "请根据以下信息，直接输出一份规范、完整的需求文档（Markdown 格式）。\n\n【改造对象】公司已有的「报销申请」功能。\n【现状问题】一张报销单只能填一种费用类型；领导审批时看不到发票照片。\n【改造目标】(1) 一张单可填多种费用（如打车费、餐费、住宿费分列）；(2) 审批时能看到发票照片；(3) 财务支持导出。\n【历史数据】已有历史报销单需能继续查看，不影响本次改造。\n【使用角色】员工（提交）、部门主管（审批）、财务（导出）。\n\n请直接输出完整的改造需求文档。",
+  "ground_truth": "The agent produced a complete, structured Markdown requirement document for modifying the expense-reimbursement feature. It covered: the current limitation (single expense type per form, no invoice photo in approval), the requested changes (multiple expense types, invoice photos during approval, finance export), how legacy data should be handled, the users/roles, and acceptance criteria.",
+  "expected_behavior": [
+    "The agent produced a structured Markdown requirement document with section headings",
+    "The document covers the change from single to multiple expense types per form",
+    "The document covers showing invoice photos during approval",
+    "The document covers finance export as a new capability",
+    "The document addresses how legacy/historical data is handled",
+    "The document includes acceptance criteria or a checklist"
+  ],
+  "evaluated_skill": "grill-requirements",
+  "has_skill": true,
+  "skill_workspace_mode": "isolated",
+  "workspace_skill_names": [],
+  "grading_mode": "default",
+  "custom_grader": false,
+  "agent_workdir": "/workspace"
+}

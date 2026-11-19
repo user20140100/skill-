@@ -1,0 +1,106 @@
+{
+  "module_name": "随身感温控",
+  "module_code": "follow_me_temperature_control",
+  "category": "sensing_module",
+  "definition": "随身感（Follow Me / I Feel）功能是一种基于遥控器内置温度传感器的精准温控技术。",
+  "aliases": [
+    "随身感温控",
+    "随身感功能",
+    "随身感",
+    "Follow Me",
+    "遥控器测温",
+    "体感温控"
+  ],
+  "keywords": [
+    "遥控器温度传感器",
+    "体感温度",
+    "跟随测温",
+    "舒适控制",
+    "压缩机",
+    "盘管温度",
+    "温度传感器",
+    "高压保护",
+    "制冷",
+    "除湿"
+  ],
+  "related_modules": [
+    "运行模式切换控制",
+    "风速控制",
+    "睡眠模式",
+    "经济模式"
+  ],
+  "intent_patterns": [
+    "comfort_request",
+    "performance_request",
+    "interaction_feedback_request",
+    "mode_linkage_request"
+  ],
+  "key_dimensions": [
+    "测温来源",
+    "采样策略",
+    "控制逻辑",
+    "模式适配",
+    "优先级",
+    "异常处理",
+    "反馈交互",
+    "性能要求"
+  ],
+  "default_rules": [
+    "随身感温控通常依赖外部或分布式温度采样结果参与控制",
+    "随身感温控通常与风速、模式和目标温度联动",
+    "随身感温控在采样异常时通常回退到本机默认感温策略",
+    "感知策略通常优先影响舒适性而非保护底线"
+  ],
+  "must_confirm_rules": [
+    "感知数据来源是遥控器、本机还是多传感器融合",
+    "采样异常或丢包后的回退策略",
+    "感知结果如何影响温度控制与风速策略",
+    "不同模式下是否允许启用该功能",
+    "用户能否查看当前感知温度与状态"
+  ],
+  "common_missing_items": [
+    "未定义适用模式和禁用场景",
+    "未定义优先级与互斥关系",
+    "未定义异常处理或降级策略",
+    "未定义关机/断电后的恢复逻辑",
+    "未定义用户反馈方式"
+  ],
+  "inference_rules": [
+    {
+      "pattern": "随身感如何工作",
+      "intent_type": "comfort_request",
+      "need_complete": [
+        "感知来源",
+        "控制联动",
+        "模式适配",
+        "异常回退",
+        "状态反馈"
+      ]
+    },
+    {
+      "pattern": "随身感依赖什么条件",
+      "intent_type": "performance_request",
+      "need_complete": [
+        "感知来源",
+        "控制联动",
+        "模式适配",
+        "异常回退",
+        "状态反馈"
+      ]
+    },
+    {
+      "pattern": "随身感异常时如何处理",
+      "intent_type": "interaction_feedback_request",
+      "need_complete": [
+        "感知来源",
+        "控制联动",
+        "模式适配",
+        "异常回退",
+        "状态反馈"
+      ]
+    }
+  ],
+  "output_templates": {
+    "rewrite_template": "系统应在【触发条件】满足时启用随身感温控，并按【控制规则】执行相关逻辑；在【异常场景】下按【回退策略】处理。"
+  }
+}

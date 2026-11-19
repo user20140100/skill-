@@ -1,0 +1,1156 @@
+{
+  "skill": {
+    "name": "es-log-query",
+    "source": "/scan/library-demo/es-log-query",
+    "scanned_at": "2026-11-18T14:37:01.101491+00:00"
+  },
+  "risk_assessment": {
+    "score": 87,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".env.example",
+      "type": "other",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 324,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 162,
+      "executable": false,
+      "size_bytes": 4986,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "es_log_query.py",
+      "type": "python",
+      "lines": 321,
+      "executable": true,
+      "size_bytes": 10958,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skill.json",
+      "type": "json",
+      "lines": 65,
+      "executable": false,
+      "size_bytes": 2000,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "PE3",
+      "finding_id": "finding-b4d2ae5bf216489bb8a7b7e6dc2c0b80",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": ".env.example",
+        "start_line": 2,
+        "end_line": null,
+        "start_column": 9
+      },
+      "finding": ".env ",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "# ES Log Query \u914d\u7f6e\n# \u590d\u5236\u6b64\u6587\u4ef6\u4e3a .env \u5e76\u586b\u5199\u4f60\u7684\u8d26\u53f7\u5bc6\u7801\n\n# ES \u96c6\u7fa4\u5730\u5740\uff08\u53ef\u9009\uff0c\u6709\u9ed8\u8ba4\u503c\uff09\nES_HOST=http://10.20.10.45:9200",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": ".env.example",
+          "start_line": 2,
+          "end_line": null,
+          "start_column": 9
+        }
+      ],
+      "surface": "comments"
+    },
+    {
+      "id": "TP4",
+      "finding_id": "finding-6ad28bd072de48c8abdbf14e2c960d78",
+      "category": "MCP Tool Poisoning",
+      "pattern": "Description-Behavior Mismatch",
+      "severity": "HIGH",
+      "confidence": 0.95,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Description-behavior mismatch: declared purpose is 'An Elasticsearch log query tool for production logs, supporting relationship/field-value query conditions and search_after pagination.' but code also performs: Undeclared network access to external Elasticsearch services via urllib.request.urlopen., Undeclared local filesystem access: reads a .env file containing credentials and writes query output to a file when --output is used., Undeclared credential handling and transmission: reads ES_USER and ES_PASSWORD from configuration and sends them as Base64 Basic Auth headers., Undeclared insecure TLS behavior: explicitly disables certificate verification and hostname checking in ssl.create_default_context., Undeclared default target resources: hardcodes default ES host, index pattern, and application IDs, which can cause production resource access without explicit user-specified targets., Inaccurate relational-expression support: the code extracts field:value tokens but ignores boolean operators such as 'or' in the example; all extracted conditions are combined as AND filters through bool.filter..",
+      "explanation": "The description presents this as a straightforward Elasticsearch log query tool, but the associated behavior includes undeclared network access, credential file reading, file output, Basic Auth credential transmission, disabled TLS verification, hardcoded production targets, and incorrect query semantics. This mismatch is dangerous because users may believe they are performing read-only log searches while the skill can leak credentials, access arbitrary indices/applications, and produce misleading results. The disabled TLS verification is especially severe because Elasticsearch credentials and production log data may be transmitted to a hostile or spoofed endpoint. The hardcoded default host and app IDs also make accidental production access more likely.",
+      "remediation": "Enable full TLS certificate and hostname verification by default and prohibit disabled verification. Do not send Basic Auth credentials over plaintext HTTP unless TLS is verified or the transport is explicitly secured. Require explicit user-specified ES host, index pattern, and app IDs, or clearly document and limit defaults. Implement true support for `and`, `or`, `not`, and wildcards rather than flattening all clauses into AND filters. Update the skill description to disclose network access, credential handling, file writes, authentication behavior, and TLS configuration.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02",
+        "AML.T0080"
+      ],
+      "evidence": {
+        "code_path": "es_log_query.py",
+        "code_start_line": 1,
+        "code_end_line": 321,
+        "actual_behavior_summary": "A Python CLI that loads Elasticsearch host, user, password, and index settings from a local .env file or built-in defaults, creates Basic Auth headers, sends HTTP POST requests to Elasticsearch _search endpoints, executes filtered log queries, uses search_after pagination when requested, can write query output to a local file, and disables TLS hostname/certificate verification.",
+        "llm_review_outcome": "confirmed",
+        "llm_review_confidence": 0.95
+      },
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 1,
+          "end_line": null
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-24a03e3f717547e8896908304684dfd3",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "es_log_query.py",
+        "start_line": 22,
+        "end_line": null,
+        "start_column": 20
+      },
+      "finding": ".env ",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n\ndef _load_env() -> Dict[str, str]:\n    \"\"\"\u4ece skill \u76ee\u5f55\u4e0b\u7684 .env \u6587\u4ef6\u52a0\u8f7d\u914d\u7f6e\"\"\"\n    script_dir = Path(__file__).resolve().parent\n    env_path = script_dir / '.env'\n    env = {}",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "llm-unconfirmed"
+      ],
+      "evidence": {
+        "llm_review_outcome": "disagreed",
+        "llm_review_confidence": 0.75
+      },
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "es_log_query.py",
+          "start_line": 22,
+          "end_line": null,
+          "start_column": 20
+        }
+      ],
+      "surface": "code"
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-8d4d3779a9af4463bbdb11e5a4a77078",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "es_log_query.py",
+        "start_line": 24,
+        "end_line": null,
+        "start_column": 29
+      },
+      "finding": ".env'",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "def _load_env() -> Dict[str, str]:\n    \"\"\"\u4ece skill \u76ee\u5f55\u4e0b\u7684 .env \u6587\u4ef6\u52a0\u8f7d\u914d\u7f6e\"\"\"\n    script_dir = Path(__file__).resolve().parent\n    env_path = script_dir / '.env'\n    env = {}\n    if env_path.exists():\n        with open(env_path, 'r', encoding='utf-8') as f:",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "llm-unconfirmed"
+      ],
+      "evidence": {
+        "llm_review_outcome": "disagreed",
+        "llm_review_confidence": 0.85
+      },
+      "match_fingerprint": "1d7505be6268307507c320128a1d61ae0b567925073d352885b24399720f99c3",
+      "occurrences": [
+        {
+          "file": "es_log_query.py",
+          "start_line": 24,
+          "end_line": null,
+          "start_column": 29
+        }
+      ],
+      "surface": "code"
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-4397ad812bb6424e98ebb78a224108e9",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "es_log_query.py",
+        "start_line": 37,
+        "end_line": null,
+        "start_column": 20
+      },
+      "finding": ".env ",
+      "explanation": "This line is where plaintext credentials are loaded into an operational configuration object: `ES_USER` and `ES_PASSWORD`. The risk becomes material because the tool later constructs HTTP Basic credentials and sends them using `urllib.request` with SSL certificate verification disabled (`check_hostname = False`, `verify_mode = CERT_NONE`) and defaults to an internal `http://` Elasticsearch host. If `.env` contains valid production credentials, an attacker positioned on the network, or a misconfigured/malicious ES host, can capture the username/password or use Basic credentials over an unverified TLS connection. This is a credential-exposure issue, not just a benign file reference.",
+      "remediation": "Require HTTPS for Elasticsearch in production, validate TLS certificates, reject or strongly warn on `http://` endpoints, and do not disable certificate validation. Remove hardcoded internal default hosts. Prefer short-lived tokens or managed identity where possible. If credentials are stored in `.env`, enforce `0600`, do not include them in packages, and redact secret values from logs and exception output.",
+      "code_snippet": "\n\ndef _get_es_config() -> Dict[str, str]:\n    \"\"\"\u83b7\u53d6 ES \u914d\u7f6e\uff0c\u4f18\u5148\u4ece .env \u8bfb\u53d6\"\"\"\n    env = _load_env()\n    return {\n        'host': env.get('ES_HOST', 'http://10.20.10.45:9200'),",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {
+        "llm_review_outcome": "confirmed",
+        "llm_review_confidence": 0.85
+      },
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "es_log_query.py",
+          "start_line": 37,
+          "end_line": null,
+          "start_column": 20
+        }
+      ],
+      "surface": "code"
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-3911bf809dff4546ac9da30275fe41be",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "es_log_query.py",
+        "start_line": 51,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": ".env ",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    \"\"\"\u68c0\u67e5\u8d26\u53f7\u5bc6\u7801\uff0c\u7f3a\u5931\u65f6\u63d0\u793a\u7528\u6237\"\"\"\n    if not config.get('user') or not config.get('password'):\n        print(\"\u9519\u8bef: \u9700\u8981 ES \u8d26\u53f7\u5bc6\u7801\u624d\u80fd\u67e5\u8be2\u3002\", file=sys.stderr)\n        print(\"\u8bf7\u5728 skill \u76ee\u5f55\u4e0b\u521b\u5efa .env \u6587\u4ef6\uff0c\u586b\u5199 ES_USER \u548c ES_PASSWORD\u3002\", file=sys.stderr)\n        print(\"\u53ef\u53c2\u8003 .env.example \u6a21\u677f\uff0c\u6216\u8054\u7cfb \u96d2\u5c0f\u4f1f \u83b7\u53d6\u53ea\u8bfb\u8d26\u53f7\u3002\", file=sys.stderr)\n        sys.exit(1)\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "llm-unconfirmed"
+      ],
+      "evidence": {
+        "llm_review_outcome": "disagreed",
+        "llm_review_confidence": 0.9
+      },
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "es_log_query.py",
+          "start_line": 51,
+          "end_line": null,
+          "start_column": 30
+        }
+      ],
+      "surface": "code"
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-6988b7d29c4b41b9b19c51bb9a781f09",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "es_log_query.py",
+        "start_line": 56,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": ".env ",
+      "explanation": "`ES_CONFIG = _get_es_config()` executes at import time and stores Elasticsearch credentials in a module-level global dictionary. If `.env` is present and contains valid secrets, the username and password are loaded into memory even when the skill may fail later or be imported by a test harness. Any code running in the same Python process can introspect `es_log_query.ES_CONFIG` and read `password`. In an agent/skill environment, this increases accidental leakage risk through memory dumps, serialized state, debug output, tracebacks, or malicious modules imported into the same runtime.",
+      "remediation": "Load credentials lazily inside `main()` or at query execution time, store them in a private local object rather than a module-level global, avoid exposing secret fields in repr/serialization, and ensure exceptions do not dump config dictionaries. If the runtime supports it, use a secret store and only materialize credentials within the request function.",
+      "code_snippet": "        sys.exit(1)\n\n\n# \u9ed8\u8ba4\u914d\u7f6e\uff08\u4e0d\u542b\u654f\u611f\u4fe1\u606f\uff0c\u5b9e\u9645\u503c\u4ece .env \u52a0\u8f7d\uff09\nES_CONFIG = _get_es_config()\n\n# \u9ed8\u8ba4 AppId \u5217\u8868",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {
+        "llm_review_outcome": "confirmed",
+        "llm_review_confidence": 0.75
+      },
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "es_log_query.py",
+          "start_line": 56,
+          "end_line": null,
+          "start_column": 19
+        }
+      ],
+      "surface": "comments"
+    },
+    {
+      "id": "LP3",
+      "finding_id": "finding-c8518d38f94d4eeb8c7062b45745e1c8",
+      "category": "MCP Least Privilege",
+      "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: file_read, file_write, network.",
+      "severity": "MEDIUM",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: file_read, file_write, network.",
+      "explanation": "The skill invokes a script that reads credentials from `.env`, writes output files, and accesses an Elasticsearch cluster over the network, but the skill metadata does not declare any permission boundary or allowed tools. This means the agent may be granted broad or implicit access to sensitive production resources, local files, and network endpoints without explicit user approval or sandboxing.",
+      "remediation": "Add explicit `permissions` or `allowed-tools` metadata limiting filesystem read/write to the skill directory and configured output paths, restricting network access to the intended Elasticsearch hosts, and requiring user confirmation before accessing production resources. Store credentials outside the skill package and use least-privilege read-only accounts.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {
+        "llm_review_outcome": "confirmed",
+        "llm_review_confidence": 0.9
+      },
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 1,
+          "end_line": null
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "SQP-2",
+      "finding_id": "finding-700d724005ca4c7b922233257bae4fe5",
+      "category": "Output Handling",
+      "pattern": "The skill instructs the agent to run production Elasticsearch log queries and supports exporting large result sets to files (for example `-l 50000 -o /tmp/logs.txt` at L099-L100, with export behavior reinforced at L082-L107 and L144). The description does not warn that production logs may contain sensitive user or system data, or that exported files should be protected, cleaned up, or handled according to data-retention requirements.",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 82,
+        "end_line": 107
+      },
+      "finding": "The skill instructs the agent to run production Elasticsearch log queries and supports exporting large result sets to files (for example `-l 50000 -o /tmp/logs.txt` at L099-L100, with export behavior reinforced at L082-L107 and L144). The description does not warn that production logs may contain sensitive user or system data, or that exported files should be protected, cleaned up, or handled according to data-retention requirements.",
+      "explanation": "The skill encourages exporting up to 50,000 production log entries to files such as `/tmp/logs.txt`, but does not warn that production logs may contain personally identifiable information, secrets, session tokens, internal identifiers, or compliance-sensitive data. Exporting large amounts of production data to a temporary directory can create unnecessary data exposure, persistence beyond the query lifetime, and privacy or compliance violations.",
+      "remediation": "Add explicit warnings that exported logs may contain sensitive production data. Default to safe, user-controlled output paths instead of `/tmp`, set restrictive file permissions such as `0600`, provide clear cleanup guidance or automatic temporary file cleanup, and recommend redaction or minimization where possible. Limit default export size and require confirmation for large exports.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [],
+      "evidence": {
+        "llm_review_outcome": "confirmed",
+        "llm_review_confidence": 0.8
+      },
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 82,
+          "end_line": 107
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "SQP-2",
+      "finding_id": "finding-ad2025d6d21d4382a05d20619d95ffda",
+      "category": "Output Handling",
+      "pattern": "The skill setup requires creating `.env` and filling `ES_USER` and `ES_PASSWORD` (L120-L131), but does not warn the user to keep credentials confidential, avoid committing `.env` to version control, or prefer least-privilege / read-only access. It also lacks any warning about credential storage location or security hygiene.",
+      "severity": "MEDIUM",
+      "confidence": 0.9,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 120,
+        "end_line": 131
+      },
+      "finding": "The skill setup requires creating `.env` and filling `ES_USER` and `ES_PASSWORD` (L120-L131), but does not warn the user to keep credentials confidential, avoid committing `.env` to version control, or prefer least-privilege / read-only access. It also lacks any warning about credential storage location or security hygiene.",
+      "explanation": "The skill instructs users to copy `.env.example` and populate `ES_USER` and `ES_PASSWORD`, but provides no guidance on protecting those credentials. Since the skill reads this configuration file and transmits credentials in Basic Auth headers, missing credential-handling instructions can lead to accidental exposure through version control, backups, logs, shared filesystems, or overly broad file permissions.",
+      "remediation": "Add security guidance: do not commit `.env` to version control, set file permissions to `0600`, use least-privilege read-only Elasticsearch accounts, prefer operating-system keyrings or secret managers over plaintext env files, avoid logging credentials, and warn users to rotate secrets if exposure is suspected. Include `.env` in `.gitignore` and provide secure setup instructions.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [],
+      "evidence": {
+        "llm_review_outcome": "confirmed",
+        "llm_review_confidence": 0.8
+      },
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 120,
+          "end_line": 131
+        }
+      ],
+      "surface": "instructions"
+    },
+    {
+      "id": "SDI-1",
+      "finding_id": "finding-6ee4773b6ca84d52a7c887d8e22f280c",
+      "category": "Excessive Agency",
+      "pattern": "The manifest advertises support for relational query expressions, but the implementation does not support top-level relational operators such as `and`/`or`. It extracts only `field:value` pairs and combines every extracted filter conjunctively, so a query like `A or B` is executed as `A AND B`, not as an OR expression. Actual operation: Elasticsearch `_search` query construction is restricted to AND-style filtering of extracted field/value pairs.",
+      "severity": "LOW",
+      "confidence": 0.95,
+      "location": {
+        "file": "es_log_query.py",
+        "start_line": 66,
+        "end_line": 77
+      },
+      "finding": "The manifest advertises support for relational query expressions, but the implementation does not support top-level relational operators such as `and`/`or`. It extracts only `field:value` pairs and combines every extracted filter conjunctively, so a query like `A or B` is executed as `A AND B`, not as an OR expression. Actual operation: Elasticsearch `_search` query construction is restricted to AND-style filtering of extracted field/value pairs.",
+      "explanation": "The manifest and query syntax advertise relational operators such as `and` / `or`, but `parse_query_string()` only extracts `field:value` pairs and later combines every pair with `bool.filter`, which is strictly AND semantics. A user who writes `A or B` expects OR filtering, but the tool executes `A AND B`. This is not a remote code execution or privilege-escalation bug, but it is a security-relevant correctness defect in a production log-analysis tool: queries can silently return fewer results than intended, causing false negatives during incident investigation, compliance reporting, or access-log review.",
+      "remediation": "Implement a proper query parser that supports `and`, `or`, grouping, and precedence, or explicitly document that the tool only supports AND-style filters. If implementing OR is non-trivial, at minimum reject queries containing `or`/`and` tokens with a clear error rather than silently changing semantics.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [],
+      "evidence": {
+        "llm_review_outcome": "confirmed",
+        "llm_review_confidence": 0.9
+      },
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "es_log_query.py",
+          "start_line": 66,
+          "end_line": 77
+        }
+      ],
+      "surface": "code"
+    },
+    {
+      "id": "SDI-4",
+      "finding_id": "finding-10a87d60c80e46839d01f63dac5b4ca4",
+      "category": "Excessive Agency",
+      "pattern": "The `parse_query_string` docstring explicitly claims parsing of relational query strings such as `appId:\"xxx\" and message:\"yyy\" or traceId:\"zzz\"`, but the code only regex-extracts field:value tokens and ignores the relational operators. The resulting filters are later combined with `bool.filter` in `build_es_query`, forcing AND semantics.",
+      "severity": "LOW",
+      "confidence": 0.96,
+      "location": {
+        "file": "es_log_query.py",
+        "start_line": 67,
+        "end_line": 77
+      },
+      "finding": "The `parse_query_string` docstring explicitly claims parsing of relational query strings such as `appId:\"xxx\" and message:\"yyy\" or traceId:\"zzz\"`, but the code only regex-extracts field:value tokens and ignores the relational operators. The resulting filters are later combined with `bool.filter` in `build_es_query`, forcing AND semantics.",
+      "explanation": "The docstring explicitly claims support for strings like `appId:\"xxx\" and message:\"yyy\" or traceId:\"zzz\"`, but the implementation ignores the boolean operators and produces only `bool.filter` clauses. This is the same underlying issue as finding-6ee4773b6ca84d52a7c887d8e22f280c, but more severe from a documentation/expectation standpoint because the code itself advertises unsupported behavior. It can mislead security analysts into believing they are querying ORed conditions when the actual Elasticsearch query is ANDed.",
+      "remediation": "Correct the docstring or implement full boolean query parsing. Add unit tests that assert query strings containing `or`/`and` generate the expected Elasticsearch `bool.should` / `bool.must` structure. If no immediate parser is planned, remove the misleading examples and add a validation step that rejects unsupported operators.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [],
+      "evidence": {
+        "llm_review_outcome": "confirmed",
+        "llm_review_confidence": 0.9
+      },
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "es_log_query.py",
+          "start_line": 67,
+          "end_line": 77
+        }
+      ],
+      "surface": "code"
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": true,
+    "llm_available": true,
+    "meta_analysis_applied": true,
+    "inference_usage": [
+      {
+        "node": "mcp_tool_poisoning",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 3205,
+        "completion_tokens": 2871,
+        "cached_tokens": 0,
+        "reasoning_tokens": 2439,
+        "total_tokens": 6076
+      },
+      {
+        "node": "mcp_tool_poisoning",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 247,
+        "completion_tokens": 933,
+        "cached_tokens": 0,
+        "reasoning_tokens": 749,
+        "total_tokens": 1180
+      },
+      {
+        "node": "mcp_tool_poisoning",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 522,
+        "completion_tokens": 724,
+        "cached_tokens": 0,
+        "reasoning_tokens": 555,
+        "total_tokens": 1246
+      },
+      {
+        "node": "mcp_tool_poisoning",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 967,
+        "completion_tokens": 1039,
+        "cached_tokens": 0,
+        "reasoning_tokens": 1033,
+        "total_tokens": 2006
+      },
+      {
+        "node": "semantic_developer_intent",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 3994,
+        "completion_tokens": 2876,
+        "cached_tokens": 1024,
+        "reasoning_tokens": 2863,
+        "total_tokens": 6870
+      },
+      {
+        "node": "semantic_developer_intent",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 6082,
+        "completion_tokens": 11896,
+        "cached_tokens": 0,
+        "reasoning_tokens": 11458,
+        "total_tokens": 17978
+      },
+      {
+        "node": "semantic_developer_intent",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 2373,
+        "completion_tokens": 2386,
+        "cached_tokens": 2048,
+        "reasoning_tokens": 2373,
+        "total_tokens": 4759
+      },
+      {
+        "node": "semantic_quality_policy",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 3985,
+        "completion_tokens": 3323,
+        "cached_tokens": 0,
+        "reasoning_tokens": 2791,
+        "total_tokens": 7308
+      },
+      {
+        "node": "semantic_quality_policy",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 6073,
+        "completion_tokens": 3461,
+        "cached_tokens": 1024,
+        "reasoning_tokens": 3448,
+        "total_tokens": 9534
+      },
+      {
+        "node": "semantic_quality_policy",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 2364,
+        "completion_tokens": 1412,
+        "cached_tokens": 1024,
+        "reasoning_tokens": 1399,
+        "total_tokens": 3776
+      },
+      {
+        "node": "semantic_security_discovery",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 3199,
+        "completion_tokens": 1305,
+        "cached_tokens": 0,
+        "reasoning_tokens": 1292,
+        "total_tokens": 4504
+      },
+      {
+        "node": "semantic_security_discovery",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 5287,
+        "completion_tokens": 2805,
+        "cached_tokens": 0,
+        "reasoning_tokens": 2792,
+        "total_tokens": 8092
+      },
+      {
+        "node": "semantic_security_discovery",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 1578,
+        "completion_tokens": 422,
+        "cached_tokens": 0,
+        "reasoning_tokens": 409,
+        "total_tokens": 2000
+      },
+      {
+        "node": "meta_analyzer",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 3177,
+        "completion_tokens": 3848,
+        "cached_tokens": 0,
+        "reasoning_tokens": 2554,
+        "total_tokens": 7025
+      },
+      {
+        "node": "meta_analyzer",
+        "request_kind": "structured_output",
+        "provider": "openai_compatible",
+        "model": "qwen3.8-flash",
+        "model_source": "requested_model",
+        "usage_source": "provider_response",
+        "prompt_tokens": 4588,
+        "completion_tokens": 10835,
+        "cached_tokens": 0,
+        "reasoning_tokens": 8582,
+        "total_tokens": 15423
+      }
+    ],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "openai_compatible",
+        "resolved_adapter": "openai_compatible",
+        "effective_adapter": "openai_compatible",
+        "effective_adapters": [
+          "openai_compatible"
+        ],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "not_applicable",
+          "api_version": null,
+          "api_version_source": "not_applicable"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": true,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": true,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": true,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "nondeterministic",
+        "control_status": "provider_defaults",
+        "provider_guarantee": false,
+        "reason": "Optional controls do not guarantee identical provider output."
+      }
+    },
+    "llm_calls_attempted": 5,
+    "llm_calls_succeeded": 5,
+    "llm_assessment_complete": false,
+    "llm_recovery_policy_accepted": true
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 4,
+    "scanned_components": 3,
+    "coverage_percent": 75.0,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 3,
+    "partially_inspected_files": 1,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "semantic",
+        "reason_code": "llm_format_recovery_exhausted",
+        "message": "The AI answered, but its full assessment could not be verified after bounded recovery. The formatting-recovery policy permits continuing with this warning; known findings remain.",
+        "path": "SKILL.md",
+        "start_line": 87,
+        "end_line": 106,
+        "fatal": false,
+        "analyzers": [
+          "mcp_tool_poisoning"
+        ],
+        "error_class": "UnverifiedAssessment"
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "degraded",
+        "planned_work": 4,
+        "completed": 3,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 12,
+        "column": 50,
+        "evidence": "\u4f60\u662f\u4e00\u4e2a\u751f\u4ea7\u73af\u5883\u65e5\u5fd7\u67e5\u8be2\u52a9\u624b\uff0c\u5e2e\u52a9\u7528\u6237\u901a\u8fc7 Elasticsearch \u67e5\u8be2\u751f\u4ea7\u73af\u5883\u65e5\u5fd7\u3002\u4f7f\u7528 `es_log_query.py` \u811a\u672c\u6267\u884c\u67e5\u8be2\u3002",
+        "target_path": "es_log_query.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 122,
+        "column": 8,
+        "evidence": "1. \u590d\u5236 `.env.example` \u4e3a `.env`",
+        "target_path": ".env.example",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [
+      "Analyzer mcp_tool_poisoning status: degraded."
+    ],
+    "findings_before_filtering": 12,
+    "findings_after_filtering": 12,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    },
+    "warnings": [
+      {
+        "outcome": "partial",
+        "phase": "semantic",
+        "reason_code": "llm_format_recovery_exhausted",
+        "message": "The AI answered, but its full assessment could not be verified after bounded recovery. The formatting-recovery policy permits continuing with this warning; known findings remain.",
+        "path": "SKILL.md",
+        "start_line": 87,
+        "end_line": 106,
+        "fatal": false,
+        "analyzers": [
+          "mcp_tool_poisoning"
+        ],
+        "error_class": "UnverifiedAssessment",
+        "assessment_complete": false,
+        "accepted_by_policy": true
+      }
+    ],
+    "policy_accepted": true
+  }
+}

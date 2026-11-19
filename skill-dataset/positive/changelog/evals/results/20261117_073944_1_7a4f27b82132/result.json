@@ -1,0 +1,693 @@
+{
+  "agents": {
+    "opencode": {
+      "model": "qwen3.8-max",
+      "model_source": "CLI",
+      "model_resolution": {
+        "model": "qwen3.8-max",
+        "source": "CLI"
+      },
+      "with_skill": {},
+      "without_skill": {},
+      "overall_with_skill": null,
+      "overall_without_skill": null,
+      "metrics_with_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "metrics_without_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "score_policy_with_skill": "skill-evaluator-dimension-mean-v1",
+      "score_policy_without_skill": "skill-evaluator-dimension-mean-v1",
+      "custom_with_skill": {},
+      "custom_without_skill": {},
+      "not_applicable_metrics": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "dimensions_with_skill": {},
+      "dimensions_without_skill": {},
+      "skill_activation": {
+        "status": "unknown",
+        "positive_trials": 0,
+        "activated_trials": 0,
+        "unknown_trials": 0,
+        "reason": "Skill activation evidence is unavailable or incomplete"
+      },
+      "lift": {},
+      "custom_lift": {},
+      "pass_at_k": {
+        "with_skill": {},
+        "without_skill": {},
+        "lift": {}
+      },
+      "security_attribution": {},
+      "agent_runtime_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "recovered_trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "failure_detail_metadata": {
+        "with_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "with_skill_trials": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_trials": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        }
+      },
+      "job_failures": {
+        "with_skill": "Harbor job did not complete successfully: 1 pending",
+        "without_skill": "Harbor job did not complete successfully: 1 pending"
+      },
+      "historical_job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "conditions": {
+        "with_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 1 pending",
+            "Missing scored attempts for cases: changelog-001",
+            "Scored attempt coverage is 0/1"
+          ],
+          "execution_error_details_total": 3,
+          "execution_error_details_shown": 3,
+          "execution_error_details_truncated": false,
+          "expected_cases": 1,
+          "scored_cases": 0,
+          "expected_attempts": 1,
+          "scored_attempts": 0,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 0,
+          "reward_failure_details_shown": 0,
+          "reward_failure_details_truncated": false
+        },
+        "without_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 1 pending",
+            "Missing scored attempts for cases: changelog-001",
+            "Scored attempt coverage is 0/1"
+          ],
+          "execution_error_details_total": 3,
+          "execution_error_details_shown": 3,
+          "execution_error_details_truncated": false,
+          "expected_cases": 1,
+          "scored_cases": 0,
+          "expected_attempts": 1,
+          "scored_attempts": 0,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 0,
+          "reward_failure_details_shown": 0,
+          "reward_failure_details_truncated": false
+        }
+      },
+      "execution_status": "failed",
+      "execution_errors": [
+        "Harbor job did not complete successfully: 1 pending",
+        "Missing scored attempts for cases: changelog-001",
+        "Scored attempt coverage is 0/1"
+      ],
+      "execution_error_details_total": 6,
+      "execution_error_details_shown": 3,
+      "execution_error_details_truncated": true,
+      "expected_attempts": 2,
+      "scored_attempts": 0,
+      "num_trials_with": 0,
+      "num_trials_without": 0,
+      "execution_counts": {
+        "fresh": {
+          "with_skill": 0,
+          "without_skill": 0
+        },
+        "reused": {
+          "without_skill": 0
+        }
+      },
+      "measured_usage": {
+        "fresh": {
+          "with_skill": {
+            "total_prompt_tokens": null,
+            "total_completion_tokens": null,
+            "total_cached_tokens": null,
+            "total_cost_usd": null
+          },
+          "without_skill": {
+            "total_prompt_tokens": null,
+            "total_completion_tokens": null,
+            "total_cached_tokens": null,
+            "total_cost_usd": null
+          }
+        },
+        "reused": {
+          "without_skill": null
+        }
+      },
+      "output_dir": "/skills/positive/changelog/evals/results/20261117_073944_1_7a4f27b82132/opencode",
+      "dataset_sufficiency": {
+        "policy": "dataset-sufficiency-v1",
+        "status": "provisional",
+        "coverage_summary": "Dataset size: provisional \u2014 1 case (policy needs 10), 0 negative cases (needs 1); pass-rate interval unavailable (policy dataset-sufficiency-v1)",
+        "checks": [
+          {
+            "name": "coverage",
+            "met": false,
+            "observed": {
+              "distinct_cases": 1,
+              "negative_cases": 0
+            },
+            "required": {
+              "distinct_cases": 10,
+              "negative_cases": 1
+            },
+            "reason": "1 distinct cases and 0 negative cases; requires 10 and 1"
+          },
+          {
+            "name": "pass_rate_reliability",
+            "met": null,
+            "observed": {
+              "interval_half_width": null
+            },
+            "required": {
+              "interval_half_width": 0.2
+            },
+            "reason": "95% Wilson interval is unavailable"
+          },
+          {
+            "name": "lift_comparison",
+            "met": null,
+            "observed": {
+              "paired_cases": null
+            },
+            "required": {
+              "paired_cases": 10
+            },
+            "reason": "Paired-case count is unavailable"
+          }
+        ],
+        "reason": "provisional: 1 distinct cases and 0 negative cases; requires 10 and 1; 95% Wilson interval is unavailable; Paired-case count is unavailable"
+      }
+    }
+  },
+  "metric_set": "skill-evaluator-default-v2",
+  "metrics": [
+    "security",
+    "skill_execution",
+    "skill_efficiency",
+    "accuracy",
+    "goal_accuracy",
+    "behavior_check"
+  ],
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "attempt_policy": {
+    "max_attempts": 1,
+    "pass_threshold": 0.5,
+    "stop_on_pass": false,
+    "score_definition": "overall = mean(Security, Correctness, Discoverability, Effectiveness, Efficiency) [skill-evaluator-dimension-mean-v1], excluding metrics that are not applicable to a case",
+    "score_policy": "skill-evaluator-dimension-mean-v1"
+  },
+  "execution_status": "failed",
+  "execution_errors": [
+    "Harbor job did not complete successfully: 1 pending",
+    "Missing scored attempts for cases: changelog-001",
+    "Scored attempt coverage is 0/1",
+    "opencode with-skill Harbor run failed: \u2502 \u2502 self.config.agent, \u2502 \u2502 \u2502 \u2502 1334 \u2502 \u2502 \u2502 logs_dir=self.paths.agent_dir, \u2502 \u2502 \u2502 \u2502 1335 \u2502 \u2502 \u2502 logger=self.logger, \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 /usr/local/lib/python3.12/site-packages/harbor/agents/factory.py:324 in \u2502 \u2502 \u2502 \u2502 create_agent_from_config \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 321 \u2502 \u2502 \u2502 \u2502 **_constructor_kwargs(config, kwargs), \u2502 \u2502 \u2502 \u2502 322 \u2502 \u2502 \u2502 ) \u2502 \u2502 \u2502 \u2502 323 \u2502 \u2502 elif import_path is not None: \u2502 \u2502 \u2502 \u2502 \u2771 324 \u2502 \u2502 \u2502 return cls.create_agent_from_import_path( \u2502 \u2502 \u2502 \u2502 325 \u2502 \u2502 \u2502 \u2502 import_path, \u2502 \u2502 \u2502 \u2502 326 \u2502 \u2502 \u2502 \u2502 logs_dir=logs_dir, \u2502 \u2502 \u2502 \u2502 327 \u2502 \u2502 \u2502 \u2502 model_name=config.model_name, \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 /usr/local/lib/python3.12/site-packages/harbor/agents/factory.py:269 in \u2502 \u2502 \u2502 \u2502 create_agent_from_import_path \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 266 \u2502 \u2502 \u2502 ValueError: If the import path is invalid. \u2502 \u2502 \u2502 \u2502 267 \u2502 \u2502 \"\"\" \u2502 \u2502 \u2502 \u2502 268 \u2502 \u2502 agent_class = _import_agent_class(import_path) \u2502 \u2502 \u2502 \u2502 \u2771 269 \u2502 \u2502 return agent_class(logs_dir=logs_dir, \u2502 \u2502 \u2502 \u2502 model_name=model_name, **kwargs) \u2502 \u2502 \u2502 \u2502 270 \u2502 \u2502 \u2502 \u2502 \u2502 271 \u2502 @classmethod \u2502 \u2502 \u2502 \u2502 272 \u2502 def create_agent_from_config( \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 /usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/loca \u2502 \u2502 \u2502 \u2502 l_agents.py:508 in __init__ \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 505 \u2502 \u2502 super().__init__(*args, **kwargs) \u2502 \u2502 \u2502 \u2502 506 \u2502 \u2502 namespace, separator, model_id = str(self.model_name or \u2502 \u2502 \u2502 \u2502 \"\").partition(\"/\") \u2502 \u2502 \u2502 \u2502 507 \u2502 \u2502 if namespace != \"openai\" or not separator or not \u2502 \u2502 \u2502 \u2502 model_id: \u2502 \u2502 \u2502 \u2502 \u2771 508 \u2502 \u2502 \u2502 raise ValueError(\"Gateway OpenCode requires an \u2502 \u2502 \u2502 \u2502 openai/MODEL identifier\") \u2502 \u2502 \u2502 \u2502 509 \u2502 \u2502 # OpenCode's built-in openai loader always selects \u2502 \u2502 \u2502 \u2502 Responses, even when \u2502 \u2502 \u2502 \u2502 510 \u2502 \u2502 # its npm SDK is overridden. A distinct transport \u2502 \u2502 \u2502 \u2502 namespace is needed; \u2502 \u2502 \u2502 \u2502 511 \u2502 \u2502 # the gateway's catalog model ID remains unchanged after \u2502 \u2502 \u2502 \u2502 the first slash. \u2502 \u2502 \u2502 \u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f \u2502 \u2502 ValueError: Gateway OpenCode requires an openai/MODEL identifier \u2502 \u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f",
+    "opencode without-skill Harbor run failed: \u2502 \u2502 self.config.agent, \u2502 \u2502 \u2502 \u2502 1334 \u2502 \u2502 \u2502 logs_dir=self.paths.agent_dir, \u2502 \u2502 \u2502 \u2502 1335 \u2502 \u2502 \u2502 logger=self.logger, \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 /usr/local/lib/python3.12/site-packages/harbor/agents/factory.py:324 in \u2502 \u2502 \u2502 \u2502 create_agent_from_config \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 321 \u2502 \u2502 \u2502 \u2502 **_constructor_kwargs(config, kwargs), \u2502 \u2502 \u2502 \u2502 322 \u2502 \u2502 \u2502 ) \u2502 \u2502 \u2502 \u2502 323 \u2502 \u2502 elif import_path is not None: \u2502 \u2502 \u2502 \u2502 \u2771 324 \u2502 \u2502 \u2502 return cls.create_agent_from_import_path( \u2502 \u2502 \u2502 \u2502 325 \u2502 \u2502 \u2502 \u2502 import_path, \u2502 \u2502 \u2502 \u2502 326 \u2502 \u2502 \u2502 \u2502 logs_dir=logs_dir, \u2502 \u2502 \u2502 \u2502 327 \u2502 \u2502 \u2502 \u2502 model_name=config.model_name, \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 /usr/local/lib/python3.12/site-packages/harbor/agents/factory.py:269 in \u2502 \u2502 \u2502 \u2502 create_agent_from_import_path \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 266 \u2502 \u2502 \u2502 ValueError: If the import path is invalid. \u2502 \u2502 \u2502 \u2502 267 \u2502 \u2502 \"\"\" \u2502 \u2502 \u2502 \u2502 268 \u2502 \u2502 agent_class = _import_agent_class(import_path) \u2502 \u2502 \u2502 \u2502 \u2771 269 \u2502 \u2502 return agent_class(logs_dir=logs_dir, \u2502 \u2502 \u2502 \u2502 model_name=model_name, **kwargs) \u2502 \u2502 \u2502 \u2502 270 \u2502 \u2502 \u2502 \u2502 \u2502 271 \u2502 @classmethod \u2502 \u2502 \u2502 \u2502 272 \u2502 def create_agent_from_config( \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 /usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/loca \u2502 \u2502 \u2502 \u2502 l_agents.py:508 in __init__ \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 505 \u2502 \u2502 super().__init__(*args, **kwargs) \u2502 \u2502 \u2502 \u2502 506 \u2502 \u2502 namespace, separator, model_id = str(self.model_name or \u2502 \u2502 \u2502 \u2502 \"\").partition(\"/\") \u2502 \u2502 \u2502 \u2502 507 \u2502 \u2502 if namespace != \"openai\" or not separator or not \u2502 \u2502 \u2502 \u2502 model_id: \u2502 \u2502 \u2502 \u2502 \u2771 508 \u2502 \u2502 \u2502 raise ValueError(\"Gateway OpenCode requires an \u2502 \u2502 \u2502 \u2502 openai/MODEL identifier\") \u2502 \u2502 \u2502 \u2502 509 \u2502 \u2502 # OpenCode's built-in openai loader always selects \u2502 \u2502 \u2502 \u2502 Responses, even when \u2502 \u2502 \u2502 \u2502 510 \u2502 \u2502 # its npm SDK is overridden. A distinct transport \u2502 \u2502 \u2502 \u2502 namespace is needed; \u2502 \u2502 \u2502 \u2502 511 \u2502 \u2502 # the gateway's catalog model ID remains unchanged after \u2502 \u2502 \u2502 \u2502 the first slash. \u2502 \u2502 \u2502 \u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f \u2502 \u2502 ValueError: Gateway OpenCode requires an openai/MODEL identifier \u2502 \u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f"
+  ],
+  "execution_error_details_total": 8,
+  "execution_error_details_shown": 5,
+  "execution_error_details_truncated": true,
+  "expected_attempts": 2,
+  "scored_attempts": 0,
+  "error": [
+    "Harbor job did not complete successfully: 1 pending"
+  ],
+  "baseline": {
+    "mode": "fresh"
+  },
+  "comparison_identity": {
+    "config": {
+      "harbor": {
+        "environment": {
+          "value": "docker",
+          "source": "CLI"
+        },
+        "environment_kwargs": {
+          "keys": [],
+          "sources": {},
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "n_attempts": 1,
+        "stop_on_pass": false,
+        "timeout_multiplier": 1.0,
+        "base_image_mode": "disabled",
+        "resources": {
+          "cpus": null,
+          "memory_mb": null,
+          "storage_mb": null
+        },
+        "agent_workdir": null,
+        "custom_dockerfile_mode": "rebase",
+        "runtime_env": {
+          "keys": [],
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "max_cases": 1
+      },
+      "provider": {
+        "name": "openai-compatible",
+        "model": "qwen3.8-max"
+      },
+      "judge": {
+        "enabled": true,
+        "provider": "openai-compatible",
+        "model": "qwen3.8-max",
+        "source": "SKILL_EVAL_LLM_MODEL",
+        "override_applied": false,
+        "reasoning_effort": null,
+        "catalog_verification": "degraded"
+      },
+      "task_source": "evals_json",
+      "grading": {
+        "mode": "default"
+      },
+      "skill_workspace": {
+        "mode": "isolated"
+      },
+      "copy_repo": false,
+      "repo_context_exclude_paths": [],
+      "agents": {
+        "opencode": {
+          "agent": "opencode",
+          "model": "qwen3.8-max",
+          "source": "CLI"
+        }
+      },
+      "case_selection": {
+        "policy": "first_n",
+        "limit": 1,
+        "total": 1,
+        "selected": 1,
+        "skipped": 0,
+        "selected_ids": [
+          "changelog-001"
+        ]
+      },
+      "baseline_task_tree_digest": "sha256:078a69fe4ba90e12c19e59932ab4bae93f7dbfb3996eb99493176c3f98b5e8a6"
+    },
+    "dataset_digest": "sha256:8079f4ebf11a5f51657e366acbfdba7cdf3945677a7319dcf9a9b7cdbbc5deda",
+    "identity_dataset_digest": "sha256:16cb888ff4da5ba412bc806e2d2f01e54308d63d44ec4cab0ccec0d560f0a6af",
+    "baseline_task_tree_digest": "sha256:078a69fe4ba90e12c19e59932ab4bae93f7dbfb3996eb99493176c3f98b5e8a6",
+    "expected_case_ids": [
+      "changelog-001"
+    ],
+    "attempt_policy": {
+      "max_attempts": 1,
+      "pass_threshold": 0.5,
+      "stop_on_pass": false
+    },
+    "score_policy": "skill-evaluator-dimension-mean-v1",
+    "evaluator_version": "0.9.0",
+    "skill": {
+      "evaluated_source": null,
+      "publication_target": {
+        "skill_name": "changelog",
+        "skill_digest": "sha256:4f4426e85a82be2f2f0a9936b34bd56440fca3b1d5868c714d3e06873420dd54",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      }
+    }
+  },
+  "expected_case_ids": [
+    "changelog-001"
+  ],
+  "skill_name": "changelog",
+  "run_id": "20261117_073944_1_7a4f27b82132",
+  "publication_target": {
+    "skill_name": "changelog",
+    "skill_digest": "sha256:4f4426e85a82be2f2f0a9936b34bd56440fca3b1d5868c714d3e06873420dd54",
+    "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+  },
+  "run_dir": "/skills/positive/changelog/evals/results/20261117_073944_1_7a4f27b82132",
+  "result_path": "/skills/positive/changelog/evals/results/20261117_073944_1_7a4f27b82132/result.json",
+  "harbor_jobs_dir": "/skills/positive/changelog/evals/results/20261117_073944_1_7a4f27b82132/_harbor-jobs",
+  "harbor_jobs_retained": false,
+  "evaluated_at": "2026-11-17T07:39:52.174986+00:00",
+  "evaluator_version": "0.9.0",
+  "dataset_snapshot": {
+    "schema_version": "1.1",
+    "evaluator_version": "0.9.0",
+    "dataset_summary": {
+      "total_tasks": 1,
+      "positive_tasks": 1,
+      "negative_tasks": 0,
+      "unclassified_tasks": 0,
+      "source": "dataset"
+    },
+    "dataset_digest": "sha256:8079f4ebf11a5f51657e366acbfdba7cdf3945677a7319dcf9a9b7cdbbc5deda",
+    "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1"
+  },
+  "dataset_snapshot_path": "/skills/positive/changelog/evals/results/20261117_073944_1_7a4f27b82132/dataset_snapshot.json",
+  "dataset_summary": {
+    "total_tasks": 1,
+    "positive_tasks": 1,
+    "negative_tasks": 0,
+    "unclassified_tasks": 0,
+    "source": "dataset"
+  },
+  "dataset_digest": "sha256:8079f4ebf11a5f51657e366acbfdba7cdf3945677a7319dcf9a9b7cdbbc5deda",
+  "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1",
+  "identity_dataset_digest": "sha256:16cb888ff4da5ba412bc806e2d2f01e54308d63d44ec4cab0ccec0d560f0a6af",
+  "baseline_task_tree_digest": "sha256:078a69fe4ba90e12c19e59932ab4bae93f7dbfb3996eb99493176c3f98b5e8a6",
+  "budget": {
+    "limits": {
+      "max_agent_tokens": null,
+      "max_judge_calls": null,
+      "max_attempts_total": null,
+      "max_cost_usd": null
+    },
+    "planned_attempts": 2,
+    "started_attempts": 0,
+    "finished_attempts": 0,
+    "unmeasured_attempts": {
+      "agent_tokens": 0,
+      "judge_calls": 0,
+      "cost_usd": 0
+    },
+    "used": {
+      "agent_tokens": "not measured",
+      "judge_calls": "not measured",
+      "cost_usd": "not measured"
+    },
+    "status": "ok",
+    "partial": false,
+    "exhausted_limit": null,
+    "exhausted_basis": null,
+    "attempts_not_run": 0,
+    "not_run": [],
+    "charge_coverage": {
+      "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+      "attempts_by_derivation": {
+        "price_file": 0,
+        "provider_reported": 0,
+        "unmeasured": 0
+      },
+      "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+      "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+      "environment_setup": "not included",
+      "container": "not included",
+      "backend": "not included",
+      "infrastructure": "not included"
+    },
+    "reservation": {
+      "policy": "largest_measured_attempt",
+      "estimate_per_attempt": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "in_flight_attempts": 0,
+      "waits": 0,
+      "unestimated_admissions": 0,
+      "calibration_waits": 0,
+      "estimate_denials": 0,
+      "denied_unit_size": 0
+    },
+    "observed_overruns": {}
+  },
+  "dataset_provenance": {
+    "mode": "llm",
+    "grounding": "skill",
+    "generated_at": "2026-11-17T07:20:46.490422+00:00",
+    "review_state": "unreviewed",
+    "needs_review_count": 0,
+    "inputs": [
+      {
+        "kind": "skill_md",
+        "path": "SKILL.md",
+        "sha256": "8c3627d7ef58"
+      }
+    ]
+  },
+  "run_config": {
+    "config_file": "none",
+    "harbor": {
+      "environment": {
+        "value": "docker",
+        "source": "CLI"
+      },
+      "environment_kwargs": {
+        "keys": [],
+        "sources": {},
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "n_attempts": 1,
+      "stop_on_pass": false,
+      "n_concurrent": 1,
+      "timeout_multiplier": 1.0,
+      "base_image_mode": "disabled",
+      "resources": {
+        "cpus": null,
+        "memory_mb": null,
+        "storage_mb": null
+      },
+      "agent_workdir": null,
+      "custom_dockerfile_mode": "rebase",
+      "runtime_env": {
+        "keys": [],
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "jobs_retained": false,
+      "max_cases": 1
+    },
+    "provider": {
+      "name": "openai-compatible",
+      "model": "qwen3.8-max"
+    },
+    "judge": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "qwen3.8-max",
+      "source": "SKILL_EVAL_LLM_MODEL",
+      "override_applied": false,
+      "reasoning_effort": null,
+      "catalog_verification": "degraded"
+    },
+    "credential_validation": {
+      "status": "degraded",
+      "targets": [
+        {
+          "labels": [
+            "opencode",
+            "standard grader"
+          ],
+          "provider": "openai-compatible",
+          "model": "qwen3.8-max",
+          "status": "degraded",
+          "detail": "model catalog access does not verify runtime credentials for this endpoint"
+        }
+      ]
+    },
+    "task_source": "evals_json",
+    "grading": {
+      "mode": "default"
+    },
+    "skill_workspace": {
+      "mode": "isolated"
+    },
+    "copy_repo": false,
+    "repo_context_exclude_paths": [],
+    "agents": {
+      "opencode": {
+        "agent": "opencode",
+        "model": "qwen3.8-max",
+        "source": "CLI"
+      }
+    },
+    "evaluated_source": null,
+    "case_selection": {
+      "policy": "first_n",
+      "limit": 1,
+      "total": 1,
+      "selected": 1,
+      "skipped": 0,
+      "selected_ids": [
+        "changelog-001"
+      ]
+    },
+    "baseline_task_tree_digest": "sha256:078a69fe4ba90e12c19e59932ab4bae93f7dbfb3996eb99493176c3f98b5e8a6",
+    "baseline": {
+      "mode": "fresh"
+    },
+    "budget": {
+      "limits": {
+        "max_agent_tokens": null,
+        "max_judge_calls": null,
+        "max_attempts_total": null,
+        "max_cost_usd": null
+      },
+      "planned_attempts": 2,
+      "started_attempts": 0,
+      "finished_attempts": 0,
+      "unmeasured_attempts": {
+        "agent_tokens": 0,
+        "judge_calls": 0,
+        "cost_usd": 0
+      },
+      "used": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "status": "ok",
+      "partial": false,
+      "exhausted_limit": null,
+      "exhausted_basis": null,
+      "attempts_not_run": 0,
+      "not_run": [],
+      "charge_coverage": {
+        "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+        "attempts_by_derivation": {
+          "price_file": 0,
+          "provider_reported": 0,
+          "unmeasured": 0
+        },
+        "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+        "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+        "environment_setup": "not included",
+        "container": "not included",
+        "backend": "not included",
+        "infrastructure": "not included"
+      },
+      "reservation": {
+        "policy": "largest_measured_attempt",
+        "estimate_per_attempt": {
+          "agent_tokens": "not measured",
+          "judge_calls": "not measured",
+          "cost_usd": "not measured"
+        },
+        "in_flight_attempts": 0,
+        "waits": 0,
+        "unestimated_admissions": 0,
+        "calibration_waits": 0,
+        "estimate_denials": 0,
+        "denied_unit_size": 0
+      },
+      "observed_overruns": {}
+    }
+  },
+  "partial": false,
+  "dataset_sufficiency": {
+    "policy": "dataset-sufficiency-v1",
+    "status": "provisional",
+    "coverage_summary": "Dataset size: provisional \u2014 1 case (policy needs 10), 0 negative cases (needs 1); pass-rate interval unavailable (policy dataset-sufficiency-v1)",
+    "checks": [
+      {
+        "name": "coverage",
+        "met": false,
+        "observed": {
+          "distinct_cases": 1,
+          "negative_cases": 0
+        },
+        "required": {
+          "distinct_cases": 10,
+          "negative_cases": 1
+        },
+        "reason": "1 distinct cases and 0 negative cases; requires 10 and 1"
+      },
+      {
+        "name": "pass_rate_reliability",
+        "met": null,
+        "observed": {
+          "interval_half_width": null
+        },
+        "required": {
+          "interval_half_width": 0.2
+        },
+        "reason": "95% Wilson interval is unavailable"
+      },
+      {
+        "name": "lift_comparison",
+        "met": null,
+        "observed": {
+          "paired_cases": null
+        },
+        "required": {
+          "paired_cases": 10
+        },
+        "reason": "Paired-case count is unavailable"
+      }
+    ],
+    "reason": "provisional: 1 distinct cases and 0 negative cases; requires 10 and 1; 95% Wilson interval is unavailable; Paired-case count is unavailable"
+  },
+  "harbor_jobs_retention_reason": "not_retained",
+  "tier3_feedback": {
+    "schema_version": "1.0",
+    "conclusions": [
+      {
+        "severity": "warn",
+        "title": "Skill effect",
+        "message": "per-case result: inconclusive (opencode: condition execution is incomplete).",
+        "source": "deterministic"
+      },
+      {
+        "severity": "fail",
+        "title": "Evaluation incomplete",
+        "message": "Harbor job did not complete successfully: 1 pending; Missing scored attempts for cases: changelog-001; Scored attempt coverage is 0/1; With skill aggregate job: Harbor job did not complete successfully: 1 pending; Without skill aggregate job: Harbor job did not complete successfully: 1 pending"
+      }
+    ],
+    "recommendations": [],
+    "suggestions": [],
+    "suggestions_v2": []
+  },
+  "report_path": "/skills/positive/changelog/evals/results/20261117_073944_1_7a4f27b82132/report.html",
+  "benchmark_path": "/skills/positive/changelog/evals/results/20261117_073944_1_7a4f27b82132/tier3-benchmark.md",
+  "report_status": "complete",
+  "duration_seconds": 8.723,
+  "result_projection": {
+    "schema_version": "1.0",
+    "mode": "inline",
+    "returned_result": "full",
+    "persisted_result": "inline",
+    "agents": {},
+    "omitted_detail_fields": {},
+    "omitted_root_detail_fields": []
+  }
+}

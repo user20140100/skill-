@@ -1,0 +1,1246 @@
+{
+  "agents": {
+    "opencode": {
+      "model": "openai/qwen3.8-flash",
+      "model_source": "CLI",
+      "model_resolution": {
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      },
+      "with_skill": {
+        "security": 1.0,
+        "skill_execution": 0.9688,
+        "skill_efficiency": 1.0,
+        "accuracy": 1.0,
+        "goal_accuracy": 1.0,
+        "behavior_check": 0.8334
+      },
+      "without_skill": {
+        "security": 1.0,
+        "accuracy": 0.8,
+        "goal_accuracy": 0.0,
+        "behavior_check": 0.3333
+      },
+      "overall_with_skill": 0.9771,
+      "overall_without_skill": 0.6555,
+      "metrics_with_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "metrics_without_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "score_policy_with_skill": "skill-evaluator-dimension-mean-v1",
+      "score_policy_without_skill": "skill-evaluator-dimension-mean-v1",
+      "custom_with_skill": {},
+      "custom_without_skill": {},
+      "not_applicable_metrics": {
+        "with_skill": [],
+        "without_skill": [
+          "skill_execution",
+          "skill_efficiency"
+        ]
+      },
+      "dimensions_with_skill": {
+        "security": {
+          "score": 1.0,
+          "sources": {
+            "security": 1.0
+          }
+        },
+        "correctness": {
+          "score": 1.0,
+          "sources": {
+            "accuracy": 1.0
+          }
+        },
+        "discoverability": {
+          "score": 0.9688,
+          "sources": {
+            "skill_execution": 1.0
+          }
+        },
+        "effectiveness": {
+          "score": 0.9167,
+          "sources": {
+            "goal_accuracy": 0.5,
+            "behavior_check": 0.5
+          }
+        },
+        "efficiency": {
+          "score": 1.0,
+          "sources": {
+            "skill_efficiency": 1.0
+          }
+        }
+      },
+      "dimensions_without_skill": {
+        "security": {
+          "score": 1.0,
+          "sources": {
+            "security": 1.0
+          }
+        },
+        "correctness": {
+          "score": 0.8,
+          "sources": {
+            "accuracy": 1.0
+          }
+        },
+        "effectiveness": {
+          "score": 0.1666,
+          "sources": {
+            "goal_accuracy": 0.5,
+            "behavior_check": 0.5
+          }
+        }
+      },
+      "skill_activation": {
+        "status": "activated",
+        "positive_trials": 2,
+        "activated_trials": 2,
+        "unknown_trials": 0,
+        "reason": "Skill activation observed in with-skill trials"
+      },
+      "lift": {
+        "security": {
+          "with_skill": 1.0,
+          "without_skill": 1.0,
+          "delta": 0.0,
+          "direction": "flat"
+        },
+        "accuracy": {
+          "with_skill": 1.0,
+          "without_skill": 0.8,
+          "delta": 0.2,
+          "direction": "up"
+        },
+        "goal_accuracy": {
+          "with_skill": 1.0,
+          "without_skill": 0.0,
+          "delta": 1.0,
+          "direction": "up"
+        },
+        "behavior_check": {
+          "with_skill": 0.8334,
+          "without_skill": 0.3333,
+          "delta": 0.5001,
+          "direction": "up"
+        },
+        "basis": {
+          "pairing": "same_cases_per_metric",
+          "arms": [
+            "with_skill",
+            "without_skill"
+          ],
+          "metrics": {
+            "security": {
+              "cases": 2,
+              "trials": {
+                "with_skill": 2,
+                "without_skill": 2
+              }
+            },
+            "accuracy": {
+              "cases": 2,
+              "trials": {
+                "with_skill": 2,
+                "without_skill": 2
+              }
+            },
+            "goal_accuracy": {
+              "cases": 2,
+              "trials": {
+                "with_skill": 2,
+                "without_skill": 2
+              }
+            },
+            "behavior_check": {
+              "cases": 2,
+              "trials": {
+                "with_skill": 2,
+                "without_skill": 2
+              }
+            }
+          },
+          "excluded_metrics": [
+            {
+              "metric": "skill_execution",
+              "reason": "not_applicable",
+              "arms": [
+                "without_skill"
+              ]
+            },
+            {
+              "metric": "skill_efficiency",
+              "reason": "not_applicable",
+              "arms": [
+                "without_skill"
+              ]
+            }
+          ],
+          "excluded_cases": [],
+          "excluded_case_entries": 0,
+          "excluded_cases_truncated": false
+        },
+        "overall": {
+          "with_skill": 0.9722,
+          "without_skill": 0.6555,
+          "delta": 0.3167
+        }
+      },
+      "custom_lift": {},
+      "pass_at_k": {
+        "with_skill": {
+          "k": 1,
+          "pass_threshold": 0.5,
+          "correct_answers": {
+            "correct": 2,
+            "scored": 2
+          },
+          "required_checks": {
+            "passed": 2,
+            "scored": 2,
+            "wrong_answer": 0,
+            "security": 0
+          },
+          "security_clean": {
+            "clean": 2,
+            "scored": 2
+          },
+          "stop_on_pass": false,
+          "passed_cases": 2,
+          "failed_cases": 0,
+          "total_cases": 2,
+          "rate": 1.0,
+          "rate_interval": {
+            "method": "wilson_score",
+            "confidence_level": 0.95,
+            "lower": 0.34238022750665303,
+            "upper": 1.0
+          },
+          "attempts_used": 2,
+          "max_attempts_possible": 2,
+          "avg_attempts_used": 1.0,
+          "extra_case_count": 0,
+          "extra_cases": [],
+          "extra_cases_truncated": false,
+          "case_details_total": 2,
+          "case_details_shown": 2,
+          "case_details_truncated": false,
+          "case_details_limit": 256,
+          "cases": {
+            "calculator-001": {
+              "passed": true,
+              "first_pass_attempt": 1,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 1.0,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "calculator-001__Hz2XHC8",
+                  "score": 1.0,
+                  "passed": true,
+                  "goal_accuracy": 1.0,
+                  "reason": null,
+                  "warnings": [],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": null
+                }
+              ],
+              "reason": null,
+              "warnings": [],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            },
+            "calculator-002": {
+              "passed": true,
+              "first_pass_attempt": 1,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 0.9542,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "calculator-002__UaugRLF",
+                  "score": 0.9542,
+                  "passed": true,
+                  "goal_accuracy": 1.0,
+                  "reason": null,
+                  "warnings": [
+                    "missed expected step 2 of 3 (behavior 0.67)"
+                  ],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": null
+                }
+              ],
+              "reason": null,
+              "warnings": [
+                "missed expected step 2 of 3 (behavior 0.67)"
+              ],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            }
+          }
+        },
+        "without_skill": {
+          "k": 1,
+          "pass_threshold": 0.5,
+          "correct_answers": {
+            "correct": 0,
+            "scored": 2
+          },
+          "required_checks": {
+            "passed": 0,
+            "scored": 2,
+            "wrong_answer": 2,
+            "security": 0
+          },
+          "security_clean": {
+            "clean": 2,
+            "scored": 2
+          },
+          "stop_on_pass": false,
+          "passed_cases": 0,
+          "failed_cases": 2,
+          "total_cases": 2,
+          "rate": 0.0,
+          "rate_interval": {
+            "method": "wilson_score",
+            "confidence_level": 0.95,
+            "lower": 0.0,
+            "upper": 0.6576197724933469
+          },
+          "attempts_used": 2,
+          "max_attempts_possible": 2,
+          "avg_attempts_used": 1.0,
+          "extra_case_count": 0,
+          "extra_cases": [],
+          "extra_cases_truncated": false,
+          "case_details_total": 2,
+          "case_details_shown": 2,
+          "case_details_truncated": false,
+          "case_details_limit": 256,
+          "cases": {
+            "calculator-001": {
+              "passed": false,
+              "first_pass_attempt": null,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 0.5889,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "calculator-001__4pBHhdc",
+                  "score": 0.5889,
+                  "passed": false,
+                  "goal_accuracy": 0.0,
+                  "reason": "goal not met (goal accuracy 0.00)",
+                  "warnings": [
+                    "missed expected steps 1, 2 of 3 (behavior 0.33)"
+                  ],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": "wrong_answer"
+                }
+              ],
+              "reason": "goal not met (goal accuracy 0.00)",
+              "warnings": [
+                "missed expected steps 1, 2 of 3 (behavior 0.33)"
+              ],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            },
+            "calculator-002": {
+              "passed": false,
+              "first_pass_attempt": null,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 0.7222,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "calculator-002__2XwQE7U",
+                  "score": 0.7222,
+                  "passed": false,
+                  "goal_accuracy": 0.0,
+                  "reason": "goal not met (goal accuracy 0.00)",
+                  "warnings": [
+                    "missed expected steps 1, 2 of 3 (behavior 0.33)"
+                  ],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": "wrong_answer"
+                }
+              ],
+              "reason": "goal not met (goal accuracy 0.00)",
+              "warnings": [
+                "missed expected steps 1, 2 of 3 (behavior 0.33)"
+              ],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            }
+          }
+        },
+        "lift": {
+          "with_skill": 1.0,
+          "without_skill": 0.0,
+          "delta": 1.0,
+          "count_derived_delta": 1.0,
+          "passed_cases_delta": 2,
+          "paired_comparison": {
+            "pairing_status": "complete",
+            "paired_cases": 2,
+            "with_skill_unpaired_case_count": 0,
+            "without_skill_unpaired_case_count": 0,
+            "with_skill_unpaired_case_ids": [],
+            "without_skill_unpaired_case_ids": [],
+            "with_skill_unpaired_case_ids_truncated": false,
+            "without_skill_unpaired_case_ids_truncated": false,
+            "with_skill_unidentified_cases": 0,
+            "without_skill_unidentified_cases": 0,
+            "both_pass": 0,
+            "with_skill_only_pass": 2,
+            "without_skill_only_pass": 0,
+            "neither_pass": 0,
+            "discordant_cases": 2,
+            "paired_rate_delta": 1.0,
+            "mcnemar_exact": {
+              "method": "two_sided_exact_binomial",
+              "null_hypothesis": "equal marginal pass probabilities",
+              "p_value": 0.5,
+              "p_value_text": "0.5",
+              "p_value_exact": "1/2",
+              "p_value_exact_omitted": false,
+              "p_value_numeric_underflow": false,
+              "minimum_attainable_p_value": 0.5,
+              "minimum_attainable_p_value_text": "0.5",
+              "minimum_attainable_p_value_exact": "1/2",
+              "minimum_attainable_p_value_exact_omitted": false,
+              "minimum_attainable_p_value_numeric_underflow": false,
+              "resolution_limited_at_alpha_0_05": true
+            }
+          },
+          "basis": "shared_metrics",
+          "excluded_metrics": [
+            "skill_execution",
+            "skill_efficiency"
+          ],
+          "with_skill_passed_cases": 2,
+          "without_skill_passed_cases": 0,
+          "total_cases": 2
+        }
+      },
+      "security_attribution": {
+        "likely_skill_related": 0,
+        "likely_baseline_prompt_or_environment": 0,
+        "skill_may_have_improved_safety": 0,
+        "ambiguous_with_skill_only": 0,
+        "unknown_no_baseline": 0,
+        "cases": {
+          "calculator-001": {
+            "status": "safe",
+            "with_skill_findings": 0,
+            "baseline_findings": 0
+          },
+          "calculator-002": {
+            "status": "safe",
+            "with_skill_findings": 0,
+            "baseline_findings": 0
+          }
+        },
+        "case_details_total": 2,
+        "case_details_shown": 2,
+        "case_details_truncated": false,
+        "case_details_limit": 256
+      },
+      "agent_runtime_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "recovered_trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "failure_detail_metadata": {
+        "with_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "with_skill_trials": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_trials": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        }
+      },
+      "job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "historical_job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "conditions": {
+        "with_skill": {
+          "execution_status": "succeeded",
+          "execution_errors": [],
+          "execution_error_details_total": 0,
+          "execution_error_details_shown": 0,
+          "execution_error_details_truncated": false,
+          "expected_cases": 2,
+          "scored_cases": 2,
+          "expected_attempts": 2,
+          "scored_attempts": 2,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 0,
+          "reward_failure_details_shown": 0,
+          "reward_failure_details_truncated": false
+        },
+        "without_skill": {
+          "execution_status": "succeeded",
+          "execution_errors": [],
+          "execution_error_details_total": 0,
+          "execution_error_details_shown": 0,
+          "execution_error_details_truncated": false,
+          "expected_cases": 2,
+          "scored_cases": 2,
+          "expected_attempts": 2,
+          "scored_attempts": 2,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 0,
+          "reward_failure_details_shown": 0,
+          "reward_failure_details_truncated": false
+        }
+      },
+      "execution_status": "succeeded",
+      "execution_errors": [],
+      "execution_error_details_total": 0,
+      "execution_error_details_shown": 0,
+      "execution_error_details_truncated": false,
+      "expected_attempts": 4,
+      "scored_attempts": 4,
+      "num_trials_with": 2,
+      "num_trials_without": 2,
+      "execution_counts": {
+        "fresh": {
+          "with_skill": 2,
+          "without_skill": 2
+        },
+        "reused": {
+          "without_skill": 0
+        }
+      },
+      "measured_usage": {
+        "fresh": {
+          "with_skill": {
+            "total_prompt_tokens": 39466,
+            "total_completion_tokens": 125,
+            "total_cached_tokens": 32256,
+            "total_cost_usd": null
+          },
+          "without_skill": {
+            "total_prompt_tokens": 14893,
+            "total_completion_tokens": 31,
+            "total_cached_tokens": 14336,
+            "total_cost_usd": null
+          }
+        },
+        "reused": {
+          "without_skill": null
+        }
+      },
+      "output_dir": "/skills/reference/calculator/evals/results/20261117_141000_1_a99cf58f9acc/opencode",
+      "dataset_sufficiency": {
+        "policy": "dataset-sufficiency-v1",
+        "status": "provisional",
+        "coverage_summary": "Dataset size: provisional \u2014 2 cases (policy needs 10), 0 negative cases (needs 1); pass-rate interval \u00b10.33 is wider than \u00b10.20 (policy dataset-sufficiency-v1)",
+        "checks": [
+          {
+            "name": "coverage",
+            "met": false,
+            "observed": {
+              "distinct_cases": 2,
+              "negative_cases": 0
+            },
+            "required": {
+              "distinct_cases": 10,
+              "negative_cases": 1
+            },
+            "reason": "2 distinct cases and 0 negative cases; requires 10 and 1"
+          },
+          {
+            "name": "pass_rate_reliability",
+            "met": false,
+            "observed": {
+              "interval_half_width": 0.3288098862466735
+            },
+            "required": {
+              "interval_half_width": 0.2
+            },
+            "reason": "95% Wilson interval half-width 0.33 exceeds 0.20"
+          },
+          {
+            "name": "lift_comparison",
+            "met": false,
+            "observed": {
+              "paired_cases": 2
+            },
+            "required": {
+              "paired_cases": 10
+            },
+            "reason": "2 paired cases; requires 10"
+          }
+        ],
+        "reason": "provisional: 2 distinct cases and 0 negative cases; requires 10 and 1; 95% Wilson interval half-width 0.33 exceeds 0.20; 2 paired cases; requires 10"
+      }
+    }
+  },
+  "metric_set": "skill-evaluator-default-v2",
+  "metrics": [
+    "security",
+    "skill_execution",
+    "skill_efficiency",
+    "accuracy",
+    "goal_accuracy",
+    "behavior_check"
+  ],
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "attempt_policy": {
+    "max_attempts": 1,
+    "pass_threshold": 0.5,
+    "stop_on_pass": false,
+    "score_definition": "overall = mean(Security, Correctness, Discoverability, Effectiveness, Efficiency) [skill-evaluator-dimension-mean-v1], excluding metrics that are not applicable to a case",
+    "score_policy": "skill-evaluator-dimension-mean-v1"
+  },
+  "baseline_timeout_tolerance": {
+    "tolerated_agents": [],
+    "explained_launch_errors": [],
+    "explained_launch_errors_total": 0,
+    "explained_launch_errors_truncated": false
+  },
+  "execution_status": "succeeded",
+  "execution_errors": [],
+  "execution_error_details_total": 0,
+  "execution_error_details_shown": 0,
+  "execution_error_details_truncated": false,
+  "expected_attempts": 4,
+  "scored_attempts": 4,
+  "baseline": {
+    "mode": "fresh"
+  },
+  "comparison_identity": {
+    "config": {
+      "harbor": {
+        "environment": {
+          "value": "docker",
+          "source": "CLI"
+        },
+        "environment_kwargs": {
+          "keys": [],
+          "sources": {},
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "n_attempts": 1,
+        "stop_on_pass": false,
+        "timeout_multiplier": 3.0,
+        "base_image_mode": "disabled",
+        "resources": {
+          "cpus": null,
+          "memory_mb": null,
+          "storage_mb": null
+        },
+        "agent_workdir": null,
+        "custom_dockerfile_mode": "rebase",
+        "runtime_env": {
+          "keys": [],
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        }
+      },
+      "provider": {
+        "name": "openai-compatible",
+        "model": "qwen3.8-flash"
+      },
+      "judge": {
+        "enabled": true,
+        "provider": "openai-compatible",
+        "model": "qwen3.8-flash",
+        "source": "SKILL_EVAL_LLM_MODEL",
+        "override_applied": false,
+        "reasoning_effort": null,
+        "catalog_verification": "degraded"
+      },
+      "task_source": "evals_json",
+      "grading": {
+        "mode": "default"
+      },
+      "skill_workspace": {
+        "mode": "isolated"
+      },
+      "copy_repo": false,
+      "repo_context_exclude_paths": [],
+      "agents": {
+        "opencode": {
+          "agent": "opencode",
+          "model": "openai/qwen3.8-flash",
+          "source": "CLI"
+        }
+      },
+      "baseline_task_tree_digest": "sha256:e8bc9c3102bd7770a66d27696e304dcda595580a7211e2fea202b819d18b682b"
+    },
+    "dataset_digest": "sha256:2e70e9bc97a971fd673ec59fbd2ac110a899643ebdc2a2d24fc18dd1715f2e0c",
+    "identity_dataset_digest": "sha256:1df6ecbe669b4628d23561424c0589d0c95cd4e9959953c1be2d8e0f8ae361d9",
+    "baseline_task_tree_digest": "sha256:e8bc9c3102bd7770a66d27696e304dcda595580a7211e2fea202b819d18b682b",
+    "expected_case_ids": [
+      "calculator-001",
+      "calculator-002"
+    ],
+    "attempt_policy": {
+      "max_attempts": 1,
+      "pass_threshold": 0.5,
+      "stop_on_pass": false
+    },
+    "score_policy": "skill-evaluator-dimension-mean-v1",
+    "evaluator_version": "0.9.0",
+    "skill": {
+      "evaluated_source": null,
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:cde66766e9ee9de5c7b5d77ea6dccd4b0b106a5a5aa366c909de4c3ab41dc17b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      }
+    }
+  },
+  "expected_case_ids": [
+    "calculator-001",
+    "calculator-002"
+  ],
+  "skill_name": "calculator",
+  "run_id": "20261117_141000_1_a99cf58f9acc",
+  "publication_target": {
+    "skill_name": "calculator",
+    "skill_digest": "sha256:cde66766e9ee9de5c7b5d77ea6dccd4b0b106a5a5aa366c909de4c3ab41dc17b",
+    "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+  },
+  "run_dir": "/skills/reference/calculator/evals/results/20261117_141000_1_a99cf58f9acc",
+  "result_path": "/skills/reference/calculator/evals/results/20261117_141000_1_a99cf58f9acc/result.json",
+  "harbor_jobs_dir": "/skills/reference/calculator/evals/results/20261117_141000_1_a99cf58f9acc/_harbor-jobs",
+  "harbor_jobs_retained": false,
+  "evaluated_at": "2026-11-17T14:21:30.728484+00:00",
+  "evaluator_version": "0.9.0",
+  "dataset_snapshot": {
+    "schema_version": "1.1",
+    "evaluator_version": "0.9.0",
+    "dataset_summary": {
+      "total_tasks": 2,
+      "positive_tasks": 2,
+      "negative_tasks": 0,
+      "unclassified_tasks": 0,
+      "source": "dataset"
+    },
+    "dataset_digest": "sha256:2e70e9bc97a971fd673ec59fbd2ac110a899643ebdc2a2d24fc18dd1715f2e0c",
+    "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1"
+  },
+  "dataset_snapshot_path": "/skills/reference/calculator/evals/results/20261117_141000_1_a99cf58f9acc/dataset_snapshot.json",
+  "dataset_summary": {
+    "total_tasks": 2,
+    "positive_tasks": 2,
+    "negative_tasks": 0,
+    "unclassified_tasks": 0,
+    "source": "dataset"
+  },
+  "dataset_digest": "sha256:2e70e9bc97a971fd673ec59fbd2ac110a899643ebdc2a2d24fc18dd1715f2e0c",
+  "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1",
+  "identity_dataset_digest": "sha256:1df6ecbe669b4628d23561424c0589d0c95cd4e9959953c1be2d8e0f8ae361d9",
+  "baseline_task_tree_digest": "sha256:e8bc9c3102bd7770a66d27696e304dcda595580a7211e2fea202b819d18b682b",
+  "budget": {
+    "limits": {
+      "max_agent_tokens": null,
+      "max_judge_calls": null,
+      "max_attempts_total": null,
+      "max_cost_usd": null
+    },
+    "planned_attempts": 4,
+    "started_attempts": 0,
+    "finished_attempts": 0,
+    "unmeasured_attempts": {
+      "agent_tokens": 0,
+      "judge_calls": 0,
+      "cost_usd": 0
+    },
+    "used": {
+      "agent_tokens": "not measured",
+      "judge_calls": "not measured",
+      "cost_usd": "not measured"
+    },
+    "status": "ok",
+    "partial": false,
+    "exhausted_limit": null,
+    "exhausted_basis": null,
+    "attempts_not_run": 0,
+    "not_run": [],
+    "charge_coverage": {
+      "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+      "attempts_by_derivation": {
+        "price_file": 0,
+        "provider_reported": 0,
+        "unmeasured": 0
+      },
+      "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+      "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+      "environment_setup": "not included",
+      "container": "not included",
+      "backend": "not included",
+      "infrastructure": "not included"
+    },
+    "reservation": {
+      "policy": "largest_measured_attempt",
+      "estimate_per_attempt": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "in_flight_attempts": 0,
+      "waits": 0,
+      "unestimated_admissions": 0,
+      "calibration_waits": 0,
+      "estimate_denials": 0,
+      "denied_unit_size": 0
+    },
+    "observed_overruns": {}
+  },
+  "dataset_provenance": null,
+  "run_config": {
+    "config_file": "none",
+    "harbor": {
+      "environment": {
+        "value": "docker",
+        "source": "CLI"
+      },
+      "environment_kwargs": {
+        "keys": [],
+        "sources": {},
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "n_attempts": 1,
+      "stop_on_pass": false,
+      "n_concurrent": 2,
+      "timeout_multiplier": 3.0,
+      "base_image_mode": "disabled",
+      "resources": {
+        "cpus": null,
+        "memory_mb": null,
+        "storage_mb": null
+      },
+      "agent_workdir": null,
+      "custom_dockerfile_mode": "rebase",
+      "runtime_env": {
+        "keys": [],
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "jobs_retained": false,
+      "tolerate_baseline_timeouts": true
+    },
+    "provider": {
+      "name": "openai-compatible",
+      "model": "qwen3.8-flash"
+    },
+    "judge": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "qwen3.8-flash",
+      "source": "SKILL_EVAL_LLM_MODEL",
+      "override_applied": false,
+      "reasoning_effort": null,
+      "catalog_verification": "degraded"
+    },
+    "credential_validation": {
+      "status": "degraded",
+      "targets": [
+        {
+          "labels": [
+            "opencode",
+            "standard grader"
+          ],
+          "provider": "openai-compatible",
+          "model": "qwen3.8-flash",
+          "status": "degraded",
+          "detail": "model catalog access does not verify runtime credentials for this endpoint"
+        }
+      ]
+    },
+    "task_source": "evals_json",
+    "grading": {
+      "mode": "default"
+    },
+    "skill_workspace": {
+      "mode": "isolated"
+    },
+    "copy_repo": false,
+    "repo_context_exclude_paths": [],
+    "agents": {
+      "opencode": {
+        "agent": "opencode",
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      }
+    },
+    "evaluated_source": null,
+    "baseline_task_tree_digest": "sha256:e8bc9c3102bd7770a66d27696e304dcda595580a7211e2fea202b819d18b682b",
+    "baseline": {
+      "mode": "fresh"
+    },
+    "budget": {
+      "limits": {
+        "max_agent_tokens": null,
+        "max_judge_calls": null,
+        "max_attempts_total": null,
+        "max_cost_usd": null
+      },
+      "planned_attempts": 4,
+      "started_attempts": 0,
+      "finished_attempts": 0,
+      "unmeasured_attempts": {
+        "agent_tokens": 0,
+        "judge_calls": 0,
+        "cost_usd": 0
+      },
+      "used": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "status": "ok",
+      "partial": false,
+      "exhausted_limit": null,
+      "exhausted_basis": null,
+      "attempts_not_run": 0,
+      "not_run": [],
+      "charge_coverage": {
+        "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+        "attempts_by_derivation": {
+          "price_file": 0,
+          "provider_reported": 0,
+          "unmeasured": 0
+        },
+        "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+        "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+        "environment_setup": "not included",
+        "container": "not included",
+        "backend": "not included",
+        "infrastructure": "not included"
+      },
+      "reservation": {
+        "policy": "largest_measured_attempt",
+        "estimate_per_attempt": {
+          "agent_tokens": "not measured",
+          "judge_calls": "not measured",
+          "cost_usd": "not measured"
+        },
+        "in_flight_attempts": 0,
+        "waits": 0,
+        "unestimated_admissions": 0,
+        "calibration_waits": 0,
+        "estimate_denials": 0,
+        "denied_unit_size": 0
+      },
+      "observed_overruns": {}
+    }
+  },
+  "partial": false,
+  "dataset_sufficiency": {
+    "policy": "dataset-sufficiency-v1",
+    "status": "provisional",
+    "coverage_summary": "Dataset size: provisional \u2014 2 cases (policy needs 10), 0 negative cases (needs 1); pass-rate interval \u00b10.33 is wider than \u00b10.20 (policy dataset-sufficiency-v1)",
+    "checks": [
+      {
+        "name": "coverage",
+        "met": false,
+        "observed": {
+          "distinct_cases": 2,
+          "negative_cases": 0
+        },
+        "required": {
+          "distinct_cases": 10,
+          "negative_cases": 1
+        },
+        "reason": "2 distinct cases and 0 negative cases; requires 10 and 1"
+      },
+      {
+        "name": "pass_rate_reliability",
+        "met": false,
+        "observed": {
+          "interval_half_width": 0.3288098862466735
+        },
+        "required": {
+          "interval_half_width": 0.2
+        },
+        "reason": "95% Wilson interval half-width 0.33 exceeds 0.20"
+      },
+      {
+        "name": "lift_comparison",
+        "met": false,
+        "observed": {
+          "paired_cases": 2
+        },
+        "required": {
+          "paired_cases": 10
+        },
+        "reason": "2 paired cases; requires 10"
+      }
+    ],
+    "reason": "provisional: 2 distinct cases and 0 negative cases; requires 10 and 1; 95% Wilson interval half-width 0.33 exceeds 0.20; 2 paired cases; requires 10"
+  },
+  "harbor_jobs_retention_reason": "not_retained",
+  "tier3_feedback": {
+    "schema_version": "1.0",
+    "conclusions": [
+      {
+        "severity": "pass",
+        "title": "Skill effect",
+        "message": "per-case result: skill helps (opencode +100 pp).",
+        "source": "deterministic"
+      },
+      {
+        "severity": "pass",
+        "title": "Best performing agent",
+        "message": "opencode leads with overall score 0.98 and lift +0.32."
+      },
+      {
+        "severity": "warn",
+        "title": "Weakest dimension",
+        "message": "Effectiveness is lowest at 0.92. Scored 0.92 \u2014 PASS, at or above the 0.50 pass threshold. +0.75 lift over baseline 0.17. Strongest signal: goal_accuracy 1.00. Lift compares only the cases both arms scored on the same metrics."
+      },
+      {
+        "claim_type": "general",
+        "title": "Basic arithmetic is fully aligned",
+        "message": "calculator-001 scores 1.00 overall and reports behavior_check 1.00, so the precedence ground truth is satisfied cleanly.",
+        "severity": "pass",
+        "source": "llm",
+        "model": "qwen3.8-flash",
+        "evidence_case_ids": [
+          "calculator-001"
+        ]
+      },
+      {
+        "claim_type": "general",
+        "title": "Conversion case has behavior ambiguity",
+        "message": "calculator-002 remains correct with accuracy 1.00 and goal_accuracy 1.00, but behavior_check is only 0.6667, suggesting the expected reporting wording may be underspecified.",
+        "severity": "warn",
+        "source": "llm",
+        "model": "qwen3.8-flash",
+        "evidence_case_ids": [
+          "calculator-002"
+        ]
+      },
+      {
+        "claim_type": "general",
+        "title": "The skill closes a capability gap",
+        "message": "On calculator-001 and calculator-002, goal_accuracy improves from baseline 0.00 to with-skill 1.00, showing the calculator is filling a missing task capability rather than only polishing security or efficiency.",
+        "severity": "pass",
+        "source": "llm",
+        "model": "qwen3.8-flash",
+        "evidence_case_ids": [
+          "calculator-001",
+          "calculator-002"
+        ]
+      },
+      {
+        "claim_type": "general",
+        "title": "Security lift is intentionally neutral",
+        "message": "calculator-001 and calculator-002 have security 1.00 with 0.00 lift, meaning the skill preserves the safe baseline without creating additional security gain.",
+        "severity": "pass",
+        "source": "llm",
+        "model": "qwen3.8-flash",
+        "evidence_case_ids": [
+          "calculator-001",
+          "calculator-002"
+        ]
+      },
+      {
+        "claim_type": "general",
+        "title": "Efficiency is not independently timed",
+        "message": "calculator-001 and calculator-002 have skill_efficiency 1.00 while runtime_seconds is 0.0, so the efficiency score is rubric-based and should not be read as measured latency.",
+        "severity": "warn",
+        "source": "llm",
+        "model": "qwen3.8-flash",
+        "evidence_case_ids": [
+          "calculator-001",
+          "calculator-002"
+        ]
+      }
+    ],
+    "recommendations": [],
+    "suggestions": [],
+    "suggestions_v2": []
+  },
+  "token_usage": {
+    "schema_version": "1",
+    "scored": false,
+    "accounting": {
+      "prompt_includes_cached": true,
+      "total_tokens": "prompt_tokens + completion_tokens",
+      "uncached_prompt_tokens": "prompt_tokens - cached_tokens",
+      "change": "with_skill - baseline total_tokens; percent of the baseline total"
+    },
+    "case_id_validation": {
+      "status": "validated",
+      "dataset_case_ids": 2,
+      "unmatched_case_ids": []
+    },
+    "agents": {
+      "opencode": {
+        "with_skill": {
+          "totals": {
+            "prompt_tokens": 39466,
+            "cached_tokens": 32256,
+            "uncached_prompt_tokens": 7210,
+            "completion_tokens": 125,
+            "total_tokens": 39591
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 2,
+            "observed_attempts": 2,
+            "measured_attempts": 2,
+            "unscored_attempts": 0,
+            "reason_codes": []
+          }
+        },
+        "baseline": {
+          "totals": {
+            "prompt_tokens": 14893,
+            "cached_tokens": 14336,
+            "uncached_prompt_tokens": 557,
+            "completion_tokens": 31,
+            "total_tokens": 14924
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 2,
+            "observed_attempts": 2,
+            "measured_attempts": 2,
+            "unscored_attempts": 0,
+            "reason_codes": []
+          }
+        },
+        "delta": {
+          "status": "available",
+          "total_tokens": 24667,
+          "total_tokens_change_percent": 165.28,
+          "reason_codes": [],
+          "reason": null
+        }
+      }
+    },
+    "dataset": {
+      "with_skill": {
+        "totals": {
+          "prompt_tokens": 39466,
+          "cached_tokens": 32256,
+          "uncached_prompt_tokens": 7210,
+          "completion_tokens": 125,
+          "total_tokens": 39591
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 2,
+          "observed_attempts": 2,
+          "measured_attempts": 2,
+          "unscored_attempts": 0,
+          "reason_codes": []
+        }
+      },
+      "baseline": {
+        "totals": {
+          "prompt_tokens": 14893,
+          "cached_tokens": 14336,
+          "uncached_prompt_tokens": 557,
+          "completion_tokens": 31,
+          "total_tokens": 14924
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 2,
+          "observed_attempts": 2,
+          "measured_attempts": 2,
+          "unscored_attempts": 0,
+          "reason_codes": []
+        }
+      },
+      "delta": {
+        "status": "available",
+        "total_tokens": 24667,
+        "total_tokens_change_percent": 165.28,
+        "reason_codes": [],
+        "reason": null
+      }
+    }
+  },
+  "report_path": "/skills/reference/calculator/evals/results/20261117_141000_1_a99cf58f9acc/report.html",
+  "benchmark_path": "/skills/reference/calculator/evals/results/20261117_141000_1_a99cf58f9acc/tier3-benchmark.md",
+  "report_status": "complete",
+  "duration_seconds": 764.034,
+  "result_projection": {
+    "schema_version": "1.0",
+    "mode": "inline",
+    "returned_result": "full",
+    "persisted_result": "inline",
+    "agents": {},
+    "omitted_detail_fields": {},
+    "omitted_root_detail_fields": []
+  }
+}

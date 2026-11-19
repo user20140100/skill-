@@ -1,0 +1,27 @@
+{
+  "name": "apifox-api-artifact",
+  "author": "wangxiaoli15274",
+  "version": "0.0.1",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T21:01:07+08:00",
+  "updatedAt": "2026-11-17T21:01:07+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code",
+    "codex"
+  ],
+  "paths": [
+    "/tmp/cskills_inspect/.agents/skills/apifox-api-artifact"
+  ],
+  "canonicalPath": "/tmp/cskills_inspect/.agents/skills/apifox-api-artifact",
+  "linkedPaths": [
+    "/tmp/cskills_inspect/.claude/skills/apifox-api-artifact",
+    "/tmp/cskills_inspect/.codex/skills/apifox-api-artifact"
+  ],
+  "fileHashes": {
+    "SKILL.md": "0709e957d6ad7bc3ef2a99565e8ec046bf63854b8e725e4fd9d2cffec90c7657",
+    "references/apifox-mcp.md": "73fdd20d70640773ad7602dcf5a4cd66de46b7a54f908d62898d2851373d2d80",
+    "references/apifox-openapi-resolver.md": "6b170a6af977ef40eac054ed8b28fac438324cb4035809d471fd7fddb92676c7",
+    "scripts/resolve-apifox-api.mjs": "dd4229d01543bfd82651e19a6db9a904d3100a831f722b2a5bf6f1f9b8da5019"
+  }
+}

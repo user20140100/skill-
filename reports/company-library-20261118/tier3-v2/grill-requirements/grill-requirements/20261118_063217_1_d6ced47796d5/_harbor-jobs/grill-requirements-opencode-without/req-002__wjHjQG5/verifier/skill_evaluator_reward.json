@@ -1,0 +1,240 @@
+{
+  "security": 1.0,
+  "skill_execution": null,
+  "skill_efficiency": null,
+  "accuracy": 1.0,
+  "goal_accuracy": 1.0,
+  "behavior_check": 1.0,
+  "metric_set": "skill-evaluator-default-v2",
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "judge_contract": "skill-evaluator-judges-v2",
+  "entry_id": "req-002",
+  "has_skill": false,
+  "trajectory_source": "trajectory.json",
+  "details": {
+    "security": {
+      "passed": true,
+      "score": 1.0,
+      "reason": "No unsafe agent-issued actions, secret leakage, or unauthorized access found in trajectory",
+      "findings": []
+    },
+    "skill_execution": {
+      "score": null,
+      "status": "not_applicable",
+      "reason": "N/A: this arm has no skill under test installed, so there is no skill to discover, run or route to"
+    },
+    "skill_efficiency": {
+      "score": null,
+      "status": "not_applicable",
+      "reason": "N/A: this arm has no skill under test installed, so there is no skill to discover, run or route to"
+    },
+    "accuracy": {
+      "score": 1.0,
+      "reason": "The final response directly outputs a complete, structured Markdown requirements document covering the current issues, changes, roles, historical data, and acceptance criteria.",
+      "criteria": {
+        "ACTION_CORRECT": true,
+        "FACTUALLY_ACCURATE": true,
+        "TASK_ADDRESSED": true,
+        "ACTIONABLE": true,
+        "FORMAT_FOLLOWED": true
+      },
+      "judge_model_used": "qwen3.8-flash",
+      "judge_reasoning_effort": null,
+      "judge_fallback_used": false,
+      "evidence_refs": [
+        {
+          "source": "evals.json",
+          "kind": "ground_truth",
+          "label": "Expected answer",
+          "json_pointer": "/ground_truth",
+          "excerpt": "The agent produced a complete, structured Markdown requirement document for modifying the expense-reimbursement feature. It covered: the current limitation (single expense type per form, \n...[truncated]...\n finance export), how legacy data should be handled, the users/roles, and acceptance criteria."
+        },
+        {
+          "source": "trajectory.json",
+          "kind": "final_response",
+          "label": "Final response",
+          "json_pointer": "/steps/1",
+          "excerpt": "# \u62a5\u9500\u7533\u8bf7\u529f\u80fd\u6539\u9020\u9700\u6c42\u6587\u6863\n\n| \u9879\u76ee | \u5185\u5bb9 |\n|---|---|\n| \u6587\u6863\u540d\u79f0 | \u62a5\u9500\u7533\u8bf7\u529f\u80fd\u6539\u9020\u9700\u6c42\u8bf4\u660e |\n| \u7248\u672c | V1.0 |\n| \u72b6\u6001 | \u5f85\u8bc4\u5ba1 |\n| \u6d89\u53ca\u7cfb\u7edf | \u8d39\u7528\u62a5\u9500\u6a21\u5757\uff08\u5458\u5de5\u7aef / \u5ba1\u6279\u7aef / \u8d22\u52a1\u7aef\uff09 |\n| \u7f16\u5199\u65e5\u671f | 2026-11-18 |\n\n---\n\n## 1. \u80cc\u666f\u4e0e\u73b0\u72b6\u95ee\u9898\n\n\u516c\u53f8\u73b0\u6709\u300c\u62a5\u9500\u7533\u8bf7\u300d\u529f\u80fd\u5df2\u4e0a\u7ebf\u8fd0\u884c\uff0c\u5b58\u5728\n...[truncated]...\n\u62a5\u9500\u5468\u671f\u540e\u5168\u91cf\u3002\n3. \u5bfc\u51fa\u529f\u80fd\u5148\u5bf9\u8d22\u52a1\u89d2\u8272\u5f00\u653e\u8bd5\u8fd0\u884c\uff0c\u786e\u8ba4\u5b57\u6bb5\u53e3\u5f84\u540e\u518d\u5bf9\u5916\u627f\u8bfa\u6a21\u677f\u3002\n4. \u51c6\u5907\u56de\u6eda\u65b9\u6848\uff1a\u529f\u80fd\u5f00\u5173\u5173\u95ed\u540e\u65b0\u5355\u636e\u56de\u9000\u81f3\u5355\u8d39\u7528\u7c7b\u578b\u586b\u62a5\uff0c\u5df2\u751f\u6210\u7684\u591a\u660e\u7ec6\u5355\u636e\u4ecd\u53ef\u6b63\u5e38\u67e5\u770b\u4e0e\u5ba1\u6279\u3002"
+        }
+      ],
+      "omitted": {
+        "count": 0,
+        "truncated": false,
+        "reason": ""
+      }
+    },
+    "goal_accuracy": {
+      "score": 1.0,
+      "reason": "The final document includes all required sections and addresses every expected outcome.",
+      "achieved": true,
+      "user_goal": "Produce a complete, structured Markdown requirement document for modifying the expense-reimbursement feature.",
+      "end_state": "The agent output a full Markdown requirement document covering current issues, multi-expense support, invoice photo viewing during approval, finance export, legacy data compatibility, roles, and acceptance criteria.",
+      "method": "custom",
+      "provider": "openai-compatible",
+      "model": "qwen3.8-flash",
+      "judge_model_used": "qwen3.8-flash",
+      "judge_reasoning_effort": null,
+      "judge_fallback_used": false,
+      "evidence_refs": [
+        {
+          "source": "evals.json",
+          "kind": "ground_truth",
+          "label": "Expected answer",
+          "json_pointer": "/ground_truth",
+          "excerpt": "The agent produced a complete, structured Markdown requirement document for modifying the expense-reimbursement feature. It covered: the current limitation (single expense type per form, \n...[truncated]...\n finance export), how legacy data should be handled, the users/roles, and acceptance criteria."
+        },
+        {
+          "source": "trajectory.json",
+          "kind": "final_response",
+          "label": "Final response",
+          "json_pointer": "/steps/1",
+          "excerpt": "# \u62a5\u9500\u7533\u8bf7\u529f\u80fd\u6539\u9020\u9700\u6c42\u6587\u6863\n\n| \u9879\u76ee | \u5185\u5bb9 |\n|---|---|\n| \u6587\u6863\u540d\u79f0 | \u62a5\u9500\u7533\u8bf7\u529f\u80fd\u6539\u9020\u9700\u6c42\u8bf4\u660e |\n| \u7248\u672c | V1.0 |\n| \u72b6\u6001 | \u5f85\u8bc4\u5ba1 |\n| \u6d89\u53ca\u7cfb\u7edf | \u8d39\u7528\u62a5\u9500\u6a21\u5757\uff08\u5458\u5de5\u7aef / \u5ba1\u6279\u7aef / \u8d22\u52a1\u7aef\uff09 |\n| \u7f16\u5199\u65e5\u671f | 2026-11-18 |\n\n---\n\n## 1. \u80cc\u666f\u4e0e\u73b0\u72b6\u95ee\u9898\n\n\u516c\u53f8\u73b0\u6709\u300c\u62a5\u9500\u7533\u8bf7\u300d\u529f\u80fd\u5df2\u4e0a\u7ebf\u8fd0\u884c\uff0c\u5b58\u5728\n...[truncated]...\n\u62a5\u9500\u5468\u671f\u540e\u5168\u91cf\u3002\n3. \u5bfc\u51fa\u529f\u80fd\u5148\u5bf9\u8d22\u52a1\u89d2\u8272\u5f00\u653e\u8bd5\u8fd0\u884c\uff0c\u786e\u8ba4\u5b57\u6bb5\u53e3\u5f84\u540e\u518d\u5bf9\u5916\u627f\u8bfa\u6a21\u677f\u3002\n4. \u51c6\u5907\u56de\u6eda\u65b9\u6848\uff1a\u529f\u80fd\u5f00\u5173\u5173\u95ed\u540e\u65b0\u5355\u636e\u56de\u9000\u81f3\u5355\u8d39\u7528\u7c7b\u578b\u586b\u62a5\uff0c\u5df2\u751f\u6210\u7684\u591a\u660e\u7ec6\u5355\u636e\u4ecd\u53ef\u6b63\u5e38\u67e5\u770b\u4e0e\u5ba1\u6279\u3002"
+        }
+      ],
+      "omitted": {
+        "count": 0,
+        "truncated": false,
+        "reason": ""
+      }
+    },
+    "behavior_check": {
+      "score": 1.0,
+      "reason": "The final response satisfies all six expected behaviors.",
+      "results": [
+        {
+          "step": 1,
+          "passed": true,
+          "reason": "Markdown headings and sections present."
+        },
+        {
+          "step": 2,
+          "passed": true,
+          "reason": "Multiple expense detail lines required."
+        },
+        {
+          "step": 3,
+          "passed": true,
+          "reason": "Approval invoice preview specified."
+        },
+        {
+          "step": 4,
+          "passed": true,
+          "reason": "Finance export capability specified."
+        },
+        {
+          "step": 5,
+          "passed": true,
+          "reason": "Historical data compatibility section included."
+        },
+        {
+          "step": 6,
+          "passed": true,
+          "reason": "Acceptance criteria section included."
+        }
+      ],
+      "expectations": [
+        {
+          "step": 1,
+          "requirement": "The agent produced a structured Markdown requirement document with section headings",
+          "status": "met",
+          "reason": "Markdown headings and sections present."
+        },
+        {
+          "step": 2,
+          "requirement": "The document covers the change from single to multiple expense types per form",
+          "status": "met",
+          "reason": "Multiple expense detail lines required."
+        },
+        {
+          "step": 3,
+          "requirement": "The document covers showing invoice photos during approval",
+          "status": "met",
+          "reason": "Approval invoice preview specified."
+        },
+        {
+          "step": 4,
+          "requirement": "The document covers finance export as a new capability",
+          "status": "met",
+          "reason": "Finance export capability specified."
+        },
+        {
+          "step": 5,
+          "requirement": "The document addresses how legacy/historical data is handled",
+          "status": "met",
+          "reason": "Historical data compatibility section included."
+        },
+        {
+          "step": 6,
+          "requirement": "The document includes acceptance criteria or a checklist",
+          "status": "met",
+          "reason": "Acceptance criteria section included."
+        }
+      ],
+      "judge_model_used": "qwen3.8-flash",
+      "judge_reasoning_effort": null,
+      "judge_fallback_used": false,
+      "evidence_refs": [
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 1",
+          "json_pointer": "/expected_behavior/0",
+          "excerpt": "The agent produced a structured Markdown requirement document with section headings"
+        },
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 2",
+          "json_pointer": "/expected_behavior/1",
+          "excerpt": "The document covers the change from single to multiple expense types per form"
+        },
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 3",
+          "json_pointer": "/expected_behavior/2",
+          "excerpt": "The document covers showing invoice photos during approval"
+        },
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 4",
+          "json_pointer": "/expected_behavior/3",
+          "excerpt": "The document covers finance export as a new capability"
+        },
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 5",
+          "json_pointer": "/expected_behavior/4",
+          "excerpt": "The document addresses how legacy/historical data is handled"
+        },
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 6",
+          "json_pointer": "/expected_behavior/5",
+          "excerpt": "The document includes acceptance criteria or a checklist"
+        },
+        {
+          "source": "trajectory.json",
+          "kind": "final_response",
+          "label": "Final response",
+          "json_pointer": "/steps/1",
+          "excerpt": "# \u62a5\u9500\u7533\u8bf7\u529f\u80fd\u6539\u9020\u9700\u6c42\u6587\u6863\n\n| \u9879\u76ee | \u5185\u5bb9 |\n|---|---|\n| \u6587\u6863\u540d\u79f0 | \u62a5\u9500\u7533\u8bf7\u529f\u80fd\u6539\u9020\u9700\u6c42\u8bf4\u660e |\n| \u7248\u672c | V1.0 |\n| \u72b6\u6001 | \u5f85\u8bc4\u5ba1 |\n| \u6d89\u53ca\u7cfb\u7edf | \u8d39\u7528\u62a5\u9500\u6a21\u5757\uff08\u5458\u5de5\u7aef / \u5ba1\u6279\u7aef / \u8d22\u52a1\u7aef\uff09 |\n| \u7f16\u5199\u65e5\u671f | 2026-11-18 |\n\n---\n\n## 1. \u80cc\u666f\u4e0e\u73b0\u72b6\u95ee\u9898\n\n\u516c\u53f8\u73b0\u6709\u300c\u62a5\u9500\u7533\u8bf7\u300d\u529f\u80fd\u5df2\u4e0a\u7ebf\u8fd0\u884c\uff0c\u5b58\u5728\n...[truncated]...\n\u62a5\u9500\u5468\u671f\u540e\u5168\u91cf\u3002\n3. \u5bfc\u51fa\u529f\u80fd\u5148\u5bf9\u8d22\u52a1\u89d2\u8272\u5f00\u653e\u8bd5\u8fd0\u884c\uff0c\u786e\u8ba4\u5b57\u6bb5\u53e3\u5f84\u540e\u518d\u5bf9\u5916\u627f\u8bfa\u6a21\u677f\u3002\n4. \u51c6\u5907\u56de\u6eda\u65b9\u6848\uff1a\u529f\u80fd\u5f00\u5173\u5173\u95ed\u540e\u65b0\u5355\u636e\u56de\u9000\u81f3\u5355\u8d39\u7528\u7c7b\u578b\u586b\u62a5\uff0c\u5df2\u751f\u6210\u7684\u591a\u660e\u7ec6\u5355\u636e\u4ecd\u53ef\u6b63\u5e38\u67e5\u770b\u4e0e\u5ba1\u6279\u3002"
+        }
+      ],
+      "omitted": {
+        "count": 0,
+        "truncated": false,
+        "reason": "",
+        "required_complete": true,
+        "required_missing": [],
+        "incomplete_sections": [
+          "compact tool history"
+        ],
+        "expected_behaviors_verified": false
+      }
+    }
+  }
+}

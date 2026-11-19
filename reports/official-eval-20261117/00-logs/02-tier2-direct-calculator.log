@@ -1,0 +1,29 @@
+INFO     Collecting files from calculator...                                    
+INFO     Collected 2 file(s)                                                    
+INFO     Chunking 2 file(s)...                                                  
+INFO     Extracted 8 chunk(s)                                                   
+INFO     Embedding 8 chunk(s) via the configured public provider...             
+INFO     Embedding complete                                                     
+INFO     Clustering 8 chunks (threshold: 0.80)...                               
+INFO     Found 0 cluster(s)                                                     
+         SkillEvaluator Validation Results          
+┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Validator             ┃ Status ┃ Details         ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Context Deduplication │  PASS  │ 3 checks passed │
+│ Similarity Check      │  PASS  │ 3 checks passed │
+└───────────────────────┴────────┴─────────────────┘
+
+
+[PASS] Passed required checks
+Tier 2: 2 of 2 checks passed; 0 failed, 0 incomplete, 0 skipped, 0 N/A
+Publication eligibility: Incomplete
+
+json report: 
+/app/reports/official-eval-20261117/02-tier2/calculator/skillevaluator-tier2.jso
+n
+html report: 
+/app/reports/official-eval-20261117/02-tier2/calculator/skillevaluator-tier2.htm
+l
+markdown report: 
+/app/reports/official-eval-20261117/02-tier2/calculator/skillevaluator-tier2.md

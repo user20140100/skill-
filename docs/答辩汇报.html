@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent 技能全链路安全审计与效果评估系统 — 课题答辩</title>
+<style>
+  :root{
+    --bg:#0f1420; --card:#1a2233; --card2:#1f2939; --line:#2c3a52;
+    --txt:#e8edf5; --muted:#9aa7bd; --dim:#6b7890;
+    --blue:#4f8cff; --blue-bg:rgba(79,140,255,.12); --blue-line:rgba(79,140,255,.4);
+    --orange:#ffa94d; --orange-bg:rgba(255,169,77,.12); --orange-line:rgba(255,169,77,.45);
+    --green:#4fd18b; --green-bg:rgba(79,209,139,.12); --green-line:rgba(79,209,139,.4);
+    --red:#ff6b6b; --red-bg:rgba(255,107,107,.12); --red-line:rgba(255,107,107,.45);
+    --purple:#b58cff; --purple-bg:rgba(181,140,255,.12); --purple-line:rgba(181,140,255,.45);
+    --teal:#3fd4c9; --teal-bg:rgba(63,212,201,.12); --teal-line:rgba(63,212,201,.4);
+    --yellow:#ffd166; --yellow-bg:rgba(255,209,102,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(1200px 700px at 75% -10%,#1b2740 0%,var(--bg) 55%);
+    color:var(--txt); overflow:hidden; -webkit-font-smoothing:antialiased;
+  }
+  #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--purple),var(--green));width:0;z-index:99;transition:width .3s ease}
+  .stage{position:relative;height:100vh;width:100vw}
+  .slide{position:absolute;inset:0;padding:64px 72px 72px;display:none;flex-direction:column;overflow:hidden}
+  .slide.active{display:flex}
+  .slide-body{flex:1;overflow-y:auto;padding-right:6px;scrollbar-width:thin}
+  .slide-body::-webkit-scrollbar{width:6px}
+  .slide-body::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+
+  .kicker{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:10px}
+  h1{font-size:46px;line-height:1.15;font-weight:800;letter-spacing:.5px}
+  h2{font-size:30px;font-weight:800;margin-bottom:4px}
+  h3{font-size:19px;font-weight:700;margin:18px 0 8px;color:#fff}
+  .subtitle{color:var(--muted);font-size:16px;margin-top:10px}
+  p{font-size:15px;line-height:1.65;color:#c8d2e2}
+  .accent{color:var(--blue);font-weight:700}
+  .accent-orange{color:var(--orange);font-weight:700}
+  .accent-green{color:var(--green);font-weight:700}
+  .accent-red{color:var(--red);font-weight:700}
+  .accent-purple{color:var(--purple);font-weight:700}
+  .small{font-size:12.5px;color:var(--dim)}
+  .mono{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+  .lead{font-size:16.5px;color:#dfe7f3;line-height:1.75}
+
+  .head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;flex:0 0 auto}
+  .head .no{font-size:13px;color:var(--dim);font-weight:700;letter-spacing:2px}
+
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:1fr 1fr 1fr}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .card h4{font-size:15.5px;margin-bottom:8px;font-weight:700}
+  .card p{font-size:13.5px;color:var(--muted);line-height:1.6}
+  .card .big{font-size:30px;font-weight:800;line-height:1;margin:6px 0 4px}
+  .card.tint-blue{border-left:3px solid var(--blue);background:linear-gradient(180deg,var(--blue-bg),transparent 60%),var(--card)}
+  .card.tint-orange{border-left:3px solid var(--orange);background:linear-gradient(180deg,var(--orange-bg),transparent 60%),var(--card)}
+  .card.tint-green{border-left:3px solid var(--green);background:linear-gradient(180deg,var(--green-bg),transparent 60%),var(--card)}
+  .card.tint-red{border-left:3px solid var(--red);background:linear-gradient(180deg,var(--red-bg),transparent 60%),var(--card)}
+  .card.tint-purple{border-left:3px solid var(--purple);background:linear-gradient(180deg,var(--purple-bg),transparent 60%),var(--card)}
+  .card.tint-teal{border-left:3px solid var(--teal);background:linear-gradient(180deg,var(--teal-bg),transparent 60%),var(--card)}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0 4px}
+  th{background:var(--card2);color:#fff;font-weight:700;text-align:left;padding:10px 12px;border:1px solid var(--line);white-space:nowrap}
+  td{padding:9px 12px;border:1px solid var(--line);color:#c8d2e2;line-height:1.5;vertical-align:top}
+  tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+  td .num,th .num{font-variant-numeric:tabular-nums}
+  .hl-red{color:var(--red);font-weight:700}
+  .hl-green{color:var(--green);font-weight:700}
+  .hl-blue{color:var(--blue);font-weight:700}
+  .hl-orange{color:var(--orange);font-weight:700}
+  .center{text-align:center}
+  .win{display:inline-block;background:var(--green-bg);color:var(--green);border:1px solid var(--green-line);border-radius:6px;padding:1px 7px;font-size:12px;font-weight:700}
+
+  .flow{display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .flow-h{display:flex;flex-direction:row;align-items:stretch;gap:0}
+  .node{border-radius:12px;padding:13px 16px;border:1.5px solid;position:relative;text-align:center}
+  .node .t{font-weight:800;font-size:14.5px;line-height:1.3}
+  .node .d{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
+  .node.blue{background:var(--blue-bg);border-color:var(--blue-line)}
+  .node.orange{background:var(--orange-bg);border-color:var(--orange-line)}
+  .node.green{background:var(--green-bg);border-color:var(--green-line)}
+  .node.red{background:var(--red-bg);border-color:var(--red-line)}
+  .node.purple{background:var(--purple-bg);border-color:var(--purple-line)}
+  .node.gray{background:rgba(255,255,255,.04);border-color:var(--line)}
+  .node.teal{background:var(--teal-bg);border-color:var(--teal-line)}
+  .arr{text-align:center;color:var(--dim);font-size:16px;line-height:1;padding:2px 0}
+  .arr-h{align-self:center;color:var(--dim);font-size:16px;padding:0 6px;flex:0 0 auto}
+
+  .tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;margin:2px 3px 2px 0}
+  .tag.blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-line)}
+  .tag.orange{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-line)}
+  .tag.green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-line)}
+  .tag.red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-line)}
+  .tag.purple{background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-line)}
+  .tag.gray{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--line)}
+
+  .callout{border-radius:12px;padding:16px 20px;margin:14px 0;border:1px solid;font-size:14.5px;line-height:1.7}
+  .callout.blue{background:var(--blue-bg);border-color:var(--blue-line)}
+  .callout.green{background:var(--green-bg);border-color:var(--green-line)}
+  .callout.orange{background:var(--orange-bg);border-color:var(--orange-line)}
+  .callout.red{background:var(--red-bg);border-color:var(--red-line)}
+  .callout.purple{background:var(--purple-bg);border-color:var(--purple-line)}
+  .callout .lbl{font-weight:800;display:block;margin-bottom:4px;font-size:13px;letter-spacing:1px}
+
+  ul.clean{list-style:none}
+  ul.clean li{padding:7px 0 7px 22px;position:relative;font-size:14.5px;color:#c8d2e2;line-height:1.6}
+  ul.clean li::before{content:"";position:absolute;left:2px;top:14px;width:8px;height:8px;border-radius:2px;background:var(--blue);transform:rotate(45deg)}
+  ul.clean li.orange::before{background:var(--orange)}
+  ul.clean li.green::before{background:var(--green)}
+  ul.clean li.red::before{background:var(--red)}
+  ul.clean li.purple::before{background:var(--purple)}
+  ul.clean li b{color:#fff}
+
+  .nav{position:fixed;bottom:22px;right:26px;display:flex;align-items:center;gap:14px;z-index:100}
+  .nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--txt);font-size:19px;cursor:pointer;transition:.15s}
+  .nav button:hover{background:var(--card2);border-color:var(--blue);color:var(--blue)}
+  .counter{font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums;letter-spacing:1px}
+  .foot{position:fixed;bottom:26px;left:30px;font-size:12px;color:var(--dim);z-index:100;letter-spacing:.5px}
+
+  .cover{display:flex;flex-direction:column;justify-content:center;height:100%}
+  .cover .brand{font-size:14px;letter-spacing:4px;color:var(--blue);font-weight:700;margin-bottom:26px;text-transform:uppercase}
+  .cover h1{font-size:52px;max-width:1050px;line-height:1.2}
+  .cover .eng{font-size:19px;color:var(--muted);margin-top:18px;font-weight:600;letter-spacing:.5px}
+  .cover .meta{margin-top:40px;display:flex;gap:46px;flex-wrap:wrap}
+  .cover .meta .m{font-size:14px;color:var(--muted)}
+  .cover .meta .m b{display:block;color:#fff;font-size:16px;margin-bottom:3px}
+  .cover .badges{margin-top:34px;display:flex;gap:10px;flex-wrap:wrap}
+
+  .rule{height:1px;background:var(--line);margin:16px 0;border:0}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .mt{margin-top:14px}.mb{margin-bottom:8px}
+  .center-t{text-align:center}
+  code.inline{background:var(--card2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--yellow)}
+
+  /* 三大块横向流程（成果速览用） */
+  .trio{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch}
+  .trio .arr-h{font-size:22px}
+  .step-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:13px;margin-bottom:10px}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<div class="stage">
+
+  <!-- 1 封面 -->
+  <section class="slide active">
+    <div class="slide-body" style="overflow:hidden">
+      <div class="cover">
+        <div class="brand">Internship Defense · 2026</div>
+        <h1>AI Agent 技能（Agent Skills）<br>全链路安全审计与效果评估系统</h1>
+        <div class="eng">静态安全扫描 → 语义去重 → 沙盒增益评估</div>
+        <div class="badges">
+          <span class="tag blue">三层评估</span>
+          <span class="tag orange">自定义安全规则</span>
+          <span class="tag green">冗余技能推荐</span>
+          <span class="tag purple">一键批处理审计</span>
+        </div>
+        <div class="meta">
+          <div class="m"><b>答辩人</b>杨宇涵</div>
+          <div class="m"><b>答辩时间</b>2026-11-20 09:15–10:15</div>
+          <div class="m"><b>答辩地点</b>1103</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 成果速览：一页看懂 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Overview</div><h2>一页看懂：问题 → 方案 → 结果</h2></div><div class="no">02</div></div>
+    <div class="slide-body">
+      <div class="trio">
+        <div class="card tint-red">
+          <div class="step-num">1</div>
+          <h4>要解决什么问题</h4>
+          <ul class="clean">
+            <li class="red">技能<b>投毒</b>：隐藏的提示注入、凭证外泄、后门命令</li>
+            <li class="orange">技能<b>冗余冲突</b>：指令高度重叠，触发混乱</li>
+            <li class="blue">技能<b>是否真有用</b>：缺对照实验，无法量化增益</li>
+          </ul>
+        </div>
+        <div class="arr-h" style="color:var(--dim)">➜</div>
+        <div class="card tint-blue">
+          <div class="step-num">2</div>
+          <h4>怎么做</h4>
+          <ul class="clean">
+            <li><b>三层审计流水线</b>：安全扫描 → 语义去重 → 增益评估</li>
+            <li><b>两条自定义规则</b>：域名白名单 + 明文凭证检测</li>
+            <li><b>双维度推荐</b>：从「安全」与「增益」推荐更优技能</li>
+          </ul>
+        </div>
+        <div class="arr-h" style="color:var(--dim)">➜</div>
+        <div class="card tint-green">
+          <div class="step-num">3</div>
+          <h4>得到什么结果</h4>
+          <ul class="clean">
+            <li class="green">识别 <b>91% 高相似</b> 冗余技能对</li>
+            <li class="green">正向技能特化任务增益 <b>+31.85pp</b></li>
+            <li class="green">补齐「明文凭证」检测盲区，风险判定 <b>安全→禁止安装</b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout blue mt">
+        <span class="lbl">核心结论</span>
+        正向技能（专业计算套件）对<b>财务审计等特化计算</b>有显著增益，但在<b>泛用功能</b>上的增益相较冗余技能（基础计算器）并不占优；且两者<b>均通过安全审查</b>。因此，面向通用场景时<b>更推荐冗余技能</b>。
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 背景 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Background</div><h2>业务背景：为什么需要全链路审计</h2></div><div class="no">03</div></div>
+    <div class="slide-body">
+      <p class="lead">团队正在大规模引入第三方及内部开发者编写的 Agent 技能（用于 Claude Code、Codex、OpenCode 等）。技能文件夹不仅包含 Markdown 指令，还常附带执行脚本，安全团队提出三类合规担忧：</p>
+      <div class="grid g3 mt">
+        <div class="card tint-red"><h4>① 技能投毒与隐蔽风险</h4><p>可能隐藏<b>提示词注入、越权工具调用、敏感凭证外泄、后门命令</b>。</p></div>
+        <div class="card tint-orange"><h4>② 语义冲突与冗余</h4><p>不同技能的指引高度重叠，导致 Agent 触发逻辑混乱。</p></div>
+        <div class="card tint-blue"><h4>③ 行为增益不明确</h4><p>缺乏沙盒隔离下的对照实验，无法证明技能确实提升了任务完成率，而非引入副作用。</p></div>
+      </div>
+      <div class="callout orange mt">
+        <span class="lbl">对应交付</span>
+        调研开源方案 → 本地 Mac 搭建原型 → 完成三层评估实战、冗余技能推荐、企业自定义安全规则、一键批处理审计与自动修复。
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 核心设计思路 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Design Philosophy</div><h2>核心设计思路：五条原则</h2></div><div class="no">04</div></div>
+    <div class="slide-body">
+      <p class="lead">整条流水线围绕五条设计原则展开，后续所有环节都是它们的落地：</p>
+      <div class="grid g2">
+        <div class="card tint-blue"><h4>① 纵深防御</h4><p>确定性静态扫描（权威、离线、零成本）打底 → 大模型语义审计补盲 → 沙盒实测验证行为，三层各司其职、互不替代。</p></div>
+        <div class="card tint-red"><h4>② 宁多勿漏（fail-closed）</h4><p>结论不确定时一律按「有风险」处理：宁可多报、不可漏报；大模型只能增量补充，不能删除或降级静态结论。</p></div>
+        <div class="card tint-orange"><h4>③ 检测与放行分离</h4><p>规则只负责「发现风险」，白名单/抑制层负责「降误报」，二者不耦合，避免放行逻辑只对某一条规则生效。</p></div>
+        <div class="card tint-purple"><h4>④ 结论独立</h4><p>安全、去重、效果三类结论性质不同，各自独立记录，不合并为单一分数。</p></div>
+        <div class="card tint-green" style="grid-column:1/-1"><h4>⑤ 非侵入式扩展</h4><p>自定义规则经外部参数挂载，不改动上游开源源码，便于跟随上游升级。</p></div>
+      </div>
+      <div class="callout blue mt"><span class="lbl">一句话</span>「<b>确定性打底 + 语义补盲 + 沙盒验证</b>」，把不确定的推理外置为确定、可审计、可复现的工具。</div>
+    </div>
+  </section>
+
+  <!-- 5 整体架构 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Architecture</div><h2>整体架构：一条三层审计流水线</h2></div><div class="no">05</div></div>
+    <div class="slide-body">
+      <div class="node gray" style="text-align:center"><div class="t">测试技能集</div><div class="d">正向 16 · 冗余 30 · 安全靶场 9（本演示聚焦其中 3 个核心技能）</div></div>
+      <div class="arr">▼</div>
+      <div class="flow-h">
+        <div class="node blue" style="flex:1"><div class="t">安全扫描器</div><div class="d">确定性静态规则 + 大模型语义审计<br>覆盖 17 类威胁</div></div>
+        <div class="arr-h">→</div>
+        <div class="node blue" style="flex:1.4"><div class="t">三层评估框架</div><div class="d"><b>第一层</b> 安全扫描 · <b>第二层</b> 语义去重 · <b>第三层</b> 增益评估</div></div>
+      </div>
+      <div class="arr">▲ &nbsp; 自研扩展挂接（虚线） &nbsp; ▲</div>
+      <div class="flow-h">
+        <div class="node orange" style="flex:1"><div class="t">自定义安全规则</div><div class="d">域名白名单 + 明文凭证检测</div></div>
+        <div class="node orange" style="flex:1"><div class="t">冗余技能推荐</div><div class="d">安全 + 增益双维度</div></div>
+        <div class="node orange" style="flex:1"><div class="t">一键批处理审计</div><div class="d">批量扫描 → 过滤高危 → 报告</div></div>
+      </div>
+      <div class="arr">▼</div>
+      <div class="flow-h">
+        <div class="node green" style="flex:1"><div class="t">安全结论</div><div class="d">有没有风险</div></div>
+        <div class="node green" style="flex:1"><div class="t">去重结论</div><div class="d">是否重复</div></div>
+        <div class="node green" style="flex:1"><div class="t">增益结论</div><div class="d">有没有用</div></div>
+      </div>
+      <div class="arr">▼</div>
+      <div class="node purple"><div class="t">综合审计报告</div><div class="d">双结论推荐 + 批量审计 · 可读报告</div></div>
+    </div>
+  </section>
+
+  <!-- 6 三层各回答什么问题 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Three Layers</div><h2>三层评估：各自回答一个独立问题</h2></div><div class="no">06</div></div>
+    <div class="slide-body">
+      <table>
+        <thead><tr><th>层</th><th>回答的问题</th><th>处理手段</th><th>产出结论</th></tr></thead>
+        <tbody>
+          <tr><td><b>第一层 · 安全扫描</b></td><td>这个技能<b>安全吗</b>？格式规范吗？</td><td>静态规则（凭证/外发/注入/提权等）+ 可选大模型深度审计</td><td>安全 / 不安全，高危过滤</td></tr>
+          <tr><td><b>第二层 · 语义去重</b></td><td>指令<b>是否重复/冲突</b>？</td><td>向量化语义比对（技能内 + 技能间）→ 重叠阈值判定</td><td>相似度 / 冗余对</td></tr>
+          <tr><td><b>第三层 · 增益评估</b></td><td>这个技能<b>真的帮到 Agent 吗</b>？</td><td>沙盒容器内「带技能 vs 不带技能」对照 + 大模型评判</td><td>增益 / 提升率</td></tr>
+        </tbody>
+      </table>
+      <div class="grid g3 mt">
+        <div class="card tint-red center-t"><div class="big">安全</div><p>静态规则打底，代码不执行、离线零成本</p></div>
+        <div class="card tint-orange center-t"><div class="big">去重</div><p>本地向量模型，只读本地、成本低，先跑筛候选</p></div>
+        <div class="card tint-green center-t"><div class="big">增益</div><p>沙盒隔离实测，行为验证，成本最高、只评少量候选</p></div>
+      </div>
+      <div class="callout blue mt"><span class="lbl">关键设计</span>三层结论<b>独立记录、不合并为单一分数</b>——安全回答「有没有风险」，去重回答「是否重复」，增益回答「有没有用」，三者互不替代。</div>
+    </div>
+  </section>
+
+  <!-- 7 实现结果总览 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Results</div><h2>实现结果总览：三层量化结论</h2></div><div class="no">07</div></div>
+    <div class="slide-body">
+      <table>
+        <thead><tr><th>层</th><th>数据集</th><th>核心量化结果</th></tr></thead>
+        <tbody>
+          <tr><td><b>第一层 安全</b></td><td>安全靶场</td><td>明文凭证规则补盲：风险分 <b>20 → 59</b>、判定 <b>安全 → 禁止安装</b>；白名单规则降误报 <b>10 → 0</b>；批量审计 5 个技能中 <b>3 个判为不安全</b></td></tr>
+          <tr><td><b>第二层 去重</b></td><td>冗余组</td><td>正向技能 ↔ 冗余技能 相似度 <b>0.91（高相似）</b>，冗余对成立</td></tr>
+          <tr><td><b>第三层 增益</b></td><td>正向组</td><td>正向技能特化任务 <b>增益 +31.85pp</b>（完成率 68.2%→100%）；冗余对泛化任务 冗余技能效率更优；公司库某技能 <b>零增益</b>（token +33%）</td></tr>
+        </tbody>
+      </table>
+      <div class="grid g3 mt">
+        <div class="card tint-red"><h4>安全层价值</h4><p>用自定义规则补上「明文凭证内嵌」这一确定性盲区，把一个含多类硬编码凭证的技能从「误判安全」纠正为「禁止安装」。</p></div>
+        <div class="card tint-orange"><h4>去重层价值</h4><p>以 91% 的高相似度识别出冗余冲突对，触发后续推荐链路。</p></div>
+        <div class="card tint-green"><h4>增益层价值</h4><p>测出正向技能对特化任务的真实增益，也揭示公司库中存在「零增益、只加成本」的技能。</p></div>
+      </div>
+      <div class="callout green mt"><span class="lbl">一句话总结</span>三层评估对三组数据集分别给出可量化的独立结论，共同构成「<b>扫得全、去得净、评得准</b>」的全链路审计闭环。</div>
+    </div>
+  </section>
+
+  <!-- 8 第一层 设计 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Layer 1</div><h2>第一层设计：安全扫描怎么做</h2></div><div class="no">08</div></div>
+    <div class="slide-body">
+      <p class="lead">安全扫描采用「<b>确定性静态分析打底 + 大模型语义审计补盲</b>」两段式，覆盖提示注入、数据外泄、凭证访问、越权、供应链、脚本行为等 <b>17 类威胁</b>。</p>
+      <div class="split mt">
+        <div class="card">
+          <h4>处理流程</h4>
+          <div class="flow">
+            <div class="node gray"><div class="t">多格式输入</div><div class="d">目录 · 文件 · Git 仓库 · URL · 压缩包</div></div>
+            <div class="arr">▼</div>
+            <div class="node blue"><div class="t">解析与还原</div><div class="d">解析技能说明 / 脚本 / 嵌套资源，还原隐藏与混淆内容</div></div>
+            <div class="arr">▼</div>
+            <div class="node blue"><div class="t">并行分析</div><div class="d">静态模式 · 代码结构 · 恶意签名 · 最小权限 · 大模型语义</div></div>
+            <div class="arr">▼</div>
+            <div class="node green"><div class="t">汇总评分</div><div class="d">风险评分 0–100 → 四档结论 → 报告</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <h4>静态 vs 大模型的分工</h4>
+          <ul class="clean">
+            <li><b>静态规则（权威）</b>：正则/代码结构/签名等确定性规则，可离线、零成本，精确定位到文件与行号</li>
+            <li><b>大模型审计（补盲）</b>：识别「换说法就绕过关键词」的语义风险，<b>只能增量补充</b></li>
+            <li class="red"><b>宁多勿漏</b>：大模型判为误报也只打标签不删除；确定性规则大模型无权降级</li>
+            <li class="green"><b>安全扫描不执行代码</b>：纯静态分析，沙盒只用于第三层</li>
+          </ul>
+          <div class="callout orange" style="margin-bottom:0"><b>分工一句话</b>：静态兜底已知模式，大模型补语义盲区，沙盒做行为验证。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 第三层 设计 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Layer 3</div><h2>第三层设计：增益评估怎么做</h2></div><div class="no">09</div></div>
+    <div class="slide-body">
+      <p class="lead">在<b>沙盒容器</b>中运行同一个智能体，分别做「<b>带技能</b>」与「<b>不带技能</b>」双臂对照，再由大模型评判，量化技能的<b>增益</b>。</p>
+      <div class="card mt">
+        <div class="flow-h">
+          <div class="node blue" style="flex:1"><div class="t">生成评估任务集</div><div class="d">目标 / 行为 / 标准答案</div></div>
+          <div class="arr-h">→</div>
+          <div class="node blue" style="flex:1"><div class="t">沙盒容器</div><div class="d">隔离环境，逐任务独立容器</div></div>
+          <div class="arr-h">→</div>
+          <div class="node blue" style="flex:1"><div class="t">双臂对照</div><div class="d">带技能 vs 不带技能</div></div>
+          <div class="arr-h">→</div>
+          <div class="node blue" style="flex:1"><div class="t">大模型评判</div><div class="d">分维度打分</div></div>
+          <div class="arr-h">→</div>
+          <div class="node green" style="flex:1"><div class="t">量化增益</div><div class="d">提升率</div></div>
+        </div>
+      </div>
+      <div class="grid g2 mt">
+        <div class="card tint-blue"><h4>两类任务，回答两个不同问题</h4><ul class="clean"><li><b>特化任务</b>（带 vs 不带）：技能「有没有用、在哪有用」——任务绑定被测技能</li><li><b>公共任务</b>（带 A vs 带 B）：两个技能「用哪个更划算」——任务不预设技能、纯结果断言</li></ul></div>
+        <div class="card tint-green"><h4>公平性保障</h4><ul class="clean"><li>同一组任务、同一评判标准、同一智能体与模型</li><li>公共任务<b>只取双方能力交集</b>，不偏袒任一技能</li><li>同一份任务喂给两个技能，差异只能来自技能自身成本</li></ul></div>
+      </div>
+      <div class="callout blue mt"><span class="lbl">五维分解（关键）</span>增益不只看「结果」，还拆成 <b>正确率、有效性、安全、可发现性、效率</b>——从而把「真实答案增量」从「工作流结构性增量」中剥离出来，避免得出「都很有用」的误导结论。</div>
+    </div>
+  </section>
+
+  <!-- 10 三个测试技能 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Test Skills</div><h2>三个测试技能怎么设计</h2></div><div class="no">10</div></div>
+    <div class="slide-body">
+      <div class="grid g3">
+        <div class="card tint-green">
+          <h4>① 正向技能 · 专业计算套件</h4>
+          <span class="tag green">特化取向</span>
+          <p class="mt">在基础计算器上<b>扩展统计 + 财务</b>能力；多脚本模块化；针对大模型「心算易错」的精确数值任务（标准差、贷款月供、复利终值等）。</p>
+        </div>
+        <div class="card tint-orange">
+          <h4>② 冗余技能 · 基础计算器</h4>
+          <span class="tag orange">泛化取向</span>
+          <p class="mt">仅<b>算术表达式 + 单位换算</b>；单脚本精简指令；覆盖最通用、最基础的计算需求。</p>
+        </div>
+        <div class="card tint-red">
+          <h4>③ 安全靶场技能</h4>
+          <span class="tag red">含风险样本</span>
+          <p class="mt">刻意植入<b>明文凭证正/负样本</b>（改密码命令、带凭证请求、数据库连接串…）与<b>白名单外发样本</b>，用于验证自定义规则。</p>
+        </div>
+      </div>
+      <div class="callout blue mt"><span class="lbl">构建逻辑</span>三者一一对应三层能力的验证：<b>正向</b>验证第三层增益、<b>冗余</b>验证第二层去重与推荐、<b>靶场</b>验证第一层拦截与自定义规则。正向与冗余技能在「基础算术 + 单位换算」上高度重叠，构成一对可复现的冗余冲突对。</div>
+    </div>
+  </section>
+
+  <!-- 11 规则选型 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Rule Selection</div><h2>自定义规则：为什么选「白名单 + 敏感信息检测」</h2></div><div class="no">11</div></div>
+    <div class="slide-body">
+      <p class="lead">课题要求「≥2 条企业自定义规则」，举例是「非白名单域名外发」与「读取敏感路径」。但落地前先做<b>实测基线</b>，发现举例方向已被内置规则覆盖，真正的空白在别处：</p>
+      <table class="mt">
+        <thead><tr><th>候选方向</th><th>实测结论</th><th>最终定位</th></tr></thead>
+        <tbody>
+          <tr><td>读取敏感文件（密钥/配置）</td><td><span class="hl-red">已被内置「凭证文件访问」规则覆盖</span></td><td>「敏感信息检测」改落到<b>命令行明文凭证</b>盲区</td></tr>
+          <tr><td>外发检测（上传/请求）</td><td><span class="hl-orange">内置「数据外发」规则已承担</span>，但无法区分「合法内网上传」与「恶意外泄」</td><td><b>规则一</b>：域名白名单<b>放行</b>（降误报，不新增告警）</td></tr>
+          <tr><td>命令行明文凭证</td><td><span class="hl-red">真实空白</span>：改密码命令、带凭证请求、数据库连接串等 <b>全部 0 检出</b></td><td><b>规则二</b>：明文凭证检测（补盲）</td></tr>
+        </tbody>
+      </table>
+      <div class="grid g2 mt">
+        <div class="card tint-orange"><h4>规则一 · 域名白名单放行（降误报）</h4><p>发往企业可信域名的外发不再报警，<b>不新增任何告警</b>——「检测归检测、放行归放行」。</p></div>
+        <div class="card tint-red"><h4>规则二 · 明文凭证检测（补盲）</h4><p>检测明文写在命令/连接串里的密码，<b>豁免占位符</b>（&lt;密码&gt; / 环境变量 / 无值交互输入）。</p></div>
+      </div>
+      <div class="callout red mt"><span class="lbl">选型逻辑</span>不是「照抄课题举例」，而是<b>先实测内置规则的覆盖边界</b>：敏感文件读取已被覆盖、外发已有规则，唯独「凭证出现在命令行/连接串」这一泄露面是确定性盲区，且大模型只给间接信号、无法精确定位——故将「敏感信息检测」落为规则二补盲，「白名单」落为规则一降误报。</div>
+    </div>
+  </section>
+
+  <!-- 12 规则效果 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Custom Rules</div><h2>两条自定义规则的效果</h2></div><div class="no">12</div></div>
+    <div class="slide-body">
+      <div class="split">
+        <div class="card tint-red">
+          <h4>规则二 · 明文凭证检测（补盲）</h4>
+          <table>
+            <thead><tr><th>对靶场技能的四组对照</th><th>风险分</th><th>判定</th><th>告警数</th></tr></thead>
+            <tbody>
+              <tr><td>不挂规则</td><td class="center">20</td><td class="center">安全</td><td class="center">5</td></tr>
+              <tr><td>只挂规则二</td><td class="center hl-red">59</td><td class="center hl-red">禁止安装</td><td class="center hl-red">12</td></tr>
+            </tbody>
+          </table>
+          <p class="small mt">新增 <b>7 条明文凭证告警</b>，风险判定从「安全」反转为「禁止安装」；对占位符 / 环境变量<b>零误报</b>。</p>
+          <div class="callout red mt"><b>价值</b>：补齐「凭证写在命令行」这一确定性盲区，把含硬编码凭证的技能从「误判安全」纠正过来。</div>
+        </div>
+        <div class="card tint-orange">
+          <h4>规则一 · 域名白名单放行（降误报）</h4>
+          <table>
+            <thead><tr><th>对合法内网上传样本</th><th>风险分</th><th>告警数</th></tr></thead>
+            <tbody>
+              <tr><td>不挂规则</td><td class="center">10</td><td class="center">3（误报）</td></tr>
+              <tr><td>挂规则一</td><td class="center hl-green">0</td><td class="center hl-green">0（放行）</td></tr>
+            </tbody>
+          </table>
+          <p class="small mt">发往企业可信域名的合法上传被放行；发往<b>非白名单 / 陷阱域名</b>的一律保留告警、不放行。</p>
+          <div class="callout orange mt"><b>价值</b>：区分「合法内网上传」与「恶意外泄」，让真实威胁不被噪声淹没。</div>
+        </div>
+      </div>
+      <div class="card tint-blue mt">
+        <h4>两条规则正交、独立开关</h4>
+        <p>四组对照（无 / 只规则一 / 只规则二 / 两者都开）证明两条规则<b>互不干扰</b>：规则一纯放行、不新增告警；规则二独立补盲。提供两个<b>独立开关</b>，答辩时可现场「勾选 → 重跑 → 对比差异」。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 推荐设计 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Recommendation</div><h2>推荐功能设计：安全 + 增益双维度</h2></div><div class="no">13</div></div>
+    <div class="slide-body">
+      <p class="lead">当第二层检测到冗余冲突时，系统从<b>安全</b>与<b>增益</b>两个独立维度评估候选，输出<b>双结论</b>，最终「哪个更优」交给用户决策。</p>
+      <div class="grid g2 mt">
+        <div class="card tint-red">
+          <h4>安全维度（能不能用）</h4>
+          <p>完整安全审查：静态安全扫描 + 第一层安全校验，二者并列。</p>
+          <ul class="clean">
+            <li><b>安全</b>：无高危告警</li>
+            <li><b>不安全</b>：存在高危告警</li>
+            <li>三种情形：双方安全 / 一方不安全 / 双方不安全（给风险更低方）</li>
+          </ul>
+        </div>
+        <div class="card tint-green">
+          <h4>增益维度（值不值得用）</h4>
+          <p>同一公共任务集上，综合 5 个维度：</p>
+          <ul class="clean">
+            <li>结果 · 流程 · 输入/输出开销 · 执行耗时 · 执行轮数</li>
+            <li><b>结果优先</b>：结果差异大 → 明确更优；结果相当 → 比效率</li>
+            <li>结果相当时某方领先 ≥3 项 → 效率更优，否则「两者均可」</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card tint-purple mt">
+        <h4>核心原则：决策权交用户</h4>
+        <p>报告输出<b>安全结论</b>与<b>增益结论</b>两个结论，<b>不合成单一「最终推荐」</b>；两条结论可能不一致（如「安全推荐 A + 增益推荐 B」），属正常现象，由用户结合场景自行权衡。</p>
+      </div>
+      <div class="callout blue mt"><span class="lbl">为什么分两个维度</span>安全回答「能不能用」，增益回答「值不值得用」——二者正交、互不污染。这也是最终「更推荐冗余技能」结论的推导框架。</div>
+    </div>
+  </section>
+
+  <!-- 14 推荐流程举例 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Walkthrough</div><h2>推荐流程举例：正向 vs 冗余</h2></div><div class="no">14</div></div>
+    <div class="slide-body">
+      <div class="card">
+        <div class="flow-h">
+          <div class="node blue" style="flex:1"><div class="t">① 去重检测</div><div class="d">正向 ↔ 冗余<br>相似度 0.91 · 高相似</div></div>
+          <div class="arr-h">→</div>
+          <div class="node red" style="flex:1"><div class="t">② 完整安全审查</div><div class="d">双方均安全<br>无高危告警</div></div>
+          <div class="arr-h">→</div>
+          <div class="node green" style="flex:1"><div class="t">③ 公共任务评估</div><div class="d">9 个基础算术任务<br>结果相当，效率分胜负</div></div>
+          <div class="arr-h">→</div>
+          <div class="node purple" style="flex:1"><div class="t">④ 双结论推荐</div><div class="d">安全：双方安全<br>增益：冗余技能效率更优</div></div>
+        </div>
+      </div>
+      <table class="mt">
+        <thead><tr><th>维度</th><th>正向技能</th><th>冗余技能</th><th>更优</th></tr></thead>
+        <tbody>
+          <tr><td>任务完成率</td><td class="center">1.0</td><td class="center">1.0</td><td class="center">持平</td></tr>
+          <tr><td>输入开销（约）</td><td class="center">7.5 万</td><td class="center hl-green">7.1 万</td><td class="center"><span class="win">冗余</span></td></tr>
+          <tr><td>输出开销（约）</td><td class="center">349</td><td class="center hl-green">256</td><td class="center"><span class="win">冗余</span></td></tr>
+          <tr><td>执行耗时（秒）</td><td class="center">415</td><td class="center hl-green">340</td><td class="center"><span class="win">冗余</span></td></tr>
+          <tr><td>安全审查</td><td class="center hl-green">安全</td><td class="center hl-green">安全</td><td class="center">持平</td></tr>
+        </tbody>
+      </table>
+      <div class="split mt">
+        <div class="callout red" style="margin:0"><span class="lbl">安全结论</span>两者均通过完整安全审查，安全维度无差异，无需从安全角度二选一。</div>
+        <div class="callout green" style="margin:0"><span class="lbl">增益结论</span>结果相当，但冗余技能在输入/输出开销、耗时上均更优，综合增益更优 → <b>效率更优 → 冗余技能</b>。</div>
+      </div>
+      <p class="small mt">联网搜索：在公司技能库搜索相关技能，返回候选供用户查看选择，标注「未实测」。</p>
+    </div>
+  </section>
+
+  <!-- 15 实验结果 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Analysis</div><h2>实验结果：特化任务 vs 泛用任务</h2></div><div class="no">15</div></div>
+    <div class="slide-body">
+      <div class="split">
+        <div class="card tint-green">
+          <h4>特化任务：正向技能增益显著</h4>
+          <table>
+            <thead><tr><th>指标</th><th>不带技能</th><th>带正向技能</th><th>增益</th></tr></thead>
+            <tbody>
+              <tr><td>任务完成率</td><td class="center">68.2%</td><td class="center hl-green">100%</td><td class="center hl-green">+31.85pp</td></tr>
+              <tr><td>首次通过率</td><td class="center">0%</td><td class="center hl-green">100%</td><td class="center hl-green">+100pp</td></tr>
+              <tr><td>正确率（真实增量）</td><td class="center">93.3%</td><td class="center">100%</td><td class="center">+6.7pp</td></tr>
+            </tbody>
+          </table>
+          <p class="small">统计 / 财务任务（标准差、贷款月供等），大模型心算无法可靠完成，借助正向技能脚本达到 100%。</p>
+        </div>
+        <div class="card tint-orange">
+          <h4>泛用任务：正向技能增益不占优</h4>
+          <table>
+            <thead><tr><th>任务类型</th><th>正向技能</th><th>冗余技能</th><th>更优</th></tr></thead>
+            <tbody>
+              <tr><td>特化（统计/财务）</td><td class="hl-green">增益 +31.85pp</td><td class="center">能力范围外</td><td class="center">正向</td></tr>
+              <tr><td>泛用（基础算术）</td><td class="center">结果对但成本高</td><td class="hl-green">结果对且省开销/耗时</td><td class="center">冗余</td></tr>
+            </tbody>
+          </table>
+          <p class="small">在<b>泛用功能</b>上，正向技能结果虽正确，但开销与耗时均高于冗余技能，<b>增益不占优</b>。</p>
+        </div>
+      </div>
+      <div class="callout blue mt">
+        <span class="lbl">关键观察（五维分解的价值）</span>
+        基础算术大模型本来就能算对，技能在<b>泛用任务上没有「真实答案增量」</b>，只有「工作流规范」和「成本差异」；而特化任务上正向技能带来了<b>真实的正确率增量</b>。若只看单一增益数字会误判「两个技能都有用」，拆开看才能分清「特化收益」与「泛化成本」。
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 核心结论 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Conclusion</div><h2>分析结论：为什么更推荐冗余技能</h2></div><div class="no">16</div></div>
+    <div class="slide-body">
+      <div class="callout green" style="font-size:16px">
+        <span class="lbl">核心结论</span>
+        正向技能（专业计算套件）对<b>财务审计等特化计算</b>有明显增益，但在<b>泛用功能</b>上的增益相较冗余技能（基础计算器）<b>并不占优</b>；且两者<b>均通过安全审查</b>。因此，在面向通用场景时<b>更推荐冗余技能（基础计算器）</b>。
+      </div>
+      <div class="grid g3 mt">
+        <div class="card tint-green"><h4>① 特化 vs 泛化</h4><p>正向技能价值在「能力边界扩展」，冗余技能价值在「通用任务成本控制」，两者设计取向互补而非互斥。</p></div>
+        <div class="card tint-blue"><h4>② 安全维度打平</h4><p>双方均通过完整安全审查，安全无差异，无法从安全角度二选一。</p></div>
+        <div class="card tint-orange"><h4>③ 泛用场景成本优先</h4><p>泛用任务上结果等效，但冗余技能更省开销、耗时更短 → 增益维度效率更优。</p></div>
+      </div>
+      <div class="split mt">
+        <div class="card tint-purple"><h4>推荐结论（双结论、交用户）</h4><ul class="clean"><li><b>安全结论</b>：双方安全（打平）</li><li><b>增益结论</b>：泛用任务效率更优 → 冗余技能</li><li class="orange">系统不合成单一 verdict，由用户按场景选</li></ul></div>
+        <div class="card tint-blue"><h4>评测体系合理性</h4><p>三层评估同时捕获「增益」（带 vs 不带）与「效率」（A vs B）两个<b>正交维度</b>，得以区分「特化收益」与「泛化成本」，得到符合设计意图的结论。</p></div>
+      </div>
+      <div class="callout orange mt" style="margin-bottom:0">
+        <b>边界说明</b>：本结论面向「通用场景」——若任务属于财务/统计等特化计算，正向技能仍是唯一选择（增益 +31.85pp）。「更推荐冗余技能」成立的前提是<b>泛用功能 + 双方安全等价</b>。
+      </div>
+    </div>
+  </section>
+
+  <!-- 17 加分项 + 总结 -->
+  <section class="slide">
+    <div class="head"><div><div class="kicker">Bonus & Summary</div><h2>加分项与现场演示</h2></div><div class="no">17</div></div>
+    <div class="slide-body">
+      <div class="grid g2">
+        <div class="card tint-purple">
+          <h4>自动修复（阶段四 · 设计）</h4>
+          <div class="flow">
+            <div class="node blue"><div class="t">检测 → 定位 → 修复 → 验证</div><div class="d">完整闭环</div></div>
+          </div>
+          <ul class="clean">
+            <li><b>可修复性路由</b>：只修「技能本体、可确定性修复」的问题</li>
+            <li><b>三分类</b>：固定规则可修 / 大模型可修（需人工复核）/ 不可修</li>
+            <li class="orange">补丁默认不落地、人工确认、验证失败自动回滚</li>
+          </ul>
+        </div>
+        <div class="card tint-teal">
+          <h4>现场演示：恶意技能查杀</h4>
+          <ul class="clean">
+            <li>对安全靶场技能跑扫描器，演示明文凭证 / 外发的查杀</li>
+            <li>两条规则开关对比：勾选 → 重跑 → 差异对比</li>
+            <li class="green">Mac 排障经验：镜像加速、依赖源、本地向量模型、限流适配</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout blue mt">
+        <span class="lbl">一句话总结</span>
+        三层评估对三组数据集分别给出可量化的独立结论——安全层用自定义规则补上「明文凭证内嵌」盲区并识别高危技能；去重层以 91% 高相似度识别冗余对；增益层测出正向技能特化任务的 +31.85pp 增益、冗余技能泛化任务的效率优势，共同构成「<b>扫得全、去得净、评得准</b>」的全链路审计闭环。
+      </div>
+    </div>
+  </section>
+
+  <!-- 18 结束 -->
+  <section class="slide">
+    <div class="slide-body" style="overflow:hidden">
+      <div class="cover" style="text-align:center;align-items:center">
+        <div class="brand">Thank You</div>
+        <h1 style="font-size:44px">谢谢 · 请各位老师指正</h1>
+        <div class="eng" style="margin-top:16px">AI Agent 技能全链路安全审计与效果评估系统</div>
+        <div class="badges" style="justify-content:center">
+          <span class="tag blue">三层评估</span>
+          <span class="tag orange">自定义规则</span>
+          <span class="tag green">冗余推荐</span>
+          <span class="tag purple">批处理审计</span>
+        </div>
+        <p class="subtitle" style="margin-top:30px">答辩人：杨宇涵 ｜ 2026-11-20</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="foot">AI Agent 技能全链路安全审计与效果评估系统</div>
+<div class="nav">
+  <span class="counter" id="counter">1 / 18</span>
+  <button id="prev" title="上一页">‹</button>
+  <button id="next" title="下一页">›</button>
+</div>
+
+<script>
+(function(){
+  var slides = document.querySelectorAll('.slide');
+  var cur = 0;
+  var counter = document.getElementById('counter');
+  var progress = document.getElementById('progress');
+  function show(i){
+    if(i<0) i=0;
+    if(i>=slides.length) i=slides.length-1;
+    slides[cur].classList.remove('active');
+    cur = i;
+    slides[cur].classList.add('active');
+    counter.textContent = (cur+1) + ' / ' + slides.length;
+    progress.style.width = ((cur+1)/slides.length*100) + '%';
+    slides[cur].querySelector('.slide-body').scrollTop = 0;
+  }
+  function next(){ show(cur+1); }
+  function prev(){ show(cur-1); }
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+  document.addEventListener('keydown', function(e){
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '||e.key==='PageDown'){ e.preventDefault(); next(); }
+    else if(e.key==='ArrowLeft'||e.key==='ArrowUp'||e.key==='PageUp'){ e.preventDefault(); prev(); }
+    else if(e.key==='Home'){ e.preventDefault(); show(0); }
+    else if(e.key==='End'){ e.preventDefault(); show(slides.length-1); }
+  });
+  var sx=0;
+  document.addEventListener('touchstart', function(e){ sx=e.touches[0].clientX; });
+  document.addEventListener('touchend', function(e){
+    var dx=e.changedTouches[0].clientX-sx;
+    if(Math.abs(dx)>60){ dx<0?next():prev(); }
+  });
+  show(0);
+})();
+</script>
+</body>
+</html>

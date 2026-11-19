@@ -1,0 +1,26 @@
+{
+  "name": "feishu-doc-to-markdown",
+  "author": "litao",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:21+08:00",
+  "updatedAt": "2026-11-17T10:46:21+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/feishu-doc-to-markdown"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/feishu-doc-to-markdown",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/feishu-doc-to-markdown"
+  ],
+  "fileHashes": {
+    "README.md": "3735c2df31d2b4f5fd583b5fc662c91edf61e29d133c6864639c65f9a4f53166",
+    "SKILL.md": "ad4812c26b98dba434b66d6f3bad42f7f09e9ef32c6f603b2d650cd8f05e7761",
+    "references/mapping.md": "1528df09102a55a6aea9898287304758fbc7ca4a95a8cfc5899e9256b92a639d",
+    "references/setup.md": "859120241f89918ecfa5ceec0dbdf36b1768f9acaf4619f1970c37675ac335cc",
+    "scripts/export_feishu_doc.py": "7831891fde3ecd26aa9efb8c2ef0aa0eaffd50621487c709facad7c45b7349fd"
+  }
+}

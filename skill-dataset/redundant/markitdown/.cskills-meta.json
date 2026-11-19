@@ -1,0 +1,22 @@
+{
+  "name": "markitdown",
+  "author": "zhouyujie",
+  "version": "0.0.1",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:22+08:00",
+  "updatedAt": "2026-11-17T10:46:22+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/markitdown"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/markitdown",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/markitdown"
+  ],
+  "fileHashes": {
+    "SKILL.md": "d59cbe7b045eff565700babb198c080d407711d37ea10f4d97bcd3f3cad0475f"
+  }
+}

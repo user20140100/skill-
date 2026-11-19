@@ -1,0 +1,4 @@
+0	G4	requirement-spec
+1	G4	requirements-analyst
+0	G4	requirement-analysis-pro
+1	G4	grill-requirements

@@ -1,0 +1,933 @@
+{
+  "agents": {
+    "opencode": {
+      "model": "openai/qwen3.8-flash",
+      "model_source": "CLI",
+      "model_resolution": {
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      },
+      "with_skill": {},
+      "without_skill": {
+        "security": 1.0,
+        "accuracy": 1.0,
+        "goal_accuracy": 1.0,
+        "behavior_check": 1.0
+      },
+      "overall_with_skill": null,
+      "overall_without_skill": 1.0,
+      "metrics_with_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "metrics_without_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "score_policy_with_skill": "skill-evaluator-dimension-mean-v1",
+      "score_policy_without_skill": "skill-evaluator-dimension-mean-v1",
+      "custom_with_skill": {},
+      "custom_without_skill": {},
+      "not_applicable_metrics": {
+        "with_skill": [],
+        "without_skill": [
+          "skill_execution",
+          "skill_efficiency"
+        ]
+      },
+      "dimensions_with_skill": {},
+      "dimensions_without_skill": {
+        "security": {
+          "score": 1.0,
+          "sources": {
+            "security": 1.0
+          }
+        },
+        "correctness": {
+          "score": 1.0,
+          "sources": {
+            "accuracy": 1.0
+          }
+        },
+        "effectiveness": {
+          "score": 1.0,
+          "sources": {
+            "goal_accuracy": 0.5,
+            "behavior_check": 0.5
+          }
+        }
+      },
+      "skill_activation": {
+        "status": "activated",
+        "positive_trials": 1,
+        "activated_trials": 1,
+        "unknown_trials": 0,
+        "reason": "Skill activation observed in with-skill trials"
+      },
+      "lift": {},
+      "custom_lift": {},
+      "pass_at_k": {
+        "with_skill": {},
+        "without_skill": {
+          "k": 1,
+          "pass_threshold": 0.5,
+          "correct_answers": {
+            "correct": 3,
+            "scored": 3
+          },
+          "required_checks": {
+            "passed": 3,
+            "scored": 3,
+            "wrong_answer": 0,
+            "security": 0
+          },
+          "security_clean": {
+            "clean": 3,
+            "scored": 3
+          },
+          "stop_on_pass": false,
+          "passed_cases": 3,
+          "failed_cases": 0,
+          "total_cases": 3,
+          "rate": 1.0,
+          "rate_interval": {
+            "method": "wilson_score",
+            "confidence_level": 0.95,
+            "lower": 0.4385029682449546,
+            "upper": 1.0
+          },
+          "attempts_used": 3,
+          "max_attempts_possible": 3,
+          "avg_attempts_used": 1.0,
+          "extra_case_count": 0,
+          "extra_cases": [],
+          "extra_cases_truncated": false,
+          "case_details_total": 3,
+          "case_details_shown": 3,
+          "case_details_truncated": false,
+          "case_details_limit": 256,
+          "cases": {
+            "req-001": {
+              "passed": true,
+              "first_pass_attempt": 1,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 1.0,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "req-001__NKMXhmd",
+                  "score": 1.0,
+                  "passed": true,
+                  "goal_accuracy": 1.0,
+                  "reason": null,
+                  "warnings": [],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": null
+                }
+              ],
+              "reason": null,
+              "warnings": [],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            },
+            "req-002": {
+              "passed": true,
+              "first_pass_attempt": 1,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 1.0,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "req-002__TsaXUMi",
+                  "score": 1.0,
+                  "passed": true,
+                  "goal_accuracy": 1.0,
+                  "reason": null,
+                  "warnings": [],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": null
+                }
+              ],
+              "reason": null,
+              "warnings": [],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            },
+            "req-003": {
+              "passed": true,
+              "first_pass_attempt": 1,
+              "attempts_used": 1,
+              "attempts_recovered": 0,
+              "attempts_skipped": 0,
+              "attempts_missing": 0,
+              "best_score": 1.0,
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "trial": "req-003__NGxm2jy",
+                  "score": 1.0,
+                  "passed": true,
+                  "goal_accuracy": 1.0,
+                  "reason": null,
+                  "warnings": [],
+                  "security_clean": true,
+                  "security_score": 1.0,
+                  "security_message": null,
+                  "security_exempt": false,
+                  "required_failure": null
+                }
+              ],
+              "reason": null,
+              "warnings": [],
+              "attempt_details_total": 1,
+              "attempt_details_shown": 1,
+              "attempt_details_truncated": false
+            }
+          }
+        },
+        "lift": {}
+      },
+      "security_attribution": {},
+      "agent_runtime_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "trial_failures": {
+        "with_skill": [
+          {
+            "trial": "req-001__TWRWuTc",
+            "reason": "Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run"
+          }
+        ],
+        "without_skill": []
+      },
+      "recovered_trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "failure_detail_metadata": {
+        "with_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "with_skill_trials": {
+          "details_total": 1,
+          "details_shown": 1,
+          "details_truncated": false
+        },
+        "without_skill_trials": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        }
+      },
+      "job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "historical_job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "conditions": {
+        "with_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Unscoreable reward in req-001__TWRWuTc: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run",
+            "Missing scored attempts for cases: req-001",
+            "Scored attempt coverage is 2/3"
+          ],
+          "execution_error_details_total": 3,
+          "execution_error_details_shown": 3,
+          "execution_error_details_truncated": false,
+          "expected_cases": 3,
+          "scored_cases": 2,
+          "expected_attempts": 3,
+          "scored_attempts": 2,
+          "judge_failures": 1,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 1,
+          "reward_failure_details_shown": 1,
+          "reward_failure_details_truncated": false
+        },
+        "without_skill": {
+          "execution_status": "succeeded",
+          "execution_errors": [],
+          "execution_error_details_total": 0,
+          "execution_error_details_shown": 0,
+          "execution_error_details_truncated": false,
+          "expected_cases": 3,
+          "scored_cases": 3,
+          "expected_attempts": 3,
+          "scored_attempts": 3,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 0,
+          "reward_failure_details_shown": 0,
+          "reward_failure_details_truncated": false
+        }
+      },
+      "execution_status": "failed",
+      "execution_errors": [
+        "Unscoreable reward in req-001__TWRWuTc: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run",
+        "Missing scored attempts for cases: req-001",
+        "Scored attempt coverage is 2/3"
+      ],
+      "execution_error_details_total": 3,
+      "execution_error_details_shown": 3,
+      "execution_error_details_truncated": false,
+      "expected_attempts": 6,
+      "scored_attempts": 5,
+      "num_trials_with": 2,
+      "num_trials_without": 3,
+      "execution_counts": {
+        "fresh": {
+          "with_skill": 3,
+          "without_skill": 3
+        },
+        "reused": {
+          "without_skill": 0
+        }
+      },
+      "measured_usage": {
+        "fresh": {
+          "with_skill": null,
+          "without_skill": {
+            "total_prompt_tokens": 38456,
+            "total_completion_tokens": 5304,
+            "total_cached_tokens": 35840,
+            "total_cost_usd": null
+          }
+        },
+        "reused": {
+          "without_skill": null
+        }
+      },
+      "output_dir": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_082742_1_b8d61e47bd6b/opencode",
+      "dataset_sufficiency": {
+        "policy": "dataset-sufficiency-v1",
+        "status": "provisional",
+        "coverage_summary": "Dataset size: provisional \u2014 3 cases (policy needs 10), 1 negative case (needs 1); pass-rate interval unavailable (policy dataset-sufficiency-v1)",
+        "checks": [
+          {
+            "name": "coverage",
+            "met": false,
+            "observed": {
+              "distinct_cases": 3,
+              "negative_cases": 1
+            },
+            "required": {
+              "distinct_cases": 10,
+              "negative_cases": 1
+            },
+            "reason": "3 distinct cases and 1 negative cases; requires 10 and 1"
+          },
+          {
+            "name": "pass_rate_reliability",
+            "met": null,
+            "observed": {
+              "interval_half_width": null
+            },
+            "required": {
+              "interval_half_width": 0.2
+            },
+            "reason": "95% Wilson interval is unavailable"
+          },
+          {
+            "name": "lift_comparison",
+            "met": null,
+            "observed": {
+              "paired_cases": null
+            },
+            "required": {
+              "paired_cases": 10
+            },
+            "reason": "Paired-case count is unavailable"
+          }
+        ],
+        "reason": "provisional: 3 distinct cases and 1 negative cases; requires 10 and 1; 95% Wilson interval is unavailable; Paired-case count is unavailable"
+      }
+    }
+  },
+  "metric_set": "skill-evaluator-default-v2",
+  "metrics": [
+    "security",
+    "skill_execution",
+    "skill_efficiency",
+    "accuracy",
+    "goal_accuracy",
+    "behavior_check"
+  ],
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "attempt_policy": {
+    "max_attempts": 1,
+    "pass_threshold": 0.5,
+    "stop_on_pass": false,
+    "score_definition": "overall = mean(Security, Correctness, Discoverability, Effectiveness, Efficiency) [skill-evaluator-dimension-mean-v1], excluding metrics that are not applicable to a case",
+    "score_policy": "skill-evaluator-dimension-mean-v1"
+  },
+  "execution_status": "failed",
+  "execution_errors": [
+    "Unscoreable reward in req-001__TWRWuTc: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run",
+    "Missing scored attempts for cases: req-001",
+    "Scored attempt coverage is 2/3"
+  ],
+  "execution_error_details_total": 3,
+  "execution_error_details_shown": 3,
+  "execution_error_details_truncated": false,
+  "expected_attempts": 6,
+  "scored_attempts": 5,
+  "error": [
+    "Unscoreable reward in req-001__TWRWuTc: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run",
+    "Missing scored attempts for cases: req-001",
+    "Scored attempt coverage is 2/3"
+  ],
+  "baseline": {
+    "mode": "fresh"
+  },
+  "comparison_identity": {
+    "config": {
+      "harbor": {
+        "environment": {
+          "value": "docker",
+          "source": "CLI"
+        },
+        "environment_kwargs": {
+          "keys": [],
+          "sources": {},
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "n_attempts": 1,
+        "stop_on_pass": false,
+        "timeout_multiplier": 3.0,
+        "base_image_mode": "reuse",
+        "resources": {
+          "cpus": null,
+          "memory_mb": null,
+          "storage_mb": null
+        },
+        "agent_workdir": null,
+        "custom_dockerfile_mode": "rebase",
+        "runtime_env": {
+          "keys": [],
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        }
+      },
+      "provider": {
+        "name": "openai-compatible",
+        "model": "qwen3.8-flash"
+      },
+      "judge": {
+        "enabled": true,
+        "provider": "openai-compatible",
+        "model": "qwen3.8-flash",
+        "source": "SKILL_EVAL_LLM_MODEL",
+        "override_applied": false,
+        "reasoning_effort": null,
+        "catalog_verification": "degraded"
+      },
+      "task_source": "evals_json",
+      "grading": {
+        "mode": "default"
+      },
+      "skill_workspace": {
+        "mode": "isolated"
+      },
+      "copy_repo": false,
+      "repo_context_exclude_paths": [],
+      "agents": {
+        "opencode": {
+          "agent": "opencode",
+          "model": "openai/qwen3.8-flash",
+          "source": "CLI"
+        }
+      },
+      "baseline_task_tree_digest": "sha256:c9201600fafb20d5a1bc7e7af5c244798e6dcd1891702c1027e419607023c68c"
+    },
+    "dataset_digest": "sha256:b492bf981478a8c08e3729fcd841e0a748f1364dbd4195b6869080430d35d339",
+    "identity_dataset_digest": "sha256:59d5d44519e47032cecedc992f9bb97affcade4f1c7c6deeb66ca550b674ab66",
+    "baseline_task_tree_digest": "sha256:c9201600fafb20d5a1bc7e7af5c244798e6dcd1891702c1027e419607023c68c",
+    "expected_case_ids": [
+      "req-001",
+      "req-002",
+      "req-003"
+    ],
+    "attempt_policy": {
+      "max_attempts": 1,
+      "pass_threshold": 0.5,
+      "stop_on_pass": false
+    },
+    "score_policy": "skill-evaluator-dimension-mean-v1",
+    "evaluator_version": "0.9.0",
+    "skill": {
+      "evaluated_source": null,
+      "publication_target": {
+        "skill_name": "requirements-analyst",
+        "skill_digest": "sha256:9d7d0f3eece97b510e4fea48f364fb2dc6951b3aa8b538275f16cbaf64924597",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      }
+    }
+  },
+  "expected_case_ids": [
+    "req-001",
+    "req-002",
+    "req-003"
+  ],
+  "skill_name": "requirements-analyst",
+  "run_id": "20261118_082742_1_b8d61e47bd6b",
+  "publication_target": {
+    "skill_name": "requirements-analyst",
+    "skill_digest": "sha256:9d7d0f3eece97b510e4fea48f364fb2dc6951b3aa8b538275f16cbaf64924597",
+    "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+  },
+  "run_dir": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_082742_1_b8d61e47bd6b",
+  "result_path": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_082742_1_b8d61e47bd6b/result.json",
+  "harbor_jobs_dir": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_082742_1_b8d61e47bd6b/_harbor-jobs",
+  "harbor_jobs_retained": false,
+  "evaluated_at": "2026-11-18T08:37:48.155522+00:00",
+  "evaluator_version": "0.9.0",
+  "dataset_snapshot": {
+    "schema_version": "1.1",
+    "evaluator_version": "0.9.0",
+    "dataset_summary": {
+      "total_tasks": 3,
+      "positive_tasks": 2,
+      "negative_tasks": 1,
+      "unclassified_tasks": 0,
+      "source": "dataset"
+    },
+    "dataset_digest": "sha256:b492bf981478a8c08e3729fcd841e0a748f1364dbd4195b6869080430d35d339",
+    "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1"
+  },
+  "dataset_snapshot_path": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_082742_1_b8d61e47bd6b/dataset_snapshot.json",
+  "dataset_summary": {
+    "total_tasks": 3,
+    "positive_tasks": 2,
+    "negative_tasks": 1,
+    "unclassified_tasks": 0,
+    "source": "dataset"
+  },
+  "dataset_digest": "sha256:b492bf981478a8c08e3729fcd841e0a748f1364dbd4195b6869080430d35d339",
+  "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1",
+  "identity_dataset_digest": "sha256:59d5d44519e47032cecedc992f9bb97affcade4f1c7c6deeb66ca550b674ab66",
+  "baseline_task_tree_digest": "sha256:c9201600fafb20d5a1bc7e7af5c244798e6dcd1891702c1027e419607023c68c",
+  "budget": {
+    "limits": {
+      "max_agent_tokens": null,
+      "max_judge_calls": null,
+      "max_attempts_total": null,
+      "max_cost_usd": null
+    },
+    "planned_attempts": 6,
+    "started_attempts": 0,
+    "finished_attempts": 0,
+    "unmeasured_attempts": {
+      "agent_tokens": 0,
+      "judge_calls": 0,
+      "cost_usd": 0
+    },
+    "used": {
+      "agent_tokens": "not measured",
+      "judge_calls": "not measured",
+      "cost_usd": "not measured"
+    },
+    "status": "ok",
+    "partial": false,
+    "exhausted_limit": null,
+    "exhausted_basis": null,
+    "attempts_not_run": 0,
+    "not_run": [],
+    "charge_coverage": {
+      "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+      "attempts_by_derivation": {
+        "price_file": 0,
+        "provider_reported": 0,
+        "unmeasured": 0
+      },
+      "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+      "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+      "environment_setup": "not included",
+      "container": "not included",
+      "backend": "not included",
+      "infrastructure": "not included"
+    },
+    "reservation": {
+      "policy": "largest_measured_attempt",
+      "estimate_per_attempt": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "in_flight_attempts": 0,
+      "waits": 0,
+      "unestimated_admissions": 0,
+      "calibration_waits": 0,
+      "estimate_denials": 0,
+      "denied_unit_size": 0
+    },
+    "observed_overruns": {}
+  },
+  "dataset_provenance": null,
+  "run_config": {
+    "config_file": "evals/config.yml",
+    "harbor": {
+      "environment": {
+        "value": "docker",
+        "source": "CLI"
+      },
+      "environment_kwargs": {
+        "keys": [],
+        "sources": {},
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "n_attempts": 1,
+      "stop_on_pass": false,
+      "n_concurrent": 4,
+      "timeout_multiplier": 3.0,
+      "base_image_mode": "reuse",
+      "resources": {
+        "cpus": null,
+        "memory_mb": null,
+        "storage_mb": null
+      },
+      "agent_workdir": null,
+      "custom_dockerfile_mode": "rebase",
+      "runtime_env": {
+        "keys": [],
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "jobs_retained": false
+    },
+    "provider": {
+      "name": "openai-compatible",
+      "model": "qwen3.8-flash"
+    },
+    "judge": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "qwen3.8-flash",
+      "source": "SKILL_EVAL_LLM_MODEL",
+      "override_applied": false,
+      "reasoning_effort": null,
+      "catalog_verification": "degraded"
+    },
+    "credential_validation": {
+      "status": "degraded",
+      "targets": [
+        {
+          "labels": [
+            "opencode",
+            "standard grader"
+          ],
+          "provider": "openai-compatible",
+          "model": "qwen3.8-flash",
+          "status": "degraded",
+          "detail": "model catalog access does not verify runtime credentials for this endpoint"
+        }
+      ]
+    },
+    "task_source": "evals_json",
+    "grading": {
+      "mode": "default"
+    },
+    "skill_workspace": {
+      "mode": "isolated"
+    },
+    "copy_repo": false,
+    "repo_context_exclude_paths": [],
+    "agents": {
+      "opencode": {
+        "agent": "opencode",
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      }
+    },
+    "evaluated_source": null,
+    "baseline_task_tree_digest": "sha256:c9201600fafb20d5a1bc7e7af5c244798e6dcd1891702c1027e419607023c68c",
+    "baseline": {
+      "mode": "fresh"
+    },
+    "budget": {
+      "limits": {
+        "max_agent_tokens": null,
+        "max_judge_calls": null,
+        "max_attempts_total": null,
+        "max_cost_usd": null
+      },
+      "planned_attempts": 6,
+      "started_attempts": 0,
+      "finished_attempts": 0,
+      "unmeasured_attempts": {
+        "agent_tokens": 0,
+        "judge_calls": 0,
+        "cost_usd": 0
+      },
+      "used": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "status": "ok",
+      "partial": false,
+      "exhausted_limit": null,
+      "exhausted_basis": null,
+      "attempts_not_run": 0,
+      "not_run": [],
+      "charge_coverage": {
+        "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+        "attempts_by_derivation": {
+          "price_file": 0,
+          "provider_reported": 0,
+          "unmeasured": 0
+        },
+        "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+        "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+        "environment_setup": "not included",
+        "container": "not included",
+        "backend": "not included",
+        "infrastructure": "not included"
+      },
+      "reservation": {
+        "policy": "largest_measured_attempt",
+        "estimate_per_attempt": {
+          "agent_tokens": "not measured",
+          "judge_calls": "not measured",
+          "cost_usd": "not measured"
+        },
+        "in_flight_attempts": 0,
+        "waits": 0,
+        "unestimated_admissions": 0,
+        "calibration_waits": 0,
+        "estimate_denials": 0,
+        "denied_unit_size": 0
+      },
+      "observed_overruns": {}
+    }
+  },
+  "partial": false,
+  "dataset_sufficiency": {
+    "policy": "dataset-sufficiency-v1",
+    "status": "provisional",
+    "coverage_summary": "Dataset size: provisional \u2014 3 cases (policy needs 10), 1 negative case (needs 1); pass-rate interval unavailable (policy dataset-sufficiency-v1)",
+    "checks": [
+      {
+        "name": "coverage",
+        "met": false,
+        "observed": {
+          "distinct_cases": 3,
+          "negative_cases": 1
+        },
+        "required": {
+          "distinct_cases": 10,
+          "negative_cases": 1
+        },
+        "reason": "3 distinct cases and 1 negative cases; requires 10 and 1"
+      },
+      {
+        "name": "pass_rate_reliability",
+        "met": null,
+        "observed": {
+          "interval_half_width": null
+        },
+        "required": {
+          "interval_half_width": 0.2
+        },
+        "reason": "95% Wilson interval is unavailable"
+      },
+      {
+        "name": "lift_comparison",
+        "met": null,
+        "observed": {
+          "paired_cases": null
+        },
+        "required": {
+          "paired_cases": 10
+        },
+        "reason": "Paired-case count is unavailable"
+      }
+    ],
+    "reason": "provisional: 3 distinct cases and 1 negative cases; requires 10 and 1; 95% Wilson interval is unavailable; Paired-case count is unavailable"
+  },
+  "harbor_jobs_retention_reason": "not_retained",
+  "tier3_feedback": {
+    "schema_version": "1.0",
+    "conclusions": [
+      {
+        "severity": "warn",
+        "title": "Skill effect",
+        "message": "per-case result: inconclusive (opencode: condition execution is incomplete).",
+        "source": "deterministic"
+      },
+      {
+        "severity": "fail",
+        "title": "Evaluation incomplete",
+        "message": "Unscoreable reward in req-001__TWRWuTc: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run; Missing scored attempts for cases: req-001; Scored attempt coverage is 2/3; With skill trial req-001__TWRWuTc: Required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUDGET; final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run"
+      }
+    ],
+    "recommendations": [
+      {
+        "title": "req-001 \u00b7 opencode",
+        "category": "run error",
+        "message": "1 attempt(s) never produced a score: required judge evaluation failed: behavior_check: behavior_check evidence is incomplete: final response did not reach the judge (behavior evidence shortened to fit SKILL_EVAL_BEHAVIOR_CHECK_BUD\u2026. Fix: Not a skill problem: check the judge model configuration, credentials and provider availability, then re-run this case. Evidence: opencode/with-skill/trials/req-001__TWRWuTc/reward.json",
+        "severity": "warn",
+        "source": "deterministic"
+      }
+    ],
+    "suggestions": [
+      "Not a skill problem: check the judge model configuration, credentials and provider availability, then re-run this case."
+    ],
+    "suggestions_v2": []
+  },
+  "token_usage": {
+    "schema_version": "1",
+    "scored": false,
+    "accounting": {
+      "prompt_includes_cached": true,
+      "total_tokens": "prompt_tokens + completion_tokens",
+      "uncached_prompt_tokens": "prompt_tokens - cached_tokens",
+      "change": "with_skill - baseline total_tokens; percent of the baseline total"
+    },
+    "case_id_validation": {
+      "status": "validated",
+      "dataset_case_ids": 3,
+      "unmatched_case_ids": []
+    },
+    "agents": {
+      "opencode": {
+        "with_skill": {
+          "totals": {
+            "prompt_tokens": 236953,
+            "cached_tokens": 198656,
+            "uncached_prompt_tokens": 38297,
+            "completion_tokens": 21898,
+            "total_tokens": 258851
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 3,
+            "observed_attempts": 3,
+            "measured_attempts": 3,
+            "unscored_attempts": 0,
+            "reason_codes": []
+          }
+        },
+        "baseline": {
+          "totals": {
+            "prompt_tokens": 38456,
+            "cached_tokens": 35840,
+            "uncached_prompt_tokens": 2616,
+            "completion_tokens": 5304,
+            "total_tokens": 43760
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 3,
+            "observed_attempts": 3,
+            "measured_attempts": 3,
+            "unscored_attempts": 0,
+            "reason_codes": []
+          }
+        },
+        "delta": {
+          "status": "unavailable",
+          "total_tokens": null,
+          "total_tokens_change_percent": null,
+          "reason_codes": [
+            "with_skill_failed"
+          ],
+          "reason": "No change: with-skill run incomplete (2 of 3 attempts scored)."
+        }
+      }
+    },
+    "dataset": {
+      "with_skill": {
+        "totals": {
+          "prompt_tokens": 236953,
+          "cached_tokens": 198656,
+          "uncached_prompt_tokens": 38297,
+          "completion_tokens": 21898,
+          "total_tokens": 258851
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 3,
+          "observed_attempts": 3,
+          "measured_attempts": 3,
+          "unscored_attempts": 0,
+          "reason_codes": []
+        }
+      },
+      "baseline": {
+        "totals": {
+          "prompt_tokens": 38456,
+          "cached_tokens": 35840,
+          "uncached_prompt_tokens": 2616,
+          "completion_tokens": 5304,
+          "total_tokens": 43760
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 3,
+          "observed_attempts": 3,
+          "measured_attempts": 3,
+          "unscored_attempts": 0,
+          "reason_codes": []
+        }
+      },
+      "delta": {
+        "status": "unavailable",
+        "total_tokens": null,
+        "total_tokens_change_percent": null,
+        "reason_codes": [
+          "agent_scope_mismatch"
+        ],
+        "reason": "Not every agent has a token change, so there is no change over all agents."
+      }
+    }
+  },
+  "report_path": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_082742_1_b8d61e47bd6b/report.html",
+  "benchmark_path": "/app/reports/company-library-20261118/tier3-v2/requirements-analyst/requirements-analyst/20261118_082742_1_b8d61e47bd6b/tier3-benchmark.md",
+  "report_status": "complete",
+  "duration_seconds": 607.44,
+  "result_projection": {
+    "schema_version": "1.0",
+    "mode": "inline",
+    "returned_result": "full",
+    "persisted_result": "inline",
+    "agents": {},
+    "omitted_detail_fields": {},
+    "omitted_root_detail_fields": []
+  }
+}

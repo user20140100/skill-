@@ -1,0 +1,26 @@
+{
+  "id": "req-003",
+  "expected_skill": null,
+  "expected_script": null,
+  "prompt": "写一个 Python 脚本，读取 CSV 文件并统计每一列的非空值数量。",
+  "expected_output": "The agent answered the programming question directly by writing a Python script that reads a CSV and counts non-null values per column, without activating or referencing any requirement-analysis skill.",
+  "assertions": [
+    "The agent wrote a Python script using csv/pandas to count non-null values per column",
+    "The agent did NOT activate or reference any requirement-document skill",
+    "The agent did not produce a requirement document"
+  ],
+  "question": "写一个 Python 脚本，读取 CSV 文件并统计每一列的非空值数量。",
+  "ground_truth": "The agent answered the programming question directly by writing a Python script that reads a CSV and counts non-null values per column, without activating or referencing any requirement-analysis skill.",
+  "expected_behavior": [
+    "The agent wrote a Python script using csv/pandas to count non-null values per column",
+    "The agent did NOT activate or reference any requirement-document skill",
+    "The agent did not produce a requirement document"
+  ],
+  "evaluated_skill": "grill-requirements",
+  "has_skill": true,
+  "skill_workspace_mode": "isolated",
+  "workspace_skill_names": [],
+  "grading_mode": "default",
+  "custom_grader": false,
+  "agent_workdir": "/workspace"
+}

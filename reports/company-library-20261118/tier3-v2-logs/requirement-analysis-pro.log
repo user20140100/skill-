@@ -1,0 +1,108 @@
+Tier 3: reusing the existing evaluation source unchanged.
+Tier 3 live evaluation: requirement-analysis-pro
+  environment: docker
+  agents/models: opencode
+  plan: with-skill=yes, baseline=yes, timeout=3x
+[00:00:00] configuration: running
+[00:00:00] configuration: ready - evaluation config validated
+[00:00:00] model-resolution: running
+[00:00:00] model-resolution: complete - agent models resolved
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x
+[00:00:00] environment-preflight: running - docker
+[00:00:00] environment-preflight: complete - docker
+[00:00:00] credential-validation: running
+[00:00:00] credential-validation: degraded - credential configuration resolved; live catalog verification inconclusive: opencode, standard grader: model catalog access does not verify runtime credentials for this endpoint; continuing to evaluation
+[00:00:00] docker-images: running - preparing shared eval base image (reuse)
+[00:00:00] docker-images: complete - eval base image ready: skillevaluator-deps:3.12-opencode
+[00:00:00] with-skill-tasks: running
+INFO     Using pinned eval base image skillevaluator-deps:3.12-opencode         
+[00:00:02] with-skill-tasks: ready - task inputs staged
+[00:00:02] baseline-tasks: running
+[00:00:02] baseline-tasks: ready - baseline inputs staged
+[00:00:02] configuration: complete - Planned: 6 attempts (3 cases × 1 attempts × 2 agent arms total)
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, tasks=3, cases=3, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x, matrix-trials=6, preflight-trials=0, containers=6, max-scaled-top-level-agent-timeout=900s
+[00:00:02] agent-runtime-preflight: skipped - disabled by default; enable with --agent-runtime-preflight or harbor.agent_runtime_preflight
+[00:00:02] agent:opencode: running - with-skill + baseline
+[00:01:02] still running: agent:opencode
+[00:02:02] still running: agent:opencode
+[00:03:02] still running: agent:opencode
+[00:04:02] still running: agent:opencode
+[00:05:02] still running: agent:opencode
+[00:06:02] still running: agent:opencode
+[00:07:00] agent:opencode: complete
+[00:07:00] collection: running
+[00:07:01] collection: complete - Harbor results collected
+[00:07:01] report: running
+WARNING  LLM call failed (HTTP 429 (code=rate_limit_exceeded,                   
+         type=rate_limit_error): The LLM provider rejected the request due to   
+         rate or quota limits. Check quota and retry later.) - using fallback   
+         response                                                               
+[00:07:04] report: complete - result and HTML reports written
+[00:07:04] run-finished: complete - Tier 3 evaluation finished
+Time: 424.0s
+OVERALL SKILL LIFT   +0.00
+REQUIRED CHECKS PASSED   3/3 | 3/3 | +0
+GOALS MET   3/3 | 3/3 | +0
+SECURITY CLEAN   3/3 | 3/3 | +0
+
+• no clear effect   opencode +0 pp
+test case (k=1)       with skill     without skill   effect   
+──────────────────────────────────────────────────────────────
+req-001               1/1 ✓ (1.00)   1/1 ✓ (1.00)    no change
+req-002               1/1 ✓ (1.00)   1/1 ✓ (1.00)    no change
+req-003               1/1 ✓ (1.00)   1/1 ✓ (1.00)    no change
+                                                              
+success rate          100%           100%            +0 pp    
+quality score (0-1)   1.00           1.00            +0.00    
+                                                              
+  correctness         1.00           1.00            +0.00    
+  discoverability     1.00           -                        
+  effectiveness       1.00           1.00            +0.00    
+  efficiency          1.00           -                        
+  security            1.00           1.00            +0.00    
+✓ pass  ✗ fail  ⊘ did not run  · skipped after a pass  (0.82) mean score 0-1
+Pass@1 (supporting reliability: share of cases with a passing attempt, attempt 
+passes at Overall ≥ 0.50): with skill 100.0%, without skill 100.0%; Pass-rate 
+difference +0.0 percentage points. Shared-metric pass-rate difference +0.0 
+percentage points (with skill 100.0%, without skill 100.0%).
+
+How to improve (consider these fixes)
+ 1. all cases  [eval case] · opencode
+    what happened: every case also passes without the skill, so this eval cannot
+show what the skill adds
+    fix: Add cases the agent fails without the skill (tasks that need the 
+skill's scripts, conventions or domain rules) so the eval measures the skill's 
+value.
+
+Next steps
+ 1. each case ran once, so a single attempt decides every pass or fail mark  
+[evaluation]
+    try: Re-run with `--n-attempts 3` to see whether the results repeat before 
+acting on them.
+    check: The marks repeat across attempts and the verdict keeps its direction.
+    evidence: 3 case(s), 1 attempt each
+ 2. only opencode was evaluated and the skill showed no clear gain (+0 pp), so 
+it is unknown whether the result depends on the agent or model  [agent · 
+hypothesis]
+    try: As an experiment, run the same cases with a second agent (`--agents 
+opencode,<agent>`) or another model (`--agent-model AGENT=MODEL`), keeping the 
+dataset unchanged.
+    check: A second agent with the same direction points at the skill; a 
+different direction points at agent-specific guidance.
+    evidence: opencode +0 pp
+
+Dataset size: provisional — 3 cases (policy needs 10), 1 negative case (needs 
+1); pass-rate interval ±0.28 is wider than ±0.20 (policy dataset-sufficiency-v1)
+Limited evidence: Based on 3 cases × 1 attempt = 3 scored attempts (0 execution 
+failures, 0 judge failures); by arm: with skill: 3 cases, 3 scored attempts (0 
+execution failures, 0 judge failures); without skill: 3 cases, 3 scored attempts
+(0 execution failures, 0 judge failures)
+╭───────────────────────────────── Artifacts ──────────────────────────────────╮
+│ 📊 HTML report report.html ·                                                 │
+│                /app/reports/company-library-20261118/tier3-v2/requirement-an │
+│                alysis-pro/requirement-analysis-pro/20261118_083753_1_e0736b9 │
+│                0d1e1/report.html                                             │
+│ 📁 Output      /app/reports/company-library-20261118/tier3-v2/requirement-an │
+│                alysis-pro/requirement-analysis-pro/20261118_083753_1_e0736b9 │
+│                0d1e1                                                         │
+╰──────────────────────────────────────────────────────────────────────────────╯

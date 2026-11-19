@@ -1,0 +1,24 @@
+                         SkillEvaluator Doctor (Tier 1)                         
+ Check          Status   Details                                                
+────────────────────────────────────────────────────────────────────────────────
+ CLI package    pass     skillevaluator 0.9.0                                   
+ SkillSpector   fail     skillspector timed out after 60.0 seconds              
+ Bandit         pass     1.9.4 at /usr/local/bin/bandit                         
+ Semgrep        fail     not installed. Optional; install separately with: brew 
+                         install semgrep (macOS) or uv tool install semgrep     
+ Gitleaks       pass     8.30.0 at                                              
+                         /root/.local/share/skillevaluator/runtimes/gitleaks/8… 
+                         (managed)                                              
+                 SkillEvaluator Doctor (Tier 2)                  
+ Check                Status   Details                           
+─────────────────────────────────────────────────────────────────
+ CLI package          pass     skillevaluator 0.9.0              
+ Embedding provider   pass     openai-compatible / bge-m3        
+ LLM provider         pass     openai-compatible / qwen3.8-flash 
+                      SkillEvaluator Doctor                       
+ Check                 Status   Details                           
+──────────────────────────────────────────────────────────────────
+ CLI package           pass     skillevaluator 0.9.0              
+ Public LLM provider   pass     openai-compatible / qwen3.8-flash 
+ Harbor agents         pass     codex                             
+ docker prerequisite   pass     ready                             

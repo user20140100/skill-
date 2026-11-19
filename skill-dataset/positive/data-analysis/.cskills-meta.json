@@ -1,0 +1,38 @@
+{
+  "name": "data-analysis",
+  "author": "zhaoxiuquan",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:38+08:00",
+  "updatedAt": "2026-11-17T10:45:38+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/data-analysis"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/data-analysis",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/data-analysis"
+  ],
+  "fileHashes": {
+    "README.md": "ac0f2263b90f5d74028d57f3fd3e33ae5ed64a47757e735528124c0010a967c4",
+    "SKILL.md": "f4ebb50677ac056d00c7199c86205352ab9aa3484554960d8a621bb03bc94d22",
+    "VERSION": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "assets/sample_datasets/customer_data.csv": "92b094602469d00178497b079a33bdb0382fb1e93e8de78db75c95f2ba66943c",
+    "assets/sample_datasets/sales_data.csv": "d276742ffc68e3b21bab213d65fc66a0b25ac7682d902df489cb981d129894f2",
+    "docs/INDEX.md": "ca36424b3b0802165ad3845e50ca5cb747e87539e6018dc40bc6bb3d47c76e7b",
+    "references/business_context.md": "4797ac72d6e78eb4756042d659219ec4cc89eb23d2916181266ff363d25dc457",
+    "references/model_selection.md": "b98491b46215acd18f9f6a3be3ccaa53f52873cf5d1bfbbb9908dd3475882548",
+    "references/statistical_methods.md": "ca512fa54a5ea13a711037f46bfb64e3be898634317ecbc11a1b226cb24040a8",
+    "references/visualization_guide.md": "b10de8b9591b23de504b21db188a391f5e9681ea43f558e0d4fd7c9b42f3b196",
+    "requirements.txt": "f3b69145872228e3781b5c834beb4eedf39b0ba1c93563e5f9e3c934c6daec16",
+    "scripts/data_cleaning.py": "a76e0abe8693141d1ea7a85ced1450af37babc36989197e71c28588e5b26acf9",
+    "scripts/examples/customer_analysis_example.py": "d57876f1fd82b128e6971304fa085f88fad0111641f08529d9ba2974b87e648c",
+    "scripts/examples/sales_analysis_example.py": "462875cf3677e6069d753eebf6f628c8641463a6255026740065324356cb3aa1",
+    "scripts/feature_engineering.py": "5e808071df296b5c8c15e5e696c8d870cce62f9237bb7d6dafbeac8f4a3ad30d",
+    "setup.py": "454b1f601f5dd1fce68b06c7f43c2a7153307dfeff17b201ecc8346963457185",
+    "tests/test_data_analysis.py": "916b61d787ab3dd1bf1c474c8400d32e24ebe169a5d6828ea995d5f2b2565821"
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "691ffdc1-4275-4906-87d7-6cf2f1b2abe8": {
+    "name": "结算系统",
+    "desc": "LTC-CS"
+  },
+  "7736efb1-a0de-430a-9834-0ac89372775c": {
+    "name": "eus-view",
+    "desc": "EUS"
+  },
+  "1662e714-d758-4aa8-9c33-25b3f6358267": {
+    "name": "cvte-reservation",
+    "desc": "行政平台"
+  },
+  "6e3e6396-c88d-4502-83d1-1bfaca6471a6": {
+    "name": "HMA",
+    "desc": "HMA"
+  },
+  "fae71266-1b30-4c8a-99df-a2ac53fb2d6d": {
+    "name": "cvte-recruit-campus-admin",
+    "desc": "招聘宝管理后台"
+  },
+  "924017c0-fc06-11ec-9d34-716e2dbf7b93": {
+    "name": "cir-lcp-app",
+    "desc": "天舟云应用渲染系统"
+  },
+  "f251d000-a4d5-11ec-9b06-c3bca5ed3d20": {
+    "name": "ltc-m-scrm",
+    "desc": "LTC SCRM移动端"
+  },
+  "9afc20fe-33e4-4eb1-81a4-dd44e21ec989": {
+    "name": "社招门户",
+    "desc": "rc-homepage"
+  },
+  "8df6a4c0-cc9d-4bed-b97c-ddbc31dce15a": {
+    "name": "m-dap",
+    "desc": "行政平台移动端"
+  },
+  "3c4c7a40-4a1f-11ed-9ee6-7f8503444cda": {
+    "name": "aps-sky",
+    "desc": "aps-sky"
+  },
+  "269be5d0-e0e0-11ec-a9ca-d3652069c139": {
+    "name": "LTC-CS-M",
+    "desc": "LTC-CS-M"
+  },
+  "2f14ef3d-7b67-4aa2-a140-20f815c29521": {
+    "name": "tz-render-1",
+    "desc": "公共天舟云渲染端"
+  },
+  "2b25dfbd-e232-46b2-9155-13f4797a5686": {
+    "name": "ltc-oms",
+    "desc": "ltc-oms"
+  },
+  "3d73275d-2354-4078-a8da-c389e4821bef": {
+    "name": "慧捷报H5",
+    "desc": "fee-h5"
+  },
+  "005085b3-cfb0-4ef1-94c8-f02244dd6800": {
+    "name": "gpm-front",
+    "desc": "gpm-front"
+  },
+  "5bf0dee0-6dc5-11ec-b30b-0952fdeba07b": {
+    "name": "慧捷报",
+    "desc": "FEE"
+  },
+  "d80a9410-eddd-11ec-9b14-9b31f84ce453": {
+    "name": "HIRE",
+    "desc": "HIRE"
+  },
+  "887538c0-fe5d-11ec-8c24-ebcb4375cda1": {
+    "name": "智能小C简历助手",
+    "desc": "RESUME_EXTENSION"
+  },
+  "1194d48d-f6d6-4b72-80ac-b3c0e78da007": {
+    "name": "SCM库存-SIT",
+    "desc": "SCM-INV-SIT"
+  },
+  "dc029daf-1a50-415d-9c5d-6a2c23bd7680": {
+    "name": "SCM在制-SIT",
+    "desc": "SCM-WIP-SIT"
+  },
+  "a008458e-f221-478b-aec3-161f173d1555": {
+    "name": "在线客服H5",
+    "desc": "在线客服H5"
+  },
+  "057a3c89-ba9e-4c92-ae40-d84c04cd3801": {
+    "name": "六环制造协同",
+    "desc": "LH-MFG"
+  },
+  "4f1f82c1-3dbd-415f-a4f2-e9d02bfa82a8": {
+    "name": "xioo-year",
+    "desc": "xioo-year"
+  },
+  "12b94da4-f54a-4ccf-9029-7a2f52e81a21": {
+    "name": "EHR",
+    "desc": "ehr"
+  },
+  "63fcdc40-b61f-11ec-a600-59326ece9fbe": {
+    "name": "资源中心",
+    "desc": "资源中心"
+  },
+  "23fce100-4e8c-4e17-80f2-94cb0a1c3ac3": {
+    "name": "学习平台",
+    "desc": "ml-study"
+  },
+  "4086a4d0-b61f-11ec-a600-59326ece9fbe": {
+    "name": "伯乐圈移动端",
+    "desc": "m-bole"
+  },
+  "d054f91e-3124-4ca8-b4c8-99648c20e574": {
+    "name": "校招个人中心",
+    "desc": "recruit-zone"
+  },
+  "58a5599b-4d6f-4a48-a3d9-719be9b547ba": {
+    "name": "employee-self-service",
+    "desc": "ESS"
+  },
+  "8f3dae4a-51d6-40fe-8491-80e464026a67": {
+    "name": "excel-server",
+    "desc": "excel-server"
+  },
+  "bd94e771-97a1-4cdb-9d28-36be94a7753a": {
+    "name": "cvte-exam-client",
+    "desc": "cvte-exam-client"
+  },
+  "5a3301e4-451c-4e7e-8894-5f7f4da6854a": {
+    "name": "CVTE猎头平台",
+    "desc": "cvte-headhunter-system"
+  },
+  "bc0e7639-0852-4f90-a86d-b8211ff6b370": {
+    "name": "供应链协作应用",
+    "desc": "scm-cooperation"
+  },
+  "7f291d24-ceb3-4921-a257-10a85f5c55c5": {
+    "name": "新费控PC",
+    "desc": "NEW-FEE-PC"
+  },
+  "b7fd197a-27a4-4498-b38e-3f22f3b9c702": {
+    "name": "m-dhr",
+    "desc": "m-dhr"
+  },
+  "7f44ac34-eb7e-477a-8d37-04e106b2e0b7": {
+    "name": "校招个人中心移动端",
+    "desc": "m-cvte-recruit-zone"
+  },
+  "a75f513f-0c54-4e70-887f-f10a73f2b0b7": {
+    "name": "m-zpb",
+    "desc": "校招伯乐圈"
+  },
+  "27ed1a60-6dd3-11ec-9bf0-938bc486bcc9": {
+    "name": "采购管理-备",
+    "desc": "PMS-L"
+  },
+  "8903cd4f-4fef-4a67-8d0c-ab5e4a0db779": {
+    "name": "opcsm（旧售后门户）",
+    "desc": "opcsm（旧售后门户）"
+  },
+  "ed353a71-6b92-4a96-9eb9-6b9d351cabde": {
+    "name": "employee-self-service-mobile",
+    "desc": "员工自助移动端"
+  },
+  "efceabd6-619d-4609-a657-c455abface1d": {
+    "name": "planb",
+    "desc": "CPLM-IPM"
+  },
+  "4fb5ca9a-d56d-47dc-99ad-614fe223030e": {
+    "name": "cplm-home-front",
+    "desc": "CPLM-HOME"
+  },
+  "092a0a3b-8f49-49d3-97f3-bd6771feaa7e": {
+    "name": "SCM库存",
+    "desc": "SCM-INV"
+  },
+  "eba684fe-222e-4bb7-a34a-a6bf10f932f8": {
+    "name": "cat-master",
+    "desc": "CPLM-PCM"
+  },
+  "962d4c53-1627-7b36-c643-8b91fd1a2761": {
+    "name": "aps-node",
+    "desc": "APS"
+  },
+  "1782251b-26b1-4bd7-b234-426341428c04": {
+    "name": "SCM在制",
+    "desc": "SCM-WIP"
+  },
+  "852e9013-c3e2-456d-9960-24ce3d71420b": {
+    "name": "pdm-front",
+    "desc": "CPLM-PDM"
+  },
+  "5edf23ec-18b5-4564-87fa-fc2aa0837d97": {
+    "name": "SCM",
+    "desc": "SCM供应链产品线"
+  },
+  "4d0ddb3a-8a33-4b5a-9986-fb831184a365": {
+    "name": "cmes",
+    "desc": "CMES"
+  },
+  "b222d176-613e-4cc8-aed3-8d692e3de9e8": {
+    "name": "采购管理",
+    "desc": "SCM-PMS"
+  },
+  "bfcfc3ab-e789-4e21-89dd-cce476fb9a76": {
+    "name": "tms",
+    "desc": "tms"
+  },
+  "860dd692-2d48-43c0-8e99-cc4f2b2aee44": {
+    "name": "QMS",
+    "desc": "制造协同"
+  }
+}

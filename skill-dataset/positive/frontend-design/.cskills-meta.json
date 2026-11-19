@@ -1,0 +1,23 @@
+{
+  "name": "frontend-design",
+  "author": "anthropics",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:43+08:00",
+  "updatedAt": "2026-11-17T10:45:43+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/frontend-design"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/frontend-design",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/frontend-design"
+  ],
+  "fileHashes": {
+    "SKILL.md": "4c5dd8be82519cb1025aa494fb95ded7ba12d9807393eac25e1d635cdfcdc1a8",
+    "icon.svg": "09a639035e9c291b30623c27e202789e4eb4642e105dbace6a00f34bca2dd46e"
+  }
+}

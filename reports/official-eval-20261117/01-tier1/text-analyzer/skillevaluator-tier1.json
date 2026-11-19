@@ -1,0 +1,3480 @@
+{
+  "version": "0.9.0",
+  "target_path": "/skills/official/text-analyzer",
+  "overall_passed": false,
+  "overall_status": "failed",
+  "incomplete_scans": [],
+  "total_validators": 14,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 1,
+  "total_warnings": 24,
+  "severity_counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 7,
+    "low": 12
+  },
+  "finding_counts": {
+    "raw_occurrences": 24,
+    "distinct_occurrences": 24,
+    "unique_findings": 24,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 0,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 7,
+      "low": 12,
+      "info": 4
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 7,
+      "low": 12,
+      "info": 4
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-03e029934351881ba688",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-RELOAD",
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-dec2b317d2a825a15d3b",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-17679b593e006f8c575d",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_instruction_clarity",
+      "message": "[8/10] Instructions are easy to follow with clear action steps",
+      "suggestion": "The agent steps are simple and actionable, though 'appropriate arguments' could be more explicit about choosing --text, --file, and --json.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "instruction_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4164186e067ba9cc40ef",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-18a7f8cc53f607ef9645",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "folder_hierarchy",
+      "message": "Unexpected nesting depth for general skill",
+      "suggestion": "General skills should be at: skills/<skill-name>/",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-07db021fffa60407462c",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/official/text-analyzer",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3661379ea9e5c1072875",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-RELOAD",
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3b2d975baf15650e86c5",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3d5073c9c3cad6c846fa",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description very long (312 chars, recommend 50-150)",
+      "suggestion": "Keep descriptions concise for progressive disclosure",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-d61afebd4d2a5f9fe614",
+          "validator": "QUALITY",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-43cc06598a99d3bcc9b6",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_description_clarity",
+      "message": "[8/10] Description is clear, specific, and explains WHEN to use the skill",
+      "suggestion": "The description clearly lists supported statistics and input forms, but 'summarize' is misleading because the skill does not produce semantic summaries.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "description_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-67258b41acd7b1af3af4",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4a6560f4aec006f302f9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No prerequisites/requirements documented",
+      "suggestion": "Document dependencies, API keys, or setup needed",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-49688e69f18975cf3b3d",
+          "validator": "QUALITY",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-5995c1ef72651542c573",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-LINKED-LAYOUT",
+      "message": "hermes: 2 files outside references/, templates/, assets/ and scripts/ (evals) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+      "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-7f690096f18e6d3298d5",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-5f777f9e6294b2d207a5",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_workflow_completeness",
+      "message": "[7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "suggestion": "The basic run-and-return workflow is covered, but guidance is thin on input selection, shell quoting, output format choice, and handling missing or empty input.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "workflow_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-0c124486cce9d7afa6fd",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6a3bcfca5704358ead2b",
+      "category": "SCRIPT_LINT",
+      "severity": "low",
+      "check_name": "magic_numbers",
+      "message": "analyze_text.py contains magic numbers",
+      "suggestion": "Extract magic numbers to named constants",
+      "metadata": null,
+      "validators": [
+        "SCRIPT_LINT"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-ae4dd2f3a35284bad52d",
+          "validator": "SCRIPT_LINT",
+          "file_path": "/skills/official/text-analyzer/scripts/analyze_text.py",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6d59a51256291da6dbce",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "description_trigger",
+      "message": "Description has its trigger at characters 157-165; some harnesses show only the first ~60 characters in their skill list",
+      "suggestion": "State when to use the skill within the first 60 characters",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-16d7aff90295558a64b6",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6d68dab37ccc357a6814",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "Instructions don't mention 'run_script'",
+      "suggestion": "Add explicit run_script() call examples",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c1c5d3f8cca219fd2ddd",
+          "validator": "QUALITY",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-73720614f42d304aa9d9",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_professional_tone",
+      "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+      "suggestion": "The documentation is clean, consistent, and professionally formatted with clear sections and examples.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "professional_tone"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-664fcf17eea48135c863",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-740453e5661b3b5b6f1e",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "No documented scripts in table format",
+      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3348e92bcfe1ef62ca7f",
+          "validator": "QUALITY",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-8a24502b3877c389f6ba",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_documentation_completeness",
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "suggestion": "Purpose, script path, parameters, output fields, and limitations are present, though a fuller CLI reference would improve completeness.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "documentation_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b434bb8f05e50fab8812",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-8e1fcdbf37b720508663",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Unknown (LP3)",
+      "message": "MCP Least Privilege: Without declared permissions the skill's intent is opaque and cannot be validated.",
+      "suggestion": "Without declared permissions the skill's intent is opaque and cannot be validated. Declare the skill's tool scope: for Claude Code / Agent Skills SKILL.md, list the tools the skill may invoke in the 'allowed-tools' frontmatter field; for MCP server manifests, add a 'permissions' list naming the required capabilities.",
+      "metadata": {
+        "skillspector_confidence": 0.7,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path",
+        "llm_verdict": "true_positive",
+        "llm_confidence": "medium",
+        "llm_reasoning": "The skill instructs running a script that can access files but declares no allowed-tools or permissions, so its least-privilege scope is not validated.",
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c04b8c5539e90a8aac9b",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 1
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-98f09c467b68e7239891",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_error_handling_quality",
+      "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "suggestion": "FileNotFoundError and empty-output guidance are realistic and actionable, though non-UTF-8 handling is documented only as a limitation rather than an error scenario.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "error_handling_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-49422342382f59409cfb",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-9e47eb4416d98778cbca",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Unknown (LP3)",
+      "message": "MCP Least Privilege: This is a true scope/least-privilege issue. The skill intentionally supports reading files through `--file /path/to/file",
+      "suggestion": "This is a true scope/least-privilege issue. The skill intentionally supports reading files through `--file /path/to/file.txt`, and static analysis detected a `file_read` capability, but the skill does not declare any `permissions` or `allowed-tools` scope to constrain what file access is allowed. That omission increases the risk that an agent may execute the script with arbitrary or sensitive file paths supplied by the user or injected through untrusted text. Because `analyze_text.py` is not included in the finding context, the exact safety of its path handling is unknown; if it accepts arbitrary paths without validation, this can leak existence, length, encoding behavior, and partial content via word statistics, especially most frequent words. The skill is not clearly malicious, but the missing tool scope makes it unsafe under a strict agent-security model. Declare an explicit read permission and constrain it. Example: add `permissions: file_read` with allowed paths or directories, or define `allowed-tools` that only includes the analyzer and restricts `--file` access to a sandboxed input directory. Modify `analyze_text.py` to reject absolute paths, parent-directory traversal, environment-dependent paths, sensitive locations such as `/etc`, `~/.ssh`, `.env`, credential stores, and home-directory dotfiles unless explicitly approved. Prefer inline `--text` by default and require explicit user confirmation for file reads. Run the script in a sandboxed or read-only working directory with path normalization and a denylist/allowlist check before opening any file.",
+      "metadata": {
+        "skillspector_confidence": 0.74,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path",
+        "llm_verdict": "true_positive",
+        "llm_confidence": "medium",
+        "llm_reasoning": "The documented --file option enables arbitrary file reads, and the skill lacks declared file_read permissions or path restrictions, creating a plausible least-privilege and data-exposure risk.",
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-97a780d9bdaa4a20c737",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 1
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-bc0939ffa25431c513d4",
+      "category": "RUBRIC_EVAL",
+      "severity": "medium",
+      "check_name": "rubric_trigger_simulation",
+      "message": "[6/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "suggestion": "Word, line, character, sentence, and frequency queries should route correctly, but 'summarize this text' and broad 'analyze' requests may produce false positives.",
+      "metadata": {
+        "score": 6,
+        "pass": false,
+        "judge_pass": false,
+        "id": "trigger_simulation"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e506e16b343abd3bbe51",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-c20d009e607a4fd7bb84",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_example_quality",
+      "message": "[8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "suggestion": "Command examples are relevant and cover inline text, file input, and JSON output, but user-query variations for detection are limited.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "example_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b9c97d91adbc33c7430c",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-d227d8fa7e50299e84f8",
+      "category": "RUBRIC_EVAL",
+      "severity": "high",
+      "check_name": "rubric_overall",
+      "message": "Rubric evaluation failed: criteria below 7/10: trigger_simulation",
+      "suggestion": "Address the failed rubric criteria and rerun the evaluation",
+      "metadata": {
+        "overall_score": 74.5,
+        "min_score": 70,
+        "failed_criteria": [
+          "trigger_simulation"
+        ]
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e5881db844a53c332264",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-26fdc264b62da801040a",
+          "validator": "QUALITY",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e0623bdfb91d6bbb829f",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-DESC-60",
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-da6efdbe6beb0dac2af6",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-ec68fd50f7b207366a7f",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_scope_definition",
+      "message": "[7/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "suggestion": "Scope is mostly clear for plain-text statistics, but the mention of summarization slightly broadens it beyond the implemented capability.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "scope_definition"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b8b356e669211af9e6ce",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 5,
+    "independent_errors": 0,
+    "independent_warnings": 1
+  },
+  "skills": [
+    {
+      "name": "text-analyzer",
+      "passed": false,
+      "issue_count": 24
+    }
+  ],
+  "contributors": [
+    {
+      "author": "SkillEvaluator Maintainers <maintainers@example.com>",
+      "items": [
+        {
+          "name": "text-analyzer",
+          "passed": false,
+          "issue_count": 24
+        }
+      ],
+      "total_items": 1,
+      "passed_count": 0,
+      "failed_count": 1,
+      "total_issues": 24
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "Rubric evaluation failed: criteria below 7/10: trigger_simulation",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Address the failed rubric criteria and rerun the evaluation"
+    },
+    {
+      "message": "MCP Least Privilege",
+      "severity": "medium",
+      "total_count": 2,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "SECURITY",
+      "suggestion": "Without declared permissions the skill's intent is opaque and cannot be validated. Declare the skill's tool scope: for Claude Code / Agent Skills SKILL.md, list the tools the skill may invoke in the 'allowed-tools' frontmatter field; for MCP server manifests, add a 'permissions' list naming the required capabilities."
+    },
+    {
+      "message": "Unexpected nesting depth for general skill",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "General skills should be at: skills/<skill-name>/"
+    },
+    {
+      "message": "No documented scripts in table format",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
+    },
+    {
+      "message": "Instructions don't mention 'run_script'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add explicit run_script() call examples"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+      "message": "[6/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Word, line, character, sentence, and frequency queries should route correctly, but 'summarize this text' and broad 'analyze' requests may produce false positives."
+    },
+    {
+      "message": "Description has its trigger at characters 157-165; some harnesses show only the first ~60 characters in their skill list",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "State when to use the skill within the first 60 characters"
+    },
+    {
+      "message": "Description very long (312 chars, recommend 50-150)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Keep descriptions concise for progressive disclosure"
+    },
+    {
+      "message": "No prerequisites/requirements documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document dependencies, API keys, or setup needed"
+    },
+    {
+      "message": "analyze_text.py contains magic numbers",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "SCRIPT_LINT",
+      "suggestion": "Extract magic numbers to named constants"
+    },
+    {
+      "message": "[8/10] Description is clear, specific, and explains WHEN to use the skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The description clearly lists supported statistics and input forms, but 'summarize' is misleading because the skill does not produce semantic summaries."
+    },
+    {
+      "message": "[8/10] Instructions are easy to follow with clear action steps",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The agent steps are simple and actionable, though 'appropriate arguments' could be more explicit about choosing --text, --file, and --json."
+    },
+    {
+      "message": "[8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Command examples are relevant and cover inline text, file input, and JSON output, but user-query variations for detection are limited."
+    },
+    {
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Purpose, script path, parameters, output fields, and limitations are present, though a fuller CLI reference would improve completeness."
+    },
+    {
+      "message": "[7/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Scope is mostly clear for plain-text statistics, but the mention of summarization slightly broadens it beyond the implemented capability."
+    },
+    {
+      "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The documentation is clean, consistent, and professionally formatted with clear sections and examples."
+    },
+    {
+      "message": "[7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The basic run-and-return workflow is covered, but guidance is thin on input selection, shell quoting, output format choice, and handling missing or empty input."
+    },
+    {
+      "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "FileNotFoundError and empty-output guidance are realistic and actionable, though non-UTF-8 handling is documented only as a limitation rather than an error scenario."
+    },
+    {
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters."
+    },
+    {
+      "message": "hermes: 2 files outside references/, templates/, assets/ and scripts/ (evals) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/."
+    },
+    {
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "text-analyzer"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    }
+  ],
+  "results": [
+    {
+      "validator": "Schema & Repository Governance",
+      "description": "Validate SKILL.md frontmatter and repository structure",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 10,
+        "errors": 0,
+        "warnings": 2,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 1,
+        "low_count": 1
+      },
+      "finding_counts": {
+        "raw_occurrences": 2,
+        "distinct_occurrences": 2,
+        "unique_findings": 2,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 1,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 1,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-18a7f8cc53f607ef9645",
+          "occurrence_id": "SEO-07db021fffa60407462c",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "folder_hierarchy",
+          "message": "Unexpected nesting depth for general skill",
+          "file_path": "/skills/official/text-analyzer",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "General skills should be at: skills/<skill-name>/",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-6d59a51256291da6dbce",
+          "occurrence_id": "SEO-16d7aff90295558a64b6",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "description_trigger",
+          "message": "Description has its trigger at characters 157-165; some harnesses show only the first ~60 characters in their skill list",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "State when to use the skill within the first 60 characters",
+          "metadata": null
+        }
+      ],
+      "success_details": [
+        {
+          "check": "manifest_exists",
+          "message": "Found skill manifest: SKILL.md",
+          "metadata": {
+            "file_path": "/skills/official/text-analyzer/SKILL.md"
+          }
+        },
+        {
+          "check": "frontmatter_valid",
+          "message": "Valid frontmatter for skill 'text-analyzer'",
+          "metadata": {
+            "description_length": 312
+          }
+        },
+        {
+          "check": "naming_convention",
+          "message": "Folder name 'text-analyzer' follows kebab-case convention",
+          "metadata": {
+            "name_length": 13
+          }
+        },
+        {
+          "check": "line_count",
+          "message": "SKILL.md within line limit (61/500)",
+          "metadata": {
+            "line_count": 61,
+            "limit": 500
+          }
+        },
+        {
+          "check": "body_heading",
+          "message": "Body contains a top-level heading",
+          "metadata": null
+        },
+        {
+          "check": "body_recommended_section",
+          "message": "Found recommended section: '## Instructions' (or '## Usage')",
+          "metadata": null
+        },
+        {
+          "check": "body_recommended_section",
+          "message": "Found recommended section: '## Examples'",
+          "metadata": null
+        },
+        {
+          "check": "optional_files",
+          "message": "Found optional supporting files: evals, scripts",
+          "metadata": {
+            "files_found": [
+              "evals",
+              "scripts"
+            ]
+          }
+        },
+        {
+          "check": "name_consistency",
+          "message": "Directory name matches frontmatter: 'text-analyzer'",
+          "metadata": null
+        },
+        {
+          "check": "author_format",
+          "message": "Valid author format: SkillEvaluator Maintainers <maintainers@example.com>",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCHEMA-MEDIUM] Unexpected nesting depth for general skill in /skills/official/text-analyzer",
+          "[SCHEMA-LOW] Description has its trigger at characters 157-165; some harnesses show only the first ~60 characters in their skill list in /skills/official/text-analyzer/SKILL.md"
+        ],
+        "messages": [
+          "[OK] manifest_exists: Found skill manifest: SKILL.md",
+          "[OK] frontmatter_valid: Valid frontmatter for skill 'text-analyzer'",
+          "[OK] naming_convention: Folder name 'text-analyzer' follows kebab-case convention",
+          "[OK] line_count: SKILL.md within line limit (61/500)",
+          "[OK] body_heading: Body contains a top-level heading",
+          "[OK] body_recommended_section: Found recommended section: '## Instructions' (or '## Usage')",
+          "[OK] body_recommended_section: Found recommended section: '## Examples'",
+          "[OK] optional_files: Found optional supporting files: evals, scripts",
+          "[OK] name_consistency: Directory name matches frontmatter: 'text-analyzer'",
+          "[OK] author_format: Valid author format: SkillEvaluator Maintainers <maintainers@example.com>"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "schema"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Semantic Version Validation",
+      "description": "Validate optional metadata.version labels and require strict bumps",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "version_optional",
+          "message": "No semantic version label present; resource will use commit-hash history",
+          "metadata": {
+            "previous_version": null
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] version_optional: No semantic version label present; resource will use commit-hash history"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "version"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Security Scan",
+      "description": "Detect security vulnerabilities and PII/secrets",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "skillspector": "2.13.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 2,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 2,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 2,
+        "distinct_occurrences": 2,
+        "unique_findings": 2,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-8e1fcdbf37b720508663",
+          "occurrence_id": "SEO-c04b8c5539e90a8aac9b",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Unknown (LP3)",
+          "message": "MCP Least Privilege: Without declared permissions the skill's intent is opaque and cannot be validated.",
+          "file_path": "SKILL.md",
+          "line_number": 1,
+          "line_content": null,
+          "suggestion": "Without declared permissions the skill's intent is opaque and cannot be validated. Declare the skill's tool scope: for Claude Code / Agent Skills SKILL.md, list the tools the skill may invoke in the 'allowed-tools' frontmatter field; for MCP server manifests, add a 'permissions' list naming the required capabilities.",
+          "metadata": {
+            "skillspector_confidence": 0.7,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path",
+            "llm_verdict": "true_positive",
+            "llm_confidence": "medium",
+            "llm_reasoning": "The skill instructs running a script that can access files but declares no allowed-tools or permissions, so its least-privilege scope is not validated.",
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash"
+          }
+        },
+        {
+          "finding_id": "SEF-9e47eb4416d98778cbca",
+          "occurrence_id": "SEO-97a780d9bdaa4a20c737",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Unknown (LP3)",
+          "message": "MCP Least Privilege: This is a true scope/least-privilege issue. The skill intentionally supports reading files through `--file /path/to/file",
+          "file_path": "SKILL.md",
+          "line_number": 1,
+          "line_content": null,
+          "suggestion": "This is a true scope/least-privilege issue. The skill intentionally supports reading files through `--file /path/to/file.txt`, and static analysis detected a `file_read` capability, but the skill does not declare any `permissions` or `allowed-tools` scope to constrain what file access is allowed. That omission increases the risk that an agent may execute the script with arbitrary or sensitive file paths supplied by the user or injected through untrusted text. Because `analyze_text.py` is not included in the finding context, the exact safety of its path handling is unknown; if it accepts arbitrary paths without validation, this can leak existence, length, encoding behavior, and partial content via word statistics, especially most frequent words. The skill is not clearly malicious, but the missing tool scope makes it unsafe under a strict agent-security model. Declare an explicit read permission and constrain it. Example: add `permissions: file_read` with allowed paths or directories, or define `allowed-tools` that only includes the analyzer and restricts `--file` access to a sandboxed input directory. Modify `analyze_text.py` to reject absolute paths, parent-directory traversal, environment-dependent paths, sensitive locations such as `/etc`, `~/.ssh`, `.env`, credential stores, and home-directory dotfiles unless explicitly approved. Prefer inline `--text` by default and require explicit user confirmation for file reads. Run the script in a sandboxed or read-only working directory with path normalization and a denylist/allowlist check before opening any file.",
+          "metadata": {
+            "skillspector_confidence": 0.74,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path",
+            "llm_verdict": "true_positive",
+            "llm_confidence": "medium",
+            "llm_reasoning": "The documented --file option enables arbitrary file reads, and the skill lacks declared file_read permissions or path restrictions, creating a plausible least-privilege and data-exposure risk.",
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash"
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "skillspector",
+          "message": "Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "metadata": {
+            "issue_count": 1
+          }
+        },
+        {
+          "check": "skillspector",
+          "message": "Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "metadata": {
+            "issue_count": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SECURITY-MEDIUM] MCP Least Privilege: Without declared permissions the skill's intent is opaque and cannot be validated. in SKILL.md:1",
+          "[SECURITY-MEDIUM] MCP Least Privilege: This is a true scope/least-privilege issue. The skill intentionally supports reading files through `--file /path/to/file in SKILL.md:1"
+        ],
+        "messages": [
+          "[OK] skillspector: Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "[OK] skillspector: Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "LLM verification reviewed all findings; no high-confidence false positives identified"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "skillspector_version": "2.13.4",
+      "skillspector_llm_provenance": {
+        "schema_version": 1,
+        "provider": {
+          "configured_adapter": "openai_compatible",
+          "resolved_adapter": "openai_compatible",
+          "effective_adapter": "openai_compatible",
+          "effective_adapters": [
+            "openai_compatible"
+          ],
+          "service": "unknown",
+          "routing": {
+            "deployment_override": null,
+            "deployment_source": "not_applicable",
+            "api_version": null,
+            "api_version_source": "not_applicable"
+          }
+        },
+        "analyzers": [
+          {
+            "analyzer_id": "mcp_tool_poisoning",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_developer_intent",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_quality_policy",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_security_discovery",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "meta_analyzer",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          }
+        ],
+        "sampling": {
+          "temperature": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "seed": {
+            "requested": null,
+            "source": "unset",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "reasoning_effort": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          }
+        },
+        "determinism": {
+          "classification": "nondeterministic",
+          "control_status": "provider_defaults",
+          "provider_guarantee": false,
+          "reason": "Optional controls do not guarantee identical provider output."
+        }
+      },
+      "skillspector_applicability": {
+        "artifact_type": "skill",
+        "kept_issues": 1,
+        "suppressed_inapplicable_issues": 0,
+        "suppressed_by_file_role": {},
+        "raw_risk_score": 7,
+        "applicable_risk_score": 7
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "security"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "PII Scan",
+      "description": "Detect PII and local identifiers",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 2,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "pii_scan_start",
+          "message": "Scanning 2 files for PII",
+          "metadata": {
+            "file_count": 2
+          }
+        },
+        {
+          "check": "pii_detection",
+          "message": "No PII detected in 2 files (emails, SSNs, phone numbers, paths)",
+          "metadata": {
+            "files_scanned": 2
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] pii_scan_start: Scanning 2 files for PII",
+          "[OK] pii_detection: No PII detected in 2 files (emails, SSNs, phone numbers, paths)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "pii"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "License Compliance",
+      "description": "Validate license compliance for Skills, Rules, and Workflows",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "license_compliance",
+          "message": "License compliance scan completed (allowed)",
+          "metadata": {
+            "license_status": "allowed"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "Tier 3: Found SPDX header 'Apache-2.0' in scripts/analyze_text.py",
+          "License: Apache-2.0 (ALLOWED - permissive)",
+          "[OK] license_compliance: License compliance scan completed (allowed)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "license"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Risk Analysis",
+      "description": "Static code analysis using Bandit and packaged Semgrep rules",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "bandit": "1.9.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "bandit",
+          "message": "Bandit: No security issues found",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "Found 1 Python, 0 Shell, 0 JavaScript/TypeScript files",
+          "[OK] bandit: Bandit: No security issues found",
+          "Semgrep not installed; skipped. Optional; install separately with: brew install semgrep (macOS) or uv tool install semgrep"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Secrets Detection",
+      "description": "Detect hardcoded secrets, API keys, and credentials using Gitleaks",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "gitleaks": "8.30.0"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "gitleaks",
+          "message": "No secrets detected by Gitleaks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] gitleaks: No secrets detected by Gitleaks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Integrity & Hygiene",
+      "description": "Validate dead links, dependencies, and static Python test-file discovery",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 1,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dead_links_scan",
+          "message": "Checking 1 markdown files for dead links",
+          "metadata": {
+            "file_count": 1
+          }
+        },
+        {
+          "check": "dead_links",
+          "message": "All relative links valid in 1 markdown file(s)",
+          "metadata": {
+            "files_checked": 1
+          }
+        },
+        {
+          "check": "dependencies",
+          "message": "No dependency files found (requirements.txt, pyproject.toml)",
+          "metadata": null
+        },
+        {
+          "check": "test_discovery",
+          "message": "No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests.",
+          "metadata": {
+            "test_count": 0,
+            "execution_performed": false,
+            "coverage_measured": false,
+            "patterns": [
+              "test_*.py",
+              "*_test.py"
+            ]
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No standard Python test-file candidates found; consider adding tests"
+        ],
+        "messages": [
+          "[OK] dead_links_scan: Checking 1 markdown files for dead links",
+          "[OK] dead_links: All relative links valid in 1 markdown file(s)",
+          "[OK] dependencies: No dependency files found (requirements.txt, pyproject.toml)",
+          "[OK] test_discovery: No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests."
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Dependency Vulnerability Audit",
+      "description": "Scan dependencies for CVE vulnerabilities using pip-audit and Safety",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dependency_file_discovery",
+          "message": "No dependency files found - vulnerability audit is not applicable",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] dependency_file_discovery: No dependency files found - vulnerability audit is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "dependency"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Unicode Smuggling Detection",
+      "description": "Detect invisible Unicode characters and ASCII smuggling",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 2,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "unicode_scan",
+          "message": "No invisible Unicode characters detected in 2 file(s)",
+          "metadata": {
+            "files_scanned": 2
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] unicode_scan: No invisible Unicode characters detected in 2 file(s)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "unicode"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "QUALITY",
+      "description": "Skill quality scoring across Correctness (35%), Discoverability (25%), Reliability (25%), and Efficiency (15%)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 5,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 3,
+        "low_count": 2
+      },
+      "finding_counts": {
+        "raw_occurrences": 5,
+        "distinct_occurrences": 5,
+        "unique_findings": 5,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 2,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 2,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-740453e5661b3b5b6f1e",
+          "occurrence_id": "SEO-3348e92bcfe1ef62ca7f",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "No documented scripts in table format",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-6d68dab37ccc357a6814",
+          "occurrence_id": "SEO-c1c5d3f8cca219fd2ddd",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "Instructions don't mention 'run_script'",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add explicit run_script() call examples",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+          "occurrence_id": "SEO-26fdc264b62da801040a",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-3d5073c9c3cad6c846fa",
+          "occurrence_id": "SEO-d61afebd4d2a5f9fe614",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description very long (312 chars, recommend 50-150)",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Keep descriptions concise for progressive disclosure",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-4a6560f4aec006f302f9",
+          "occurrence_id": "SEO-49688e69f18975cf3b3d",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No prerequisites/requirements documented",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document dependencies, API keys, or setup needed",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "quality_score",
+          "message": "Score: 88.8/100 (Grade: B)",
+          "metadata": {
+            "overall_score": 88.8,
+            "grade": "B",
+            "skill_type": "script-based"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[QUALITY-MEDIUM] No documented scripts in table format in /skills/official/text-analyzer/SKILL.md",
+          "[QUALITY-MEDIUM] Instructions don't mention 'run_script' in /skills/official/text-analyzer/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags' in /skills/official/text-analyzer/SKILL.md",
+          "[QUALITY-LOW] Description very long (312 chars, recommend 50-150) in /skills/official/text-analyzer/SKILL.md",
+          "[QUALITY-LOW] No prerequisites/requirements documented in /skills/official/text-analyzer/SKILL.md"
+        ],
+        "messages": [
+          "[OK] quality_score: Score: 88.8/100 (Grade: B)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "quality": {
+        "overall_score": 88.8,
+        "grade": "B",
+        "skill_type": "script-based",
+        "skill_name": "text-analyzer",
+        "dimensions": {
+          "correctness": {
+            "score": 75.0,
+            "weight": 0.35,
+            "issues_count": 3,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "No documented scripts in table format",
+                "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+                "deduction": 10
+              },
+              {
+                "severity": "warning",
+                "message": "Instructions don't mention 'run_script'",
+                "suggestion": "Add explicit run_script() call examples",
+                "deduction": 10
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+                "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+                "deduction": 5
+              }
+            ]
+          },
+          "discoverability": {
+            "score": 95.0,
+            "weight": 0.25,
+            "issues_count": 1,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "Description very long (312 chars, recommend 50-150)",
+                "suggestion": "Keep descriptions concise for progressive disclosure",
+                "deduction": 5
+              }
+            ]
+          },
+          "reliability": {
+            "score": 95.0,
+            "weight": 0.25,
+            "issues_count": 1,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No prerequisites/requirements documented",
+                "suggestion": "Document dependencies, API keys, or setup needed",
+                "deduction": 5
+              }
+            ]
+          },
+          "efficiency": {
+            "score": 100.0,
+            "weight": 0.15,
+            "issues_count": 0,
+            "issues": []
+          }
+        },
+        "metrics": {
+          "total_tokens": 479,
+          "estimated_tokens": 479,
+          "estimate_method": "characters/4",
+          "recommended_max_tokens": 5000,
+          "frontmatter_tokens": 118,
+          "instructions_tokens": 358,
+          "script_count": 1,
+          "has_examples": true,
+          "has_error_handling": true,
+          "has_frontmatter": true,
+          "has_instructions": true,
+          "has_scripts": true,
+          "has_lib_module": false
+        }
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "quality"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "SCRIPT_LINT",
+      "description": "AST-based code quality checks for skill scripts",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 1
+      },
+      "finding_counts": {
+        "raw_occurrences": 1,
+        "distinct_occurrences": 1,
+        "unique_findings": 1,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-6a3bcfca5704358ead2b",
+          "occurrence_id": "SEO-ae4dd2f3a35284bad52d",
+          "category": "SCRIPT_LINT",
+          "severity": "low",
+          "check_name": "magic_numbers",
+          "message": "analyze_text.py contains magic numbers",
+          "file_path": "/skills/official/text-analyzer/scripts/analyze_text.py",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Extract magic numbers to named constants",
+          "metadata": null
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCRIPT_LINT-LOW] analyze_text.py contains magic numbers in /skills/official/text-analyzer/scripts/analyze_text.py"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "lint"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Harness Compatibility",
+      "description": "Advisory: whether each agent harness loads, degrades or drops the skill",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 4,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 4,
+        "distinct_occurrences": 4,
+        "unique_findings": 4,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 4
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 4
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-3661379ea9e5c1072875",
+          "occurrence_id": "SEO-3b2d975baf15650e86c5",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-RELOAD",
+          "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e0623bdfb91d6bbb829f",
+          "occurrence_id": "SEO-da6efdbe6beb0dac2af6",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-DESC-60",
+          "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-5995c1ef72651542c573",
+          "occurrence_id": "SEO-7f690096f18e6d3298d5",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-LINKED-LAYOUT",
+          "message": "hermes: 2 files outside references/, templates/, assets/ and scripts/ (evals) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-03e029934351881ba688",
+          "occurrence_id": "SEO-dec2b317d2a825a15d3b",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-RELOAD",
+          "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once. in /skills/official/text-analyzer/SKILL.md",
+          "[HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them. in /skills/official/text-analyzer/SKILL.md",
+          "[HARNESS-INFO] hermes: 2 files outside references/, templates/, assets/ and scripts/ (evals) are left out of the skill's file list; the model finds them only if SKILL.md names their paths. in /skills/official/text-analyzer/SKILL.md",
+          "[HARNESS-INFO] opencode: Skill list and text are cached at startup; edits need a restart. in /skills/official/text-analyzer/SKILL.md"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "harness"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "RUBRIC_EVAL",
+      "description": "LLM-as-Judge qualitative evaluation across 9 criteria (description clarity, instruction quality, trigger simulation, etc.)",
+      "passed": false,
+      "status": "failed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 1,
+        "warnings": 9,
+        "critical_count": 0,
+        "high_count": 1,
+        "medium_count": 1,
+        "low_count": 8
+      },
+      "finding_counts": {
+        "raw_occurrences": 10,
+        "distinct_occurrences": 10,
+        "unique_findings": 10,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 1,
+          "low": 8,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 1,
+          "low": 8,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-43cc06598a99d3bcc9b6",
+          "occurrence_id": "SEO-67258b41acd7b1af3af4",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_description_clarity",
+          "message": "[8/10] Description is clear, specific, and explains WHEN to use the skill",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The description clearly lists supported statistics and input forms, but 'summarize' is misleading because the skill does not produce semantic summaries.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "description_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-17679b593e006f8c575d",
+          "occurrence_id": "SEO-4164186e067ba9cc40ef",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_instruction_clarity",
+          "message": "[8/10] Instructions are easy to follow with clear action steps",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The agent steps are simple and actionable, though 'appropriate arguments' could be more explicit about choosing --text, --file, and --json.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "instruction_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-c20d009e607a4fd7bb84",
+          "occurrence_id": "SEO-b9c97d91adbc33c7430c",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_example_quality",
+          "message": "[8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Command examples are relevant and cover inline text, file input, and JSON output, but user-query variations for detection are limited.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "example_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-8a24502b3877c389f6ba",
+          "occurrence_id": "SEO-b434bb8f05e50fab8812",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_documentation_completeness",
+          "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Purpose, script path, parameters, output fields, and limitations are present, though a fuller CLI reference would improve completeness.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "documentation_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-ec68fd50f7b207366a7f",
+          "occurrence_id": "SEO-b8b356e669211af9e6ce",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_scope_definition",
+          "message": "[7/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Scope is mostly clear for plain-text statistics, but the mention of summarization slightly broadens it beyond the implemented capability.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "scope_definition"
+          }
+        },
+        {
+          "finding_id": "SEF-73720614f42d304aa9d9",
+          "occurrence_id": "SEO-664fcf17eea48135c863",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_professional_tone",
+          "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The documentation is clean, consistent, and professionally formatted with clear sections and examples.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "professional_tone"
+          }
+        },
+        {
+          "finding_id": "SEF-bc0939ffa25431c513d4",
+          "occurrence_id": "SEO-e506e16b343abd3bbe51",
+          "category": "RUBRIC_EVAL",
+          "severity": "medium",
+          "check_name": "rubric_trigger_simulation",
+          "message": "[6/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Word, line, character, sentence, and frequency queries should route correctly, but 'summarize this text' and broad 'analyze' requests may produce false positives.",
+          "metadata": {
+            "score": 6,
+            "pass": false,
+            "judge_pass": false,
+            "id": "trigger_simulation"
+          }
+        },
+        {
+          "finding_id": "SEF-5f777f9e6294b2d207a5",
+          "occurrence_id": "SEO-0c124486cce9d7afa6fd",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_workflow_completeness",
+          "message": "[7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The basic run-and-return workflow is covered, but guidance is thin on input selection, shell quoting, output format choice, and handling missing or empty input.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "workflow_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-98f09c467b68e7239891",
+          "occurrence_id": "SEO-49422342382f59409cfb",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_error_handling_quality",
+          "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "FileNotFoundError and empty-output guidance are realistic and actionable, though non-UTF-8 handling is documented only as a limitation rather than an error scenario.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "error_handling_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-d227d8fa7e50299e84f8",
+          "occurrence_id": "SEO-e5881db844a53c332264",
+          "category": "RUBRIC_EVAL",
+          "severity": "high",
+          "check_name": "rubric_overall",
+          "message": "Rubric evaluation failed: criteria below 7/10: trigger_simulation",
+          "file_path": "/skills/official/text-analyzer/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Address the failed rubric criteria and rerun the evaluation",
+          "metadata": {
+            "overall_score": 74.5,
+            "min_score": 70,
+            "failed_criteria": [
+              "trigger_simulation"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "rubric_eval",
+          "message": "LLM Rubric Score: 74.5/100",
+          "metadata": {
+            "overall_score": 74.5,
+            "overall_pass": false,
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash",
+            "judge_attempts": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [
+          "[RUBRIC_EVAL-HIGH] Rubric evaluation failed: criteria below 7/10: trigger_simulation in /skills/official/text-analyzer/SKILL.md"
+        ],
+        "warnings": [
+          "[RUBRIC_EVAL-LOW] [8/10] Description is clear, specific, and explains WHEN to use the skill in /skills/official/text-analyzer/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Instructions are easy to follow with clear action steps in /skills/official/text-analyzer/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection in /skills/official/text-analyzer/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] All necessary information is present (purpose, scripts, parameters) in /skills/official/text-analyzer/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Skill scope is well-defined (clear boundaries, not too broad/narrow) in /skills/official/text-analyzer/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Documentation uses professional, consistent tone and formatting in /skills/official/text-analyzer/SKILL.md",
+          "[RUBRIC_EVAL-MEDIUM] [6/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives? in /skills/official/text-analyzer/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance. in /skills/official/text-analyzer/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate? in /skills/official/text-analyzer/SKILL.md"
+        ],
+        "messages": [
+          "[OK] rubric_eval: LLM Rubric Score: 74.5/100"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "rubric_eval": {
+        "execution_status": "succeeded",
+        "overall_score": 74.5,
+        "overall_pass": false,
+        "summary": "The skill is well-documented and usable for text statistics, but its description includes 'summarize', which can cause false-positive routing for semantic summarization requests.",
+        "judge_score": 82,
+        "judge_overall_pass": false,
+        "skill_name": "text-analyzer",
+        "checks": [
+          {
+            "id": "description_clarity",
+            "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "The description clearly lists supported statistics and input forms, but 'summarize' is misleading because the skill does not produce semantic summaries."
+          },
+          {
+            "id": "instruction_clarity",
+            "criterion": "Instructions are easy to follow with clear action steps",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "The agent steps are simple and actionable, though 'appropriate arguments' could be more explicit about choosing --text, --file, and --json."
+          },
+          {
+            "id": "example_quality",
+            "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Command examples are relevant and cover inline text, file input, and JSON output, but user-query variations for detection are limited."
+          },
+          {
+            "id": "documentation_completeness",
+            "criterion": "All necessary information is present (purpose, scripts, parameters)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Purpose, script path, parameters, output fields, and limitations are present, though a fuller CLI reference would improve completeness."
+          },
+          {
+            "id": "scope_definition",
+            "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "Scope is mostly clear for plain-text statistics, but the mention of summarization slightly broadens it beyond the implemented capability."
+          },
+          {
+            "id": "professional_tone",
+            "criterion": "Documentation uses professional, consistent tone and formatting",
+            "importance": "low",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The documentation is clean, consistent, and professionally formatted with clear sections and examples."
+          },
+          {
+            "id": "trigger_simulation",
+            "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+            "importance": "high",
+            "pass": false,
+            "judge_pass": false,
+            "score": 6,
+            "notes": "Word, line, character, sentence, and frequency queries should route correctly, but 'summarize this text' and broad 'analyze' requests may produce false positives."
+          },
+          {
+            "id": "workflow_completeness",
+            "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "The basic run-and-return workflow is covered, but guidance is thin on input selection, shell quoting, output format choice, and handling missing or empty input."
+          },
+          {
+            "id": "error_handling_quality",
+            "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "FileNotFoundError and empty-output guidance are realistic and actionable, though non-UTF-8 handling is documented only as a limitation rather than an error scenario."
+          }
+        ],
+        "aggregation": {
+          "method": "importance_weighted_mean",
+          "importance_weights": {
+            "high": 3,
+            "medium": 2,
+            "low": 1
+          },
+          "min_score": 70,
+          "criterion_pass_score": 7,
+          "requires_all_criteria_pass": true
+        },
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash",
+        "judge_attempts": 1
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "text-analyzer",
+        "skill_digest": "sha256:96f39c2aa9d583df97afe4eebd2dde3469a49827b582db44d93db4aba8c622b4",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "rubric"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "fail",
+  "publication": {
+    "status": "fail",
+    "eligible": false,
+    "reasons": [
+      "A validator failed."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "policy": {
+    "profile": "default",
+    "audience": "all",
+    "digest": "sha256:64a069b8853f7123049a675d6853ef8d8b424792bb9a2a5157a73ec312f38ed4",
+    "author_email_regex": null,
+    "severity_overrides": {
+      "SCHEMA.author_missing": "low",
+      "SCHEMA.author_without_email": "info",
+      "SCHEMA.author_format": "high",
+      "WORKFLOWS.author_format": "high",
+      "LICENSE.*": "critical"
+    },
+    "metadata_id_requirement": "ignore",
+    "source": "/usr/local/lib/python3.12/site-packages/skillevaluator/config/profiles/default.yaml"
+  },
+  "quality_config": {
+    "source": "packaged",
+    "file": null,
+    "digest": "sha256:298ff2bf62132c8154217b7aa59fc1fd04f28cf75372f55620a2cbcd951d6549",
+    "min_score": 70
+  },
+  "evaluated_source": null,
+  "gating": {
+    "tiers": {
+      "1": {
+        "blocking": true,
+        "validators": [
+          "Schema & Repository Governance",
+          "Semantic Version Validation",
+          "Security Scan",
+          "PII Scan",
+          "License Compliance",
+          "Code Risk Analysis",
+          "Secrets Detection",
+          "Code Integrity & Hygiene",
+          "Dependency Vulnerability Audit",
+          "Unicode Smuggling Detection",
+          "QUALITY",
+          "SCRIPT_LINT",
+          "Harness Compatibility",
+          "RUBRIC_EVAL"
+        ],
+        "validator_policies": [
+          {
+            "validator": "Schema & Repository Governance",
+            "blocking": true
+          },
+          {
+            "validator": "Semantic Version Validation",
+            "blocking": true
+          },
+          {
+            "validator": "Security Scan",
+            "blocking": true
+          },
+          {
+            "validator": "PII Scan",
+            "blocking": true
+          },
+          {
+            "validator": "License Compliance",
+            "blocking": true
+          },
+          {
+            "validator": "Code Risk Analysis",
+            "blocking": true
+          },
+          {
+            "validator": "Secrets Detection",
+            "blocking": true
+          },
+          {
+            "validator": "Code Integrity & Hygiene",
+            "blocking": true
+          },
+          {
+            "validator": "Dependency Vulnerability Audit",
+            "blocking": true
+          },
+          {
+            "validator": "Unicode Smuggling Detection",
+            "blocking": true
+          },
+          {
+            "validator": "QUALITY",
+            "blocking": true
+          },
+          {
+            "validator": "SCRIPT_LINT",
+            "blocking": true
+          },
+          {
+            "validator": "Harness Compatibility",
+            "blocking": true
+          },
+          {
+            "validator": "RUBRIC_EVAL",
+            "blocking": true
+          }
+        ]
+      }
+    }
+  },
+  "workflow": {
+    "tier": 1,
+    "stages": {
+      "validation": {
+        "status": "passed"
+      },
+      "rubric": {
+        "status": "failed"
+      },
+      "llm": {
+        "status": "enabled"
+      }
+    }
+  },
+  "quality_summary": [
+    {
+      "overall_score": 88.8,
+      "grade": "B",
+      "skill_type": "script-based",
+      "skill_name": "text-analyzer",
+      "dimensions": {
+        "correctness": {
+          "score": 75.0,
+          "weight": 0.35,
+          "issues_count": 3,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "No documented scripts in table format",
+              "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+              "deduction": 10
+            },
+            {
+              "severity": "warning",
+              "message": "Instructions don't mention 'run_script'",
+              "suggestion": "Add explicit run_script() call examples",
+              "deduction": 10
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+              "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+              "deduction": 5
+            }
+          ]
+        },
+        "discoverability": {
+          "score": 95.0,
+          "weight": 0.25,
+          "issues_count": 1,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "Description very long (312 chars, recommend 50-150)",
+              "suggestion": "Keep descriptions concise for progressive disclosure",
+              "deduction": 5
+            }
+          ]
+        },
+        "reliability": {
+          "score": 95.0,
+          "weight": 0.25,
+          "issues_count": 1,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No prerequisites/requirements documented",
+              "suggestion": "Document dependencies, API keys, or setup needed",
+              "deduction": 5
+            }
+          ]
+        },
+        "efficiency": {
+          "score": 100.0,
+          "weight": 0.15,
+          "issues_count": 0,
+          "issues": []
+        }
+      },
+      "metrics": {
+        "total_tokens": 479,
+        "estimated_tokens": 479,
+        "estimate_method": "characters/4",
+        "recommended_max_tokens": 5000,
+        "frontmatter_tokens": 118,
+        "instructions_tokens": 358,
+        "script_count": 1,
+        "has_examples": true,
+        "has_error_handling": true,
+        "has_frontmatter": true,
+        "has_instructions": true,
+        "has_scripts": true,
+        "has_lib_module": false
+      }
+    }
+  ],
+  "rubric_eval": {
+    "execution_status": "succeeded",
+    "overall_score": 74.5,
+    "overall_pass": false,
+    "summary": "The skill is well-documented and usable for text statistics, but its description includes 'summarize', which can cause false-positive routing for semantic summarization requests.",
+    "judge_score": 82,
+    "judge_overall_pass": false,
+    "skill_name": "text-analyzer",
+    "checks": [
+      {
+        "id": "description_clarity",
+        "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "The description clearly lists supported statistics and input forms, but 'summarize' is misleading because the skill does not produce semantic summaries."
+      },
+      {
+        "id": "instruction_clarity",
+        "criterion": "Instructions are easy to follow with clear action steps",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "The agent steps are simple and actionable, though 'appropriate arguments' could be more explicit about choosing --text, --file, and --json."
+      },
+      {
+        "id": "example_quality",
+        "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Command examples are relevant and cover inline text, file input, and JSON output, but user-query variations for detection are limited."
+      },
+      {
+        "id": "documentation_completeness",
+        "criterion": "All necessary information is present (purpose, scripts, parameters)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Purpose, script path, parameters, output fields, and limitations are present, though a fuller CLI reference would improve completeness."
+      },
+      {
+        "id": "scope_definition",
+        "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "Scope is mostly clear for plain-text statistics, but the mention of summarization slightly broadens it beyond the implemented capability."
+      },
+      {
+        "id": "professional_tone",
+        "criterion": "Documentation uses professional, consistent tone and formatting",
+        "importance": "low",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The documentation is clean, consistent, and professionally formatted with clear sections and examples."
+      },
+      {
+        "id": "trigger_simulation",
+        "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+        "importance": "high",
+        "pass": false,
+        "judge_pass": false,
+        "score": 6,
+        "notes": "Word, line, character, sentence, and frequency queries should route correctly, but 'summarize this text' and broad 'analyze' requests may produce false positives."
+      },
+      {
+        "id": "workflow_completeness",
+        "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "The basic run-and-return workflow is covered, but guidance is thin on input selection, shell quoting, output format choice, and handling missing or empty input."
+      },
+      {
+        "id": "error_handling_quality",
+        "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "FileNotFoundError and empty-output guidance are realistic and actionable, though non-UTF-8 handling is documented only as a limitation rather than an error scenario."
+      }
+    ],
+    "aggregation": {
+      "method": "importance_weighted_mean",
+      "importance_weights": {
+        "high": 3,
+        "medium": 2,
+        "low": 1
+      },
+      "min_score": 70,
+      "criterion_pass_score": 7,
+      "requires_all_criteria_pass": true
+    },
+    "llm_provider": "openai-compatible",
+    "llm_model_used": "qwen3.8-flash",
+    "judge_attempts": 1
+  },
+  "generated_at": "2026-11-17T15:01:03.483677+00:00"
+}

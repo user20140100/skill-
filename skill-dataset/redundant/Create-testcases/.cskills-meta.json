@@ -1,0 +1,24 @@
+{
+  "name": "Create-testcases",
+  "author": "binchunmei",
+  "version": "0.0.1",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:30+08:00",
+  "updatedAt": "2026-11-17T10:46:30+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/Create-testcases"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/Create-testcases",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/Create-testcases"
+  ],
+  "fileHashes": {
+    "SKILL.md": "cc4b53c4d465ee62d2744353abe560467a41663cafc126fdd6f2df67638f4b81",
+    "agents/openai.yaml": "18c4f846e4af28ec91905b83b072b18c10b070aac03280facddfc5312694eecd",
+    "references/quality-checklist.md": "e81833a15c46e5acbe16f5f7534af14b8115f7302231254452c4129be2fd84f7"
+  }
+}

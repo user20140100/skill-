@@ -1,0 +1,31 @@
+timestamp=2026-11-18T06:32:45.568Z level=INFO run=37e87c03 message="creating instance" directory=/workspace
+timestamp=2026-11-18T06:32:45.569Z level=INFO run=37e87c03 message=fromDirectory directory=/workspace
+timestamp=2026-11-18T06:32:45.577Z level=INFO run=37e87c03 message=bootstrapping directory=/workspace
+timestamp=2026-11-18T06:32:45.582Z level=INFO run=37e87c03 message=loading path=/root/.config/opencode/config.json
+timestamp=2026-11-18T06:32:45.584Z level=INFO run=37e87c03 message=loading path=/root/.config/opencode/opencode.json
+timestamp=2026-11-18T06:32:45.603Z level=INFO run=37e87c03 message=loading path=/root/.config/opencode/opencode.jsonc
+timestamp=2026-11-18T06:32:45.622Z level=INFO run=37e87c03 message=loading path=/workspace/.opencode/opencode.json
+timestamp=2026-11-18T06:32:45.623Z level=INFO run=37e87c03 message=loading path=/workspace/.opencode/opencode.jsonc
+timestamp=2026-11-18T06:32:45.766Z level=INFO run=37e87c03 message=loading path=/.opencode/opencode.json
+timestamp=2026-11-18T06:32:45.767Z level=INFO run=37e87c03 message=loading path=/.opencode/opencode.jsonc
+timestamp=2026-11-18T06:32:45.921Z level=INFO run=37e87c03 message="all LSPs are disabled"
+timestamp=2026-11-18T06:32:45.925Z level=INFO run=37e87c03 message="all formatters are disabled"
+timestamp=2026-11-18T06:32:45.925Z level=INFO run=37e87c03 message=init
+timestamp=2026-11-18T06:32:46.228Z level=INFO run=37e87c03 message=created id=ses_e12a4646bffejNVeQq0EIi2Unq slug=kind-meadow version=1.19.5 projectID=global directory=/workspace path=workspace workspaceID=undefined parentID=undefined title="New session - 2026-11-18T06:32:46.228Z" agent=undefined model=undefined metadata=undefined permission="[{\"permission\":\"question\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"plan_enter\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"plan_exit\",\"pattern\":\"*\",\"action\":\"deny\"}]" cost=0 tokens.input=0 tokens.output=0 tokens.reasoning=0 tokens.cache.read=0 tokens.cache.write=0 time.created=1794983566228 time.updated=1794983566228
+timestamp=2026-11-18T06:32:46.261Z level=INFO run=37e87c03 message="event connected"
+timestamp=2026-11-18T06:32:46.311Z level=INFO run=37e87c03 message=loop session.id=ses_e12a4646bffejNVeQq0EIi2Unq step=0
+timestamp=2026-11-18T06:32:47.276Z level=INFO run=37e87c03 message=stream providerID=skillevaluator-gateway modelID=qwen3.8-flash session.id=ses_e12a4646bffejNVeQq0EIi2Unq small=true agent=title mode=primary
+timestamp=2026-11-18T06:32:47.284Z level=INFO run=37e87c03 message="llm runtime selected" llm.runtime=ai-sdk llm.provider=skillevaluator-gateway llm.model=qwen3.8-flash
+timestamp=2026-11-18T06:32:47.327Z level=INFO run=37e87c03 message=initialized
+timestamp=2026-11-18T06:32:47.336Z level=INFO run=37e87c03 message=tracking hash=4b825dc642cb6eb9a060e54bf8d69288fbee4904 cwd=/workspace git=/logs/agent/opencode/xdg-data/opencode/snapshot/global/42099b4af021e53fd8fd4e056c2568d7c2e3ffa8
+timestamp=2026-11-18T06:32:47.342Z level=INFO run=37e87c03 message="shell tool using shell" shell=/usr/bin/bash
+timestamp=2026-11-18T06:32:47.346Z level=INFO run=37e87c03 message=init count=1
+timestamp=2026-11-18T06:32:47.398Z level=INFO run=37e87c03 message="watcher backend" directory=/workspace platform=linux backend=inotify
+timestamp=2026-11-18T06:32:47.404Z level=INFO run=37e87c03 message="project copy refresh started" projectID=global
+timestamp=2026-11-18T06:32:47.405Z level=INFO run=37e87c03 message="project copy refresh done" projectID=global updated=[] removed=[]
+timestamp=2026-11-18T06:32:47.416Z level=INFO run=37e87c03 message="booting location services" directory=/workspace workspaceID=undefined
+timestamp=2026-11-18T06:32:47.596Z level=INFO run=37e87c03 message=process session.id=ses_e12a4646bffejNVeQq0EIi2Unq messageID=msg_1ed5b9fa6001xsukyUnJTPGr9U
+timestamp=2026-11-18T06:32:47.596Z level=INFO run=37e87c03 message=stream providerID=skillevaluator-gateway modelID=qwen3.8-flash session.id=ses_e12a4646bffejNVeQq0EIi2Unq small=false agent=build mode=primary
+timestamp=2026-11-18T06:32:47.598Z level=INFO run=37e87c03 message="llm runtime selected" llm.runtime=ai-sdk llm.provider=skillevaluator-gateway llm.model=qwen3.8-flash
+timestamp=2026-11-18T06:32:55.604Z level=ERROR run=37e87c03 message="Failed to fetch models.dev" cause=Cause([Fail(TimeoutError)])
+timestamp=2026-11-18T06:33:45.966Z level=INFO run=37e87c03 message=cleanup prune=7.days

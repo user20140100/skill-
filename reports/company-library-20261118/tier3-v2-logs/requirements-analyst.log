@@ -1,0 +1,136 @@
+Tier 3: reusing the existing evaluation source unchanged.
+Tier 3 live evaluation: requirements-analyst
+  environment: docker
+  agents/models: opencode
+  plan: with-skill=yes, baseline=yes, timeout=3x
+[00:00:00] configuration: running
+[00:00:00] configuration: ready - evaluation config validated
+[00:00:00] model-resolution: running
+[00:00:00] model-resolution: complete - agent models resolved
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x
+[00:00:00] environment-preflight: running - docker
+[00:00:00] environment-preflight: complete - docker
+[00:00:00] credential-validation: running
+[00:00:00] credential-validation: degraded - credential configuration resolved; live catalog verification inconclusive: opencode, standard grader: model catalog access does not verify runtime credentials for this endpoint; continuing to evaluation
+[00:00:00] docker-images: running - preparing shared eval base image (reuse)
+INFO     Using pinned eval base image skillevaluator-deps:3.12-opencode         
+[00:00:00] docker-images: complete - eval base image ready: skillevaluator-deps:3.12-opencode
+[00:00:00] with-skill-tasks: running
+[00:00:00] with-skill-tasks: ready - task inputs staged
+[00:00:00] baseline-tasks: running
+[00:00:01] baseline-tasks: ready - baseline inputs staged
+[00:00:01] configuration: complete - Planned: 6 attempts (3 cases × 1 attempts × 2 agent arms total)
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, tasks=3, cases=3, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x, matrix-trials=6, preflight-trials=0, containers=6, max-scaled-top-level-agent-timeout=900s
+[00:00:01] agent-runtime-preflight: skipped - disabled by default; enable with --agent-runtime-preflight or harbor.agent_runtime_preflight
+[00:00:01] agent:opencode: running - with-skill + baseline
+[00:01:01] still running: agent:opencode
+[00:02:01] still running: agent:opencode
+[00:03:01] still running: agent:opencode
+[00:04:01] still running: agent:opencode
+[00:05:01] still running: agent:opencode
+[00:05:18] agent:opencode: failed - one or more Harbor jobs failed; inspect retained artifacts
+[00:05:18] collection: running
+[00:05:19] collection: complete - Harbor results collected
+[00:05:19] report: running
+[00:05:20] report: complete - result and HTML reports written
+[00:05:20] run-finished: failed - Harbor job did not complete successfully: 2 errored
+Time: 320.5s
+╭─────────────────────── Tier 3 Evaluation: INCOMPLETE ────────────────────────╮
+│ Evaluation did not complete; skill lift was not measured.                    │
+│ Scored attempts: 2/6                                                         │
+│                                                                              │
+│ opencode with-skill (1/3 scored) / req-002__LK5dru5: RuntimeError: Docker    │
+│ has no free network address pools. List leftover trial Compose containers    │
+│ and networks (`docker ps -a --filter label=com.docker.compose.project`,      │
+│ `docker network ls --filter label=com.docker.compose.project`), check their  │
+│ names, and remove the containers with `docker rm -f` before the networks     │
+│ with `docker network rm`; or lower --n-concurrent or --max-agents. Docker    │
+│ compose command failed for environment skillevaluator-req-002-with-skill.    │
+│ Command: /usr/local/bin/docker compose --project-name req-002__lk5dru5__env  │
+│ --project-directory /app/reports/company-library-20261118/ti                 │
+│                                                                              │
+│ opencode with-skill (1/3 scored) / req-003__amaRTDa: RuntimeError: Docker    │
+│ has no free network address pools. List leftover trial Compose containers    │
+│ and networks (`docker ps -a --filter label=com.docker.compose.project`,      │
+│ `docker network ls --filter label=com.docker.compose.project`), check their  │
+│ names, and remove the containers with `docker rm -f` before the networks     │
+│ with `docker network rm`; or lower --n-concurrent or --max-agents. Docker    │
+│ compose command failed for environment skillevaluator-req-003-with-skill.    │
+│ Command: /usr/local/bin/docker compose --project-name req-003__amartda__env  │
+│ --project-directory /app/reports/company-library-20261118/ti                 │
+│                                                                              │
+│ opencode without-skill (1/3 scored) / req-002__b2tVkha: RuntimeError: Docker │
+│ has no free network address pools. List leftover trial Compose containers    │
+│ and networks (`docker ps -a --filter label=com.docker.compose.project`,      │
+│ `docker network ls --filter label=com.docker.compose.project`), check their  │
+│ names, and remove the containers with `docker rm -f` before the networks     │
+│ with `docker network rm`; or lower --n-concurrent or --max-agents. Docker    │
+│ compose command failed for environment skillevaluator-req-002-without-skill. │
+│ Command: /usr/local/bin/docker compose --project-name req-002__b2tvkha__env  │
+│ --project-directory /app/reports/company-library-20261118                    │
+│                                                                              │
+│ opencode without-skill (1/3 scored) / req-003__vN3aGbT: RuntimeError: Docker │
+│ has no free network address pools. List leftover trial Compose containers    │
+│ and networks (`docker ps -a --filter label=com.docker.compose.project`,      │
+│ `docker network ls --filter label=com.docker.compose.project`), check their  │
+│ names, and remove the containers with `docker rm -f` before the networks     │
+│ with `docker network rm`; or lower --n-concurrent or --max-agents. Docker    │
+│ compose command failed for environment skillevaluator-req-003-without-skill. │
+│ Command: /usr/local/bin/docker compose --project-name req-003__vn3agbt__env  │
+│ --project-directory /app/reports/company-library-20261118                    │
+│                                                                              │
+│ Next steps                                                                   │
+│   • Inspect result.json and the trial artifacts for the full execution       │
+│ diagnostics.                                                                 │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Dataset size: provisional — 3 cases (policy needs 10), 1 negative case (needs 
+1); pass-rate interval unavailable (policy dataset-sufficiency-v1)
+Limited evidence: Based on 3 cases × 1 attempt = 1 of 3 attempts scored (2 
+execution failures, 0 judge failures); by arm: with skill: 3 cases, 1 of 3 
+attempts scored (2 execution failures, 0 judge failures); without skill: 3 
+cases, 1 of 3 attempts scored (2 execution failures, 0 judge failures)
+                       Token Usage (measured, not scored)                       
+┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┓
+┃ Agent    ┃       With skill ┃        Baseline ┃ Change ┃ Measured attempts   ┃
+┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━┩
+│ opencode │ 47,033 (partial) │ 9,679 (partial) │    N/A │ skill 1/3 (2        │
+│          │                  │                 │        │ unscored); baseline │
+│          │                  │                 │        │ 1/3 (2 unscored)    │
+└──────────┴──────────────────┴─────────────────┴────────┴─────────────────────┘
+  opencode: With-skill run token counts cover 1 of 3 attempts. Baseline token 
+counts cover 1 of 3 attempts. No change: with-skill run incomplete (1 of 3 
+attempts scored). No change: baseline incomplete (1 of 3 attempts scored).
+  Measured agent token usage. It is not scored and changes no score or verdict. 
+Tokens are prompt plus completion; prompt tokens include cached tokens, which 
+are not added again. Attempts that failed before scoring are counted. A partial 
+total covers only the attempts with token counts; nothing is estimated. Change 
+is with skill minus baseline, as a share of the baseline, and needs complete 
+counts for the same attempts in both arms. Measured attempts: attempts with 
+token counts, of those expected, in each arm. Unscored attempts failed before 
+scoring. Token usage per case is in report.html and tier3-benchmark.md in the 
+run directory.
+╭─────────────────────────── Feedback & Suggestions ───────────────────────────╮
+│                                                                              │
+│ Feedback                                                                     │
+│   ⚠ Skill effect: per-case result: inconclusive (opencode: condition         │
+│ execution is incomplete).                                                    │
+│                                                                              │
+│ Suggestions                                                                  │
+│   1. req-002, req-003 · opencode: 2 attempt(s) never produced a score:       │
+│ RuntimeError: Docker compose command failed for environment                  │
+│ skillevaluator-req-002-with-skill. Command: /usr/local/bin/docker compose    │
+│ --project-name req-002__l…. Fix: Not a skill problem: re-run this case; if   │
+│ it repeats, check the agent/gateway logs. Evidence:                          │
+│ opencode/with-skill/trials/req-002__LK5dru5/exception.txt                    │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────────── Artifacts ──────────────────────────────────╮
+│ 📊 HTML report report.html ·                                                 │
+│                /app/reports/company-library-20261118/tier3-v2/requirements-a │
+│                nalyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc/re │
+│                port.html                                                     │
+│ 📁 Output      /app/reports/company-library-20261118/tier3-v2/requirements-a │
+│                nalyst/requirements-analyst/20261118_085132_1_b0cd22e7bfcc    │
+╰──────────────────────────────────────────────────────────────────────────────╯

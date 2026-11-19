@@ -1,0 +1,22 @@
+{
+  "name": "embedded-code-review",
+  "author": "yangqiyuan",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:03+08:00",
+  "updatedAt": "2026-11-17T10:46:03+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/embedded-code-review"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/embedded-code-review",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/embedded-code-review"
+  ],
+  "fileHashes": {
+    "SKILL.md": "8f0ee2c04de5f68000cd713fde6c821c700c6edd00e7676a3740856564afface"
+  }
+}

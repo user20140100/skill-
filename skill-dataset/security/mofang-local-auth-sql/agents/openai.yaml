@@ -1,0 +1,4 @@
+interface:
+  display_name: "魔方权限 SQL"
+  short_description: "按业务诉求生成权限 SQL，使用 ccloud-cli 核验边缘库"
+  default_prompt: "使用 $mofang-local-auth-sql，根据我描述的服务、角色、权限和卡片诉求生成 mofang-local 配置表 SQL；先通过 ccloud-cli 查询目标机构的边缘数据库。"

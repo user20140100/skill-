@@ -1,0 +1,88 @@
+{
+  "skill_name": "crashmonitor",
+  "evals": [
+    {
+      "id": 0,
+      "name": "crash-setup-full-path",
+      "prompt": "My program D:\\Work\\Billing\\bin\\Debug\\net8.0\\Billing.exe keeps crashing unexpectedly. Monitor it and capture a dump on the next crash. Source is at D:\\Work\\Billing.",
+      "expected_output": "Runs doctor, registers the target with the FULL --exe path and --project, keeps Full dump (does not set Mini), lists targets, and foreground-verifies with run. Does not attempt to edit/fix Billing or write its own procdump wrapper.",
+      "files": [],
+      "assertions": [
+        {"text": "Uses CrashMonitor (not a hand-rolled procdump/try-catch)", "check": "manual", "role": "discriminator"},
+        {"text": "target add uses the full EXE path D:\\Work\\Billing\\bin\\Debug\\net8.0\\Billing.exe, not a bare name", "check": "manual", "role": "discriminator"},
+        {"text": "Does NOT set --dump Mini (Full default preserved)", "check": "manual", "role": "guardrail"},
+        {"text": "Passes --project D:\\Work\\Billing", "check": "manual", "role": "discriminator"},
+        {"text": "Runs doctor before/around setup", "check": "manual", "role": "discriminator"},
+        {"text": "Foreground-verifies with run (e.g. run --seconds 60)", "check": "manual", "role": "discriminator"},
+        {"text": "Does not try to modify or fix the target program", "check": "manual", "role": "guardrail"}
+      ]
+    },
+    {
+      "id": 1,
+      "name": "hang-deadlock",
+      "prompt": "A native program becomes completely unresponsive after running for a while. I want to know where it is stuck. The exe is C:\\Tools\\Grabber\\grabber.exe.",
+      "expected_output": "Recognizes hang -> deadlock path, registers the target (keeps deadlock detection ON), explains a dump is captured only after a real wait-cycle is confirmed via WCT then CDB !cs -l -o, and does not disable deadlock detection.",
+      "files": [],
+      "assertions": [
+        {"text": "Registers grabber.exe with its full path C:\\Tools\\Grabber\\grabber.exe", "check": "manual", "role": "discriminator"},
+        {"text": "Keeps deadlock detection on (does NOT pass --deadlock false)", "check": "manual", "role": "discriminator"},
+        {"text": "Explains dump only fires on a confirmed thread wait-cycle (WCT / CDB), not on a briefly-busy app", "check": "manual", "role": "discriminator"},
+        {"text": "Does not claim it will fix or unstick the program", "check": "manual", "role": "guardrail"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "analyze-existing-dump",
+      "prompt": "I have a crash dump at D:\\dumps\\crash.dmp. Help me determine why it crashed.",
+      "expected_output": "Discovers CrashMonitor and runs doctor, checks target list, uses analyze <dmp> --target when a matching target exists, and otherwise asks for the exact EXE path plus source root before registering it. It does not start live run monitoring and points the user at report.md.",
+      "files": [],
+      "assertions": [
+        {"text": "Uses CrashMonitor analyze on D:\\dumps\\crash.dmp", "check": "manual", "role": "discriminator"},
+        {"text": "Checks for or obtains a target ID instead of inventing one", "check": "manual", "role": "guardrail"},
+        {"text": "Does not start live run monitoring", "check": "manual", "role": "discriminator"},
+        {"text": "Directs the user to report.md for the result", "check": "manual", "role": "discriminator"}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "leak-diagnose-snapshot",
+      "prompt": "I have a long-running .NET service at D:\\Svc\\Worker\\bin\\Release\\net8.0\\Worker.exe. Its memory and handle counts keep rising over several hours. Monitor it and retain evidence when they rise. Source is at D:\\Svc\\Worker.",
+      "expected_output": "Registers the target with full path + --project, relies on the built-in diagnostics sampling (or an explicit diagnose --target --seconds --reason snapshot) rather than a crash-only run, explains a resource snapshot is a lead not proof of the leak's root cause, and does not claim to fix the leak.",
+      "files": [],
+      "assertions": [
+        {"text": "Uses CrashMonitor (registers the target and/or uses diagnose), not a hand-rolled perfmon/procdump loop", "check": "manual", "role": "discriminator"},
+        {"text": "target add uses the full EXE path D:\\Svc\\Worker\\bin\\Release\\net8.0\\Worker.exe with --project D:\\Svc\\Worker", "check": "manual", "role": "discriminator"},
+        {"text": "Uses the diagnostics/diagnose path (threshold sampling or an explicit diagnose snapshot), not just a crash-only run", "check": "manual", "role": "discriminator"},
+        {"text": "States a resource snapshot is a lead, not proof of the leak's root cause (deeper tooling like a heap dump is still needed)", "check": "manual", "role": "discriminator"},
+        {"text": "Does not claim CrashMonitor will fix the leak", "check": "manual", "role": "guardrail"}
+      ]
+    },
+    {
+      "id": 4,
+      "name": "autostart-persist-reboot",
+      "prompt": "I want crash monitoring to remain active on this machine after reboots. The target is D:\\App\\Kiosk\\Kiosk.exe and the source is D:\\App\\Kiosk.",
+      "expected_output": "Registers the target with full path + --project and verifies once in the foreground, then uses scripts\\Install-Autostart.ps1 for persistence, and explains it is an at-logon scheduled task (not a boot service, so it will not catch pre-login crashes) plus the elevation caveat.",
+      "files": [],
+      "assertions": [
+        {"text": "Registers the target with the full EXE path + --project before installing autostart", "check": "manual", "role": "discriminator"},
+        {"text": "Uses scripts\\Install-Autostart.ps1 (not a hand-rolled service/registry Run key)", "check": "manual", "role": "discriminator"},
+        {"text": "Explains autostart is login-triggered (an at-logon task), NOT a boot service and will not catch pre-login crashes", "check": "manual", "role": "discriminator"},
+        {"text": "Mentions the elevation caveat (admin needed to monitor an elevated target)", "check": "manual", "role": "discriminator"},
+        {"text": "Does not modify or fix the Kiosk program", "check": "manual", "role": "guardrail"}
+      ]
+    },
+    {
+      "id": 5,
+      "name": "multi-instance-pid",
+      "prompt": "I have several instances of D:\\Trade\\Engine\\Engine.exe. One of them is using all CPU and I want to capture evidence showing what that one is doing.",
+      "expected_output": "Recognizes that multiple instances share one EXE path so a target/path match alone cannot pick one, identifies the hot PID, and uses diagnose --target <id> --pid <PID> to snapshot exactly that instance. Does not claim to kill or fix the process.",
+      "files": [],
+      "assertions": [
+        {"text": "Uses CrashMonitor diagnose for an immediate snapshot (not a crash-only run)", "check": "manual", "role": "discriminator"},
+        {"text": "Includes --pid <PID> to disambiguate the specific hot instance", "check": "manual", "role": "discriminator"},
+        {"text": "Explains a full-path/target match alone cannot pick one instance when several share the EXE path", "check": "manual", "role": "discriminator"},
+        {"text": "Does not claim to kill or fix the process", "check": "manual", "role": "guardrail"}
+      ]
+    }
+  ]
+}

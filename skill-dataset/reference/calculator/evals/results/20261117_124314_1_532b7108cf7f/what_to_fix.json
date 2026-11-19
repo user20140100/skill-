@@ -1,0 +1,22 @@
+[
+  {
+    "case": "all 2 cases",
+    "agent": "opencode",
+    "kind": "run error",
+    "what": "2 attempt(s) never produced a score: AgentSetupTimeoutError: Agent setup timed out after 360.0 seconds",
+    "attempts_lost": 2,
+    "reasons": [],
+    "env_errors": [],
+    "final_message": "",
+    "evidence": "opencode/with-skill/trials/calculator-001__43keNay/exception.txt",
+    "asks_for_input": false,
+    "scope": "opencode",
+    "prompt": "What is 2 + 3 * 4? Please use the calculator skill to compute this.",
+    "cases": [
+      "calculator-001",
+      "calculator-002"
+    ],
+    "action": "Not a skill problem: re-run this case; if it repeats, check the agent/gateway logs.",
+    "source": "deterministic"
+  }
+]

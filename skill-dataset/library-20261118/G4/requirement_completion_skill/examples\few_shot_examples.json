@@ -1,0 +1,312 @@
+{
+  "examples_name": "requirement_completion_few_shot_examples",
+  "version": "1.0",
+  "examples": [
+    {
+      "id": "completion_eco_mode",
+      "task_type": "completion",
+      "input": {
+        "task_type": "completion",
+        "user_input": "增加节能模式，开启后优先省电，但不能影响基本舒适性。",
+        "domain": "空调内机",
+        "context": {
+          "product_type": "家用壁挂机",
+          "interaction_channels": [
+            "遥控器",
+            "APP"
+          ],
+          "document_style": "需求文档",
+          "structured_output": true
+        }
+      },
+      "expected_output": {
+        "task_type": "completion",
+        "matched_modules": [
+          {
+            "module_name": "经济模式",
+            "confidence": 0.96,
+            "role": "primary"
+          }
+        ],
+        "intent_type": "performance_request",
+        "core_intent": "用户希望在保证基本舒适性的前提下降低系统平均功耗",
+        "explicit_requirements": [
+          "支持节能模式",
+          "开启后优先省电",
+          "不能影响基本舒适性"
+        ],
+        "inferred_requirements": [
+          "需要定义节能模式适用的运行模式",
+          "需要定义节能模式下受限制的控制参数",
+          "需要定义自动退出条件和恢复规则"
+        ],
+        "missing_dimensions": [
+          "节能模式适用模式范围",
+          "与互斥模式的切换规则",
+          "异常工况下的退出机制",
+          "用户状态反馈方式"
+        ],
+        "default_inference": [
+          "节能模式通常通过限制压缩机与风机输出实现省电",
+          "节能模式优先级低于故障与保护逻辑"
+        ],
+        "must_confirm": [
+          "经济模式与强力、静音、睡眠模式是否互斥",
+          "节能模式下目标温度修正幅度是多少",
+          "极端工况下是否自动退出"
+        ],
+        "risks": [
+          "若未定义互斥关系，研发可能实现为多个策略同时生效",
+          "若未定义退出条件，极端工况下可能无法保证基本舒适性"
+        ],
+        "follow_up_questions": [
+          "经济模式是否允许与睡眠模式同时开启",
+          "节能模式下是否需要在界面提示具体节能状态"
+        ],
+        "rewritten_requirement": "用户可通过遥控器或APP开启经济模式。经济模式开启后，系统应通过限制压缩机输出、优化风机策略或修正目标温度等方式降低平均功耗，并保证室内环境维持在可接受舒适范围内。当与互斥模式冲突或无法满足基本舒适性时，系统应按优先级规则退出经济模式并恢复常规运行。"
+        ,
+        "assumptions": [
+          "当前基于家用壁挂机常见节能策略进行默认推断"
+        ]
+      }
+    },
+    {
+      "id": "rewrite_anti_cold_air",
+      "task_type": "rewrite",
+      "input": {
+        "task_type": "rewrite",
+        "user_input": "制热刚开机不要吹冷风，等盘管热了再送风。",
+        "domain": "空调内机",
+        "context": {
+          "document_style": "需求文档",
+          "structured_output": true
+        }
+      },
+      "expected_output": {
+        "task_type": "rewrite",
+        "matched_modules": [
+          {
+            "module_name": "制热防冷风控制",
+            "confidence": 0.97,
+            "role": "primary"
+          },
+          {
+            "module_name": "风速控制",
+            "confidence": 0.74,
+            "role": "related"
+          }
+        ],
+        "intent_type": "constraint_request",
+        "core_intent": "用户希望避免制热启动初期吹出冷风",
+        "must_confirm": [
+          "启动送风的判定条件是盘管温度还是时间",
+          "防冷风期间收到风速指令时如何处理",
+          "退出防冷风后是否恢复用户原设定"
+        ],
+        "rewritten_requirement": "在制热模式启动阶段，当室内盘管温度未达到送风条件时，系统应启用防冷风控制，限制室内风机送风并将导风板保持在防冷风预设位置。待满足送风条件后，系统应退出防冷风状态，并按恢复规则恢复目标风速和目标风向。",
+        "assumptions": [
+          "送风条件以盘管温度达到预设阈值为默认假设"
+        ]
+      }
+    },
+    {
+      "id": "review_mode_conflict",
+      "task_type": "review",
+      "input": {
+        "task_type": "review",
+        "user_input": "支持经济模式、强力模式和睡眠模式，用户可随时切换。",
+        "domain": "空调内机",
+        "context": {
+          "document_style": "评审意见",
+          "structured_output": true
+        }
+      },
+      "expected_output": {
+        "task_type": "review",
+        "matched_modules": [
+          {
+            "module_name": "经济模式",
+            "confidence": 0.93,
+            "role": "primary"
+          },
+          {
+            "module_name": "强力运行模式",
+            "confidence": 0.9,
+            "role": "related"
+          },
+          {
+            "module_name": "睡眠模式",
+            "confidence": 0.88,
+            "role": "related"
+          }
+        ],
+        "intent_type": "review_request",
+        "core_intent": "评审多个特殊模式并存时的完整性与冲突定义",
+        "review_issues": [
+          "未定义经济模式、强力模式、睡眠模式之间的互斥关系",
+          "未定义模式切换时的优先级",
+          "未定义切换后的参数恢复逻辑",
+          "未定义异常或保护介入时是否强制退出特殊模式"
+        ],
+        "missing_dimensions": [
+          "互斥关系",
+          "优先级规则",
+          "恢复逻辑",
+          "异常退出规则"
+        ],
+        "risks": [
+          "研发可能实现为可同时开启多个模式，导致策略冲突",
+          "测试无法判断模式切换后的目标状态是否正确"
+        ],
+        "follow_up_questions": [
+          "多个特殊模式同时被设置时应以哪个模式为准",
+          "退出强力模式后是否恢复到进入前的节能或睡眠状态"
+        ],
+        "rewritten_requirement": "系统应支持经济模式、强力运行模式和睡眠模式切换，但需明确定义三者的互斥关系、切换优先级、退出条件以及退出后的恢复规则。若特殊模式与保护逻辑冲突，应优先执行保护逻辑。"
+      }
+    },
+    {
+      "id": "extraction_parameter_query",
+      "task_type": "extraction",
+      "input": {
+        "task_type": "extraction",
+        "user_input": "售后人员可通过服务模式查询压缩机频率、EEV开度和历史故障码。",
+        "domain": "空调内机",
+        "context": {
+          "document_style": "结构化结果",
+          "structured_output": true
+        }
+      },
+      "expected_output": {
+        "task_type": "extraction",
+        "matched_modules": [
+          {
+            "module_name": "运行参数查询",
+            "confidence": 0.96,
+            "role": "primary"
+          },
+          {
+            "module_name": "故障信息查询",
+            "confidence": 0.89,
+            "role": "related"
+          }
+        ],
+        "intent_type": "extraction_request",
+        "structured_extraction": {
+          "actors": [
+            "售后人员"
+          ],
+          "entry": "服务模式",
+          "query_items": [
+            "压缩机频率",
+            "EEV开度",
+            "历史故障码"
+          ],
+          "permission_level": "授权访问"
+        },
+        "assumptions": [
+          "查询能力不改写控制参数",
+          "历史故障码属于可查询对象"
+        ]
+      }
+    },
+    {
+      "id": "explanation_follow_me",
+      "task_type": "explanation",
+      "input": {
+        "task_type": "explanation",
+        "user_input": "随身感温控做需求补全时应该关注哪些点？",
+        "domain": "空调内机",
+        "context": {
+          "document_style": "说明",
+          "structured_output": true
+        }
+      },
+      "expected_output": {
+        "task_type": "explanation",
+        "matched_modules": [
+          {
+            "module_name": "随身感温控",
+            "confidence": 0.95,
+            "role": "primary"
+          }
+        ],
+        "core_intent": "说明随身感温控在需求补全时的关键关注点",
+        "default_inference": [
+          "随身感温控通常依赖外部温度采样参与控制",
+          "随身感温控通常与风速、模式和目标温度联动"
+        ],
+        "must_confirm": [
+          "感知数据来源是遥控器、本机还是多传感器融合",
+          "采样异常后的回退策略",
+          "用户是否可见当前感知温度与状态"
+        ]
+      }
+    },
+    {
+      "id": "completion_timer_restore",
+      "task_type": "completion",
+      "input": {
+        "task_type": "completion",
+        "user_input": "支持定时开机，掉电恢复后如果原来有预约要说明怎么处理。",
+        "domain": "空调内机",
+        "context": {
+          "document_style": "需求文档",
+          "structured_output": true
+        }
+      },
+      "expected_output": {
+        "task_type": "completion",
+        "matched_modules": [
+          {
+            "module_name": "定时开关机",
+            "confidence": 0.94,
+            "role": "primary"
+          },
+          {
+            "module_name": "掉电恢复记忆",
+            "confidence": 0.87,
+            "role": "related"
+          }
+        ],
+        "intent_type": "memory_restore_request",
+        "core_intent": "用户希望明确预约任务在掉电恢复后的处理逻辑",
+        "inferred_requirements": [
+          "需要定义定时任务是否写入掉电记忆",
+          "需要定义来电后是否自动恢复预约",
+          "需要定义恢复失败或时间已过期时的处理方式"
+        ],
+        "explicit_requirements": [
+          "支持定时开机",
+          "掉电恢复后需要说明预约处理规则"
+        ],
+        "missing_dimensions": [
+          "掉电恢复后的预约有效性判断",
+          "预约恢复失败时的处理方式",
+          "恢复后的用户反馈"
+        ],
+        "default_inference": [
+          "定时任务与掉电恢复通常需要统一处理状态记忆",
+          "恢复后的预约状态通常需要可见反馈"
+        ],
+        "must_confirm": [
+          "掉电恢复后定时任务是否保留",
+          "若预约时间已过是否自动失效",
+          "恢复后是否需要提醒用户"
+        ],
+        "risks": [
+          "若未定义预约恢复规则，来电后行为可能与用户预期不一致",
+          "若未定义过期处理，测试无法判断预约是否仍应保留"
+        ],
+        "follow_up_questions": [
+          "掉电恢复后是否需要立即恢复预约计时",
+          "预约恢复失败时是否需要提示用户重新设置"
+        ],
+        "rewritten_requirement": "系统应支持定时开机功能。若设备在定时任务生效前发生掉电，应按掉电恢复规则判断是否恢复原预约任务；若恢复时预约时间已过或恢复条件不满足，则系统应按失效处理规则执行，并通过对应入口反馈当前预约状态。",
+        "assumptions": [
+          "定时任务属于可纳入掉电恢复策略的状态项"
+        ]
+      }
+    }
+  ]
+}

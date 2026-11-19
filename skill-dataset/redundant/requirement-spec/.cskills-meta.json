@@ -1,0 +1,26 @@
+{
+  "name": "requirement-spec",
+  "author": "xuqingfang",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:27+08:00",
+  "updatedAt": "2026-11-17T10:46:27+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/requirement-spec"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/requirement-spec",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/requirement-spec"
+  ],
+  "fileHashes": {
+    "SKILL.md": "31913dee50cb18a412a7447bd4ea5a04f6a7fdf575a3dcf8840fb611c7b20c67",
+    "docs/dimensions.md": "f424656c6b786f26f1bf1b29fe7e30da6c933bfd63b785d4be882124dcb53e2e",
+    "docs/module-spec.md": "ae6991eaf42f9ff9932af5bf51572b46037af0d97cab3fce752b22ad3fae12e4",
+    "docs/prototype-input.md": "6a0d6681c1116392cc2b10b27b3a68ebbbf81d67d9645e3545203fa181d03471",
+    "docs/template.md": "72cdce8ee7f0b572f093d18f7817de386c1ac96dbe5f95252484884bb949e50e"
+  }
+}

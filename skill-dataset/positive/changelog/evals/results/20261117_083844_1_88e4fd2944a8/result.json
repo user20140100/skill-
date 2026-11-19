@@ -1,0 +1,784 @@
+{
+  "agents": {
+    "opencode": {
+      "model": "openai/qwen3.8-max",
+      "model_source": "CLI",
+      "model_resolution": {
+        "model": "openai/qwen3.8-max",
+        "source": "CLI"
+      },
+      "with_skill": {},
+      "without_skill": {},
+      "overall_with_skill": null,
+      "overall_without_skill": null,
+      "metrics_with_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "metrics_without_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "score_policy_with_skill": "skill-evaluator-dimension-mean-v1",
+      "score_policy_without_skill": "skill-evaluator-dimension-mean-v1",
+      "custom_with_skill": {},
+      "custom_without_skill": {},
+      "not_applicable_metrics": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "dimensions_with_skill": {},
+      "dimensions_without_skill": {},
+      "skill_activation": {
+        "status": "unknown",
+        "positive_trials": 0,
+        "activated_trials": 0,
+        "unknown_trials": 0,
+        "reason": "Skill activation evidence is unavailable or incomplete"
+      },
+      "lift": {},
+      "custom_lift": {},
+      "pass_at_k": {
+        "with_skill": {},
+        "without_skill": {},
+        "lift": {}
+      },
+      "security_attribution": {},
+      "agent_runtime_failures": {
+        "with_skill": [],
+        "without_skill": [
+          {
+            "trial": "changelog-001__bQb5Kdw",
+            "reason": "AgentTimeoutError: Agent execution timed out after 600.0 seconds"
+          }
+        ]
+      },
+      "trial_failures": {
+        "with_skill": [
+          {
+            "trial": "changelog-001__8LW5Du8",
+            "reason": "NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-max run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u5728 /workspace \u76ee\u5f55\u4e0b\u5b8c\u6210\u4ee5\u4e0b\u4efb\u52a1\uff1a  1. \u521d\u59cb\u5316\u4e00\u4e2a Git \u4ed3\u5e93\uff08\u5148\u6267\u884c `git config user.name` \u4e0e `git config user.email` \u8bbe\u7f6e\u8eab\u4efd\uff09\u3002 2. \u4f9d\u6b21\u521b\u5efa\u4ee5\u4e0b 5 \u4e2a\u63d0\u4ea4\uff0c\u6bcf\u6b21\u63d0\u4ea4\u90fd\u771f\u5b9e\u5730\u65b0\u589e\u6216\u4fee\u6539\u4e00\u4e2a\u6587\u4ef6\uff1a    - `feat: \u65b0\u589e\u7528\u6237\u767b\u5f55\u6a21\u5757`\uff08\u65b0\u5efa login.py\uff09    - `fix: \u4fee\u590d\u767b\u5f55\u5bc6\u7801\u6821\u9a8c\u903b\u8f91`\uff08\u4fee\u6539 login.py\uff09    - `docs: \u66f4\u65b0\u9879\u76ee README`\uff08\u4fee\u6539 README.md\uff09    - `chore: bump version to 1.0.1`\uff08\u4fee\u6539 version.txt\uff09    - `Merge branch '\"'\"'develop'\"'\"' into main`\uff08\u521b\u5efa\u4e00\u4e2a\u5408\u5e76\u63d0\u4ea4\uff09 3. \u57fa\u4e8e\u4ee5\u4e0a Git \u63d0\u4ea4\u5386\u53f2\uff0c\u751f\u6210\u4e2d\u6587\u53d8\u66f4\u65e5\u5fd7\u5e76\u5199\u5165 CHANG"
+          }
+        ],
+        "without_skill": [
+          {
+            "trial": "changelog-001__bQb5Kdw",
+            "reason": "AgentTimeoutError: Agent execution timed out after 600.0 seconds"
+          }
+        ]
+      },
+      "recovered_trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "failure_detail_metadata": {
+        "with_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_runtime": {
+          "details_total": 1,
+          "details_shown": 1,
+          "details_truncated": false
+        },
+        "with_skill_trials": {
+          "details_total": 1,
+          "details_shown": 1,
+          "details_truncated": false
+        },
+        "without_skill_trials": {
+          "details_total": 1,
+          "details_shown": 1,
+          "details_truncated": false
+        }
+      },
+      "job_failures": {
+        "with_skill": "Harbor job did not complete successfully: 1 errored",
+        "without_skill": "Harbor job did not complete successfully: 1 errored"
+      },
+      "historical_job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "conditions": {
+        "with_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 1 errored",
+            "Unscoreable reward in changelog-001__8LW5Du8: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-max run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u5728 /workspace \u76ee\u5f55\u4e0b\u5b8c\u6210\u4ee5\u4e0b\u4efb\u52a1\uff1a  1. \u521d\u59cb\u5316\u4e00\u4e2a Git \u4ed3\u5e93\uff08\u5148\u6267\u884c `git config user.name` \u4e0e `git config user.email` \u8bbe\u7f6e\u8eab\u4efd\uff09\u3002 2. \u4f9d\u6b21\u521b\u5efa\u4ee5\u4e0b 5 \u4e2a\u63d0\u4ea4\uff0c\u6bcf\u6b21\u63d0\u4ea4\u90fd\u771f\u5b9e\u5730\u65b0\u589e\u6216\u4fee\u6539\u4e00\u4e2a\u6587\u4ef6\uff1a    - `feat: \u65b0\u589e\u7528\u6237\u767b\u5f55\u6a21\u5757`\uff08\u65b0\u5efa login.py\uff09    - `fix: \u4fee\u590d\u767b\u5f55\u5bc6\u7801\u6821\u9a8c\u903b\u8f91`\uff08\u4fee\u6539 login.py\uff09    - `docs: \u66f4\u65b0\u9879\u76ee README`\uff08\u4fee\u6539 README.md\uff09    - `chore: bump version to 1.0.1`\uff08\u4fee\u6539 version.txt\uff09    - `Merge branch '\"'\"'develop'\"'\"' into main`\uff08\u521b\u5efa\u4e00\u4e2a\u5408\u5e76\u63d0\u4ea4\uff09 3. \u57fa\u4e8e\u4ee5\u4e0a Git \u63d0\u4ea4\u5386\u53f2\uff0c\u751f\u6210\u4e2d\u6587\u53d8\u66f4\u65e5\u5fd7\u5e76\u5199\u5165 CHANG",
+            "Missing scored attempts for cases: changelog-001",
+            "Scored attempt coverage is 0/1"
+          ],
+          "execution_error_details_total": 4,
+          "execution_error_details_shown": 4,
+          "execution_error_details_truncated": false,
+          "expected_cases": 1,
+          "scored_cases": 0,
+          "expected_attempts": 1,
+          "scored_attempts": 0,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 1,
+          "reward_failure_details_shown": 1,
+          "reward_failure_details_truncated": false
+        },
+        "without_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 1 errored",
+            "Agent runtime failed in changelog-001__bQb5Kdw: AgentTimeoutError: Agent execution timed out after 600.0 seconds",
+            "Unscoreable reward in changelog-001__bQb5Kdw: AgentTimeoutError: Agent execution timed out after 600.0 seconds",
+            "Missing scored attempts for cases: changelog-001",
+            "Scored attempt coverage is 0/1"
+          ],
+          "execution_error_details_total": 5,
+          "execution_error_details_shown": 5,
+          "execution_error_details_truncated": false,
+          "expected_cases": 1,
+          "scored_cases": 0,
+          "expected_attempts": 1,
+          "scored_attempts": 0,
+          "judge_failures": 0,
+          "runtime_failure_details_total": 1,
+          "runtime_failure_details_shown": 1,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 1,
+          "reward_failure_details_shown": 1,
+          "reward_failure_details_truncated": false
+        }
+      },
+      "execution_status": "failed",
+      "execution_errors": [
+        "Harbor job did not complete successfully: 1 errored",
+        "Unscoreable reward in changelog-001__8LW5Du8: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-max run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u5728 /workspace \u76ee\u5f55\u4e0b\u5b8c\u6210\u4ee5\u4e0b\u4efb\u52a1\uff1a  1. \u521d\u59cb\u5316\u4e00\u4e2a Git \u4ed3\u5e93\uff08\u5148\u6267\u884c `git config user.name` \u4e0e `git config user.email` \u8bbe\u7f6e\u8eab\u4efd\uff09\u3002 2. \u4f9d\u6b21\u521b\u5efa\u4ee5\u4e0b 5 \u4e2a\u63d0\u4ea4\uff0c\u6bcf\u6b21\u63d0\u4ea4\u90fd\u771f\u5b9e\u5730\u65b0\u589e\u6216\u4fee\u6539\u4e00\u4e2a\u6587\u4ef6\uff1a    - `feat: \u65b0\u589e\u7528\u6237\u767b\u5f55\u6a21\u5757`\uff08\u65b0\u5efa login.py\uff09    - `fix: \u4fee\u590d\u767b\u5f55\u5bc6\u7801\u6821\u9a8c\u903b\u8f91`\uff08\u4fee\u6539 login.py\uff09    - `docs: \u66f4\u65b0\u9879\u76ee README`\uff08\u4fee\u6539 README.md\uff09    - `chore: bump version to 1.0.1`\uff08\u4fee\u6539 version.txt\uff09    - `Merge branch '\"'\"'develop'\"'\"' into main`\uff08\u521b\u5efa\u4e00\u4e2a\u5408\u5e76\u63d0\u4ea4\uff09 3. \u57fa\u4e8e\u4ee5\u4e0a Git \u63d0\u4ea4\u5386\u53f2\uff0c\u751f\u6210\u4e2d\u6587\u53d8\u66f4\u65e5\u5fd7\u5e76\u5199\u5165 CHANG",
+        "Missing scored attempts for cases: changelog-001",
+        "Scored attempt coverage is 0/1",
+        "Agent runtime failed in changelog-001__bQb5Kdw: AgentTimeoutError: Agent execution timed out after 600.0 seconds",
+        "Unscoreable reward in changelog-001__bQb5Kdw: AgentTimeoutError: Agent execution timed out after 600.0 seconds"
+      ],
+      "execution_error_details_total": 9,
+      "execution_error_details_shown": 6,
+      "execution_error_details_truncated": true,
+      "expected_attempts": 2,
+      "scored_attempts": 0,
+      "num_trials_with": 0,
+      "num_trials_without": 0,
+      "execution_counts": {
+        "fresh": {
+          "with_skill": 1,
+          "without_skill": 1
+        },
+        "reused": {
+          "without_skill": 0
+        }
+      },
+      "measured_usage": {
+        "fresh": {
+          "with_skill": null,
+          "without_skill": null
+        },
+        "reused": {
+          "without_skill": null
+        }
+      },
+      "output_dir": "/skills/positive/changelog/evals/results/20261117_083844_1_88e4fd2944a8/opencode",
+      "dataset_sufficiency": {
+        "policy": "dataset-sufficiency-v1",
+        "status": "provisional",
+        "coverage_summary": "Dataset size: provisional \u2014 1 case (policy needs 10), 0 negative cases (needs 1); pass-rate interval unavailable (policy dataset-sufficiency-v1)",
+        "checks": [
+          {
+            "name": "coverage",
+            "met": false,
+            "observed": {
+              "distinct_cases": 1,
+              "negative_cases": 0
+            },
+            "required": {
+              "distinct_cases": 10,
+              "negative_cases": 1
+            },
+            "reason": "1 distinct cases and 0 negative cases; requires 10 and 1"
+          },
+          {
+            "name": "pass_rate_reliability",
+            "met": null,
+            "observed": {
+              "interval_half_width": null
+            },
+            "required": {
+              "interval_half_width": 0.2
+            },
+            "reason": "95% Wilson interval is unavailable"
+          },
+          {
+            "name": "lift_comparison",
+            "met": null,
+            "observed": {
+              "paired_cases": null
+            },
+            "required": {
+              "paired_cases": 10
+            },
+            "reason": "Paired-case count is unavailable"
+          }
+        ],
+        "reason": "provisional: 1 distinct cases and 0 negative cases; requires 10 and 1; 95% Wilson interval is unavailable; Paired-case count is unavailable"
+      }
+    }
+  },
+  "metric_set": "skill-evaluator-default-v2",
+  "metrics": [
+    "security",
+    "skill_execution",
+    "skill_efficiency",
+    "accuracy",
+    "goal_accuracy",
+    "behavior_check"
+  ],
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "attempt_policy": {
+    "max_attempts": 1,
+    "pass_threshold": 0.5,
+    "stop_on_pass": false,
+    "score_definition": "overall = mean(Security, Correctness, Discoverability, Effectiveness, Efficiency) [skill-evaluator-dimension-mean-v1], excluding metrics that are not applicable to a case",
+    "score_policy": "skill-evaluator-dimension-mean-v1"
+  },
+  "execution_status": "failed",
+  "execution_errors": [
+    "Harbor job did not complete successfully: 1 errored",
+    "Unscoreable reward in changelog-001__8LW5Du8: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-max run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u5728 /workspace \u76ee\u5f55\u4e0b\u5b8c\u6210\u4ee5\u4e0b\u4efb\u52a1\uff1a  1. \u521d\u59cb\u5316\u4e00\u4e2a Git \u4ed3\u5e93\uff08\u5148\u6267\u884c `git config user.name` \u4e0e `git config user.email` \u8bbe\u7f6e\u8eab\u4efd\uff09\u3002 2. \u4f9d\u6b21\u521b\u5efa\u4ee5\u4e0b 5 \u4e2a\u63d0\u4ea4\uff0c\u6bcf\u6b21\u63d0\u4ea4\u90fd\u771f\u5b9e\u5730\u65b0\u589e\u6216\u4fee\u6539\u4e00\u4e2a\u6587\u4ef6\uff1a    - `feat: \u65b0\u589e\u7528\u6237\u767b\u5f55\u6a21\u5757`\uff08\u65b0\u5efa login.py\uff09    - `fix: \u4fee\u590d\u767b\u5f55\u5bc6\u7801\u6821\u9a8c\u903b\u8f91`\uff08\u4fee\u6539 login.py\uff09    - `docs: \u66f4\u65b0\u9879\u76ee README`\uff08\u4fee\u6539 README.md\uff09    - `chore: bump version to 1.0.1`\uff08\u4fee\u6539 version.txt\uff09    - `Merge branch '\"'\"'develop'\"'\"' into main`\uff08\u521b\u5efa\u4e00\u4e2a\u5408\u5e76\u63d0\u4ea4\uff09 3. \u57fa\u4e8e\u4ee5\u4e0a Git \u63d0\u4ea4\u5386\u53f2\uff0c\u751f\u6210\u4e2d\u6587\u53d8\u66f4\u65e5\u5fd7\u5e76\u5199\u5165 CHANG",
+    "Missing scored attempts for cases: changelog-001",
+    "Scored attempt coverage is 0/1",
+    "Agent runtime failed in changelog-001__bQb5Kdw: AgentTimeoutError: Agent execution timed out after 600.0 seconds",
+    "Unscoreable reward in changelog-001__bQb5Kdw: AgentTimeoutError: Agent execution timed out after 600.0 seconds",
+    "opencode with-skill Harbor run failed: Harbor job did not complete successfully: 1 errored",
+    "opencode without-skill Harbor run failed: Harbor job did not complete successfully: 1 errored"
+  ],
+  "execution_error_details_total": 11,
+  "execution_error_details_shown": 8,
+  "execution_error_details_truncated": true,
+  "expected_attempts": 2,
+  "scored_attempts": 0,
+  "error": [
+    "Harbor job did not complete successfully: 1 errored"
+  ],
+  "baseline": {
+    "mode": "fresh"
+  },
+  "comparison_identity": {
+    "config": {
+      "harbor": {
+        "environment": {
+          "value": "docker",
+          "source": "CLI"
+        },
+        "environment_kwargs": {
+          "keys": [],
+          "sources": {},
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "n_attempts": 1,
+        "stop_on_pass": false,
+        "timeout_multiplier": 2.0,
+        "base_image_mode": "disabled",
+        "resources": {
+          "cpus": null,
+          "memory_mb": null,
+          "storage_mb": null
+        },
+        "agent_workdir": null,
+        "custom_dockerfile_mode": "rebase",
+        "runtime_env": {
+          "keys": [],
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        }
+      },
+      "provider": {
+        "name": "openai-compatible",
+        "model": "qwen3.8-max"
+      },
+      "judge": {
+        "enabled": true,
+        "provider": "openai-compatible",
+        "model": "qwen3.8-max",
+        "source": "SKILL_EVAL_LLM_MODEL",
+        "override_applied": false,
+        "reasoning_effort": null,
+        "catalog_verification": "degraded"
+      },
+      "task_source": "evals_json",
+      "grading": {
+        "mode": "default"
+      },
+      "skill_workspace": {
+        "mode": "isolated"
+      },
+      "copy_repo": false,
+      "repo_context_exclude_paths": [],
+      "agents": {
+        "opencode": {
+          "agent": "opencode",
+          "model": "openai/qwen3.8-max",
+          "source": "CLI"
+        }
+      },
+      "baseline_task_tree_digest": "sha256:b72802a9d5ad08dbdc88606cd96f5492e92dfe14bd2402770d86a2bed4764cd5"
+    },
+    "dataset_digest": "sha256:36530be8e3a73d90a1a8779d43812f1ccceeee0d4c6660dc73e5c9b4e517bb33",
+    "identity_dataset_digest": "sha256:6a20e48589fcea1f961c754884a90161bb30ccb005afe934b8f9fdf24d7f49a6",
+    "baseline_task_tree_digest": "sha256:b72802a9d5ad08dbdc88606cd96f5492e92dfe14bd2402770d86a2bed4764cd5",
+    "expected_case_ids": [
+      "changelog-001"
+    ],
+    "attempt_policy": {
+      "max_attempts": 1,
+      "pass_threshold": 0.5,
+      "stop_on_pass": false
+    },
+    "score_policy": "skill-evaluator-dimension-mean-v1",
+    "evaluator_version": "0.9.0",
+    "skill": {
+      "evaluated_source": null,
+      "publication_target": {
+        "skill_name": "changelog",
+        "skill_digest": "sha256:fa9dbd31d629edaa2141c99fb00b74b43030dc64ec1243248a5b8c95e1da2f47",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      }
+    }
+  },
+  "expected_case_ids": [
+    "changelog-001"
+  ],
+  "skill_name": "changelog",
+  "run_id": "20261117_083844_1_88e4fd2944a8",
+  "publication_target": {
+    "skill_name": "changelog",
+    "skill_digest": "sha256:fa9dbd31d629edaa2141c99fb00b74b43030dc64ec1243248a5b8c95e1da2f47",
+    "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+  },
+  "run_dir": "/skills/positive/changelog/evals/results/20261117_083844_1_88e4fd2944a8",
+  "result_path": "/skills/positive/changelog/evals/results/20261117_083844_1_88e4fd2944a8/result.json",
+  "harbor_jobs_dir": "/skills/positive/changelog/evals/results/20261117_083844_1_88e4fd2944a8/_harbor-jobs",
+  "harbor_jobs_retained": false,
+  "evaluated_at": "2026-11-17T08:58:12.338899+00:00",
+  "evaluator_version": "0.9.0",
+  "dataset_snapshot": {
+    "schema_version": "1.1",
+    "evaluator_version": "0.9.0",
+    "dataset_summary": {
+      "total_tasks": 1,
+      "positive_tasks": 1,
+      "negative_tasks": 0,
+      "unclassified_tasks": 0,
+      "source": "dataset"
+    },
+    "dataset_digest": "sha256:36530be8e3a73d90a1a8779d43812f1ccceeee0d4c6660dc73e5c9b4e517bb33",
+    "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1"
+  },
+  "dataset_snapshot_path": "/skills/positive/changelog/evals/results/20261117_083844_1_88e4fd2944a8/dataset_snapshot.json",
+  "dataset_summary": {
+    "total_tasks": 1,
+    "positive_tasks": 1,
+    "negative_tasks": 0,
+    "unclassified_tasks": 0,
+    "source": "dataset"
+  },
+  "dataset_digest": "sha256:36530be8e3a73d90a1a8779d43812f1ccceeee0d4c6660dc73e5c9b4e517bb33",
+  "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1",
+  "identity_dataset_digest": "sha256:6a20e48589fcea1f961c754884a90161bb30ccb005afe934b8f9fdf24d7f49a6",
+  "baseline_task_tree_digest": "sha256:b72802a9d5ad08dbdc88606cd96f5492e92dfe14bd2402770d86a2bed4764cd5",
+  "budget": {
+    "limits": {
+      "max_agent_tokens": null,
+      "max_judge_calls": null,
+      "max_attempts_total": null,
+      "max_cost_usd": null
+    },
+    "planned_attempts": 2,
+    "started_attempts": 0,
+    "finished_attempts": 0,
+    "unmeasured_attempts": {
+      "agent_tokens": 0,
+      "judge_calls": 0,
+      "cost_usd": 0
+    },
+    "used": {
+      "agent_tokens": "not measured",
+      "judge_calls": "not measured",
+      "cost_usd": "not measured"
+    },
+    "status": "ok",
+    "partial": false,
+    "exhausted_limit": null,
+    "exhausted_basis": null,
+    "attempts_not_run": 0,
+    "not_run": [],
+    "charge_coverage": {
+      "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+      "attempts_by_derivation": {
+        "price_file": 0,
+        "provider_reported": 0,
+        "unmeasured": 0
+      },
+      "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+      "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+      "environment_setup": "not included",
+      "container": "not included",
+      "backend": "not included",
+      "infrastructure": "not included"
+    },
+    "reservation": {
+      "policy": "largest_measured_attempt",
+      "estimate_per_attempt": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "in_flight_attempts": 0,
+      "waits": 0,
+      "unestimated_admissions": 0,
+      "calibration_waits": 0,
+      "estimate_denials": 0,
+      "denied_unit_size": 0
+    },
+    "observed_overruns": {}
+  },
+  "dataset_provenance": null,
+  "run_config": {
+    "config_file": "none",
+    "harbor": {
+      "environment": {
+        "value": "docker",
+        "source": "CLI"
+      },
+      "environment_kwargs": {
+        "keys": [],
+        "sources": {},
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "n_attempts": 1,
+      "stop_on_pass": false,
+      "n_concurrent": 4,
+      "timeout_multiplier": 2.0,
+      "base_image_mode": "disabled",
+      "resources": {
+        "cpus": null,
+        "memory_mb": null,
+        "storage_mb": null
+      },
+      "agent_workdir": null,
+      "custom_dockerfile_mode": "rebase",
+      "runtime_env": {
+        "keys": [],
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "jobs_retained": false
+    },
+    "provider": {
+      "name": "openai-compatible",
+      "model": "qwen3.8-max"
+    },
+    "judge": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "qwen3.8-max",
+      "source": "SKILL_EVAL_LLM_MODEL",
+      "override_applied": false,
+      "reasoning_effort": null,
+      "catalog_verification": "degraded"
+    },
+    "credential_validation": {
+      "status": "degraded",
+      "targets": [
+        {
+          "labels": [
+            "opencode",
+            "standard grader"
+          ],
+          "provider": "openai-compatible",
+          "model": "qwen3.8-max",
+          "status": "degraded",
+          "detail": "model catalog access does not verify runtime credentials for this endpoint"
+        }
+      ]
+    },
+    "task_source": "evals_json",
+    "grading": {
+      "mode": "default"
+    },
+    "skill_workspace": {
+      "mode": "isolated"
+    },
+    "copy_repo": false,
+    "repo_context_exclude_paths": [],
+    "agents": {
+      "opencode": {
+        "agent": "opencode",
+        "model": "openai/qwen3.8-max",
+        "source": "CLI"
+      }
+    },
+    "evaluated_source": null,
+    "baseline_task_tree_digest": "sha256:b72802a9d5ad08dbdc88606cd96f5492e92dfe14bd2402770d86a2bed4764cd5",
+    "baseline": {
+      "mode": "fresh"
+    },
+    "budget": {
+      "limits": {
+        "max_agent_tokens": null,
+        "max_judge_calls": null,
+        "max_attempts_total": null,
+        "max_cost_usd": null
+      },
+      "planned_attempts": 2,
+      "started_attempts": 0,
+      "finished_attempts": 0,
+      "unmeasured_attempts": {
+        "agent_tokens": 0,
+        "judge_calls": 0,
+        "cost_usd": 0
+      },
+      "used": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "status": "ok",
+      "partial": false,
+      "exhausted_limit": null,
+      "exhausted_basis": null,
+      "attempts_not_run": 0,
+      "not_run": [],
+      "charge_coverage": {
+        "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+        "attempts_by_derivation": {
+          "price_file": 0,
+          "provider_reported": 0,
+          "unmeasured": 0
+        },
+        "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+        "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+        "environment_setup": "not included",
+        "container": "not included",
+        "backend": "not included",
+        "infrastructure": "not included"
+      },
+      "reservation": {
+        "policy": "largest_measured_attempt",
+        "estimate_per_attempt": {
+          "agent_tokens": "not measured",
+          "judge_calls": "not measured",
+          "cost_usd": "not measured"
+        },
+        "in_flight_attempts": 0,
+        "waits": 0,
+        "unestimated_admissions": 0,
+        "calibration_waits": 0,
+        "estimate_denials": 0,
+        "denied_unit_size": 0
+      },
+      "observed_overruns": {}
+    }
+  },
+  "partial": false,
+  "dataset_sufficiency": {
+    "policy": "dataset-sufficiency-v1",
+    "status": "provisional",
+    "coverage_summary": "Dataset size: provisional \u2014 1 case (policy needs 10), 0 negative cases (needs 1); pass-rate interval unavailable (policy dataset-sufficiency-v1)",
+    "checks": [
+      {
+        "name": "coverage",
+        "met": false,
+        "observed": {
+          "distinct_cases": 1,
+          "negative_cases": 0
+        },
+        "required": {
+          "distinct_cases": 10,
+          "negative_cases": 1
+        },
+        "reason": "1 distinct cases and 0 negative cases; requires 10 and 1"
+      },
+      {
+        "name": "pass_rate_reliability",
+        "met": null,
+        "observed": {
+          "interval_half_width": null
+        },
+        "required": {
+          "interval_half_width": 0.2
+        },
+        "reason": "95% Wilson interval is unavailable"
+      },
+      {
+        "name": "lift_comparison",
+        "met": null,
+        "observed": {
+          "paired_cases": null
+        },
+        "required": {
+          "paired_cases": 10
+        },
+        "reason": "Paired-case count is unavailable"
+      }
+    ],
+    "reason": "provisional: 1 distinct cases and 0 negative cases; requires 10 and 1; 95% Wilson interval is unavailable; Paired-case count is unavailable"
+  },
+  "harbor_jobs_retention_reason": "not_retained",
+  "tier3_feedback": {
+    "schema_version": "1.0",
+    "conclusions": [
+      {
+        "severity": "warn",
+        "title": "Skill effect",
+        "message": "per-case result: inconclusive (opencode: condition execution is incomplete).",
+        "source": "deterministic"
+      },
+      {
+        "severity": "fail",
+        "title": "Evaluation incomplete",
+        "message": "Harbor job did not complete successfully: 1 errored; Unscoreable reward in changelog-001__8LW5Du8: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-max run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u5728 /workspace \u76ee\u5f55\u4e0b\u5b8c\u6210\u4ee5\u4e0b\u4efb\u52a1\uff1a  1. \u521d\u59cb\u5316\u4e00\u4e2a Git \u4ed3\u5e93\uff08\u5148\u6267\u884c `git config user.name` \u4e0e `git config user.email` \u8bbe\u7f6e\u8eab\u4efd\uff09\u3002 2. \u4f9d\u6b21\u521b\u5efa\u4ee5\u4e0b 5 \u4e2a\u63d0\u4ea4\uff0c\u6bcf\u6b21\u63d0\u4ea4\u90fd\u771f\u5b9e\u5730\u65b0\u589e\u6216\u4fee\u6539\u4e00\u4e2a\u6587\u4ef6\uff1a    - `feat: \u65b0\u589e\u7528\u6237\u767b\u5f55\u6a21\u5757`\uff08\u65b0\u5efa login.py\uff09    - `fix: \u4fee\u590d\u767b\u5f55\u5bc6\u7801\u6821\u9a8c\u903b\u8f91`\uff08\u4fee\u6539 login.py\uff09    - `docs: \u66f4\u65b0\u9879\u76ee README`\uff08\u4fee\u6539 README.md\uff09    - `chore: bump version to 1.0.1`\uff08\u4fee\u6539 version.txt\uff09    - `Merge branch '\"'\"'develop'\"'\"' into main`\uff08\u521b\u5efa\u4e00\u4e2a\u5408\u5e76\u63d0\u4ea4\uff09 3. \u57fa\u4e8e\u4ee5\u4e0a Git \u63d0\u4ea4\u5386\u53f2\uff0c\u751f\u6210\u4e2d\u6587\u53d8\u66f4\u65e5\u5fd7\u5e76\u5199\u5165 CHANG; Missing scored attempts for cases: changelog-001; Scored attempt coverage is 0/1; With skill aggregate job: Harbor job did not complete successfully: 1 errored; With skill trial changelog-001__8LW5Du8: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-max run --format=json --thinking --dangerously-skip-permissions -- '\u8bf7\u5728 /workspace \u76ee\u5f55\u4e0b\u5b8c\u6210\u4ee5\u4e0b\u4efb\u52a1\uff1a  1. \u521d\u59cb\u5316\u4e00\u4e2a Git \u4ed3\u5e93\uff08\u5148\u6267\u884c `git config user.name` \u4e0e `git config user.email` \u8bbe\u7f6e\u8eab\u4efd\uff09\u3002 2. \u4f9d\u6b21\u521b\u5efa\u4ee5\u4e0b 5 \u4e2a\u63d0\u4ea4\uff0c\u6bcf\u6b21\u63d0\u4ea4\u90fd\u771f\u5b9e\u5730\u65b0\u589e\u6216\u4fee\u6539\u4e00\u4e2a\u6587\u4ef6\uff1a    - `feat: \u65b0\u589e\u7528\u6237\u767b\u5f55\u6a21\u5757`\uff08\u65b0\u5efa login.py\uff09    - `fix: \u4fee\u590d\u767b\u5f55\u5bc6\u7801\u6821\u9a8c\u903b\u8f91`\uff08\u4fee\u6539 login.py\uff09    - `docs: \u66f4\u65b0\u9879\u76ee README`\uff08\u4fee\u6539 README.md\uff09    - `chore: bump version to 1.0.1`\uff08\u4fee\u6539 version.txt\uff09    - `Merge branch '\"'\"'develop'\"'\"' into main`\uff08\u521b\u5efa\u4e00\u4e2a\u5408\u5e76\u63d0\u4ea4\uff09 3. \u57fa\u4e8e\u4ee5\u4e0a Git \u63d0\u4ea4\u5386\u53f2\uff0c\u751f\u6210\u4e2d\u6587\u53d8\u66f4\u65e5\u5fd7\u5e76\u5199\u5165 CHANG; Agent runtime failed in changelog-001__bQb5Kdw: AgentTimeoutError: Agent execution timed out after 600.0 seconds; Unscoreable reward in changelog-001__bQb5Kdw: AgentTimeoutError: Agent execution timed out after 600.0 seconds; Without skill aggregate job: Harbor job did not complete successfully: 1 errored; Without skill trial changelog-001__bQb5Kdw: AgentTimeoutError: Agent execution timed out after 600.0 seconds"
+      }
+    ],
+    "recommendations": [
+      {
+        "title": "changelog-001 \u00b7 opencode",
+        "category": "run error",
+        "message": "1 attempt(s) never produced a score: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-max run --format=j\u2026. Fix: Not a skill problem: re-run this case; if it repeats, check the agent/gateway logs. Evidence: opencode/with-skill/trials/changelog-001__8LW5Du8/exception.txt",
+        "severity": "warn",
+        "source": "deterministic"
+      }
+    ],
+    "suggestions": [
+      "Not a skill problem: re-run this case; if it repeats, check the agent/gateway logs."
+    ],
+    "suggestions_v2": []
+  },
+  "token_usage": {
+    "schema_version": "1",
+    "scored": false,
+    "accounting": {
+      "prompt_includes_cached": true,
+      "total_tokens": "prompt_tokens + completion_tokens",
+      "uncached_prompt_tokens": "prompt_tokens - cached_tokens",
+      "change": "with_skill - baseline total_tokens; percent of the baseline total"
+    },
+    "case_id_validation": {
+      "status": "validated",
+      "dataset_case_ids": 1,
+      "unmatched_case_ids": []
+    },
+    "agents": {
+      "opencode": {
+        "with_skill": {
+          "totals": {
+            "prompt_tokens": 316611,
+            "cached_tokens": 294784,
+            "uncached_prompt_tokens": 21827,
+            "completion_tokens": 1912,
+            "total_tokens": 318523
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 1,
+            "observed_attempts": 1,
+            "measured_attempts": 1,
+            "unscored_attempts": 1,
+            "reason_codes": []
+          }
+        },
+        "baseline": {
+          "totals": null,
+          "coverage": {
+            "status": "unavailable",
+            "expected_attempts": 1,
+            "observed_attempts": 1,
+            "measured_attempts": 0,
+            "unscored_attempts": 1,
+            "reason_codes": [
+              "missing_token_counters"
+            ]
+          }
+        },
+        "delta": {
+          "status": "unavailable",
+          "total_tokens": null,
+          "total_tokens_change_percent": null,
+          "reason_codes": [
+            "baseline_tokens_incomplete",
+            "with_skill_failed",
+            "baseline_failed"
+          ],
+          "reason": "Baseline token counts cover 0 of 1 attempts. No change: with-skill run unavailable (0 of 1 attempts scored). No change: baseline unavailable (0 of 1 attempts scored)."
+        }
+      }
+    },
+    "dataset": {
+      "with_skill": {
+        "totals": {
+          "prompt_tokens": 316611,
+          "cached_tokens": 294784,
+          "uncached_prompt_tokens": 21827,
+          "completion_tokens": 1912,
+          "total_tokens": 318523
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 1,
+          "observed_attempts": 1,
+          "measured_attempts": 1,
+          "unscored_attempts": 1,
+          "reason_codes": []
+        }
+      },
+      "baseline": {
+        "totals": null,
+        "coverage": {
+          "status": "unavailable",
+          "expected_attempts": 1,
+          "observed_attempts": 1,
+          "measured_attempts": 0,
+          "unscored_attempts": 1,
+          "reason_codes": [
+            "missing_token_counters"
+          ]
+        }
+      },
+      "delta": {
+        "status": "unavailable",
+        "total_tokens": null,
+        "total_tokens_change_percent": null,
+        "reason_codes": [
+          "baseline_tokens_incomplete",
+          "agent_scope_mismatch"
+        ],
+        "reason": "Baseline token counts cover 0 of 1 attempts. Not every agent has a token change, so there is no change over all agents."
+      }
+    }
+  },
+  "report_path": "/skills/positive/changelog/evals/results/20261117_083844_1_88e4fd2944a8/report.html",
+  "benchmark_path": "/skills/positive/changelog/evals/results/20261117_083844_1_88e4fd2944a8/tier3-benchmark.md",
+  "report_status": "complete",
+  "duration_seconds": 1168.917,
+  "result_projection": {
+    "schema_version": "1.0",
+    "mode": "inline",
+    "returned_result": "full",
+    "persisted_result": "inline",
+    "agents": {},
+    "omitted_detail_fields": {},
+    "omitted_root_detail_fields": []
+  }
+}

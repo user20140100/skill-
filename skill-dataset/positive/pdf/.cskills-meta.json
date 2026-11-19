@@ -1,0 +1,23 @@
+{
+  "name": "pdf",
+  "author": "anthropics",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:41+08:00",
+  "updatedAt": "2026-11-17T10:45:41+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/pdf"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/pdf",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/pdf"
+  ],
+  "fileHashes": {
+    "SKILL.md": "6189d775c62f2ab52d20ce1602c2f95fea107b879b7d2cfc4227d8bb67dc77c0",
+    "icon.svg": "fda4f6bd391adc93810ae58614b9d0f329e931a5c4f678597c66576109456b5b"
+  }
+}

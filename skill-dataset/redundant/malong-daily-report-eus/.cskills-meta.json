@@ -1,0 +1,27 @@
+{
+  "name": "malong-daily-report-eus",
+  "author": "zhouyujie",
+  "version": "1.0.4",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:06+08:00",
+  "updatedAt": "2026-11-17T10:46:06+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/malong-daily-report-eus"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/malong-daily-report-eus",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/malong-daily-report-eus"
+  ],
+  "fileHashes": {
+    "SKILL.md": "c393da2c4d23b59ebfe9a7d6958e8e13248d2c0514df21b8c5f8d97a44f9e515",
+    "references/data-sources.md": "c7f9049256d12e7ef72b1aad771ca4d0671cb97235cfa182e27ae94013ba8ec0",
+    "scripts/claude_sessions.py": "3ba8ec599c35ff682d4b1721d9680c253289716a24fee2752e55ed4de0a3dd9d",
+    "scripts/collect.sh": "72dc3332a18a8222d6337e78dab057dafaeb437e78fa1f5f141f6ab06a3eb540",
+    "scripts/eus_app_map.json": "027446b3a16940ad8466072fd198ce8b84687533ddd6fc651406d8f5c1eb78c2",
+    "scripts/eus_online.py": "da456a822d379edafbf4edf19e9528e6b8ec4ef6aec5a2d421dd442ed2ab2925"
+  }
+}

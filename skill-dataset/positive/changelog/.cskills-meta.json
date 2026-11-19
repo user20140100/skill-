@@ -1,0 +1,22 @@
+{
+  "name": "changelog",
+  "author": "fujinxiang",
+  "version": "1.0.1",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:37+08:00",
+  "updatedAt": "2026-11-17T10:45:37+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/changelog"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/changelog",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/changelog"
+  ],
+  "fileHashes": {
+    "SKILL.md": "8c3627d7ef58927f2cd2e7a2baf04881f66cc185f47e8822bc6ea38f83920198"
+  }
+}

@@ -1,0 +1,3296 @@
+{
+  "version": "0.9.0",
+  "target_path": "/skills/official/calculator",
+  "overall_passed": true,
+  "overall_status": "passed",
+  "incomplete_scans": [],
+  "total_validators": 14,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 0,
+  "total_warnings": 22,
+  "severity_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 13
+  },
+  "finding_counts": {
+    "raw_occurrences": 21,
+    "distinct_occurrences": 21,
+    "unique_findings": 21,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 0,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 4,
+      "low": 13,
+      "info": 4
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 4,
+      "low": 13,
+      "info": 4
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-03e029934351881ba688",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-RELOAD",
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-34322e3fc320f6c7e8fd",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0f3cde56a46498377f1a",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description doesn't mention WHEN to use this skill",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-86db7bb57a4960ff64ee",
+          "validator": "QUALITY",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-18a7f8cc53f607ef9645",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "folder_hierarchy",
+      "message": "Unexpected nesting depth for general skill",
+      "suggestion": "General skills should be at: skills/<skill-name>/",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-091c1b97144523a2b1fb",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/official/calculator",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-29923f4d680e578e37e3",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "description_trigger",
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "suggestion": "State when to use the skill within the first 60 characters",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2c26d623980983580300",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-303c431451b7c05652fe",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_description_clarity",
+      "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+      "suggestion": "The description clearly states the calculator evaluates arithmetic, percentages, exponents, and common unit conversions. It also mentions no external dependencies, which helps set expectations.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "description_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-687e6f91c5ea4bd964ed",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3661379ea9e5c1072875",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-RELOAD",
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-272180df23d1158e35b3",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4a6560f4aec006f302f9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No prerequisites/requirements documented",
+      "suggestion": "Document dependencies, API keys, or setup needed",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-297e3ad508d1c58f90f6",
+          "validator": "QUALITY",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4b285b0f474fff9a859e",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_workflow_completeness",
+      "message": "[7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "suggestion": "The basic run-and-return workflow is complete. Guidance is missing for malformed input, unsupported conversions, script failures, and exact output handling.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "workflow_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b49104b0b8fcd1fa9872",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4e07b371874fccc7510b",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_example_quality",
+      "message": "[8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "suggestion": "Examples cover arithmetic, percentages, and several unit conversions. Additional edge cases or negative examples would better support robust detection and usage.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "example_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-ced1d66a02ebf1cce868",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-527523eea1d8884ff4be",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_professional_tone",
+      "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+      "suggestion": "The documentation is concise, consistent, and professionally formatted. Metadata and compatibility information are clean and useful.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "professional_tone"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b6c96542d74de909c9ad",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-544de964e7a872b46c41",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_scope_definition",
+      "message": "[9/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "suggestion": "The limitations section clearly defines supported operations and conversion units. Scope is appropriately narrow for a safe calculator skill.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "scope_definition"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-412974d41b9ad4565791",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-5995c1ef72651542c573",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-LINKED-LAYOUT",
+      "message": "hermes: 2 files outside references/, templates/, assets/ and scripts/ (evals) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+      "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-69238ef4a5311336ae91",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-68b29e45f1fa2641fbe4",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_documentation_completeness",
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "suggestion": "Purpose, script location, compatibility, limitations, and examples are present. CLI parameters are implied but not formally documented.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "documentation_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-d04eac60e7343ee16cba",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-69dfa61e380b41fc47dc",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_error_handling_quality",
+      "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "suggestion": "The troubleshooting table identifies realistic invalid expression and unknown conversion cases with useful fixes. It could be stronger with exact error messages, exit codes, or fallback behavior.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "error_handling_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e38747cf8ca45d34c097",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6d68dab37ccc357a6814",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "Instructions don't mention 'run_script'",
+      "suggestion": "Add explicit run_script() call examples",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-ae085ffa28bc6bd722af",
+          "validator": "QUALITY",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-740453e5661b3b5b6f1e",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "No documented scripts in table format",
+      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3647bf608e2e24ddf09b",
+          "validator": "QUALITY",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-8fc7b194e255203476b2",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_trigger_simulation",
+      "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "suggestion": "The description should correctly trigger for arithmetic, percentage, and supported conversion queries. It may under-trigger for broader math requests like solving equations, but that is appropriate given the limitations.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "trigger_simulation"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a5b7fe6a9c353cea5371",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-a5f81ec9846db09acafe",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_instruction_clarity",
+      "message": "[8/10] Instructions are easy to follow with clear action steps",
+      "suggestion": "The three-step agent instructions are simple and actionable. More detail about input quoting, error handling, and result formatting would improve clarity.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "instruction_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-10a6e956b5842a68b71f",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-7e59929cf3af53e0a395",
+          "validator": "QUALITY",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e0623bdfb91d6bbb829f",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-DESC-60",
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-95c7d7fe16bdd053f549",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-fd5f99a26a70f6058e51",
+      "category": "SCRIPT_LINT",
+      "severity": "low",
+      "check_name": "magic_numbers",
+      "message": "calc.py contains magic numbers",
+      "suggestion": "Extract magic numbers to named constants",
+      "metadata": null,
+      "validators": [
+        "SCRIPT_LINT"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4c4cd9844408a7c165b0",
+          "validator": "SCRIPT_LINT",
+          "file_path": "/skills/official/calculator/scripts/calc.py",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 4,
+    "independent_errors": 0,
+    "independent_warnings": 1
+  },
+  "skills": [
+    {
+      "name": "calculator",
+      "passed": true,
+      "issue_count": 21
+    }
+  ],
+  "contributors": [
+    {
+      "author": "SkillEvaluator Maintainers <maintainers@example.com>",
+      "items": [
+        {
+          "name": "calculator",
+          "passed": true,
+          "issue_count": 21
+        }
+      ],
+      "total_items": 1,
+      "passed_count": 1,
+      "failed_count": 0,
+      "total_issues": 21
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "Unexpected nesting depth for general skill",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "General skills should be at: skills/<skill-name>/"
+    },
+    {
+      "message": "No documented scripts in table format",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
+    },
+    {
+      "message": "Instructions don't mention 'run_script'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add explicit run_script() call examples"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "State when to use the skill within the first 60 characters"
+    },
+    {
+      "message": "Description doesn't mention WHEN to use this skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'"
+    },
+    {
+      "message": "No prerequisites/requirements documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document dependencies, API keys, or setup needed"
+    },
+    {
+      "message": "calc.py contains magic numbers",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "SCRIPT_LINT",
+      "suggestion": "Extract magic numbers to named constants"
+    },
+    {
+      "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The description clearly states the calculator evaluates arithmetic, percentages, exponents, and common unit conversions. It also mentions no external dependencies, which helps set expectations."
+    },
+    {
+      "message": "[8/10] Instructions are easy to follow with clear action steps",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The three-step agent instructions are simple and actionable. More detail about input quoting, error handling, and result formatting would improve clarity."
+    },
+    {
+      "message": "[8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Examples cover arithmetic, percentages, and several unit conversions. Additional edge cases or negative examples would better support robust detection and usage."
+    },
+    {
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Purpose, script location, compatibility, limitations, and examples are present. CLI parameters are implied but not formally documented."
+    },
+    {
+      "message": "[9/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The limitations section clearly defines supported operations and conversion units. Scope is appropriately narrow for a safe calculator skill."
+    },
+    {
+      "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The documentation is concise, consistent, and professionally formatted. Metadata and compatibility information are clean and useful."
+    },
+    {
+      "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The description should correctly trigger for arithmetic, percentage, and supported conversion queries. It may under-trigger for broader math requests like solving equations, but that is appropriate given the limitations."
+    },
+    {
+      "message": "[7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The basic run-and-return workflow is complete. Guidance is missing for malformed input, unsupported conversions, script failures, and exact output handling."
+    },
+    {
+      "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The troubleshooting table identifies realistic invalid expression and unknown conversion cases with useful fixes. It could be stronger with exact error messages, exit codes, or fallback behavior."
+    },
+    {
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters."
+    },
+    {
+      "message": "hermes: 2 files outside references/, templates/, assets/ and scripts/ (evals) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/."
+    },
+    {
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "calculator"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    }
+  ],
+  "results": [
+    {
+      "validator": "Schema & Repository Governance",
+      "description": "Validate SKILL.md frontmatter and repository structure",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 10,
+        "errors": 0,
+        "warnings": 2,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 1,
+        "low_count": 1
+      },
+      "finding_counts": {
+        "raw_occurrences": 2,
+        "distinct_occurrences": 2,
+        "unique_findings": 2,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 1,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 1,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-18a7f8cc53f607ef9645",
+          "occurrence_id": "SEO-091c1b97144523a2b1fb",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "folder_hierarchy",
+          "message": "Unexpected nesting depth for general skill",
+          "file_path": "/skills/official/calculator",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "General skills should be at: skills/<skill-name>/",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-29923f4d680e578e37e3",
+          "occurrence_id": "SEO-2c26d623980983580300",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "description_trigger",
+          "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "State when to use the skill within the first 60 characters",
+          "metadata": null
+        }
+      ],
+      "success_details": [
+        {
+          "check": "manifest_exists",
+          "message": "Found skill manifest: SKILL.md",
+          "metadata": {
+            "file_path": "/skills/official/calculator/SKILL.md"
+          }
+        },
+        {
+          "check": "frontmatter_valid",
+          "message": "Valid frontmatter for skill 'calculator'",
+          "metadata": {
+            "description_length": 186
+          }
+        },
+        {
+          "check": "naming_convention",
+          "message": "Folder name 'calculator' follows kebab-case convention",
+          "metadata": {
+            "name_length": 10
+          }
+        },
+        {
+          "check": "line_count",
+          "message": "SKILL.md within line limit (66/500)",
+          "metadata": {
+            "line_count": 66,
+            "limit": 500
+          }
+        },
+        {
+          "check": "body_heading",
+          "message": "Body contains a top-level heading",
+          "metadata": null
+        },
+        {
+          "check": "body_recommended_section",
+          "message": "Found recommended section: '## Instructions' (or '## Usage')",
+          "metadata": null
+        },
+        {
+          "check": "body_recommended_section",
+          "message": "Found recommended section: '## Examples'",
+          "metadata": null
+        },
+        {
+          "check": "optional_files",
+          "message": "Found optional supporting files: evals, scripts",
+          "metadata": {
+            "files_found": [
+              "evals",
+              "scripts"
+            ]
+          }
+        },
+        {
+          "check": "name_consistency",
+          "message": "Directory name matches frontmatter: 'calculator'",
+          "metadata": null
+        },
+        {
+          "check": "author_format",
+          "message": "Valid author format: SkillEvaluator Maintainers <maintainers@example.com>",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCHEMA-MEDIUM] Unexpected nesting depth for general skill in /skills/official/calculator",
+          "[SCHEMA-LOW] Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list in /skills/official/calculator/SKILL.md"
+        ],
+        "messages": [
+          "[OK] manifest_exists: Found skill manifest: SKILL.md",
+          "[OK] frontmatter_valid: Valid frontmatter for skill 'calculator'",
+          "[OK] naming_convention: Folder name 'calculator' follows kebab-case convention",
+          "[OK] line_count: SKILL.md within line limit (66/500)",
+          "[OK] body_heading: Body contains a top-level heading",
+          "[OK] body_recommended_section: Found recommended section: '## Instructions' (or '## Usage')",
+          "[OK] body_recommended_section: Found recommended section: '## Examples'",
+          "[OK] optional_files: Found optional supporting files: evals, scripts",
+          "[OK] name_consistency: Directory name matches frontmatter: 'calculator'",
+          "[OK] author_format: Valid author format: SkillEvaluator Maintainers <maintainers@example.com>"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "schema"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Semantic Version Validation",
+      "description": "Validate optional metadata.version labels and require strict bumps",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "version_optional",
+          "message": "No semantic version label present; resource will use commit-hash history",
+          "metadata": {
+            "previous_version": null
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] version_optional: No semantic version label present; resource will use commit-hash history"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "version"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Security Scan",
+      "description": "Detect security vulnerabilities and PII/secrets",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "skillspector": "2.13.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "skillspector",
+          "message": "No security vulnerabilities detected (secrets, API keys, credentials)",
+          "metadata": null
+        },
+        {
+          "check": "skillspector",
+          "message": "No security vulnerabilities detected (secrets, API keys, credentials)",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] skillspector: No security vulnerabilities detected (secrets, API keys, credentials)",
+          "[OK] skillspector: No security vulnerabilities detected (secrets, API keys, credentials)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "skillspector_version": "2.13.4",
+      "skillspector_llm_provenance": {
+        "schema_version": 1,
+        "provider": {
+          "configured_adapter": "openai_compatible",
+          "resolved_adapter": "openai_compatible",
+          "effective_adapter": "openai_compatible",
+          "effective_adapters": [
+            "openai_compatible"
+          ],
+          "service": "unknown",
+          "routing": {
+            "deployment_override": null,
+            "deployment_source": "not_applicable",
+            "api_version": null,
+            "api_version_source": "not_applicable"
+          }
+        },
+        "analyzers": [
+          {
+            "analyzer_id": "mcp_tool_poisoning",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_developer_intent",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_quality_policy",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_security_discovery",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "meta_analyzer",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          }
+        ],
+        "sampling": {
+          "temperature": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "seed": {
+            "requested": null,
+            "source": "unset",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "reasoning_effort": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          }
+        },
+        "determinism": {
+          "classification": "nondeterministic",
+          "control_status": "provider_defaults",
+          "provider_guarantee": false,
+          "reason": "Optional controls do not guarantee identical provider output."
+        }
+      },
+      "skillspector_applicability": {
+        "artifact_type": "skill",
+        "kept_issues": 0,
+        "suppressed_inapplicable_issues": 0,
+        "suppressed_by_file_role": {},
+        "raw_risk_score": 0,
+        "applicable_risk_score": 0
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "security"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "PII Scan",
+      "description": "Detect PII and local identifiers",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 2,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "pii_scan_start",
+          "message": "Scanning 2 files for PII",
+          "metadata": {
+            "file_count": 2
+          }
+        },
+        {
+          "check": "pii_detection",
+          "message": "No PII detected in 2 files (emails, SSNs, phone numbers, paths)",
+          "metadata": {
+            "files_scanned": 2
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] pii_scan_start: Scanning 2 files for PII",
+          "[OK] pii_detection: No PII detected in 2 files (emails, SSNs, phone numbers, paths)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "pii"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "License Compliance",
+      "description": "Validate license compliance for Skills, Rules, and Workflows",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "license_compliance",
+          "message": "License compliance scan completed (allowed)",
+          "metadata": {
+            "license_status": "allowed"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "Tier 3: Found SPDX header 'Apache-2.0' in scripts/calc.py",
+          "License: Apache-2.0 (ALLOWED - permissive)",
+          "[OK] license_compliance: License compliance scan completed (allowed)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "license"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Risk Analysis",
+      "description": "Static code analysis using Bandit and packaged Semgrep rules",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "bandit": "1.9.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "bandit",
+          "message": "Bandit: No security issues found",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "Found 1 Python, 0 Shell, 0 JavaScript/TypeScript files",
+          "[OK] bandit: Bandit: No security issues found",
+          "Semgrep not installed; skipped. Optional; install separately with: brew install semgrep (macOS) or uv tool install semgrep"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Secrets Detection",
+      "description": "Detect hardcoded secrets, API keys, and credentials using Gitleaks",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "gitleaks": "8.30.0"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "gitleaks",
+          "message": "No secrets detected by Gitleaks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] gitleaks: No secrets detected by Gitleaks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Integrity & Hygiene",
+      "description": "Validate dead links, dependencies, and static Python test-file discovery",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 1,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dead_links_scan",
+          "message": "Checking 1 markdown files for dead links",
+          "metadata": {
+            "file_count": 1
+          }
+        },
+        {
+          "check": "dead_links",
+          "message": "All relative links valid in 1 markdown file(s)",
+          "metadata": {
+            "files_checked": 1
+          }
+        },
+        {
+          "check": "dependencies",
+          "message": "No dependency files found (requirements.txt, pyproject.toml)",
+          "metadata": null
+        },
+        {
+          "check": "test_discovery",
+          "message": "No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests.",
+          "metadata": {
+            "test_count": 0,
+            "execution_performed": false,
+            "coverage_measured": false,
+            "patterns": [
+              "test_*.py",
+              "*_test.py"
+            ]
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No standard Python test-file candidates found; consider adding tests"
+        ],
+        "messages": [
+          "[OK] dead_links_scan: Checking 1 markdown files for dead links",
+          "[OK] dead_links: All relative links valid in 1 markdown file(s)",
+          "[OK] dependencies: No dependency files found (requirements.txt, pyproject.toml)",
+          "[OK] test_discovery: No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests."
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Dependency Vulnerability Audit",
+      "description": "Scan dependencies for CVE vulnerabilities using pip-audit and Safety",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dependency_file_discovery",
+          "message": "No dependency files found - vulnerability audit is not applicable",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] dependency_file_discovery: No dependency files found - vulnerability audit is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "dependency"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Unicode Smuggling Detection",
+      "description": "Detect invisible Unicode characters and ASCII smuggling",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 2,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "unicode_scan",
+          "message": "No invisible Unicode characters detected in 2 file(s)",
+          "metadata": {
+            "files_scanned": 2
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] unicode_scan: No invisible Unicode characters detected in 2 file(s)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "unicode"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "QUALITY",
+      "description": "Skill quality scoring across Correctness (35%), Discoverability (25%), Reliability (25%), and Efficiency (15%)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 5,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 3,
+        "low_count": 2
+      },
+      "finding_counts": {
+        "raw_occurrences": 5,
+        "distinct_occurrences": 5,
+        "unique_findings": 5,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 2,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 2,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-740453e5661b3b5b6f1e",
+          "occurrence_id": "SEO-3647bf608e2e24ddf09b",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "No documented scripts in table format",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-6d68dab37ccc357a6814",
+          "occurrence_id": "SEO-ae085ffa28bc6bd722af",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "Instructions don't mention 'run_script'",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add explicit run_script() call examples",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+          "occurrence_id": "SEO-7e59929cf3af53e0a395",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-0f3cde56a46498377f1a",
+          "occurrence_id": "SEO-86db7bb57a4960ff64ee",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description doesn't mention WHEN to use this skill",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-4a6560f4aec006f302f9",
+          "occurrence_id": "SEO-297e3ad508d1c58f90f6",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No prerequisites/requirements documented",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document dependencies, API keys, or setup needed",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "quality_score",
+          "message": "Score: 87.5/100 (Grade: B)",
+          "metadata": {
+            "overall_score": 87.5,
+            "grade": "B",
+            "skill_type": "script-based"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[QUALITY-MEDIUM] No documented scripts in table format in /skills/official/calculator/SKILL.md",
+          "[QUALITY-MEDIUM] Instructions don't mention 'run_script' in /skills/official/calculator/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags' in /skills/official/calculator/SKILL.md",
+          "[QUALITY-LOW] Description doesn't mention WHEN to use this skill in /skills/official/calculator/SKILL.md",
+          "[QUALITY-LOW] No prerequisites/requirements documented in /skills/official/calculator/SKILL.md"
+        ],
+        "messages": [
+          "[OK] quality_score: Score: 87.5/100 (Grade: B)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "quality": {
+        "overall_score": 87.5,
+        "grade": "B",
+        "skill_type": "script-based",
+        "skill_name": "calculator",
+        "dimensions": {
+          "correctness": {
+            "score": 75.0,
+            "weight": 0.35,
+            "issues_count": 3,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "No documented scripts in table format",
+                "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+                "deduction": 10
+              },
+              {
+                "severity": "warning",
+                "message": "Instructions don't mention 'run_script'",
+                "suggestion": "Add explicit run_script() call examples",
+                "deduction": 10
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+                "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+                "deduction": 5
+              }
+            ]
+          },
+          "discoverability": {
+            "score": 90.0,
+            "weight": 0.25,
+            "issues_count": 1,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "Description doesn't mention WHEN to use this skill",
+                "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+                "deduction": 10
+              }
+            ]
+          },
+          "reliability": {
+            "score": 95.0,
+            "weight": 0.25,
+            "issues_count": 1,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No prerequisites/requirements documented",
+                "suggestion": "Document dependencies, API keys, or setup needed",
+                "deduction": 5
+              }
+            ]
+          },
+          "efficiency": {
+            "score": 100.0,
+            "weight": 0.15,
+            "issues_count": 0,
+            "issues": []
+          }
+        },
+        "metrics": {
+          "total_tokens": 441,
+          "estimated_tokens": 441,
+          "estimate_method": "characters/4",
+          "recommended_max_tokens": 5000,
+          "frontmatter_tokens": 85,
+          "instructions_tokens": 353,
+          "script_count": 1,
+          "has_examples": true,
+          "has_error_handling": true,
+          "has_frontmatter": true,
+          "has_instructions": true,
+          "has_scripts": true,
+          "has_lib_module": false
+        }
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "quality"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "SCRIPT_LINT",
+      "description": "AST-based code quality checks for skill scripts",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 1
+      },
+      "finding_counts": {
+        "raw_occurrences": 1,
+        "distinct_occurrences": 1,
+        "unique_findings": 1,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-fd5f99a26a70f6058e51",
+          "occurrence_id": "SEO-4c4cd9844408a7c165b0",
+          "category": "SCRIPT_LINT",
+          "severity": "low",
+          "check_name": "magic_numbers",
+          "message": "calc.py contains magic numbers",
+          "file_path": "/skills/official/calculator/scripts/calc.py",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Extract magic numbers to named constants",
+          "metadata": null
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCRIPT_LINT-LOW] calc.py contains magic numbers in /skills/official/calculator/scripts/calc.py"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "lint"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Harness Compatibility",
+      "description": "Advisory: whether each agent harness loads, degrades or drops the skill",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 4,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 4,
+        "distinct_occurrences": 4,
+        "unique_findings": 4,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 4
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 4
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-3661379ea9e5c1072875",
+          "occurrence_id": "SEO-272180df23d1158e35b3",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-RELOAD",
+          "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e0623bdfb91d6bbb829f",
+          "occurrence_id": "SEO-95c7d7fe16bdd053f549",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-DESC-60",
+          "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-5995c1ef72651542c573",
+          "occurrence_id": "SEO-69238ef4a5311336ae91",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-LINKED-LAYOUT",
+          "message": "hermes: 2 files outside references/, templates/, assets/ and scripts/ (evals) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-03e029934351881ba688",
+          "occurrence_id": "SEO-34322e3fc320f6c7e8fd",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-RELOAD",
+          "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once. in /skills/official/calculator/SKILL.md",
+          "[HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them. in /skills/official/calculator/SKILL.md",
+          "[HARNESS-INFO] hermes: 2 files outside references/, templates/, assets/ and scripts/ (evals) are left out of the skill's file list; the model finds them only if SKILL.md names their paths. in /skills/official/calculator/SKILL.md",
+          "[HARNESS-INFO] opencode: Skill list and text are cached at startup; edits need a restart. in /skills/official/calculator/SKILL.md"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "harness"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "RUBRIC_EVAL",
+      "description": "LLM-as-Judge qualitative evaluation across 9 criteria (description clarity, instruction quality, trigger simulation, etc.)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 9,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 9
+      },
+      "finding_counts": {
+        "raw_occurrences": 9,
+        "distinct_occurrences": 9,
+        "unique_findings": 9,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 9,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 9,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-303c431451b7c05652fe",
+          "occurrence_id": "SEO-687e6f91c5ea4bd964ed",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_description_clarity",
+          "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The description clearly states the calculator evaluates arithmetic, percentages, exponents, and common unit conversions. It also mentions no external dependencies, which helps set expectations.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "description_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-a5f81ec9846db09acafe",
+          "occurrence_id": "SEO-10a6e956b5842a68b71f",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_instruction_clarity",
+          "message": "[8/10] Instructions are easy to follow with clear action steps",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The three-step agent instructions are simple and actionable. More detail about input quoting, error handling, and result formatting would improve clarity.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "instruction_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-4e07b371874fccc7510b",
+          "occurrence_id": "SEO-ced1d66a02ebf1cce868",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_example_quality",
+          "message": "[8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Examples cover arithmetic, percentages, and several unit conversions. Additional edge cases or negative examples would better support robust detection and usage.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "example_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-68b29e45f1fa2641fbe4",
+          "occurrence_id": "SEO-d04eac60e7343ee16cba",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_documentation_completeness",
+          "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Purpose, script location, compatibility, limitations, and examples are present. CLI parameters are implied but not formally documented.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "documentation_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-544de964e7a872b46c41",
+          "occurrence_id": "SEO-412974d41b9ad4565791",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_scope_definition",
+          "message": "[9/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The limitations section clearly defines supported operations and conversion units. Scope is appropriately narrow for a safe calculator skill.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "scope_definition"
+          }
+        },
+        {
+          "finding_id": "SEF-527523eea1d8884ff4be",
+          "occurrence_id": "SEO-b6c96542d74de909c9ad",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_professional_tone",
+          "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The documentation is concise, consistent, and professionally formatted. Metadata and compatibility information are clean and useful.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "professional_tone"
+          }
+        },
+        {
+          "finding_id": "SEF-8fc7b194e255203476b2",
+          "occurrence_id": "SEO-a5b7fe6a9c353cea5371",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_trigger_simulation",
+          "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The description should correctly trigger for arithmetic, percentage, and supported conversion queries. It may under-trigger for broader math requests like solving equations, but that is appropriate given the limitations.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "trigger_simulation"
+          }
+        },
+        {
+          "finding_id": "SEF-4b285b0f474fff9a859e",
+          "occurrence_id": "SEO-b49104b0b8fcd1fa9872",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_workflow_completeness",
+          "message": "[7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The basic run-and-return workflow is complete. Guidance is missing for malformed input, unsupported conversions, script failures, and exact output handling.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "workflow_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-69dfa61e380b41fc47dc",
+          "occurrence_id": "SEO-e38747cf8ca45d34c097",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_error_handling_quality",
+          "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+          "file_path": "/skills/official/calculator/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The troubleshooting table identifies realistic invalid expression and unknown conversion cases with useful fixes. It could be stronger with exact error messages, exit codes, or fallback behavior.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "error_handling_quality"
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "rubric_eval",
+          "message": "LLM Rubric Score: 80.5/100",
+          "metadata": {
+            "overall_score": 80.5,
+            "overall_pass": true,
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash",
+            "judge_attempts": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[RUBRIC_EVAL-LOW] [9/10] Description is clear, specific, and explains WHEN to use the skill in /skills/official/calculator/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Instructions are easy to follow with clear action steps in /skills/official/calculator/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection in /skills/official/calculator/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] All necessary information is present (purpose, scripts, parameters) in /skills/official/calculator/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Skill scope is well-defined (clear boundaries, not too broad/narrow) in /skills/official/calculator/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Documentation uses professional, consistent tone and formatting in /skills/official/calculator/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives? in /skills/official/calculator/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance. in /skills/official/calculator/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate? in /skills/official/calculator/SKILL.md"
+        ],
+        "messages": [
+          "[OK] rubric_eval: LLM Rubric Score: 80.5/100"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "rubric_eval": {
+        "execution_status": "succeeded",
+        "overall_score": 80.5,
+        "overall_pass": true,
+        "summary": "The skill is clear, well-scoped, and professionally documented for basic arithmetic and unit conversions. Agent workflow and error handling are adequate but could be more explicit for edge cases and unsupported inputs.",
+        "judge_score": 84,
+        "judge_overall_pass": true,
+        "skill_name": "calculator",
+        "checks": [
+          {
+            "id": "description_clarity",
+            "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The description clearly states the calculator evaluates arithmetic, percentages, exponents, and common unit conversions. It also mentions no external dependencies, which helps set expectations."
+          },
+          {
+            "id": "instruction_clarity",
+            "criterion": "Instructions are easy to follow with clear action steps",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "The three-step agent instructions are simple and actionable. More detail about input quoting, error handling, and result formatting would improve clarity."
+          },
+          {
+            "id": "example_quality",
+            "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Examples cover arithmetic, percentages, and several unit conversions. Additional edge cases or negative examples would better support robust detection and usage."
+          },
+          {
+            "id": "documentation_completeness",
+            "criterion": "All necessary information is present (purpose, scripts, parameters)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Purpose, script location, compatibility, limitations, and examples are present. CLI parameters are implied but not formally documented."
+          },
+          {
+            "id": "scope_definition",
+            "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The limitations section clearly defines supported operations and conversion units. Scope is appropriately narrow for a safe calculator skill."
+          },
+          {
+            "id": "professional_tone",
+            "criterion": "Documentation uses professional, consistent tone and formatting",
+            "importance": "low",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The documentation is concise, consistent, and professionally formatted. Metadata and compatibility information are clean and useful."
+          },
+          {
+            "id": "trigger_simulation",
+            "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "The description should correctly trigger for arithmetic, percentage, and supported conversion queries. It may under-trigger for broader math requests like solving equations, but that is appropriate given the limitations."
+          },
+          {
+            "id": "workflow_completeness",
+            "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "The basic run-and-return workflow is complete. Guidance is missing for malformed input, unsupported conversions, script failures, and exact output handling."
+          },
+          {
+            "id": "error_handling_quality",
+            "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "The troubleshooting table identifies realistic invalid expression and unknown conversion cases with useful fixes. It could be stronger with exact error messages, exit codes, or fallback behavior."
+          }
+        ],
+        "aggregation": {
+          "method": "importance_weighted_mean",
+          "importance_weights": {
+            "high": 3,
+            "medium": 2,
+            "low": 1
+          },
+          "min_score": 70,
+          "criterion_pass_score": 7,
+          "requires_all_criteria_pass": true
+        },
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash",
+        "judge_attempts": 1
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:3ddf57e54651cdf7a67b61bc74736b1dbf751c79070e41f88ba87030b7ad8d78",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "rubric"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "incomplete",
+  "publication": {
+    "status": "incomplete",
+    "eligible": false,
+    "reasons": [
+      "Required recognized built-in Tier 2 evidence is missing.",
+      "Tier 3 lacks publication-complete execution evidence."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "policy": {
+    "profile": "default",
+    "audience": "all",
+    "digest": "sha256:64a069b8853f7123049a675d6853ef8d8b424792bb9a2a5157a73ec312f38ed4",
+    "author_email_regex": null,
+    "severity_overrides": {
+      "SCHEMA.author_missing": "low",
+      "SCHEMA.author_without_email": "info",
+      "SCHEMA.author_format": "high",
+      "WORKFLOWS.author_format": "high",
+      "LICENSE.*": "critical"
+    },
+    "metadata_id_requirement": "ignore",
+    "source": "/usr/local/lib/python3.12/site-packages/skillevaluator/config/profiles/default.yaml"
+  },
+  "quality_config": {
+    "source": "packaged",
+    "file": null,
+    "digest": "sha256:298ff2bf62132c8154217b7aa59fc1fd04f28cf75372f55620a2cbcd951d6549",
+    "min_score": 70
+  },
+  "evaluated_source": null,
+  "gating": {
+    "tiers": {
+      "1": {
+        "blocking": true,
+        "validators": [
+          "Schema & Repository Governance",
+          "Semantic Version Validation",
+          "Security Scan",
+          "PII Scan",
+          "License Compliance",
+          "Code Risk Analysis",
+          "Secrets Detection",
+          "Code Integrity & Hygiene",
+          "Dependency Vulnerability Audit",
+          "Unicode Smuggling Detection",
+          "QUALITY",
+          "SCRIPT_LINT",
+          "Harness Compatibility",
+          "RUBRIC_EVAL"
+        ],
+        "validator_policies": [
+          {
+            "validator": "Schema & Repository Governance",
+            "blocking": true
+          },
+          {
+            "validator": "Semantic Version Validation",
+            "blocking": true
+          },
+          {
+            "validator": "Security Scan",
+            "blocking": true
+          },
+          {
+            "validator": "PII Scan",
+            "blocking": true
+          },
+          {
+            "validator": "License Compliance",
+            "blocking": true
+          },
+          {
+            "validator": "Code Risk Analysis",
+            "blocking": true
+          },
+          {
+            "validator": "Secrets Detection",
+            "blocking": true
+          },
+          {
+            "validator": "Code Integrity & Hygiene",
+            "blocking": true
+          },
+          {
+            "validator": "Dependency Vulnerability Audit",
+            "blocking": true
+          },
+          {
+            "validator": "Unicode Smuggling Detection",
+            "blocking": true
+          },
+          {
+            "validator": "QUALITY",
+            "blocking": true
+          },
+          {
+            "validator": "SCRIPT_LINT",
+            "blocking": true
+          },
+          {
+            "validator": "Harness Compatibility",
+            "blocking": true
+          },
+          {
+            "validator": "RUBRIC_EVAL",
+            "blocking": true
+          }
+        ]
+      }
+    }
+  },
+  "workflow": {
+    "tier": 1,
+    "stages": {
+      "validation": {
+        "status": "passed"
+      },
+      "rubric": {
+        "status": "passed"
+      },
+      "llm": {
+        "status": "enabled"
+      }
+    }
+  },
+  "quality_summary": [
+    {
+      "overall_score": 87.5,
+      "grade": "B",
+      "skill_type": "script-based",
+      "skill_name": "calculator",
+      "dimensions": {
+        "correctness": {
+          "score": 75.0,
+          "weight": 0.35,
+          "issues_count": 3,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "No documented scripts in table format",
+              "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+              "deduction": 10
+            },
+            {
+              "severity": "warning",
+              "message": "Instructions don't mention 'run_script'",
+              "suggestion": "Add explicit run_script() call examples",
+              "deduction": 10
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+              "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+              "deduction": 5
+            }
+          ]
+        },
+        "discoverability": {
+          "score": 90.0,
+          "weight": 0.25,
+          "issues_count": 1,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "Description doesn't mention WHEN to use this skill",
+              "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+              "deduction": 10
+            }
+          ]
+        },
+        "reliability": {
+          "score": 95.0,
+          "weight": 0.25,
+          "issues_count": 1,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No prerequisites/requirements documented",
+              "suggestion": "Document dependencies, API keys, or setup needed",
+              "deduction": 5
+            }
+          ]
+        },
+        "efficiency": {
+          "score": 100.0,
+          "weight": 0.15,
+          "issues_count": 0,
+          "issues": []
+        }
+      },
+      "metrics": {
+        "total_tokens": 441,
+        "estimated_tokens": 441,
+        "estimate_method": "characters/4",
+        "recommended_max_tokens": 5000,
+        "frontmatter_tokens": 85,
+        "instructions_tokens": 353,
+        "script_count": 1,
+        "has_examples": true,
+        "has_error_handling": true,
+        "has_frontmatter": true,
+        "has_instructions": true,
+        "has_scripts": true,
+        "has_lib_module": false
+      }
+    }
+  ],
+  "rubric_eval": {
+    "execution_status": "succeeded",
+    "overall_score": 80.5,
+    "overall_pass": true,
+    "summary": "The skill is clear, well-scoped, and professionally documented for basic arithmetic and unit conversions. Agent workflow and error handling are adequate but could be more explicit for edge cases and unsupported inputs.",
+    "judge_score": 84,
+    "judge_overall_pass": true,
+    "skill_name": "calculator",
+    "checks": [
+      {
+        "id": "description_clarity",
+        "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The description clearly states the calculator evaluates arithmetic, percentages, exponents, and common unit conversions. It also mentions no external dependencies, which helps set expectations."
+      },
+      {
+        "id": "instruction_clarity",
+        "criterion": "Instructions are easy to follow with clear action steps",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "The three-step agent instructions are simple and actionable. More detail about input quoting, error handling, and result formatting would improve clarity."
+      },
+      {
+        "id": "example_quality",
+        "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Examples cover arithmetic, percentages, and several unit conversions. Additional edge cases or negative examples would better support robust detection and usage."
+      },
+      {
+        "id": "documentation_completeness",
+        "criterion": "All necessary information is present (purpose, scripts, parameters)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Purpose, script location, compatibility, limitations, and examples are present. CLI parameters are implied but not formally documented."
+      },
+      {
+        "id": "scope_definition",
+        "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The limitations section clearly defines supported operations and conversion units. Scope is appropriately narrow for a safe calculator skill."
+      },
+      {
+        "id": "professional_tone",
+        "criterion": "Documentation uses professional, consistent tone and formatting",
+        "importance": "low",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The documentation is concise, consistent, and professionally formatted. Metadata and compatibility information are clean and useful."
+      },
+      {
+        "id": "trigger_simulation",
+        "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "The description should correctly trigger for arithmetic, percentage, and supported conversion queries. It may under-trigger for broader math requests like solving equations, but that is appropriate given the limitations."
+      },
+      {
+        "id": "workflow_completeness",
+        "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "The basic run-and-return workflow is complete. Guidance is missing for malformed input, unsupported conversions, script failures, and exact output handling."
+      },
+      {
+        "id": "error_handling_quality",
+        "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "The troubleshooting table identifies realistic invalid expression and unknown conversion cases with useful fixes. It could be stronger with exact error messages, exit codes, or fallback behavior."
+      }
+    ],
+    "aggregation": {
+      "method": "importance_weighted_mean",
+      "importance_weights": {
+        "high": 3,
+        "medium": 2,
+        "low": 1
+      },
+      "min_score": 70,
+      "criterion_pass_score": 7,
+      "requires_all_criteria_pass": true
+    },
+    "llm_provider": "openai-compatible",
+    "llm_model_used": "qwen3.8-flash",
+    "judge_attempts": 1
+  },
+  "generated_at": "2026-11-17T23:58:53.081628+00:00"
+}

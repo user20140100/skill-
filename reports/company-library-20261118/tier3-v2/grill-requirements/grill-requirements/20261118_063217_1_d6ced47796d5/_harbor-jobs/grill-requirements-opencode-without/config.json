@@ -1,0 +1,23 @@
+{
+    "job_name": "grill-requirements-opencode-without",
+    "jobs_dir": "/app/reports/company-library-20261118/tier3-v2/grill-requirements/grill-requirements/20261118_063217_1_d6ced47796d5/_harbor-jobs",
+    "timeout_multiplier": 3.0,
+    "n_concurrent_trials": 2,
+    "environment": {
+        "import_path": "skillevaluator.tier3.harbor.secure_docker_environment:SkillEvaluatorSecureDockerEnvironment"
+    },
+    "agents": [
+        {
+            "name": "skillevaluator.tier3.harbor.local_agents:SkillEvaluatorGatewayOpenCode",
+            "model_name": "openai/qwen3.8-flash",
+            "kwargs": {
+                "version": "1.19.5"
+            }
+        }
+    ],
+    "datasets": [
+        {
+            "path": "/app/reports/company-library-20261118/tier3-v2/grill-requirements/grill-requirements/20261118_063217_1_d6ced47796d5/_harbor-tasks/opencode/without"
+        }
+    ]
+}

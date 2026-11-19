@@ -1,0 +1,4134 @@
+{
+  "version": "0.9.0",
+  "target_path": "/skills/library-20261118/G4/requirement-analysis-pro",
+  "overall_passed": true,
+  "overall_status": "passed",
+  "incomplete_scans": [],
+  "total_validators": 14,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 0,
+  "total_warnings": 39,
+  "severity_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 10,
+    "low": 22
+  },
+  "finding_counts": {
+    "raw_occurrences": 36,
+    "distinct_occurrences": 36,
+    "unique_findings": 36,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 0,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 10,
+      "low": 22,
+      "info": 4
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 10,
+      "low": 22,
+      "info": 4
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-001f67a780f72ee0caaa",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-LINKED-LAYOUT",
+      "message": "hermes: 1 files outside references/, templates/, assets/ and scripts/ (\u4fee\u6539\u65e5\u5fd7.md) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+      "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-28b929d91f92a9dcc31f",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-03e029934351881ba688",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-RELOAD",
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b1d4afed47c01f4f6078",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0aaee0a3095e4d3bd9ab",
+      "category": "SCRIPT_LINT",
+      "severity": "low",
+      "check_name": "magic_numbers",
+      "message": "validate_skill.py contains magic numbers",
+      "suggestion": "Extract magic numbers to named constants",
+      "metadata": null,
+      "validators": [
+        "SCRIPT_LINT"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-d6b3c7fc1ae33b8902fb",
+          "validator": "SCRIPT_LINT",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/scripts/validate_skill.py",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0f3cde56a46498377f1a",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description doesn't mention WHEN to use this skill",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3140b90d5b4b3ab2fc5e",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-1567bfd42ac776aab2e3",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_documentation_completeness",
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "suggestion": "Purpose, references, scripts, and validation materials are present. User-facing parameters are mostly expressed as delivery modes rather than formal inputs.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "documentation_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b709350b47577a597c51",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-18a7f8cc53f607ef9645",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "folder_hierarchy",
+      "message": "Unexpected nesting depth for general skill",
+      "suggestion": "General skills should be at: skills/<skill-name>/",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-44367298b67432762536",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-20a411642e27795d9fc0",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_error_handling_quality",
+      "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "suggestion": "Missing facts, conflicts, and pending items are handled through explicit markers and blocking/non-blocking questions. There are fewer concrete failure scenarios such as invalid formats, inaccessible sources, or conflicting versions.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "error_handling_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-6b18e676cdf5da7f73c0",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-29923f4d680e578e37e3",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "description_trigger",
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "suggestion": "State when to use the skill within the first 60 characters",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5f8fb87945e27c008589",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2ab016a817c566724ba9",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Instructions'",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+      "metadata": {
+        "missing_section": "## Instructions"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-139cb7393070ceca6994",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3661379ea9e5c1072875",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-RELOAD",
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b0e22efd0ecb6ca6bf08",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-378f24adfec67572e606",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No troubleshooting section documented",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-21807f02c1bb0f205443",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-49c4aa1935ead9286e2a",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Unknown (LP3)",
+      "message": "MCP Least Privilege: This is a confirmed security-control vulnerability rather than a direct malicious payload. The skill uses or enables fil",
+      "suggestion": "This is a confirmed security-control vulnerability rather than a direct malicious payload. The skill uses or enables file_read capabilities without explicitly declaring a tool scope in the frontmatter. If the runtime interprets the absence of allowed-tools or permissions as default broad file access, a maliciously crafted requirements document or prompt injection could cause the agent to read sensitive files. This is especially relevant in manufacturing requirement analysis, where documents may contain trade secrets, contracts, credentials, or personally identifiable information. The intent is likely benign because the skill legitimately needs to read user-provided materials and references, but the omission of explicit scopes is negligent and violates least-privilege principles. Explicitly declare the required tool scope and restrict file_read to non-sensitive paths only, such as ./references/** and user-provided workspace files, while denying common sensitive directories. Example frontmatter: allowed-tools: ['file_read']; permissions: { file_read: { paths: ['./references/**', './workspace/**'], deny: ['~/.ssh', '.env', 'credentials/**'] } }. If the platform does not support path-scoped permissions, add validation and user-confirmation rules that prevent arbitrary local file access outside the current project scope.",
+      "metadata": {
+        "skillspector_confidence": 0.85,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path",
+        "llm_verdict": "false_positive",
+        "llm_confidence": "medium",
+        "llm_reasoning": "The skill only references documentation files in prose/Markdown links and does not explicitly enable or invoke file_read. The reported risk is speculative and runtime-dependent, not a demonstrated least-privilege violation in the provided context.",
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-f3a6912e9388d2efe7c0",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 1
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4a6560f4aec006f302f9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No prerequisites/requirements documented",
+      "suggestion": "Document dependencies, API keys, or setup needed",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4b37ca324f9bccdec454",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-528faef4d174d8d7975c",
+      "category": "SCRIPT_LINT",
+      "severity": "low",
+      "check_name": "no_input_validation",
+      "message": "validate_skill.py may lack input validation",
+      "suggestion": "Add argument checks and raise descriptive errors",
+      "metadata": null,
+      "validators": [
+        "SCRIPT_LINT"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c0a42890351abfcb3cf8",
+          "validator": "SCRIPT_LINT",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/scripts/validate_skill.py",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-658ee99a0eff9a24c7e0",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_instruction_clarity",
+      "message": "[9/10] Instructions are easy to follow with clear action steps",
+      "suggestion": "The workflow is broken into identifiable steps with routing rules, numbering conventions, and self-check criteria. Conditional paths are well explained.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "instruction_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c9c765ae7cc3e72165f5",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6d68dab37ccc357a6814",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "Instructions don't mention 'run_script'",
+      "suggestion": "Add explicit run_script() call examples",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a42de55b314efddb157c",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-740453e5661b3b5b6f1e",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "No documented scripts in table format",
+      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-0563318af07941c1f815",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "author_missing",
+      "message": "Author not specified in metadata",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+      "metadata": {
+        "profile": "default"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-24a275de1126b8b60481",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-8738335350b29ca1fe27",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_workflow_completeness",
+      "message": "[9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "suggestion": "The workflow covers intake, classification, analysis, design, delivery, and self-check. Next-step guidance is strong, with clear conditional routing for extensions.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "workflow_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e1b5f36b4db74e4b8a79",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-8e1fcdbf37b720508663",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Unknown (LP3)",
+      "message": "MCP Least Privilege: Without declared permissions the skill's intent is opaque and cannot be validated.",
+      "suggestion": "Without declared permissions the skill's intent is opaque and cannot be validated. Declare the skill's tool scope: for Claude Code / Agent Skills SKILL.md, list the tools the skill may invoke in the 'allowed-tools' frontmatter field; for MCP server manifests, add a 'permissions' list naming the required capabilities.",
+      "metadata": {
+        "skillspector_confidence": 0.7,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path",
+        "llm_verdict": "false_positive",
+        "llm_confidence": "medium",
+        "llm_reasoning": "The file is a Markdown skill definition with no executable tool usage; missing allowed-tools is a hardening/metadata gap, not a confirmed security vulnerability, and the skill's intent is clear from the description.",
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c04b8c5539e90a8aac9b",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 1
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-9612bbfb3f32d491ac5d",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No mention of error handling or validation",
+      "suggestion": "Document expected errors and how to handle them",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e12fcfeb8f75a01a7d56",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b1a07237bfde3ea80e8b",
+      "category": "HARNESS",
+      "severity": "low",
+      "check_name": "OW-READ-BUDGET",
+      "message": "openclaw: SKILL.md reads as 26,643 characters (OpenClaw counts each CJK character as 4 or more), over the read cap for this setup: the read is refused or returns a cut prefix with a truncation notice. The cap depends on the model context (16,000 under 100K tokens, 32,000 under 200K, 64,000 above; custom providers default to 128K). Pass --context-tokens to check your setup.",
+      "suggestion": "Keep SKILL.md under about 15,000 characters (about 3,700 CJK characters); move detail into references/ files.",
+      "metadata": {
+        "harness": "openclaw",
+        "effect": "degraded",
+        "verified_version": "2026.10.9",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-44592412ef45ba698844",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b28f818a5fc2daa26f71",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "unknown_field",
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+      "suggestion": "Remove them or move them under 'metadata'",
+      "metadata": {
+        "fields": [
+          "author",
+          "version"
+        ]
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-bab78b1b1ffb795d7cb0",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "No '## Purpose' section",
+      "suggestion": "Add purpose section to clarify use cases",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a02b32ab8fc8c6ffac61",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b9e5c14384e1db7ac62c",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_professional_tone",
+      "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+      "suggestion": "The documentation is professional, consistent, and well formatted with tables, headings, and clear conventions.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "professional_tone"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-40d57f34dbfda3b6d733",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-8ae8376904d292866df7",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-cb5595dbd2b0cdf60c1d",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_efficiency",
+      "message": "Deeply nested references in doc-structure-common.md",
+      "suggestion": "Keep references one level deep from SKILL.md",
+      "metadata": {
+        "dimension": "efficiency",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c7387ab2adfbf1e3eb2c",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-d3ede74918e5bc14931a",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "unexpected_file",
+      "message": "Unexpected '\u4fee\u6539\u65e5\u5fd7.md' in skill root",
+      "suggestion": "Consider moving to one of: agents/, assets/, config/, evals/, references/, scripts/, tests/, tools/. To allow additional directories, set $SKILLEVALUATOR_SCHEMA_ALLOWED_DIRS.",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3fa84386cc2c5d2b8bce",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/\u4fee\u6539\u65e5\u5fd7.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-d4de972c75777963fbb4",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_example_quality",
+      "message": "[7/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "suggestion": "Validation cases provide relevant manufacturing scenarios and trigger/non-trigger coverage, but the main SKILL.md lacks full worked examples showing final output quality.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "example_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4a71a15cf132e04a0c05",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-d6cd3de320624f575305",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_description_clarity",
+      "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+      "suggestion": "The frontmatter clearly defines manufacturing digital requirement analysis and lists concrete input types and delivery modes. It explains when the skill should be used, though non-trigger boundaries are less explicit.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "description_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-f0c9ca2fd7f5ece86c42",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-d6e4b629c92dffa87951",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_scope_definition",
+      "message": "[8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "suggestion": "Scope is clearly bounded to manufacturing digital requirement and specification documents. It may still be broad across project, special, change, prototype, SDD, and AI Agent outputs.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "scope_definition"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b594cf09a6cc43664aaa",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-34f38e092ca2680c509a",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e0623bdfb91d6bbb829f",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-DESC-60",
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2fc1040dafcdaa865679",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e3f5c930756d6b8f695b",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Examples'",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+      "metadata": {
+        "missing_section": "## Examples"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2bb03e5d21275005b540",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e8cb0d19f8d38bcd4d1f",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_trigger_simulation",
+      "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "suggestion": "The description supports correct routing for requirement analysis, document consolidation, and SDD specification tasks. General software development or pure UI implementation requests are less clearly excluded.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "trigger_simulation"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2f07bccf9b1643926b53",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-fc6fe3747c071963a76e",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No limitations documented",
+      "suggestion": "Add '## Limitations' section with known issues/constraints",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-53660691e759962b957d",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 4,
+    "independent_errors": 0,
+    "independent_warnings": 3
+  },
+  "skills": [
+    {
+      "name": "requirement-analysis-pro",
+      "passed": true,
+      "issue_count": 36
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Unknown",
+      "items": [
+        {
+          "name": "requirement-analysis-pro",
+          "passed": true,
+          "issue_count": 36
+        }
+      ],
+      "total_items": 1,
+      "passed_count": 1,
+      "failed_count": 0,
+      "total_issues": 36
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "MCP Least Privilege",
+      "severity": "medium",
+      "total_count": 2,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "SECURITY",
+      "suggestion": "Without declared permissions the skill's intent is opaque and cannot be validated. Declare the skill's tool scope: for Claude Code / Agent Skills SKILL.md, list the tools the skill may invoke in the 'allowed-tools' frontmatter field; for MCP server manifests, add a 'permissions' list naming the required capabilities."
+    },
+    {
+      "message": "Unexpected nesting depth for general skill",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "General skills should be at: skills/<skill-name>/"
+    },
+    {
+      "message": "Missing recommended section: '## Instructions'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics."
+    },
+    {
+      "message": "Missing recommended section: '## Examples'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped."
+    },
+    {
+      "message": "No documented scripts in table format",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |"
+    },
+    {
+      "message": "Instructions don't mention 'run_script'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add explicit run_script() call examples"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+      "message": "Deeply nested references in doc-structure-common.md",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Keep references one level deep from SKILL.md"
+    },
+    {
+      "message": "Unexpected '\u4fee\u6539\u65e5\u5fd7.md' in skill root",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider moving to one of: agents/, assets/, config/, evals/, references/, scripts/, tests/, tools/. To allow additional directories, set $SKILLEVALUATOR_SCHEMA_ALLOWED_DIRS."
+    },
+    {
+      "message": "Author not specified in metadata",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address"
+    },
+    {
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "State when to use the skill within the first 60 characters"
+    },
+    {
+      "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Remove them or move them under 'metadata'"
+    },
+    {
+      "message": "Description doesn't mention WHEN to use this skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'"
+    },
+    {
+      "message": "No '## Purpose' section",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add purpose section to clarify use cases"
+    },
+    {
+      "message": "No mention of error handling or validation",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document expected errors and how to handle them"
+    },
+    {
+      "message": "No prerequisites/requirements documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document dependencies, API keys, or setup needed"
+    },
+    {
+      "message": "No limitations documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Limitations' section with known issues/constraints"
+    },
+    {
+      "message": "No troubleshooting section documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns"
+    },
+    {
+      "message": "validate_skill.py contains magic numbers",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "SCRIPT_LINT",
+      "suggestion": "Extract magic numbers to named constants"
+    },
+    {
+      "message": "validate_skill.py may lack input validation",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "SCRIPT_LINT",
+      "suggestion": "Add argument checks and raise descriptive errors"
+    },
+    {
+      "message": "openclaw: SKILL.md reads as 26,643 characters (OpenClaw counts each CJK character as 4 or more), over the read cap for this setup: the read is refused or returns a cut prefix with a truncation notice. The cap depends on the model context (16,000 under 100K tokens, 32,000 under 200K, 64,000 above; custom providers default to 128K). Pass --context-tokens to check your setup.",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Keep SKILL.md under about 15,000 characters (about 3,700 CJK characters); move detail into references/ files."
+    },
+    {
+      "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The frontmatter clearly defines manufacturing digital requirement analysis and lists concrete input types and delivery modes. It explains when the skill should be used, though non-trigger boundaries are less explicit."
+    },
+    {
+      "message": "[9/10] Instructions are easy to follow with clear action steps",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The workflow is broken into identifiable steps with routing rules, numbering conventions, and self-check criteria. Conditional paths are well explained."
+    },
+    {
+      "message": "[7/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Validation cases provide relevant manufacturing scenarios and trigger/non-trigger coverage, but the main SKILL.md lacks full worked examples showing final output quality."
+    },
+    {
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Purpose, references, scripts, and validation materials are present. User-facing parameters are mostly expressed as delivery modes rather than formal inputs."
+    },
+    {
+      "message": "[8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Scope is clearly bounded to manufacturing digital requirement and specification documents. It may still be broad across project, special, change, prototype, SDD, and AI Agent outputs."
+    },
+    {
+      "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The documentation is professional, consistent, and well formatted with tables, headings, and clear conventions."
+    },
+    {
+      "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The description supports correct routing for requirement analysis, document consolidation, and SDD specification tasks. General software development or pure UI implementation requests are less clearly excluded."
+    },
+    {
+      "message": "[9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The workflow covers intake, classification, analysis, design, delivery, and self-check. Next-step guidance is strong, with clear conditional routing for extensions."
+    },
+    {
+      "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Missing facts, conflicts, and pending items are handled through explicit markers and blocking/non-blocking questions. There are fewer concrete failure scenarios such as invalid formats, inaccessible sources, or conflicting versions."
+    },
+    {
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters."
+    },
+    {
+      "message": "hermes: 1 files outside references/, templates/, assets/ and scripts/ (\u4fee\u6539\u65e5\u5fd7.md) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/."
+    },
+    {
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "requirement-analysis-pro"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    }
+  ],
+  "results": [
+    {
+      "validator": "Schema & Repository Governance",
+      "description": "Validate SKILL.md frontmatter and repository structure",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 7,
+        "errors": 0,
+        "warnings": 7,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 3,
+        "low_count": 4
+      },
+      "finding_counts": {
+        "raw_occurrences": 7,
+        "distinct_occurrences": 7,
+        "unique_findings": 7,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 4,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 4,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-18a7f8cc53f607ef9645",
+          "occurrence_id": "SEO-44367298b67432762536",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "folder_hierarchy",
+          "message": "Unexpected nesting depth for general skill",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "General skills should be at: skills/<skill-name>/",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-2ab016a817c566724ba9",
+          "occurrence_id": "SEO-139cb7393070ceca6994",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Instructions'",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+          "metadata": {
+            "missing_section": "## Instructions"
+          }
+        },
+        {
+          "finding_id": "SEF-e3f5c930756d6b8f695b",
+          "occurrence_id": "SEO-2bb03e5d21275005b540",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Examples'",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+          "metadata": {
+            "missing_section": "## Examples"
+          }
+        },
+        {
+          "finding_id": "SEF-d3ede74918e5bc14931a",
+          "occurrence_id": "SEO-3fa84386cc2c5d2b8bce",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "unexpected_file",
+          "message": "Unexpected '\u4fee\u6539\u65e5\u5fd7.md' in skill root",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/\u4fee\u6539\u65e5\u5fd7.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider moving to one of: agents/, assets/, config/, evals/, references/, scripts/, tests/, tools/. To allow additional directories, set $SKILLEVALUATOR_SCHEMA_ALLOWED_DIRS.",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+          "occurrence_id": "SEO-24a275de1126b8b60481",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "author_missing",
+          "message": "Author not specified in metadata",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+          "metadata": {
+            "profile": "default"
+          }
+        },
+        {
+          "finding_id": "SEF-29923f4d680e578e37e3",
+          "occurrence_id": "SEO-5f8fb87945e27c008589",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "description_trigger",
+          "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "State when to use the skill within the first 60 characters",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-b28f818a5fc2daa26f71",
+          "occurrence_id": "SEO-bab78b1b1ffb795d7cb0",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "unknown_field",
+          "message": "Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Remove them or move them under 'metadata'",
+          "metadata": {
+            "fields": [
+              "author",
+              "version"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "manifest_exists",
+          "message": "Found skill manifest: SKILL.md",
+          "metadata": {
+            "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md"
+          }
+        },
+        {
+          "check": "frontmatter_valid",
+          "message": "Valid frontmatter for skill 'requirement-analysis-pro'",
+          "metadata": {
+            "description_length": 184
+          }
+        },
+        {
+          "check": "naming_convention",
+          "message": "Folder name 'requirement-analysis-pro' follows kebab-case convention",
+          "metadata": {
+            "name_length": 24
+          }
+        },
+        {
+          "check": "line_count",
+          "message": "SKILL.md within line limit (258/500)",
+          "metadata": {
+            "line_count": 258,
+            "limit": 500
+          }
+        },
+        {
+          "check": "body_heading",
+          "message": "Body contains a top-level heading",
+          "metadata": null
+        },
+        {
+          "check": "optional_files",
+          "message": "Found optional supporting files: references, scripts",
+          "metadata": {
+            "files_found": [
+              "references",
+              "scripts"
+            ]
+          }
+        },
+        {
+          "check": "name_consistency",
+          "message": "Directory name matches frontmatter: 'requirement-analysis-pro'",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCHEMA-MEDIUM] Unexpected nesting depth for general skill in /skills/library-20261118/G4/requirement-analysis-pro",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Instructions' in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Examples' in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[SCHEMA-LOW] Unexpected '\u4fee\u6539\u65e5\u5fd7.md' in skill root in /skills/library-20261118/G4/requirement-analysis-pro/\u4fee\u6539\u65e5\u5fd7.md",
+          "[SCHEMA-LOW] Author not specified in metadata in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[SCHEMA-LOW] Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[SCHEMA-LOW] Frontmatter field(s) outside the agentskills.io spec: author, version; agent harnesses do not pass them to the model in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md"
+        ],
+        "messages": [
+          "[OK] manifest_exists: Found skill manifest: SKILL.md",
+          "[OK] frontmatter_valid: Valid frontmatter for skill 'requirement-analysis-pro'",
+          "[OK] naming_convention: Folder name 'requirement-analysis-pro' follows kebab-case convention",
+          "[OK] line_count: SKILL.md within line limit (258/500)",
+          "[OK] body_heading: Body contains a top-level heading",
+          "[OK] optional_files: Found optional supporting files: references, scripts",
+          "[OK] name_consistency: Directory name matches frontmatter: 'requirement-analysis-pro'"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "schema"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Semantic Version Validation",
+      "description": "Validate optional metadata.version labels and require strict bumps",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "version_optional",
+          "message": "No semantic version label present; resource will use commit-hash history",
+          "metadata": {
+            "previous_version": null
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] version_optional: No semantic version label present; resource will use commit-hash history"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "version"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Security Scan",
+      "description": "Detect security vulnerabilities and PII/secrets",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "skillspector": "2.13.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 3,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 2,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 2,
+        "distinct_occurrences": 2,
+        "unique_findings": 2,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-8e1fcdbf37b720508663",
+          "occurrence_id": "SEO-c04b8c5539e90a8aac9b",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Unknown (LP3)",
+          "message": "MCP Least Privilege: Without declared permissions the skill's intent is opaque and cannot be validated.",
+          "file_path": "SKILL.md",
+          "line_number": 1,
+          "line_content": null,
+          "suggestion": "Without declared permissions the skill's intent is opaque and cannot be validated. Declare the skill's tool scope: for Claude Code / Agent Skills SKILL.md, list the tools the skill may invoke in the 'allowed-tools' frontmatter field; for MCP server manifests, add a 'permissions' list naming the required capabilities.",
+          "metadata": {
+            "skillspector_confidence": 0.7,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path",
+            "llm_verdict": "false_positive",
+            "llm_confidence": "medium",
+            "llm_reasoning": "The file is a Markdown skill definition with no executable tool usage; missing allowed-tools is a hardening/metadata gap, not a confirmed security vulnerability, and the skill's intent is clear from the description.",
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash"
+          }
+        },
+        {
+          "finding_id": "SEF-49c4aa1935ead9286e2a",
+          "occurrence_id": "SEO-f3a6912e9388d2efe7c0",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Unknown (LP3)",
+          "message": "MCP Least Privilege: This is a confirmed security-control vulnerability rather than a direct malicious payload. The skill uses or enables fil",
+          "file_path": "SKILL.md",
+          "line_number": 1,
+          "line_content": null,
+          "suggestion": "This is a confirmed security-control vulnerability rather than a direct malicious payload. The skill uses or enables file_read capabilities without explicitly declaring a tool scope in the frontmatter. If the runtime interprets the absence of allowed-tools or permissions as default broad file access, a maliciously crafted requirements document or prompt injection could cause the agent to read sensitive files. This is especially relevant in manufacturing requirement analysis, where documents may contain trade secrets, contracts, credentials, or personally identifiable information. The intent is likely benign because the skill legitimately needs to read user-provided materials and references, but the omission of explicit scopes is negligent and violates least-privilege principles. Explicitly declare the required tool scope and restrict file_read to non-sensitive paths only, such as ./references/** and user-provided workspace files, while denying common sensitive directories. Example frontmatter: allowed-tools: ['file_read']; permissions: { file_read: { paths: ['./references/**', './workspace/**'], deny: ['~/.ssh', '.env', 'credentials/**'] } }. If the platform does not support path-scoped permissions, add validation and user-confirmation rules that prevent arbitrary local file access outside the current project scope.",
+          "metadata": {
+            "skillspector_confidence": 0.85,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path",
+            "llm_verdict": "false_positive",
+            "llm_confidence": "medium",
+            "llm_reasoning": "The skill only references documentation files in prose/Markdown links and does not explicitly enable or invoke file_read. The reported risk is speculative and runtime-dependent, not a demonstrated least-privilege violation in the provided context.",
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash"
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "skillspector",
+          "message": "Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "metadata": {
+            "issue_count": 1
+          }
+        },
+        {
+          "check": "skillspector",
+          "message": "Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "metadata": {
+            "issue_count": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "SkillSpector reported 3 reference(s) to files the skill does not bundle (SKILL.md:27 [reference_resolution; reference_missing]; SKILL.md:28 [reference_resolution; reference_missing]; SKILL.md:45 [reference_resolution; reference_missing]); SkillSpector reported no other gap for them, and those lines name no file left out of the scan, so they do not mark the scan incomplete. Files not in the scan, including any outside the scanned path, were not inspected",
+          "[SECURITY-MEDIUM] MCP Least Privilege: Without declared permissions the skill's intent is opaque and cannot be validated. in SKILL.md:1",
+          "[SECURITY-MEDIUM] MCP Least Privilege: This is a confirmed security-control vulnerability rather than a direct malicious payload. The skill uses or enables fil in SKILL.md:1"
+        ],
+        "messages": [
+          "[OK] skillspector: Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "[OK] skillspector: Security scan completed - 1 advisory finding(s) (no critical/high issues)",
+          "LLM verification reviewed all findings; no high-confidence false positives identified"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "skillspector_version": "2.13.4",
+      "skillspector_llm_provenance": {
+        "schema_version": 1,
+        "provider": {
+          "configured_adapter": "openai_compatible",
+          "resolved_adapter": "openai_compatible",
+          "effective_adapter": "openai_compatible",
+          "effective_adapters": [
+            "openai_compatible"
+          ],
+          "service": "unknown",
+          "routing": {
+            "deployment_override": null,
+            "deployment_source": "not_applicable",
+            "api_version": null,
+            "api_version_source": "not_applicable"
+          }
+        },
+        "analyzers": [
+          {
+            "analyzer_id": "mcp_tool_poisoning",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_developer_intent",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_quality_policy",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_security_discovery",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "meta_analyzer",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          }
+        ],
+        "sampling": {
+          "temperature": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "seed": {
+            "requested": null,
+            "source": "unset",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "reasoning_effort": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          }
+        },
+        "determinism": {
+          "classification": "nondeterministic",
+          "control_status": "provider_defaults",
+          "provider_guarantee": false,
+          "reason": "Optional controls do not guarantee identical provider output."
+        }
+      },
+      "skillspector_applicability": {
+        "artifact_type": "skill",
+        "kept_issues": 1,
+        "suppressed_inapplicable_issues": 0,
+        "suppressed_by_file_role": {},
+        "raw_risk_score": 7,
+        "applicable_risk_score": 7
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "security"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "PII Scan",
+      "description": "Detect PII and local identifiers",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 12,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "pii_scan_start",
+          "message": "Scanning 12 files for PII",
+          "metadata": {
+            "file_count": 12
+          }
+        },
+        {
+          "check": "pii_detection",
+          "message": "No PII detected in 12 files (emails, SSNs, phone numbers, paths)",
+          "metadata": {
+            "files_scanned": 12
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] pii_scan_start: Scanning 12 files for PII",
+          "[OK] pii_detection: No PII detected in 12 files (emails, SSNs, phone numbers, paths)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "pii"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "License Compliance",
+      "description": "Validate license compliance for Skills, Rules, and Workflows",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "license_compliance",
+          "message": "License compliance scan completed (not detected)",
+          "metadata": {
+            "license_status": "not_detected"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No license information found - manual review required. Add a LICENSE file or 'license' field in frontmatter."
+        ],
+        "messages": [
+          "No license detected in any tier",
+          "[OK] license_compliance: License compliance scan completed (not detected)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "license"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Risk Analysis",
+      "description": "Static code analysis using Bandit and packaged Semgrep rules",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "bandit": "1.9.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "bandit",
+          "message": "Bandit: No security issues found",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "Found 1 Python, 0 Shell, 0 JavaScript/TypeScript files",
+          "[OK] bandit: Bandit: No security issues found",
+          "Semgrep not installed; skipped. Optional; install separately with: brew install semgrep (macOS) or uv tool install semgrep"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Secrets Detection",
+      "description": "Detect hardcoded secrets, API keys, and credentials using Gitleaks",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "gitleaks": "8.30.0"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "gitleaks",
+          "message": "No secrets detected by Gitleaks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] gitleaks: No secrets detected by Gitleaks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Integrity & Hygiene",
+      "description": "Validate dead links, dependencies, and static Python test-file discovery",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 11,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dead_links_scan",
+          "message": "Checking 11 markdown files for dead links",
+          "metadata": {
+            "file_count": 11
+          }
+        },
+        {
+          "check": "dead_links",
+          "message": "All relative links valid in 11 markdown file(s)",
+          "metadata": {
+            "files_checked": 11
+          }
+        },
+        {
+          "check": "dependencies",
+          "message": "No dependency files found (requirements.txt, pyproject.toml)",
+          "metadata": null
+        },
+        {
+          "check": "test_discovery",
+          "message": "No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests.",
+          "metadata": {
+            "test_count": 0,
+            "execution_performed": false,
+            "coverage_measured": false,
+            "patterns": [
+              "test_*.py",
+              "*_test.py"
+            ]
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No standard Python test-file candidates found; consider adding tests"
+        ],
+        "messages": [
+          "[OK] dead_links_scan: Checking 11 markdown files for dead links",
+          "[OK] dead_links: All relative links valid in 11 markdown file(s)",
+          "[OK] dependencies: No dependency files found (requirements.txt, pyproject.toml)",
+          "[OK] test_discovery: No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests."
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Dependency Vulnerability Audit",
+      "description": "Scan dependencies for CVE vulnerabilities using pip-audit and Safety",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dependency_file_discovery",
+          "message": "No dependency files found - vulnerability audit is not applicable",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] dependency_file_discovery: No dependency files found - vulnerability audit is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "dependency"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Unicode Smuggling Detection",
+      "description": "Detect invisible Unicode characters and ASCII smuggling",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 12,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "unicode_scan",
+          "message": "No invisible Unicode characters detected in 12 file(s)",
+          "metadata": {
+            "files_scanned": 12
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] unicode_scan: No invisible Unicode characters detected in 12 file(s)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "unicode"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "QUALITY",
+      "description": "Skill quality scoring across Correctness (35%), Discoverability (25%), Reliability (25%), and Efficiency (15%)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 11,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 5,
+        "low_count": 6
+      },
+      "finding_counts": {
+        "raw_occurrences": 11,
+        "distinct_occurrences": 11,
+        "unique_findings": 11,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 5,
+          "low": 6,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 5,
+          "low": 6,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-740453e5661b3b5b6f1e",
+          "occurrence_id": "SEO-0563318af07941c1f815",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "No documented scripts in table format",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-6d68dab37ccc357a6814",
+          "occurrence_id": "SEO-a42de55b314efddb157c",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "Instructions don't mention 'run_script'",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add explicit run_script() call examples",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+          "occurrence_id": "SEO-8ae8376904d292866df7",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+          "occurrence_id": "SEO-34f38e092ca2680c509a",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-0f3cde56a46498377f1a",
+          "occurrence_id": "SEO-3140b90d5b4b3ab2fc5e",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description doesn't mention WHEN to use this skill",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+          "occurrence_id": "SEO-a02b32ab8fc8c6ffac61",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "No '## Purpose' section",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add purpose section to clarify use cases",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-9612bbfb3f32d491ac5d",
+          "occurrence_id": "SEO-e12fcfeb8f75a01a7d56",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No mention of error handling or validation",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document expected errors and how to handle them",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-4a6560f4aec006f302f9",
+          "occurrence_id": "SEO-4b37ca324f9bccdec454",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No prerequisites/requirements documented",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document dependencies, API keys, or setup needed",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-fc6fe3747c071963a76e",
+          "occurrence_id": "SEO-53660691e759962b957d",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No limitations documented",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Limitations' section with known issues/constraints",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-378f24adfec67572e606",
+          "occurrence_id": "SEO-21807f02c1bb0f205443",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No troubleshooting section documented",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-cb5595dbd2b0cdf60c1d",
+          "occurrence_id": "SEO-c7387ab2adfbf1e3eb2c",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_efficiency",
+          "message": "Deeply nested references in doc-structure-common.md",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Keep references one level deep from SKILL.md",
+          "metadata": {
+            "dimension": "efficiency",
+            "deduction": 10
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "quality_score",
+          "message": "Score: 78.0/100 (Grade: C)",
+          "metadata": {
+            "overall_score": 78.0,
+            "grade": "C",
+            "skill_type": "script-based"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[QUALITY-MEDIUM] No documented scripts in table format in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[QUALITY-MEDIUM] Instructions don't mention 'run_script' in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.author' in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags' in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[QUALITY-LOW] Description doesn't mention WHEN to use this skill in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[QUALITY-LOW] No '## Purpose' section in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[QUALITY-LOW] No mention of error handling or validation in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[QUALITY-LOW] No prerequisites/requirements documented in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[QUALITY-LOW] No limitations documented in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[QUALITY-LOW] No troubleshooting section documented in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[QUALITY-MEDIUM] Deeply nested references in doc-structure-common.md in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md"
+        ],
+        "messages": [
+          "[OK] quality_score: Score: 78.0/100 (Grade: C)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "quality": {
+        "overall_score": 78.0,
+        "grade": "C",
+        "skill_type": "script-based",
+        "skill_name": "requirement-analysis-pro",
+        "dimensions": {
+          "correctness": {
+            "score": 70.0,
+            "weight": 0.35,
+            "issues_count": 4,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "No documented scripts in table format",
+                "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+                "deduction": 10
+              },
+              {
+                "severity": "warning",
+                "message": "Instructions don't mention 'run_script'",
+                "suggestion": "Add explicit run_script() call examples",
+                "deduction": 10
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+                "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+                "deduction": 5
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+                "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+                "deduction": 5
+              }
+            ]
+          },
+          "discoverability": {
+            "score": 85.0,
+            "weight": 0.25,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "Description doesn't mention WHEN to use this skill",
+                "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No '## Purpose' section",
+                "suggestion": "Add purpose section to clarify use cases",
+                "deduction": 5
+              }
+            ]
+          },
+          "reliability": {
+            "score": 75.0,
+            "weight": 0.25,
+            "issues_count": 4,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No mention of error handling or validation",
+                "suggestion": "Document expected errors and how to handle them",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No prerequisites/requirements documented",
+                "suggestion": "Document dependencies, API keys, or setup needed",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No limitations documented",
+                "suggestion": "Add '## Limitations' section with known issues/constraints",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No troubleshooting section documented",
+                "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+                "deduction": 5
+              }
+            ]
+          },
+          "efficiency": {
+            "score": 90.0,
+            "weight": 0.15,
+            "issues_count": 1,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "Deeply nested references in doc-structure-common.md",
+                "suggestion": "Keep references one level deep from SKILL.md",
+                "deduction": 10
+              }
+            ]
+          }
+        },
+        "metrics": {
+          "total_tokens": 2174,
+          "estimated_tokens": 2174,
+          "estimate_method": "characters/4",
+          "recommended_max_tokens": 5000,
+          "frontmatter_tokens": 67,
+          "instructions_tokens": 2104,
+          "script_count": 1,
+          "has_examples": true,
+          "has_error_handling": false,
+          "has_frontmatter": true,
+          "has_instructions": false,
+          "has_scripts": true,
+          "has_lib_module": false
+        }
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "quality"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "SCRIPT_LINT",
+      "description": "AST-based code quality checks for skill scripts",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 2,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 2
+      },
+      "finding_counts": {
+        "raw_occurrences": 2,
+        "distinct_occurrences": 2,
+        "unique_findings": 2,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 2,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 2,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-0aaee0a3095e4d3bd9ab",
+          "occurrence_id": "SEO-d6b3c7fc1ae33b8902fb",
+          "category": "SCRIPT_LINT",
+          "severity": "low",
+          "check_name": "magic_numbers",
+          "message": "validate_skill.py contains magic numbers",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/scripts/validate_skill.py",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Extract magic numbers to named constants",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-528faef4d174d8d7975c",
+          "occurrence_id": "SEO-c0a42890351abfcb3cf8",
+          "category": "SCRIPT_LINT",
+          "severity": "low",
+          "check_name": "no_input_validation",
+          "message": "validate_skill.py may lack input validation",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/scripts/validate_skill.py",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add argument checks and raise descriptive errors",
+          "metadata": null
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCRIPT_LINT-LOW] validate_skill.py contains magic numbers in /skills/library-20261118/G4/requirement-analysis-pro/scripts/validate_skill.py",
+          "[SCRIPT_LINT-LOW] validate_skill.py may lack input validation in /skills/library-20261118/G4/requirement-analysis-pro/scripts/validate_skill.py"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "lint"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Harness Compatibility",
+      "description": "Advisory: whether each agent harness loads, degrades or drops the skill",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 5,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 1
+      },
+      "finding_counts": {
+        "raw_occurrences": 5,
+        "distinct_occurrences": 5,
+        "unique_findings": 5,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 4
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "info": 4
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-3661379ea9e5c1072875",
+          "occurrence_id": "SEO-b0e22efd0ecb6ca6bf08",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-RELOAD",
+          "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e0623bdfb91d6bbb829f",
+          "occurrence_id": "SEO-2fc1040dafcdaa865679",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-DESC-60",
+          "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-001f67a780f72ee0caaa",
+          "occurrence_id": "SEO-28b929d91f92a9dcc31f",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-LINKED-LAYOUT",
+          "message": "hermes: 1 files outside references/, templates/, assets/ and scripts/ (\u4fee\u6539\u65e5\u5fd7.md) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-b1a07237bfde3ea80e8b",
+          "occurrence_id": "SEO-44592412ef45ba698844",
+          "category": "HARNESS",
+          "severity": "low",
+          "check_name": "OW-READ-BUDGET",
+          "message": "openclaw: SKILL.md reads as 26,643 characters (OpenClaw counts each CJK character as 4 or more), over the read cap for this setup: the read is refused or returns a cut prefix with a truncation notice. The cap depends on the model context (16,000 under 100K tokens, 32,000 under 200K, 64,000 above; custom providers default to 128K). Pass --context-tokens to check your setup.",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Keep SKILL.md under about 15,000 characters (about 3,700 CJK characters); move detail into references/ files.",
+          "metadata": {
+            "harness": "openclaw",
+            "effect": "degraded",
+            "verified_version": "2026.10.9",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-03e029934351881ba688",
+          "occurrence_id": "SEO-b1d4afed47c01f4f6078",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-RELOAD",
+          "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once. in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them. in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[HARNESS-INFO] hermes: 1 files outside references/, templates/, assets/ and scripts/ (\u4fee\u6539\u65e5\u5fd7.md) are left out of the skill's file list; the model finds them only if SKILL.md names their paths. in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[HARNESS-LOW] openclaw: SKILL.md reads as 26,643 characters (OpenClaw counts each CJK character as 4 or more), over the read cap for this setup: the read is refused or returns a cut prefix with a truncation notice. The cap depends on the model context (16,000 under 100K tokens, 32,000 under 200K, 64,000 above; custom providers default to 128K). Pass --context-tokens to check your setup. in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[HARNESS-INFO] opencode: Skill list and text are cached at startup; edits need a restart. in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "harness"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "RUBRIC_EVAL",
+      "description": "LLM-as-Judge qualitative evaluation across 9 criteria (description clarity, instruction quality, trigger simulation, etc.)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 9,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 9
+      },
+      "finding_counts": {
+        "raw_occurrences": 9,
+        "distinct_occurrences": 9,
+        "unique_findings": 9,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 9,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 9,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-d6cd3de320624f575305",
+          "occurrence_id": "SEO-f0c9ca2fd7f5ece86c42",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_description_clarity",
+          "message": "[9/10] Description is clear, specific, and explains WHEN to use the skill",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The frontmatter clearly defines manufacturing digital requirement analysis and lists concrete input types and delivery modes. It explains when the skill should be used, though non-trigger boundaries are less explicit.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "description_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-658ee99a0eff9a24c7e0",
+          "occurrence_id": "SEO-c9c765ae7cc3e72165f5",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_instruction_clarity",
+          "message": "[9/10] Instructions are easy to follow with clear action steps",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The workflow is broken into identifiable steps with routing rules, numbering conventions, and self-check criteria. Conditional paths are well explained.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "instruction_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-d4de972c75777963fbb4",
+          "occurrence_id": "SEO-4a71a15cf132e04a0c05",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_example_quality",
+          "message": "[7/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Validation cases provide relevant manufacturing scenarios and trigger/non-trigger coverage, but the main SKILL.md lacks full worked examples showing final output quality.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "example_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-1567bfd42ac776aab2e3",
+          "occurrence_id": "SEO-b709350b47577a597c51",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_documentation_completeness",
+          "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Purpose, references, scripts, and validation materials are present. User-facing parameters are mostly expressed as delivery modes rather than formal inputs.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "documentation_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-d6e4b629c92dffa87951",
+          "occurrence_id": "SEO-b594cf09a6cc43664aaa",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_scope_definition",
+          "message": "[8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Scope is clearly bounded to manufacturing digital requirement and specification documents. It may still be broad across project, special, change, prototype, SDD, and AI Agent outputs.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "scope_definition"
+          }
+        },
+        {
+          "finding_id": "SEF-b9e5c14384e1db7ac62c",
+          "occurrence_id": "SEO-40d57f34dbfda3b6d733",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_professional_tone",
+          "message": "[9/10] Documentation uses professional, consistent tone and formatting",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The documentation is professional, consistent, and well formatted with tables, headings, and clear conventions.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "professional_tone"
+          }
+        },
+        {
+          "finding_id": "SEF-e8cb0d19f8d38bcd4d1f",
+          "occurrence_id": "SEO-2f07bccf9b1643926b53",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_trigger_simulation",
+          "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The description supports correct routing for requirement analysis, document consolidation, and SDD specification tasks. General software development or pure UI implementation requests are less clearly excluded.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "trigger_simulation"
+          }
+        },
+        {
+          "finding_id": "SEF-8738335350b29ca1fe27",
+          "occurrence_id": "SEO-e1b5f36b4db74e4b8a79",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_workflow_completeness",
+          "message": "[9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The workflow covers intake, classification, analysis, design, delivery, and self-check. Next-step guidance is strong, with clear conditional routing for extensions.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "workflow_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-20a411642e27795d9fc0",
+          "occurrence_id": "SEO-6b18e676cdf5da7f73c0",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_error_handling_quality",
+          "message": "[7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+          "file_path": "/skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Missing facts, conflicts, and pending items are handled through explicit markers and blocking/non-blocking questions. There are fewer concrete failure scenarios such as invalid formats, inaccessible sources, or conflicting versions.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "error_handling_quality"
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "rubric_eval",
+          "message": "LLM Rubric Score: 82.3/100",
+          "metadata": {
+            "overall_score": 82.3,
+            "overall_pass": true,
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash",
+            "judge_attempts": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[RUBRIC_EVAL-LOW] [9/10] Description is clear, specific, and explains WHEN to use the skill in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Instructions are easy to follow with clear action steps in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] All necessary information is present (purpose, scripts, parameters) in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow) in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Documentation uses professional, consistent tone and formatting in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives? in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance. in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate? in /skills/library-20261118/G4/requirement-analysis-pro/SKILL.md"
+        ],
+        "messages": [
+          "[OK] rubric_eval: LLM Rubric Score: 82.3/100"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "rubric_eval": {
+        "execution_status": "succeeded",
+        "overall_score": 82.3,
+        "overall_pass": true,
+        "summary": "The skill is highly specific, well-structured, and covers a complete requirement-analysis workflow for manufacturing digital projects. Example coverage is present mainly as validation cases rather than full worked outputs, and error handling is mostly implicit through pending/conflict marking.",
+        "judge_score": 84,
+        "judge_overall_pass": true,
+        "skill_name": "requirement-analysis-pro",
+        "checks": [
+          {
+            "id": "description_clarity",
+            "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The frontmatter clearly defines manufacturing digital requirement analysis and lists concrete input types and delivery modes. It explains when the skill should be used, though non-trigger boundaries are less explicit."
+          },
+          {
+            "id": "instruction_clarity",
+            "criterion": "Instructions are easy to follow with clear action steps",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The workflow is broken into identifiable steps with routing rules, numbering conventions, and self-check criteria. Conditional paths are well explained."
+          },
+          {
+            "id": "example_quality",
+            "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "Validation cases provide relevant manufacturing scenarios and trigger/non-trigger coverage, but the main SKILL.md lacks full worked examples showing final output quality."
+          },
+          {
+            "id": "documentation_completeness",
+            "criterion": "All necessary information is present (purpose, scripts, parameters)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Purpose, references, scripts, and validation materials are present. User-facing parameters are mostly expressed as delivery modes rather than formal inputs."
+          },
+          {
+            "id": "scope_definition",
+            "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Scope is clearly bounded to manufacturing digital requirement and specification documents. It may still be broad across project, special, change, prototype, SDD, and AI Agent outputs."
+          },
+          {
+            "id": "professional_tone",
+            "criterion": "Documentation uses professional, consistent tone and formatting",
+            "importance": "low",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The documentation is professional, consistent, and well formatted with tables, headings, and clear conventions."
+          },
+          {
+            "id": "trigger_simulation",
+            "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "The description supports correct routing for requirement analysis, document consolidation, and SDD specification tasks. General software development or pure UI implementation requests are less clearly excluded."
+          },
+          {
+            "id": "workflow_completeness",
+            "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "The workflow covers intake, classification, analysis, design, delivery, and self-check. Next-step guidance is strong, with clear conditional routing for extensions."
+          },
+          {
+            "id": "error_handling_quality",
+            "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "Missing facts, conflicts, and pending items are handled through explicit markers and blocking/non-blocking questions. There are fewer concrete failure scenarios such as invalid formats, inaccessible sources, or conflicting versions."
+          }
+        ],
+        "aggregation": {
+          "method": "importance_weighted_mean",
+          "importance_weights": {
+            "high": 3,
+            "medium": 2,
+            "low": 1
+          },
+          "min_score": 70,
+          "criterion_pass_score": 7,
+          "requires_all_criteria_pass": true
+        },
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash",
+        "judge_attempts": 1
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:3b47d6aa38ad365a0f907a1ab1528759e069702d42aa45a83e7f6f32edaea89b",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "rubric"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "passed"
+          },
+          "rubric": {
+            "status": "passed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "incomplete",
+  "publication": {
+    "status": "incomplete",
+    "eligible": false,
+    "reasons": [
+      "Required recognized built-in Tier 2 evidence is missing.",
+      "Tier 3 lacks publication-complete execution evidence."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "policy": {
+    "profile": "default",
+    "audience": "all",
+    "digest": "sha256:64a069b8853f7123049a675d6853ef8d8b424792bb9a2a5157a73ec312f38ed4",
+    "author_email_regex": null,
+    "severity_overrides": {
+      "SCHEMA.author_missing": "low",
+      "SCHEMA.author_without_email": "info",
+      "SCHEMA.author_format": "high",
+      "WORKFLOWS.author_format": "high",
+      "LICENSE.*": "critical"
+    },
+    "metadata_id_requirement": "ignore",
+    "source": "/usr/local/lib/python3.12/site-packages/skillevaluator/config/profiles/default.yaml"
+  },
+  "quality_config": {
+    "source": "packaged",
+    "file": null,
+    "digest": "sha256:298ff2bf62132c8154217b7aa59fc1fd04f28cf75372f55620a2cbcd951d6549",
+    "min_score": 70
+  },
+  "evaluated_source": null,
+  "gating": {
+    "tiers": {
+      "1": {
+        "blocking": true,
+        "validators": [
+          "Schema & Repository Governance",
+          "Semantic Version Validation",
+          "Security Scan",
+          "PII Scan",
+          "License Compliance",
+          "Code Risk Analysis",
+          "Secrets Detection",
+          "Code Integrity & Hygiene",
+          "Dependency Vulnerability Audit",
+          "Unicode Smuggling Detection",
+          "QUALITY",
+          "SCRIPT_LINT",
+          "Harness Compatibility",
+          "RUBRIC_EVAL"
+        ],
+        "validator_policies": [
+          {
+            "validator": "Schema & Repository Governance",
+            "blocking": true
+          },
+          {
+            "validator": "Semantic Version Validation",
+            "blocking": true
+          },
+          {
+            "validator": "Security Scan",
+            "blocking": true
+          },
+          {
+            "validator": "PII Scan",
+            "blocking": true
+          },
+          {
+            "validator": "License Compliance",
+            "blocking": true
+          },
+          {
+            "validator": "Code Risk Analysis",
+            "blocking": true
+          },
+          {
+            "validator": "Secrets Detection",
+            "blocking": true
+          },
+          {
+            "validator": "Code Integrity & Hygiene",
+            "blocking": true
+          },
+          {
+            "validator": "Dependency Vulnerability Audit",
+            "blocking": true
+          },
+          {
+            "validator": "Unicode Smuggling Detection",
+            "blocking": true
+          },
+          {
+            "validator": "QUALITY",
+            "blocking": true
+          },
+          {
+            "validator": "SCRIPT_LINT",
+            "blocking": true
+          },
+          {
+            "validator": "Harness Compatibility",
+            "blocking": true
+          },
+          {
+            "validator": "RUBRIC_EVAL",
+            "blocking": true
+          }
+        ]
+      }
+    }
+  },
+  "workflow": {
+    "tier": 1,
+    "stages": {
+      "validation": {
+        "status": "passed"
+      },
+      "rubric": {
+        "status": "passed"
+      },
+      "llm": {
+        "status": "enabled"
+      }
+    }
+  },
+  "quality_summary": [
+    {
+      "overall_score": 78.0,
+      "grade": "C",
+      "skill_type": "script-based",
+      "skill_name": "requirement-analysis-pro",
+      "dimensions": {
+        "correctness": {
+          "score": 70.0,
+          "weight": 0.35,
+          "issues_count": 4,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "No documented scripts in table format",
+              "suggestion": "Add '## Available Scripts' with table: | Script | Purpose | Arguments |",
+              "deduction": 10
+            },
+            {
+              "severity": "warning",
+              "message": "Instructions don't mention 'run_script'",
+              "suggestion": "Add explicit run_script() call examples",
+              "deduction": 10
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+              "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+              "deduction": 5
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+              "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+              "deduction": 5
+            }
+          ]
+        },
+        "discoverability": {
+          "score": 85.0,
+          "weight": 0.25,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "Description doesn't mention WHEN to use this skill",
+              "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No '## Purpose' section",
+              "suggestion": "Add purpose section to clarify use cases",
+              "deduction": 5
+            }
+          ]
+        },
+        "reliability": {
+          "score": 75.0,
+          "weight": 0.25,
+          "issues_count": 4,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No mention of error handling or validation",
+              "suggestion": "Document expected errors and how to handle them",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No prerequisites/requirements documented",
+              "suggestion": "Document dependencies, API keys, or setup needed",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No limitations documented",
+              "suggestion": "Add '## Limitations' section with known issues/constraints",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No troubleshooting section documented",
+              "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+              "deduction": 5
+            }
+          ]
+        },
+        "efficiency": {
+          "score": 90.0,
+          "weight": 0.15,
+          "issues_count": 1,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "Deeply nested references in doc-structure-common.md",
+              "suggestion": "Keep references one level deep from SKILL.md",
+              "deduction": 10
+            }
+          ]
+        }
+      },
+      "metrics": {
+        "total_tokens": 2174,
+        "estimated_tokens": 2174,
+        "estimate_method": "characters/4",
+        "recommended_max_tokens": 5000,
+        "frontmatter_tokens": 67,
+        "instructions_tokens": 2104,
+        "script_count": 1,
+        "has_examples": true,
+        "has_error_handling": false,
+        "has_frontmatter": true,
+        "has_instructions": false,
+        "has_scripts": true,
+        "has_lib_module": false
+      }
+    }
+  ],
+  "rubric_eval": {
+    "execution_status": "succeeded",
+    "overall_score": 82.3,
+    "overall_pass": true,
+    "summary": "The skill is highly specific, well-structured, and covers a complete requirement-analysis workflow for manufacturing digital projects. Example coverage is present mainly as validation cases rather than full worked outputs, and error handling is mostly implicit through pending/conflict marking.",
+    "judge_score": 84,
+    "judge_overall_pass": true,
+    "skill_name": "requirement-analysis-pro",
+    "checks": [
+      {
+        "id": "description_clarity",
+        "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The frontmatter clearly defines manufacturing digital requirement analysis and lists concrete input types and delivery modes. It explains when the skill should be used, though non-trigger boundaries are less explicit."
+      },
+      {
+        "id": "instruction_clarity",
+        "criterion": "Instructions are easy to follow with clear action steps",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The workflow is broken into identifiable steps with routing rules, numbering conventions, and self-check criteria. Conditional paths are well explained."
+      },
+      {
+        "id": "example_quality",
+        "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "Validation cases provide relevant manufacturing scenarios and trigger/non-trigger coverage, but the main SKILL.md lacks full worked examples showing final output quality."
+      },
+      {
+        "id": "documentation_completeness",
+        "criterion": "All necessary information is present (purpose, scripts, parameters)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Purpose, references, scripts, and validation materials are present. User-facing parameters are mostly expressed as delivery modes rather than formal inputs."
+      },
+      {
+        "id": "scope_definition",
+        "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Scope is clearly bounded to manufacturing digital requirement and specification documents. It may still be broad across project, special, change, prototype, SDD, and AI Agent outputs."
+      },
+      {
+        "id": "professional_tone",
+        "criterion": "Documentation uses professional, consistent tone and formatting",
+        "importance": "low",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The documentation is professional, consistent, and well formatted with tables, headings, and clear conventions."
+      },
+      {
+        "id": "trigger_simulation",
+        "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "The description supports correct routing for requirement analysis, document consolidation, and SDD specification tasks. General software development or pure UI implementation requests are less clearly excluded."
+      },
+      {
+        "id": "workflow_completeness",
+        "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "The workflow covers intake, classification, analysis, design, delivery, and self-check. Next-step guidance is strong, with clear conditional routing for extensions."
+      },
+      {
+        "id": "error_handling_quality",
+        "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "Missing facts, conflicts, and pending items are handled through explicit markers and blocking/non-blocking questions. There are fewer concrete failure scenarios such as invalid formats, inaccessible sources, or conflicting versions."
+      }
+    ],
+    "aggregation": {
+      "method": "importance_weighted_mean",
+      "importance_weights": {
+        "high": 3,
+        "medium": 2,
+        "low": 1
+      },
+      "min_score": 70,
+      "criterion_pass_score": 7,
+      "requires_all_criteria_pass": true
+    },
+    "llm_provider": "openai-compatible",
+    "llm_model_used": "qwen3.8-flash",
+    "judge_attempts": 1
+  },
+  "generated_at": "2026-11-18T03:10:43.921156+00:00"
+}

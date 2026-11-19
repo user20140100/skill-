@@ -1,0 +1,216 @@
+{
+  "version": "0.9.0",
+  "target_path": null,
+  "overall_passed": true,
+  "overall_status": "passed",
+  "incomplete_scans": [],
+  "total_validators": 1,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 0,
+  "total_warnings": 0,
+  "severity_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "finding_counts": {
+    "raw_occurrences": 0,
+    "distinct_occurrences": 0,
+    "unique_findings": 0,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 0,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    }
+  },
+  "finding_groups": [],
+  "message_counts": {
+    "informational": 0,
+    "independent_errors": 0,
+    "independent_warnings": 0
+  },
+  "skills": [
+    {
+      "name": "catalog_saved",
+      "passed": true,
+      "issue_count": 0
+    },
+    {
+      "name": "collection_coverage",
+      "passed": true,
+      "issue_count": 0
+    },
+    {
+      "name": "index_built",
+      "passed": true,
+      "issue_count": 0
+    },
+    {
+      "name": "similarity_check",
+      "passed": true,
+      "issue_count": 0
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Unknown",
+      "items": [
+        {
+          "name": "catalog_saved",
+          "passed": true,
+          "issue_count": 0
+        },
+        {
+          "name": "collection_coverage",
+          "passed": true,
+          "issue_count": 0
+        },
+        {
+          "name": "index_built",
+          "passed": true,
+          "issue_count": 0
+        },
+        {
+          "name": "similarity_check",
+          "passed": true,
+          "issue_count": 0
+        }
+      ],
+      "total_items": 4,
+      "passed_count": 4,
+      "failed_count": 0,
+      "total_issues": 0
+    }
+  ],
+  "top_issues": [],
+  "results": [
+    {
+      "validator": "Similarity Check",
+      "description": "Detect duplicate content via embedding similarity",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "collection_coverage",
+          "message": "Selected 1; indexed 1; skipped 0 manifests",
+          "metadata": {
+            "selected_count": 1,
+            "indexed_count": 1,
+            "skipped_count": 0,
+            "exclusions": [],
+            "omitted_exclusions": 0
+          }
+        },
+        {
+          "check": "index_built",
+          "message": "Indexed 1 skill entries",
+          "metadata": {
+            "content_type": "skill",
+            "entry_count": 1
+          }
+        },
+        {
+          "check": "catalog_saved",
+          "message": "Saved local catalog to calculator-catalog.json",
+          "metadata": null
+        },
+        {
+          "check": "similarity_check",
+          "message": "No duplicates detected (threshold: 0.75)",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] collection_coverage: Selected 1; indexed 1; skipped 0 manifests",
+          "[OK] index_built: Indexed 1 skill entries",
+          "[OK] catalog_saved: Saved local catalog to calculator-catalog.json",
+          "[OK] similarity_check: No duplicates detected (threshold: 0.75)"
+        ]
+      },
+      "publication_target": {
+        "skill_name": "calculator",
+        "skill_digest": "sha256:8d23c245a4d6068e15d95d00251e427ba60c54786b19ed943d1aa1b6a5af8d9a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier2",
+        "tier": 2,
+        "check_id": "similarity"
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "incomplete",
+  "publication": {
+    "status": "incomplete",
+    "eligible": false,
+    "reasons": [
+      "Recognized built-in Tier 1 evidence is missing.",
+      "Tier 3 lacks publication-complete execution evidence."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "evaluated_source": null,
+  "generated_at": "2026-11-18T09:40:39.485624+00:00"
+}

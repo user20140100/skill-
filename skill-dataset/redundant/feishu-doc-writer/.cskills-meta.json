@@ -1,0 +1,24 @@
+{
+  "name": "feishu-doc-writer",
+  "author": "tanglejun",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:24+08:00",
+  "updatedAt": "2026-11-17T10:46:24+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/feishu-doc-writer"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/feishu-doc-writer",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/feishu-doc-writer"
+  ],
+  "fileHashes": {
+    "SKILL.md": "126b1bda1bfa6b597435cb5747905f296eaf60936c0407f68afed5da8a49bc2a",
+    "config.json": "99531798d410dfb0a8e909749626d87fb540ae37d2cf11ebe02fa6260f867d9a",
+    "scripts/doc_writer.py": "62e9bd5134055f3de81128e157db656c10c2a552fdc12e3af0d5e777ccec7a0b"
+  }
+}

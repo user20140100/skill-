@@ -1,0 +1,133 @@
+Tier 3: reusing the existing evaluation source unchanged.
+Tier 3 live evaluation: requirement-spec
+  environment: docker
+  agents/models: opencode
+  plan: with-skill=yes, baseline=yes, timeout=3x
+[00:00:00] configuration: running
+[00:00:00] configuration: ready - evaluation config validated
+[00:00:00] model-resolution: running
+[00:00:00] model-resolution: complete - agent models resolved
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x
+[00:00:00] environment-preflight: running - docker
+[00:00:00] environment-preflight: complete - docker
+[00:00:00] credential-validation: running
+[00:00:00] credential-validation: degraded - credential configuration resolved; live catalog verification inconclusive: opencode, standard grader: model catalog access does not verify runtime credentials for this endpoint; continuing to evaluation
+[00:00:00] docker-images: running - preparing shared eval base image (reuse)
+INFO     Using pinned eval base image skillevaluator-deps:3.12                  
+[00:00:00] docker-images: complete - eval base image ready: skillevaluator-deps:3.12
+[00:00:00] with-skill-tasks: running
+[00:00:00] with-skill-tasks: ready - task inputs staged
+[00:00:00] baseline-tasks: running
+[00:00:00] baseline-tasks: ready - baseline inputs staged
+[00:00:00] case-selection: complete - running the first 1 of 3 cases (max_cases=1)
+[00:00:01] configuration: complete - Planned: 2 attempts (1 cases × 1 attempts × 2 agent arms total)
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, tasks=1, cases=1, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x, matrix-trials=2, preflight-trials=0, containers=2, max-scaled-top-level-agent-timeout=900s
+[00:00:01] agent-runtime-preflight: skipped - disabled by default; enable with --agent-runtime-preflight or harbor.agent_runtime_preflight
+[00:00:01] agent:opencode: running - with-skill + baseline
+[00:01:01] still running: agent:opencode
+[00:02:01] still running: agent:opencode
+[00:03:01] still running: agent:opencode
+[00:04:01] still running: agent:opencode
+[00:05:01] still running: agent:opencode
+[00:06:01] still running: agent:opencode
+[00:07:01] still running: agent:opencode
+[00:08:01] still running: agent:opencode
+[00:09:01] still running: agent:opencode
+[00:10:01] still running: agent:opencode
+[00:11:01] still running: agent:opencode
+[00:12:01] still running: agent:opencode
+[00:13:01] still running: agent:opencode
+[00:13:10] agent:opencode: complete
+[00:13:10] collection: running
+[00:13:10] collection: complete - Harbor results collected
+[00:13:10] report: running
+[00:14:10] still running: report
+[00:14:37] report: complete - result and HTML reports written
+[00:14:37] run-finished: complete - Tier 3 evaluation finished
+Time: 877.3s
+QUALITY VERDICT: FAIL — 1 of 1 cases failed: 1 goal not met
+OVERALL SKILL LIFT   -0.23
+REQUIRED CHECKS PASSED   0/1 | 1/1 | -1
+GOALS MET   0/1 | 1/1 | -1
+SECURITY CLEAN   1/1 | 1/1 | +0
+
+✖ skill hurts   opencode -100 pp
+test case (k=1)       with skill     without skill   effect                     
+────────────────────────────────────────────────────────────────────────────────
+req-001               0/1 ✗ (0.73)   1/1 ✓ (0.87)    hurts                      
+                                                     ↳ with skill: FAIL: goal   
+                                                     not met (goal accuracy     
+                                                     0.00)                      
+                                                     ↳ with skill: WARNING:     
+                                                     missed expected steps 2, 4 
+                                                     of 5 (behavior 0.60)       
+                                                     ↳ without skill: WARNING:  
+                                                     missed expected behavior   
+                                                     (behavior 0.20)            
+                                                                                
+success rate          0%             100%            -100 pp                    
+quality score (0-1)   0.63           0.87            -0.23                      
+                                                                                
+  effectiveness       0.30           0.60            -0.30                      
+  correctness         0.60           1.00            -0.40                      
+  discoverability     0.75           -                                          
+  efficiency          1.00           -                                          
+  security            1.00           1.00            +0.00                      
+✓ pass  ✗ fail  ⊘ did not run  · skipped after a pass  (0.82) mean score 0-1
+Pass@1 (supporting reliability: share of cases with a passing attempt, attempt 
+passes at Overall ≥ 0.50): with skill 0.0%, without skill 100.0%; Pass-rate 
+difference -100.0 percentage points. Shared-metric pass-rate difference -100.0 
+percentage points (with skill 0.0%, without skill 100.0%).
+
+How to improve (consider these fixes)
+ 1. req-001  [skill hurts] · opencode · lost 1 attempt(s)
+    what happened: passes 1/1 without the skill but 0/1 with it; Applicant field
+not explicitly listed in stored information.
+    fix: SKILL.md §三/§十: require an initial complete draft document with 
+assumptions and open questions, including permissions/acceptance, before further
+clarification; no stop after Stage 1.
+    evidence: opencode/with-skill/trials/req-001__RLN9WEb/trajectory.json
+ 2. all cases  [eval case] · opencode
+    what happened: every case also passes without the skill, so this eval cannot
+show what the skill adds
+    fix: Add cases the agent fails without the skill (tasks that need the 
+skill's scripts, conventions or domain rules) so the eval measures the skill's 
+value.
+
+Next steps
+ 1. each case ran once, so a single attempt decides every pass or fail mark  
+[evaluation]
+    try: Re-run with `--n-attempts 3` to see whether the results repeat before 
+acting on them.
+    check: The marks repeat across attempts and the verdict keeps its direction.
+    evidence: 1 case(s), 1 attempt each
+ 2. the dataset has no negative-control case, so the run cannot show that the 
+skill stays out of unrelated requests  [dataset]
+    try: Add one or two unrelated requests with `"expected_skill": null` to 
+evals/evals.json; the agent should complete them without loading the skill.
+    check: The negative controls pass with the skill installed.
+    evidence: 1 case(s), none with `expected_skill: null` or `should_trigger: 
+false`
+ 3. only opencode was evaluated and the skill showed no clear gain (-100 pp), so
+it is unknown whether the result depends on the agent or model  [agent · 
+hypothesis]
+    try: As an experiment, run the same cases with a second agent (`--agents 
+opencode,<agent>`) or another model (`--agent-model AGENT=MODEL`), keeping the 
+dataset unchanged.
+    check: A second agent with the same direction points at the skill; a 
+different direction points at agent-specific guidance.
+    evidence: opencode -100 pp
+
+Dataset size: provisional — 1 case (policy needs 10), 0 negative cases (needs 
+1); pass-rate interval ±0.40 is wider than ±0.20 (policy dataset-sufficiency-v1)
+Limited evidence: Based on 1 case × 1 attempt = 1 scored attempt (0 execution 
+failures, 0 judge failures); by arm: with skill: 1 case, 1 scored attempt (0 
+execution failures, 0 judge failures); without skill: 1 case, 1 scored attempt 
+(0 execution failures, 0 judge failures)
+╭───────────────────────────────── Artifacts ──────────────────────────────────╮
+│ 📊 HTML report report.html ·                                                 │
+│                /app/reports/company-library-20261118/tier3/requirement-spec/ │
+│                requirement-spec/20261118_032327_1_77d94f68a5a4/report.html   │
+│ 📁 Output      /app/reports/company-library-20261118/tier3/requirement-spec/ │
+│                requirement-spec/20261118_032327_1_77d94f68a5a4               │
+╰──────────────────────────────────────────────────────────────────────────────╯

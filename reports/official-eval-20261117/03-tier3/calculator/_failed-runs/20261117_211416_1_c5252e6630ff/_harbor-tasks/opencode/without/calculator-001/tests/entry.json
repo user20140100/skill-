@@ -1,0 +1,26 @@
+{
+  "id": "calculator-001",
+  "expected_skill": "calculator",
+  "expected_script": "calc.py",
+  "prompt": "What is 2 + 3 * 4? Please use the calculator skill to compute this.",
+  "expected_output": "The agent used the calculator skill to evaluate the expression '2 + 3 * 4'. It executed calc.py and returned the result 14, correctly following standard operator precedence (multiplication before addition).",
+  "assertions": [
+    "The agent read the calculator SKILL.md to understand the skill",
+    "The agent executed calc.py with the expression '2 + 3 * 4'",
+    "The agent reported the correct result of 14"
+  ],
+  "question": "What is 2 + 3 * 4? Please use the calculator skill to compute this.",
+  "ground_truth": "The agent used the calculator skill to evaluate the expression '2 + 3 * 4'. It executed calc.py and returned the result 14, correctly following standard operator precedence (multiplication before addition).",
+  "expected_behavior": [
+    "The agent read the calculator SKILL.md to understand the skill",
+    "The agent executed calc.py with the expression '2 + 3 * 4'",
+    "The agent reported the correct result of 14"
+  ],
+  "evaluated_skill": "calculator",
+  "has_skill": false,
+  "skill_workspace_mode": "isolated",
+  "workspace_skill_names": [],
+  "grading_mode": "default",
+  "custom_grader": false,
+  "agent_workdir": "/workspace"
+}

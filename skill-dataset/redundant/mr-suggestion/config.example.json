@@ -1,0 +1,7 @@
+{
+  "api_base_url": "https://aicr.gz.cvte.cn/core/suggestions",
+  "auth_token": "your-auth-token-here",
+  "project_id": "12345",
+  "page_size": 100,
+  "status": "open"
+}

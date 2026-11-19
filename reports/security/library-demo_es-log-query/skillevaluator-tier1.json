@@ -1,0 +1,4733 @@
+{
+  "version": "0.9.0",
+  "target_path": "/skills/library-demo/es-log-query",
+  "overall_passed": false,
+  "overall_status": "failed",
+  "incomplete_scans": [
+    "llm-verification"
+  ],
+  "total_validators": 14,
+  "total_skipped": 0,
+  "total_advisory_skipped": 0,
+  "total_errors": 14,
+  "total_warnings": 39,
+  "severity_counts": {
+    "critical": 0,
+    "high": 12,
+    "medium": 11,
+    "low": 19
+  },
+  "finding_counts": {
+    "raw_occurrences": 51,
+    "distinct_occurrences": 51,
+    "unique_findings": 46,
+    "duplicates_removed": 0,
+    "occurrences_grouped": 5,
+    "raw_by_severity": {
+      "critical": 0,
+      "high": 12,
+      "medium": 11,
+      "low": 19,
+      "info": 9
+    },
+    "unique_by_severity": {
+      "critical": 0,
+      "high": 8,
+      "medium": 10,
+      "low": 19,
+      "info": 9
+    }
+  },
+  "finding_groups": [
+    {
+      "finding_id": "SEF-03e029934351881ba688",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-RELOAD",
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c8e560c0ae36d31aefe8",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0a046cedaad0ac6f0723",
+      "category": "SECURITY",
+      "severity": "high",
+      "check_name": "Credential Access (PE3)",
+      "message": "Privilege Escalation: .env ",
+      "suggestion": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts. Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "metadata": {
+        "skillspector_confidence": 0.6,
+        "artifact_type": "skill",
+        "file_role": "agent_reference",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-1c6dcff5d61e50ebdab1",
+          "validator": "Security Scan",
+          "file_path": ".env.example",
+          "line_number": 2
+        },
+        {
+          "occurrence_id": "SEO-ee48c78676099ded6df0",
+          "validator": "Security Scan",
+          "file_path": "es_log_query.py",
+          "line_number": 22
+        },
+        {
+          "occurrence_id": "SEO-072bbb53fe151d969d18",
+          "validator": "Security Scan",
+          "file_path": "es_log_query.py",
+          "line_number": 37
+        },
+        {
+          "occurrence_id": "SEO-0f2882743daa213b8f77",
+          "validator": "Security Scan",
+          "file_path": "es_log_query.py",
+          "line_number": 51
+        },
+        {
+          "occurrence_id": "SEO-1f2aa5a197f65677ae7a",
+          "validator": "Security Scan",
+          "file_path": "es_log_query.py",
+          "line_number": 56
+        }
+      ],
+      "occurrence_count": 5
+    },
+    {
+      "finding_id": "SEF-0d04185ef5e4d520e6b3",
+      "category": "RUBRIC_EVAL",
+      "severity": "medium",
+      "check_name": "rubric_error_handling_quality",
+      "message": "[4/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "suggestion": "The documentation does not provide realistic error scenarios or actionable troubleshooting for network, auth, invalid query, or no-result cases.",
+      "metadata": {
+        "score": 4,
+        "pass": false,
+        "judge_pass": false,
+        "id": "error_handling_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e1569a04fbcbc409b62e",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0ea60db8ac0f4011b7c1",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_instruction_clarity",
+      "message": "[8/10] Instructions are easy to follow with clear action steps",
+      "suggestion": "The execution flow, command parameters, and examples make the usage path easy to follow. Script location and .env setup are mostly clear.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "instruction_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b8f330b7075a8e2079b0",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-0f3cde56a46498377f1a",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "Description doesn't mention WHEN to use this skill",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 10
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-924983b98753bbb6d4ae",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-18a7f8cc53f607ef9645",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "folder_hierarchy",
+      "message": "Unexpected nesting depth for general skill",
+      "suggestion": "General skills should be at: skills/<skill-name>/",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5d0198ac6c0028cdd2ff",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-demo/es-log-query",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-29923f4d680e578e37e3",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "description_trigger",
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "suggestion": "State when to use the skill within the first 60 characters",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-893cf561b472f977e509",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-29e23eccd3ba249d50f9",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_example_quality",
+      "message": "[9/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "suggestion": "Examples cover basic queries, traceId, ERROR logs, large exports, custom indexes, and multiple app IDs, which is strong for robust detection.",
+      "metadata": {
+        "score": 9,
+        "pass": true,
+        "judge_pass": true,
+        "id": "example_quality"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-4fc7e370243771abaea7",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2ab016a817c566724ba9",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Instructions'",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+      "metadata": {
+        "missing_section": "## Instructions"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-738020e1d156a61e54b7",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2c579e447da61276708b",
+      "category": "RUBRIC_EVAL",
+      "severity": "high",
+      "check_name": "rubric_overall",
+      "message": "Rubric evaluation failed: criteria below 7/10: error_handling_quality",
+      "suggestion": "Address the failed rubric criteria and rerun the evaluation",
+      "metadata": {
+        "overall_score": 76.4,
+        "min_score": 70,
+        "failed_criteria": [
+          "error_handling_quality"
+        ]
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-8e2ddc2c1ec6ed248193",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-2f0dd915a2f184be91f0",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "unexpected_file",
+      "message": "Unexpected 'es_log_query.py' in skill root",
+      "suggestion": "Consider moving to one of: agents/, assets/, config/, evals/, references/, scripts/, tests/, tools/. To allow additional directories, set $SKILLEVALUATOR_SCHEMA_ALLOWED_DIRS.",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2fbbcc7e5d9c490ecf4d",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-demo/es-log-query/es_log_query.py",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3661379ea9e5c1072875",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-RELOAD",
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "suggestion": null,
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-11e26d4b18f87f3ecab5",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-378f24adfec67572e606",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No troubleshooting section documented",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-88c52b255346b3765d61",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-3c14903aa6a36408a8d2",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CX-CLAUDE-ONLY",
+      "message": "codex: Ignored here (Claude Code only): argument-hint.",
+      "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere.",
+      "metadata": {
+        "harness": "codex",
+        "effect": "advisory",
+        "verified_version": "0.166.0",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-f65b7850ee309dfd0df9",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4323078500a2921b138e",
+      "category": "SECURITY",
+      "severity": "high",
+      "check_name": "Unknown (SQP-2)",
+      "message": "The skill directs users to configure credentials via a local `.env` file and even references obtaining credentials from ",
+      "suggestion": "The skill directs users to configure credentials via a local `.env` file and even references obtaining credentials from a named internal contact. That workflow has obvious credential-handling and privacy implications, but the documentation provides no warnings about storing secrets securely, restricting file permissions, avoiding secret leakage into logs/chat, or verifying the identity of the contact process. This is especially risky because the target system is production. Add explicit credential-handling guidance: keep `.env` out of version control, chmod 600, do not paste passwords into agent prompts or logs, use a secret manager or environment injection where possible, and ensure the ES account is least-privilege/read-only. Remove or generalize named internal contacts in favor of an approved ticketing or self-service flow to avoid informal credential distribution.",
+      "metadata": {
+        "skillspector_confidence": 0.8,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-b1485a9d6466964d80a8",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 120
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-486e07cb89e7f6fd2884",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_description_clarity",
+      "message": "[8/10] Description is clear, specific, and explains WHEN to use the skill",
+      "suggestion": "It clearly identifies production Elasticsearch log querying and key features, though it could more explicitly mention traceId, appId, ERROR logs, and export use cases.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "description_clarity"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a4485f39ce147361d0ed",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4a6560f4aec006f302f9",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No prerequisites/requirements documented",
+      "suggestion": "Document dependencies, API keys, or setup needed",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-85e50650b6e1a69c2316",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-4b6a191bacaf84904844",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_documentation_completeness",
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "suggestion": "Purpose, script location, parameters, defaults, configuration, pagination, and output format are included. Troubleshooting information is missing.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "documentation_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-d0e6d1690598579e9844",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-56af63d547e1313fa049",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Unknown (LP3)",
+      "message": "MCP Least Privilege: The skill exposes capabilities that affect external and local resources (network access to an Elasticsearch host, readin",
+      "suggestion": "The skill exposes capabilities that affect external and local resources (network access to an Elasticsearch host, reading a local `.env` file, and writing output to arbitrary local paths) but does not declare any explicit tool scope, permissions, or allowed-tools metadata. In an agent execution context, that creates a least-privilege and transparency failure: the agent may be able to invoke this skill\u2019s script without a clearly bounded capability declaration, even though the script can contact internal infrastructure, consume credentials, and write files. Add explicit skill-level permissions or an allowed-tools manifest describing: network access, file read of config/credential files, file write for output, and execution of the Python script. Scope the capabilities narrowly (e.g., only the configured ES host, only the skill directory for config, only an allowed output directory, and only read-only ES roles). If the platform supports capability review, declare it there and require user approval before first use.",
+      "metadata": {
+        "skillspector_confidence": 0.88,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-82472818bb8e1673f193",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 1
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-5b4b5fa9a7be5820d37b",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_scope_definition",
+      "message": "[8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "suggestion": "Scope is focused on production Elasticsearch log query and export, with clear boundaries from general ES administration or local log analysis.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "scope_definition"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-00ddd2965b44d55ccbb0",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-5f18925f4e26c7738c9f",
+      "category": "SECURITY",
+      "severity": "high",
+      "check_name": "Credential Access (PE3)",
+      "message": "Privilege Escalation: .env'",
+      "suggestion": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts. Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "metadata": {
+        "skillspector_confidence": 0.6,
+        "artifact_type": "skill",
+        "file_role": "agent_executable",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c1ac07133dc554b555f3",
+          "validator": "Security Scan",
+          "file_path": "es_log_query.py",
+          "line_number": 24
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6bc3d5578c3fefa78d68",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OW-CLAUDE-ONLY",
+      "message": "openclaw: Ignored here (Claude Code only): argument-hint.",
+      "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere.",
+      "metadata": {
+        "harness": "openclaw",
+        "effect": "advisory",
+        "verified_version": "2026.10.9",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-33a925685bc670322c8d",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-6d558073101ce9853e02",
+      "category": "SECURITY",
+      "severity": "high",
+      "check_name": "Unknown (SQP-2)",
+      "message": "The skill facilitates access to production Elasticsearch logs and supports large exports to local files, but it does not",
+      "suggestion": "The skill facilitates access to production Elasticsearch logs and supports large exports to local files, but it does not warn that production logs may contain sensitive data (PII, tokens, secrets, internal identifiers, business data), that exported files may persist that data on disk, or that file output can overwrite existing files. In a production-debugging context, that omission materially increases the risk of accidental data exposure or data destruction. Add clear warnings that query results may contain sensitive data and must be handled securely. Require or default to safe output handling: path allow-listing, no overwriting without confirmation, append/random suffixes, restricted file permissions, and retention warnings. If feasible, add PII/secret redaction, field allow-lists, or sample-mode limiting for exploratory queries.",
+      "metadata": {
+        "skillspector_confidence": 0.85,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-18bc78b07bce30afd9b3",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 22
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-7ce154d64f02bb16a5ee",
+      "category": "BANDIT",
+      "severity": "medium",
+      "check_name": "B310:blacklist",
+      "message": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected. (CWE-22)",
+      "suggestion": "Review blacklist (B310) (CWE-22)",
+      "metadata": {
+        "cwe": 22
+      },
+      "validators": [
+        "Code Risk Analysis"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-bc5d12ea75a33c372edb",
+          "validator": "Code Risk Analysis",
+          "file_path": "/skills/library-demo/es-log-query/es_log_query.py",
+          "line_number": 168
+        },
+        {
+          "occurrence_id": "SEO-5fa254e556240a205164",
+          "validator": "Code Risk Analysis",
+          "file_path": "/skills/library-demo/es-log-query/es_log_query.py",
+          "line_number": 226
+        }
+      ],
+      "occurrence_count": 2
+    },
+    {
+      "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "author_missing",
+      "message": "Author not specified in metadata",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+      "metadata": {
+        "profile": "default"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-672faadc1f127adb408c",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-80a54c116121bfec8cc3",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_trigger_simulation",
+      "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "suggestion": "It should trigger for production ES log, traceId, appId, ERROR, and export queries. It is unlikely to trigger for ES mapping changes, local log files, or Kibana dashboard creation.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "trigger_simulation"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-a5ec745e96e0fdebd2d9",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-8a5c03e51934d0484ba6",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_workflow_completeness",
+      "message": "[7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "suggestion": "The workflow covers intent parsing, command execution, and result analysis. It lacks explicit guidance for empty results, failed queries, or authentication issues.",
+      "metadata": {
+        "score": 7,
+        "pass": true,
+        "judge_pass": true,
+        "id": "workflow_completeness"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-015411441d35a6b3f3eb",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-8e1fcdbf37b720508663",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Unknown (LP3)",
+      "message": "MCP Least Privilege: Without declared permissions the skill's intent is opaque and cannot be validated.",
+      "suggestion": "Without declared permissions the skill's intent is opaque and cannot be validated. Declare the skill's tool scope: for Claude Code / Agent Skills SKILL.md, list the tools the skill may invoke in the 'allowed-tools' frontmatter field; for MCP server manifests, add a 'permissions' list naming the required capabilities.",
+      "metadata": {
+        "skillspector_confidence": 0.7,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c04b8c5539e90a8aac9b",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 1
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-8fc20d858b74a90f4136",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "unknown_field",
+      "message": "Frontmatter field(s) outside the agentskills.io spec: argument-hint, author, tags, version; agent harnesses do not pass them to the model",
+      "suggestion": "Remove them or move them under 'metadata'",
+      "metadata": {
+        "fields": [
+          "argument-hint",
+          "author",
+          "tags",
+          "version"
+        ]
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-5b98b01f3446ea038bc6",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-920dbb419454d49c4a70",
+      "category": "SECURITY",
+      "severity": "low",
+      "check_name": "Unknown (SQP-3)",
+      "message": "User-visible text is hard-coded in Chinese, e.g. error guidance, progress output, result output, and CLI help strings. T",
+      "suggestion": "User-visible text is hard-coded in Chinese, e.g. error guidance, progress output, result output, and CLI help strings. There is no documented or implemented language/locale selection, and no justification indicating that the locale constraint is intentional and approved for this tool. Add an explicit locale/language selection mechanism or opt-in, or at minimum provide English equivalents / i18n support for user-facing strings. If Chinese-only output is required by an approved regional workflow, document that constraint and rationale in the skill description or user-facing help.",
+      "metadata": {
+        "skillspector_confidence": 0.93,
+        "artifact_type": "skill",
+        "file_role": "agent_executable",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e6c287be8e1c44f95d9c",
+          "validator": "Security Scan",
+          "file_path": "es_log_query.py",
+          "line_number": 50
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-9dcf632d2f32abd5d60c",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "CP-CLAUDE-ONLY",
+      "message": "copilot-cli: Ignored here (Claude Code only): argument-hint.",
+      "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere.",
+      "metadata": {
+        "harness": "copilot-cli",
+        "effect": "advisory",
+        "verified_version": "1.0.105",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e2622ad551bdc7089456",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-9f6902711d783a986614",
+      "category": "SECURITY",
+      "severity": "high",
+      "check_name": "Unknown (SDI-4)",
+      "message": "The code documentation explicitly implies support for relational expression parsing, including `or`, but the implementat",
+      "suggestion": "The code documentation explicitly implies support for relational expression parsing, including `or`, but the implementation ignores logical operators entirely and converts all parsed filters into conjunctive conditions. This is an intent-code divergence that can produce incorrect investigative results. Align documentation and implementation. Either update the docstring to state that only AND filters are supported, or implement real boolean expression parsing.",
+      "metadata": {
+        "skillspector_confidence": 0.97,
+        "artifact_type": "skill",
+        "file_role": "agent_executable",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-2e91067c0dd6eb8759d5",
+          "validator": "Security Scan",
+          "file_path": "es_log_query.py",
+          "line_number": 67
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-a79a1e72ae60b486b70d",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "OC-CLAUDE-ONLY",
+      "message": "opencode: Ignored here (Claude Code only): argument-hint.",
+      "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere.",
+      "metadata": {
+        "harness": "opencode",
+        "effect": "advisory",
+        "verified_version": "1.19.5",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-995d94d7919a47d2ffc9",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b5d8a57b5ee6f7011adf",
+      "category": "SECURITY",
+      "severity": "medium",
+      "check_name": "Unknown (SQP-3)",
+      "message": "Natural-language organizational policy violations include forcing a language or locale without user opt-in.",
+      "suggestion": "Natural-language organizational policy violations include forcing a language or locale without user opt-in. Add a language/locale note or allow user choice, or document the locale constraint as intended for Chinese internal users.",
+      "metadata": {
+        "skillspector_confidence": 0.75,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-21581fffa240ed24c23e",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 1
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_discoverability",
+      "message": "No '## Purpose' section",
+      "suggestion": "Add purpose section to clarify use cases",
+      "metadata": {
+        "dimension": "discoverability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-73c93306641a50800d39",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-15c189527d17366cdcc6",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-c468e27696e6ce3176ba",
+      "category": "SCHEMA",
+      "severity": "low",
+      "check_name": "unexpected_file",
+      "message": "Unexpected 'skill.json' in skill root",
+      "suggestion": "Consider moving to one of: agents/, assets/, config/, evals/, references/, scripts/, tests/, tools/. To allow additional directories, set $SKILLEVALUATOR_SCHEMA_ALLOWED_DIRS.",
+      "metadata": null,
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-12530bfe88a754f9a418",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-demo/es-log-query/skill.json",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-cbed4859b38209b54667",
+      "category": "RUBRIC_EVAL",
+      "severity": "low",
+      "check_name": "rubric_professional_tone",
+      "message": "[8/10] Documentation uses professional, consistent tone and formatting",
+      "suggestion": "The tone is professional and the formatting is consistent with headings, tables, and code blocks.",
+      "metadata": {
+        "score": 8,
+        "pass": true,
+        "judge_pass": true,
+        "id": "professional_tone"
+      },
+      "validators": [
+        "RUBRIC_EVAL"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-39332b0c75f3f8be254f",
+          "validator": "RUBRIC_EVAL",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+      "category": "QUALITY",
+      "severity": "medium",
+      "check_name": "quality_correctness",
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+      "metadata": {
+        "dimension": "correctness",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-f315e928373397b69728",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e0623bdfb91d6bbb829f",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-DESC-60",
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-6dc96ef5c06fe8d09eaa",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e1e9a6faee7311afd38b",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-LINKED-LAYOUT",
+      "message": "hermes: 3 files outside references/, templates/, assets/ and scripts/ (.env.example, es_log_query.py, skill.json) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+      "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-de93c78489192d557c92",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e3f5c930756d6b8f695b",
+      "category": "SCHEMA",
+      "severity": "medium",
+      "check_name": "body_recommended_section",
+      "message": "Missing recommended section: '## Examples'",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+      "metadata": {
+        "missing_section": "## Examples"
+      },
+      "validators": [
+        "Schema & Repository Governance"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-3fe0505c6ca033b1c605",
+          "validator": "Schema & Repository Governance",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-e8d0ced66cfe7b297b86",
+      "category": "SECURITY",
+      "severity": "high",
+      "check_name": "Unknown (SDI-1)",
+      "message": "The tool advertises support for relational query expressions such as `appId:\"x\" and message:\"y\" or traceId:\"z\"`, but `pa",
+      "suggestion": "The tool advertises support for relational query expressions such as `appId:\"x\" and message:\"y\" or traceId:\"z\"`, but `parse_query_string()` only extracts `field:value` pairs and discards the boolean operators (`and`, `or`). Every extracted pair is then placed into an Elasticsearch `bool.filter` list, which enforces conjunctive (AND) semantics. Therefore an intended OR query silently becomes an AND query, causing false-negative results. In a production log-analysis or incident-response context, this can mislead analysts into believing no relevant events exist when they do. Implement a query parser that preserves boolean operators and precedence. At minimum, document that only AND semantics are supported. If OR is required, map OR conditions to Elasticsearch `bool.should` clauses and AND conditions to `bool.must`, and reject unsupported syntax instead of silently changing query semantics.",
+      "metadata": {
+        "skillspector_confidence": 0.95,
+        "artifact_type": "skill",
+        "file_role": "agent_executable",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-06af3863831e56869734",
+          "validator": "Security Scan",
+          "file_path": "es_log_query.py",
+          "line_number": 66
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-ea696edc4782d72e08ce",
+      "category": "HARNESS",
+      "severity": "info",
+      "check_name": "HM-CLAUDE-ONLY",
+      "message": "hermes: Ignored here (Claude Code only): argument-hint.",
+      "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere.",
+      "metadata": {
+        "harness": "hermes",
+        "effect": "advisory",
+        "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+        "verified_date": "2026-11-01"
+      },
+      "validators": [
+        "Harness Compatibility"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-1593d656fa096025ac5f",
+          "validator": "Harness Compatibility",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-f27336f7af0f9c98cf71",
+      "category": "SECURITY",
+      "severity": "high",
+      "check_name": "Unknown (TP4)",
+      "message": "MCP Tool Poisoning: The declared purpose is essentially a log-query helper, but the actual behavior appears to include network calls to an i",
+      "suggestion": "The declared purpose is essentially a log-query helper, but the actual behavior appears to include network calls to an internal Elasticsearch endpoint, loading credentials from `.env`, issuing basic-auth requests, writing arbitrary local output files, and implicitly applying hardcoded internal defaults such as index and app IDs. This is a significant description-behavior mismatch because it understates the security and operational blast radius of the skill. Even if some details appear later in the markdown, the high-level capability model is still unsafe for an agent skill that touches production data. Rewrite the description and documentation to explicitly disclose all real behaviors: outbound network access to an internal ES host, credential handling from `.env`, basic auth usage, local file writes, and default targets. Replace implicit hardcoded internal defaults with explicit configuration. Require user confirmation before contacting production infrastructure, and document that the skill can read sensitive credentials and export potentially sensitive logs.",
+      "metadata": {
+        "skillspector_confidence": 0.91,
+        "artifact_type": "skill",
+        "file_role": "agent_instruction",
+        "applicability": "agent-control-path"
+      },
+      "validators": [
+        "Security Scan"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-c4b28c94745bac34d2f8",
+          "validator": "Security Scan",
+          "file_path": "SKILL.md",
+          "line_number": 1
+        }
+      ],
+      "occurrence_count": 1
+    },
+    {
+      "finding_id": "SEF-fc6fe3747c071963a76e",
+      "category": "QUALITY",
+      "severity": "low",
+      "check_name": "quality_reliability",
+      "message": "No limitations documented",
+      "suggestion": "Add '## Limitations' section with known issues/constraints",
+      "metadata": {
+        "dimension": "reliability",
+        "deduction": 5
+      },
+      "validators": [
+        "QUALITY"
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": "SEO-e567efa8da5ada1c9988",
+          "validator": "QUALITY",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null
+        }
+      ],
+      "occurrence_count": 1
+    }
+  ],
+  "message_counts": {
+    "informational": 8,
+    "independent_errors": 0,
+    "independent_warnings": 2
+  },
+  "skills": [
+    {
+      "name": "es-log-query",
+      "passed": false,
+      "issue_count": 51
+    }
+  ],
+  "contributors": [
+    {
+      "author": "Unknown",
+      "items": [
+        {
+          "name": "es-log-query",
+          "passed": false,
+          "issue_count": 51
+        }
+      ],
+      "total_items": 1,
+      "passed_count": 0,
+      "failed_count": 1,
+      "total_issues": 51
+    }
+  ],
+  "top_issues": [
+    {
+      "message": "Privilege Escalation",
+      "severity": "high",
+      "total_count": 6,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SECURITY",
+      "suggestion": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts. Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths."
+    },
+    {
+      "message": "MCP Tool Poisoning",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SECURITY",
+      "suggestion": "The declared purpose is essentially a log-query helper, but the actual behavior appears to include network calls to an internal Elasticsearch endpoint, loading credentials from `.env`, issuing basic-auth requests, writing arbitrary local output files, and implicitly applying hardcoded internal defaults such as index and app IDs. This is a significant description-behavior mismatch because it understates the security and operational blast radius of the skill. Even if some details appear later in the markdown, the high-level capability model is still unsafe for an agent skill that touches production data. Rewrite the description and documentation to explicitly disclose all real behaviors: outbound network access to an internal ES host, credential handling from `.env`, basic auth usage, local file writes, and default targets. Replace implicit hardcoded internal defaults with explicit configuration. Require user confirmation before contacting production infrastructure, and document that the skill can read sensitive credentials and export potentially sensitive logs."
+    },
+    {
+      "message": "The skill facilitates access to production Elasticsearch logs and supports large exports to local files, but it does not",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SECURITY",
+      "suggestion": "The skill facilitates access to production Elasticsearch logs and supports large exports to local files, but it does not warn that production logs may contain sensitive data (PII, tokens, secrets, internal identifiers, business data), that exported files may persist that data on disk, or that file output can overwrite existing files. In a production-debugging context, that omission materially increases the risk of accidental data exposure or data destruction. Add clear warnings that query results may contain sensitive data and must be handled securely. Require or default to safe output handling: path allow-listing, no overwriting without confirmation, append/random suffixes, restricted file permissions, and retention warnings. If feasible, add PII/secret redaction, field allow-lists, or sample-mode limiting for exploratory queries."
+    },
+    {
+      "message": "The skill directs users to configure credentials via a local `.env` file and even references obtaining credentials from",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SECURITY",
+      "suggestion": "The skill directs users to configure credentials via a local `.env` file and even references obtaining credentials from a named internal contact. That workflow has obvious credential-handling and privacy implications, but the documentation provides no warnings about storing secrets securely, restricting file permissions, avoiding secret leakage into logs/chat, or verifying the identity of the contact process. This is especially risky because the target system is production. Add explicit credential-handling guidance: keep `.env` out of version control, chmod 600, do not paste passwords into agent prompts or logs, use a secret manager or environment injection where possible, and ensure the ES account is least-privilege/read-only. Remove or generalize named internal contacts in favor of an approved ticketing or self-service flow to avoid informal credential distribution."
+    },
+    {
+      "message": "The tool advertises support for relational query expressions such as `appId:\"x\" and message:\"y\" or traceId:\"z\"`, but `pa",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SECURITY",
+      "suggestion": "The tool advertises support for relational query expressions such as `appId:\"x\" and message:\"y\" or traceId:\"z\"`, but `parse_query_string()` only extracts `field:value` pairs and discards the boolean operators (`and`, `or`). Every extracted pair is then placed into an Elasticsearch `bool.filter` list, which enforces conjunctive (AND) semantics. Therefore an intended OR query silently becomes an AND query, causing false-negative results. In a production log-analysis or incident-response context, this can mislead analysts into believing no relevant events exist when they do. Implement a query parser that preserves boolean operators and precedence. At minimum, document that only AND semantics are supported. If OR is required, map OR conditions to Elasticsearch `bool.should` clauses and AND conditions to `bool.must`, and reject unsupported syntax instead of silently changing query semantics."
+    },
+    {
+      "message": "The code documentation explicitly implies support for relational expression parsing, including `or`, but the implementat",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SECURITY",
+      "suggestion": "The code documentation explicitly implies support for relational expression parsing, including `or`, but the implementation ignores logical operators entirely and converts all parsed filters into conjunctive conditions. This is an intent-code divergence that can produce incorrect investigative results. Align documentation and implementation. Either update the docstring to state that only AND filters are supported, or implement real boolean expression parsing."
+    },
+    {
+      "message": "Rubric evaluation failed: criteria below 7/10: error_handling_quality",
+      "severity": "high",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Address the failed rubric criteria and rerun the evaluation"
+    },
+    {
+      "message": "MCP Least Privilege",
+      "severity": "medium",
+      "total_count": 2,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SECURITY",
+      "suggestion": "Without declared permissions the skill's intent is opaque and cannot be validated. Declare the skill's tool scope: for Claude Code / Agent Skills SKILL.md, list the tools the skill may invoke in the 'allowed-tools' frontmatter field; for MCP server manifests, add a 'permissions' list naming the required capabilities."
+    },
+    {
+      "message": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected. (CWE-22)",
+      "severity": "medium",
+      "total_count": 2,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "BANDIT",
+      "suggestion": "Review blacklist (B310) (CWE-22)"
+    },
+    {
+      "message": "Unexpected nesting depth for general skill",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "General skills should be at: skills/<skill-name>/"
+    },
+    {
+      "message": "Missing recommended section: '## Instructions'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics."
+    },
+    {
+      "message": "Missing recommended section: '## Examples'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped."
+    },
+    {
+      "message": "Natural-language organizational policy violations include forcing a language or locale without user opt-in.",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SECURITY",
+      "suggestion": "Natural-language organizational policy violations include forcing a language or locale without user opt-in. Add a language/locale note or allow user choice, or document the locale constraint as intended for Chinese internal users."
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)"
+    },
+    {
+      "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)"
+    },
+    {
+      "message": "[4/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+      "severity": "medium",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The documentation does not provide realistic error scenarios or actionable troubleshooting for network, auth, invalid query, or no-result cases."
+    },
+    {
+      "message": "Unexpected 'es_log_query.py' in skill root",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider moving to one of: agents/, assets/, config/, evals/, references/, scripts/, tests/, tools/. To allow additional directories, set $SKILLEVALUATOR_SCHEMA_ALLOWED_DIRS."
+    },
+    {
+      "message": "Unexpected 'skill.json' in skill root",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Consider moving to one of: agents/, assets/, config/, evals/, references/, scripts/, tests/, tools/. To allow additional directories, set $SKILLEVALUATOR_SCHEMA_ALLOWED_DIRS."
+    },
+    {
+      "message": "Author not specified in metadata",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address"
+    },
+    {
+      "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "State when to use the skill within the first 60 characters"
+    },
+    {
+      "message": "Frontmatter field(s) outside the agentskills.io spec: argument-hint, author, tags, version; agent harnesses do not pass them to the model",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SCHEMA",
+      "suggestion": "Remove them or move them under 'metadata'"
+    },
+    {
+      "message": "User-visible text is hard-coded in Chinese, e.g. error guidance, progress output, result output, and CLI help strings. T",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "SECURITY",
+      "suggestion": "User-visible text is hard-coded in Chinese, e.g. error guidance, progress output, result output, and CLI help strings. There is no documented or implemented language/locale selection, and no justification indicating that the locale constraint is intentional and approved for this tool. Add an explicit locale/language selection mechanism or opt-in, or at minimum provide English equivalents / i18n support for user-facing strings. If Chinese-only output is required by an approved regional workflow, document that constraint and rationale in the skill description or user-facing help."
+    },
+    {
+      "message": "Description doesn't mention WHEN to use this skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add trigger context: 'Use for...', 'When you need to...'"
+    },
+    {
+      "message": "No '## Purpose' section",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add purpose section to clarify use cases"
+    },
+    {
+      "message": "No prerequisites/requirements documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Document dependencies, API keys, or setup needed"
+    },
+    {
+      "message": "No limitations documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Limitations' section with known issues/constraints"
+    },
+    {
+      "message": "No troubleshooting section documented",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "QUALITY",
+      "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns"
+    },
+    {
+      "message": "[8/10] Description is clear, specific, and explains WHEN to use the skill",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "It clearly identifies production Elasticsearch log querying and key features, though it could more explicitly mention traceId, appId, ERROR logs, and export use cases."
+    },
+    {
+      "message": "[8/10] Instructions are easy to follow with clear action steps",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The execution flow, command parameters, and examples make the usage path easy to follow. Script location and .env setup are mostly clear."
+    },
+    {
+      "message": "[9/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Examples cover basic queries, traceId, ERROR logs, large exports, custom indexes, and multiple app IDs, which is strong for robust detection."
+    },
+    {
+      "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Purpose, script location, parameters, defaults, configuration, pagination, and output format are included. Troubleshooting information is missing."
+    },
+    {
+      "message": "[8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "Scope is focused on production Elasticsearch log query and export, with clear boundaries from general ES administration or local log analysis."
+    },
+    {
+      "message": "[8/10] Documentation uses professional, consistent tone and formatting",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The tone is professional and the formatting is consistent with headings, tables, and code blocks."
+    },
+    {
+      "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "It should trigger for production ES log, traceId, appId, ERROR, and export queries. It is unlikely to trigger for ES mapping changes, local log files, or Kibana dashboard creation."
+    },
+    {
+      "message": "[7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+      "severity": "low",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "RUBRIC_EVAL",
+      "suggestion": "The workflow covers intent parsing, command execution, and result analysis. It lacks explicit guidance for empty results, failed queries, or authentication issues."
+    },
+    {
+      "message": "codex: Ignored here (Claude Code only): argument-hint.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere."
+    },
+    {
+      "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "copilot-cli: Ignored here (Claude Code only): argument-hint.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere."
+    },
+    {
+      "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters."
+    },
+    {
+      "message": "hermes: 3 files outside references/, templates/, assets/ and scripts/ (.env.example, es_log_query.py, skill.json) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/."
+    },
+    {
+      "message": "hermes: Ignored here (Claude Code only): argument-hint.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere."
+    },
+    {
+      "message": "openclaw: Ignored here (Claude Code only): argument-hint.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere."
+    },
+    {
+      "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "HARNESS",
+      "suggestion": null
+    },
+    {
+      "message": "opencode: Ignored here (Claude Code only): argument-hint.",
+      "severity": "info",
+      "total_count": 1,
+      "skills_affected": [
+        "es-log-query"
+      ],
+      "category": "HARNESS",
+      "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere."
+    }
+  ],
+  "results": [
+    {
+      "validator": "Schema & Repository Governance",
+      "description": "Validate SKILL.md frontmatter and repository structure",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 6,
+        "errors": 0,
+        "warnings": 8,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 3,
+        "low_count": 5
+      },
+      "finding_counts": {
+        "raw_occurrences": 8,
+        "distinct_occurrences": 8,
+        "unique_findings": 8,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 5,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 3,
+          "low": 5,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-18a7f8cc53f607ef9645",
+          "occurrence_id": "SEO-5d0198ac6c0028cdd2ff",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "folder_hierarchy",
+          "message": "Unexpected nesting depth for general skill",
+          "file_path": "/skills/library-demo/es-log-query",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "General skills should be at: skills/<skill-name>/",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-2ab016a817c566724ba9",
+          "occurrence_id": "SEO-738020e1d156a61e54b7",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Instructions'",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Instructions' or '## Usage' section. Per agentskills.io the body format is unrestricted, so this is a convention nudge \u2014 it also gives the quality scorer a stable anchor for instruction-quality heuristics.",
+          "metadata": {
+            "missing_section": "## Instructions"
+          }
+        },
+        {
+          "finding_id": "SEF-e3f5c930756d6b8f695b",
+          "occurrence_id": "SEO-3fe0505c6ca033b1c605",
+          "category": "SCHEMA",
+          "severity": "medium",
+          "check_name": "body_recommended_section",
+          "message": "Missing recommended section: '## Examples'",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider adding a '## Examples' section. If examples are already inline under instructions, this can be skipped.",
+          "metadata": {
+            "missing_section": "## Examples"
+          }
+        },
+        {
+          "finding_id": "SEF-2f0dd915a2f184be91f0",
+          "occurrence_id": "SEO-2fbbcc7e5d9c490ecf4d",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "unexpected_file",
+          "message": "Unexpected 'es_log_query.py' in skill root",
+          "file_path": "/skills/library-demo/es-log-query/es_log_query.py",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider moving to one of: agents/, assets/, config/, evals/, references/, scripts/, tests/, tools/. To allow additional directories, set $SKILLEVALUATOR_SCHEMA_ALLOWED_DIRS.",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-c468e27696e6ce3176ba",
+          "occurrence_id": "SEO-12530bfe88a754f9a418",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "unexpected_file",
+          "message": "Unexpected 'skill.json' in skill root",
+          "file_path": "/skills/library-demo/es-log-query/skill.json",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Consider moving to one of: agents/, assets/, config/, evals/, references/, scripts/, tests/, tools/. To allow additional directories, set $SKILLEVALUATOR_SCHEMA_ALLOWED_DIRS.",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-7d8d9f72f99ec61dbf58",
+          "occurrence_id": "SEO-672faadc1f127adb408c",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "author_missing",
+          "message": "Author not specified in metadata",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'metadata.author' with a person, team, or organization name, or 'Name <email@example.com>' to include a contact address",
+          "metadata": {
+            "profile": "default"
+          }
+        },
+        {
+          "finding_id": "SEF-29923f4d680e578e37e3",
+          "occurrence_id": "SEO-893cf561b472f977e509",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "description_trigger",
+          "message": "Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "State when to use the skill within the first 60 characters",
+          "metadata": null
+        },
+        {
+          "finding_id": "SEF-8fc20d858b74a90f4136",
+          "occurrence_id": "SEO-5b98b01f3446ea038bc6",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "unknown_field",
+          "message": "Frontmatter field(s) outside the agentskills.io spec: argument-hint, author, tags, version; agent harnesses do not pass them to the model",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Remove them or move them under 'metadata'",
+          "metadata": {
+            "fields": [
+              "argument-hint",
+              "author",
+              "tags",
+              "version"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "manifest_exists",
+          "message": "Found skill manifest: SKILL.md",
+          "metadata": {
+            "file_path": "/skills/library-demo/es-log-query/SKILL.md"
+          }
+        },
+        {
+          "check": "frontmatter_valid",
+          "message": "Valid frontmatter for skill 'es-log-query'",
+          "metadata": {
+            "description_length": 69
+          }
+        },
+        {
+          "check": "naming_convention",
+          "message": "Folder name 'es-log-query' follows kebab-case convention",
+          "metadata": {
+            "name_length": 12
+          }
+        },
+        {
+          "check": "line_count",
+          "message": "SKILL.md within line limit (162/500)",
+          "metadata": {
+            "line_count": 162,
+            "limit": 500
+          }
+        },
+        {
+          "check": "body_heading",
+          "message": "Body contains a top-level heading",
+          "metadata": null
+        },
+        {
+          "check": "name_consistency",
+          "message": "Directory name matches frontmatter: 'es-log-query'",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[SCHEMA-MEDIUM] Unexpected nesting depth for general skill in /skills/library-demo/es-log-query",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Instructions' in /skills/library-demo/es-log-query/SKILL.md",
+          "[SCHEMA-MEDIUM] Missing recommended section: '## Examples' in /skills/library-demo/es-log-query/SKILL.md",
+          "[SCHEMA-LOW] Unexpected 'es_log_query.py' in skill root in /skills/library-demo/es-log-query/es_log_query.py",
+          "[SCHEMA-LOW] Unexpected 'skill.json' in skill root in /skills/library-demo/es-log-query/skill.json",
+          "[SCHEMA-LOW] Author not specified in metadata in /skills/library-demo/es-log-query/SKILL.md",
+          "[SCHEMA-LOW] Description has no 'Use when ...' trigger; some harnesses show only the first ~60 characters in their skill list in /skills/library-demo/es-log-query/SKILL.md",
+          "[SCHEMA-LOW] Frontmatter field(s) outside the agentskills.io spec: argument-hint, author, tags, version; agent harnesses do not pass them to the model in /skills/library-demo/es-log-query/SKILL.md"
+        ],
+        "messages": [
+          "[OK] manifest_exists: Found skill manifest: SKILL.md",
+          "[OK] frontmatter_valid: Valid frontmatter for skill 'es-log-query'",
+          "[OK] naming_convention: Folder name 'es-log-query' follows kebab-case convention",
+          "[OK] line_count: SKILL.md within line limit (162/500)",
+          "[OK] body_heading: Body contains a top-level heading",
+          "[OK] name_consistency: Directory name matches frontmatter: 'es-log-query'"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "schema"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Semantic Version Validation",
+      "description": "Validate optional metadata.version labels and require strict bumps",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "version_optional",
+          "message": "No semantic version label present; resource will use commit-hash history",
+          "metadata": {
+            "previous_version": null
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] version_optional: No semantic version label present; resource will use commit-hash history"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "version"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Security Scan",
+      "description": "Detect security vulnerabilities and PII/secrets",
+      "passed": false,
+      "status": "failed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [
+        "llm-verification"
+      ],
+      "scanners": {
+        "skillspector": "2.13.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 11,
+        "warnings": 4,
+        "critical_count": 0,
+        "high_count": 11,
+        "medium_count": 3,
+        "low_count": 1
+      },
+      "finding_counts": {
+        "raw_occurrences": 15,
+        "distinct_occurrences": 15,
+        "unique_findings": 11,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 4,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 11,
+          "medium": 3,
+          "low": 1,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 7,
+          "medium": 3,
+          "low": 1,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-0a046cedaad0ac6f0723",
+          "occurrence_id": "SEO-1c6dcff5d61e50ebdab1",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Credential Access (PE3)",
+          "message": "Privilege Escalation: .env ",
+          "file_path": ".env.example",
+          "line_number": 2,
+          "line_content": "# ES Log Query \u914d\u7f6e\n# \u590d\u5236\u6b64\u6587\u4ef6\u4e3a .env \u5e76\u586b\u5199\u4f60\u7684\u8d26\u53f7\u5bc6\u7801\n\n# ES \u96c6\u7fa4\u5730\u5740\uff08\u53ef\u9009\uff0c\u6709\u9ed8\u8ba4\u503c\uff09\nES_HOST=http://10.20.10.45:9200",
+          "suggestion": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts. Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_reference",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-0a046cedaad0ac6f0723",
+          "occurrence_id": "SEO-ee48c78676099ded6df0",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Credential Access (PE3)",
+          "message": "Privilege Escalation: .env ",
+          "file_path": "es_log_query.py",
+          "line_number": 22,
+          "line_content": "\n\ndef _load_env() -> Dict[str, str]:\n    \"\"\"\u4ece skill \u76ee\u5f55\u4e0b\u7684 .env \u6587\u4ef6\u52a0\u8f7d\u914d\u7f6e\"\"\"\n    script_dir = Path(__file__).resolve().parent\n    env_path = script_dir / '.env'\n    env = {}",
+          "suggestion": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts. Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_executable",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-0a046cedaad0ac6f0723",
+          "occurrence_id": "SEO-072bbb53fe151d969d18",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Credential Access (PE3)",
+          "message": "Privilege Escalation: .env ",
+          "file_path": "es_log_query.py",
+          "line_number": 37,
+          "line_content": "\n\ndef _get_es_config() -> Dict[str, str]:\n    \"\"\"\u83b7\u53d6 ES \u914d\u7f6e\uff0c\u4f18\u5148\u4ece .env \u8bfb\u53d6\"\"\"\n    env = _load_env()\n    return {\n        'host': env.get('ES_HOST', 'http://10.20.10.45:9200'),",
+          "suggestion": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts. Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_executable",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-0a046cedaad0ac6f0723",
+          "occurrence_id": "SEO-0f2882743daa213b8f77",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Credential Access (PE3)",
+          "message": "Privilege Escalation: .env ",
+          "file_path": "es_log_query.py",
+          "line_number": 51,
+          "line_content": "    \"\"\"\u68c0\u67e5\u8d26\u53f7\u5bc6\u7801\uff0c\u7f3a\u5931\u65f6\u63d0\u793a\u7528\u6237\"\"\"\n    if not config.get('user') or not config.get('password'):\n        print(\"\u9519\u8bef: \u9700\u8981 ES \u8d26\u53f7\u5bc6\u7801\u624d\u80fd\u67e5\u8be2\u3002\", file=sys.stderr)\n        print(\"\u8bf7\u5728 skill \u76ee\u5f55\u4e0b\u521b\u5efa .env \u6587\u4ef6\uff0c\u586b\u5199 ES_USER \u548c ES_PASSWO",
+          "suggestion": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts. Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_executable",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-0a046cedaad0ac6f0723",
+          "occurrence_id": "SEO-1f2aa5a197f65677ae7a",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Credential Access (PE3)",
+          "message": "Privilege Escalation: .env ",
+          "file_path": "es_log_query.py",
+          "line_number": 56,
+          "line_content": "        sys.exit(1)\n\n\n# \u9ed8\u8ba4\u914d\u7f6e\uff08\u4e0d\u542b\u654f\u611f\u4fe1\u606f\uff0c\u5b9e\u9645\u503c\u4ece .env \u52a0\u8f7d\uff09\nES_CONFIG = _get_es_config()\n\n# \u9ed8\u8ba4 AppId \u5217\u8868",
+          "suggestion": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts. Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_executable",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-5f18925f4e26c7738c9f",
+          "occurrence_id": "SEO-c1ac07133dc554b555f3",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Credential Access (PE3)",
+          "message": "Privilege Escalation: .env'",
+          "file_path": "es_log_query.py",
+          "line_number": 24,
+          "line_content": "def _load_env() -> Dict[str, str]:\n    \"\"\"\u4ece skill \u76ee\u5f55\u4e0b\u7684 .env \u6587\u4ef6\u52a0\u8f7d\u914d\u7f6e\"\"\"\n    script_dir = Path(__file__).resolve().parent\n    env_path = script_dir / '.env'\n    env = {}\n    if env_path.exists():\n       ",
+          "suggestion": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts. Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+          "metadata": {
+            "skillspector_confidence": 0.6,
+            "artifact_type": "skill",
+            "file_role": "agent_executable",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-8e1fcdbf37b720508663",
+          "occurrence_id": "SEO-c04b8c5539e90a8aac9b",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Unknown (LP3)",
+          "message": "MCP Least Privilege: Without declared permissions the skill's intent is opaque and cannot be validated.",
+          "file_path": "SKILL.md",
+          "line_number": 1,
+          "line_content": null,
+          "suggestion": "Without declared permissions the skill's intent is opaque and cannot be validated. Declare the skill's tool scope: for Claude Code / Agent Skills SKILL.md, list the tools the skill may invoke in the 'allowed-tools' frontmatter field; for MCP server manifests, add a 'permissions' list naming the required capabilities.",
+          "metadata": {
+            "skillspector_confidence": 0.7,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-f27336f7af0f9c98cf71",
+          "occurrence_id": "SEO-c4b28c94745bac34d2f8",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Unknown (TP4)",
+          "message": "MCP Tool Poisoning: The declared purpose is essentially a log-query helper, but the actual behavior appears to include network calls to an i",
+          "file_path": "SKILL.md",
+          "line_number": 1,
+          "line_content": null,
+          "suggestion": "The declared purpose is essentially a log-query helper, but the actual behavior appears to include network calls to an internal Elasticsearch endpoint, loading credentials from `.env`, issuing basic-auth requests, writing arbitrary local output files, and implicitly applying hardcoded internal defaults such as index and app IDs. This is a significant description-behavior mismatch because it understates the security and operational blast radius of the skill. Even if some details appear later in the markdown, the high-level capability model is still unsafe for an agent skill that touches production data. Rewrite the description and documentation to explicitly disclose all real behaviors: outbound network access to an internal ES host, credential handling from `.env`, basic auth usage, local file writes, and default targets. Replace implicit hardcoded internal defaults with explicit configuration. Require user confirmation before contacting production infrastructure, and document that the skill can read sensitive credentials and export potentially sensitive logs.",
+          "metadata": {
+            "skillspector_confidence": 0.91,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-6d558073101ce9853e02",
+          "occurrence_id": "SEO-18bc78b07bce30afd9b3",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Unknown (SQP-2)",
+          "message": "The skill facilitates access to production Elasticsearch logs and supports large exports to local files, but it does not",
+          "file_path": "SKILL.md",
+          "line_number": 22,
+          "line_content": null,
+          "suggestion": "The skill facilitates access to production Elasticsearch logs and supports large exports to local files, but it does not warn that production logs may contain sensitive data (PII, tokens, secrets, internal identifiers, business data), that exported files may persist that data on disk, or that file output can overwrite existing files. In a production-debugging context, that omission materially increases the risk of accidental data exposure or data destruction. Add clear warnings that query results may contain sensitive data and must be handled securely. Require or default to safe output handling: path allow-listing, no overwriting without confirmation, append/random suffixes, restricted file permissions, and retention warnings. If feasible, add PII/secret redaction, field allow-lists, or sample-mode limiting for exploratory queries.",
+          "metadata": {
+            "skillspector_confidence": 0.85,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-4323078500a2921b138e",
+          "occurrence_id": "SEO-b1485a9d6466964d80a8",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Unknown (SQP-2)",
+          "message": "The skill directs users to configure credentials via a local `.env` file and even references obtaining credentials from ",
+          "file_path": "SKILL.md",
+          "line_number": 120,
+          "line_content": null,
+          "suggestion": "The skill directs users to configure credentials via a local `.env` file and even references obtaining credentials from a named internal contact. That workflow has obvious credential-handling and privacy implications, but the documentation provides no warnings about storing secrets securely, restricting file permissions, avoiding secret leakage into logs/chat, or verifying the identity of the contact process. This is especially risky because the target system is production. Add explicit credential-handling guidance: keep `.env` out of version control, chmod 600, do not paste passwords into agent prompts or logs, use a secret manager or environment injection where possible, and ensure the ES account is least-privilege/read-only. Remove or generalize named internal contacts in favor of an approved ticketing or self-service flow to avoid informal credential distribution.",
+          "metadata": {
+            "skillspector_confidence": 0.8,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-e8d0ced66cfe7b297b86",
+          "occurrence_id": "SEO-06af3863831e56869734",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Unknown (SDI-1)",
+          "message": "The tool advertises support for relational query expressions such as `appId:\"x\" and message:\"y\" or traceId:\"z\"`, but `pa",
+          "file_path": "es_log_query.py",
+          "line_number": 66,
+          "line_content": null,
+          "suggestion": "The tool advertises support for relational query expressions such as `appId:\"x\" and message:\"y\" or traceId:\"z\"`, but `parse_query_string()` only extracts `field:value` pairs and discards the boolean operators (`and`, `or`). Every extracted pair is then placed into an Elasticsearch `bool.filter` list, which enforces conjunctive (AND) semantics. Therefore an intended OR query silently becomes an AND query, causing false-negative results. In a production log-analysis or incident-response context, this can mislead analysts into believing no relevant events exist when they do. Implement a query parser that preserves boolean operators and precedence. At minimum, document that only AND semantics are supported. If OR is required, map OR conditions to Elasticsearch `bool.should` clauses and AND conditions to `bool.must`, and reject unsupported syntax instead of silently changing query semantics.",
+          "metadata": {
+            "skillspector_confidence": 0.95,
+            "artifact_type": "skill",
+            "file_role": "agent_executable",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-9f6902711d783a986614",
+          "occurrence_id": "SEO-2e91067c0dd6eb8759d5",
+          "category": "SECURITY",
+          "severity": "high",
+          "check_name": "Unknown (SDI-4)",
+          "message": "The code documentation explicitly implies support for relational expression parsing, including `or`, but the implementat",
+          "file_path": "es_log_query.py",
+          "line_number": 67,
+          "line_content": null,
+          "suggestion": "The code documentation explicitly implies support for relational expression parsing, including `or`, but the implementation ignores logical operators entirely and converts all parsed filters into conjunctive conditions. This is an intent-code divergence that can produce incorrect investigative results. Align documentation and implementation. Either update the docstring to state that only AND filters are supported, or implement real boolean expression parsing.",
+          "metadata": {
+            "skillspector_confidence": 0.97,
+            "artifact_type": "skill",
+            "file_role": "agent_executable",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-56af63d547e1313fa049",
+          "occurrence_id": "SEO-82472818bb8e1673f193",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Unknown (LP3)",
+          "message": "MCP Least Privilege: The skill exposes capabilities that affect external and local resources (network access to an Elasticsearch host, readin",
+          "file_path": "SKILL.md",
+          "line_number": 1,
+          "line_content": null,
+          "suggestion": "The skill exposes capabilities that affect external and local resources (network access to an Elasticsearch host, reading a local `.env` file, and writing output to arbitrary local paths) but does not declare any explicit tool scope, permissions, or allowed-tools metadata. In an agent execution context, that creates a least-privilege and transparency failure: the agent may be able to invoke this skill\u2019s script without a clearly bounded capability declaration, even though the script can contact internal infrastructure, consume credentials, and write files. Add explicit skill-level permissions or an allowed-tools manifest describing: network access, file read of config/credential files, file write for output, and execution of the Python script. Scope the capabilities narrowly (e.g., only the configured ES host, only the skill directory for config, only an allowed output directory, and only read-only ES roles). If the platform supports capability review, declare it there and require user approval before first use.",
+          "metadata": {
+            "skillspector_confidence": 0.88,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-b5d8a57b5ee6f7011adf",
+          "occurrence_id": "SEO-21581fffa240ed24c23e",
+          "category": "SECURITY",
+          "severity": "medium",
+          "check_name": "Unknown (SQP-3)",
+          "message": "Natural-language organizational policy violations include forcing a language or locale without user opt-in.",
+          "file_path": "SKILL.md",
+          "line_number": 1,
+          "line_content": null,
+          "suggestion": "Natural-language organizational policy violations include forcing a language or locale without user opt-in. Add a language/locale note or allow user choice, or document the locale constraint as intended for Chinese internal users.",
+          "metadata": {
+            "skillspector_confidence": 0.75,
+            "artifact_type": "skill",
+            "file_role": "agent_instruction",
+            "applicability": "agent-control-path"
+          }
+        },
+        {
+          "finding_id": "SEF-920dbb419454d49c4a70",
+          "occurrence_id": "SEO-e6c287be8e1c44f95d9c",
+          "category": "SECURITY",
+          "severity": "low",
+          "check_name": "Unknown (SQP-3)",
+          "message": "User-visible text is hard-coded in Chinese, e.g. error guidance, progress output, result output, and CLI help strings. T",
+          "file_path": "es_log_query.py",
+          "line_number": 50,
+          "line_content": null,
+          "suggestion": "User-visible text is hard-coded in Chinese, e.g. error guidance, progress output, result output, and CLI help strings. There is no documented or implemented language/locale selection, and no justification indicating that the locale constraint is intentional and approved for this tool. Add an explicit locale/language selection mechanism or opt-in, or at minimum provide English equivalents / i18n support for user-facing strings. If Chinese-only output is required by an approved regional workflow, document that constraint and rationale in the skill description or user-facing help.",
+          "metadata": {
+            "skillspector_confidence": 0.93,
+            "artifact_type": "skill",
+            "file_role": "agent_executable",
+            "applicability": "agent-control-path"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [
+          "[SECURITY-HIGH] Privilege Escalation: .env  in .env.example:2",
+          "[SECURITY-HIGH] Privilege Escalation: .env  in es_log_query.py:22",
+          "[SECURITY-HIGH] Privilege Escalation: .env  in es_log_query.py:37",
+          "[SECURITY-HIGH] Privilege Escalation: .env  in es_log_query.py:51",
+          "[SECURITY-HIGH] Privilege Escalation: .env  in es_log_query.py:56",
+          "[SECURITY-HIGH] Privilege Escalation: .env' in es_log_query.py:24",
+          "[SECURITY-HIGH] MCP Tool Poisoning: The declared purpose is essentially a log-query helper, but the actual behavior appears to include network calls to an i in SKILL.md:1",
+          "[SECURITY-HIGH] The skill facilitates access to production Elasticsearch logs and supports large exports to local files, but it does not in SKILL.md:22",
+          "[SECURITY-HIGH] The skill directs users to configure credentials via a local `.env` file and even references obtaining credentials from  in SKILL.md:120",
+          "[SECURITY-HIGH] The tool advertises support for relational query expressions such as `appId:\"x\" and message:\"y\" or traceId:\"z\"`, but `pa in es_log_query.py:66",
+          "[SECURITY-HIGH] The code documentation explicitly implies support for relational expression parsing, including `or`, but the implementat in es_log_query.py:67"
+        ],
+        "warnings": [
+          "[SECURITY-MEDIUM] MCP Least Privilege: Without declared permissions the skill's intent is opaque and cannot be validated. in SKILL.md:1",
+          "[SECURITY-MEDIUM] MCP Least Privilege: The skill exposes capabilities that affect external and local resources (network access to an Elasticsearch host, readin in SKILL.md:1",
+          "[SECURITY-MEDIUM] Natural-language organizational policy violations include forcing a language or locale without user opt-in. in SKILL.md:1",
+          "[SECURITY-LOW] User-visible text is hard-coded in Chinese, e.g. error guidance, progress output, result output, and CLI help strings. T in es_log_query.py:50"
+        ],
+        "messages": [
+          "skillspector found 7 issue(s) including critical/high severity",
+          "skillspector risk score: 100/100 (CRITICAL)",
+          "skillspector found 14 issue(s) including critical/high severity",
+          "LLM finding verification was skipped (no verdicts returned: LLM connection failed. Check provider connectivity and endpoint configuration.)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "skillspector_version": "2.13.4",
+      "skillspector_llm_provenance": {
+        "schema_version": 1,
+        "provider": {
+          "configured_adapter": "openai_compatible",
+          "resolved_adapter": "openai_compatible",
+          "effective_adapter": "openai_compatible",
+          "effective_adapters": [
+            "openai_compatible"
+          ],
+          "service": "unknown",
+          "routing": {
+            "deployment_override": null,
+            "deployment_source": "not_applicable",
+            "api_version": null,
+            "api_version_source": "not_applicable"
+          }
+        },
+        "analyzers": [
+          {
+            "analyzer_id": "mcp_tool_poisoning",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_developer_intent",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_quality_policy",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "semantic_security_discovery",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          },
+          {
+            "analyzer_id": "meta_analyzer",
+            "model": "qwen3.8-flash",
+            "model_source": "resolved_configuration",
+            "analyzer_revision": {
+              "value": "2.13.4",
+              "source": "skillspector_package",
+              "source_revision": {
+                "value": "unknown",
+                "source": "unknown"
+              }
+            }
+          }
+        ],
+        "sampling": {
+          "temperature": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "seed": {
+            "requested": null,
+            "source": "unset",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          },
+          "reasoning_effort": {
+            "requested": null,
+            "source": "provider_default",
+            "forwarded_to_client": null,
+            "adapter_support": true,
+            "provider_support": "unknown"
+          }
+        },
+        "determinism": {
+          "classification": "nondeterministic",
+          "control_status": "provider_defaults",
+          "provider_guarantee": false,
+          "reason": "Optional controls do not guarantee identical provider output."
+        }
+      },
+      "skillspector_applicability": {
+        "artifact_type": "skill",
+        "kept_issues": 7,
+        "suppressed_inapplicable_issues": 0,
+        "suppressed_by_file_role": {},
+        "raw_risk_score": 36,
+        "applicable_risk_score": 36
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "security"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "PII Scan",
+      "description": "Detect PII and local identifiers",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 3,
+        "checks_performed": 2,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "pii_scan_start",
+          "message": "Scanning 3 files for PII",
+          "metadata": {
+            "file_count": 3
+          }
+        },
+        {
+          "check": "pii_detection",
+          "message": "No PII detected in 3 files (emails, SSNs, phone numbers, paths)",
+          "metadata": {
+            "files_scanned": 3
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] pii_scan_start: Scanning 3 files for PII",
+          "[OK] pii_detection: No PII detected in 3 files (emails, SSNs, phone numbers, paths)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "pii"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "License Compliance",
+      "description": "Validate license compliance for Skills, Rules, and Workflows",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "license_compliance",
+          "message": "License compliance scan completed (not detected)",
+          "metadata": {
+            "license_status": "not_detected"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No license information found - manual review required. Add a LICENSE file or 'license' field in frontmatter."
+        ],
+        "messages": [
+          "No license detected in any tier",
+          "[OK] license_compliance: License compliance scan completed (not detected)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "license"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Risk Analysis",
+      "description": "Static code analysis using Bandit and packaged Semgrep rules",
+      "passed": false,
+      "status": "failed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "bandit": "1.9.4"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 2,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 2,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 2,
+        "distinct_occurrences": 2,
+        "unique_findings": 1,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 1,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-7ce154d64f02bb16a5ee",
+          "occurrence_id": "SEO-bc5d12ea75a33c372edb",
+          "category": "BANDIT",
+          "severity": "medium",
+          "check_name": "B310:blacklist",
+          "message": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected. (CWE-22)",
+          "file_path": "/skills/library-demo/es-log-query/es_log_query.py",
+          "line_number": 168,
+          "line_content": null,
+          "suggestion": "Review blacklist (B310) (CWE-22)",
+          "metadata": {
+            "cwe": 22
+          }
+        },
+        {
+          "finding_id": "SEF-7ce154d64f02bb16a5ee",
+          "occurrence_id": "SEO-5fa254e556240a205164",
+          "category": "BANDIT",
+          "severity": "medium",
+          "check_name": "B310:blacklist",
+          "message": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected. (CWE-22)",
+          "file_path": "/skills/library-demo/es-log-query/es_log_query.py",
+          "line_number": 226,
+          "line_content": null,
+          "suggestion": "Review blacklist (B310) (CWE-22)",
+          "metadata": {
+            "cwe": 22
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [
+          "[BANDIT-MEDIUM] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected. (CWE-22) in /skills/library-demo/es-log-query/es_log_query.py:168",
+          "[BANDIT-MEDIUM] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected. (CWE-22) in /skills/library-demo/es-log-query/es_log_query.py:226"
+        ],
+        "warnings": [],
+        "messages": [
+          "Found 1 Python, 0 Shell, 0 JavaScript/TypeScript files",
+          "Bandit found: 0 HIGH, 2 MEDIUM, 0 LOW",
+          "Semgrep not installed; skipped. Optional; install separately with: brew install semgrep (macOS) or uv tool install semgrep"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Secrets Detection",
+      "description": "Detect hardcoded secrets, API keys, and credentials using Gitleaks",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "scanners": {
+        "gitleaks": "8.30.0"
+      },
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "gitleaks",
+          "message": "No secrets detected by Gitleaks",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] gitleaks: No secrets detected by Gitleaks"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Code Integrity & Hygiene",
+      "description": "Validate dead links, dependencies, and static Python test-file discovery",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 1,
+        "checks_performed": 4,
+        "errors": 0,
+        "warnings": 1,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dead_links_scan",
+          "message": "Checking 1 markdown files for dead links",
+          "metadata": {
+            "file_count": 1
+          }
+        },
+        {
+          "check": "dead_links",
+          "message": "All relative links valid in 1 markdown file(s)",
+          "metadata": {
+            "files_checked": 1
+          }
+        },
+        {
+          "check": "dependencies",
+          "message": "No dependency files found (requirements.txt, pyproject.toml)",
+          "metadata": null
+        },
+        {
+          "check": "test_discovery",
+          "message": "No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests.",
+          "metadata": {
+            "test_count": 0,
+            "execution_performed": false,
+            "coverage_measured": false,
+            "patterns": [
+              "test_*.py",
+              "*_test.py"
+            ]
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "No standard Python test-file candidates found; consider adding tests"
+        ],
+        "messages": [
+          "[OK] dead_links_scan: Checking 1 markdown files for dead links",
+          "[OK] dead_links: All relative links valid in 1 markdown file(s)",
+          "[OK] dependencies: No dependency files found (requirements.txt, pyproject.toml)",
+          "[OK] test_discovery: No standard Python test-file candidates found; target tests were not executed and coverage was not measured. Consider adding tests."
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "code-integrity"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Dependency Vulnerability Audit",
+      "description": "Scan dependencies for CVE vulnerabilities using pip-audit and Safety",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "dependency_file_discovery",
+          "message": "No dependency files found - vulnerability audit is not applicable",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] dependency_file_discovery: No dependency files found - vulnerability audit is not applicable"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "dependency"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Unicode Smuggling Detection",
+      "description": "Detect invisible Unicode characters and ASCII smuggling",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 3,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "unicode_scan",
+          "message": "No invisible Unicode characters detected in 3 file(s)",
+          "metadata": {
+            "files_scanned": 3
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] unicode_scan: No invisible Unicode characters detected in 3 file(s)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "unicode"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "QUALITY",
+      "description": "Skill quality scoring across Correctness (35%), Discoverability (25%), Reliability (25%), and Efficiency (15%)",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 7,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 2,
+        "low_count": 5
+      },
+      "finding_counts": {
+        "raw_occurrences": 7,
+        "distinct_occurrences": 7,
+        "unique_findings": 7,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 5,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 2,
+          "low": 5,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-bf2d85d8c9d7a282e7ad",
+          "occurrence_id": "SEO-15c189527d17366cdcc6",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-dd828fd8f6476dc5f3c7",
+          "occurrence_id": "SEO-f315e928373397b69728",
+          "category": "QUALITY",
+          "severity": "medium",
+          "check_name": "quality_correctness",
+          "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+          "metadata": {
+            "dimension": "correctness",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-0f3cde56a46498377f1a",
+          "occurrence_id": "SEO-924983b98753bbb6d4ae",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "Description doesn't mention WHEN to use this skill",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 10
+          }
+        },
+        {
+          "finding_id": "SEF-b6533ad44b39dbc6d0d2",
+          "occurrence_id": "SEO-73c93306641a50800d39",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_discoverability",
+          "message": "No '## Purpose' section",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add purpose section to clarify use cases",
+          "metadata": {
+            "dimension": "discoverability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-4a6560f4aec006f302f9",
+          "occurrence_id": "SEO-85e50650b6e1a69c2316",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No prerequisites/requirements documented",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Document dependencies, API keys, or setup needed",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-fc6fe3747c071963a76e",
+          "occurrence_id": "SEO-e567efa8da5ada1c9988",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No limitations documented",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Limitations' section with known issues/constraints",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        },
+        {
+          "finding_id": "SEF-378f24adfec67572e606",
+          "occurrence_id": "SEO-88c52b255346b3765d61",
+          "category": "QUALITY",
+          "severity": "low",
+          "check_name": "quality_reliability",
+          "message": "No troubleshooting section documented",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+          "metadata": {
+            "dimension": "reliability",
+            "deduction": 5
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "quality_score",
+          "message": "Score: 89.0/100 (Grade: B)",
+          "metadata": {
+            "overall_score": 89.0,
+            "grade": "B",
+            "skill_type": "guide-only"
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.author' in /skills/library-demo/es-log-query/SKILL.md",
+          "[QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags' in /skills/library-demo/es-log-query/SKILL.md",
+          "[QUALITY-LOW] Description doesn't mention WHEN to use this skill in /skills/library-demo/es-log-query/SKILL.md",
+          "[QUALITY-LOW] No '## Purpose' section in /skills/library-demo/es-log-query/SKILL.md",
+          "[QUALITY-LOW] No prerequisites/requirements documented in /skills/library-demo/es-log-query/SKILL.md",
+          "[QUALITY-LOW] No limitations documented in /skills/library-demo/es-log-query/SKILL.md",
+          "[QUALITY-LOW] No troubleshooting section documented in /skills/library-demo/es-log-query/SKILL.md"
+        ],
+        "messages": [
+          "[OK] quality_score: Score: 89.0/100 (Grade: B)"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "quality": {
+        "overall_score": 89.0,
+        "grade": "B",
+        "skill_type": "guide-only",
+        "skill_name": "es-log-query",
+        "dimensions": {
+          "correctness": {
+            "score": 90.0,
+            "weight": 0.35,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+                "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+                "deduction": 5
+              },
+              {
+                "severity": "warning",
+                "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+                "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+                "deduction": 5
+              }
+            ]
+          },
+          "discoverability": {
+            "score": 85.0,
+            "weight": 0.25,
+            "issues_count": 2,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "Description doesn't mention WHEN to use this skill",
+                "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+                "deduction": 10
+              },
+              {
+                "severity": "info",
+                "message": "No '## Purpose' section",
+                "suggestion": "Add purpose section to clarify use cases",
+                "deduction": 5
+              }
+            ]
+          },
+          "reliability": {
+            "score": 85.0,
+            "weight": 0.25,
+            "issues_count": 3,
+            "issues": [
+              {
+                "severity": "info",
+                "message": "No prerequisites/requirements documented",
+                "suggestion": "Document dependencies, API keys, or setup needed",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No limitations documented",
+                "suggestion": "Add '## Limitations' section with known issues/constraints",
+                "deduction": 5
+              },
+              {
+                "severity": "info",
+                "message": "No troubleshooting section documented",
+                "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+                "deduction": 5
+              }
+            ]
+          },
+          "efficiency": {
+            "score": 100.0,
+            "weight": 0.15,
+            "issues_count": 0,
+            "issues": []
+          }
+        },
+        "metrics": {
+          "total_tokens": 829,
+          "estimated_tokens": 829,
+          "estimate_method": "characters/4",
+          "recommended_max_tokens": 5000,
+          "frontmatter_tokens": 71,
+          "instructions_tokens": 755,
+          "script_count": 0,
+          "has_examples": true,
+          "has_error_handling": true,
+          "has_frontmatter": true,
+          "has_instructions": false,
+          "has_scripts": false,
+          "has_lib_module": false
+        }
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "quality"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "SCRIPT_LINT",
+      "description": "AST-based code quality checks for skill scripts",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 0,
+        "warnings": 0,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 0,
+        "distinct_occurrences": 0,
+        "unique_findings": 0,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        }
+      },
+      "findings": [],
+      "success_details": [
+        {
+          "check": "lint",
+          "message": "No scripts/ or tools/ directory found",
+          "metadata": null
+        }
+      ],
+      "legacy": {
+        "errors": [],
+        "warnings": [],
+        "messages": [
+          "[OK] lint: No scripts/ or tools/ directory found"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "lint"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "Harness Compatibility",
+      "description": "Advisory: whether each agent harness loads, degrades or drops the skill",
+      "passed": true,
+      "status": "passed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 0,
+        "errors": 0,
+        "warnings": 9,
+        "critical_count": 0,
+        "high_count": 0,
+        "medium_count": 0,
+        "low_count": 0
+      },
+      "finding_counts": {
+        "raw_occurrences": 9,
+        "distinct_occurrences": 9,
+        "unique_findings": 9,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 9
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 9
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-3c14903aa6a36408a8d2",
+          "occurrence_id": "SEO-f65b7850ee309dfd0df9",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CX-CLAUDE-ONLY",
+          "message": "codex: Ignored here (Claude Code only): argument-hint.",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere.",
+          "metadata": {
+            "harness": "codex",
+            "effect": "advisory",
+            "verified_version": "0.166.0",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-3661379ea9e5c1072875",
+          "occurrence_id": "SEO-11e26d4b18f87f3ecab5",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-RELOAD",
+          "message": "copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once.",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-9dcf632d2f32abd5d60c",
+          "occurrence_id": "SEO-e2622ad551bdc7089456",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "CP-CLAUDE-ONLY",
+          "message": "copilot-cli: Ignored here (Claude Code only): argument-hint.",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere.",
+          "metadata": {
+            "harness": "copilot-cli",
+            "effect": "advisory",
+            "verified_version": "1.0.105",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e0623bdfb91d6bbb829f",
+          "occurrence_id": "SEO-6dc96ef5c06fe8d09eaa",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-DESC-60",
+          "message": "hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them.",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Put the trigger (\"Use when \u2026\") in the first 57 characters.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-e1e9a6faee7311afd38b",
+          "occurrence_id": "SEO-de93c78489192d557c92",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-LINKED-LAYOUT",
+          "message": "hermes: 3 files outside references/, templates/, assets/ and scripts/ (.env.example, es_log_query.py, skill.json) are left out of the skill's file list; the model finds them only if SKILL.md names their paths.",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Move supporting files under references/, templates/, assets/ or scripts/.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-ea696edc4782d72e08ce",
+          "occurrence_id": "SEO-1593d656fa096025ac5f",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "HM-CLAUDE-ONLY",
+          "message": "hermes: Ignored here (Claude Code only): argument-hint.",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere.",
+          "metadata": {
+            "harness": "hermes",
+            "effect": "advisory",
+            "verified_version": "main @ c419cf7c864a (binary reports 2026.9.24)",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-6bc3d5578c3fefa78d68",
+          "occurrence_id": "SEO-33a925685bc670322c8d",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OW-CLAUDE-ONLY",
+          "message": "openclaw: Ignored here (Claude Code only): argument-hint.",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere.",
+          "metadata": {
+            "harness": "openclaw",
+            "effect": "advisory",
+            "verified_version": "2026.10.9",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-03e029934351881ba688",
+          "occurrence_id": "SEO-c8e560c0ae36d31aefe8",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-RELOAD",
+          "message": "opencode: Skill list and text are cached at startup; edits need a restart.",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": null,
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        },
+        {
+          "finding_id": "SEF-a79a1e72ae60b486b70d",
+          "occurrence_id": "SEO-995d94d7919a47d2ffc9",
+          "category": "HARNESS",
+          "severity": "info",
+          "check_name": "OC-CLAUDE-ONLY",
+          "message": "opencode: Ignored here (Claude Code only): argument-hint.",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Fine to keep for Claude Code; don't depend on them elsewhere.",
+          "metadata": {
+            "harness": "opencode",
+            "effect": "advisory",
+            "verified_version": "1.19.5",
+            "verified_date": "2026-11-01"
+          }
+        }
+      ],
+      "success_details": [],
+      "legacy": {
+        "errors": [],
+        "warnings": [
+          "[HARNESS-INFO] codex: Ignored here (Claude Code only): argument-hint. in /skills/library-demo/es-log-query/SKILL.md",
+          "[HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` or a restart; edits to existing skills apply at once. in /skills/library-demo/es-log-query/SKILL.md",
+          "[HARNESS-INFO] copilot-cli: Ignored here (Claude Code only): argument-hint. in /skills/library-demo/es-log-query/SKILL.md",
+          "[HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the description (57 + '...' in 0.16, a word boundary near 59 on main), and the trigger isn't in them. in /skills/library-demo/es-log-query/SKILL.md",
+          "[HARNESS-INFO] hermes: 3 files outside references/, templates/, assets/ and scripts/ (.env.example, es_log_query.py, skill.json) are left out of the skill's file list; the model finds them only if SKILL.md names their paths. in /skills/library-demo/es-log-query/SKILL.md",
+          "[HARNESS-INFO] hermes: Ignored here (Claude Code only): argument-hint. in /skills/library-demo/es-log-query/SKILL.md",
+          "[HARNESS-INFO] openclaw: Ignored here (Claude Code only): argument-hint. in /skills/library-demo/es-log-query/SKILL.md",
+          "[HARNESS-INFO] opencode: Skill list and text are cached at startup; edits need a restart. in /skills/library-demo/es-log-query/SKILL.md",
+          "[HARNESS-INFO] opencode: Ignored here (Claude Code only): argument-hint. in /skills/library-demo/es-log-query/SKILL.md"
+        ],
+        "messages": []
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "harness"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "validator": "RUBRIC_EVAL",
+      "description": "LLM-as-Judge qualitative evaluation across 9 criteria (description clarity, instruction quality, trigger simulation, etc.)",
+      "passed": false,
+      "status": "failed",
+      "skipped": false,
+      "skip_reason": null,
+      "incomplete_scans": [],
+      "summary": {
+        "files_scanned": 0,
+        "checks_performed": 1,
+        "errors": 1,
+        "warnings": 9,
+        "critical_count": 0,
+        "high_count": 1,
+        "medium_count": 1,
+        "low_count": 8
+      },
+      "finding_counts": {
+        "raw_occurrences": 10,
+        "distinct_occurrences": 10,
+        "unique_findings": 10,
+        "duplicates_removed": 0,
+        "occurrences_grouped": 0,
+        "raw_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 1,
+          "low": 8,
+          "info": 0
+        },
+        "unique_by_severity": {
+          "critical": 0,
+          "high": 1,
+          "medium": 1,
+          "low": 8,
+          "info": 0
+        }
+      },
+      "findings": [
+        {
+          "finding_id": "SEF-486e07cb89e7f6fd2884",
+          "occurrence_id": "SEO-a4485f39ce147361d0ed",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_description_clarity",
+          "message": "[8/10] Description is clear, specific, and explains WHEN to use the skill",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "It clearly identifies production Elasticsearch log querying and key features, though it could more explicitly mention traceId, appId, ERROR logs, and export use cases.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "description_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-0ea60db8ac0f4011b7c1",
+          "occurrence_id": "SEO-b8f330b7075a8e2079b0",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_instruction_clarity",
+          "message": "[8/10] Instructions are easy to follow with clear action steps",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The execution flow, command parameters, and examples make the usage path easy to follow. Script location and .env setup are mostly clear.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "instruction_clarity"
+          }
+        },
+        {
+          "finding_id": "SEF-29e23eccd3ba249d50f9",
+          "occurrence_id": "SEO-4fc7e370243771abaea7",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_example_quality",
+          "message": "[9/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Examples cover basic queries, traceId, ERROR logs, large exports, custom indexes, and multiple app IDs, which is strong for robust detection.",
+          "metadata": {
+            "score": 9,
+            "pass": true,
+            "judge_pass": true,
+            "id": "example_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-4b6a191bacaf84904844",
+          "occurrence_id": "SEO-d0e6d1690598579e9844",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_documentation_completeness",
+          "message": "[8/10] All necessary information is present (purpose, scripts, parameters)",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Purpose, script location, parameters, defaults, configuration, pagination, and output format are included. Troubleshooting information is missing.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "documentation_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-5b4b5fa9a7be5820d37b",
+          "occurrence_id": "SEO-00ddd2965b44d55ccbb0",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_scope_definition",
+          "message": "[8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Scope is focused on production Elasticsearch log query and export, with clear boundaries from general ES administration or local log analysis.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "scope_definition"
+          }
+        },
+        {
+          "finding_id": "SEF-cbed4859b38209b54667",
+          "occurrence_id": "SEO-39332b0c75f3f8be254f",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_professional_tone",
+          "message": "[8/10] Documentation uses professional, consistent tone and formatting",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The tone is professional and the formatting is consistent with headings, tables, and code blocks.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "professional_tone"
+          }
+        },
+        {
+          "finding_id": "SEF-80a54c116121bfec8cc3",
+          "occurrence_id": "SEO-a5ec745e96e0fdebd2d9",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_trigger_simulation",
+          "message": "[8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "It should trigger for production ES log, traceId, appId, ERROR, and export queries. It is unlikely to trigger for ES mapping changes, local log files, or Kibana dashboard creation.",
+          "metadata": {
+            "score": 8,
+            "pass": true,
+            "judge_pass": true,
+            "id": "trigger_simulation"
+          }
+        },
+        {
+          "finding_id": "SEF-8a5c03e51934d0484ba6",
+          "occurrence_id": "SEO-015411441d35a6b3f3eb",
+          "category": "RUBRIC_EVAL",
+          "severity": "low",
+          "check_name": "rubric_workflow_completeness",
+          "message": "[7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The workflow covers intent parsing, command execution, and result analysis. It lacks explicit guidance for empty results, failed queries, or authentication issues.",
+          "metadata": {
+            "score": 7,
+            "pass": true,
+            "judge_pass": true,
+            "id": "workflow_completeness"
+          }
+        },
+        {
+          "finding_id": "SEF-0d04185ef5e4d520e6b3",
+          "occurrence_id": "SEO-e1569a04fbcbc409b62e",
+          "category": "RUBRIC_EVAL",
+          "severity": "medium",
+          "check_name": "rubric_error_handling_quality",
+          "message": "[4/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "The documentation does not provide realistic error scenarios or actionable troubleshooting for network, auth, invalid query, or no-result cases.",
+          "metadata": {
+            "score": 4,
+            "pass": false,
+            "judge_pass": false,
+            "id": "error_handling_quality"
+          }
+        },
+        {
+          "finding_id": "SEF-2c579e447da61276708b",
+          "occurrence_id": "SEO-8e2ddc2c1ec6ed248193",
+          "category": "RUBRIC_EVAL",
+          "severity": "high",
+          "check_name": "rubric_overall",
+          "message": "Rubric evaluation failed: criteria below 7/10: error_handling_quality",
+          "file_path": "/skills/library-demo/es-log-query/SKILL.md",
+          "line_number": null,
+          "line_content": null,
+          "suggestion": "Address the failed rubric criteria and rerun the evaluation",
+          "metadata": {
+            "overall_score": 76.4,
+            "min_score": 70,
+            "failed_criteria": [
+              "error_handling_quality"
+            ]
+          }
+        }
+      ],
+      "success_details": [
+        {
+          "check": "rubric_eval",
+          "message": "LLM Rubric Score: 76.4/100",
+          "metadata": {
+            "overall_score": 76.4,
+            "overall_pass": false,
+            "llm_provider": "openai-compatible",
+            "llm_model_used": "qwen3.8-flash",
+            "judge_attempts": 1
+          }
+        }
+      ],
+      "legacy": {
+        "errors": [
+          "[RUBRIC_EVAL-HIGH] Rubric evaluation failed: criteria below 7/10: error_handling_quality in /skills/library-demo/es-log-query/SKILL.md"
+        ],
+        "warnings": [
+          "[RUBRIC_EVAL-LOW] [8/10] Description is clear, specific, and explains WHEN to use the skill in /skills/library-demo/es-log-query/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Instructions are easy to follow with clear action steps in /skills/library-demo/es-log-query/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [9/10] Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection in /skills/library-demo/es-log-query/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] All necessary information is present (purpose, scripts, parameters) in /skills/library-demo/es-log-query/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Skill scope is well-defined (clear boundaries, not too broad/narrow) in /skills/library-demo/es-log-query/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Documentation uses professional, consistent tone and formatting in /skills/library-demo/es-log-query/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [8/10] Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives? in /skills/library-demo/es-log-query/SKILL.md",
+          "[RUBRIC_EVAL-LOW] [7/10] Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance. in /skills/library-demo/es-log-query/SKILL.md",
+          "[RUBRIC_EVAL-MEDIUM] [4/10] Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate? in /skills/library-demo/es-log-query/SKILL.md"
+        ],
+        "messages": [
+          "[OK] rubric_eval: LLM Rubric Score: 76.4/100"
+        ]
+      },
+      "tier1_required_checks": [
+        "code-integrity",
+        "license",
+        "lint",
+        "pii",
+        "quality",
+        "schema",
+        "security",
+        "unicode",
+        "version"
+      ],
+      "tier1_unscanned_paths": [],
+      "rubric_eval": {
+        "execution_status": "succeeded",
+        "overall_score": 76.4,
+        "overall_pass": false,
+        "summary": "The skill documentation is clear, well-structured, and strong in examples and query variations, but error handling and troubleshooting guidance are weak.",
+        "judge_score": 76,
+        "judge_overall_pass": true,
+        "skill_name": "es-log-query",
+        "checks": [
+          {
+            "id": "description_clarity",
+            "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "It clearly identifies production Elasticsearch log querying and key features, though it could more explicitly mention traceId, appId, ERROR logs, and export use cases."
+          },
+          {
+            "id": "instruction_clarity",
+            "criterion": "Instructions are easy to follow with clear action steps",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "The execution flow, command parameters, and examples make the usage path easy to follow. Script location and .env setup are mostly clear."
+          },
+          {
+            "id": "example_quality",
+            "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 9,
+            "notes": "Examples cover basic queries, traceId, ERROR logs, large exports, custom indexes, and multiple app IDs, which is strong for robust detection."
+          },
+          {
+            "id": "documentation_completeness",
+            "criterion": "All necessary information is present (purpose, scripts, parameters)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Purpose, script location, parameters, defaults, configuration, pagination, and output format are included. Troubleshooting information is missing."
+          },
+          {
+            "id": "scope_definition",
+            "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+            "importance": "medium",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "Scope is focused on production Elasticsearch log query and export, with clear boundaries from general ES administration or local log analysis."
+          },
+          {
+            "id": "professional_tone",
+            "criterion": "Documentation uses professional, consistent tone and formatting",
+            "importance": "low",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "The tone is professional and the formatting is consistent with headings, tables, and code blocks."
+          },
+          {
+            "id": "trigger_simulation",
+            "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 8,
+            "notes": "It should trigger for production ES log, traceId, appId, ERROR, and export queries. It is unlikely to trigger for ES mapping changes, local log files, or Kibana dashboard creation."
+          },
+          {
+            "id": "workflow_completeness",
+            "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+            "importance": "high",
+            "pass": true,
+            "judge_pass": true,
+            "score": 7,
+            "notes": "The workflow covers intent parsing, command execution, and result analysis. It lacks explicit guidance for empty results, failed queries, or authentication issues."
+          },
+          {
+            "id": "error_handling_quality",
+            "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+            "importance": "medium",
+            "pass": false,
+            "judge_pass": false,
+            "score": 4,
+            "notes": "The documentation does not provide realistic error scenarios or actionable troubleshooting for network, auth, invalid query, or no-result cases."
+          }
+        ],
+        "aggregation": {
+          "method": "importance_weighted_mean",
+          "importance_weights": {
+            "high": 3,
+            "medium": 2,
+            "low": 1
+          },
+          "min_score": 70,
+          "criterion_pass_score": 7,
+          "requires_all_criteria_pass": true
+        },
+        "llm_provider": "openai-compatible",
+        "llm_model_used": "qwen3.8-flash",
+        "judge_attempts": 1
+      },
+      "gating": {
+        "tier": 1,
+        "blocking": true
+      },
+      "publication_target": {
+        "skill_name": "es-log-query",
+        "skill_digest": "sha256:ff665a91b15f0da0d6df6246a87a2c64e3cb124220de9ca78d68aac49eecf87a",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      },
+      "publication_evidence": {
+        "schema_version": 1,
+        "producer": "skillevaluator.tier1",
+        "tier": 1,
+        "check_id": "rubric"
+      },
+      "workflow": {
+        "tier": 1,
+        "stages": {
+          "validation": {
+            "status": "incomplete"
+          },
+          "rubric": {
+            "status": "failed"
+          },
+          "llm": {
+            "status": "enabled"
+          }
+        }
+      }
+    }
+  ],
+  "benchmark_policy": {
+    "tier2_required": true,
+    "tier3_required": true
+  },
+  "publication_status": "incomplete",
+  "publication": {
+    "status": "incomplete",
+    "eligible": false,
+    "reasons": [
+      "One or more validators reported incomplete scanner evidence."
+    ],
+    "tier3": {
+      "status": "not_run",
+      "evidence_complete": false,
+      "execution_status": "not_run",
+      "verdict": "not_run",
+      "reason": "Tier 3 lacks publication-complete execution evidence."
+    }
+  },
+  "policy": {
+    "profile": "default",
+    "audience": "all",
+    "digest": "sha256:64a069b8853f7123049a675d6853ef8d8b424792bb9a2a5157a73ec312f38ed4",
+    "author_email_regex": null,
+    "severity_overrides": {
+      "SCHEMA.author_missing": "low",
+      "SCHEMA.author_without_email": "info",
+      "SCHEMA.author_format": "high",
+      "WORKFLOWS.author_format": "high",
+      "LICENSE.*": "critical"
+    },
+    "metadata_id_requirement": "ignore",
+    "source": "/usr/local/lib/python3.12/site-packages/skillevaluator/config/profiles/default.yaml"
+  },
+  "quality_config": {
+    "source": "packaged",
+    "file": null,
+    "digest": "sha256:298ff2bf62132c8154217b7aa59fc1fd04f28cf75372f55620a2cbcd951d6549",
+    "min_score": 70
+  },
+  "evaluated_source": null,
+  "gating": {
+    "tiers": {
+      "1": {
+        "blocking": true,
+        "validators": [
+          "Schema & Repository Governance",
+          "Semantic Version Validation",
+          "Security Scan",
+          "PII Scan",
+          "License Compliance",
+          "Code Risk Analysis",
+          "Secrets Detection",
+          "Code Integrity & Hygiene",
+          "Dependency Vulnerability Audit",
+          "Unicode Smuggling Detection",
+          "QUALITY",
+          "SCRIPT_LINT",
+          "Harness Compatibility",
+          "RUBRIC_EVAL"
+        ],
+        "validator_policies": [
+          {
+            "validator": "Schema & Repository Governance",
+            "blocking": true
+          },
+          {
+            "validator": "Semantic Version Validation",
+            "blocking": true
+          },
+          {
+            "validator": "Security Scan",
+            "blocking": true
+          },
+          {
+            "validator": "PII Scan",
+            "blocking": true
+          },
+          {
+            "validator": "License Compliance",
+            "blocking": true
+          },
+          {
+            "validator": "Code Risk Analysis",
+            "blocking": true
+          },
+          {
+            "validator": "Secrets Detection",
+            "blocking": true
+          },
+          {
+            "validator": "Code Integrity & Hygiene",
+            "blocking": true
+          },
+          {
+            "validator": "Dependency Vulnerability Audit",
+            "blocking": true
+          },
+          {
+            "validator": "Unicode Smuggling Detection",
+            "blocking": true
+          },
+          {
+            "validator": "QUALITY",
+            "blocking": true
+          },
+          {
+            "validator": "SCRIPT_LINT",
+            "blocking": true
+          },
+          {
+            "validator": "Harness Compatibility",
+            "blocking": true
+          },
+          {
+            "validator": "RUBRIC_EVAL",
+            "blocking": true
+          }
+        ]
+      }
+    }
+  },
+  "workflow": {
+    "tier": 1,
+    "stages": {
+      "validation": {
+        "status": "incomplete"
+      },
+      "rubric": {
+        "status": "failed"
+      },
+      "llm": {
+        "status": "enabled"
+      }
+    }
+  },
+  "quality_summary": [
+    {
+      "overall_score": 89.0,
+      "grade": "B",
+      "skill_type": "guide-only",
+      "skill_name": "es-log-query",
+      "dimensions": {
+        "correctness": {
+          "score": 90.0,
+          "weight": 0.35,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.author'",
+              "suggestion": "Add 'author' under metadata: \u2014 Author name or team (under metadata:)",
+              "deduction": 5
+            },
+            {
+              "severity": "warning",
+              "message": "SKILL_SPEC recommended field missing: 'metadata.tags'",
+              "suggestion": "Add 'tags' under metadata: \u2014 Categorization tags (under metadata:, list of 1-5 items)",
+              "deduction": 5
+            }
+          ]
+        },
+        "discoverability": {
+          "score": 85.0,
+          "weight": 0.25,
+          "issues_count": 2,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "Description doesn't mention WHEN to use this skill",
+              "suggestion": "Add trigger context: 'Use for...', 'When you need to...'",
+              "deduction": 10
+            },
+            {
+              "severity": "info",
+              "message": "No '## Purpose' section",
+              "suggestion": "Add purpose section to clarify use cases",
+              "deduction": 5
+            }
+          ]
+        },
+        "reliability": {
+          "score": 85.0,
+          "weight": 0.25,
+          "issues_count": 3,
+          "issues": [
+            {
+              "severity": "info",
+              "message": "No prerequisites/requirements documented",
+              "suggestion": "Document dependencies, API keys, or setup needed",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No limitations documented",
+              "suggestion": "Add '## Limitations' section with known issues/constraints",
+              "deduction": 5
+            },
+            {
+              "severity": "info",
+              "message": "No troubleshooting section documented",
+              "suggestion": "Add '## Troubleshooting' with Error/Cause/Solution patterns",
+              "deduction": 5
+            }
+          ]
+        },
+        "efficiency": {
+          "score": 100.0,
+          "weight": 0.15,
+          "issues_count": 0,
+          "issues": []
+        }
+      },
+      "metrics": {
+        "total_tokens": 829,
+        "estimated_tokens": 829,
+        "estimate_method": "characters/4",
+        "recommended_max_tokens": 5000,
+        "frontmatter_tokens": 71,
+        "instructions_tokens": 755,
+        "script_count": 0,
+        "has_examples": true,
+        "has_error_handling": true,
+        "has_frontmatter": true,
+        "has_instructions": false,
+        "has_scripts": false,
+        "has_lib_module": false
+      }
+    }
+  ],
+  "rubric_eval": {
+    "execution_status": "succeeded",
+    "overall_score": 76.4,
+    "overall_pass": false,
+    "summary": "The skill documentation is clear, well-structured, and strong in examples and query variations, but error handling and troubleshooting guidance are weak.",
+    "judge_score": 76,
+    "judge_overall_pass": true,
+    "skill_name": "es-log-query",
+    "checks": [
+      {
+        "id": "description_clarity",
+        "criterion": "Description is clear, specific, and explains WHEN to use the skill",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "It clearly identifies production Elasticsearch log querying and key features, though it could more explicitly mention traceId, appId, ERROR logs, and export use cases."
+      },
+      {
+        "id": "instruction_clarity",
+        "criterion": "Instructions are easy to follow with clear action steps",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "The execution flow, command parameters, and examples make the usage path easy to follow. Script location and .env setup are mostly clear."
+      },
+      {
+        "id": "example_quality",
+        "criterion": "Examples are helpful, relevant, show proper usage, AND cover sufficient query variations for robust skill detection",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 9,
+        "notes": "Examples cover basic queries, traceId, ERROR logs, large exports, custom indexes, and multiple app IDs, which is strong for robust detection."
+      },
+      {
+        "id": "documentation_completeness",
+        "criterion": "All necessary information is present (purpose, scripts, parameters)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Purpose, script location, parameters, defaults, configuration, pagination, and output format are included. Troubleshooting information is missing."
+      },
+      {
+        "id": "scope_definition",
+        "criterion": "Skill scope is well-defined (clear boundaries, not too broad/narrow)",
+        "importance": "medium",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "Scope is focused on production Elasticsearch log query and export, with clear boundaries from general ES administration or local log analysis."
+      },
+      {
+        "id": "professional_tone",
+        "criterion": "Documentation uses professional, consistent tone and formatting",
+        "importance": "low",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "The tone is professional and the formatting is consistent with headings, tables, and code blocks."
+      },
+      {
+        "id": "trigger_simulation",
+        "criterion": "Mentally test the skill description against 5 plausible user queries that SHOULD trigger it and 3 that should NOT. Does the description enable correct routing without false positives or false negatives?",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 8,
+        "notes": "It should trigger for production ES log, traceId, appId, ERROR, and export queries. It is unlikely to trigger for ES mapping changes, local log files, or Kibana dashboard creation."
+      },
+      {
+        "id": "workflow_completeness",
+        "criterion": "Do the instructions cover a complete end-to-end workflow? Identify any steps where the user or agent would need to figure out what to do next without guidance.",
+        "importance": "high",
+        "pass": true,
+        "judge_pass": true,
+        "score": 7,
+        "notes": "The workflow covers intent parsing, command execution, and result analysis. It lacks explicit guidance for empty results, failed queries, or authentication issues."
+      },
+      {
+        "id": "error_handling_quality",
+        "criterion": "Are the documented error scenarios realistic and actionable? Would the solutions actually help resolve the issues, or are they generic boilerplate?",
+        "importance": "medium",
+        "pass": false,
+        "judge_pass": false,
+        "score": 4,
+        "notes": "The documentation does not provide realistic error scenarios or actionable troubleshooting for network, auth, invalid query, or no-result cases."
+      }
+    ],
+    "aggregation": {
+      "method": "importance_weighted_mean",
+      "importance_weights": {
+        "high": 3,
+        "medium": 2,
+        "low": 1
+      },
+      "min_score": 70,
+      "criterion_pass_score": 7,
+      "requires_all_criteria_pass": true
+    },
+    "llm_provider": "openai-compatible",
+    "llm_model_used": "qwen3.8-flash",
+    "judge_attempts": 1
+  },
+  "generated_at": "2026-11-18T16:00:11.733097+00:00"
+}

@@ -1,0 +1,365 @@
+✓ SkillSpector 2.13.4 installed (checksum-verified)
+✓ Gitleaks 8.30.0 installed (checksum-verified)
+[1/11] schema ...
+[1/11] schema done in 0.0s (ok, 2 warning(s))
+[2/11] version ...
+[2/11] version done in 0.0s (ok)
+[3/11] security ...
+INFO     Running skillspector on /skills/official/calculator                    
+INFO     Running skillspector: /usr/local/bin/uv tool run --quiet --from...     
+[3/11] security done in 166.9s (incomplete: skillspector)
+[4/11] pii ...
+[4/11] pii done in 0.0s (ok)
+[5/11] license ...
+[5/11] license done in 0.0s (ok)
+[6/11] code-integrity ...
+INFO     Running Bandit: /usr/local/bin/bandit -r /skills/official/calculator -f
+         json...                                                                
+INFO     Running Gitleaks:                                                      
+         /root/.local/share/skillevaluator/runtimes/gitleaks/8.30.0/gitleaks    
+         detect --source . --report-format...                                   
+[6/11] code-integrity done in 1.0s (ok, 1 warning(s))
+[7/11] dependency ...
+[7/11] dependency done in 0.0s (ok)
+[8/11] unicode ...
+[8/11] unicode done in 0.0s (ok)
+[9/11] quality ...
+[9/11] quality done in 0.0s (ok, 5 warning(s))
+[10/11] lint ...
+[10/11] lint done in 0.0s (ok, 1 warning(s))
+[11/11] harness ...
+[11/11] harness done in 0.0s (ok, 4 warning(s))
+                       SkillEvaluator Validation Results                        
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Validator                      ┃   Status   ┃ Details                        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Schema & Repository Governance │    PASS    │ 10 checks passed               │
+│ Semantic Version Validation    │    N/A     │ No semantic version label      │
+│                                │            │ present; resource will use     │
+│                                │            │ commit-hash history            │
+│ Security Scan                  │ INCOMPLETE │ skillspector did not complete  │
+│                                │            │ (1 errors)                     │
+│ PII Scan                       │    PASS    │ 2 checks passed                │
+│ License Compliance             │    PASS    │ 1 checks passed                │
+│ Code Risk Analysis             │    PASS    │ 1 checks passed                │
+│ Secrets Detection              │    PASS    │ 1 checks passed                │
+│ Code Integrity & Hygiene       │    PASS    │ No standard Python test-file   │
+│                                │            │ candidates found; target tests │
+│                                │            │ were not executed and coverage │
+│                                │            │ was not measured. Consider     │
+│                                │            │ adding tests.                  │
+│ Dependency Vulnerability Audit │    N/A     │ No dependency files found -    │
+│                                │            │ vulnerability audit is not     │
+│                                │            │ applicable                     │
+│ Unicode Smuggling Detection    │    PASS    │ 1 checks passed                │
+│ QUALITY                        │    PASS    │ 1 checks passed; quality B     │
+│                                │            │ 87.5/100                       │
+│ SCRIPT_LINT                    │    PASS    │ OK                             │
+│ Harness Compatibility          │    PASS    │ OK                             │
+│ RUBRIC_EVAL                    │    PASS    │ 1 checks passed                │
+└────────────────────────────────┴────────────┴────────────────────────────────┘
+
+╭─────────────────╮
+│ Failure Details │
+╰─────────────────╯
+
+[Security Scan]
+Detect security vulnerabilities and PII/secrets
+[INCOMPLETE] skillspector did not complete
+
+Summary:
+  • Errors: 1
+
+Execution errors:
+  • skillspector failed with unexpected exit code 2: scanner diagnostics were 
+redacted
+╭───────────────────────╮
+│ Non-blocking Findings │
+╰───────────────────────╯
+
+[Schema & Repository Governance]
+Validate SKILL.md frontmatter and repository structure
+[PASS] Validation passed
+
+Summary:
+  • Checks performed: 10
+
+Details:
+  [OK] manifest_exists: Found skill manifest: SKILL.md 
+(file_path=/skills/official/calculator/SKILL.md)
+  [OK] frontmatter_valid: Valid frontmatter for skill 'calculator' 
+(description_length=186)
+  [OK] naming_convention: Folder name 'calculator' follows kebab-case convention
+(name_length=10)
+  [OK] line_count: SKILL.md within line limit (66/500) (line_count=66, 
+limit=500)
+  [OK] body_heading: Body contains a top-level heading
+  [OK] body_recommended_section: Found recommended section: '## Instructions' 
+(or '## Usage')
+  [OK] body_recommended_section: Found recommended section: '## Examples'
+  [OK] optional_files: Found optional supporting files: evals, scripts 
+(files_found=['evals', 'scripts'])
+  [OK] name_consistency: Directory name matches frontmatter: 'calculator'
+  [OK] author_format: Valid author format: SkillEvaluator Maintainers 
+<maintainers@example.com>
+Issues:
+  1. [SCHEMA-MEDIUM] Unexpected nesting depth for general skill
+     File:    /skills/official/calculator
+     Check:   folder_hierarchy
+     Fix:     General skills should be at: skills/<skill-name>/
+
+  2. [SCHEMA-LOW] Description has no 'Use when ...' trigger; some harnesses show
+only the first ~60 characters in their skill list
+     File:    /skills/official/calculator/SKILL.md
+     Check:   description_trigger
+     Fix:     State when to use the skill within the first 60 characters
+
+
+[QUALITY]
+Skill quality scoring across Correctness (35%), Discoverability (25%), 
+Reliability (25%), and Efficiency (15%)
+
+  Overall: 87.5/100 (Grade: B)
+  Skill Type: script-based
+
+                            Quality Scores by Skill                             
+┏━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃ Skill      ┃ Grade ┃ Score ┃ Correctne… ┃ Discover… ┃ Reliabili… ┃ Efficien… ┃
+┡━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━┩
+│ calculator │   B   │  87.5 │         75 │        90 │         95 │       100 │
+└────────────┴───────┴───────┴────────────┴───────────┴────────────┴───────────┘
+
+[PASS] Validation passed
+
+Summary:
+  • Checks performed: 1
+
+Details:
+  [OK] quality_score: Score: 87.5/100 (Grade: B) (overall_score=87.5, grade=B, 
+skill_type=script-based)
+Issues:
+  1. [QUALITY-MEDIUM] No documented scripts in table format
+     File:    /skills/official/calculator/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add '## Available Scripts' with table: | Script | Purpose | 
+Arguments |
+
+  2. [QUALITY-MEDIUM] Instructions don't mention 'run_script'
+     File:    /skills/official/calculator/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add explicit run_script() call examples
+
+  3. [QUALITY-MEDIUM] SKILL_SPEC recommended field missing: 'metadata.tags'
+     File:    /skills/official/calculator/SKILL.md
+     Check:   quality_correctness
+     Fix:     Add 'tags' under metadata: — Categorization tags (under metadata:,
+list of 1-5 items)
+
+  4. [QUALITY-LOW] Description doesn't mention WHEN to use this skill
+     File:    /skills/official/calculator/SKILL.md
+     Check:   quality_discoverability
+     Fix:     Add trigger context: 'Use for...', 'When you need to...'
+
+  5. [QUALITY-LOW] No prerequisites/requirements documented
+     File:    /skills/official/calculator/SKILL.md
+     Check:   quality_reliability
+     Fix:     Document dependencies, API keys, or setup needed
+
+
+[SCRIPT_LINT]
+AST-based code quality checks for skill scripts
+[PASS] Validation passed
+
+Summary:
+
+Issues:
+  1. [SCRIPT_LINT-LOW] calc.py contains magic numbers
+     File:    /skills/official/calculator/scripts/calc.py
+     Check:   magic_numbers
+     Fix:     Extract magic numbers to named constants
+
+
+[Harness Compatibility]
+Advisory: whether each agent harness loads, degrades or drops the skill
+[PASS] Validation passed
+
+Summary:
+
+Issues:
+  1. [HARNESS-INFO] copilot-cli: New skills appear only after `/skills reload` 
+or a restart; edits to existing skills apply at once.
+     File:    /skills/official/calculator/SKILL.md
+     Check:   CP-RELOAD
+
+  2. [HARNESS-INFO] hermes: The skill list shows only the first ~60 chars of the
+description (57 + '...' in 0.16, a word boundary near 59 on main), and the 
+trigger isn't in them.
+     File:    /skills/official/calculator/SKILL.md
+     Check:   HM-DESC-60
+     Fix:     Put the trigger ("Use when …") in the first 57 characters.
+
+  3. [HARNESS-INFO] hermes: 1 files outside references/, templates/, assets/ and
+scripts/ (evals) are left out of the skill's file list; the model finds them 
+only if SKILL.md names their paths.
+     File:    /skills/official/calculator/SKILL.md
+     Check:   HM-LINKED-LAYOUT
+     Fix:     Move supporting files under references/, templates/, assets/ or 
+scripts/.
+
+  4. [HARNESS-INFO] opencode: Skill list and text are cached at startup; edits 
+need a restart.
+     File:    /skills/official/calculator/SKILL.md
+     Check:   OC-RELOAD
+
+
+[RUBRIC_EVAL]
+LLM-as-Judge qualitative evaluation across 9 criteria (description clarity, 
+instruction quality, trigger simulation, etc.)
+
+  LLM Rubric Score: 80.5/100
+  The calculator skill is clear, well-scoped, and easy to invoke, with useful 
+examples and limitations. Minor gaps remain in end-to-end guidance for 
+unsupported inputs and script error handling.
+
+                               Rubric Evaluation                                
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Criterion                  ┃ Score ┃ Pass ┃ Notes                            ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Description Clarity        │ 9/10  │ Yes  │ The description clearly states   │
+│                            │       │      │ supported math and unit          │
+│                            │       │      │ conversion tasks. It could more  │
+│                            │       │      │ explicitly mention when not to   │
+│                            │       │      │ use the skill.                   │
+│ Instruction Clarity        │ 8/10  │ Yes  │ The three-step workflow is       │
+│                            │       │      │ simple and actionable. It lacks  │
+│                            │       │      │ guidance on quoting, parsing     │
+│                            │       │      │ stderr, or handling failures.    │
+│ Example Quality            │ 8/10  │ Yes  │ Examples cover arithmetic,       │
+│                            │       │      │ percentages, and conversions.    │
+│                            │       │      │ More ambiguous or unsupported    │
+│                            │       │      │ query examples would improve     │
+│                            │       │      │ robustness.                      │
+│ Documentation Completeness │ 8/10  │ Yes  │ Purpose, script path, usage,     │
+│                            │       │      │ output, limitations, and         │
+│                            │       │      │ troubleshooting are present.     │
+│                            │       │      │ Explicit parameter documentation │
+│                            │       │      │ is mostly implied by examples.   │
+│ Scope Definition           │ 9/10  │ Yes  │ The skill clearly defines        │
+│                            │       │      │ supported operators and unit     │
+│                            │       │      │ conversions. Limitations prevent │
+│                            │       │      │ overly broad expectations.       │
+│ Professional Tone          │ 9/10  │ Yes  │ Tone is concise and              │
+│                            │       │      │ professional. Formatting is      │
+│                            │       │      │ consistent and readable.         │
+│ Trigger Simulation         │ 8/10  │ Yes  │ Likely routes common math and    │
+│                            │       │      │ unit conversion queries well.    │
+│                            │       │      │ Some phrasing variations, such   │
+│                            │       │      │ as discounts or scientific       │
+│                            │       │      │ functions, may be missed or      │
+│                            │       │      │ falsely triggered.               │
+│ Workflow Completeness      │ 7/10  │ Yes  │ The basic run-and-return flow is │
+│                            │       │      │ complete. The agent still needs  │
+│                            │       │      │ guidance for unsupported inputs, │
+│                            │       │      │ script errors, and final         │
+│                            │       │      │ response formatting.             │
+│ Error Handling Quality     │ 7/10  │ Yes  │ The troubleshooting table        │
+│                            │       │      │ addresses common invalid         │
+│                            │       │      │ expression and conversion        │
+│                            │       │      │ errors. It could include exit    │
+│                            │       │      │ codes, stderr behavior, and      │
+│                            │       │      │ unsupported query handling.      │
+└────────────────────────────┴───────┴──────┴──────────────────────────────────┘
+
+[PASS] Validation passed
+
+Summary:
+  • Checks performed: 1
+
+Details:
+  [OK] rubric_eval: LLM Rubric Score: 80.5/100 (overall_score=80.5, 
+overall_pass=True, llm_provider=openai-compatible, llm_model_used=qwen3.8-flash,
+judge_attempts=1)
+Issues:
+  1. [RUBRIC_EVAL-LOW] [9/10] Description is clear, specific, and explains WHEN 
+to use the skill
+     File:    /skills/official/calculator/SKILL.md
+     Check:   rubric_description_clarity
+     Fix:     The description clearly states supported math and unit conversion 
+tasks. It could more explicitly mention when not to use the skill.
+
+  2. [RUBRIC_EVAL-LOW] [8/10] Instructions are easy to follow with clear action 
+steps
+     File:    /skills/official/calculator/SKILL.md
+     Check:   rubric_instruction_clarity
+     Fix:     The three-step workflow is simple and actionable. It lacks 
+guidance on quoting, parsing stderr, or handling failures.
+
+  3. [RUBRIC_EVAL-LOW] [8/10] Examples are helpful, relevant, show proper usage,
+AND cover sufficient query variations for robust skill detection
+     File:    /skills/official/calculator/SKILL.md
+     Check:   rubric_example_quality
+     Fix:     Examples cover arithmetic, percentages, and conversions. More 
+ambiguous or unsupported query examples would improve robustness.
+
+  4. [RUBRIC_EVAL-LOW] [8/10] All necessary information is present (purpose, 
+scripts, parameters)
+     File:    /skills/official/calculator/SKILL.md
+     Check:   rubric_documentation_completeness
+     Fix:     Purpose, script path, usage, output, limitations, and 
+troubleshooting are present. Explicit parameter documentation is mostly implied 
+by examples.
+
+  5. [RUBRIC_EVAL-LOW] [9/10] Skill scope is well-defined (clear boundaries, not
+too broad/narrow)
+     File:    /skills/official/calculator/SKILL.md
+     Check:   rubric_scope_definition
+     Fix:     The skill clearly defines supported operators and unit 
+conversions. Limitations prevent overly broad expectations.
+
+  6. [RUBRIC_EVAL-LOW] [9/10] Documentation uses professional, consistent tone 
+and formatting
+     File:    /skills/official/calculator/SKILL.md
+     Check:   rubric_professional_tone
+     Fix:     Tone is concise and professional. Formatting is consistent and 
+readable.
+
+  7. [RUBRIC_EVAL-LOW] [8/10] Mentally test the skill description against 5 
+plausible user queries that SHOULD trigger it and 3 that should NOT. Does the 
+description enable correct routing without false positives or false negatives?
+     File:    /skills/official/calculator/SKILL.md
+     Check:   rubric_trigger_simulation
+     Fix:     Likely routes common math and unit conversion queries well. Some 
+phrasing variations, such as discounts or scientific functions, may be missed or
+falsely triggered.
+
+  8. [RUBRIC_EVAL-LOW] [7/10] Do the instructions cover a complete end-to-end 
+workflow? Identify any steps where the user or agent would need to figure out 
+what to do next without guidance.
+     File:    /skills/official/calculator/SKILL.md
+     Check:   rubric_workflow_completeness
+     Fix:     The basic run-and-return flow is complete. The agent still needs 
+guidance for unsupported inputs, script errors, and final response formatting.
+
+  9. [RUBRIC_EVAL-LOW] [7/10] Are the documented error scenarios realistic and 
+actionable? Would the solutions actually help resolve the issues, or are they 
+generic boilerplate?
+     File:    /skills/official/calculator/SKILL.md
+     Check:   rubric_error_handling_quality
+     Fix:     The troubleshooting table addresses common invalid expression and 
+conversion errors. It could include exit codes, stderr behavior, and unsupported
+query handling.
+
+
+[INCOMPLETE] Incomplete
+Tier 1: 11 of 12 checks passed; 0 failed, 1 incomplete, 0 skipped, 2 N/A
+Publication eligibility: Incomplete
+
+json report: 
+/app/reports/official-eval-20261117/01-tier1/calculator/skillevaluator-tier1.jso
+n
+html report: 
+/app/reports/official-eval-20261117/01-tier1/calculator/skillevaluator-tier1.htm
+l
+markdown report: 
+/app/reports/official-eval-20261117/01-tier1/calculator/skillevaluator-tier1.md
+Error: Tier 1 checks failed or were incomplete

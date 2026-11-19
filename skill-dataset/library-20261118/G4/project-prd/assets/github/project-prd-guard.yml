@@ -1,0 +1,42 @@
+# Managed by project-prd. Remove only through project-prd-clear.
+name: project-prd-guard
+
+on:
+  pull_request_target:
+
+permissions:
+  contents: read
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Validate project-prd baseline
+        env:
+          PROJECT_PRD_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ ! -f .project-prd/tools/project_prd_guard.py ]; then
+            if [ -e .project-prd ] || [ -e .agents/skills/project-prd-edit ] || [ -e .agents/skills/project-prd-verify ] || [ -e .agents/skills/project-prd-clear ] || [ -e .github/workflows/project-prd-guard.yml ]; then
+              echo "project-prd workspace is partially removed"
+              exit 1
+            fi
+            if [ -f AGENTS.md ] && grep -Eq 'PROJECT_PRD_RULES_(START|END)' AGENTS.md; then
+              echo "project-prd AGENTS.md rules are partially removed"
+              exit 1
+            fi
+            echo "project-prd workspace was fully cleared"
+            exit 0
+          fi
+          TRUSTED_DIR="$(mktemp -d)"
+          trap 'rm -rf "$TRUSTED_DIR"' EXIT
+          if ! git cat-file -e "$PROJECT_PRD_BASE_SHA:.project-prd/tools/project_prd_guard.py" 2>/dev/null || ! git cat-file -e "$PROJECT_PRD_BASE_SHA:.project-prd/tools/project_prd_lib.py" 2>/dev/null; then
+            echo "trusted project-prd guard is absent from the base revision; review the first installation manually"
+            exit 1
+          fi
+          git show "$PROJECT_PRD_BASE_SHA:.project-prd/tools/project_prd_guard.py" > "$TRUSTED_DIR/project_prd_guard.py"
+          git show "$PROJECT_PRD_BASE_SHA:.project-prd/tools/project_prd_lib.py" > "$TRUSTED_DIR/project_prd_lib.py"
+          python3 "$TRUSTED_DIR/project_prd_guard.py" ci --project-root . --base-ref "$PROJECT_PRD_BASE_SHA"

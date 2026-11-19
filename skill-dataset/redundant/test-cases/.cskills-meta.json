@@ -1,0 +1,22 @@
+{
+  "name": "test-cases",
+  "author": "xuqingfang",
+  "version": "0.0.2",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:32+08:00",
+  "updatedAt": "2026-11-17T10:46:32+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/test-cases"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/test-cases",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/test-cases"
+  ],
+  "fileHashes": {
+    "SKILL.md": "62df5331446075c2615906e92fdecaaccfff0f8fd1d3a1ba26f918b8d03aedfd"
+  }
+}

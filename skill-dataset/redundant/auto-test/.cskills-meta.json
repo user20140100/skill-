@@ -1,0 +1,46 @@
+{
+  "name": "auto-test",
+  "author": "huangyunzhen",
+  "version": "1.0.6",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:30+08:00",
+  "updatedAt": "2026-11-17T10:46:30+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/auto-test"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/auto-test",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/auto-test"
+  ],
+  "fileHashes": {
+    "SKILL.md": "4c352658d62c7f664659a7ccaa5bb37dec735202d0076d011061b438454aa3ea",
+    "agents/code-fact.agent.md": "bce2e87def9fd2871e23a1f2a0ff66a94db431be2ef4bfbe3b172f3a83ff9bbb",
+    "agents/doc-reverse.agent.md": "97440bc3a68ec07f70239be66af8641b42af80db835b022d59ecb83781e7bb05",
+    "agents/doc-update.agent.md": "f394aa3aa433122bc0aaee8c0a74ce4290bfa92cc44da415bd459f6271863333",
+    "agents/generator.agent.md": "9a5236aa85158fe0ae43950f6d6ad421abb789070af9625b1778ccd35d14bc35",
+    "agents/healer.agent.md": "5676d4cf2a82bea72e39096c6dc42579a6a6d60146a3dad5b07d1ccc4d58e62d",
+    "agents/nl-author.agent.md": "b0cf0e581ef46a93452c8028f458aceddcb1b46b44375b1ac3fa9c47acd9a4c9",
+    "agents/planner.agent.md": "051fda1d57c5665eecbbebe4183fff663863aa8d1beecf0ec6711f13b6d2b107",
+    "references/flows/00-bootstrap-from-existing-specs.md": "3b0abd2a3f94caa8841e694017f3be6747403b82535d87689cbc5231906ebb38",
+    "references/flows/00-chain.md": "ad431e1ae2b834485117e0bb2f7d5af315ca49ed27ad285d3518383d35d2bcd5",
+    "references/flows/01-init.md": "c4bf34b399e45b5db4b12f29579782bcb9226c7a368242cb3c6c793de4bbcb8b",
+    "references/flows/02-doc-plan-nl.md": "08622062950f4212b22e4d22d837d7414869247cdd02e16cba5de1b9924790df",
+    "references/flows/03-nl-spec.md": "e114a25876b328a6e84fed0a02600de2b79332b28ca27c3842bbd6fd251e82b3",
+    "references/flows/04-spec-run.md": "4993f9d4050aecf7b3da5426ee4bef55395e1a2457efe8201bfca5df78540fbd",
+    "references/flows/05-dirty-sync.md": "5af1c76c9f5ec7df7568ade2935619491ebd063f52c5d4380949fc19fc0ba37c",
+    "references/flows/05-sync.md": "134ef957b9078907df72f2087c9a7fecbe9d24ef2ea96eabb8c737cb3468b085",
+    "references/flows/06-report.md": "d07ee64640ba1d8e7c2cf4bd88f2aeb3028795a41100e68d0aee8480a395fed0",
+    "references/playwright-cli-protocol.md": "c2a4efc9541f151789f46fe7566c518289d1f6e1379f023d647fa06f3a54817c",
+    "scripts/dirty_check.mjs": "6e5441a23cc165722affbf8f8f35a0c1e6e609c0fb04ebbe762ef5be42873576",
+    "scripts/report_gen.mjs": "09c109e50d2630ca8928095160d30718a723ea7eb54a230e441a3e4216698853",
+    "scripts/sync_check.mjs": "4586b9a2484596ac0be2298d722b4aefc518ea93c7843b5ed419c6f8dbb4e238",
+    "scripts/sync_collect.mjs": "6f7057b02db56a88255d4c31060edb8f101e26cca4c3000e1a2629fde6d33e08",
+    "scripts/sync_common.mjs": "b9f5a6a52beeb2ff2fa51933c7a8f1e2e169bb92cb750a95aca4d8f66682ba00",
+    "templates/dashboard.html": "29eca87fbb9c22b0f8683cec6dc36e6187a7b9ec94b88372474a316f5b7e09e2",
+    "templates/playwright.config.template.ts": "35ed7549fde0a27dbcf730347542d9d23e749bbf8698dfe22da1d90d8594f3c2"
+  }
+}

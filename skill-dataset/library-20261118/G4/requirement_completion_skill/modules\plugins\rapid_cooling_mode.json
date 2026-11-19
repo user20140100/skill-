@@ -1,0 +1,107 @@
+{
+  "module_name": "速冷模式",
+  "module_code": "rapid_cooling_mode",
+  "category": "strategy_module",
+  "definition": "速冷功能（INSTA COOL），又称强力制冷或急冷模式，是一种旨在最短时间内将室内环境温度降至用户设定值的特殊运行模式。",
+  "aliases": [
+    "速冷模式",
+    "速冷功能 (INSTA COOL Function)",
+    "速冷功能",
+    "INSTA COOL",
+    "快速制冷",
+    "Insta Cool Function",
+    "INSTA COOL Function"
+  ],
+  "keywords": [
+    "快速降温",
+    "高频运行",
+    "高风速",
+    "短时增强",
+    "压缩机",
+    "电子膨胀阀",
+    "盘管温度",
+    "温度传感器",
+    "压力传感器",
+    "低压保护"
+  ],
+  "related_modules": [
+    "强力运行模式",
+    "经济模式",
+    "风速控制",
+    "运行模式切换控制"
+  ],
+  "intent_patterns": [
+    "mode_linkage_request",
+    "comfort_request",
+    "performance_request",
+    "priority_request"
+  ],
+  "key_dimensions": [
+    "适用场景",
+    "启动条件",
+    "动作规则",
+    "参数限制",
+    "互斥关系",
+    "退出条件",
+    "优先级",
+    "性能要求"
+  ],
+  "default_rules": [
+    "速冷模式通常通过限制能力、修正目标值或优化时序来改变系统表现",
+    "速冷模式通常与部分特殊模式存在互斥关系",
+    "安全保护逻辑通常优先于特殊模式策略",
+    "速冷模式退出后通常恢复到常规运行策略或用户原始设定"
+  ],
+  "must_confirm_rules": [
+    "功能适用的运行模式与环境范围",
+    "与其他特殊模式是否互斥以及切换优先级",
+    "进入后具体修改哪些控制参数",
+    "自动退出条件和退出后的恢复策略",
+    "用户是否能感知该模式的内部参数调整"
+  ],
+  "common_missing_items": [
+    "未定义适用模式和禁用场景",
+    "未定义优先级与互斥关系",
+    "未定义异常处理或降级策略",
+    "未定义关机/断电后的恢复逻辑",
+    "未定义用户反馈方式"
+  ],
+  "inference_rules": [
+    {
+      "pattern": "开启速冷功能",
+      "intent_type": "mode_linkage_request",
+      "need_complete": [
+        "启动条件",
+        "参数限制",
+        "互斥模式",
+        "退出条件",
+        "恢复逻辑"
+      ]
+    },
+    {
+      "pattern": "速冷功能和其他模式冲突吗",
+      "intent_type": "comfort_request",
+      "need_complete": [
+        "启动条件",
+        "参数限制",
+        "互斥模式",
+        "退出条件",
+        "恢复逻辑"
+      ]
+    },
+    {
+      "pattern": "速冷功能什么时候自动退出",
+      "intent_type": "performance_request",
+      "need_complete": [
+        "启动条件",
+        "参数限制",
+        "互斥模式",
+        "退出条件",
+        "恢复逻辑"
+      ]
+    }
+  ],
+  "output_templates": {
+    "rewrite_template": "当用户通过【控制入口】开启速冷模式后，系统应按【控制策略】调整【目标温度/频率/风速/时序】等参数，并在【适用模式】内生效。若与【互斥模式】冲突或触发【退出条件】，系统应自动退出该模式并按【恢复规则】恢复常规运行。"
+  }
+}

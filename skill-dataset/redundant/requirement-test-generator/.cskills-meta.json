@@ -1,0 +1,26 @@
+{
+  "name": "requirement-test-generator",
+  "author": "yangjunjie",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:31+08:00",
+  "updatedAt": "2026-11-17T10:46:31+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/requirement-test-generator"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/requirement-test-generator",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/requirement-test-generator"
+  ],
+  "fileHashes": {
+    "SKILL.md": "b3044ac33b5f277eedb57664a448f10b5d41d8fa3d51b97f0121545eb5afc4f6",
+    "assets\\_template.md": "3764f195c0c9b75d0bf6f2b97a3e5f2756a87d0c764fc961904a98fefd0d7217",
+    "assets\\ac-controller.md": "7f5b36f484b7331c1794c22e9d5d9913b993c28cf89b0a795a5b94316542fc68",
+    "references\\test-methodology.md": "a2265d3cad8b51057db9b7a1d874b30861145a2f9b913a38f41219adc5a5bb10",
+    "scripts\\generate_excel.py": "0ef55e25a29468c7834a326687764e49422c3b5828e463d57c3f9c268fda98af"
+  }
+}

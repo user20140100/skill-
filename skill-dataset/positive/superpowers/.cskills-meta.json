@@ -1,0 +1,23 @@
+{
+  "name": "superpowers",
+  "author": "obra",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:45+08:00",
+  "updatedAt": "2026-11-17T10:45:45+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/superpowers"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/superpowers",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/superpowers"
+  ],
+  "fileHashes": {
+    "SKILL.md": "7c919f7fd627dc3fe188916e92e4e213eaaa4ce656ecddc556f178b21d3c926f",
+    "icon.svg": "72e295171c0fe38d1e57ca0fc0370784fbfcc2805225e31b1f9e51b032ac54d0"
+  }
+}

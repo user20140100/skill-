@@ -1,0 +1,824 @@
+{
+  "agents": {
+    "opencode": {
+      "model": "openai/qwen3.8-flash",
+      "model_source": "CLI",
+      "model_resolution": {
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      },
+      "with_skill": {},
+      "without_skill": {},
+      "overall_with_skill": null,
+      "overall_without_skill": null,
+      "metrics_with_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "metrics_without_skill": [
+        "security",
+        "skill_execution",
+        "skill_efficiency",
+        "accuracy",
+        "goal_accuracy",
+        "behavior_check"
+      ],
+      "score_policy_with_skill": "skill-evaluator-dimension-mean-v1",
+      "score_policy_without_skill": "skill-evaluator-dimension-mean-v1",
+      "custom_with_skill": {},
+      "custom_without_skill": {},
+      "not_applicable_metrics": {
+        "with_skill": [],
+        "without_skill": [
+          "skill_execution",
+          "skill_efficiency"
+        ]
+      },
+      "dimensions_with_skill": {},
+      "dimensions_without_skill": {},
+      "skill_activation": {
+        "status": "unknown",
+        "positive_trials": 0,
+        "activated_trials": 0,
+        "unknown_trials": 0,
+        "reason": "Skill activation evidence is unavailable or incomplete"
+      },
+      "lift": {},
+      "custom_lift": {},
+      "pass_at_k": {
+        "with_skill": {},
+        "without_skill": {},
+        "lift": {}
+      },
+      "security_attribution": {},
+      "agent_runtime_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "trial_failures": {
+        "with_skill": [
+          {
+            "trial": "req-001__FALpq9H",
+            "reason": "Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.306Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mge_b84e4b0fb671)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.306Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.486Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mlg_3ba293021a57)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.486Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.693Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mqz_69f6bb3e69b7)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.693Z\"}}"
+          },
+          {
+            "trial": "req-002__ciPjbmT",
+            "reason": "Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:55.235Z \u91cd\u7f6e (cch_session_id: sess_mwlr0nxv_f0a8feacbb49)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:55.235Z\"}}"
+          },
+          {
+            "trial": "req-003__WsmiUmy",
+            "reason": "NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 48 |   if (args.length > 0) 49 |     er = args[0]; 50 |     throw er;                 ^ error: EPIPE: broken pipe, write       at emitError (node:events:50:13)      ... [10665 chars truncated] ... {"
+          }
+        ],
+        "without_skill": [
+          {
+            "trial": "req-003__KXrHrVK",
+            "reason": "Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:33.926Z \u91cd\u7f6e (cch_session_id: sess_mwlr07i1_464236e62dd6)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:33.926Z\"}}"
+          },
+          {
+            "trial": "req-002__JuKUr8U",
+            "reason": "Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:24.741Z \u91cd\u7f6e (cch_session_id: sess_mwlqyq47_c8ee14774d2c)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:24.741Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.048Z \u91cd\u7f6e (cch_session_id: sess_mwlqyqxx_721efb76aa8b)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.048Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.279Z \u91cd\u7f6e (cch_session_id: sess_mwlqyrb0_3b98fa108357)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.279Z\"}}"
+          }
+        ]
+      },
+      "recovered_trial_failures": {
+        "with_skill": [],
+        "without_skill": []
+      },
+      "failure_detail_metadata": {
+        "with_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "without_skill_runtime": {
+          "details_total": 0,
+          "details_shown": 0,
+          "details_truncated": false
+        },
+        "with_skill_trials": {
+          "details_total": 3,
+          "details_shown": 3,
+          "details_truncated": false
+        },
+        "without_skill_trials": {
+          "details_total": 2,
+          "details_shown": 2,
+          "details_truncated": false
+        }
+      },
+      "job_failures": {
+        "with_skill": "Harbor job did not complete successfully: 3 errored",
+        "without_skill": "Harbor job did not complete successfully: 1 errored"
+      },
+      "historical_job_failures": {
+        "with_skill": "",
+        "without_skill": ""
+      },
+      "conditions": {
+        "with_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 3 errored",
+            "Unscoreable reward in req-001__FALpq9H: Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.306Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mge_b84e4b0fb671)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.306Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.486Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mlg_3ba293021a57)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.486Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.693Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mqz_69f6bb3e69b7)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.693Z\"}}",
+            "Unscoreable reward in req-002__ciPjbmT: Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:55.235Z \u91cd\u7f6e (cch_session_id: sess_mwlr0nxv_f0a8feacbb49)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:55.235Z\"}}",
+            "Unscoreable reward in req-003__WsmiUmy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 48 |   if (args.length > 0) 49 |     er = args[0]; 50 |     throw er;                 ^ error: EPIPE: broken pipe, write       at emitError (node:events:50:13)      ... [10665 chars truncated] ... {",
+            "Missing scored attempts for cases: req-001, req-002, req-003",
+            "Scored attempt coverage is 0/3"
+          ],
+          "execution_error_details_total": 6,
+          "execution_error_details_shown": 6,
+          "execution_error_details_truncated": false,
+          "expected_cases": 3,
+          "scored_cases": 0,
+          "expected_attempts": 3,
+          "scored_attempts": 0,
+          "judge_failures": 2,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 3,
+          "reward_failure_details_shown": 3,
+          "reward_failure_details_truncated": false
+        },
+        "without_skill": {
+          "execution_status": "failed",
+          "execution_errors": [
+            "Harbor job did not complete successfully: 1 errored",
+            "Unscoreable reward in req-003__KXrHrVK: Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:33.926Z \u91cd\u7f6e (cch_session_id: sess_mwlr07i1_464236e62dd6)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:33.926Z\"}}",
+            "Unscoreable reward in req-002__JuKUr8U: Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:24.741Z \u91cd\u7f6e (cch_session_id: sess_mwlqyq47_c8ee14774d2c)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:24.741Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.048Z \u91cd\u7f6e (cch_session_id: sess_mwlqyqxx_721efb76aa8b)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.048Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.279Z \u91cd\u7f6e (cch_session_id: sess_mwlqyrb0_3b98fa108357)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.279Z\"}}",
+            "Missing scored attempts for cases: req-002, req-003",
+            "Scored attempt coverage is 1/3"
+          ],
+          "execution_error_details_total": 5,
+          "execution_error_details_shown": 5,
+          "execution_error_details_truncated": false,
+          "expected_cases": 3,
+          "scored_cases": 1,
+          "expected_attempts": 3,
+          "scored_attempts": 1,
+          "judge_failures": 2,
+          "runtime_failure_details_total": 0,
+          "runtime_failure_details_shown": 0,
+          "runtime_failure_details_truncated": false,
+          "reward_failure_details_total": 2,
+          "reward_failure_details_shown": 2,
+          "reward_failure_details_truncated": false
+        }
+      },
+      "execution_status": "failed",
+      "execution_errors": [
+        "Harbor job did not complete successfully: 3 errored",
+        "Unscoreable reward in req-001__FALpq9H: Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.306Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mge_b84e4b0fb671)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.306Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.486Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mlg_3ba293021a57)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.486Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.693Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mqz_69f6bb3e69b7)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.693Z\"}}",
+        "Unscoreable reward in req-002__ciPjbmT: Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:55.235Z \u91cd\u7f6e (cch_session_id: sess_mwlr0nxv_f0a8feacbb49)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:55.235Z\"}}",
+        "Unscoreable reward in req-003__WsmiUmy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 48 |   if (args.length > 0) 49 |     er = args[0]; 50 |     throw er;                 ^ error: EPIPE: broken pipe, write       at emitError (node:events:50:13)      ... [10665 chars truncated] ... {",
+        "Missing scored attempts for cases: req-001, req-002, req-003",
+        "Scored attempt coverage is 0/3",
+        "Harbor job did not complete successfully: 1 errored",
+        "Unscoreable reward in req-003__KXrHrVK: Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:33.926Z \u91cd\u7f6e (cch_session_id: sess_mwlr07i1_464236e62dd6)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:33.926Z\"}}",
+        "Unscoreable reward in req-002__JuKUr8U: Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:24.741Z \u91cd\u7f6e (cch_session_id: sess_mwlqyq47_c8ee14774d2c)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:24.741Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.048Z \u91cd\u7f6e (cch_session_id: sess_mwlqyqxx_721efb76aa8b)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.048Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.279Z \u91cd\u7f6e (cch_session_id: sess_mwlqyrb0_3b98fa108357)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.279Z\"}}",
+        "Missing scored attempts for cases: req-002, req-003",
+        "Scored attempt coverage is 1/3"
+      ],
+      "execution_error_details_total": 11,
+      "execution_error_details_shown": 11,
+      "execution_error_details_truncated": false,
+      "expected_attempts": 6,
+      "scored_attempts": 1,
+      "num_trials_with": 0,
+      "num_trials_without": 1,
+      "execution_counts": {
+        "fresh": {
+          "with_skill": 3,
+          "without_skill": 3
+        },
+        "reused": {
+          "without_skill": 0
+        }
+      },
+      "measured_usage": {
+        "fresh": {
+          "with_skill": null,
+          "without_skill": null
+        },
+        "reused": {
+          "without_skill": null
+        }
+      },
+      "output_dir": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_063356_1_bb840cf6c462/opencode",
+      "dataset_sufficiency": {
+        "policy": "dataset-sufficiency-v1",
+        "status": "provisional",
+        "coverage_summary": "Dataset size: provisional \u2014 3 cases (policy needs 10), 1 negative case (needs 1); pass-rate interval unavailable (policy dataset-sufficiency-v1)",
+        "checks": [
+          {
+            "name": "coverage",
+            "met": false,
+            "observed": {
+              "distinct_cases": 3,
+              "negative_cases": 1
+            },
+            "required": {
+              "distinct_cases": 10,
+              "negative_cases": 1
+            },
+            "reason": "3 distinct cases and 1 negative cases; requires 10 and 1"
+          },
+          {
+            "name": "pass_rate_reliability",
+            "met": null,
+            "observed": {
+              "interval_half_width": null
+            },
+            "required": {
+              "interval_half_width": 0.2
+            },
+            "reason": "95% Wilson interval is unavailable"
+          },
+          {
+            "name": "lift_comparison",
+            "met": null,
+            "observed": {
+              "paired_cases": null
+            },
+            "required": {
+              "paired_cases": 10
+            },
+            "reason": "Paired-case count is unavailable"
+          }
+        ],
+        "reason": "provisional: 3 distinct cases and 1 negative cases; requires 10 and 1; 95% Wilson interval is unavailable; Paired-case count is unavailable"
+      }
+    }
+  },
+  "metric_set": "skill-evaluator-default-v2",
+  "metrics": [
+    "security",
+    "skill_execution",
+    "skill_efficiency",
+    "accuracy",
+    "goal_accuracy",
+    "behavior_check"
+  ],
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "attempt_policy": {
+    "max_attempts": 1,
+    "pass_threshold": 0.5,
+    "stop_on_pass": false,
+    "score_definition": "overall = mean(Security, Correctness, Discoverability, Effectiveness, Efficiency) [skill-evaluator-dimension-mean-v1], excluding metrics that are not applicable to a case",
+    "score_policy": "skill-evaluator-dimension-mean-v1"
+  },
+  "execution_status": "failed",
+  "execution_errors": [
+    "Harbor job did not complete successfully: 3 errored",
+    "Unscoreable reward in req-001__FALpq9H: Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.306Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mge_b84e4b0fb671)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.306Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.486Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mlg_3ba293021a57)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.486Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.693Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mqz_69f6bb3e69b7)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.693Z\"}}",
+    "Unscoreable reward in req-002__ciPjbmT: Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:55.235Z \u91cd\u7f6e (cch_session_id: sess_mwlr0nxv_f0a8feacbb49)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:55.235Z\"}}",
+    "Unscoreable reward in req-003__WsmiUmy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 48 |   if (args.length > 0) 49 |     er = args[0]; 50 |     throw er;                 ^ error: EPIPE: broken pipe, write       at emitError (node:events:50:13)      ... [10665 chars truncated] ... {",
+    "Missing scored attempts for cases: req-001, req-002, req-003",
+    "Scored attempt coverage is 0/3",
+    "Harbor job did not complete successfully: 1 errored",
+    "Unscoreable reward in req-003__KXrHrVK: Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:33.926Z \u91cd\u7f6e (cch_session_id: sess_mwlr07i1_464236e62dd6)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:33.926Z\"}}",
+    "Unscoreable reward in req-002__JuKUr8U: Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:24.741Z \u91cd\u7f6e (cch_session_id: sess_mwlqyq47_c8ee14774d2c)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:24.741Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.048Z \u91cd\u7f6e (cch_session_id: sess_mwlqyqxx_721efb76aa8b)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.048Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.279Z \u91cd\u7f6e (cch_session_id: sess_mwlqyrb0_3b98fa108357)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.279Z\"}}",
+    "Missing scored attempts for cases: req-002, req-003",
+    "Scored attempt coverage is 1/3",
+    "opencode without-skill Harbor run failed: Harbor job did not complete successfully: 1 errored",
+    "opencode with-skill Harbor run failed: Harbor job did not complete successfully: 3 errored"
+  ],
+  "execution_error_details_total": 13,
+  "execution_error_details_shown": 13,
+  "execution_error_details_truncated": false,
+  "expected_attempts": 6,
+  "scored_attempts": 1,
+  "error": [
+    "Harbor job did not complete successfully: 3 errored"
+  ],
+  "baseline": {
+    "mode": "fresh"
+  },
+  "comparison_identity": {
+    "config": {
+      "harbor": {
+        "environment": {
+          "value": "docker",
+          "source": "CLI"
+        },
+        "environment_kwargs": {
+          "keys": [],
+          "sources": {},
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "n_attempts": 1,
+        "stop_on_pass": false,
+        "timeout_multiplier": 3.0,
+        "base_image_mode": "reuse",
+        "resources": {
+          "cpus": null,
+          "memory_mb": null,
+          "storage_mb": null
+        },
+        "agent_workdir": null,
+        "custom_dockerfile_mode": "rebase",
+        "runtime_env": {
+          "keys": [],
+          "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        }
+      },
+      "provider": {
+        "name": "openai-compatible",
+        "model": "qwen3.8-flash"
+      },
+      "judge": {
+        "enabled": true,
+        "provider": "openai-compatible",
+        "model": "qwen3.8-flash",
+        "source": "SKILL_EVAL_LLM_MODEL",
+        "override_applied": false,
+        "reasoning_effort": null,
+        "catalog_verification": "degraded"
+      },
+      "task_source": "evals_json",
+      "grading": {
+        "mode": "default"
+      },
+      "skill_workspace": {
+        "mode": "isolated"
+      },
+      "copy_repo": false,
+      "repo_context_exclude_paths": [],
+      "agents": {
+        "opencode": {
+          "agent": "opencode",
+          "model": "openai/qwen3.8-flash",
+          "source": "CLI"
+        }
+      },
+      "baseline_task_tree_digest": "sha256:339b6ad7f3ffa59bd9868829bcc4ecbce03f0cc955b992f2f824d5d691e4481b"
+    },
+    "dataset_digest": "sha256:d59e99f13f7cedf5692f67fdc3fbb33f6dca4170e91bde5028224dbcf954c8f9",
+    "identity_dataset_digest": "sha256:4fdc307d7e64c8abcec1088ffcbb2905af14498ff8e95b641eee8a6b96d9c126",
+    "baseline_task_tree_digest": "sha256:339b6ad7f3ffa59bd9868829bcc4ecbce03f0cc955b992f2f824d5d691e4481b",
+    "expected_case_ids": [
+      "req-001",
+      "req-002",
+      "req-003"
+    ],
+    "attempt_policy": {
+      "max_attempts": 1,
+      "pass_threshold": 0.5,
+      "stop_on_pass": false
+    },
+    "score_policy": "skill-evaluator-dimension-mean-v1",
+    "evaluator_version": "0.9.0",
+    "skill": {
+      "evaluated_source": null,
+      "publication_target": {
+        "skill_name": "requirement-analysis-pro",
+        "skill_digest": "sha256:f31ec2bbec06407886602e7ef7899c78690915f81de7b65702d09b090ec38482",
+        "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+      }
+    }
+  },
+  "expected_case_ids": [
+    "req-001",
+    "req-002",
+    "req-003"
+  ],
+  "skill_name": "requirement-analysis-pro",
+  "run_id": "20261118_063356_1_bb840cf6c462",
+  "publication_target": {
+    "skill_name": "requirement-analysis-pro",
+    "skill_digest": "sha256:f31ec2bbec06407886602e7ef7899c78690915f81de7b65702d09b090ec38482",
+    "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+  },
+  "run_dir": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_063356_1_bb840cf6c462",
+  "result_path": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_063356_1_bb840cf6c462/result.json",
+  "harbor_jobs_dir": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_063356_1_bb840cf6c462/_harbor-jobs",
+  "harbor_jobs_retained": false,
+  "evaluated_at": "2026-11-18T06:38:20.673924+00:00",
+  "evaluator_version": "0.9.0",
+  "dataset_snapshot": {
+    "schema_version": "1.1",
+    "evaluator_version": "0.9.0",
+    "dataset_summary": {
+      "total_tasks": 3,
+      "positive_tasks": 2,
+      "negative_tasks": 1,
+      "unclassified_tasks": 0,
+      "source": "dataset"
+    },
+    "dataset_digest": "sha256:d59e99f13f7cedf5692f67fdc3fbb33f6dca4170e91bde5028224dbcf954c8f9",
+    "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1"
+  },
+  "dataset_snapshot_path": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_063356_1_bb840cf6c462/dataset_snapshot.json",
+  "dataset_summary": {
+    "total_tasks": 3,
+    "positive_tasks": 2,
+    "negative_tasks": 1,
+    "unclassified_tasks": 0,
+    "source": "dataset"
+  },
+  "dataset_digest": "sha256:d59e99f13f7cedf5692f67fdc3fbb33f6dca4170e91bde5028224dbcf954c8f9",
+  "dataset_digest_algorithm": "skill-evaluator-dataset-snapshot/1",
+  "identity_dataset_digest": "sha256:4fdc307d7e64c8abcec1088ffcbb2905af14498ff8e95b641eee8a6b96d9c126",
+  "baseline_task_tree_digest": "sha256:339b6ad7f3ffa59bd9868829bcc4ecbce03f0cc955b992f2f824d5d691e4481b",
+  "budget": {
+    "limits": {
+      "max_agent_tokens": null,
+      "max_judge_calls": null,
+      "max_attempts_total": null,
+      "max_cost_usd": null
+    },
+    "planned_attempts": 6,
+    "started_attempts": 0,
+    "finished_attempts": 0,
+    "unmeasured_attempts": {
+      "agent_tokens": 0,
+      "judge_calls": 0,
+      "cost_usd": 0
+    },
+    "used": {
+      "agent_tokens": "not measured",
+      "judge_calls": "not measured",
+      "cost_usd": "not measured"
+    },
+    "status": "ok",
+    "partial": false,
+    "exhausted_limit": null,
+    "exhausted_basis": null,
+    "attempts_not_run": 0,
+    "not_run": [],
+    "charge_coverage": {
+      "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+      "attempts_by_derivation": {
+        "price_file": 0,
+        "provider_reported": 0,
+        "unmeasured": 0
+      },
+      "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+      "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+      "environment_setup": "not included",
+      "container": "not included",
+      "backend": "not included",
+      "infrastructure": "not included"
+    },
+    "reservation": {
+      "policy": "largest_measured_attempt",
+      "estimate_per_attempt": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "in_flight_attempts": 0,
+      "waits": 0,
+      "unestimated_admissions": 0,
+      "calibration_waits": 0,
+      "estimate_denials": 0,
+      "denied_unit_size": 0
+    },
+    "observed_overruns": {}
+  },
+  "dataset_provenance": null,
+  "run_config": {
+    "config_file": "evals/config.yml",
+    "harbor": {
+      "environment": {
+        "value": "docker",
+        "source": "CLI"
+      },
+      "environment_kwargs": {
+        "keys": [],
+        "sources": {},
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "n_attempts": 1,
+      "stop_on_pass": false,
+      "n_concurrent": 4,
+      "timeout_multiplier": 3.0,
+      "base_image_mode": "reuse",
+      "resources": {
+        "cpus": null,
+        "memory_mb": null,
+        "storage_mb": null
+      },
+      "agent_workdir": null,
+      "custom_dockerfile_mode": "rebase",
+      "runtime_env": {
+        "keys": [],
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "jobs_retained": false
+    },
+    "provider": {
+      "name": "openai-compatible",
+      "model": "qwen3.8-flash"
+    },
+    "judge": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "qwen3.8-flash",
+      "source": "SKILL_EVAL_LLM_MODEL",
+      "override_applied": false,
+      "reasoning_effort": null,
+      "catalog_verification": "degraded"
+    },
+    "credential_validation": {
+      "status": "degraded",
+      "targets": [
+        {
+          "labels": [
+            "opencode",
+            "standard grader"
+          ],
+          "provider": "openai-compatible",
+          "model": "qwen3.8-flash",
+          "status": "degraded",
+          "detail": "model catalog access does not verify runtime credentials for this endpoint"
+        }
+      ]
+    },
+    "task_source": "evals_json",
+    "grading": {
+      "mode": "default"
+    },
+    "skill_workspace": {
+      "mode": "isolated"
+    },
+    "copy_repo": false,
+    "repo_context_exclude_paths": [],
+    "agents": {
+      "opencode": {
+        "agent": "opencode",
+        "model": "openai/qwen3.8-flash",
+        "source": "CLI"
+      }
+    },
+    "evaluated_source": null,
+    "baseline_task_tree_digest": "sha256:339b6ad7f3ffa59bd9868829bcc4ecbce03f0cc955b992f2f824d5d691e4481b",
+    "baseline": {
+      "mode": "fresh"
+    },
+    "budget": {
+      "limits": {
+        "max_agent_tokens": null,
+        "max_judge_calls": null,
+        "max_attempts_total": null,
+        "max_cost_usd": null
+      },
+      "planned_attempts": 6,
+      "started_attempts": 0,
+      "finished_attempts": 0,
+      "unmeasured_attempts": {
+        "agent_tokens": 0,
+        "judge_calls": 0,
+        "cost_usd": 0
+      },
+      "used": {
+        "agent_tokens": "not measured",
+        "judge_calls": "not measured",
+        "cost_usd": "not measured"
+      },
+      "status": "ok",
+      "partial": false,
+      "exhausted_limit": null,
+      "exhausted_basis": null,
+      "attempts_not_run": 0,
+      "not_run": [],
+      "charge_coverage": {
+        "agent_inference": "user-price-file token pricing; otherwise provider-reported cost; otherwise not measured",
+        "attempts_by_derivation": {
+          "price_file": 0,
+          "provider_reported": 0,
+          "unmeasured": 0
+        },
+        "unmeasured_agent_cost": "not estimated or treated as zero; measured subtotal retained; stops further cost-bounded admission",
+        "judge_inference": "not priced; bounded only by --max-judge-calls when configured",
+        "environment_setup": "not included",
+        "container": "not included",
+        "backend": "not included",
+        "infrastructure": "not included"
+      },
+      "reservation": {
+        "policy": "largest_measured_attempt",
+        "estimate_per_attempt": {
+          "agent_tokens": "not measured",
+          "judge_calls": "not measured",
+          "cost_usd": "not measured"
+        },
+        "in_flight_attempts": 0,
+        "waits": 0,
+        "unestimated_admissions": 0,
+        "calibration_waits": 0,
+        "estimate_denials": 0,
+        "denied_unit_size": 0
+      },
+      "observed_overruns": {}
+    }
+  },
+  "partial": false,
+  "dataset_sufficiency": {
+    "policy": "dataset-sufficiency-v1",
+    "status": "provisional",
+    "coverage_summary": "Dataset size: provisional \u2014 3 cases (policy needs 10), 1 negative case (needs 1); pass-rate interval unavailable (policy dataset-sufficiency-v1)",
+    "checks": [
+      {
+        "name": "coverage",
+        "met": false,
+        "observed": {
+          "distinct_cases": 3,
+          "negative_cases": 1
+        },
+        "required": {
+          "distinct_cases": 10,
+          "negative_cases": 1
+        },
+        "reason": "3 distinct cases and 1 negative cases; requires 10 and 1"
+      },
+      {
+        "name": "pass_rate_reliability",
+        "met": null,
+        "observed": {
+          "interval_half_width": null
+        },
+        "required": {
+          "interval_half_width": 0.2
+        },
+        "reason": "95% Wilson interval is unavailable"
+      },
+      {
+        "name": "lift_comparison",
+        "met": null,
+        "observed": {
+          "paired_cases": null
+        },
+        "required": {
+          "paired_cases": 10
+        },
+        "reason": "Paired-case count is unavailable"
+      }
+    ],
+    "reason": "provisional: 3 distinct cases and 1 negative cases; requires 10 and 1; 95% Wilson interval is unavailable; Paired-case count is unavailable"
+  },
+  "harbor_jobs_retention_reason": "not_retained",
+  "tier3_feedback": {
+    "schema_version": "1.0",
+    "conclusions": [
+      {
+        "severity": "warn",
+        "title": "Skill effect",
+        "message": "per-case result: inconclusive (opencode: condition execution is incomplete).",
+        "source": "deterministic"
+      },
+      {
+        "severity": "fail",
+        "title": "Evaluation incomplete",
+        "message": "Harbor job did not complete successfully: 3 errored; Unscoreable reward in req-001__FALpq9H: Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.306Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mge_b84e4b0fb671)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.306Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.486Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mlg_3ba293021a57)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.486Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.693Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mqz_69f6bb3e69b7)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.693Z\"}}; Unscoreable reward in req-002__ciPjbmT: Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:55.235Z \u91cd\u7f6e (cch_session_id: sess_mwlr0nxv_f0a8feacbb49)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:55.235Z\"}}; Unscoreable reward in req-003__WsmiUmy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 48 |   if (args.length > 0) 49 |     er = args[0]; 50 |     throw er;                 ^ error: EPIPE: broken pipe, write       at emitError (node:events:50:13)      ... [10665 chars truncated] ... {; Missing scored attempts for cases: req-001, req-002, req-003; Scored attempt coverage is 0/3; With skill aggregate job: Harbor job did not complete successfully: 3 errored; With skill trial req-001__FALpq9H: Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.306Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mge_b84e4b0fb671)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.306Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.486Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mlg_3ba293021a57)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.486Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.693Z \u91cd\u7f6e (cch_session_id: sess_mwlr0mqz_69f6bb3e69b7)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:53.693Z\"}}; With skill trial req-002__ciPjbmT: Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:55.235Z \u91cd\u7f6e (cch_session_id: sess_mwlr0nxv_f0a8feacbb49)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:55.235Z\"}}; With skill trial req-003__WsmiUmy: NonZeroAgentExitCodeError: Command failed (exit 1): [ -f ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh; opencode --model=skillevaluator-gateway/qwen3.8-flash run --format=json --thinking --dangerously-skip-permissions -- '\u5199\u4e00\u4e2a Python \u811a\u672c\uff0c\u8bfb\u53d6 CSV \u6587\u4ef6\u5e76\u7edf\u8ba1\u6bcf\u4e00\u5217\u7684\u975e\u7a7a\u503c\u6570\u91cf\u3002 ' 2>&1 </dev/null | stdbuf -oL tee /logs/agent/opencode.txt stdout: 45 |       return applyHandlers(handlers, emitter, args), !0; 46 |   } 47 |   let er; 48 |   if (args.length > 0) 49 |     er = args[0]; 50 |     throw er;                 ^ error: EPIPE: broken pipe, write       at emitError (node:events:50:13)      ... [10665 chars truncated] ... {; Harbor job did not complete successfully: 1 errored; Unscoreable reward in req-003__KXrHrVK: Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:33.926Z \u91cd\u7f6e (cch_session_id: sess_mwlr07i1_464236e62dd6)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:33.926Z\"}}; Unscoreable reward in req-002__JuKUr8U: Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:24.741Z \u91cd\u7f6e (cch_session_id: sess_mwlqyq47_c8ee14774d2c)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:24.741Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.048Z \u91cd\u7f6e (cch_session_id: sess_mwlqyqxx_721efb76aa8b)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.048Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.279Z \u91cd\u7f6e (cch_session_id: sess_mwlqyrb0_3b98fa108357)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.279Z\"}}; Missing scored attempts for cases: req-002, req-003; Scored attempt coverage is 1/3; Without skill aggregate job: Harbor job did not complete successfully: 1 errored; Without skill trial req-003__KXrHrVK: Required judge evaluation failed: behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:33.926Z \u91cd\u7f6e (cch_session_id: sess_mwlr07i1_464236e62dd6)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:37:33.926Z\"}}; Without skill trial req-002__JuKUr8U: Required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:24.741Z \u91cd\u7f6e (cch_session_id: sess_mwlqyq47_c8ee14774d2c)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:24.741Z\"}}; goal_accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.048Z \u91cd\u7f6e (cch_session_id: sess_mwlqyqxx_721efb76aa8b)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.048Z\"}}; behavior_check: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:36:26.279Z \u91cd\u7f6e (cch_session_id: sess_mwlqyrb0_3b98fa108357)\",\"code\":\"rate_limit_exceeded\",\"limit_type\":\"rpm\",\"current\":20,\"limit\":20,\"reset_time\":\"2026-11-18T06:36:26.279Z\"}}"
+      }
+    ],
+    "recommendations": [
+      {
+        "title": "req-001, req-002 \u00b7 opencode",
+        "category": "run error",
+        "message": "2 attempt(s) never produced a score: required judge evaluation failed: accuracy: LLM judge error: HTTP 429: Too Many Requests - {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"\u8bf7\u6c42\u9891\u7387\u8d85\u9650\uff1a\u5f53\u524d 20 \u6b21/\u5206\u949f\uff08\u9650\u5236\uff1a20 \u6b21/\u5206\u949f\uff09\u3002\u5c06\u4e8e 2026-11-18T06:37:53.30\u2026. Fix: Not a skill problem: check the judge model configuration, credentials and provider availability, then re-run this case. Evidence: opencode/with-skill/trials/req-001__FALpq9H/reward.json",
+        "severity": "warn",
+        "source": "deterministic"
+      },
+      {
+        "title": "req-003 \u00b7 opencode",
+        "category": "run error",
+        "message": "1 attempt(s) never produced a score: NonZeroAgentExitCodeError: EPIPE: broken pipe, write. Fix: Not a skill problem: re-run this case; if it repeats, check the agent/gateway logs. Evidence: opencode/with-skill/trials/req-003__WsmiUmy/exception.txt",
+        "severity": "warn",
+        "source": "deterministic"
+      }
+    ],
+    "suggestions": [
+      "Not a skill problem: check the judge model configuration, credentials and provider availability, then re-run this case.",
+      "Not a skill problem: re-run this case; if it repeats, check the agent/gateway logs."
+    ],
+    "suggestions_v2": []
+  },
+  "token_usage": {
+    "schema_version": "1",
+    "scored": false,
+    "accounting": {
+      "prompt_includes_cached": true,
+      "total_tokens": "prompt_tokens + completion_tokens",
+      "uncached_prompt_tokens": "prompt_tokens - cached_tokens",
+      "change": "with_skill - baseline total_tokens; percent of the baseline total"
+    },
+    "case_id_validation": {
+      "status": "validated",
+      "dataset_case_ids": 3,
+      "unmatched_case_ids": []
+    },
+    "agents": {
+      "opencode": {
+        "with_skill": {
+          "totals": {
+            "prompt_tokens": 146786,
+            "cached_tokens": 110336,
+            "uncached_prompt_tokens": 36450,
+            "completion_tokens": 5113,
+            "total_tokens": 151899
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 3,
+            "observed_attempts": 3,
+            "measured_attempts": 3,
+            "unscored_attempts": 1,
+            "reason_codes": []
+          }
+        },
+        "baseline": {
+          "totals": {
+            "prompt_tokens": 54510,
+            "cached_tokens": 50176,
+            "uncached_prompt_tokens": 4334,
+            "completion_tokens": 5722,
+            "total_tokens": 60232
+          },
+          "coverage": {
+            "status": "complete",
+            "expected_attempts": 3,
+            "observed_attempts": 3,
+            "measured_attempts": 3,
+            "unscored_attempts": 0,
+            "reason_codes": []
+          }
+        },
+        "delta": {
+          "status": "unavailable",
+          "total_tokens": null,
+          "total_tokens_change_percent": null,
+          "reason_codes": [
+            "with_skill_failed",
+            "baseline_failed"
+          ],
+          "reason": "No change: with-skill run unavailable (0 of 3 attempts scored). No change: baseline incomplete (1 of 3 attempts scored)."
+        }
+      }
+    },
+    "dataset": {
+      "with_skill": {
+        "totals": {
+          "prompt_tokens": 146786,
+          "cached_tokens": 110336,
+          "uncached_prompt_tokens": 36450,
+          "completion_tokens": 5113,
+          "total_tokens": 151899
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 3,
+          "observed_attempts": 3,
+          "measured_attempts": 3,
+          "unscored_attempts": 1,
+          "reason_codes": []
+        }
+      },
+      "baseline": {
+        "totals": {
+          "prompt_tokens": 54510,
+          "cached_tokens": 50176,
+          "uncached_prompt_tokens": 4334,
+          "completion_tokens": 5722,
+          "total_tokens": 60232
+        },
+        "coverage": {
+          "status": "complete",
+          "expected_attempts": 3,
+          "observed_attempts": 3,
+          "measured_attempts": 3,
+          "unscored_attempts": 0,
+          "reason_codes": []
+        }
+      },
+      "delta": {
+        "status": "unavailable",
+        "total_tokens": null,
+        "total_tokens_change_percent": null,
+        "reason_codes": [
+          "agent_scope_mismatch"
+        ],
+        "reason": "Not every agent has a token change, so there is no change over all agents."
+      }
+    }
+  },
+  "report_path": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_063356_1_bb840cf6c462/report.html",
+  "benchmark_path": "/app/reports/company-library-20261118/tier3-v2/requirement-analysis-pro/requirement-analysis-pro/20261118_063356_1_bb840cf6c462/tier3-benchmark.md",
+  "report_status": "complete",
+  "duration_seconds": 266.133,
+  "result_projection": {
+    "schema_version": "1.0",
+    "mode": "inline",
+    "returned_result": "full",
+    "persisted_result": "inline",
+    "agents": {},
+    "omitted_detail_fields": {},
+    "omitted_root_detail_fields": []
+  }
+}

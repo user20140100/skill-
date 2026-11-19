@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project PRD Writer"
+  short_description: "为 project-prd 逐功能点生成完整版产品需求文档"
+  default_prompt: "按 project-prd 的 Feature Point 模型，为每个功能点完整撰写七章节 PRD。"

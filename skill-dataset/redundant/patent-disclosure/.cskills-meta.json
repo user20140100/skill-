@@ -1,0 +1,24 @@
+{
+  "name": "patent-disclosure",
+  "author": "liushaojie",
+  "version": "0.0.3",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:19+08:00",
+  "updatedAt": "2026-11-17T10:46:19+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/patent-disclosure"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/patent-disclosure",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/patent-disclosure"
+  ],
+  "fileHashes": {
+    "SKILL.md": "44c83a4049221ea0c5a9fe94153b0d5856cd9810baf80a20cfe21f980965629c",
+    "references/template.md": "dbc6798d9e4dabe538b5372f74dcd01a4c5399a82fa44b0fbb106476a3ab9c27",
+    "scripts/convert_to_docx.py": "8cad3029215394883aa311b7fb19d36363a621a158720c92d8fa1d56869f784a"
+  }
+}

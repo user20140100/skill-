@@ -1,0 +1,128 @@
+Tier 3: reusing the existing evaluation source unchanged.
+Tier 3 live evaluation: requirement-spec
+  environment: docker
+  agents/models: opencode
+  plan: with-skill=yes, baseline=yes, timeout=3x
+[00:00:00] configuration: running
+[00:00:00] configuration: ready - evaluation config validated
+[00:00:00] model-resolution: running
+[00:00:00] model-resolution: complete - agent models resolved
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x
+[00:00:00] environment-preflight: running - docker
+[00:00:00] environment-preflight: complete - docker
+[00:00:00] credential-validation: running
+[00:00:00] credential-validation: degraded - credential configuration resolved; live catalog verification inconclusive: opencode, standard grader: model catalog access does not verify runtime credentials for this endpoint; continuing to evaluation
+[00:00:00] docker-images: running - preparing shared eval base image (reuse)
+[00:00:00] docker-images: complete - eval base image ready: skillevaluator-deps:3.12-opencode
+INFO     Using pinned eval base image skillevaluator-deps:3.12-opencode         
+[00:00:00] with-skill-tasks: running
+[00:00:00] with-skill-tasks: ready - task inputs staged
+[00:00:00] baseline-tasks: running
+[00:00:01] baseline-tasks: ready - baseline inputs staged
+[00:00:01] configuration: complete - Planned: 6 attempts (3 cases × 1 attempts × 2 agent arms total)
+  plan update: agents/models=opencode=openai/qwen3.8-flash, provider=openai-compatible, tasks=3, cases=3, attempts=1, with-skill=yes, baseline=yes, concurrency=4, max-agents=1, timeout=3x, matrix-trials=6, preflight-trials=0, containers=6, max-scaled-top-level-agent-timeout=900s
+[00:00:01] agent-runtime-preflight: skipped - disabled by default; enable with --agent-runtime-preflight or harbor.agent_runtime_preflight
+[00:00:01] agent:opencode: running - with-skill + baseline
+[00:01:01] still running: agent:opencode
+[00:02:01] still running: agent:opencode
+[00:03:01] still running: agent:opencode
+[00:04:01] still running: agent:opencode
+[00:05:01] still running: agent:opencode
+[00:06:01] still running: agent:opencode
+[00:07:01] still running: agent:opencode
+[00:07:42] agent:opencode: complete
+[00:07:42] collection: running
+[00:07:43] collection: complete - Harbor results collected
+[00:07:43] report: running
+[00:08:43] still running: report
+[00:09:43] still running: report
+[00:09:47] report: complete - result and HTML reports written
+[00:09:47] run-finished: complete - Tier 3 evaluation finished
+Time: 587.8s
+QUALITY VERDICT: FAIL — 1 of 3 cases failed: 1 goal not met
+OVERALL SKILL LIFT   -0.41
+REQUIRED CHECKS PASSED   2/3 | 3/3 | -1
+GOALS MET   2/3 | 3/3 | -1
+SECURITY CLEAN   3/3 | 3/3 | +0
+
+✖ skill hurts   opencode -33 pp
+test case (k=1)       with skill     without skill   effect                     
+────────────────────────────────────────────────────────────────────────────────
+req-001               1/1 ✓ (0.65)   1/1 ✓ (1.00)    worse score (-0.35)        
+                                                     ↳ with skill: WARNING:     
+                                                     missed expected steps 1, 2,
+                                                     3, 4, 5, 6 of 6 (behavior  
+                                                     0.00)                      
+req-002               0/1 ✗ (0.59)   1/1 ✓ (1.00)    hurts                      
+                                                     ↳ with skill: FAIL: goal   
+                                                     not met (goal accuracy     
+                                                     0.00)                      
+                                                     ↳ with skill: WARNING:     
+                                                     missed expected steps 1, 2,
+                                                     3, 4, 5, 6 of 6 (behavior  
+                                                     0.00)                      
+req-003               1/1 ✓ (0.96)   1/1 ✓ (1.00)    no change                  
+                                                     ↳ with skill: WARNING:     
+                                                     missed expected step 2 of 3
+                                                     (behavior 0.67)            
+                                                                                
+success rate          67%            100%            -33 pp                     
+quality score (0-1)   0.59           1.00            -0.41                      
+                                                                                
+  correctness         0.33           1.00            -0.67                      
+  effectiveness       0.44           1.00            -0.56                      
+  discoverability     0.91           -                                          
+  efficiency          1.00           -                                          
+  security            1.00           1.00            +0.00                      
+✓ pass  ✗ fail  ⊘ did not run  · skipped after a pass  (0.82) mean score 0-1
+Pass@1 (supporting reliability: share of cases with a passing attempt, attempt 
+passes at Overall ≥ 0.50): with skill 66.7%, without skill 100.0%; Pass-rate 
+difference -33.3 percentage points. Shared-metric pass-rate difference -33.3 
+percentage points (with skill 66.7%, without skill 100.0%).
+
+How to improve (consider these fixes)
+ 1. req-002  [skill hurts] · opencode · lost 1 attempt(s)
+    what happened: passes 1/1 without the skill but 0/1 with it; No requirement 
+document produced, only progress notes.
+    fix: SKILL.md §十: add direct-output exception: when user explicitly asks 
+for complete document, immediately write full Markdown requirements doc, listing
+assumptions/open questions; continue clarification only after delivery.
+    evidence: opencode/with-skill/trials/req-002__cNUify4/trajectory.json
+ 2. all cases  [eval case] · opencode
+    what happened: every case also passes without the skill, so this eval cannot
+show what the skill adds
+    fix: Add cases the agent fails without the skill (tasks that need the 
+skill's scripts, conventions or domain rules) so the eval measures the skill's 
+value.
+
+Next steps
+ 1. each case ran once, so a single attempt decides every pass or fail mark  
+[evaluation]
+    try: Re-run with `--n-attempts 3` to see whether the results repeat before 
+acting on them.
+    check: The marks repeat across attempts and the verdict keeps its direction.
+    evidence: 3 case(s), 1 attempt each
+ 2. only opencode was evaluated and the skill showed no clear gain (-33 pp), so 
+it is unknown whether the result depends on the agent or model  [agent · 
+hypothesis]
+    try: As an experiment, run the same cases with a second agent (`--agents 
+opencode,<agent>`) or another model (`--agent-model AGENT=MODEL`), keeping the 
+dataset unchanged.
+    check: A second agent with the same direction points at the skill; a 
+different direction points at agent-specific guidance.
+    evidence: opencode -33 pp
+
+Dataset size: provisional — 3 cases (policy needs 10), 1 negative case (needs 
+1); pass-rate interval ±0.37 is wider than ±0.20 (policy dataset-sufficiency-v1)
+Limited evidence: Based on 3 cases × 1 attempt = 3 scored attempts (0 execution 
+failures, 0 judge failures); by arm: with skill: 3 cases, 3 scored attempts (0 
+execution failures, 0 judge failures); without skill: 3 cases, 3 scored attempts
+(0 execution failures, 0 judge failures)
+╭───────────────────────────────── Artifacts ──────────────────────────────────╮
+│ 📊 HTML report report.html ·                                                 │
+│                /app/reports/company-library-20261118/tier3-v2/requirement-sp │
+│                ec/requirement-spec/20261118_082742_1_c987a798c21c/report.htm │
+│                l                                                             │
+│ 📁 Output      /app/reports/company-library-20261118/tier3-v2/requirement-sp │
+│                ec/requirement-spec/20261118_082742_1_c987a798c21c            │
+╰──────────────────────────────────────────────────────────────────────────────╯

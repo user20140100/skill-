@@ -1,0 +1,32 @@
+{
+  "id": "req-001",
+  "expected_skill": "requirement-analysis-pro",
+  "expected_script": null,
+  "prompt": "请根据以下信息，直接输出一份规范、完整的需求文档（Markdown 格式）。\n\n【需求背景】公司内部系统要新增「加班申请」功能，替换现在线下填纸表、微信找领导签字的方式，便于留痕和 HR 统计。\n【使用角色】员工（提交申请）、部门主管（审批）、HR（月度汇总）。\n【填写内容】加班日期、开始时间、结束时间、加班事由（选填，不超过 200 字）；加班时长由系统按起止时间自动计算。\n【审批流程】员工提交 → 部门主管审批（同意/驳回，驳回需填写原因）；加班时长超过 4 小时时，需部门总监额外审批；法定节假日加班自动标记。\n【权限】员工仅可查看/修改自己的申请；部门主管仅可查看/审批本部门申请；HR 可查看全公司但不可修改。\n【列表与查询】员工端列表显示日期、时长、状态（待审批/已通过/已驳回），支持按状态、按月份筛选；HR 端支持按月导出汇总。\n\n请直接输出完整的需求文档。",
+  "expected_output": "The agent produced a complete, structured Markdown requirement document for the overtime-request feature. It covered: background/pain point, users and roles (employee, manager, HR), data fields (with auto-calculated duration), the approval flow (including the >4-hour escalation to the director and the holiday flag), permissions (employee/manager/HR at three levels), list & query (filters plus monthly export), and acceptance criteria.",
+  "assertions": [
+    "The agent produced a structured Markdown requirement document with section headings, not a chat-style reply or a list of questions",
+    "The document covers the data fields (date, start/end time, duration, reason) and the auto-calculated duration rule",
+    "The document covers the approval flow including the >4-hour escalation to the director",
+    "The document states permissions for employee/manager/HR at three levels",
+    "The document covers list & query (filters, monthly export)",
+    "The document includes acceptance criteria or a checklist"
+  ],
+  "question": "请根据以下信息，直接输出一份规范、完整的需求文档（Markdown 格式）。\n\n【需求背景】公司内部系统要新增「加班申请」功能，替换现在线下填纸表、微信找领导签字的方式，便于留痕和 HR 统计。\n【使用角色】员工（提交申请）、部门主管（审批）、HR（月度汇总）。\n【填写内容】加班日期、开始时间、结束时间、加班事由（选填，不超过 200 字）；加班时长由系统按起止时间自动计算。\n【审批流程】员工提交 → 部门主管审批（同意/驳回，驳回需填写原因）；加班时长超过 4 小时时，需部门总监额外审批；法定节假日加班自动标记。\n【权限】员工仅可查看/修改自己的申请；部门主管仅可查看/审批本部门申请；HR 可查看全公司但不可修改。\n【列表与查询】员工端列表显示日期、时长、状态（待审批/已通过/已驳回），支持按状态、按月份筛选；HR 端支持按月导出汇总。\n\n请直接输出完整的需求文档。",
+  "ground_truth": "The agent produced a complete, structured Markdown requirement document for the overtime-request feature. It covered: background/pain point, users and roles (employee, manager, HR), data fields (with auto-calculated duration), the approval flow (including the >4-hour escalation to the director and the holiday flag), permissions (employee/manager/HR at three levels), list & query (filters plus monthly export), and acceptance criteria.",
+  "expected_behavior": [
+    "The agent produced a structured Markdown requirement document with section headings, not a chat-style reply or a list of questions",
+    "The document covers the data fields (date, start/end time, duration, reason) and the auto-calculated duration rule",
+    "The document covers the approval flow including the >4-hour escalation to the director",
+    "The document states permissions for employee/manager/HR at three levels",
+    "The document covers list & query (filters, monthly export)",
+    "The document includes acceptance criteria or a checklist"
+  ],
+  "evaluated_skill": "requirement-analysis-pro",
+  "has_skill": true,
+  "skill_workspace_mode": "isolated",
+  "workspace_skill_names": [],
+  "grading_mode": "default",
+  "custom_grader": false,
+  "agent_workdir": "/workspace"
+}

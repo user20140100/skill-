@@ -1,0 +1,82 @@
+{
+    "id": "288524db-230c-4b0d-97c7-85d8d38720aa",
+    "started_at": "2026-11-18T06:32:21.784358",
+    "updated_at": "2026-11-18T06:36:51.060550",
+    "finished_at": "2026-11-18T06:36:51.060550",
+    "n_total_trials": 3,
+    "stats": {
+        "n_completed_trials": 3,
+        "n_errored_trials": 1,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "opencode__qwen3.8-flash__with": {
+                "n_trials": 3,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "accuracy": 0.5333333333333333,
+                        "goal_accuracy": 0.6666666666666666,
+                        "overall": 0.0,
+                        "security": 1.0,
+                        "skill_efficiency": 0.6666666666666666,
+                        "skill_execution": 1.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "security": {
+                        "1.0": [
+                            "req-001__EVtoc5z",
+                            "req-002__c2ns2qZ",
+                            "req-003__AgS69K2"
+                        ]
+                    },
+                    "skill_execution": {
+                        "1.0": [
+                            "req-001__EVtoc5z",
+                            "req-002__c2ns2qZ",
+                            "req-003__AgS69K2"
+                        ]
+                    },
+                    "skill_efficiency": {
+                        "1.0": [
+                            "req-001__EVtoc5z",
+                            "req-002__c2ns2qZ"
+                        ]
+                    },
+                    "accuracy": {
+                        "0.8": [
+                            "req-001__EVtoc5z",
+                            "req-002__c2ns2qZ"
+                        ]
+                    },
+                    "goal_accuracy": {
+                        "1.0": [
+                            "req-001__EVtoc5z",
+                            "req-002__c2ns2qZ"
+                        ]
+                    },
+                    "overall": {
+                        "0.0": [
+                            "req-001__EVtoc5z",
+                            "req-002__c2ns2qZ",
+                            "req-003__AgS69K2"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "NonZeroAgentExitCodeError": [
+                        "req-002__c2ns2qZ"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 88937,
+        "n_cache_tokens": 71680,
+        "n_output_tokens": 6755,
+        "cost_usd": null
+    }
+}

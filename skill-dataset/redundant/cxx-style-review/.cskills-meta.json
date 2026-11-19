@@ -1,0 +1,38 @@
+{
+  "name": "cxx-style-review",
+  "author": "guozilong",
+  "version": "1.1.2",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:02+08:00",
+  "updatedAt": "2026-11-17T10:46:02+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/cxx-style-review"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/cxx-style-review",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/cxx-style-review"
+  ],
+  "fileHashes": {
+    "SKILL.md": "fa0d069356fd0309b4edf1d4bb915931cb037d7c3f0b28e6248bdd7e4ece66b6",
+    "agents/openai.yaml": "47acaa420a9a3967649d0591f0c7ccb3410e79604b2c4b57361e7cbaa5e12a6f",
+    "references/cpp-style-spec/INDEX.md": "bd0fed768d52e521d2095321013e1e637fb876246be44008f58f9e9d9104b44a",
+    "references/cpp-style-spec/coverage-map.md": "58455153086c79640b80510bb7829eced44788684278cfbc41e2f630e4319f27",
+    "references/cpp-style-spec/overview.md": "c35e649b85e4edf3192051fc9aa6996a95a0b16abfb069001db41cc16d993450",
+    "references/cpp-style-spec/practice-control-flow.md": "d63d5ad5f8571ca8544f21fdfd9eec3f931edf074593a920486d2387688a589c",
+    "references/cpp-style-spec/practice-cpp-specific.md": "96f184aff3ea0ad1a4ac47c090386aaf0cbfc7f94a97d86e38a4965018302632",
+    "references/cpp-style-spec/practice-files.md": "05750937be7d0da654fc9768ac13152042abab06c13ba73082c64478423800fc",
+    "references/cpp-style-spec/practice-functions-and-general.md": "2106f55320fd630cc78895b2a3375e3bf94600182c37b16cd95ba5c7d40eda1b",
+    "references/cpp-style-spec/practice-macros.md": "5b04ea5e9840a03c8a0741de0655e6b7145233763b240fc4400e00cbe34965e7",
+    "references/cpp-style-spec/safety-resources.md": "90f2923da1ad6b79539dc181fb7946334636ab020444ac3a9162be40ccc52d88",
+    "references/cpp-style-spec/safety-threading-and-build.md": "ca5140c5ecbb7e26d048f3e381b8bf3bc93a05cc7cff64006f9abd663d982c1b",
+    "references/cpp-style-spec/safety-types-and-data.md": "8d85bcac3efcca7c194a22271973b70c552576443fdecd9e572a21cd87f56c5f",
+    "references/cpp-style-spec/source-of-truth/C\u0026Cpp编程规范-初稿v0.3.md": "bd44c02f83f1840de45f1ee4e879b6392630778e181443e3091c0dcbb9b8ec18",
+    "references/cpp-style-spec/style-comments.md": "7db010aeba9b777aa9c6b8e5702c72ddd95aae5e67946d558f16898ee29f6ac7",
+    "references/cpp-style-spec/style-formatting.md": "4d1b7e9f6dbceb3d6863e0263cd3c1655c0cbc94ca996b6c4f4bb54d6b3b19eb",
+    "references/cpp-style-spec/style-naming.md": "4b721b41a0526349b4ce52f7886576e3779535b740e7661fa466c9f06227278e"
+  }
+}

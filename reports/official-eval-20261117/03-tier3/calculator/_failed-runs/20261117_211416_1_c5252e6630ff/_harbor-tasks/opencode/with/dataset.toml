@@ -1,0 +1,10 @@
+[dataset]
+name = "nvidia/skillevaluator"
+description = "SkillEvaluator skill evaluation dataset"
+
+[[tasks]]
+name = "nvidia/calculator-001"
+
+[[tasks]]
+name = "nvidia/calculator-002"
+

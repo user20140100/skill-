@@ -1,0 +1,111 @@
+{
+  "skill_name": "changelog",
+  "execution_status": "failed",
+  "execution_errors": [
+    "staging tree has unexpected or missing entries"
+  ],
+  "execution_error_details_total": 1,
+  "execution_error_details_shown": 1,
+  "execution_error_details_truncated": false,
+  "error": [
+    "staging tree has unexpected or missing entries"
+  ],
+  "run_id": "20261117_072305_1_261b94b6c37f",
+  "publication_target": {
+    "skill_name": "changelog",
+    "skill_digest": "sha256:4f4426e85a82be2f2f0a9936b34bd56440fca3b1d5868c714d3e06873420dd54",
+    "skill_digest_algorithm": "skill-evaluator-source-tree/2"
+  },
+  "run_dir": "/skills/positive/changelog/evals/results/20261117_072305_1_261b94b6c37f",
+  "harbor_jobs_dir": "/skills/positive/changelog/evals/results/20261117_072305_1_261b94b6c37f/_harbor-jobs",
+  "harbor_jobs_retained": true,
+  "duration_seconds": 0.389,
+  "result_path": "/skills/positive/changelog/evals/results/20261117_072305_1_261b94b6c37f/result.json",
+  "agents": {},
+  "run_config": {
+    "config_file": "none",
+    "harbor": {
+      "environment": {
+        "value": "docker",
+        "source": "CLI"
+      },
+      "environment_kwargs": {
+        "keys": [],
+        "sources": {},
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "n_attempts": 1,
+      "stop_on_pass": false,
+      "n_concurrent": 4,
+      "timeout_multiplier": 1.0,
+      "base_image_mode": "disabled",
+      "resources": {
+        "cpus": null,
+        "memory_mb": null,
+        "storage_mb": null
+      },
+      "agent_workdir": null,
+      "custom_dockerfile_mode": "rebase",
+      "runtime_env": {
+        "keys": [],
+        "values_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "jobs_retained": true
+    },
+    "provider": {
+      "name": "openai-compatible",
+      "model": "qwen3.8-max"
+    },
+    "judge": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "qwen3.8-max",
+      "source": "SKILL_EVAL_LLM_MODEL",
+      "override_applied": false,
+      "reasoning_effort": null,
+      "catalog_verification": "degraded"
+    },
+    "credential_validation": {
+      "status": "degraded",
+      "targets": [
+        {
+          "labels": [
+            "opencode",
+            "standard grader"
+          ],
+          "provider": "openai-compatible",
+          "model": "qwen3.8-max",
+          "status": "degraded",
+          "detail": "model catalog access does not verify runtime credentials for this endpoint"
+        }
+      ]
+    },
+    "task_source": "evals_json",
+    "grading": {
+      "mode": "default"
+    },
+    "skill_workspace": {
+      "mode": "isolated"
+    },
+    "copy_repo": false,
+    "repo_context_exclude_paths": [],
+    "agents": {
+      "opencode": {
+        "agent": "opencode",
+        "model": "qwen3.8-max",
+        "source": "CLI"
+      }
+    },
+    "evaluated_source": null
+  },
+  "result_projection": {
+    "schema_version": "1.0",
+    "mode": "inline",
+    "returned_result": "full",
+    "persisted_result": "inline",
+    "agents": {},
+    "omitted_detail_fields": {},
+    "omitted_root_detail_fields": []
+  },
+  "harbor_jobs_retention_reason": "explicit_keep"
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "case": "all cases",
+    "agent": "opencode",
+    "kind": "eval case",
+    "scope": "opencode",
+    "attempts_lost": 0,
+    "what": "every case also passes without the skill, so this eval cannot show what the skill adds",
+    "reasons": [],
+    "env_errors": [],
+    "evidence": "",
+    "action": "Add cases the agent fails without the skill (tasks that need the skill's scripts, conventions or domain rules) so the eval measures the skill's value.",
+    "source": "deterministic"
+  }
+]

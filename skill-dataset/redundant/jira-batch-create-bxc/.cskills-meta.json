@@ -1,0 +1,24 @@
+{
+  "name": "jira-batch-create-bxc",
+  "author": "wangtianyuan",
+  "version": "1.0.2",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:08+08:00",
+  "updatedAt": "2026-11-17T10:46:08+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/jira-batch-create-bxc"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/jira-batch-create-bxc",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/jira-batch-create-bxc"
+  ],
+  "fileHashes": {
+    "CHANGELOG.md": "acfbea29bfc1e07118d09b3f103fa861a5b900324cfeb68410a5ac4b7bc486ba",
+    "README.md": "c0ea970bf684db5e682b77dec63a8c3caf691463d93855c85b424c0d27d6b53c",
+    "SKILL.md": "a4a6d3a20ac95f7ed0e12d9a59bb65c38d9da47b4bb5380bb150c2b3cca25769"
+  }
+}

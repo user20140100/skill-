@@ -1,0 +1,214 @@
+{
+  "security": 1.0,
+  "skill_execution": null,
+  "skill_efficiency": null,
+  "accuracy": 1.0,
+  "goal_accuracy": 1.0,
+  "behavior_check": null,
+  "metric_set": "skill-evaluator-default-v2",
+  "score_policy": "skill-evaluator-dimension-mean-v1",
+  "judge_contract": "skill-evaluator-judges-v2",
+  "entry_id": "req-001",
+  "has_skill": false,
+  "trajectory_source": "trajectory.json",
+  "details": {
+    "security": {
+      "passed": true,
+      "score": 1.0,
+      "reason": "No unsafe agent-issued actions, secret leakage, or unauthorized access found in trajectory",
+      "findings": []
+    },
+    "skill_execution": {
+      "score": null,
+      "status": "not_applicable",
+      "reason": "N/A: this arm has no skill under test installed, so there is no skill to discover, run or route to"
+    },
+    "skill_efficiency": {
+      "score": null,
+      "status": "not_applicable",
+      "reason": "N/A: this arm has no skill under test installed, so there is no skill to discover, run or route to"
+    },
+    "accuracy": {
+      "score": 1.0,
+      "reason": "The final response is a Markdown requirement document that covers the background, roles, fields, approval flow, permissions, list/query, export, and acceptance criteria as required.",
+      "criteria": {
+        "ACTION_CORRECT": true,
+        "FACTUALLY_ACCURATE": true,
+        "TASK_ADDRESSED": true,
+        "ACTIONABLE": true,
+        "FORMAT_FOLLOWED": true
+      },
+      "judge_model_used": "qwen3.8-flash",
+      "judge_reasoning_effort": null,
+      "judge_fallback_used": false,
+      "evidence_refs": [
+        {
+          "source": "evals.json",
+          "kind": "ground_truth",
+          "label": "Expected answer",
+          "json_pointer": "/ground_truth",
+          "excerpt": "The agent produced a complete, structured Markdown requirement document for the overtime-request feature. It covered: background/pain point, users and roles (employee, manager, HR), data \n...[truncated]...\nager/HR at three levels), list & query (filters plus monthly export), and acceptance criteria."
+        },
+        {
+          "source": "trajectory.json",
+          "kind": "final_response",
+          "label": "Final response",
+          "json_pointer": "/steps/1",
+          "excerpt": "# \u52a0\u73ed\u7533\u8bf7\u529f\u80fd \u9700\u6c42\u6587\u6863\n\n| \u9879\u76ee | \u5185\u5bb9 |\n| --- | --- |\n| \u6587\u6863\u540d\u79f0 | \u52a0\u73ed\u7533\u8bf7\u529f\u80fd\u9700\u6c42\u8bf4\u660e\u4e66 |\n| \u6240\u5c5e\u7cfb\u7edf | \u516c\u53f8\u5185\u90e8\u7ba1\u7406\u7cfb\u7edf\uff08OA\uff09 |\n| \u7248\u672c | V1.0 |\n| \u72b6\u6001 | \u5f85\u8bc4\u5ba1 |\n| \u7f16\u5199\u65e5\u671f | 2026-11-18 |\n\n---\n\n## 1. \u9700\u6c42\u80cc\u666f\n\n\u5f53\u524d\u5458\u5de5\u52a0\u73ed\u7533\u8bf7\u91c7\u7528**\u7ebf\u4e0b\u586b\u5199\u7eb8\u8d28\u8868\u683c + \u5fae\u4fe1\u627e\u9886\u5bfc\u7b7e\u5b57**\n...[truncated]...\n \u5ba1\u6279\u4eba\u4e13\u9879\u57f9\u8bad\uff1bHR \u83b7\u5f97\u8282\u5047\u65e5\u65e5\u5386\u7ef4\u62a4\u6743\u9650\u3002\n3. \u7eb8\u8d28\u5355\u636e\u4e0b\u7ebf\u516c\u544a\uff0c\u660e\u786e\u5386\u53f2\u7eb8\u8d28\u8bb0\u5f55\u7684\u8865\u5f55\u622a\u6b62\u65e5\u3002\n4. \u4e0a\u7ebf\u540e 1 \u4e2a\u6708\u590d\u76d8\uff1a\u5ba1\u6279\u5e73\u5747\u65f6\u957f\u3001\u9a73\u56de\u7387\u3001\u5bfc\u51fa\u51c6\u786e\u7387\u662f\u5426\u8fbe\u6210 \u00a72 \u76ee\u6807\u3002"
+        }
+      ],
+      "omitted": {
+        "count": 1,
+        "truncated": true,
+        "reason": "low-relevance sections dropped to fit budget"
+      }
+    },
+    "goal_accuracy": {
+      "score": 1.0,
+      "reason": "The final response fully satisfies the expected outcome by covering all required requirement-document sections and business rules.",
+      "achieved": true,
+      "user_goal": "Produce a complete, structured Markdown requirement document for the overtime-request feature covering all specified business requirements.",
+      "end_state": "The agent delivered a comprehensive Markdown requirement document with background, roles, fields, auto-calculated duration, approval flow including >4-hour escalation and holiday marking, permissions, list/query/export, and acceptance criteria.",
+      "method": "custom",
+      "provider": "openai-compatible",
+      "model": "qwen3.8-flash",
+      "judge_model_used": "qwen3.8-flash",
+      "judge_reasoning_effort": null,
+      "judge_fallback_used": false,
+      "evidence_refs": [
+        {
+          "source": "evals.json",
+          "kind": "ground_truth",
+          "label": "Expected answer",
+          "json_pointer": "/ground_truth",
+          "excerpt": "The agent produced a complete, structured Markdown requirement document for the overtime-request feature. It covered: background/pain point, users and roles (employee, manager, HR), data \n...[truncated]...\nager/HR at three levels), list & query (filters plus monthly export), and acceptance criteria."
+        },
+        {
+          "source": "trajectory.json",
+          "kind": "final_response",
+          "label": "Final response",
+          "json_pointer": "/steps/1",
+          "excerpt": "# \u52a0\u73ed\u7533\u8bf7\u529f\u80fd \u9700\u6c42\u6587\u6863\n\n| \u9879\u76ee | \u5185\u5bb9 |\n| --- | --- |\n| \u6587\u6863\u540d\u79f0 | \u52a0\u73ed\u7533\u8bf7\u529f\u80fd\u9700\u6c42\u8bf4\u660e\u4e66 |\n| \u6240\u5c5e\u7cfb\u7edf | \u516c\u53f8\u5185\u90e8\u7ba1\u7406\u7cfb\u7edf\uff08OA\uff09 |\n| \u7248\u672c | V1.0 |\n| \u72b6\u6001 | \u5f85\u8bc4\u5ba1 |\n| \u7f16\u5199\u65e5\u671f | 2026-11-18 |\n\n---\n\n## 1. \u9700\u6c42\u80cc\u666f\n\n\u5f53\u524d\u5458\u5de5\u52a0\u73ed\u7533\u8bf7\u91c7\u7528**\u7ebf\u4e0b\u586b\u5199\u7eb8\u8d28\u8868\u683c + \u5fae\u4fe1\u627e\u9886\u5bfc\u7b7e\u5b57**\n...[truncated]...\n \u5ba1\u6279\u4eba\u4e13\u9879\u57f9\u8bad\uff1bHR \u83b7\u5f97\u8282\u5047\u65e5\u65e5\u5386\u7ef4\u62a4\u6743\u9650\u3002\n3. \u7eb8\u8d28\u5355\u636e\u4e0b\u7ebf\u516c\u544a\uff0c\u660e\u786e\u5386\u53f2\u7eb8\u8d28\u8bb0\u5f55\u7684\u8865\u5f55\u622a\u6b62\u65e5\u3002\n4. \u4e0a\u7ebf\u540e 1 \u4e2a\u6708\u590d\u76d8\uff1a\u5ba1\u6279\u5e73\u5747\u65f6\u957f\u3001\u9a73\u56de\u7387\u3001\u5bfc\u51fa\u51c6\u786e\u7387\u662f\u5426\u8fbe\u6210 \u00a72 \u76ee\u6807\u3002"
+        }
+      ],
+      "omitted": {
+        "count": 0,
+        "truncated": false,
+        "reason": ""
+      }
+    },
+    "behavior_check": {
+      "results": [],
+      "expectations": [
+        {
+          "step": 1,
+          "requirement": "The agent produced a structured Markdown requirement document with section headings, not a chat-style reply or a list of questions",
+          "status": "not_checked",
+          "reason": "behavior_check evidence is incomplete: final response did not reach the judge (final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run"
+        },
+        {
+          "step": 2,
+          "requirement": "The document covers the data fields (date, start/end time, duration, reason) and the auto-calculated duration rule",
+          "status": "not_checked",
+          "reason": "behavior_check evidence is incomplete: final response did not reach the judge (final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run"
+        },
+        {
+          "step": 3,
+          "requirement": "The document covers the approval flow including the >4-hour escalation to the director",
+          "status": "not_checked",
+          "reason": "behavior_check evidence is incomplete: final response did not reach the judge (final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run"
+        },
+        {
+          "step": 4,
+          "requirement": "The document states permissions for employee/manager/HR at three levels",
+          "status": "not_checked",
+          "reason": "behavior_check evidence is incomplete: final response did not reach the judge (final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run"
+        },
+        {
+          "step": 5,
+          "requirement": "The document covers list & query (filters, monthly export)",
+          "status": "not_checked",
+          "reason": "behavior_check evidence is incomplete: final response did not reach the judge (final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run"
+        },
+        {
+          "step": 6,
+          "requirement": "The document includes acceptance criteria or a checklist",
+          "status": "not_checked",
+          "reason": "behavior_check evidence is incomplete: final response did not reach the judge (final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run"
+        }
+      ],
+      "score": null,
+      "status": "error",
+      "reason": "behavior_check evidence is incomplete: final response did not reach the judge (final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run",
+      "evidence_refs": [
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 1",
+          "json_pointer": "/expected_behavior/0",
+          "excerpt": "The agent produced a structured Markdown requirement document with section headings, not a chat-style reply or a list of questions"
+        },
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 2",
+          "json_pointer": "/expected_behavior/1",
+          "excerpt": "The document covers the data fields (date, start/end time, duration, reason) and the auto-calculated duration rule"
+        },
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 3",
+          "json_pointer": "/expected_behavior/2",
+          "excerpt": "The document covers the approval flow including the >4-hour escalation to the director"
+        },
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 4",
+          "json_pointer": "/expected_behavior/3",
+          "excerpt": "The document states permissions for employee/manager/HR at three levels"
+        },
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 5",
+          "json_pointer": "/expected_behavior/4",
+          "excerpt": "The document covers list & query (filters, monthly export)"
+        },
+        {
+          "source": "evals.json",
+          "kind": "expected_behavior",
+          "label": "Expected behavior 6",
+          "json_pointer": "/expected_behavior/5",
+          "excerpt": "The document includes acceptance criteria or a checklist"
+        },
+        {
+          "source": "trajectory.json",
+          "kind": "final_response",
+          "label": "Final response",
+          "json_pointer": "/steps/1",
+          "excerpt": "# \u52a0\u73ed\u7533\u8bf7\u529f\u80fd \u9700\u6c42\u6587\u6863\n\n| \u9879\u76ee | \u5185\u5bb9 |\n| --- | --- |\n| \u6587\u6863\u540d\u79f0 | \u52a0\u73ed\u7533\u8bf7\u529f\u80fd\u9700\u6c42\u8bf4\u660e\u4e66 |\n| \u6240\u5c5e\u7cfb\u7edf | \u516c\u53f8\u5185\u90e8\u7ba1\u7406\u7cfb\u7edf\uff08OA\uff09 |\n| \u7248\u672c | V1.0 |\n| \u72b6\u6001 | \u5f85\u8bc4\u5ba1 |\n| \u7f16\u5199\u65e5\u671f | 2026-11-18 |\n\n---\n\n## 1. \u9700\u6c42\u80cc\u666f\n\n\u5f53\u524d\u5458\u5de5\u52a0\u73ed\u7533\u8bf7\u91c7\u7528**\u7ebf\u4e0b\u586b\u5199\u7eb8\u8d28\u8868\u683c + \u5fae\u4fe1\u627e\u9886\u5bfc\u7b7e\u5b57**\n...[truncated]...\n \u5ba1\u6279\u4eba\u4e13\u9879\u57f9\u8bad\uff1bHR \u83b7\u5f97\u8282\u5047\u65e5\u65e5\u5386\u7ef4\u62a4\u6743\u9650\u3002\n3. \u7eb8\u8d28\u5355\u636e\u4e0b\u7ebf\u516c\u544a\uff0c\u660e\u786e\u5386\u53f2\u7eb8\u8d28\u8bb0\u5f55\u7684\u8865\u5f55\u622a\u6b62\u65e5\u3002\n4. \u4e0a\u7ebf\u540e 1 \u4e2a\u6708\u590d\u76d8\uff1a\u5ba1\u6279\u5e73\u5747\u65f6\u957f\u3001\u9a73\u56de\u7387\u3001\u5bfc\u51fa\u51c6\u786e\u7387\u662f\u5426\u8fbe\u6210 \u00a72 \u76ee\u6807\u3002"
+        }
+      ],
+      "omitted": {
+        "count": 1,
+        "truncated": true,
+        "reason": "final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT",
+        "required_complete": false,
+        "required_missing": [
+          "final response"
+        ],
+        "incomplete_sections": [
+          "final response",
+          "compact tool history"
+        ],
+        "expected_behaviors_verified": false
+      }
+    }
+  },
+  "evaluation_status": "failed",
+  "evaluation_errors": {
+    "behavior_check": "behavior_check evidence is incomplete: final response did not reach the judge (final response shortened to fit SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT). Raise SKILL_EVAL_BEHAVIOR_FINAL_RESPONSE_LIMIT and SKILL_EVAL_BEHAVIOR_CHECK_BUDGET, or shorten the case, then re-run"
+  }
+}

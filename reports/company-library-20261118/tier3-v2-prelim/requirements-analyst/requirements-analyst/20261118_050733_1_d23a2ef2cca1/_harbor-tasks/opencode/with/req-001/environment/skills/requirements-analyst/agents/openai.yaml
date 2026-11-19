@@ -1,0 +1,4 @@
+interface:
+  display_name: "需求分析师"
+  short_description: "通过逐步对话完善需求 Markdown，并维护版本记录"
+  default_prompt: "使用 $requirements-analyst 逐步澄清这个需求，并持续维护一份带版本记录的 Markdown 需求文档。"

@@ -1,0 +1,22 @@
+{
+  "name": "commit-message",
+  "author": "chenhaibing",
+  "version": "0.0.1",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:57+08:00",
+  "updatedAt": "2026-11-17T10:45:57+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/commit-message"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/commit-message",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/commit-message"
+  ],
+  "fileHashes": {
+    "SKILL.md": "4a6df882c3d9154b9537fb04864b1110153e51b2a3c1eb438373323d538f81ab"
+  }
+}

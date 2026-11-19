@@ -1,0 +1,34 @@
+# Diagnostic logging guardrails
+
+- Every diagnostic-logging task starts with an Environment Layer Bootstrap, before any mode-specific work.
+- Rebuild the executable/variant/process entry-point inventory from current source and generated configuration; never trust a previous status, marker, or event-name match.
+- Trace a current process-coverage matrix to `runtime.process_started` / `ENV-001`, then classify it as `complete`, `partial`, `absent`, or `duplicate`: reuse, upgrade, add, or consolidate instead of creating a parallel reporter.
+- Freeze application, version, build, and sanitized repository identity through the build/CI system. Never compile or log local absolute paths, workspace paths, credentials, or raw credentialed remotes.
+- Emit the environment event through one central, thread-safe reporter exactly once per process start, including each child process. Do not repeat its environment fields on later feature events.
+- Maintain contract, startup-wiring, and current-process-coverage verification so manual deletion or entry-point drift fails tests when the project infrastructure permits it.
+- When analyzing diagnostic logs, make no source changes; separate observed facts, confidence-scored inferences, and unknowns, and never invent missing evidence.
+- Before adding diagnostic logs, work outside-in and produce a Business Capability Contract from user-visible goals, public/automatic triggers, routes/UI, analytics, tests, callers/callees, success criteria, and terminal outcomes. A feature or module name is not a sufficient boundary.
+- Build an End-to-End Journey Matrix covering every upstream prerequisite, business phase, critical handoff, downstream outcome, cancellation, timeout, and cleanup before feature-code edits.
+- Do not treat login communication as the whole capability when discovery or another prerequisite phase enables it. Every discovery-to-selection and selection-to-login critical handoff needs correlated evidence or an explicit justified skip.
+- If materially different business boundaries remain plausible, ask the user. Do not instrument only the narrowest matching module by default.
+- After confirming the boundary, prepare an Observability Plan and a Checkpoint Manifest for one bounded capability.
+- Before editing, prepare an Instrumentation Safety Contract and Behavior Preservation Matrix for return values, state, call/callback order, exceptions, cancellation, field construction, logging failure, and performance.
+- Treat logs as best-effort evidence: logger enablement, field construction, normalization, and emit failures must not escape or alter business control flow. Never let a logger result/once guard/sampling decision control a business branch, return, retry, or callback.
+- Keep logging outside business error boundaries when it could reclassify success or mask the original failure. Do not move, duplicate, delay, or wrap business calls for logging.
+- Add no logging-specific I/O, thread/coroutine/timer, wait, retry, serialization/reflection, collection traversal, unbounded allocation, or high-frequency work. Use lazy, bounded, O(1) scalar fields behind the enabled check.
+- Classify each target as `feature_session`, inner operation, or dependency/item. A completed inner operation never proves that its outer feature session exited.
+- For a long-lived, cross-process, or cross-endpoint feature, build a Feature-session Lifecycle Matrix covering local entry/active state, App-initiated exit and peer notification/result, peer-initiated exit and local cleanup, disconnect/lifecycle teardown, and racing exits.
+- Correlate the outer lifecycle with `feature_session_id` and each inner operation with its own `trace_id`; do not reuse one identifier for both lifecycle levels.
+- Before editing, build an Exit-path Matrix covering every application-owned normal, early-return, error, timeout, cancellation, retry-exhaustion, callback, and teardown exit.
+- Reject entry-only instrumentation: every started operation must produce exactly one terminal event with `stage=exit` and the same `trace_id` on every covered path; intermediate item or retry events do not close the operation.
+- Reject session-entry-only instrumentation: every started feature session must produce exactly one `scope=feature_session`, `stage=exit` terminal with the same `feature_session_id`, including App-initiated and peer-initiated exits. Use a terminal once guard for competing exit signals.
+- Use stable, structured event and checkpoint names. Carry `trace_id` when an operation crosses an async, module, process, or supported network boundary.
+- Record stage, result, reason, `error_code`, retry, fallback, or cancellation classification, and duration when each is applicable.
+- Record an exception stack once at the responsible boundary; downstream layers return or classify it without duplicate stack logging.
+- Preserve the project's logging abstraction and business behavior/semantics. Logging must not alter control flow, ordering, timing, cancellation/exception propagation, state, return values, or user-visible behavior.
+- Never log secrets, credentials, tokens, cookies, authorization headers, request/response body content, personal content, unique device identifiers, or unrestricted object serialization.
+- Never add per-occurrence logs in high-frequency loops, callbacks, polling, rendering, media, sensors, or per-item bulk processing.
+- Where hot-path evidence is justified, use bounded aggregation, state-change reporting, sampling, or explicit rate limiting outside the high-frequency body.
+- After implementation, test every matrix row, including critical handoffs and races. Fault-inject disabled/throwing logger and field suppliers; verify identical business behavior plus privacy, duplicate errors, release visibility, volume, and performance. Do not report completion while a phase, safety invariant, handoff, or terminal path is uncovered.
+- Do not add collection, rotation, encryption, upload, retention, dashboards, server-side tracing, or a logging dependency/framework.
+- Invoke `$diagnostic-logging` for the complete workflow when it is available.

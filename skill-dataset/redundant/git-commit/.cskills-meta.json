@@ -1,0 +1,22 @@
+{
+  "name": "git-commit",
+  "author": "zhangfan3427",
+  "version": "1.0.15",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:53+08:00",
+  "updatedAt": "2026-11-17T10:45:53+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/git-commit"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/git-commit",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/git-commit"
+  ],
+  "fileHashes": {
+    "SKILL.md": "ed590fa610714560d5cdf3f75dab146aa3723ee2a15b3f759cedd740ffa233fd"
+  }
+}

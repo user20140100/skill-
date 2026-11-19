@@ -1,0 +1,25 @@
+{
+  "name": "mofang-local-auth-sql",
+  "author": "luobin12754",
+  "version": "2.0.3",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:46+08:00",
+  "updatedAt": "2026-11-17T10:46:46+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/mofang-local-auth-sql"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/mofang-local-auth-sql",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/mofang-local-auth-sql"
+  ],
+  "fileHashes": {
+    "SKILL.md": "e394903bc594c11b6fcc91797a2f6cc96e35502e48c3425b86f251b5cde01095",
+    "agents/openai.yaml": "731096bd3d9c9b05b1c55efeaa0bfe5abbcab8caba934e98e11ad39ba3830ad7",
+    "references/edge-db-read.md": "4ea925475b671458822ff32b275cbae986a8bd75ff2cbf0302cb21b24b1e9348",
+    "references/sql-rules.md": "0b9fd524713b9fb8246551e2ee06836d40e66c2492afb02dce67907c3dc78bdc"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project PRD"
+  short_description: "从代码提炼 PRD，并由独立子代理逐功能建立受保护基线"
+  default_prompt: "使用 $project-prd 为当前项目初始化受保护的逐功能 PRD 基线；每份细分功能 PRD 使用全新的独立子代理生成，并在完成结论中报告可审计的功能覆盖率。"

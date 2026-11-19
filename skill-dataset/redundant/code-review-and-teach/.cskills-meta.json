@@ -1,0 +1,24 @@
+{
+  "name": "code-review-and-teach",
+  "author": "zhouyujie",
+  "version": "0.0.1",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:01+08:00",
+  "updatedAt": "2026-11-17T10:46:01+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/code-review-and-teach"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/code-review-and-teach",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/code-review-and-teach"
+  ],
+  "fileHashes": {
+    "SKILL.md": "0e1628dce0b78ccfe7ef4b9ce2348c7936de80725f01568a659a9af9d493b56a",
+    "references/review-checklist.md": "6480ae78bd2e01b67d77a49b757db44a553f52394212efc484e81a9dd65f9580",
+    "references/tutorial-template.md": "8e9cb10daf5cdd304c2e8afb511b13bdef7ff7fe7732d87fd9d5a688dd116561"
+  }
+}

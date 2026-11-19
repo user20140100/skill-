@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -rf ./BizSolution)",
+      "Bash(skill-creator create-cc-skill:*)",
+      "Bash(cp /tmp/case-delivery-transparency.md.bak /Users/malanjun/Documents/Work/AI/Skills/BizSolution/examples/case-delivery-transparency.md)",
+      "Bash(cp /tmp/outputs-README.md.bak /Users/malanjun/Documents/Work/AI/Skills/BizSolution/outputs/README.md)",
+      "Bash(skill-creator list-skills:*)"
+    ]
+  }
+}

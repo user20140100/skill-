@@ -1,0 +1,23 @@
+{
+  "name": "xlsx",
+  "author": "anthropics",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:45:42+08:00",
+  "updatedAt": "2026-11-17T10:45:42+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/xlsx"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/xlsx",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/xlsx"
+  ],
+  "fileHashes": {
+    "SKILL.md": "f452c96f83f30b09d8bd5138c2ef331714a576d54ff4558f64823ba05deffdaa",
+    "icon.svg": "d66217f1824a6c53a070e270ad830854345738985ca1646f7fb96484580bb2fa"
+  }
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>代码评审报告 — {{ REPORT_TITLE }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f1f5f9;--surface:#ffffff;--surface2:#f8fafc;--border:#e2e8f0;--border2:#cbd5e1;
+  --text:#0f172a;--text2:#475569;--text3:#94a3b8;
+  --c-green:#10b981;--c-blue:#3b82f6;--c-amber:#f59e0b;--c-red:#ef4444;--c-violet:#8b5cf6;
+  --radius:12px;--shadow:0 1px 8px rgba(0,0,0,.07);--shadow-md:0 4px 20px rgba(0,0,0,.10);
+  --font:'Plus Jakarta Sans','Noto Sans SC',sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.6;min-height:100vh}
+#app{max-width:920px;margin:0 auto;padding:32px 20px 60px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.ani{animation:fadeUp .4s ease both}
+.d1{animation-delay:.05s}.d2{animation-delay:.10s}.d3{animation-delay:.15s}
+.d4{animation-delay:.20s}.d5{animation-delay:.25s}.d6{animation-delay:.30s}
+
+.header{background:linear-gradient(135deg,#1e40af 0%,#2563eb 50%,#3b82f6 100%);border-radius:var(--radius);box-shadow:0 4px 24px rgba(37,99,235,.25);padding:32px 36px;margin-bottom:24px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06)}
+.header::after{content:'';position:absolute;bottom:-30px;left:40%;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.04)}
+.header-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.header-title{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.header-chip{display:inline-flex;align-items:center;background:rgba(255,255,255,.15);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 11px;border-radius:20px;border:1px solid rgba(255,255,255,.25);flex-shrink:0}
+.header-sub{font-size:13px;color:rgba(255,255,255,.75);margin-top:4px}
+.header-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px}
+.header-meta span{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.65)}
+.header-meta span b{color:#fff}
+
+/* rule-notice: 仅当规则为自选时显示 */
+.rule-notice{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--radius);padding:14px 18px;margin-bottom:24px;font-size:13px;color:#92400e;line-height:1.7}
+.rule-notice strong{color:#78350f}
+
+.section{margin-bottom:24px}
+.section-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-title::before{content:'';display:block;width:3px;height:18px;background:linear-gradient(180deg,var(--c-blue),var(--c-violet));border-radius:2px}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:600px){.kpi-grid{grid-template-columns:1fr}}
+.kpi-card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);padding:20px 22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:default}
+.kpi-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.kpi-fail{border-top:3px solid var(--c-red)}.kpi-warn{border-top:3px solid var(--c-amber)}.kpi-pass{border-top:3px solid var(--c-green)}
+.kpi-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.kpi-icon-fail{background:#fef2f2;color:var(--c-red)}.kpi-icon-warn{background:#fffbeb;color:var(--c-amber)}.kpi-icon-pass{background:#ecfdf5;color:var(--c-green)}
+.kpi-value{font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--text);line-height:1.1;margin-bottom:4px}
+.kpi-label{font-size:13px;font-weight:600;color:var(--text2)}.kpi-sub{font-size:11px;color:var(--text3);margin-top:4px}
+
+.card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;margin-bottom:14px;transition:box-shadow .2s}
+.card:hover{box-shadow:var(--shadow-md)}
+.card-body{padding:22px}
+
+.rules-table{width:100%;border-collapse:collapse}
+.rules-table thead tr{background:var(--surface2);border-bottom:2px solid var(--border)}
+.rules-table th{padding:10px 14px;text-align:left;font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.rules-table th.r{text-align:right}
+.rules-table td{padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:middle;font-size:13px}
+.rules-table tbody tr:last-child td{border-bottom:none}
+.rules-table tbody tr:hover{background:var(--surface2)}
+.rule-num{color:var(--text3);font-size:12px;width:32px}
+.rule-name{color:var(--text);font-weight:500}
+.rule-note{color:var(--text2);font-size:12.5px}
+
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.badge .dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0}
+.badge-fail{background:#fef2f2;color:#dc2626}.badge-pass{background:#ecfdf5;color:#059669}.badge-warn{background:#fffbeb;color:#d97706}
+
+.group-head{font-size:12px;font-weight:700;color:var(--text2);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.group-head::after{content:'';flex:1;height:1px;background:var(--border)}
+.issue-group{margin-bottom:22px}.issue-group:last-child{margin-bottom:0}
+.issue-item{display:flex;align-items:baseline;gap:10px;padding:9px 12px;border-radius:8px;background:var(--surface2);border:1px solid var(--border);margin-bottom:5px;font-size:13px;transition:background .15s;cursor:default}
+.issue-item:hover{background:#f1f5f9}
+.issue-item.error{border-left:3px solid var(--c-red)}.issue-item.warn-line{border-left:3px solid var(--c-amber)}
+
+/* .loc 用于代码位置标签
+   GitLab MR 模式：用 <a class="loc" href="..." target="_blank"> 附上跳转链接
+   本地模式：用 <span class="loc"> */
+.loc{font-family:'SFMono-Regular',Consolas,monospace;font-size:11.5px;color:var(--c-violet);white-space:nowrap;flex-shrink:0;background:#f3f0ff;padding:1px 6px;border-radius:4px;border:1px solid #ddd6fe;text-decoration:none;transition:background .15s,border-color .15s}
+a.loc:hover{background:#ede9fe;border-color:#a78bfa;color:#7c3aed}
+
+.issue-desc{color:var(--text2);flex:1}
+.issue-desc code{font-family:'SFMono-Regular',Consolas,monospace;font-size:11.5px;color:var(--text);background:var(--border);padding:1px 5px;border-radius:3px}
+
+.obs-note{font-size:12px;color:var(--text2);margin-bottom:12px}
+.obs-item{display:flex;gap:10px;align-items:baseline;padding:9px 12px;border-radius:8px;background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--border2);font-size:13px;color:var(--text2);margin-bottom:6px}
+
+.limit-item{display:flex;gap:9px;padding:10px 13px;border-radius:8px;background:#fffbeb;border:1px solid #fde68a;font-size:13px;color:#92400e;margin-bottom:7px;line-height:1.55}
+.limit-item::before{content:'⚠';flex-shrink:0;color:var(--c-amber);margin-top:1px}
+
+.footer{text-align:center;margin-top:32px;font-size:12px;color:var(--text3);display:flex;align-items:center;justify-content:center;gap:12px}
+.footer::before,.footer::after{content:'';flex:1;max-width:120px;height:1px;background:var(--border)}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <div class="header ani d1">
+    <div class="header-top">
+      <h1 class="header-title">代码评审报告</h1>
+      <div class="header-chip">Code Review</div>
+    </div>
+    <!-- header-sub: MR 标题 -->
+    <div class="header-sub">{{ MR_TITLE }}</div>
+    <div class="header-meta">
+      <!-- GitLab MR 模式：MR 链接、作者、分支、文件数、状态 -->
+      <span><b>MR</b> <a href="{{ MR_URL }}" target="_blank" style="color:rgba(255,255,255,.9);text-decoration:underline;text-underline-offset:2px">{{ MR_REF }}</a></span>
+      <span><b>作者</b> {{ AUTHOR }}</span>
+      <span><b>分支</b> {{ SOURCE_BRANCH }} → {{ TARGET_BRANCH }}</span>
+      <span><b>文件</b> {{ FILE_COUNT }}</span>
+      <span><b>状态</b> {{ MR_STATE }}</span>
+    </div>
+  </div>
+
+  <!--
+  rule-notice: 规则为自选时显示，用户指定则删除此块
+  -->
+  <div class="rule-notice ani d1">
+    <strong>规则来源：评审方自选（通用最佳实践）</strong><br>
+    用户未指定具体规则，以下规则由评审方依据行业通用标准自行选定，不代表团队实际约定：<br>
+    {{ RULE_LIST }}
+  </div>
+
+  <section class="section ani d2">
+    <h2 class="section-title">检查结果概览</h2>
+    <div class="kpi-grid">
+      <div class="kpi-card kpi-fail">
+        <div class="kpi-icon kpi-icon-fail">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        </div>
+        <div class="kpi-value">{{ FAIL_COUNT }}</div>
+        <div class="kpi-label">违规问题</div>
+        <div class="kpi-sub">需修复后合并</div>
+      </div>
+      <div class="kpi-card kpi-warn">
+        <div class="kpi-icon kpi-icon-warn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="kpi-value">{{ WARN_COUNT }}</div>
+        <div class="kpi-label">警告</div>
+        <div class="kpi-sub">建议修复</div>
+      </div>
+      <div class="kpi-card kpi-pass">
+        <div class="kpi-icon kpi-icon-pass">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="kpi-value">{{ PASS_COUNT }}</div>
+        <div class="kpi-label">规则通过</div>
+        <div class="kpi-sub">已完整覆盖</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ani d3">
+    <h2 class="section-title">规则检查汇总</h2>
+    <div class="card">
+      <table class="rules-table">
+        <thead>
+          <tr>
+            <th style="width:32px">#</th>
+            <th>规则描述</th>
+            <th>结果</th>
+            <th class="r">说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--
+          每条规则一行：
+          <tr>
+            <td class="rule-num">1</td>
+            <td class="rule-name">禁止 console.log</td>
+            <td><span class="badge badge-fail"><span class="dot"></span>不通过</span></td>
+            <td class="rule-note r">发现 2 处</td>
+          </tr>
+          badge 类名：badge-fail / badge-pass / badge-warn
+          -->
+          {{ RULES_ROWS }}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 仅当有违规/警告时显示此 section -->
+  <section class="section ani d4">
+    <h2 class="section-title">问题详情</h2>
+    <div class="card">
+      <div class="card-body">
+        <!--
+        每条违规规则一个 issue-group：
+        <div class="issue-group">
+          <div class="group-head">规则 N · 规则名称</div>
+
+          GitLab MR 模式 — 用 <a class="loc"> 附跳转链接：
+          anchor 格式: #{md5(file_path)}_{old_line}_{new_line}
+          新增行: old_line=0；删除行: new_line=0；上下文行: 两者均有值
+          <div class="issue-item error">
+            <a class="loc" href="{host}/{project}/-/merge_requests/{iid}/diffs#{md5}_{old}_{new}" target="_blank">path/file.py:行号</a>
+            <span class="issue-desc"><code>违规代码</code> — 说明</span>
+          </div>
+
+          本地模式 — 用 <span class="loc">（无链接）：
+          <div class="issue-item error">
+            <span class="loc">path/file.ts:行号</span>
+            <span class="issue-desc"><code>违规代码</code> — 说明</span>
+          </div>
+        </div>
+        issue-item 类名：error（红）/ warn-line（黄）
+        -->
+        {{ ISSUE_GROUPS }}
+      </div>
+    </div>
+  </section>
+
+  <!-- 仅当有范围外发现时显示 -->
+  <!--
+  {{ OBSERVATIONS_SECTION }}
+
+  范围外发现模板：
+  <section class="section ani d5">
+    <h2 class="section-title">范围外的额外发现</h2>
+    <div class="card">
+      <div class="card-body">
+        <p class="obs-note">以下问题不在约定规则范围内，未系统检查，仅供参考，是否修复由你决定。</p>
+        <div class="obs-item">
+          <a class="loc" href="..." target="_blank">path/file.ts:行号</a>
+          <span>问题描述</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- 仅当有局限性时显示 -->
+  <!--
+  {{ LIMITATIONS_SECTION }}
+
+  局限性模板：
+  <section class="section ani d6">
+    <h2 class="section-title">局限性声明</h2>
+    <div class="card">
+      <div class="card-body">
+        <div class="limit-item">局限性描述文字</div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <div class="footer">local-code-review · {{ CONTEXT }} · {{ DATE }}</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+{
+  "module_name": "滤网清洁提醒",
+  "module_code": "filter_cleaning_reminder",
+  "category": "interaction_module",
+  "definition": "除尘提醒功能 (Filter Cleaning Reminder Function) 是一项辅助性维护提示功能。",
+  "aliases": [
+    "滤网清洁提醒",
+    "除尘提醒功能",
+    "除尘提醒",
+    "清洁提醒"
+  ],
+  "keywords": [
+    "运行时长",
+    "清洁提醒",
+    "滤网",
+    "提示复位",
+    "压缩机",
+    "室内风机",
+    "盘管温度",
+    "温度传感器",
+    "压力传感器",
+    "高压保护"
+  ],
+  "related_modules": [
+    "滤网更换提醒",
+    "自动清洁",
+    "杀菌清洁"
+  ],
+  "intent_patterns": [
+    "interaction_feedback_request",
+    "state_control_request",
+    "constraint_request",
+    "review_request"
+  ],
+  "key_dimensions": [
+    "触发条件",
+    "提醒阈值",
+    "提醒状态",
+    "清除方式",
+    "反馈交互",
+    "兼容性约束",
+    "测试关注点"
+  ],
+  "default_rules": [
+    "滤网清洁提醒通常依据运行时长、使用次数或传感状态触发",
+    "滤网清洁提醒通常支持在用户完成维护后手动清除",
+    "滤网清洁提醒通常不直接改变主控制逻辑，仅承担提示职责",
+    "滤网清洁提醒在掉电恢复后通常需要保持提醒状态一致性"
+  ],
+  "must_confirm_rules": [
+    "提醒触发依据是运行时长、传感器还是耗材寿命",
+    "提醒是否支持手动复位与自动复位",
+    "提醒状态在关机和掉电后是否保持",
+    "提醒是否需要同步到所有交互入口",
+    "达到提醒条件后是否影响功能使用"
+  ],
+  "common_missing_items": [
+    "未定义提醒阈值",
+    "未定义复位方式",
+    "未定义提醒保持逻辑",
+    "未定义多入口同步方式",
+    "未定义用户可见反馈"
+  ],
+  "inference_rules": [
+    {
+      "pattern": "除尘提醒什么时候提醒",
+      "intent_type": "interaction_feedback_request",
+      "need_complete": [
+        "触发入口",
+        "权限边界",
+        "结果反馈",
+        "异常处理",
+        "退出规则"
+      ]
+    },
+    {
+      "pattern": "如何清除除尘提醒",
+      "intent_type": "state_control_request",
+      "need_complete": [
+        "触发入口",
+        "权限边界",
+        "结果反馈",
+        "异常处理",
+        "退出规则"
+      ]
+    },
+    {
+      "pattern": "除尘提醒会不会掉电后保留",
+      "intent_type": "constraint_request",
+      "need_complete": [
+        "触发入口",
+        "权限边界",
+        "结果反馈",
+        "异常处理",
+        "退出规则"
+      ]
+    }
+  ],
+  "output_templates": {
+    "rewrite_template": "当【触发条件】满足时，系统应触发滤网清洁提醒并通过【显示入口】提示用户。用户完成维护后，可通过【复位方式】清除提醒；若未复位，则提醒状态应按【保持规则】在关机或掉电恢复后继续保留。"
+  }
+}

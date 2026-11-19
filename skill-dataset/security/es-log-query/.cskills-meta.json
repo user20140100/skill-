@@ -1,0 +1,25 @@
+{
+  "name": "es-log-query",
+  "author": "罗威",
+  "version": "1.0.0",
+  "registryUrl": "https://skills.gz.cvte.cn",
+  "installedAt": "2026-11-17T10:46:44+08:00",
+  "updatedAt": "2026-11-17T10:46:44+08:00",
+  "installGlobal": false,
+  "agents": [
+    "claude-code"
+  ],
+  "paths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/es-log-query"
+  ],
+  "canonicalPath": "/Users/yangyuhan/ai-agent-agent-skills/.agents/skills/es-log-query",
+  "linkedPaths": [
+    "/Users/yangyuhan/ai-agent-agent-skills/.claude/skills/es-log-query"
+  ],
+  "fileHashes": {
+    ".env.example": "c16b13b62a89ef445585209ff1daf93d6e7add3d2e069b05dad179dbabc287e5",
+    "SKILL.md": "fab86ce831c0b47261f2afe03e4da7cbc381310cac2dd284e33726f18ab482d0",
+    "es_log_query.py": "b4ca4820f5fdf0462a57fe2407a5bc49561b5328ba675ce7a45ac18614848e09",
+    "skill.json": "bf9d38f8676ed0b70922b16874f9f9c0c8a6be887b5e5fa712cb8fb978e87568"
+  }
+}

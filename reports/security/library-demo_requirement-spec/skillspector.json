@@ -1,0 +1,645 @@
+{
+  "skill": {
+    "name": "requirement-spec",
+    "source": "/scan/library-demo/requirement-spec",
+    "scanned_at": "2026-11-18T13:08:29.504226+00:00"
+  },
+  "risk_assessment": {
+    "score": 0,
+    "severity": "LOW",
+    "recommendation": "SAFE",
+    "max_issue_severity": "NONE"
+  },
+  "components": [
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 263,
+      "executable": false,
+      "size_bytes": 13372,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/dimensions.md",
+      "type": "markdown",
+      "lines": 118,
+      "executable": false,
+      "size_bytes": 7199,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/module-spec.md",
+      "type": "markdown",
+      "lines": 98,
+      "executable": false,
+      "size_bytes": 3725,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/prototype-input.md",
+      "type": "markdown",
+      "lines": 44,
+      "executable": false,
+      "size_bytes": 3205,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/template.md",
+      "type": "markdown",
+      "lines": 126,
+      "executable": false,
+      "size_bytes": 3444,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/config.yml",
+      "type": "yaml",
+      "lines": 4,
+      "executable": false,
+      "size_bytes": 67,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/evals.json",
+      "type": "json",
+      "lines": 47,
+      "executable": false,
+      "size_bytes": 4739,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": false,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "openai_compatible",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "qwen3.8-flash",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 7,
+    "scanned_components": 7,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete",
+    "execution_successful": true,
+    "fully_inspected_files": 7,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 49,
+        "column": 51,
+        "evidence": "> - **\u6a21\u5757 / \u5b50\u7cfb\u7edf\uff08\u591a\u9875\u9762\u591a\u529f\u80fd\uff09**\uff1a\u5148\u505a [docs/module-spec.md](docs/module-spec.md) \u7684\"\u9636\u6bb5 0 \u6a21\u5757\u62c6\u89e3\"\uff0c\u518d\u5bf9\u6bcf\u4e2a\u529f\u80fd\u8d70 1-4\u3002",
+        "target_path": "docs/module-spec.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 49,
+        "column": 30,
+        "evidence": "> - **\u6a21\u5757 / \u5b50\u7cfb\u7edf\uff08\u591a\u9875\u9762\u591a\u529f\u80fd\uff09**\uff1a\u5148\u505a [docs/module-spec.md](docs/module-spec.md) \u7684\"\u9636\u6bb5 0 \u6a21\u5757\u62c6\u89e3\"\uff0c\u518d\u5bf9\u6bcf\u4e2a\u529f\u80fd\u8d70 1-4\u3002",
+        "target_path": "docs/module-spec.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 50,
+        "column": 60,
+        "evidence": "> - **\u9759\u6001\u539f\u578b\uff08HTML / \u622a\u56fe / \u8bbe\u8ba1\u7a3f\uff09**\uff1a\u5148\u6309 [docs/prototype-input.md](docs/prototype-input.md) \u53cd\u5411\u63d0\u53d6\u53ef\u89c1\u4fe1\u606f\u3001\u6807\u7f3a\u53e3\uff0c\u518d\u8865\u95ee\u3002",
+        "target_path": "docs/prototype-input.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 50,
+        "column": 35,
+        "evidence": "> - **\u9759\u6001\u539f\u578b\uff08HTML / \u622a\u56fe / \u8bbe\u8ba1\u7a3f\uff09**\uff1a\u5148\u6309 [docs/prototype-input.md](docs/prototype-input.md) \u53cd\u5411\u63d0\u53d6\u53ef\u89c1\u4fe1\u606f\u3001\u6807\u7f3a\u53e3\uff0c\u518d\u8865\u95ee\u3002",
+        "target_path": "docs/prototype-input.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 65,
+        "column": 24,
+        "evidence": "\u6309 [docs/dimensions.md](docs/dimensions.md) \u7684 8 \u5927\u7ef4\u5ea6\u9010\u9879\u95ee\u3002\u6bcf\u4e2a\u7ef4\u5ea6\u95ee\u5b8c\uff0c\u628a\u4f60\u7684\u7406\u89e3\u590d\u8ff0\u7ed9\u7528\u6237\u786e\u8ba4\uff0cOK \u4e86\u5c31\u5199\u8fdb\u6587\u4ef6\u3001\u6253\u52fe\uff0c\u518d\u95ee\u4e0b\u4e00\u4e2a\u3002",
+        "target_path": "docs/dimensions.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 65,
+        "column": 4,
+        "evidence": "\u6309 [docs/dimensions.md](docs/dimensions.md) \u7684 8 \u5927\u7ef4\u5ea6\u9010\u9879\u95ee\u3002\u6bcf\u4e2a\u7ef4\u5ea6\u95ee\u5b8c\uff0c\u628a\u4f60\u7684\u7406\u89e3\u590d\u8ff0\u7ed9\u7528\u6237\u786e\u8ba4\uff0cOK \u4e86\u5c31\u5199\u8fdb\u6587\u4ef6\u3001\u6253\u52fe\uff0c\u518d\u95ee\u4e0b\u4e00\u4e2a\u3002",
+        "target_path": "docs/dimensions.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 85,
+        "column": 30,
+        "evidence": "\u8be6\u7ec6\u8bbf\u8c08\u6e05\u5355\u89c1 [docs/dimensions.md](docs/dimensions.md)\u3002\u6982\u8981\uff1a",
+        "target_path": "docs/dimensions.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 85,
+        "column": 10,
+        "evidence": "\u8be6\u7ec6\u8bbf\u8c08\u6e05\u5355\u89c1 [docs/dimensions.md](docs/dimensions.md)\u3002\u6982\u8981\uff1a",
+        "target_path": "docs/dimensions.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 181,
+        "column": 34,
+        "evidence": "> \u53ef\u76f4\u63a5\u586b\u5199\u7684\u7a7a\u767d\u6a21\u677f\u89c1 [docs/template.md](docs/template.md)\u3002\u4e0b\u9762\u662f\u5e26\u8bf4\u660e\u7684\u6743\u5a01\u7ed3\u6784\uff1a",
+        "target_path": "docs/template.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 181,
+        "column": 16,
+        "evidence": "> \u53ef\u76f4\u63a5\u586b\u5199\u7684\u7a7a\u767d\u6a21\u677f\u89c1 [docs/template.md](docs/template.md)\u3002\u4e0b\u9762\u662f\u5e26\u8bf4\u660e\u7684\u6743\u5a01\u7ed3\u6784\uff1a",
+        "target_path": "docs/template.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 246,
+        "column": 68,
+        "evidence": "> \u672c\u8282\u9488\u5bf9\u6587\u5b57\u7c7b\u521d\u7a3f\uff08\u4f1a\u8bae\u7eaa\u8981\u3001\u8bed\u97f3\u8f6c\u6587\u5b57\u7b49\uff09\u3002\u9759\u6001\u539f\u578b HTML / \u622a\u56fe\u89c1 [docs/prototype-input.md](docs/prototype-input.md)\u3002",
+        "target_path": "docs/prototype-input.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 246,
+        "column": 43,
+        "evidence": "> \u672c\u8282\u9488\u5bf9\u6587\u5b57\u7c7b\u521d\u7a3f\uff08\u4f1a\u8bae\u7eaa\u8981\u3001\u8bed\u97f3\u8f6c\u6587\u5b57\u7b49\uff09\u3002\u9759\u6001\u539f\u578b HTML / \u622a\u56fe\u89c1 [docs/prototype-input.md](docs/prototype-input.md)\u3002",
+        "target_path": "docs/prototype-input.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      }
+    ],
+    "limitations": [],
+    "findings_before_filtering": 0,
+    "findings_after_filtering": 0,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}
