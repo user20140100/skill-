@@ -1,0 +1,98 @@
+digraph G {
+    rankdir=LR;
+    newrank=true;
+    compound=true;
+    nodesep=0.45;
+    ranksep=0.85;
+    splines=spline;
+
+    fontname="PingFang SC";
+    node [fontname="PingFang SC", fontsize=12];
+    edge [fontname="PingFang SC", fontsize=10];
+
+    // ========== 测试靶场 ==========
+    DS [label="测试靶场\nskill-dataset", shape=box, style="rounded,filled", fillcolor="#f5f5f5", color="#616161"];
+
+    // ========== NVIDIA 官方开源项目 ==========
+    subgraph cluster_off {
+        label="NVIDIA 官方开源项目（复现基线）";
+        style="rounded,filled";
+        fillcolor="#e8f0fe";
+        color="#4285f4";
+        fontsize=13;
+
+        subgraph cluster_se {
+            label="SkillEvaluator（三层评估框架）";
+            style="rounded,filled";
+            fillcolor="#e8f0fe";
+            color="#4285f4";
+
+            subgraph cluster_t1 {
+                label="Tier 1 验证\n安全 · 格式 · harness";
+                style="rounded,filled";
+                fillcolor="#dbe7fb";
+                color="#4285f4";
+
+                subgraph cluster_ss {
+                    label="SkillSpector · 安全扫描器";
+                    style="rounded,filled";
+                    fillcolor="#ffffff";
+                    color="#4285f4";
+                    SS1 [label="SS1 确定性静态分析\n71 规则 / 17 类威胁\nYARA · AST · 污点追踪", shape=box, style="rounded,filled", fillcolor="#ffffff", color="#4285f4"];
+                    SS2 [label="SS2 LLM 语义审计（可选）\n增量富化 · fail-closed", shape=box, style="rounded,filled", fillcolor="#ffffff", color="#4285f4"];
+                }
+            }
+
+            T2 [label="Tier 2 去重\nembedding 语义冗余", shape=box, style="rounded,filled", fillcolor="#dbe7fb", color="#4285f4"];
+            T3 [label="Tier 3 实评估\nHarbor/Docker 沙盒 A/B", shape=box, style="rounded,filled", fillcolor="#dbe7fb", color="#4285f4"];
+        }
+    }
+
+    // ========== 结论 ==========
+    O1 [label="flag\n安全结论", shape=box, style="rounded,filled", fillcolor="#e6f4ea", color="#34a853"];
+    O2 [label="dup\n去重结论", shape=box, style="rounded,filled", fillcolor="#e6f4ea", color="#34a853"];
+    O3 [label="lift\n增益结论", shape=box, style="rounded,filled", fillcolor="#e6f4ea", color="#34a853"];
+
+    // ========== 报告 ==========
+    RPT [label="综合审计报告\n双结论推荐 + 批量审计\nMarkdown / HTML", shape=box, style="rounded,filled", fillcolor="#f3e8fd", color="#9334e6"];
+
+    // ========== 自研扩展 / 新增功能 ==========
+    subgraph cluster_self {
+        label="自研扩展 / 新增功能（课题交付）";
+        style="rounded,filled";
+        fillcolor="#fff3e0";
+        color="#fb8c00";
+        fontsize=12;
+
+        CR [label="custom-rules（任务 A）\n规则A 域名白名单\n规则B 明文凭证检测", shape=box, style="rounded,filled", fillcolor="#fff3e0", color="#fb8c00"];
+        REC [label="skill-recommend（阶段二）\n冗余推荐 + 联网搜索", shape=box, style="rounded,filled", fillcolor="#fff3e0", color="#fb8c00"];
+        BATCH [label="batch CLI（任务 B）\n一键批量扫描", shape=box, style="rounded,filled", fillcolor="#fff3e0", color="#fb8c00"];
+    }
+
+    // ========== 主流程边 ==========
+    DS -> SS1;
+    DS -> SS2 [style=invis];
+    SS1 -> T2;
+    T2 -> T3;
+
+    // ========== 结论边 ==========
+    SS1 -> O1;
+    T2 -> O2;
+    T3 -> O3;
+
+    O1 -> RPT [constraint=false];
+    O2 -> RPT;
+    O3 -> RPT;
+
+    // ========== 自研 -> 官方（虚线，constraint=false 不参与排序） ==========
+    CR -> SS1 [style=dashed, constraint=false, label="yara-rules-dir / baseline"];
+    REC -> T2 [style=dashed, constraint=false, label="挂接 Tier2 · 编排 Tier3"];
+    BATCH -> SS1 [style=dashed, constraint=false, label="包装扫描与评估"];
+    BATCH -> T2 [style=dashed, constraint=false];
+
+    // ========== 把自研扩展钉在官方项目下方 ==========
+    // CR 与 T2 同列作为锚点，CR→REC→BATCH 用隐形边横向向右展开
+    { rank=same; T2; CR; }
+    CR -> REC [style=invis];
+    REC -> BATCH [style=invis];
+}

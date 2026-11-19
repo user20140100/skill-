@@ -1,0 +1,56 @@
+[
+  {
+    "id": "shared-001",
+    "question": "计算表达式 (100 - 25) / 3 的结果。",
+    "ground_truth": "25",
+    "expected_behavior": ["最终结果应为 25"]
+  },
+  {
+    "id": "shared-002",
+    "question": "计算 2 的 10 次方（即表达式 2 ** 10）。",
+    "ground_truth": "1024",
+    "expected_behavior": ["最终结果应为 1024"]
+  },
+  {
+    "id": "shared-003",
+    "question": "计算表达式 (3 + 5) ** 2 - 64 / 8 的结果。",
+    "ground_truth": "56",
+    "expected_behavior": ["最终结果应为 56"]
+  },
+  {
+    "id": "shared-004",
+    "question": "计算表达式 17 % 5 + 12 * 3 的结果。",
+    "ground_truth": "38",
+    "expected_behavior": ["最终结果应为 38"]
+  },
+  {
+    "id": "shared-005",
+    "question": "计算表达式 -(5 - 10) + 2 ** 3 的结果。",
+    "ground_truth": "13",
+    "expected_behavior": ["最终结果应为 13"]
+  },
+  {
+    "id": "shared-006",
+    "question": "计算 480 的 7.5%（即表达式 7.5% of 480）。",
+    "ground_truth": "36",
+    "expected_behavior": ["最终结果应为 36"]
+  },
+  {
+    "id": "shared-007",
+    "question": "将 100 摄氏度转换为华氏度。",
+    "ground_truth": "212",
+    "expected_behavior": ["最终结果应为 212 华氏度"]
+  },
+  {
+    "id": "shared-008",
+    "question": "将 5 英里转换为公里。",
+    "ground_truth": "8.047",
+    "expected_behavior": ["最终结果应约为 8.047 公里"]
+  },
+  {
+    "id": "shared-009",
+    "question": "将 10 千克转换为磅。",
+    "ground_truth": "22.05",
+    "expected_behavior": ["最终结果应约为 22.05 磅"]
+  }
+]

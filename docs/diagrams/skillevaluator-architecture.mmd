@@ -1,0 +1,32 @@
+flowchart TD
+    IN["Agent Skill<br/>SKILL.md + 脚本 + 资源文件"] --> A1
+
+    subgraph T1["Tier 1 · 验证 Validation（静态质量与安全）"]
+        A1["格式规范校验<br/>frontmatter · schema · markdown"]
+        A2["静态质量评分<br/>quality_score · rubric"]
+        A3["安全扫描<br/>SkillSpector(71规则/17类)<br/>Gitleaks · Semgrep"]
+        A4["依赖审计<br/>dependency audit"]
+        A5["LLM 深度审计（可选）<br/>semantic checks"]
+        A1 --> A2 --> A3 --> A4 --> A5
+    end
+
+    subgraph T2["Tier 2 · 去重 Deduplication（语义冗余冲突）"]
+        B1["Embedding 向量化<br/>intra-skill 段内"]
+        B2["跨 Skill 相似度<br/>inter-skill catalog"]
+        B3["重叠阈值判定"]
+        B4["★自研 F6<br/>冗余推荐 + 联网搜索"]
+        B1 --> B2 --> B3 --> B4
+    end
+
+    subgraph T3["Tier 3 · 实评估 Live Evaluation（沙盒行为增益）"]
+        C1["生成评估数据集<br/>EVAL.md · autopilot"]
+        C2["Harbor / Docker 沙盒"]
+        C3["Agent 对照运行<br/>带 Skill vs 不带 Skill"]
+        C4["LLM Judge 评判<br/>dimension_judge"]
+        C5["量化增益<br/>pass_rate_gain / Lift"]
+        C1 --> C2 --> C3 --> C4 --> C5
+    end
+
+    A5 --> B1
+    B4 --> C1
+    C5 --> OUT["综合审计报告<br/>JSON / Markdown / HTML / SARIF"]

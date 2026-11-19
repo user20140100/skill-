@@ -1,0 +1,60 @@
+flowchart BT
+    DS["<b>测试靶场 skill-dataset</b><br/>正向 16 · 冗余 30 · 安全 9"]
+
+    subgraph OFF["NVIDIA 官方开源项目（复现基线）"]
+        direction LR
+        subgraph SS["SkillSpector · 安全扫描器"]
+            direction TB
+            SS1["确定性静态分析<br/>71 规则 / 17 类威胁<br/>YARA · AST · 污点追踪"]
+            SS2["LLM 语义审计（可选）<br/>增量富化 · fail-closed"]
+        end
+        subgraph SE["SkillEvaluator · 三层评估框架"]
+            direction LR
+            T1["Tier 1 验证<br/>安全 · 格式 · harness"]
+            T2["Tier 2 去重<br/>embedding 语义冗余"]
+            T3["Tier 3 实评估<br/>Harbor/Docker 沙盒 A/B"]
+        end
+        SS --> T1
+        T1 --> T2 --> T3
+    end
+
+    subgraph SELF["自研扩展（课题交付）"]
+        direction TB
+        CR["custom-rules（任务 A）<br/>规则A 域名白名单<br/>规则B 明文凭证检测"]
+        REC["skill-recommend（阶段二）<br/>冗余推荐 + 联网搜索"]
+        BATCH["batch CLI（任务 B）<br/>一键批量扫描"]
+    end
+
+    O1["flag<br/>安全结论"]
+    O2["dup<br/>去重结论"]
+    O3["lift<br/>增益结论"]
+
+    RPT["<b>综合审计报告</b><br/>双结论推荐 + 批量审计<br/>Markdown / HTML"]
+
+    DS --> SS
+    DS --> SE
+
+    CR -. "yara-rules-dir / baseline" .-> SS
+    REC -. "挂接 Tier2 · 编排 Tier3" .-> SE
+    BATCH -. "包装扫描与评估" .-> SS
+    BATCH -. "包装扫描与评估" .-> SE
+
+    SS --> O1
+    T2 --> O2
+    T3 --> O3
+
+    O1 --> RPT
+    O2 --> RPT
+    O3 --> RPT
+
+    classDef input fill:#f5f5f5,stroke:#616161,color:#1a1a1a
+    classDef official fill:#e8f0fe,stroke:#4285f4,color:#1a1a1a
+    classDef selfdev fill:#fff3e0,stroke:#fb8c00,color:#1a1a1a
+    classDef out fill:#e6f4ea,stroke:#34a853,color:#1a1a1a
+    classDef report fill:#f3e8fd,stroke:#9334e6,color:#1a1a1a
+
+    class DS input
+    class SS1,SS2,T1,T2,T3 official
+    class CR,REC,BATCH selfdev
+    class O1,O2,O3 out
+    class RPT report

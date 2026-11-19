@@ -1,0 +1,61 @@
+{
+  "version": "1",
+  "target_path": "/skills/positive/git-commit",
+  "results": [
+    {
+      "validator": "Similarity Check",
+      "description": "Detect duplicate content via embedding similarity",
+      "passed": false,
+      "findings": [
+        {
+          "finding_id": "SEF-3333333333333333333",
+          "occurrence_id": "SEO-3333333333333333333",
+          "category": "SIMILARITY",
+          "severity": "medium",
+          "check_name": "SIMILAR",
+          "message": "Target skill 'git-commit' matches catalog skill 'git-commit-msg' as SIMILAR (score: 0.820)",
+          "file_path": "/skills/positive/git-commit",
+          "suggestion": "Review whether the existing skill can be reused.",
+          "metadata": {
+            "score": 0.82,
+            "classification": "SIMILAR",
+            "entry_a": "git-commit",
+            "entry_b": "git-commit-msg",
+            "path_a": "/skills/positive/git-commit",
+            "path_b": "G9/git-commit-msg",
+            "comparison_mode": "target-vs-catalog"
+          }
+        },
+        {
+          "finding_id": "SEF-4444444444444444444",
+          "occurrence_id": "SEO-4444444444444444444",
+          "category": "SIMILARITY",
+          "severity": "medium",
+          "check_name": "SIMILAR",
+          "message": "Target skill 'git-commit' matches catalog skill 'commit-message' as SIMILAR (score: 0.760)",
+          "file_path": "/skills/positive/git-commit",
+          "suggestion": "Review whether the existing skill can be reused.",
+          "metadata": {
+            "score": 0.76,
+            "classification": "SIMILAR",
+            "entry_a": "git-commit",
+            "entry_b": "commit-message",
+            "path_a": "/skills/positive/git-commit",
+            "path_b": "G2/commit-message",
+            "comparison_mode": "target-vs-catalog"
+          }
+        },
+        {
+          "finding_id": "SEF-5555555555555555555",
+          "occurrence_id": "SEO-5555555555555555555",
+          "category": "SCHEMA",
+          "severity": "low",
+          "check_name": "frontmatter_warning",
+          "message": "unrelated finding that must be ignored",
+          "file_path": "git-commit",
+          "metadata": {}
+        }
+      ]
+    }
+  ]
+}

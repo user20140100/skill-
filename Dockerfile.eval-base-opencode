@@ -1,0 +1,33 @@
+# 基于 Harbor 复用的 eval base image，预装 opencode 运行时。
+#
+# 背景：Harbor 每个 attempt 的沙盒在 install() 阶段都会
+#   nvm install 22  +  npm i -g opencode-ai@1.19.5
+# 每次从 registry.npmjs.org 慢速下载 opencode-linux-arm64 二进制（cache miss），
+# 24 个沙盒逐个重复，拖垮 Tier3 总耗时。
+#
+# 本镜像把 nvm + node + opencode 预装到 /root/.nvm，并让 npm 走国内镜像，
+# 使 Harbor 的 install() 幂等秒过。构建后需更新 .env：
+#   SKILLEVALUATOR_BASE_IMAGE=skillevaluator-deps:3.12-opencode
+FROM skillevaluator-deps:3.12
+
+# npm 走国内镜像（Harbor install() 的 npm i -g opencode 依赖它）
+RUN echo 'registry=https://registry.npmmirror.com' > /etc/npmrc
+
+# node 二进制也从国内镜像拉，加速构建
+ENV NVM_DIR=/root/.nvm \
+    NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node
+
+# nvm.sh 与 dash + `set -u` 不兼容，用 bash 且不加 `-u`
+SHELL ["/bin/bash", "-c"]
+
+# 预装 nvm + node 22 + opencode-ai@1.19.5，让 Harbor 的 install() 幂等秒过
+RUN set -ex; \
+    curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh -o /tmp/nvm-install.sh; \
+    env -u NODE_VERSION bash /tmp/nvm-install.sh; \
+    . "$NVM_DIR/nvm.sh"; \
+    nvm install 22; \
+    nvm alias default 22; \
+    npm -v; \
+    npm i -g opencode-ai@1.19.5; \
+    opencode --version; \
+    rm -f /tmp/nvm-install.sh

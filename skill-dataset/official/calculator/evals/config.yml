@@ -1,0 +1,3 @@
+schema_version: 1
+harbor:
+  base_image_mode: reuse

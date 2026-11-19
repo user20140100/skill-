@@ -1,0 +1,20 @@
+# 规则 A —— 域名白名单放行（抑制层 allow_domain）
+#
+# 定位：规则 A **仅实现白名单放行，不新增任何 finding**。
+#   它只把「发往企业白名单域名的外发 finding」从 kept 移到 suppressed（降误报），
+#   检测能力完全依赖扫描器内置规则（如 E1 http 外发）。规则 A 自身不挂任何 YARA
+#   检测规则 —— 「检测归检测、放行归放行」。
+#
+# 配合 --baseline /custom-rules/baseline.yaml 使用；开关见 select.yaml 的 `rule_a`。
+#
+# allow_domain 支持精确 host + `*.` 子域名通配：
+#   *.cvte.com      放行 api.cvte.com / docs.cvte.com，不放行 cvte.com.evil.com
+#   *.gz.cvte.cn    放行 upload.gz.cvte.cn / mirror.gz.cvte.cn
+#
+# methods 为空 = 对所有 rule_id 生效：放行内置 E1 等一切「发往白名单域名」的外发
+# finding。若需按方向/规则细化（例如只放行获取、保留上传告警），可在此追加
+# methods / message 维度（见 docs/自定义安全检测扩展需求.md §7）。
+version: 2
+rules:
+  - allow_domain: ["*.cvte.com", "*.gz.cvte.cn"]
+    reason: "规则 A：发往企业白名单域名的外发，放行（抑制层降误报，不新增 finding）"

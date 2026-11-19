@@ -1,0 +1,62 @@
+# AI Agent Skill 审查与评估 —— 本地复现编排
+#
+# 两个独立镜像：
+#   - skillspector   : NVIDIA SkillSpector 安全扫描器（静态规则 + 可选 LLM）
+#   - skillevaluator : NVIDIA SkillEvaluator 三层评估框架（Tier1/2/3，内置 Docker CLI 供 Tier3 沙盒）
+#
+# 镜像构建（按顺序，tier3 依赖 local 基础镜像）：
+#   docker build -t skillevaluator:local  -f skill-evaluation-pipelines/SkillEvaluator/Dockerfile        skill-evaluation-pipelines/SkillEvaluator
+#   docker build -t skillevaluator:tier3   -f skill-evaluation-pipelines/SkillEvaluator/Dockerfile.tier3  skill-evaluation-pipelines/SkillEvaluator
+#   docker build -t skillspector:local     -f skill-security-scanners/SkillSpector/Dockerfile             skill-security-scanners/SkillSpector
+#
+# 常用命令示例：
+#   docker compose run --rm skillspector scan /scan/<skill> --no-llm
+#   docker compose run --rm skillevaluator tier1 /skills/<skill> --no-llm
+#   docker compose run --rm skillevaluator doctor --env-mode docker
+
+services:
+  skillspector:
+    image: skillspector:local
+    build:
+      context: ./skill-security-scanners/SkillSpector
+    volumes:
+      - ./skill-dataset:/scan:ro
+      - ./custom-rules:/custom-rules:ro
+      # 安全报告落盘（阶段零预扫描输出 skillspector.json）
+      - ./reports:/app/reports
+    env_file:
+      - .env
+
+  skillevaluator:
+    image: skillevaluator:tier3
+    build:
+      context: ./skill-evaluation-pipelines/SkillEvaluator
+      dockerfile: Dockerfile.tier3
+    # 官方镜像默认非 root 用户；macOS 上访问 /var/run/docker.sock、写宿主机 reports 目录需 root
+    user: "0:0"
+    volumes:
+      # Tier3 沙盒：复用宿主机 Docker Desktop 引擎（而非 DinD）
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./skill-dataset:/skills
+      - ./reports:/app/reports
+      - ./custom-rules:/custom-rules:ro
+    env_file:
+      - .env
+    environment:
+      # Harbor 沙盒任务的 docker build/compose build 走 legacy builder：
+      # BuildKit 每次都会向 registry 解析 FROM 元数据，而本机镜像源
+      # docker.m.daocloud.io 在 BuildKit 内 DNS 解析失败；legacy builder
+      # 直接复用本地已拉取的 python:3.12-slim。
+      DOCKER_BUILDKIT: "0"
+
+  # Tier 2 embedding：本地 Ollama（SkillEvaluator 官方推荐的 fully-local 方案）
+  # 模型持久化在命名卷 ollama 中；首次需 `docker compose exec ollama ollama pull bge-m3`
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+
+volumes:
+  ollama:

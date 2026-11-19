@@ -1,0 +1,36 @@
+flowchart TD
+    IN["多格式输入<br/>目录 · 文件 · Git repo · URL · zip"] --> N1
+
+    subgraph PRE["预处理 Preprocessing"]
+        N1["resolve_input<br/>输入解析"]
+        N2["build_context<br/>解析 SKILL.md / frontmatter<br/>脚本 / 嵌套 artifact"]
+        N3["inspect_dependencies<br/>依赖源码重定向<br/>OSV 实时 CVE 查询"]
+        N1 --> N2 --> N3
+    end
+
+    subgraph ANA["并行 Analyzers（71 规则 / 17 类威胁）"]
+        S1["静态模式 static patterns<br/>提示注入 · 数据外泄 · 提权 · 供应链<br/>越权 · 输出处理 · 系统提示泄露<br/>内存投毒 · 工具滥用 · 反拒绝"]
+        S2["AST / 数据流<br/>python_ast · taint tracking<br/>shell truthiness"]
+        S3["YARA 签名匹配"]
+        S4["MCP 检测<br/>least privilege · tool poisoning<br/>rug pull"]
+        S5["LLM 语义分析（可选）<br/>semantic_security_discovery<br/>developer_intent · quality_policy"]
+    end
+
+    subgraph POST["后处理 Postprocessing"]
+        M1["meta_analyzer<br/>跨分析器关联综合"]
+        M2["finalize_inspection_ledger<br/>汇总去重 · 风险评分 0-100 · 误报抑制"]
+        M3["report<br/>Terminal / JSON / Markdown / SARIF"]
+        M1 --> M2 --> M3
+    end
+
+    N3 --> S1
+    N3 --> S2
+    N3 --> S3
+    N3 --> S4
+    N3 --> S5
+    S1 --> M1
+    S2 --> M1
+    S3 --> M1
+    S4 --> M1
+    S5 --> M1
+    M3 --> OUT["审计报告"]

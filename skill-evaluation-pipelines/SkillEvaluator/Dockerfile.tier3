@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# SkillEvaluator Tier 3 扩展镜像
+#
+# 官方 Dockerfile 不含 Docker CLI / Compose v2，导致 Harbor 在容器内编排
+# Tier 3 沙盒时 doctor 报 "No such file or directory: 'docker'"。
+# 本文件在官方运行时镜像基础上，额外安装 Docker CLI + Compose v2 插件，
+# 配合挂载宿主机 /var/run/docker.sock 复用 Docker Desktop 引擎。
+#
+# 前置：先构建官方基础镜像
+#   docker build -t skillevaluator:local -f Dockerfile .
+# 再构建本扩展镜像
+#   docker build -t skillevaluator:tier3 -f Dockerfile.tier3 .
+
+FROM skillevaluator:local
+
+USER root
+
+# Docker CLI 静态二进制：download.docker.com 在国内不可达，改用阿里云 docker-ce 镜像。
+ARG DOCKER_VERSION=27.4.0
+# Docker Compose v2 插件：来自 GitHub release（可达）。
+ARG COMPOSE_VERSION=v2.32.4
+
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates tar \
+    && curl -fsSL "https://mirrors.aliyun.com/docker-ce/linux/static/stable/aarch64/docker-${DOCKER_VERSION}.tgz" -o /tmp/docker.tgz \
+    && tar -xzf /tmp/docker.tgz -C /tmp \
+    && mv /tmp/docker/docker /usr/local/bin/docker \
+    && chmod +x /usr/local/bin/docker \
+    && rm -rf /tmp/docker.tgz /tmp/docker \
+    && mkdir -p /usr/libexec/docker/cli-plugins \
+    && curl -fsSL "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-linux-aarch64" -o /usr/libexec/docker/cli-plugins/docker-compose \
+    && chmod +x /usr/libexec/docker/cli-plugins/docker-compose \
+    && apt-get purge -y curl && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+
+# 恢复官方镜像的默认用户与入口（compose 中已用 user: "0:0" 覆盖以访问 docker.sock）
+USER skillevaluator
+
+ENTRYPOINT ["skillevaluator"]
+CMD ["--help"]

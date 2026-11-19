@@ -1,0 +1,12 @@
+# 规则开关（灰度控制）
+#
+#   rule_a : 规则 A = 白名单放行（抑制层 allow_domain）
+#            只放行「发往企业白名单域名的外发 finding」，**不新增任何 finding**。
+#            true  → 运行时追加 --baseline /custom-rules/baseline.yaml
+#            false → 不追加 --baseline（白名单域名外发按误报保留在 kept）
+#
+#   rule_b : 规则 B = 明文凭证内嵌命令行/连接串检测（cvte_credential_inline.yar）
+#            新增 HIGH 级 finding，填补内置 PE3 未覆盖的「凭证出现在进程参数/命令行」空白。
+rules:
+  rule_a: true
+  rule_b: true

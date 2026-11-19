@@ -1,0 +1,31 @@
+# Thin overlay: add agent-loop-iteration metric to the existing runtime image
+# without re-running the slow `pip install ".[all]"` step.
+#
+# Build:
+#   docker build -t skillevaluator:local -f Dockerfile.overlay-metrics .
+#
+# The four changed files are copied over their installed copies in site-packages.
+FROM skillevaluator:local
+
+USER root
+
+COPY src/skillevaluator/tier3/harbor/report_data.py \
+     /usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/report_data.py
+COPY src/skillevaluator/tier3/harbor/resource_usage.py \
+     /usr/local/lib/python3.12/site-packages/skillevaluator/tier3/harbor/resource_usage.py
+COPY src/skillevaluator/evaluation/tier3_report.py \
+     /usr/local/lib/python3.12/site-packages/skillevaluator/evaluation/tier3_report.py
+COPY src/skillevaluator/reporting/templates/report.html.j2 \
+     /usr/local/lib/python3.12/site-packages/skillevaluator/reporting/templates/report.html.j2
+COPY src/skillevaluator/tier3/token_usage.py \
+     /usr/local/lib/python3.12/site-packages/skillevaluator/tier3/token_usage.py
+COPY src/skillevaluator/reporting/tier3_token_usage.py \
+     /usr/local/lib/python3.12/site-packages/skillevaluator/reporting/tier3_token_usage.py
+
+# Drop stale bytecode so Python recompiles the overwritten sources.
+RUN find /usr/local/lib/python3.12/site-packages/skillevaluator -name "__pycache__" -type d -prune -exec rm -rf {} + 2>/dev/null || true
+
+USER skillevaluator
+
+ENTRYPOINT ["skillevaluator"]
+CMD ["--help"]
